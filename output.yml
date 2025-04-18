@@ -1,0 +1,226 @@
+.env.production: 'OPENAI_API_KEY=sk-XXXXXXXXXXXXXXXXXXXX
+
+  CHAT_SERVICE_URL=http://chat:8001
+
+
+  DEBUG=false
+
+  LOG_LEVEL=INFO'
+.env.development: 'OPENAI_API_KEY=sk-XXXXXXXXXXXXXXXXXXXX
+
+  CHAT_SERVICE_URL=http://chat:8001
+
+
+  DEBUG=true
+
+  LOG_LEVEL=DEBUG'
+README.md: '# プロジェクト
+
+
+  FastAPI と OpenAI を組み合わせた軽量マイクロサービスアーキテクチャです。API ゲートウェイを経由して各サービスにルーティングし、セルフホストの
+  Git サーバ（Gitea）でバージョン管理を行います。
+
+
+  ---
+
+
+  ### 前提条件
+
+
+  - Docker および Docker Compose
+
+  - OpenAI API キー
+
+
+  ## 🧱 アーキテクチャ
+
+
+  - `chat-service`: FastAPI と OpenAI API を利用したチャット機能を提供します。
+
+  - `api-gateway`: 各サービスへのリクエストを適切にルーティングします。
+
+  - `gitea`: 自前でホストする Git サーバとして、安定した運用を実現します。（外部サービスは使用していません）
+
+
+  ## 📁 ディレクトリ構成
+
+
+  ```md
+
+  microstack/
+
+  ├── api-gateway/           # リクエストのルーティング処理
+
+  ├── chat-service/          # OpenAIとの連携チャットサービス
+
+  ├── .devcontainer/         # DevContainer 定義（VS Code 再現用）
+
+  ├── docker-compose.yml     # 各サービスの連携構成
+
+  ├── .env / .env.sample     # 環境変数（APIキーなど）
+
+  └── README.md              # このファイル
+
+  ```
+
+
+
+
+  ## 🚀 起動手順
+
+
+  ```bash
+
+  # 1. .env を .env.sample からコピーして編集
+
+  cp .env.sample .env
+
+
+  # 2. Docker Compose で起動
+
+  docker compose up --build -d
+
+  ```
+
+
+  ## 🐙 Giteaについて
+
+
+  セルフホスト型の Git 管理サーバ
+
+
+  - [Gitea 公式ドキュメント](https://docs.gitea.io/)
+
+
+  開発中は `http://localhost:3000` にアクセス。
+
+  SSH クローン用ポートは `222`。'
+.gitignore: '__pycache__/
+
+  *.pyc
+
+  .env
+
+  .vscode/
+
+  gitea-data/
+
+  .gitea/
+
+  '
+docker-compose.yml: "services:\n  gateway:\n    build:\n      context: ./api-gateway\n\
+  \    ports:\n      - \"8080:8000\"\n    env_file:\n      - .env.production\n   \
+  \ restart: always\n  chat:\n    build:\n      context: ./chat-service\n    ports:\n\
+  \      - \"8001:8001\"\n    env_file:\n      - .env.production\n    restart: always\n"
+.env.sample: '# Common
+
+  OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+  CHAT_SERVICE_URL=http://chat:8001
+
+
+  # Development
+
+  DEBUG=true
+
+  LOG_LEVEL=DEBUG
+
+
+  # Production
+
+  DEBUG=false
+
+  LOG_LEVEL=INFO
+
+  '
+.vscode:
+  launch.json: "{\n\t\"version\": \"0.2.0\",\n\t\"configurations\": [\n\t  {\n\t\t\
+    \"name\": \"Attach to Gateway\",\n\t\t\"type\": \"python\",\n\t\t\"request\":\
+    \ \"attach\",\n\t\t\"connect\": {\n\t\t  \"host\": \"localhost\",\n\t\t  \"port\"\
+    : 5678\n\t\t},\n\t\t\"pathMappings\": [\n\t\t  {\n\t\t\t\"localRoot\": \"${workspaceFolder}/api-gateway\"\
+    ,\n\t\t\t\"remoteRoot\": \"/src/api-gateway\"\n\t\t  }\n\t\t]\n\t  }\n\t]\n  }\n"
+chat-service:
+  Dockerfile: 'FROM python:3.11-slim
+
+
+    WORKDIR /workspace/chat-service
+
+
+    COPY requirements.txt .
+
+    RUN pip install --no-cache-dir -r requirements.txt
+
+
+    COPY . .
+
+
+    CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
+
+    '
+  main.py: "from fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\n\
+    from pydantic import BaseModel\nimport openai\nimport os\nfrom dotenv import load_dotenv\n\
+    \nload_dotenv()\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")\n\napp = FastAPI()\n\
+    app.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],  # 本番は制限すること\n\
+    \    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"\
+    *\"],\n)\nclass ChatRequest(BaseModel):\n    message: str\n\n@app.post(\"/chat\"\
+    )\nasync def chat(request: ChatRequest):\n    print(\"forward_chat called openai\"\
+    )\n\n    response = openai.ChatCompletion.create(\n        model=\"gpt-3.5-turbo\"\
+    ,\n        messages=[{\"role\": \"user\", \"content\": request.message}]\n   \
+    \ )\n    return {\"response\": response[\"choices\"][0][\"message\"][\"content\"\
+    ]}\n"
+  requirements.txt: 'fastapi
+
+    uvicorn
+
+    openai
+
+    python-dotenv'
+.devcontainer:
+  docker-compose.dev.yml: "\nservices:\n  gateway:\n    build:\n      context: ../api-gateway\n\
+    \    ports:\n      - \"8000:8000\"\n      - \"5678:5678\"\n    env_file:\n   \
+    \   - ../.env.development\n    volumes:\n      - ../:/workspace:cached\n  chat:\n\
+    \    build:\n      context: ../chat-service\n    ports:\n      - \"8001:8001\"\
+    \n    env_file:\n      - ../.env.development\n    volumes:\n      - ../:/workspace:cached\n"
+  devcontainer.json: "{\n  \"name\": \"1on1-dev\",\n  \"dockerComposeFile\": [\"docker-compose.dev.yml\"\
+    ],\n  \"service\": \"gateway\",\n  \"workspaceFolder\": \"/workspace\",\n  \"\
+    settings\": {\n    \"terminal.integrated.defaultProfile.linux\": \"bash\"\n  },\n\
+    \  \"extensions\": [\n    \"ms-azuretools.vscode-docker\",\n    \"ms-python.python\"\
+    \n  ]\n}\n"
+api-gateway:
+  Dockerfile: 'FROM python:3.11-slim
+
+
+    WORKDIR /workspace/api-gateway
+
+
+    COPY requirements.txt .
+
+    RUN pip install --no-cache-dir -r requirements.txt
+
+
+    COPY . .
+
+
+    CMD ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "-m", "uvicorn", "main:app",
+    "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+
+    # CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+    '
+  main.py: "from fastapi import FastAPI\nfrom pydantic import BaseModel\nimport httpx\n\
+    import os\n\nCHAT_SERVICE_URL = os.getenv(\"CHAT_SERVICE_URL\", \"http://chat:8001\"\
+    )\n\napp = FastAPI()\n\nclass ChatRequest(BaseModel):\n    message: str\n\n@app.post(\"\
+    /chat\")\nasync def forward_chat(request: ChatRequest):\n    async with httpx.AsyncClient()\
+    \ as client:\n\n        print(\"forward_chat called gatway\")\n        # res =\
+    \ await client.post(f\"{CHAT_SERVICE_URL}/chat\", json=request.dict())\n     \
+    \   # return res.json()\n        return {}\n\n"
+  requirements.txt: 'fastapi
+
+    uvicorn
+
+    python-dotenv
+
+    httpx
+
+    debugpy'
