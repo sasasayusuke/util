@@ -1,0 +1,119 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: FastAPI",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "python": "/usr/local/bin/python",
+      "args": [
+        "app.main:app",
+        "--host",
+        // "0.0.0.0",
+        "localhost",
+        "--port",
+        "9000",
+        "--reload"
+      ]
+    },
+    {
+      "name": "Python: Batch Summary Survey",
+      "type": "python",
+      "request": "launch",
+      "program": "functions/batch_summary_survey.py",
+      "console": "integratedTerminal",
+      "args": ["${input:summary_survey_choice}", "${input:stage}"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Batch Summary Man Hour",
+      "type": "python",
+      "request": "launch",
+      "program": "functions/batch_summary_man_hour.py",
+      "console": "integratedTerminal",
+      "args": ["${input:summary_man_hour_choice}", "${input:stage}"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Batch Automatic Link",
+      "type": "python",
+      "request": "launch",
+      "program": "functions/batch_automatic_link.py",
+      "console": "integratedTerminal",
+      "args": ["${input:stage}"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Batch Download Deliverables",
+      "type": "python",
+      "request": "launch",
+      "program": "functions/batch_download_deliverables.py",
+      "console": "integratedTerminal",
+      "args": [
+        "${input:stage}",
+        "${input:deliverableType}",
+        "${input:targetMonth}"
+      ],
+      "timeout": 900000,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "summary_survey_choice",
+      "description": "choice execute param",
+      "options": ["user", "supporter_organization", "all"],
+      "default": "user"
+    },
+    {
+      "type": "pickString",
+      "id": "summary_man_hour_choice",
+      "description": "choice execute param",
+      "options": ["project", "service_type", "supporter_organization"],
+      "default": "project"
+    },
+    {
+      "type": "pickString",
+      "id": "stage",
+      "description": "choice execute stage",
+      "options": ["dev", "sqa", "sup", "evs"],
+      "default": "dev"
+    },
+    {
+      "type": "pickString",
+      "id": "deliverableType",
+      "description": "choice execute deliverableType",
+      "options": ["project", "deliverable"],
+      "default": "project"
+    },
+    {
+      "type": "promptString",
+      "id": "targetMonth",
+      "description": "Please enter the target month",
+      "default": null
+    }
+  ]
+}

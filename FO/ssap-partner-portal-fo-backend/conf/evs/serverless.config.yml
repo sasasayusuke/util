@@ -1,0 +1,10 @@
+customDomain:
+  domainName: api.evs.partner-portal.inhouse-sony-startup-acceleration-program.com
+  certificateName: "evs.partner-portal.inhouse-sony-startup-acceleration-program.com"
+
+lambda:
+  memorySize: 2048
+  logRetentionInDays: 365
+
+events:
+  enabled: true

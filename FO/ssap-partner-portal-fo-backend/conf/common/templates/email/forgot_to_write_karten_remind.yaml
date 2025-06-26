@@ -1,0 +1,25 @@
+#
+# 名称: 個別カルテ書き忘れリマインド通知
+# 送信タイミング: 案件管理で「個別カルテの書き忘れリマインド」を「する」にした案件で案件スケジュールの支援日より一週間経過している場合
+# 送信先: TO：案件に設定された支援者（全員）
+#
+message:
+  subject:
+    data: 【Partner Portal】{{ project_name }}：個別カルテが作成もしくは送信されていません
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+
+        {{ project_name }}の{{ support_datetime }}の個別カルテ（支援議事録）が作成もしくは送信されていません。
+        URL：{{ fo_karte_list_url }}
+
+        -----------------------------------------
+        本メールはシステムより自動送信されています。返信いただいてもお答えできませんのでご了承ください。
+        -----------------------------------------
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

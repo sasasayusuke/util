@@ -1,0 +1,20 @@
+inspecode:
+  tools:
+    coverity:
+      thresholds:
+        num-issues:
+          error: 0
+      ignore:
+        - 'rocro.yml'
+      machine:
+        cpu: 2.5
+      options:
+        --commands:
+          - coverity capture --dir /home/rocro/cov-im --project-dir /home/rocro/src/github.com/staqct/ssap-partner-portal-fo-frontend
+          - cov-analyze --dir /home/rocro/cov-im --webapp-security --enable INSECURE_SALT --enable OPEN_REDIRECT
+    fossology:
+      ignore:
+        - 'rocro.yml'
+      machine:
+        cpu: 2.5
+      optioons: --summarize

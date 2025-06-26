@@ -1,0 +1,64 @@
+#
+# 名称: アンケート催促通知
+# 送信タイミング: 案件スケジュール上のアンケート回答期限の1営業日前または1営業日後時点で、お客様がアンケート未回答の場合。
+#    （営業日は月～金を営業日とし祝日を加味しない）
+# 送信先: TO：案件に設定されたお客様代表者
+#         Cc：営業担当者
+#         Bcc：アンケート事務局スタッフ
+#
+message:
+  subject:
+    data: 【{{ formatted_month }}月度の評価のお願い】【リマインド】{{ survey_answer_due_date_title }}{{ customer_name }}　{{ answer_user_name }}様
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+        ご返信いただいてもお答えできませんのでご了承下さい。
+        （プロジェクト毎の依頼となるため、お客様によっては複数ご依頼差し上げる場合がある事、ご容赦ください。）
+
+        平素より大変お世話になっております。
+        {%- if is_satisfaction_survey %}
+        先日お送りしました{{ customer_name }}／{{ project_name }}の{{ summary_month }}の{{ survey_type_name }}へのご回答につきまして、改めてご依頼申し上げます。
+        {%- if is_satisfaction_survey and survey_answer_due_date |length != 0 %}
+        ・回答期限：{{ survey_answer_due_date }}
+        {%- endif %}
+
+        ご多忙につき、全てのご回答が難しい場合は、下記1問のみでも結構です。下記URLよりクイックにご回答頂けますので、ご協力頂けますと幸いです。（想定ご回答時間は1分）
+        ※本メールに返信いただいても回答いただけませんのでご了承ください。
+        ＝＝＝
+        Sony Acceleration Platformのサービスにはご満足頂けましたか？（下記いずれかより選択ください）
+        　5.とても満足、4.満足、3.どちらとも言えない、2.不満、1.とても不満
+        ＝＝＝
+
+        ・満足度のみご回答用URL：
+        {{ fo_satisfaction_survey_url }}
+
+        ※満足度のみご回答頂く際は、Partner Portalへのログインは不要です。
+
+        -----------------------------------------
+        全ての評価項目にご回答いただける場合は、下記よりご回答をお願いいたします。（想定ご回答時間は3分）
+
+        ・URL：{{ fo_survey_detail_url }}
+
+        ※満足度のみご回答頂いた際は、既にご回答済みとなり、上記URLからのご回答は出来なくなります。あらかじめご了承下さい。
+        {%- endif %}
+        {%- if is_satisfaction_survey == False %}
+        先日お送りしました{{ customer_name }}／{{ project_name }}の{{ summary_month }}の{{ survey_type_name }}へのご回答につきまして、改めてご依頼申し上げます。
+
+        ・URL：{{ fo_survey_detail_url }}
+        {%- endif %}
+        {%- if is_satisfaction_survey == False and survey_answer_due_date |length != 0 %}
+        ・回答期限：{{ survey_answer_due_date }}
+        {%- endif %}
+
+        Sony Acceleration Platformではプログラム期間中、月に1度評価アンケートにご協力をお願いしております。
+        頂いたフィードバックはお客様のカスタマーサクセス達成のために活用し、Sony Acceleration Platform責任者を交えて組織的にサービス改善に取り組んでおります。
+        今後さらなるサービス向上を目的として参考にさせて頂きたく、ご多忙の折誠に恐縮ではございますが、ご協力の程宜しくお願い申し上げます。
+        担当営業への開示をご希望されない場合、 SGC-OIC-CSManager@sony.com 宛にご連絡下さい。
+
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

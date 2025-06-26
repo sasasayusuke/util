@@ -1,0 +1,10 @@
+customDomain:
+  domainName: bo-api.sup.partner-portal.sony-sap-dev.com
+  certificateName: "sup.partner-portal.sony-sap-dev.com"
+
+lambda:
+  memorySize: 2048
+  logRetentionInDays: 365
+
+events:
+  enabled: true

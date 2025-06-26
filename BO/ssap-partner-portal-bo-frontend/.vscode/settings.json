@@ -1,0 +1,55 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.renderWhitespace": "all",
+  "terminal.integrated.scrollback": 10000,
+  "eslint.options": {
+    "extensions": [".js", ".vue"]
+  },
+  "eslint.validate": ["javascript", "vue"],
+  "extensions.ignoreRecommendations": false,
+  "cSpell.words": [
+    "deletable",
+    "groupable",
+    "karte",
+    "karten",
+    "nuxt",
+    "partnerportal",
+    "SSAP",
+    "vuetify"
+  ],
+  "i18n-ally.localesPaths": ["src/lang"],
+  "todo-tree.general.tags": ["FIXME", "NOTE", "TODO", "CHECK"],
+  "todo-tree.regex.regex": "(\\{\\{--|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+  "todo-tree.highlights.defaultHighlight": {
+    "foreground": "#FFFFFF",
+    "background": "#9580FF",
+    "type": "whole-line",
+    "iconColor": "#8AFF80",
+    "opacity": 45
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check-circle-fill",
+      "foreground": "orange",
+      "iconColor": "orange"
+    },
+    "FIXME": {
+      "icon": "flame",
+      "foreground": "yellow",
+      "iconColor": "yellow"
+    },
+    "NOTE": {
+      "icon": "question",
+      "foreground": "#00bfff",
+      "iconColor": "#00bfff"
+    },
+    "CHECK": {
+      "icon": "pin",
+      "foreground": "pink",
+      "iconColor": "pink"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+#
+# 名称: 工数提出漏れ通知
+# 送信タイミング: 翌月第3営業日時点で工数提出漏れがある場合。
+#    （営業日は月～金を営業日とし祝日を加味しない）
+# 送信先: TO：提出漏れの支援者
+#         CC：上長の支援者責任者、工数調査事務局（全員）
+#         ※支援者単位に送信する
+#
+message:
+  subject:
+    data: 【Partner Portal】{{ year_month }}の工数が提出されていません
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+
+        {{ year_month }}の工数提出をお願いします。
+        URL：{{ fo_man_hour_input_url }}
+
+        -----------------------------------------
+        本メールはシステムより自動送信されています。返信いただいてもお答えできませんのでご了承ください。
+        -----------------------------------------
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

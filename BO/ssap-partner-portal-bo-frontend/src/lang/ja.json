@@ -1,0 +1,2847 @@
+{
+  "webAppName": "Sony Acceleration Platform Partner Portal BackOffice Frontend",
+  "common": {
+    "role": {
+      "customer": "顧客",
+      "supporter": "支援者",
+      "sales": "営業担当者",
+      "supporter_mgr": "支援者責任者",
+      "business_mgr": "事業者責任者",
+      "sales_mgr": "営業責任者",
+      "undefined": ""
+    },
+    "format": {
+      "date": "yyyy-MM-dd HH:mm",
+      "date_ymd_hm": "yyyy/MM/dd HH:mm",
+      "date_ymd": "Y/M/D",
+      "date_ymd2": "yyyy/MM/dd",
+      "date_ym": "Y年M月",
+      "date_ym2": "yyyy/MM",
+      "yearMonth": "{year}年{month}月",
+      "year": "{year}年",
+      "month": "{month}月"
+    },
+    "label": {
+      "required": "*必須",
+      "required2": "は必須項目です",
+      "required3": "（必須）",
+      "asc": "昇順",
+      "desc": "降順",
+      "counter": "{totalCount}件中 {minCount} - {maxCount}件",
+      "progress": "実施中",
+      "performed": "実施済み",
+      "performed2": "実施済",
+      "plan": "予定",
+      "completed": "済み",
+      "unanswered": "未回答",
+      "alertDirectSupportManHour": "対面支援工数超過",
+      "alertProspectDirectSupportManHour": "対面支援工数超過見込み",
+      "alertPreSupportManHour": "仕込み支援工数超過",
+      "alertProspectPreSupportManHour": "仕込み支援工数超過見込み",
+      "unsettled": "未確定",
+      "confirm": "確",
+      "total": "合計",
+      "draft": "下書き",
+      "in-operation": "運用中",
+      "archive": "アーカイブ",
+      "noData": "データがありません",
+      "loading": "読み込み中…"
+    },
+    "button": {
+      "ok": "OK",
+      "ng": "NG",
+      "yes": "はい",
+      "no": "いいえ",
+      "confirm": "確認",
+      "determine": "確定",
+      "back": "戻る",
+      "backToList": "一覧へ戻る",
+      "backToList2": "案件一覧へ",
+      "backToList3": "カルテ一覧へ",
+      "cancel": "キャンセル",
+      "invalid": "無効にする",
+      "valid": "有効にする",
+      "update": "編集",
+      "updating": "編集する",
+      "edit": "変更する",
+      "save": "保存する",
+      "save2": "保存",
+      "createNew": "新規作成",
+      "register": "登録する",
+      "register2": "登録",
+      "editAll": "一括変更",
+      "createAll": "一括追加",
+      "add": "追加",
+      "delete": "削除",
+      "delete2": "削除する",
+      "create": "作成",
+      "send": "送信",
+      "reference": "参照",
+      "close": "閉じる",
+      "prev": "前へ",
+      "next": "次へ",
+      "sort": "絞り込み",
+      "reset": "リセット",
+      "otp": "OTPを送信",
+      "home": "HOMEへ戻る",
+      "top": "トップへ戻る",
+      "lastMonth": "前月",
+      "thisMonth": "今月",
+      "nextMonth": "翌月",
+      "notification": "お知らせ",
+      "profile": "ユーザー情報",
+      "addQuestion": "設問を追加する",
+      "addGroup": "グループ追加",
+      "delGroup": "グループ削除",
+      "disableGroup": "グループを無効にする",
+      "enableGroup": "グループを有効にする",
+      "signin": "サインイン",
+      "signup": "アカウント新規登録",
+      "deleteProject": "この案件を削除する",
+      "deleteSchedule": "個別予定の削除",
+      "deleteScheduleAll": "一括予定を全て削除",
+      "resend": "再送信",
+      "csvExport": "CSV出力",
+      "alertConfig": "アラート設定",
+      "csv": "CSV出力",
+      "updateOrReffer": "編集（or参照）",
+      "updateOperation": "運用中に変更",
+      "copyAndCreateNew": "コピーして新規バージョン作成",
+      "show": "内容を表示する",
+      "showAll": "すべてを表示する",
+      "hidden": "内容を閉じる",
+      "csvImport": "CSVインポート",
+      "csvOutput": "CSV出力",
+      "csvOutputSection": "課毎の結果をCSVに出力",
+      "csvOutputSupporter": "支援者毎の結果をCSVに出力",
+      "openMenu": "メニューを開く",
+      "showContinuation": "続きを表示する",
+      "changePassword": "パスワード変更",
+      "ResendAnonymousSurvey": "アンケート再送信",
+      "enterModeMultipleSelection": "送信日・締め切り日の一括更新",
+      "showModalBulkEdit": "選択した案件の送信日・締め切り日の変更",
+      "showModalBulkDelete": "選択した案件の送信日・締め切り日の削除",
+      "exitModeMultipleSelection": "選択を終了"
+    },
+    "rule": {
+      "required": "必須入力です。",
+      "maxLength": "最大{length}文字で入力してください。",
+      "minLength": "{length}文字以上の入力が必須です。",
+      "numberDigits": "最大{length}桁で入力してください。",
+      "positiveNumberDigits": "整数部分は最大{length}桁で入力してください。",
+      "decimalNumberDigits": "小数点以下は最大{length}桁で入力してください。",
+      "email": "メールアドレスの書式が正しくありません。",
+      "positiveNumber": "正の整数で入力してください。",
+      "notExist": "存在しない{data}です。",
+      "duplicate": "既に存在しています。",
+      "number": "数値を入力してください。",
+      "rangeNumberFrom": "{from}以上の数値を入力してください。",
+      "rangeNumberTo": "{to}以下の数値を入力してください。",
+      "rangeNumberFromTo": "{from}以上{to}以下の数値を入力してください。",
+      "invalidTimeFormat": "時間はHH:MM形式で入力してください。"
+    },
+    "sort": "絞り込み",
+    "invalid": {
+      "button": "このユーザーを無効にする",
+      "text": "無効にしてよろしいですか？"
+    },
+    "valid": {
+      "button": "このユーザーを有効にする",
+      "text": "有効にしてよろしいですか？"
+    },
+    "placeholder": {
+      "input": "入力してください",
+      "textarea": "入力してください",
+      "select": "選択してください",
+      "file_input": "ファイルを選択してください",
+      "autoComplete": "テキストを入力（補完あり）",
+      "selectMulti": "選択してください（複数可）",
+      "selectMulti2": "選択してください（複数選択可）",
+      "selectMulti3": "選択してください（補完あり・複数選択可）",
+      "date_select": "日付選択",
+      "month_select": "月選択",
+      "time_select": "時間選択"
+    },
+    "detail": {
+      "new": "新規",
+      "update": "更新",
+      "yes": "はい",
+      "no": "いいえ",
+      "do": "する",
+      "not": "しない",
+      "paid": "有償",
+      "free": "無償",
+      "public": "公開",
+      "private": "非公開（社内）",
+      "existence": "あり",
+      "nonexistence": "なし",
+      "required": "必須",
+      "elective": "任意"
+    },
+    "lastUpdate": {
+      "term": "支援期間：",
+      "user": "最終更新者：",
+      "date": "最終更新日時：",
+      "total": "最終集計日時："
+    },
+    "totalTime": {
+      "text": "契約時間合計"
+    },
+    "delete": {
+      "text": "{text}の予定を削除します。",
+      "text2": "選択したアンケートの送信日・締め切り日を削除します。"
+    },
+    "resend": {
+      "text": "{text} {name}を再送信します。"
+    },
+    "table": {
+      "display": "{start} 〜 {end}件を表示 / 全{total}件",
+      "total": "全{total}件",
+      "pageText": "{pageStart} 〜 {pageStop}件を表示 / 全{itemsLength}件",
+      "displayShort": "全{total}件",
+      "contractTime": "契約時間合計：{contractTime}時間",
+      "scrollable": "スクロールできます"
+    },
+    "alert": {
+      "noData": "表示する情報がありません"
+    }
+  },
+  "header": {
+    "global": {
+      "menu": {
+        "home": "HOME",
+        "karte": "カルテ管理",
+        "man-hours": "支援工数管理",
+        "survey": "アンケート管理",
+        "customer": "お客様管理",
+        "matter": "案件管理",
+        "other": "その他"
+      }
+    },
+    "page": {
+      "menu": {
+        "carte": "支援業務個別カルテ",
+        "enquete": "アンケート",
+        "karte": "支援業務個別カルテ",
+        "survey": "アンケート",
+        "matter": "案件管理"
+      }
+    },
+    "profile": {
+      "menu": {
+        "mailChange": "メールアドレスの変更",
+        "passwordChange": "パスワードの変更",
+        "signOut": "サインアウト",
+        "resign": "退会"
+      }
+    }
+  },
+  "footer": {},
+  "msg": {
+    "success": {},
+    "error": {
+      "conflict": "更新が競合した為、処理に失敗しました。再度、変更を入力してください。",
+      "default": "エラーが発生しました",
+      "csvExportDisabled": "対象が存在しない為、CSV出力機能はご利用できません"
+    }
+  },
+  "top": {
+    "pages": {
+      "index": {
+        "lead1": "PartnerPortalは、",
+        "lead2": "Sony Acceleration Platformが提供する、お客様とアクセラレーターを繋ぐサポートツールです。"
+      },
+      "home": {
+        "title": "管理メニュー"
+      },
+      "otp": {
+        "title": "ワンタイムパスワードの入力",
+        "textFieldLabel": "OTP",
+        "descriptions": {
+          "sendOtp": "「OTPを送信」ボタンをクリックすると、アカウント登録されたメールアドレス宛に\nワンタイムパスワードが送信されます。",
+          "inputOtp": "受信したワンタイムパスワードを入力して「次へ」ボタンをクリックしてください。"
+        },
+        "errorMessages": {
+          "tooShort": "文字数が不足しています。",
+          "wrongPassword": "ワンタイムパスワードが間違っています。ご確認の上再度入力してください。複数回試しても改善しない場合は、[OTPを送信]ボタンをクリックしてパスワードを再発行してください。",
+          "invalidAccount": "アカウントが無効化されています。詳細はシステム管理者にお問い合わせください。",
+          "userNotFound": "PartnerPortalにアカウントが登録されていません。詳細はシステム管理者にお問い合わせください。"
+        }
+      },
+      "notice": {
+        "maintenance": {
+          "title": "ただいまシステムメンテナンス中です",
+          "description": "ご利用の皆様には、ご迷惑をおかけし申し訳ございません。​\nメンテナンス終了まで今しばらくお待ちください。",
+          "maintenance_period": "【メンテナンス期間】\n2021/04/19(月)  8:00 〜 9:00",
+          "caution": "※実施時間は前後する可能性があります。"
+        },
+        "404": {
+          "title": "お探しのページは見つかりませんでした",
+          "description": "一時的にアクセスができないか、移動もしくは削除された可能性があります。\nもう一度URLをお確かめの上でアクセスをしてください。"
+        },
+        "403": {
+          "title": "アクセスしたページは表示できません",
+          "description": "このページを参照する権限がない可能性があります。"
+        },
+        "500": {
+          "title": "システムエラーが発生しました",
+          "description": "管理者にお問い合わせいただくか、再度操作をやり直してください。"
+        }
+      },
+      "terms": {
+        "title": "利用規約",
+        "lead": "この利用規約（以下、「本規約」といいます。）は、ダミーデータメーカー（以下、「本サービス」といいます。）の利用条件を定めるものです。利用ユーザーの皆さま（以下、「ユーザー」といいます。）には、本規約に従って、本サービスをご利用いただきます。",
+        "article": [
+          {
+            "title": "第1条（定義）",
+            "text": "本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。\n本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する私たちとユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されません。\n前項ただし書に定める場合であっても、私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（私たちまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます。）について一切の責任を負いません。また私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は、ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。\n本サービスに関して、ユーザーと他のユーザーまたは第三者との間において生じた取引、連絡または紛争等について一切責任を負いません。"
+          },
+          {
+            "title": "第2条（定義）",
+            "text": "本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。\n本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する私たちとユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されません。\n前項ただし書に定める場合であっても、私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（私たちまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます。）について一切の責任を負いません。また私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は、ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。\n本サービスに関して、ユーザーと他のユーザーまたは第三者との間において生じた取引、連絡または紛争等について一切責任を負いません。"
+          },
+          {
+            "title": "第3条（定義）",
+            "text": "本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。\n本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する私たちとユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されません。\n前項ただし書に定める場合であっても、私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（私たちまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます。）について一切の責任を負いません。また私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は、ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。\n本サービスに関して、ユーザーと他のユーザーまたは第三者との間において生じた取引、連絡または紛争等について一切責任を負いません。"
+          },
+          {
+            "title": "第4条（定義）",
+            "text": "本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。\n本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する私たちとユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されません。\n前項ただし書に定める場合であっても、私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（私たちまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます。）について一切の責任を負いません。また私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は、ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。\n本サービスに関して、ユーザーと他のユーザーまたは第三者との間において生じた取引、連絡または紛争等について一切責任を負いません。"
+          },
+          {
+            "title": "第5条（定義）",
+            "text": "本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。\n本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する私たちとユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されません。\n前項ただし書に定める場合であっても、私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（私たちまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます。）について一切の責任を負いません。また私たちの過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は、ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。\n本サービスに関して、ユーザーと他のユーザーまたは第三者との間において生じた取引、連絡または紛争等について一切責任を負いません。"
+          }
+        ]
+      }
+    }
+  },
+  "karte": {
+    "group_info": {
+      "name": "カルテ管理",
+      "description": "カルテ管理",
+      "icon": "icon-clipboard-edit-outline",
+      "index": "/karte/list"
+    },
+    "pages": {
+      "index": {
+        "name": "カルテ一覧",
+        "sort_input": {
+          "name": "お客様名",
+          "support": "支援期間",
+          "placeholder": "入力して検索できます"
+        },
+        "header": {
+          "serviceTypeName": "サービス名",
+          "name": "案件名",
+          "customerName": "お客様名",
+          "supportDateFrom": "支援期間",
+          "updateAt": "最終更新日時"
+        }
+      },
+      "list": {
+        "name": "個別カルテ・スケジュール一覧",
+        "subName": "個別カルテ・スケジュール",
+        "infomation": {
+          "supportDateFromTo": "支援期間：",
+          "customerUsers": "お客様メンバー：",
+          "serviceManager": "サービス責任者：",
+          "producer": "プロデューサー：",
+          "accelerator": "アクセラレーター：",
+          "customerSuccess": "カスタマーサクセス"
+        },
+        "schedule": {
+          "lastUpdate": "最終更新：",
+          "date": "yyyy/MM/dd（E）"
+        }
+      },
+      "detail": {
+        "selects": "お客様：",
+        "date": "yyyy/MM/dd（E）",
+        "name": "個別カルテ詳細",
+        "project": "案件詳細",
+        "customerSuccess": "カスタマーサクセス",
+        "customers": "お客様（敬称略）：",
+        "supportTeam": "SAP支援チーム（敬称略）：",
+        "detail": "支援実施内容：",
+        "feedback": "コメント・フィードバック：",
+        "homework": "ネクストアクション：",
+        "admin": "管理者用入力項目",
+        "adminSub": "※お客様には公開されない情報です",
+        "manHour": "支援実績時間：",
+        "total": "合計",
+        "memo": "マネジメントへのリクエスト：",
+        "task": "現状の課題・所感・申し送り：",
+        "humanResourceNeededForCustomer": "お客様に不足している人的リソース：",
+        "companyAndIndustryRecommendedToCustomer": "お客様に紹介したい企業や産業：",
+        "humanResourceNeededForSupport": "SAP支援チームに補充したい人的リソース：",
+        "producer": "出席プロデューサー",
+        "accelerator": "出席アクセラレーター",
+        "customerUsers": "出席お客様メンバー",
+        "documents": "資料添付",
+        "deliverables": "成果物添付",
+        "surveys": "関連アンケート",
+        "location": {
+          "name": "場所：",
+          "radio": {
+            "labels": [
+              "オンライン",
+              "品川本社",
+              "顧客オフィス",
+              "その他"
+            ],
+            "values": [
+              "online",
+              "head_office",
+              "client_office",
+              "other"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "man-hour": {
+    "group_info": {
+      "name": "支援工数管理",
+      "description": "支援工数管理 text",
+      "icon": "icon-chart-timeline",
+      "index": "/man-hour"
+    },
+    "pages": {
+      "index": {
+        "name": "案件一覧",
+        "monthSelect": "集計月指定",
+        "serviceTypeName": "サービス名",
+        "faceToFaceSupport": "対面支援工数",
+        "plusSupportPreparation": "対面支援工数＋支援仕込工数",
+        "sort": {
+          "supporterOrganization": "課",
+          "serviceType": "サービス名"
+        },
+        "header": {
+          "serviceTypeName": "サービス名",
+          "projectName": "案件名",
+          "customerName": "お客様名",
+          "supporterOrganizationName": "課",
+          "supportDateFrom": "支援期間",
+          "totalContractTime1": "契約時間",
+          "totalContractTime2": "(延べ)",
+          "thisMonthContractTime1": "契約時間",
+          "thisMonthContractTime2": "(集計月)",
+          "totalProfit1": "粗利額",
+          "totalProfit2": "(延べ)",
+          "thisMonthProfit1": "粗利額",
+          "thisMonthProfit2": "(集計月)",
+          "summaryDirectSupportManHour1": "直接支援",
+          "summaryDirectSupportManHour2": "工数累積値",
+          "summaryPreSupportManHour1": "仕込工数",
+          "summaryPreSupportManHour2": "累積値"
+        },
+        "link": {
+          "karte": "個別カルテ",
+          "project": "案件詳細",
+          "survey": "アンケート"
+        },
+        "formatName": "支援工数管理一覧"
+      },
+      "report": {
+        "index": {
+          "name": "月次工数集計表",
+          "header": {
+            "division1": "分類1",
+            "division2": "分類2",
+            "category": "カテゴリ",
+            "role": "役割",
+            "total": "合計"
+          },
+          "formatName": "月次工数集計表"
+        },
+        "project": {
+          "name": "月次案件情報",
+          "header": {
+            "serviceTypeName": "分類",
+            "name": "お客様名／案件名",
+            "contractType": "有償／無償",
+            "mainSalesUserName": "営業担当",
+            "producer": "プロデューサー",
+            "accelerator": "アクセラレータ―",
+            "total": "合計人数",
+            "thisMonthContractTime": "契約時間／月",
+            "thisMonthProfit": "平均粗利額",
+            "supportDateFrom": "契約開始日",
+            "supportDateTo": "契約終了日",
+            "totalProfit": "延べ契約粗利額",
+            "totalContractTime": "延べ契約時間"
+          },
+          "formatName": "月次案件情報",
+          "isConfirm": "【確】"
+        },
+        "name": "月次工数集計",
+        "title": "月次工数集計表"
+      },
+      "supporter": {
+        "index": {
+          "name": "担当別月次工数集計",
+          "formatName": "担当別月次工数集計"
+        },
+        "contractTypes": {
+          "onerous": "有償",
+          "gratuitous": "無償"
+        },
+        "header": {
+          "supporterOrganizationName": "課",
+          "supporterName": "支援者名",
+          "isConfirm": "確定状況",
+          "summaryManHourDirect": "1.対面支援",
+          "summaryManHourPre": "2.支援仕込",
+          "summaryManHourSales": "3.商談/提案準備",
+          "summaryManHourSsap": "4.内部準備",
+          "summaryManHourOthers": "5.休憩・その他",
+          "summaryManHourTotal": "稼働合計",
+          "contractTimeMain": "契約時間（プロデューサー）",
+          "contractTimeOther": "契約時間（アクセラレーター）",
+          "contractTimeTotal": "契約時間（合計）"
+        },
+        "name": "担当別月次工数集計",
+        "fiscalYearMonth": "{year}年 {month}月度実績",
+        "yearMonth": "{year}年 {month}月実績",
+        "chart1": {
+          "title": "　サービス別工数稼働率",
+          "supporterCount": "{count}名",
+          "labels": {
+            "label1": "1.対面支援：お客様に対する支援（直接）",
+            "label2": "2.支援仕込：お客様に対する支援（仕込）",
+            "label3": "3.商談/提案準備：新規・継続案件獲得にむけた資料作成・調査",
+            "label4": "4.内部業務：お客様を特定せずにSony Acceleration Platformの業務で発生した工数"
+          }
+        },
+        "chart2": {
+          "title": "　案件別契約時間と支援工数内訳（対面支援）​",
+          "time": "時間",
+          "contractTime": "契約時間",
+          "labels": {
+            "label1": "対面支援（プロデューサー）",
+            "label2": "対面支援（アクセラレーター）",
+            "label3": "契約時間*",
+            "label4": "契約時間"
+          },
+          "buttons": {
+            "development": "組織開発",
+            "idea": "アイデア可視化",
+            "business": "事業育成＆検証"
+          },
+          "serviceTypeNames": {
+            "development": "組織開発",
+            "idea": "アイデア可視化",
+            "business": "Education Team"
+          }
+        },
+        "chart3": {
+          "title": "　案件別契約時間と支援工数内訳（対面支援＋支援仕込）",
+          "time": "時間",
+          "contractTime": "契約時間",
+          "manHourFactor": "全工数の{manHourFactor}%に相当(サービス別の指標)",
+          "labels": {
+            "label1": "対面支援（プロデューサー）",
+            "label2": "対面支援（アクセラレーター）",
+            "label3": "支援仕込",
+            "label4-1": "全工数の",
+            "label4-2": "%に相当(サービス別の指標)",
+            "label5": "契約時間*",
+            "label6": "契約時間"
+          },
+          "buttons": {
+            "development": "組織開発",
+            "idea": "アイデア可視化",
+            "business": "事業育成＆検証"
+          },
+          "serviceTypeNames": {
+            "development": "組織開発",
+            "idea": "アイデア可視化",
+            "business": "Education Team"
+          }
+        },
+        "chart4": {
+          "title": "Sony Acceleration Platform粗利シミュレーションとキーとなる指標"
+        },
+        "table": {
+          "category": [
+            "IST",
+            "AST",
+            "SMT",
+            "PMT",
+            "QCT",
+            "TUP",
+            "合計"
+          ],
+          "labels": [
+            {
+              "text": "年商（億円）",
+              "key": "annualSales"
+            },
+            {
+              "text": "月商（百万円）",
+              "key": "monthlySales"
+            },
+            {
+              "text": "有償案件の月時間単価（万円/1時間）",
+              "key": "monthlyProjectPrice"
+            },
+            {
+              "text": "有償案件の月契約時間（時間）",
+              "key": "monthlyContractTime"
+            },
+            {
+              "text": "有償案件の月稼働時間直接寄与（時間）",
+              "key": "monthlyWorkTime"
+            },
+            {
+              "text": "月契約時間当たりの直接寄与工数の比率",
+              "key": "monthlyWorkTimeRate"
+            },
+            {
+              "text": "月人員数（人）",
+              "key": "monthlySupporters"
+            },
+            {
+              "text": "月総工数（時間）",
+              "key": "monthlyManHour"
+            },
+            {
+              "text": "月稼働率直接寄与（有償案件分のみ）",
+              "key": "monthlyOccupancyRate"
+            },
+            {
+              "text": "月稼働時間仕込含（時間）（無償案件の対応を含む）",
+              "key": "monthlyOccupancyTotalTime"
+            },
+            {
+              "text": "月稼働率仕込含",
+              "key": "monthlyOccupancyTotalRate"
+            }
+          ]
+        },
+        "detail": {
+          "name": "担当別工数詳細",
+          "total": "支援工数合計"
+        },
+        "userId": {
+          "manHourSum": {
+            "new": "新規計:",
+            "continuation": "継続計:",
+            "sum": "合計:"
+          }
+        }
+      },
+      "alert": {
+        "name": "案件別工数確認・アラート設定",
+        "list": {
+          "name": "案件別工数確認・アラート設定",
+          "updateAt": "最終集計日時",
+          "sort_input": {
+            "date": "集計月指定",
+            "supporterOrganizationName": "課",
+            "serviceTypeId": "サービス名"
+          },
+          "header": {
+            "summarySupportManHour": "当月までの合計 (実績)",
+            "summaryTheoreticalSupportManHour": "当月までの合計(理論値)",
+            "thisMonthSupportManHour": "当月の合計 (実績)",
+            "thisMonthTheoreticalSupportManHour": "1ヶ月当たり時間(理論値)",
+            "alertSupportManHour": "アラート",
+            "projectName": "案件名",
+            "customerName": "お客様名",
+            "serviceTypeName": "サービス名",
+            "supportDateFromTo": "支援期間",
+            "totalContractTime": "契約時間",
+            "mainSupporterUserName": "プロデューサー",
+            "supporterUsersName": "アクセラレーター",
+            "summaryDirectSupportManHour": "対面支援時間",
+            "summaryPreSupportManHour": "支援仕込時間",
+            "thisMonthDirectSupportManHour": "対面支援時間",
+            "thisMonthPreSupportManHour": "支援仕込時間",
+            "summaryTheoreticalDirectSupportManHour": "対面支援時間",
+            "summaryTheoreticalPreSupportManHour": "支援仕込時間",
+            "thisMonthTheoreticalDirectSupportManHour": "対面支援時間",
+            "thisMonthTheoreticalPreSupportManHour": "支援仕込時間",
+            "alertDirectSupportManHour": "対面支援時間",
+            "alertPreSupportManHour": "支援仕込時間"
+          },
+          "formatName": "案件別工数確認・アラート設定一覧"
+        },
+        "config": {
+          "name": "支援工数アラート設定",
+          "coefficientSetting": "係数設定",
+          "item": {
+            "contractTime": "契約時間の",
+            "totalManHour": "総工数の"
+          }
+        }
+      },
+      "project": {
+        "name": "月次案件情報"
+      },
+      "alertDetail": {
+        "name": "案件別工数詳細",
+        "lastUpdate": "最終集計日時：{date}",
+        "total": "合計"
+      },
+      "list": {
+        "name": "月別支援工数"
+      },
+      "admin": {
+        "name": "担当別月次工数集計"
+      }
+    },
+    "unit": {
+      "year": "年",
+      "month": "月"
+    },
+    "manHourTotal": {
+      "name": "担当別月次工数集計"
+    },
+    "modal": {
+      "title": "数値編集"
+    },
+    "tables": {
+      "headers": {
+        "directSupportManHours": {
+          "projectName": "お客様名／案件名",
+          "role": "役割",
+          "inputManHour": "実績工数"
+        },
+        "preSupportManHours": {
+          "projectName": "お客様名／案件名",
+          "role": "役割",
+          "inputManHour": "実績工数"
+        },
+        "salesSupportManHours": {
+          "projectName": "案件名",
+          "customerName": "お客様名",
+          "type": "分類",
+          "inputManHour": "実績工数"
+        },
+        "ssapManHours": {
+          "key": "分類名",
+          "value": "実績工数"
+        },
+        "holidaysManHours": {
+          "key": "分類名",
+          "value": "実績工数"
+        },
+        "alertProjectDetail": {
+          "serviceTypeName": "分類",
+          "mainSupporterUser": "担当者名",
+          "summaryDirectSupportManHour": "対面支援工数（当月までの合計）",
+          "summaryPreSupportManHour": "支援仕込工数（当月までの合計）",
+          "thisMonthDirectSupportManHour": "対面支援工数（当月）",
+          "thisMonthPreSupportManHour": "支援仕込工数（当月）"
+        }
+      },
+      "directSupportManHours": {
+        "title": "1．対面支援：お客様に対する支援（直接）",
+        "tooltip": "（例：メンタリング・トレーニング・お客様との打ち合わせ・キックオフ・レビュー会・お客様とのオンライン会議)※支援期間前（後）の支援時間は、3.商談/提案準備に集計して下さい"
+      },
+      "preSupportManHours": {
+        "title": "2．支援仕込：お客様に対する支援（仕込）",
+        "tooltip": "（例：成果物や資料の作成・メール応対・お客様が同席しない打ち合わせ時間、打ち合わせ場所への移動時間) ※支援期間前（後）の支援時間は、3.商談/提案準備に集計して下さい"
+      },
+      "salesSupportManHours": {
+        "title": "3．商談/提案準備：新規・継続案件獲得に向けた資料作成・調査",
+        "tooltip": "（例：提案資料作成・調査・契約前の準備・契約終了後のフォローアップ）※契約開始前の準備時間及び契約終了後のフォローアップの時間もこちらに含めてください※新規・・・現在契約がない特定のお客様に対して、活動を行う場合　 継続・・・現在契約がある特定のお客様に対して、活動を行う場合※活動の例　　提案書の作成、営業メンバーの打ち合わせに同席、　　契約開始前のMTG、契約終了後のフォローアップ"
+      },
+      "ssapManHours": {
+        "title": "4．内部業務：お客様を特定せずSony Acceleration Platformの業務で発生した工数",
+        "tooltip": "（StartupSwitch、アイデアコンテスト、SOID等のイベント対応含む）該当項目例・分類１～3以外で業務として発生した工数会議参加、ナレッジ蓄積、業務改善、勤怠処理、マネジメント業務",
+        "menu": {
+          "meeting": "課内の情報共有を行う会議体への参加及び準備",
+          "study": "課内の勉強会への参加及び準備",
+          "learning": "上記に含まれないセミナー・e-Learning・トレーニング・自己研鑽・インプットのための勉強会・講習会・研修への参加及びその準備、時事情報収集",
+          "newService": "新サービス提案に関わる活動（調査・資料作成・関係者とのMTG）",
+          "startdash": "StartDash改善に向けた対応工数全般",
+          "improvement": "上記に含まれない部門内改善業務及び会議体への参加（加速支援レビュー、IECサロン、Be Heard等）",
+          "ssap": "Sony Acceleration Platformが対外的に提供するイベント・サービス運営業務全般（オーディション、SOID、SOIV、FirstFlight運営業務等）",
+          "qc": "品質・QA・CS・コンプライアンス・委員会・セキュリティ関連対応",
+          "accounting": "勤怠処理・精算処理・健康診断",
+          "management": "組織のマネジメント業務（課長・担当者共通）",
+          "officeWork": "上記に含まれない会議・事務工数全般",
+          "others": "上記に含まれないその他の工数の合計"
+        }
+      },
+      "holidaysManHours": {
+        "title": "5．休憩・その他：有給休暇・休憩・雑務・その他Sony Acceleration Platformの業務以外で使用した工数",
+        "tooltip": "該当項目例（有給休暇/私用外出/分類1～4に含まれない雑務処理/Sony Acceleration Platform以外の部署の業務)",
+        "menu": {
+          "paidHoliday": "有給休暇",
+          "holiday": "その他休暇",
+          "private": "休憩・私用外出・家事対応・半休",
+          "others": "上記に含まれない雑務",
+          "departmentOthers": "Sony Acceleration Platform以外の部署の業務"
+        }
+      }
+    },
+    "types": {
+      "new": "新規",
+      "continuation": "継続"
+    }
+  },
+  "admin": {
+    "group_info": {
+      "name": "管理ユーザー管理",
+      "description": "管理ユーザー管理 text",
+      "icon": "icon-card-account-details",
+      "index": "/admin/list"
+    },
+    "pages": {
+      "index": {
+        "name": "管理ユーザー一覧",
+        "sort_input": {
+          "name": "ユーザーネーム（氏名）",
+          "mail": "メールアドレス"
+        }
+      },
+      "create": {
+        "name": "管理ユーザー新規登録",
+        "errors": {
+          "registered_email_error": "このメールアドレスは既に登録されています"
+        }
+      },
+      "detail": {
+        "name": "管理ユーザー情報詳細"
+      },
+      "edit": {
+        "name": "管理ユーザー情報変更"
+      }
+    },
+    "row": {
+      "name": {
+        "name": "ユーザーネーム（氏名）",
+        "placeholder": "本名を入力",
+        "invalid": "（無効）"
+      },
+      "email": {
+        "name": "メールアドレス",
+        "placeholder": "mail123456789@abcdef.jp"
+      },
+      "company": {
+        "name": "所属会社",
+        "placeholder": "組織名"
+      },
+      "organizationName": {
+        "name": "部署",
+        "placeholder": "所属部署"
+      },
+      "supporterOrganizations": {
+        "name": "支援者組織",
+        "placeholder": "選択してください（複数選択可）",
+        "select": [
+          "部署1",
+          "部署2",
+          "部署3",
+          "部署4"
+        ]
+      },
+      "job": {
+        "name": "役職",
+        "placeholder": "会社の役職"
+      },
+      "roles": {
+        "name": "システムロール",
+        "tooltips": "テキストテキストテキストテキストテキストテキスト",
+        "list": [
+          {
+            "name": "営業担当者",
+            "value": "sales"
+          },
+          {
+            "name": "支援者責任者",
+            "value": "supporter_mgr"
+          },
+          {
+            "name": "営業責任者",
+            "value": "sales_mgr"
+          },
+          {
+            "name": "アンケート事務局",
+            "value": "survey_ops"
+          },
+          {
+            "name": "稼働率調査事務局",
+            "value": "man_hour_ops"
+          },
+          {
+            "name": "システム管理者",
+            "value": "system_admin"
+          },
+          {
+            "name": "事業者責任者",
+            "value": "business_mgr"
+          }
+        ]
+      },
+      "lastLoginAt": {
+        "name": "最終ログイン日時",
+        "placeholder": "最終ログイン日時"
+      }
+    },
+    "invalid": {
+      "button": "このユーザーを無効にする",
+      "text": "無効にしてよろしいですか？"
+    },
+    "errors": {
+      "create": "ユーザーの登録に失敗しました"
+    }
+  },
+  "user": {
+    "group_info": {
+      "name": "一般ユーザー管理",
+      "description": "一般ユーザー管理 text",
+      "icon": "icon-card-account-details-outline",
+      "index": "/user/list"
+    },
+    "pages": {
+      "index": {
+        "name": "一般ユーザー一覧",
+        "sort_input": {
+          "name": "ユーザーネーム（氏名）",
+          "mail": "メールアドレス"
+        }
+      },
+      "create": {
+        "name": "一般ユーザー新規登録",
+        "errors": {
+          "registered_email_error": "このメールアドレスは既に登録されています"
+        }
+      },
+      "detail": {
+        "name": "一般ユーザー情報"
+      },
+      "edit": {
+        "name": "一般ユーザー情報変更"
+      }
+    },
+    "row": {
+      "role": {
+        "name": "システムロール",
+        "tooltips": "テキストテキストテキストテキストテキストテキスト",
+        "radio": {
+          "labels": [
+            "お客様メンバー",
+            "支援者",
+            "支援者責任者",
+            "営業担当者",
+            "営業責任者",
+            "事業者責任者",
+            "アライアンス担当",
+            "法人ソルバー"
+          ],
+          "values": [
+            "customer",
+            "supporter",
+            "supporter_mgr",
+            "sales",
+            "sales_mgr",
+            "business_mgr",
+            "apt",
+            "solver_staff"
+          ]
+        }
+      },
+      "name": {
+        "name": "ユーザーネーム（氏名）",
+        "placeholder": "本名を入力",
+        "invalid": "（無効）"
+      },
+      "email": {
+        "name": "メールアドレス",
+        "placeholder": "mail123456789@abcdef.jp"
+      },
+      "company": {
+        "name": "所属会社",
+        "placeholder": "所属会社名"
+      },
+      "organizationName": {
+        "name": "部署",
+        "placeholder": "所属部署"
+      },
+      "job": {
+        "name": "役職",
+        "placeholder": "会社の役職"
+      },
+      "supporterOrganizations": {
+        "name": "支援者組織",
+        "placeholder": "選択してください（複数選択可）",
+        "select": [
+          "部署1",
+          "部署2",
+          "部署3",
+          "部署4"
+        ]
+      },
+      "isInputManHour": {
+        "name": "工数調査",
+        "radio": {
+          "labels": [
+            "要",
+            "不要"
+          ],
+          "values": [
+            true,
+            false
+          ]
+        }
+      },
+      "lastLoginAt": {
+        "name": "最終ログイン日時"
+      }
+    },
+    "invalid": {
+      "button": "このユーザーを無効にする",
+      "text": "無効にしてよろしいですか？"
+    },
+    "errors": {
+      "create": "ユーザーの登録に失敗しました"
+    }
+  },
+  "master": {
+    "group_info": {
+      "name": "マスターメンテナンス",
+      "description": "管理ユーザー管理 text",
+      "icon": "icon-maintenance",
+      "index": "/master/list"
+    },
+    "pages": {
+      "index": {
+        "name": "マスターメンテナンス一覧",
+        "sort_input": {
+          "type": "種別",
+          "mail": "メールアドレス"
+        },
+        "header": {
+          "id": "ID",
+          "dataType": "種別",
+          "name": "名称",
+          "value": "値",
+          "use": "利用フラグ",
+          "createAt": "登録日時",
+          "updateAt": "更新日時"
+        }
+      },
+      "create": {
+        "name": "マスターメンテナンス新規登録",
+        "errors": {
+          "registered_data_error": "登録済みのデータです。"
+        }
+      },
+      "detail": {
+        "name": "マスターメンテナンス情報詳細"
+      },
+      "edit": {
+        "name": "マスターメンテナンス情報変更"
+      }
+    },
+    "row": {
+      "id": {
+        "name": "ID"
+      },
+      "dataType": {
+        "name": "種別",
+        "tooltips": "テキストテキストテキストテキストテキストテキスト",
+        "items": {
+          "all": "すべて",
+          "master_supporter_organization": "支援者組織情報",
+          "master_service_type": "サービス種別"
+        },
+        "select": [
+          {
+            "label": "支援者組織情報",
+            "value": "master_supporter_organization"
+          },
+          {
+            "label": "サービス種別",
+            "value": "master_service_type"
+          }
+        ],
+        "placeholder": "選択してください"
+      },
+      "name": {
+        "name": "名称",
+        "tooltips": "テキストテキストテキストテキストテキストテキスト",
+        "placeholder": ""
+      },
+      "value": {
+        "name": "値",
+        "tooltips": "テキストテキストテキストテキストテキストテキスト",
+        "placeholder": ""
+      },
+      "info1": {
+        "name": "予備情報1",
+        "placeholder": ""
+      },
+      "info2": {
+        "name": "予備情報2",
+        "placeholder": ""
+      },
+      "info3": {
+        "name": "予備情報3",
+        "placeholder": ""
+      },
+      "info4": {
+        "name": "予備情報4",
+        "placeholder": ""
+      },
+      "info5": {
+        "name": "予備情報5",
+        "placeholder": ""
+      },
+      "createAt": {
+        "name": "登録日時",
+        "placeholder": ""
+      },
+      "updateAt": {
+        "name": "更新日時",
+        "placeholder": ""
+      },
+      "use": {
+        "name": "利用フラグ",
+        "radio": {
+          "label": [
+            "有効",
+            "無効"
+          ],
+          "labels": {
+            "enabled": "有効",
+            "disabled": "無効"
+          },
+          "values": [
+            true,
+            false
+          ]
+        },
+        "items": {
+          "enabled": "有効",
+          "disabled": "無効"
+        }
+      }
+    }
+  },
+  "customer": {
+    "group_info": {
+      "name": "お客様管理",
+      "description": "お客様管理 text",
+      "icon": "icon-domain",
+      "index": "/customer/list"
+    },
+    "pages": {
+      "index": {
+        "name": "お客様一覧",
+        "sort_input": {
+          "name": {
+            "name": "お客様名",
+            "placeholder": "入力して検索できます"
+          }
+        },
+        "header": {
+          "name": "お客様名",
+          "category": "カテゴリ",
+          "salesforceUpdateAt": "SF最終更新日時",
+          "updateAt": "最終更新日時"
+        }
+      },
+      "create": {
+        "name": "新規個別登録"
+      },
+      "detail": {
+        "name": "お客様情報詳細"
+      },
+      "edit": {
+        "name": "お客様情報変更"
+      },
+      "import": {
+        "name": "新規一括登録",
+        "importButton": "CSVインポート",
+        "lead": "お客様情報を記載したCSVファイルを選択してください",
+        "help": "Salesforceから出力した取引先データを取り込みます。ファイルの文字コードは「Shift-JIS」、改行コードは「LF」とし拡張子は「.csv」のものを指定してください。",
+        "confirm": {
+          "lead": "お客様情報をインポートしました",
+          "text": "処理を完了させる前に、再度お間違いがないかご確認ください。",
+          "processed": "処理件数：",
+          "number": "件",
+          "completed": "インポートが完了しました",
+          "error": "インポートに失敗しました"
+        },
+        "tableHeader": {
+          "salesforceCustomerId": "商談ID",
+          "customerId": "取引先ID (お客様ID)",
+          "salesforceUpdateAt": "SF最終更新日時",
+          "name": "取引先名",
+          "salesforceTarget": "戦略ターゲット・コアターゲット",
+          "salesforceCreditLimit": "月与信上限",
+          "category": "カテゴリ",
+          "salesforceCreditGetMonth": "与信決裁取得年月",
+          "salesforceCreditManager": "与信取得担当者",
+          "salesforceCreditNoRetry": "与信再取得不要",
+          "salesforcePawsCreditNumber": "PAWS決裁番号",
+          "salesforceCustomerOwner": "取引先所有者",
+          "salesforceCustomerSegment": "業界セグメント",
+          "errorMessage": "エラーメッセージ",
+          "projectName": "(アンケート)アンケート記載時のプロジェクト名",
+          "customerName": "取引先名",
+          "salesforce_use_package": "PKG利用",
+          "createNew": "新規・更新",
+          "continued": "前年度で契約し期をまたぐ商談",
+          "usePackage": "PR経由",
+          "salesforceMainCustomer": {
+            "name": "取引先責任者",
+            "email": "取引先責任者メールアドレス",
+            "organizationName": "取引先責任者所属部署",
+            "job": "取引先責任者役職"
+          },
+          "opportunityUser": "商談所有者",
+          "completionDueDate": "完了予定日",
+          "phase": "フェーズ",
+          "customerSuccess": "カスタマーサクセス",
+          "supportDateFrom": "支援開始日",
+          "supportDateTo": "支援終了日",
+          "profit": {
+            "monthly": {
+              "april": "04粗利",
+              "may": "05粗利",
+              "june": "06粗利",
+              "july": "07粗利",
+              "august": "08粗利",
+              "september": "09粗利",
+              "october": "10粗利",
+              "november": "11粗利",
+              "december": "12粗利",
+              "january": "01粗利",
+              "february": "02粗利",
+              "march": "03粗利"
+            },
+            "quarterly": {
+              "first": "1Q粗利",
+              "second": "2Q粗利",
+              "third": "3Q粗利",
+              "forth": "4Q粗利"
+            },
+            "half": {
+              "first": "1H粗利",
+              "second": "2H粗利"
+            },
+            "year": "粗利"
+          },
+          "gross": {
+            "monthly": {
+              "april": "04売上",
+              "may": "05売上",
+              "june": "06売上",
+              "july": "07売上",
+              "august": "08売上",
+              "september": "09売上",
+              "october": "10売上",
+              "november": "11売上",
+              "december": "12売上",
+              "january": "01売上",
+              "february": "02売上",
+              "march": "03売上"
+            },
+            "quarterly": {
+              "first": "1Q売上",
+              "second": "2Q売上",
+              "third": "3Q売上",
+              "forth": "4Q売上"
+            },
+            "half": {
+              "first": "1H売上",
+              "second": "2H売上"
+            },
+            "year": "FY売上"
+          },
+          "mainSupporter": "プロデューサー(主担当1名)",
+          "supporters": "アクセラレーター(副担当複数名)",
+          "totalContractTime": "延べ契約時間"
+        },
+        "error": {
+          "lead": "インポートに失敗しました",
+          "text1": "件のエラー",
+          "text2": "が発生しました。再度お試しください。",
+          "errorMessageTemplate": "{index}行目：{message}",
+          "errorMessageUnknown": "エラーが発生しました。",
+          "errorMessage": "有効なファイルではありません。",
+          "errorFileNotFound": "ファイルの読み込みに失敗しました。",
+          "errorIllegalFormat": "ファイルの内容が空もしくは不正な形式です。",
+          "errorOverLines": "一度に登録可能な最大数は500件までです。",
+          "errorIllegalCharset": "文字コードの形式が不正です。"
+        }
+      }
+    },
+    "row": {
+      "updateUserName": {
+        "name": "最終更新者："
+      },
+      "updateAt": {
+        "name": "最終更新日時："
+      },
+      "id": {
+        "name": "取引先識別ID （お客様識別ID）"
+      },
+      "SFupdateAt": {
+        "name": "SF最終更新日時"
+      },
+      "shortId": {
+        "name": "取引先ID（お客様ID）"
+      },
+      "name": {
+        "name": "取引先名（お客様名）",
+        "placeholder": ""
+      },
+      "category": {
+        "name": "カテゴリ",
+        "placeholder": "選択してください",
+        "select": [
+          "ソニーグループ",
+          "大企業内新規事業",
+          "ベンチャー中小企業",
+          "事業/人材開発機関",
+          "教育/研究開発機関"
+        ]
+      }
+    },
+    "invalid": {
+      "button": "このお客様情報を削除する",
+      "title1": "お客様情報を削除します。",
+      "title2": "この操作は取り消せません。",
+      "text": "本当によろしいですか？"
+    },
+    "disable": {
+      "title1": "このお客様情報は既に案件に",
+      "title2": "紐づけられているため削除できません。"
+    }
+  },
+  "project": {
+    "group_info": {
+      "name": "案件管理",
+      "description": "案件管理 text",
+      "icon": "icon-format-list-bulleted-type",
+      "index": "/project/list"
+    },
+    "pages": {
+      "index": {
+        "name": "案件一覧",
+        "sortInput": {
+          "customer": "お客様名",
+          "service": "サービス名",
+          "division": "課",
+          "supportPeriod": "支援期間",
+          "status": {
+            "name": "ステータス",
+            "items": {
+              "before": "支援前",
+              "during": "支援中",
+              "after": "支援後"
+            }
+          },
+          "salesUsers": "営業担当者"
+        },
+        "header": {
+          "serviceTypeName": "サービス名",
+          "name": "案件名",
+          "status": "ステータス",
+          "customerName": "お客様名",
+          "mainSalesUserName": "担当営業",
+          "supporterOrganizationName": "課",
+          "supportDatePeriod": "支援期間",
+          "salesforceUpdateAt": "SF最終更新日",
+          "updateAt": "最終更新日",
+          "isSolverProject": "ソルバー担当"
+        }
+      },
+      "create": {
+        "name": "新規個別登録",
+        "customer": {
+          "title": {
+            "main": "お客様代表情報登録",
+            "member": "お客様代表情報登録",
+            "register": "お客様メンバー情報登録"
+          },
+          "customerCreate": "取引先新規作成",
+          "errorText": "{customerName}のお客様です。ご注意ください。",
+          "salesforceMainCustomerDomainMismatch": "取引先担当者（お客様担当者）のメールアドレスのドメインと一致していません。",
+          "dedicatedSurveyUserDomainMismatch": "アンケート送信宛先指定のメールアドレスのドメインと一致していません。",
+          "notCustomerRoleErrorMessage": "ご指定のメールアドレスはお客様ロールではないため登録できません。",
+          "placeholder": "入力して検索できます",
+          "errors": {
+            "requiredCustomerId": "取引先名（お客様名）が指定されていません。",
+            "requiredCustomerName": "アンケート送信宛先指定またはお客様メンバー（代表）が設定されていません。"
+          }
+        },
+        "errors": {
+          "disabledMainSales": "商談所有者（営業担当者）に無効なユーザーが設定されています。",
+          "disabledMainCustomer": "お客様（代表）に無効なユーザーが設定されています。",
+          "disabledCustomer": "お客様に無効なユーザーが設定されています。",
+          "disabledMainSupporter": "プロデューサーに無効なユーザーが設定されています。",
+          "disabledSupporter": "アクセラレーターに無効なユーザーが設定されています。"
+        }
+      },
+      "import": {
+        "name": "新規一括登録",
+        "importButton": "CSVインポート",
+        "lead": "案件情報を記載したCSVファイルを選択してください",
+        "help": "Salesforceから出力した案件データを取り込みます。ファイルの文字コードは「Shift-JIS」、改行コードは「LF」とし拡張子は「.csv」のものを指定してください。",
+        "confirm": {
+          "lead": "インポート内容をご確認ください",
+          "text": "以下のインポート内容に間違いがなければ「登録する」ボタンを押してください。",
+          "processed": "処理件数：",
+          "number": "件",
+          "completed": "インポートが完了しました",
+          "error": "インポートに失敗しました"
+        },
+        "tableHeader": {
+          "salesforceOpportunityId": "商談ID",
+          "customerId": "取引先ID",
+          "salesforceUpdateAt": "最終更新日時",
+          "name": "商談名",
+          "projectName": "(アンケート)アンケート記載時のプロジェクト名",
+          "customerName": "取引先名",
+          "serviceTypeName": "サービス区分",
+          "supporterOrganizationName": "(アンケート)粗利メイン課",
+          "salesforceUsePackage": "PKG利用",
+          "createNew": "新規・更新",
+          "continued": "前年度で契約し期をまたぐ商談",
+          "salesforceViaPr": "PR経由",
+          "usePackage": "PR経由",
+          "salesforceMainCustomer": {
+            "name": "取引先責任者",
+            "email": "取引先責任者メールアドレス",
+            "organizationName": "取引先責任者所属部署",
+            "job": "取引先責任者役職"
+          },
+          "mainSalesUserName": "商談所有者",
+          "contractDate": "完了予定日",
+          "phase": "フェーズ",
+          "customerSuccess": "カスタマーサクセス",
+          "supportDateFrom": "支援開始日",
+          "supportDateTo": "支援終了日",
+          "profit": {
+            "monthly": {
+              "april": "04粗利",
+              "may": "05粗利",
+              "june": "06粗利",
+              "july": "07粗利",
+              "august": "08粗利",
+              "september": "09粗利",
+              "october": "10粗利",
+              "november": "11粗利",
+              "december": "12粗利",
+              "january": "01粗利",
+              "february": "02粗利",
+              "march": "03粗利"
+            },
+            "quarterly": {
+              "first": "1Q粗利",
+              "second": "2Q粗利",
+              "third": "3Q粗利",
+              "forth": "4Q粗利"
+            },
+            "half": {
+              "first": "1H粗利",
+              "second": "2H粗利"
+            },
+            "year": "粗利"
+          },
+          "gross": {
+            "monthly": {
+              "april": "04売上",
+              "may": "05売上",
+              "june": "06売上",
+              "july": "07売上",
+              "august": "08売上",
+              "september": "09売上",
+              "october": "10売上",
+              "november": "11売上",
+              "december": "12売上",
+              "january": "01売上",
+              "february": "02売上",
+              "march": "03売上"
+            },
+            "quarterly": {
+              "first": "1Q売上",
+              "second": "2Q売上",
+              "third": "3Q売上",
+              "forth": "4Q売上"
+            },
+            "half": {
+              "first": "1H売上",
+              "second": "2H売上"
+            },
+            "year": "FY売上"
+          },
+          "salesforceMainSupporterUserName": "プロデューサー(主担当1名)",
+          "salesforceSupporterUserNames": "アクセラレーター(副担当複数名)",
+          "totalContractTime": "延べ契約時間"
+        },
+        "error": {
+          "errorMessageTemplate": "{index}行目：{message}",
+          "lead": "インポートに失敗しました",
+          "text1": "件のエラー",
+          "text2": "が発生しました。再度お試しください。",
+          "errorMessage": "有効なファイルではありません。",
+          "errorMessageUnknown": "エラーが発生しました。",
+          "errorFileNotFound": "ファイルの読み込みに失敗しました。",
+          "errorIllegalFormat": "ファイルの内容が空もしくは不正な形式です。",
+          "errorOverLines": "一度に登録可能な最大数は500件までです。",
+          "errorIllegalCharset": "文字コードの形式が不正です。"
+        }
+      },
+      "detail": {
+        "pageName": "案件詳細",
+        "name": "案件情報詳細",
+        "supportSchedules": {
+          "title": "支援日スケジュール",
+          "titleKarteList": "個別カルテ・スケジュール一覧",
+          "table": {
+            "status": "ステータス",
+            "day": "支援日",
+            "karte": "個別カルテ",
+            "viewKarte": "個別カルテを表示",
+            "lastUpdate": "最終更新日時",
+            "updateUser": "最終更新者"
+          }
+        },
+        "surveySchedules": {
+          "title": "アンケート送信スケジュール",
+          "table": {
+            "status": "ステータス",
+            "surveyType": "アンケート名",
+            "day": "送信日",
+            "surveyLimitDate": "回答期限日",
+            "surveyNameList": {
+              "service": "サービスアンケート",
+              "completion": "修了アンケート",
+              "quick": "クイックアンケート",
+              "pp": "Partner Portal利用アンケート"
+            }
+          }
+        },
+        "delete": {
+          "text1": "案件情報を削除すると\n案件に紐づく個別カルテや、アンケートも\n削除されます。",
+          "text2": "本当によろしいですか？",
+          "errorMessage": "案件を削除出来ませんでした。"
+        }
+      },
+      "edit": {
+        "name": "案件情報詳細変更",
+        "supporter": {
+          "title": {
+            "add_producer": "プロデューサー情報登録",
+            "edit_producer": "プロデューサー情報編集",
+            "add_accelerator": "アクセラレーター情報登録",
+            "edit_accelerator": "アクセラレーター情報編集"
+          },
+          "row": {
+            "role": {
+              "label": "システムロール",
+              "tooltip": "ツールチップテキスト"
+            },
+            "name": {
+              "label": "ユーザーネーム（氏名）"
+            },
+            "email": {
+              "label": "メールアドレス",
+              "placeholder": "入力して検索できます"
+            },
+            "company": {
+              "label": "所属会社"
+            },
+            "organization": {
+              "label": "部署"
+            }
+          },
+          "errorMessages": {
+            "registeredSupporter": "登録済みの支援者です",
+            "notSupporter": "支援者・支援者責任者ではありません",
+            "unregisteredUser": "未登録のユーザーです"
+          }
+        },
+        "customer": {
+          "title": {
+            "main": "お客様代表情報編集",
+            "member": "お客様メンバー情報編集",
+            "register": "お客様メンバー情報登録"
+          },
+          "row": {
+            "role": {
+              "label": "システムロール",
+              "value": "お客様メンバー",
+              "tooltip": "ツールチップテキスト"
+            },
+            "name": {
+              "label": "ユーザーネーム（氏名）",
+              "placeholder": "入力して検索できます"
+            },
+            "email": {
+              "label": "メールアドレス",
+              "placeholder": ""
+            },
+            "customer": {
+              "label": "所属会社"
+            },
+            "organization": {
+              "label": "部署",
+              "placeholder": ""
+            },
+            "job": {
+              "label": "役職",
+              "placeholder": ""
+            }
+          },
+          "errorMessage": "登録済みのお客様です",
+          "invalidErrorMessage": "無効ユーザーです。",
+          "confirm": {
+            "new": "PartnerPortalツールに\n未登録のため招待します。",
+            "assign": "案件にアサインします。",
+            "text": "よろしいでしょうか？"
+          }
+        },
+        "errors": {
+          "disabledMainSales": "商談所有者（営業担当者）に無効なユーザーが設定されています。",
+          "disabledMainCustomer": "お客様（代表）に無効なユーザーが設定されています。",
+          "disabledCustomer": "お客様に無効なユーザーが設定されています。",
+          "disabledMainSupporter": "プロデューサーに無効なユーザーが設定されています。",
+          "disabledSupporter": "アクセラレーターに無効なユーザーが設定されています。"
+        },
+        "survey": {
+          "title": {
+            "bulkEdit": "アンケート送信スケジュール一括変更",
+            "bulkCreate": "アンケート送信スケジュール一括追加",
+            "bulkDelete": "アンケート送信スケジュール一括削除",
+            "add": "アンケート送信スケジュール追加",
+            "edit": "アンケート送信スケジュール変更",
+            "delete": "アンケート送信スケジュール削除",
+            "resend": "アンケート再送信"
+          },
+          "row": {
+            "service": {
+              "label": "サービスアンケート"
+            },
+            "completion": {
+              "label": "修了アンケート"
+            },
+            "type": {
+              "label": "アンケートタイプ",
+              "placeholder": "選択してください"
+            },
+            "schedule": {
+              "label": "スケジュール"
+            },
+            "sub": {
+              "timing": {
+                "label": "タイミング",
+                "radio": {
+                  "labels": [
+                    "毎月",
+                    "毎週",
+                    "1回"
+                  ],
+                  "values": [
+                    "monthly",
+                    "weekly",
+                    "once"
+                  ]
+                }
+              },
+              "send": {
+                "label": "送信日",
+                "monthly": "毎月",
+                "endMonth": "終了月",
+                "weekly": "毎週",
+                "day": [
+                  "月曜",
+                  "火曜",
+                  "水曜",
+                  "木曜",
+                  "金曜"
+                ],
+                "dayPlaceholder": "",
+                "once": "1回",
+                "date": "日",
+                "text1": "毎月",
+                "text3": "日（終了月除く）",
+                "deadlineDate": "回答期限日から",
+                "businessDayBefore": "営業日前",
+                "placeholder": "",
+                "select": {
+                  "weekDay": [
+                    "月",
+                    "火",
+                    "水",
+                    "木",
+                    "金"
+                  ],
+                  "sub": "曜日"
+                },
+                "labels": {
+                  "1": [
+                    "回答期限日から",
+                    "営業日前"
+                  ]
+                }
+              },
+              "deadline": {
+                "label": "回答期限日",
+                "placeholder": "",
+                "radio": {
+                  "labels": {
+                    "1": "送信日の月末最終営業日",
+                    "2": [
+                      "送信日から",
+                      "営業日後"
+                    ],
+                    "3": [
+                      "送信月の翌月月初",
+                      "営業日"
+                    ],
+                    "4": "なし"
+                  },
+                  "values": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              },
+              "eventDate": {
+                "label": "開催日"
+              },
+              "openTime": {
+                "label": "開催時間"
+              }
+            }
+          },
+          "errorMessage": "不正な送信日が設定されています。 本日よりも新しい送信日を設定してください。"
+        },
+        "support": {
+          "title": {
+            "add": "支援日スケジュール追加",
+            "edit": "支援日スケジュール変更",
+            "delete": "支援日スケジュール削除"
+          },
+          "row": {
+            "schedule": {
+              "label": "スケジュール"
+            }
+          }
+        },
+        "sub": {
+          "timing": {
+            "label": "タイミング",
+            "radio": {
+              "labels": [
+                "毎月",
+                "毎週",
+                "1回"
+              ],
+              "values": [
+                1,
+                2,
+                3
+              ]
+            }
+          },
+          "send": {
+            "label": "送信日",
+            "monthly": "毎月",
+            "weekly": "毎週",
+            "day": [
+              "月曜",
+              "火曜",
+              "水曜",
+              "木曜",
+              "金曜",
+              "土曜",
+              "日曜"
+            ],
+            "dayPlaceholder": "選択してください",
+            "once": "1回",
+            "date": "日",
+            "date2": "日（終了月除く）",
+            "placeholder": ""
+          },
+          "deadline": {
+            "label": "回答期限日",
+            "placeholder": "",
+            "radio": {
+              "labels": {
+                "1": "送信日の月末最終営業日",
+                "2": [
+                  "送信日から",
+                  "日後"
+                ],
+                "3": "なし"
+              },
+              "values": [
+                1,
+                2,
+                3
+              ]
+            }
+          },
+          "eventDate": {
+            "label": "開催日"
+          },
+          "openTime": {
+            "label": "開催時間"
+          }
+        }
+      },
+      "list_item": {
+        "customer_list": "お客様メンバー一覧",
+        "supporter_list": "支援者一覧"
+      },
+      "sub_list_item": {
+        "customer": {
+          "main_customer": "お客様代表",
+          "customer_member": "お客様"
+        },
+        "supporter": {
+          "producer": "プロデューサー",
+          "accelerator": "アクセラレーター"
+        }
+      }
+    },
+    "row": {
+      "id": {
+        "name": "案件ID"
+      },
+      "customerId": {
+        "name": "取引先識別ID （お客様識別ID）"
+      },
+      "salesforceCustomerId": {
+        "name": "取引先ID"
+      },
+      "salesforceOpportunityId": {
+        "name": "商談ID"
+      },
+      "salesforceUpdateAt": {
+        "name": "SF最終更新日時"
+      },
+      "name": {
+        "name": "商談名（案件名）",
+        "placeholder": ""
+      },
+      "customerName": {
+        "name": "取引先名（お客様名）",
+        "placeholder": "入力して検索できます"
+      },
+      "serviceTypeName": {
+        "name": "サービス区分（サービス名）",
+        "placeholder": "選択してください"
+      },
+      "supporterOrganizationName": {
+        "name": "粗利メイン課（アンケート集計課）",
+        "placeholder": "選択してください"
+      },
+      "createNew": {
+        "name": "新規・更新",
+        "radio": {
+          "labels": [
+            "新規",
+            "更新"
+          ],
+          "values": [
+            true,
+            false
+          ]
+        }
+      },
+      "salesforceMainCustomer": {
+        "name": "取引先担当者（お客様担当者）",
+        "detail": {
+          "name": "名前",
+          "email": "メールアドレス",
+          "organizationName": "部署",
+          "isAnonymousSurveyRespondent": "アンケートの宛先に指定する"
+        }
+      },
+      "anonymousSurveyMailSendSetting": {
+        "name": "アンケート送信宛先指定",
+        "detail": {
+          "name": "名前",
+          "email": "メールアドレス"
+        }
+      },
+      "anonymousSurveyPassword": {
+        "name": "アンケートパスワード"
+      },
+      "mainSalesUserName": {
+        "name": "商談所有者（営業担当者）",
+        "placeholder": "入力して検索できます"
+      },
+      "phase": {
+        "name": "フェーズ",
+        "select": [
+          "プラン提示(D)",
+          "見積もり提示(C)",
+          "内諾(B)",
+          "内部決済完了(A)",
+          "失注(G)",
+          "Open",
+          "活動中(E)",
+          "Drop(F)"
+        ],
+        "placeholder": "選択してください"
+      },
+      "customerSuccess": {
+        "name": "カスタマーサクセス"
+      },
+      "supportDateFromTo": {
+        "name": "支援開始日・支援終了日（支援期間）"
+      },
+      "profitFY": {
+        "name": "粗利",
+        "currency": "円",
+        "placeholder": "",
+        "labels": "粗利"
+      },
+      "serviceManagerName": {
+        "name": "サービス責任者（初期値）",
+        "placeholder": "選択してください"
+      },
+      "mainSupporterUserName": {
+        "name": "プロデューサー（初期値）",
+        "placeholder": "選択してください"
+      },
+      "supporterUsers": {
+        "name": "アクセラレーター（初期値）",
+        "placeholder": "入力して検索できます"
+      },
+      "totalContractTime": {
+        "name": "延べ契約時間",
+        "placeholder": "",
+        "labels": "延べ契約時間"
+      },
+      "customerUsers": {
+        "name": "お客様メンバー一覧",
+        "mainCustomer": "お客様（代表​）",
+        "customer": "お客様​",
+        "annotation": "※お客様アンケートの回答者となります"
+      },
+      "supporterList": {
+        "name": "支援者一覧",
+        "serviceManager": "サービス責任者",
+        "mainSupporter": "プロデューサー",
+        "salesforceSupporter": "アクセラレーター"
+      },
+      "isCountManHour": {
+        "name": "工数調査",
+        "radio": {
+          "labels": [
+            "する",
+            "しない"
+          ],
+          "values": [
+            true,
+            false
+          ]
+        }
+      },
+      "isKarteRemind": {
+        "name": "個別カルテ記入リマインド",
+        "radio": {
+          "labels": [
+            "する",
+            "しない"
+          ],
+          "values": [
+            true,
+            false
+          ]
+        }
+      },
+      "isMasterKarteRemind": {
+        "name": "マスターカルテ記入リマインド",
+        "radio": {
+          "labels": [
+            "する",
+            "しない"
+          ],
+          "values": [
+            true,
+            false
+          ]
+        }
+      },
+      "contractType": {
+        "name": "有償／無償",
+        "radio": {
+          "labels": [
+            "有償",
+            "無償"
+          ],
+          "values": [
+            "有償",
+            "無償"
+          ]
+        }
+      },
+      "isSecret": {
+        "name": "公開／非公開",
+        "radio": {
+          "labels": [
+            "公開",
+            "非公開"
+          ],
+          "values": [
+            false,
+            true
+          ]
+        }
+      },
+      "isSolverProject": {
+        "name": "ソルバー担当",
+        "radio": {
+          "labels": [
+            "はい",
+            "いいえ"
+          ],
+          "values": [
+            true,
+            false
+          ]
+        }
+      }
+    }
+  },
+  "survey": {
+    "group_info": {
+      "name": "アンケート管理",
+      "description": "アンケート管理 text",
+      "icon": "icon-forum",
+      "index": "/survey"
+    },
+    "pages": {
+      "list_item": "回答選択肢グループ",
+      "sub_list_item": {
+        "title": "見出し",
+        "option": "選択肢",
+        "check": "表示"
+      },
+      "buttons": {
+        "showSurveyList": "集計結果の詳細を見る"
+      },
+      "index": {
+        "name": "アンケート管理トップ",
+        "lastUpdate": "最終集計日時",
+        "sort_input": {
+          "name": "表示期間",
+          "year": "年度"
+        },
+        "table": {
+          "label": {
+            "projectCount": "回収案件数（計画）",
+            "receiveCount": "回収案件数（実績）",
+            "receivePercent": "回収率",
+            "monthlyAverage": "月平均",
+            "annualTotal": "年合計",
+            "month": "月",
+            "satisfaction": "満足度",
+            "continuation": "継続意向",
+            "chartContinuation": "修了アンケート 継続意向",
+            "recommended": "知人への\n紹介可能性",
+            "recommended2": "紹介可能性",
+            "chartRecommended": "修了アンケート 知人への紹介可能性",
+            "sales": "営業評価",
+            "chartSales": "総合満足度 評価",
+            "receive": "N数",
+            "notApplicable": "集計対象外",
+            "graph": "グラフ表示",
+            "manager": "担当者",
+            "periodAverage": "期間平均",
+            "section": "課",
+            "service": "サービスアンケート",
+            "completion": "修了アンケート",
+            "serviceAndCompletion": "サービス／修了アンケート合算",
+            "karte": "個別カルテ",
+            "kind": "種別",
+            "quick": "クイックアンケート",
+            "overallSatisfaction": "総合満足度",
+            "evaluation": "評価",
+            "averageAndTotal": "平均・合計",
+            "partnerPortal": "Partner Portal利用アンケート",
+            "surveyFunction": "アンケート機能",
+            "manHourFunction": "工数入力機能",
+            "karteFunction": "個別カルテ機能",
+            "masterKarteFunction": "マスターカルテ機能"
+          },
+          "service": {
+            "name": "サービスアンケート",
+            "satisfaction": "サービスアンケート 満足度"
+          },
+          "completion": {
+            "name": "修了アンケート",
+            "satisfaction": "修了アンケート 満足度",
+            "continuation": "修了アンケート 継続意向",
+            "recommended2": "修了アンケート 紹介可能性"
+          },
+          "serviceAndcompletionTotal": {
+            "name": "サービス／修了アンケート合算",
+            "satisfaction": "サービス／修了アンケート合算 満足度"
+          },
+          "karte": {
+            "name": "個別カルテ"
+          },
+          "kind": {
+            "name": "種別"
+          },
+          "quick": {
+            "name": "クイックアンケート"
+          },
+          "pp": {
+            "name": "Partner Portal"
+          }
+        },
+        "header": {
+          "serviceTypeName": "サービス名",
+          "customerName": "お客様名",
+          "projectName": "案件名",
+          "surveyType": "アンケート名",
+          "actualSurveyResponseDatetime": "回答日",
+          "answerUserName": "回答者",
+          "isDisclosure": "開示承認",
+          "summaryMonth": "集計月",
+          "isNotSummary": "集計対象"
+        },
+        "row": {
+          "type": {
+            "service": "サービス",
+            "completion": "修了",
+            "service_and_completion": "サービス修了合算",
+            "quick": "クイック",
+            "pp": "PartnerPortal"
+          }
+        },
+        "section": {
+          "collectionStatus": "年度別アンケート回収状況",
+          "kpi": "KPI",
+          "service": "サービスアンケート",
+          "completion": "修了アンケート",
+          "serviceAndcompletionTotal": "サービスアンケート／修了アンケート合算",
+          "karte": "個別カルテ",
+          "section": "課別集計",
+          "partnerPortal": "Partner Portal利用アンケート"
+        },
+        "label": {
+          "yes": "はい",
+          "no": "いいえ"
+        },
+        "surveyName": "アンケート",
+        "formatName": {
+          "raw": "アンケートデータ",
+          "supporter": "支援者別アンケート集計",
+          "organization": "課別アンケート集計"
+        }
+      },
+      "list": {
+        "name": "アンケート結果",
+        "sort_input": {
+          "summaryMonth": "集計月指定",
+          "terms": "期間指定",
+          "customerName": "お客様名",
+          "projectName": "案件名",
+          "serviceName": "サービス名",
+          "organization": "課",
+          "placeholder": {
+            "customerName": "入力して検索できます",
+            "projectName": "入力して検索できます"
+          },
+          "serviceNameItems": {
+            "all": "すべて"
+          }
+        },
+        "service": {
+          "name": "サービスアンケート",
+          "AverageSatisfactionMonth": "満足度の平均値（単月）",
+          "AverageSatisfactionCumulative": "満足度の平均値（累積）",
+          "receiveMonth": "N数（単月）",
+          "receiveCumulative": "N数（累積）"
+        },
+        "completion": {
+          "name": "修了アンケート"
+        },
+        "serviceAndcompletion": {
+          "name": "サービスアンケート\n修了アンケート合算"
+        },
+        "quick": {
+          "name": "クイックアンケート"
+        },
+        "formatName": "アンケートデータ"
+      },
+      "detail": {
+        "name": "アンケート詳細",
+        "summaryMonth": "集計月：",
+        "isNotSummary": "集計対象：",
+        "target": "集計対象とする",
+        "exclusion": "除外する",
+        "isSolverProject": "ソルバー担当：",
+        "infomation": {
+          "name": "アンケート情報",
+          "company": "所属会社：",
+          "projectName": "案件名：",
+          "customerName": "お客様氏名：",
+          "surveyType": "サービス名：",
+          "mainSupporterUserName": "プロデューサー：",
+          "supporters": "アクセラレーター：",
+          "salesUserName": "営業担当者：",
+          "summaryMonth": "アンケート対象期間：",
+          "customerSuccess": "カスタマーサクセス："
+        },
+        "answers": {
+          "name": "回答結果",
+          "question": "設問",
+          "otherDescription": "その他記載欄（任意）",
+          "disclosure": {
+            "description": "回答頂きました内容につきまして、プロデューサー・アクセラレーターへの直接の開示を希望されない場合は□にチェック✓を入れてください。",
+            "choice": "プロデューサー・アクセラレーターへの直接の開示を希望しない"
+          }
+        },
+        "errorMessages": {
+          "notImplemented": "未実施のアンケートは表示できません。",
+          "forbidden": "アンケートの参照権限がありません。"
+        }
+      },
+      "monthly": {
+        "name": "月次レポート",
+        "summaryMonth": "{year}年{month}月度",
+        "table": {
+          "service": "サービスアンケート",
+          "completion": "修了アンケート",
+          "serviceAndCompletion": "サービスアンケート・\n修了時アンケート合算",
+          "partnerPortal": "Partner Portal利用アンケート",
+          "label": {
+            "aggregationPeriod": "集計期間",
+            "sendPlanCount": "計画（件）",
+            "receiveCount": "回収（件）",
+            "receivePercent": "回収率（％）",
+            "cumulativeYear": "年度累計"
+          }
+        }
+      },
+      "forecast": {
+        "name": "アンケート予実績",
+        "sort_input": {
+          "summaryMonth": "集計月指定",
+          "terms": "期間指定"
+        },
+        "status": {
+          "send": "送信予定：{plan} ／ 送信実績：{achievement}",
+          "receive": "回答予定：{plan} ／ 回答実績：{achievement}"
+        },
+        "header": {
+          "id": "ID",
+          "salesUserName": "商談所有者（営業担当者）",
+          "serviceTypeName": "サービス名",
+          "customerName": "お客様名",
+          "projectName": "案件名",
+          "projectId": "案件URL",
+          "surveyType": "アンケート名",
+          "unansweredSurveysNumber": "連続未回答数",
+          "mainSupporterUser": "プロデューサー",
+          "supporterUsers": "アクセラレーター",
+          "surveyUserType": "送付先種類",
+          "surveyUserName": "送付先氏名",
+          "surveyUserEmail": "送付先メールアドレス",
+          "customerSuccess": "カスタマーサクセス",
+          "planSurveyRequestDatetime": "送信予定日",
+          "actualSurveyRequestDatetime": "送信実績日",
+          "planSurveyResponseDatetime": "回答期限日",
+          "actualSurveyResponseDatetime": "回答実績日",
+          "summaryMonth": "集計月",
+          "supporterOrganizationName": "粗利メイン課（アンケート集計課）",
+          "supportDateFrom": "支援開始日",
+          "supportDateTo": "支援終了日",
+          "phase": "フェーズ",
+          "isCountManHour": "工数調査",
+          "thisMonthType": "今月の種類",
+          "noSendReason": "送付しない理由"
+        },
+        "row": {
+          "survey_type": {
+            "none": "当月のアンケート登録無し"
+          }
+        },
+        "formatName": "アンケート予実績",
+        "scheduleModal": {
+          "bulkEditModal": {
+            "send": {
+              "label": "送信日",
+              "monthly": "毎月",
+              "endMonth": "終了月",
+              "weekly": "毎週",
+              "day": [
+                "月曜",
+                "火曜",
+                "水曜",
+                "木曜",
+                "金曜"
+              ],
+              "dayPlaceholder": "",
+              "once": "1回",
+              "date": "日",
+              "text1": "毎月",
+              "text3": "日（終了月除く）",
+              "deadlineDate": "回答期限日から",
+              "businessDayBefore": "営業日前",
+              "placeholder": "",
+              "select": {
+                "weekDay": [
+                  "月",
+                  "火",
+                  "水",
+                  "木",
+                  "金"
+                ],
+                "sub": "曜日"
+              },
+              "deadline": {
+                "label": "回答期限日",
+                "placeholder": "",
+                "radio": {
+                  "labels": {
+                    "1": "送信日の月末最終営業日",
+                    "2": [
+                      "送信日から",
+                      "営業日後"
+                    ],
+                    "3": [
+                      "送信月の翌月月初",
+                      "営業日"
+                    ],
+                    "4": "なし"
+                  },
+                  "values": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              },
+              "labels": {
+                "1": [
+                  "回答期限日から",
+                  "営業日前"
+                ]
+              }
+            }
+          },
+          "bulkDeleteModal": {
+            "title": "アンケート送信スケジュール一括削除"
+          }
+        },
+        "errorMessage": "不正な送信日が設定されています。 本日よりも新しい送信日を設定してください。"
+      },
+      "result": {
+        "name": "アンケート結果"
+      },
+      "report": {
+        "name": "月次レポート"
+      },
+      "model": {
+        "name": "アンケートひな形管理"
+      },
+      "masterList": {
+        "name": "アンケートひな形一覧",
+        "header": {
+          "name": "アンケート名",
+          "type": "アンケート種別",
+          "timing": "利用タイミング",
+          "revision": "バージョン",
+          "updateAt": "最終更新日時"
+        },
+        "row": {
+          "type": {
+            "service": "サービスアンケート",
+            "completion": "修了アンケート",
+            "quick": "クイックアンケート",
+            "pp": "Partner Portal利用アンケート"
+          },
+          "timing": {
+            "monthly": "毎月",
+            "monthly_not_completion_month": "毎月（修了月除く）",
+            "completion_month": "修了月",
+            "anytime": "任意"
+          }
+        },
+        "version": {
+          "name": "アンケート設問",
+          "table": {
+            "status": "ステータス",
+            "version": "バージョン",
+            "versionMemo": "バージョンメモ",
+            "questionAmount": "設問数",
+            "updateAt": "最終更新日時"
+          },
+          "row": {
+            "name": "バージョン",
+            "draft": "下書き"
+          }
+        }
+      },
+      "create": {
+        "name": "アンケート基本設定 新規作成",
+        "row": {
+          "timing": {
+            "monthly": "毎月",
+            "monthly_not_completion_month": "毎月（修了月除く）",
+            "completion_month": "修了月",
+            "anytime": "任意"
+          },
+          "type": {
+            "service": "サービスアンケート",
+            "completion": "修了アンケート",
+            "quick": "クイックアンケート",
+            "pp": "PartnarPortal利用アンケート"
+          }
+        },
+        "version": {
+          "name": "アンケート設問",
+          "table": {
+            "status": "ステータス",
+            "version": "バージョン",
+            "versionMemo": "バージョンメモ",
+            "questionAmount": "設問数",
+            "updateAt": "最終更新日時"
+          },
+          "row": {
+            "name": "バージョン",
+            "draft": "下書き"
+          }
+        }
+      },
+      "masterDetail": {
+        "name": "アンケートひな形詳細",
+        "row": {
+          "type": {
+            "service": "サービス",
+            "completion": "修了",
+            "quick": "クイック",
+            "pp": "PartnerPortal"
+          },
+          "timing": {
+            "monthly": "毎月",
+            "monthly_not_completion_month": "毎月（修了月除く）",
+            "completion_month": "修了月",
+            "anytime": "任意"
+          }
+        },
+        "setting": {
+          "name": "アンケート基本設定",
+          "edit": "アンケート基本設定 変更",
+          "row": {
+            "name": {
+              "name": "アンケート名",
+              "placeholder": "アンケート名"
+            },
+            "type": "アンケート種別",
+            "timing": "利用タイミング",
+            "sending": "送信日初期設定",
+            "limit": "回答期限日初期設定",
+            "disclosure": "開示確認質問有無",
+            "deadlineDate": "回答期限日から",
+            "businessDayBefore": "営業日前",
+            "day": "日",
+            "radio": {
+              "sendDaySetting": {
+                "placeholder": "0",
+                "none": "なし",
+                "values": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              "answerLimitDaySetting": {
+                "placeholder": "0",
+                "labels": {
+                  "1": [
+                    "送信日から",
+                    "営業日後"
+                  ],
+                  "2": "送信日の月末最終営業日",
+                  "3": "なし",
+                  "4": [
+                    "送信月の翌月月初",
+                    "営業日"
+                  ]
+                },
+                "values": [
+                  1,
+                  2,
+                  3,
+                  4
+                ]
+              },
+              "disclosure": {
+                "labels": [
+                  "あり",
+                  "なし"
+                ],
+                "values": [
+                  true,
+                  false
+                ]
+              }
+            }
+          }
+        },
+        "version": {
+          "name": "アンケート設問",
+          "table": {
+            "status": "ステータス",
+            "version": "バージョン",
+            "versionMemo": "バージョンメモ",
+            "questionAmount": "設問数",
+            "updateAt": "最終更新日時"
+          },
+          "row": {
+            "name": "バージョン",
+            "draft": "下書き"
+          }
+        }
+      },
+      "revision": {
+        "name": "アンケート設問変更",
+        "table": {
+          "version": {
+            "title": "バージョン情報",
+            "row": {
+              "version": "バージョン",
+              "memo": "バージョンメモ"
+            }
+          },
+          "survey": {
+            "title": "設問",
+            "edit": "設問変更",
+            "row": {
+              "id": "設問ID",
+              "order": "表示順番",
+              "required": {
+                "name": "入力必須",
+                "labels": [
+                  "必須",
+                  "任意"
+                ],
+                "values": [
+                  true,
+                  false
+                ]
+              },
+              "description": {
+                "name": "設問見出し",
+                "placeholder": "設問見出し"
+              },
+              "provision": {
+                "name": "設問表示条件有無",
+                "labels": [
+                  "あり",
+                  "なし"
+                ],
+                "values": [
+                  true,
+                  false
+                ]
+              },
+              "provisionQuestion": {
+                "name": "設問表示条件設問",
+                "placeholder": "設問表示条件設問"
+              },
+              "provisionChoices": {
+                "name": "設問表示条件設問選択肢",
+                "list": [
+                  {
+                    "name": "5：とても満足",
+                    "value": "1"
+                  },
+                  {
+                    "name": "4：満足",
+                    "value": "2"
+                  },
+                  {
+                    "name": "3：どちらともいえない",
+                    "value": "3"
+                  },
+                  {
+                    "name": "2：不満",
+                    "value": "4"
+                  },
+                  {
+                    "name": "1：とても不満",
+                    "value": "5"
+                  }
+                ]
+              },
+              "format": {
+                "name": "回答タイプ",
+                "labels": [
+                  "チェックボックス",
+                  "ラジオボタン",
+                  "テキストエリア"
+                ],
+                "values": [
+                  "checkbox",
+                  "radio",
+                  "textarea"
+                ]
+              },
+              "summaryType": {
+                "name": "集計タイプ",
+                "labels": [
+                  "通常の質問",
+                  "点数形式の質問",
+                  "総合満足度",
+                  "継続意向",
+                  "紹介可能性",
+                  "営業評価",
+                  "アンケート機能満足度",
+                  "工数機能満足度",
+                  "個別カルテ機能満足度",
+                  "マスターカルテ満足度"
+                ],
+                "values": [
+                  "normal",
+                  "point",
+                  "satisfaction",
+                  "continuation",
+                  "recommended",
+                  "sales",
+                  "survey_satisfaction",
+                  "man_hour_satisfaction",
+                  "karte_satisfaction",
+                  "master_karte_satisfaction"
+                ]
+              },
+              "choiceGroup": {
+                "title": "回答選択肢グループ",
+                "row": {
+                  "groupTitle": "グループ見出し",
+                  "choices": "選択肢"
+                },
+                "errorMessages": {
+                  "requiredCount": "{count}つ以上の有効な選択肢が必要です。",
+                  "noPrefixScoreFormat": "文頭に評価点数 [[x]] が付与されていません。"
+                }
+              },
+              "optional": {
+                "name": "回答任意入力有無",
+                "labels": [
+                  "あり",
+                  "なし"
+                ],
+                "values": [
+                  true,
+                  false
+                ]
+              },
+              "otherDescription": "回答任意入力見出し"
+            }
+          },
+          "disabled": {
+            "name": "無効の設問"
+          }
+        }
+      }
+    }
+  },
+  "master-karte": {
+    "group_info": {
+      "name": "カルテ管理"
+    },
+    "pages": {
+      "index": {
+        "name": "カルテ一覧",
+        "master-karte": "マスターカルテ"
+      },
+      "list": {
+        "sort": {
+          "headline": "案件関連の条件：",
+          "clientName": "お客様（取引先）名",
+          "sort-panel": {
+            "title": "マスターカルテ関連の条件：",
+            "description": {
+              "open": "検索条件を閉じる",
+              "close": "検索条件を表示する"
+            },
+            "radio-button-label": {
+              "headline": "検索対象",
+              "current": "当期支援",
+              "next": "次期支援"
+            },
+            "placeholder": "入力してください（※2文字以上必須）",
+            "labels": [
+              "顧客セグメント",
+              "業界セグメント",
+              "部署名",
+              "現状",
+              "課題",
+              "カスタマーサクセス",
+              "ラインナップ",
+              "お客様に不足している人的リソース",
+              "お客様に紹介したい企業や産業",
+              "お客様の強み"
+            ]
+          }
+        },
+        "table": {
+          "headerText": [
+            "件を表示 / 全",
+            "件"
+          ],
+          "header": {
+            "serviceName": "サービス名",
+            "project": "案件名",
+            "client": "お客様名/部署名",
+            "supportDateFrom": "支援期間"
+          },
+          "items": {
+            "ppProjectIdText": "個別カルテ",
+            "npfProjectIdText": "マスターカルテ"
+          }
+        }
+      },
+      "detail": {
+        "name": "マスターカルテ詳細",
+        "titles": {
+          "current": "マスターカルテ　当期支援内容",
+          "next": "マスターカルテ　次期支援内容"
+        },
+        "main-tabs": {
+          "current": "当期支援",
+          "next": "次期支援"
+        },
+        "container": {
+          "showCurrentProgram": "当期支援内容",
+          "currentProgramTitle": "当期：",
+          "tabs": {
+            "fundamental": "基本情報",
+            "result": "案件結果・実績情報",
+            "companyDepartment": "企業・部署情報",
+            "karten": "個別カルテ一覧",
+            "others": "その他チェック事項"
+          },
+          "fundamental": {
+            "goalMileStone": "ゴール・マイルストーン",
+            "presidentPolicy": "社長の方針",
+            "kpi": "ゴール・KPI",
+            "toBeThreeYears": "3年後のTo Be像",
+            "currentIssue": "現状・課題",
+            "currentSituation": "現状",
+            "issue": "課題",
+            "request": "リクエスト",
+            "solution": "ソリューション",
+            "customerSuccess": "カスタマーサクセス",
+            "customerSuccessReuse": "カスタマーサクセス(リユース有無)",
+            "scheduleCurrentProgram": "支援期間",
+            "scheduleNextProgram": "支援時期",
+            "lineup": "ラインナップ",
+            "supportContents": "支援内容",
+            "integration": "結合促進",
+            "requiredPersonalSkill": "お客様に不足している人的リソース",
+            "requiredPartner": "お客様に紹介したい企業や産業",
+            "supplementHumanResourceToSap": "SAP支援チームに補充したい人的リソース",
+            "ourStrengths": "お客様の強み",
+            "currentCustomerProfile": "当該プロジェクトのお客様が現在持っている顧客（像）",
+            "wantAcquireCustomerProfile": "当該プロジェクトのお客様が今後獲得したい顧客（像）",
+            "handOver": "引き継ぎ項目",
+            "aspiration": "お客様に関する留意事項",
+            "usageHistory": "プログラム利用履歴"
+          },
+          "result": {
+            "projectResultTitle": "案件結果・実績情報",
+            "customerSuccessResult": {
+              "name": "カスタマーサクセス結果",
+              "radio": {
+                "labels": [
+                  "達成",
+                  "未達"
+                ],
+                "values": [
+                  "達成",
+                  "未達"
+                ]
+              }
+            },
+            "customerSuccessResultFactor": "カスタマーサクセス達成/未達要因",
+            "supportIssue": "支援で生じた課題",
+            "supportSuccessFactor": "解決できた要因/解決できなかった要因",
+            "surveySsapAssessment": "顧客評価に対する自己評価",
+            "nextSupportContent": "次期支援内容",
+            "completedSurvey": "修了時アンケート",
+            "completedSurveyDetail": "修了時アンケート詳細",
+            "displayCompletedSurveyDetail": "修了時アンケートを表示",
+            "completedSurveyReview": "満足度評価",
+            "satisfactionEvaluation": [
+              "5： とても満足",
+              "4： 満足",
+              "3： どちらともいえない",
+              "2： 不満",
+              "1： とても不満"
+            ]
+          },
+          "companyDepartment": {
+            "clientInformation": "企業情報 (取引先情報)",
+            "customerName": "お客様名",
+            "customerUrl": "URL",
+            "customerSegment": "顧客セグメント",
+            "establishment": "設立",
+            "employee": "従業員",
+            "capitalStock": "資本金",
+            "businessSummary": "事業概要",
+            "industrySegment": "業界セグメント",
+            "departmentId": "部署ID",
+            "departmentInformation": "部署情報",
+            "departmentName": "部署名"
+          },
+          "karten": "個別カルテ",
+          "others": {
+            "structure": "体制",
+            "otherStructure": "その他チェック事項 (体制) -任意-",
+            "mission": "部署のミッション・機能",
+            "numberOfPeople": "人数",
+            "manager": "責任者情報",
+            "commercializationSkill": "事業化スキル",
+            "existPartners": "パートナー・外注先の有無",
+            "otherOrganizationDevelopment": "その他チェック事項 (組織開発) -任意-",
+            "supportOrder": "事務局による支援体制",
+            "existEvaluation": "事業の提案評価プロセスの有無や課題",
+            "existAudition": "オーディション・社内公募企画の有無や課題",
+            "existIdeation": "アイディエーション施策の有無や課題",
+            "existIdeaReview": "事業アイデア審査体制の有無や課題",
+            "existSystemAndIssues": "新規事業開発に則した制度の有無や課題",
+            "budget": "予算",
+            "humanResource": "人事制度",
+            "otherBusinessDevelopment": "その他チェック事項 (事業開発) -任意-",
+            "ideaAndTheme": "アイデア・テーマ",
+            "existIdea": "アイデアはすでにあるか？",
+            "existTheme": "（アイデアがない場合）テーマはあるか？",
+            "clientAndPainPoint": "顧客・ペインポイント",
+            "client": "顧客は誰か？",
+            "clientIssue": "顧客の課題は何か？",
+            "solution": "ソリューション",
+            "concreteSolution": "顧客の課題に対し、どのようなソリューションか？",
+            "originality": "独自性は何か？",
+            "mvp": "必要不可欠な特徴・機能(MVP)は何か？",
+            "marketability": "市場性",
+            "tam": "提供サービスの市場(TAM)の金額規模と将来の伸び率は？",
+            "sam": "ターゲットセグメント(SAM)の金額規模と将来の伸び率は？",
+            "timing": "市場投入のタイミング",
+            "isRightTime": "市場投入のタイミングは適切か？",
+            "longTerm": "長期性",
+            "roadMap": "事業化後の長期戦略やロードマップはあるか？"
+          }
+        }
+      }
+    }
+  }
+}
