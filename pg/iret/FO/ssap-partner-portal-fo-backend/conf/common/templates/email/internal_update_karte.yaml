@@ -1,0 +1,78 @@
+#
+# 名称: 個別カルテ入力・更新通知（内部向け）
+# 送信タイミング: FOカルテ管理画面で「個別カルテの更新を通知する」をONにして登録、更新を行ったとき
+# 送信先: TO：事業者責任者（全員）、営業責任者（全員）、支援者責任者（全員）
+#
+message:
+  subject:
+    data: 【支援議事録】{{ financial_year }}_{{ update_count }} {{ project_name }} {{ karte_updater_surname }}
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        アクセラサービス マネジメント各位
+
+        お疲れ様です。{{ karte_updater_surname }}です。
+        {{ customer_name }}{%- if department_name |length != 0 -%}{{ " " ~ department_name }}{%- endif -%}様向け支援を実施しましたので、議事録を送付いたします。
+        ご確認のほどよろしくお願いいたします。
+
+        【日時】
+        {{ support_year }}年{{ support_month }}月{{ support_day }}日（{{ day_of_week }}）  {{ start_support_actual_time }}～{{ end_support_actual_time }}
+
+        【場所】
+        {{ location }}
+
+        【出席者（敬称略）】
+        {%- if customers %}
+        お客様：{{ customers }}
+        {%- endif %}
+        {%- if support_team %}
+        SAP：{{ support_team }}
+        {%- endif %}
+
+        【サービス責任者】
+        {{ service_manager_name }}
+
+        【プロデューサー】
+        {{ producer_name }}
+
+        【カスタマーサクセス】
+        {{ customer_success }}
+
+        【支援実施内容】
+        {{ detail }}
+
+        【コメント・フィードバック】
+        {{ feedback }}
+
+        【ネクストアクション】
+        {{ next_action }}
+
+        【現状の課題・所感・申し送り】
+        {{ task }}
+
+        【お客様に不足している人的リソース】
+        {{ human_resource_needed_for_customer }}
+
+        【お客様に紹介したい企業や産業】
+        {{ company_and_industry_recommended_to_customer }}
+
+        【SAP支援チームに補充したい人的リソース】
+        {{ human_resource_needed_for_support }}
+
+        【マネジメントへのリクエスト】
+        {{ memo }}
+
+        【添付ファイル有無】
+        {{ has_attachment }}
+
+        URL：
+        {{ fo_karte_URL }}
+
+        {{ salesforce_opportunity_id }}
+
+        {{ karte_id }}
+
+      charset: UTF-8
+    html:
+      data: ""

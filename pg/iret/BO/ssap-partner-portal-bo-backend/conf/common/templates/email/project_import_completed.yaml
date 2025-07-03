@@ -1,0 +1,51 @@
+#
+# 名称: Salesforce案件情報インポート通知
+# 送信タイミング: BO案件管理で案件情報がインポートされたとき
+# 送信先: TO: システム管理者（全員）
+#
+message:
+  subject:
+    data: 【Partner Portal】案件情報がインポートされました
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+
+        以下の案件情報がインポートされました。
+        {%- if add_info_list |length !=0 %}
+
+        「新規登録」
+        {%- endif%}
+        {%- for add_info in add_info_list %}
+        ・案件名：{{ add_info.project_name }}
+          ・URL： {{ add_info.fo_project_detail_url }}
+        {%- endfor %}
+        {%- if update_info_list |length !=0 %}
+
+        「更新」
+        {%- endif%}
+        {%- for update_info in update_info_list %}
+        ・案件名：{{ update_info.project_name }}
+          ・Partner Portal項目名
+          {%- for column_info in update_info.update_column_info %}
+          　{{ column_info.update_column }}：{{ column_info.update_value }}
+          {%- endfor %}
+        {%- endfor %}
+        {%- if add_info_list |length !=0 %}
+
+        「新規登録_管理者向けURL」
+        {%- endif%}
+        {%- for add_info in add_info_list %}
+        ・案件名：{{ add_info.project_name }}
+          ・URL： {{ add_info.bo_project_detail_url }}
+        {%- endfor %}
+
+        -----------------------------------------
+        本メールはシステムより自動送信されています。返信いただいてもお答えできませんのでご了承ください。
+        -----------------------------------------
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

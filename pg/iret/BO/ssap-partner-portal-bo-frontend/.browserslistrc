@@ -1,0 +1,4 @@
+# npx browserslist
+last 2 versions # 各ブラウザの最新2バージョン
+> 5% # 世界の使用状況統計5%以上
+not dead # 24ヶ月以内にアップデートされてないブラウザを除外

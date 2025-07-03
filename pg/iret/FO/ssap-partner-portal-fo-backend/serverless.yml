@@ -1,0 +1,179 @@
+service: partner-portal-frontoffice
+frameworkVersion: ">=3.0.0"
+
+plugins:
+  - serverless-python-requirements
+  - serverless-domain-manager
+
+custom:
+  defaultStage: dev
+  #
+  # serverless-python-requirements
+  #
+  pythonRequirements:
+    slim: zip
+    dockerizePip: true
+    dockerImage: public.ecr.aws/sam/build-python3.12:latest-x86_64
+
+  customDomain:
+    domainName: ${self:custom.app.config.file.customDomain.domainName}
+    certificateName: ${self:custom.app.config.file.customDomain.certificateName}
+    basePath: ""
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+  app:
+    config:
+      env: ${opt:stage, self:custom.defaultStage}
+      files:
+        local: ${file(./conf/local/serverless.config.yml)}
+        dev: ${file(./conf/dev/serverless.config.yml)}
+        sqa: ${file(./conf/sqa/serverless.config.yml)}
+        evs: ${file(./conf/evs/serverless.config.yml)}
+        sup: ${file(./conf/sup/serverless.config.yml)}
+        prd: ${file(./conf/prd/serverless.config.yml)}
+      file: ${self:custom.app.config.files.${self:custom.app.config.env}}
+      sfEmails:
+        prd: "supportminutesinfo@t9236ehmsq2ye8jr4pru0zyh64afx5dv0yujpy1k37vuaf199.5h-1wribea4.jpn142.apex.salesforce.com"
+        sqa: "sgc-bac-bd-qct-sqa@sony.com"
+        evs: "supportminutesinfo@2y69ukqb75nxa85yqd9r9kio61f7h7ykw6s82fm0depcrzj97m.bk-2cuwi2ay.jpn2s.apex.sandbox.salesforce.com"
+        default: "sgc-oic-salesforce-dev-dr@sony.com"
+    sfEmailAddress: ${self:custom.app.config.sfEmails.${self:provider.stage}, self:custom.app.config.sfEmails.default}
+
+package:
+  patterns:
+    - "!.devcontainer/**"
+    - "!.mypy_cache/**"
+    - "!.pytest_cache/**"
+    - "!.serverless/**"
+    - "!.logs/**"
+    - "!.github/**"
+    - "!.venv/**"
+    - "!venv/**"
+    - "!.vscode/**"
+    - "!docs/**"
+    - "!dest/**"
+    - "!node_modules/**"
+    - "!tests/**"
+    - "!.coverage"
+    - "!.env"
+    - "!.env.example"
+    - "!.envrc"
+    - "!.envrc.example"
+    - "!package-lock.json"
+    - "!package.json"
+    - "!README.md"
+    - "!serverless.yml"
+    - "!setup.cfg"
+    - "!setup.py"
+    - "!requirements-dev.txt"
+    - "!.gitattributes"
+    - "!.flake8"
+    - "!.editorconfig"
+    - "!pytest.ini"
+    - "!*.rest"
+    - "!*.log"
+
+provider:
+  name: aws
+  runtime: python3.12
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: ap-northeast-1
+  memorySize: ${self:custom.app.config.file.lambda.memorySize}
+  logRetentionInDays: ${self:custom.app.config.file.lambda.logRetentionInDays}
+  versionFunctions: false
+  environment:
+    STAGE: ${self:provider.stage}
+  stackTags:
+    Landscape: ${self:provider.stage}
+  tags:
+    Landscape: ${self:provider.stage}
+  logs:
+    restApi:
+      accessLogging: false
+      executionLogging: true
+      level: ERROR
+      fullExecutionData: false
+
+  iam:
+    role:
+      statements: ${file(./conf/${self:custom.app.config.env}/iam.yml)}
+
+functions:
+  app:
+    timeout: 29
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
+    handler: app/main.handler
+    environment:
+      TZ: Asia/Tokyo
+      ANONYMOUS_SURVEY_VALID_PERIOD: 60
+      SF_EMAIL_ADDRESS: ${self:custom.app.sfEmailAddress}
+    provisionedConcurrency: 2
+
+  batch_remind:
+    timeout: 900
+    events:
+      - schedule:
+          name: partnerportal-frontoffice-${self:provider.stage}-eb-remind_karte
+          rate: cron(0 0 * * ? *) # Every JST 9:00
+          input:
+            mode: "remind_karte"
+            stageParams:
+              stage: ${self:provider.stage}
+      - schedule:
+          name: partnerportal-frontoffice-${self:provider.stage}-eb-schedule_survey
+          rate: cron(0 0 * * ? *) # Every JST 9:00
+          input:
+            mode: "schedule_survey"
+            stageParams:
+              stage: ${self:provider.stage}
+      - schedule:
+          name: partnerportal-frontoffice-${self:provider.stage}-eb-remind_survey
+          rate: cron(0 0 * * ? *) # Every JST 9:00
+          input:
+            mode: "remind_survey"
+            stageParams:
+              stage: ${self:provider.stage}
+      - schedule:
+          name: partnerportal-frontoffice-${self:provider.stage}-eb-remind_manhour
+          rate: cron(0 0 * * ? *) # Every JST 9:00
+          input:
+            mode: "remind_manhour"
+            stageParams:
+              stage: ${self:provider.stage}
+      - schedule:
+          name: partnerportal-frontoffice-${self:provider.stage}-eb-remind_current_program
+          rate: cron(0 0 * * ? *) # Every JST 9:00
+          input:
+            mode: "remind_current_program"
+            stageParams:
+              stage: ${self:provider.stage}
+      - schedule:
+          name: partnerportal-frontoffice-${self:provider.stage}-eb-remind_next_program
+          rate: cron(0 0 * * ? *) # Every JST 9:00
+          input:
+            mode: "remind_next_program"
+            stageParams:
+              stage: ${self:provider.stage}
+    handler: functions/batch_remind.handler
+    environment:
+      TZ: Asia/Tokyo
+      ANONYMOUS_SURVEY_VALID_PERIOD: 60
+
+  mail_sender:
+    timeout: 179
+    events:
+      - sqs:
+          enabled: ${self:custom.app.config.file.events.enabled}
+          arn:
+            Fn::Join:
+              - ":"
+              - - arn
+                - aws
+                - sqs
+                - Ref: AWS::Region
+                - Ref: AWS::AccountId
+                - partnerportal-${self:provider.stage}-frontoffice-sqs-EmailQueue
+    handler: functions/mail_sender.handler

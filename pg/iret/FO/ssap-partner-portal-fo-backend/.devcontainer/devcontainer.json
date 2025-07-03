@@ -1,0 +1,243 @@
+{
+  "name": "FastAPI & Python3.12",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    // Update 'VARIANT' to pick a Python version. Rebuild the container
+    // if it already exists to update. Available variants: 3, 3.6, 3.7, 3.8
+    "args": {
+      "VARIANT": "3.12"
+    }
+  },
+  "remoteEnv": {
+    "AWS_DEFAULT_PROFILE": "ssap-partner-portal-dev" // コンテナOS上で利用するAWSプロファイル
+  },
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "autoDocstring.docstringFormat": "google",
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/local/pip-global/bin/black",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/usr/local/pip-global/bin/flake8",
+    "python.linting.flake8Args": ["--ignore=C901,F401,E203,E501,W503"],
+    "python.linting.lintOnSave": true,
+    "python.sortImports.path": "/usr/local/pip-global/bin/isort",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestPath": "/usr/local/pip-global/bin/pytest",
+    "python.testing.pytestArgs": [],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.envFile": "${workspaceFolder}/.env",
+    "[python]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      },
+      "files.insertFinalNewline": true
+    },
+    "[json]": {
+      "editor.quickSuggestions": {
+        "strings": true
+      },
+      "editor.suggest.insertMode": "replace",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "files.insertFinalNewline": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+      "editor.quickSuggestions": {
+        "strings": true
+      },
+      "editor.suggest.insertMode": "replace",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "files.insertFinalNewline": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[markdown]": {
+      "editor.wordWrap": "on",
+      "editor.quickSuggestions": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    // Serverless Console Settings
+    "serverlessConsole.services": [
+      // DynamoDB
+      {
+        "type": "dynamodb",
+        "title": "dev-Admin",
+        "tableName": "partnerportal-dev-Admin",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-Customer",
+        "tableName": "partnerportal-dev-Customer",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-ManHour",
+        "tableName": "partnerportal-dev-ManHour",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-Master",
+        "tableName": "partnerportal-dev-Master",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-Notification",
+        "tableName": "partnerportal-dev-Notification",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-Project",
+        "tableName": "partnerportal-dev-Project",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-ProjectKarte",
+        "tableName": "partnerportal-dev-ProjectKarte",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-ProjectSchedule",
+        "tableName": "partnerportal-dev-ProjectSchedule",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-ProjectSurvey",
+        "tableName": "partnerportal-dev-ProjectSurvey",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-Session",
+        "tableName": "partnerportal-dev-Session",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-SurveyMaster",
+        "tableName": "partnerportal-dev-SurveyMaster",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-SurveySummary",
+        "tableName": "partnerportal-dev-SurveySummary",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      {
+        "type": "dynamodb",
+        "title": "dev-User",
+        "tableName": "partnerportal-dev-User",
+        "awsProfile": "ssap-partner-portal-dev",
+        "region": "ap-northeast-1"
+      },
+      // CloudWatch Logs
+      {
+        "type": "custom",
+        "title": "dev-FrontOfficeApp",
+        "timeOffsetInMs": 0,
+        "awsProfile": "ssap-partner-portal-dev",
+        "items": [
+          {
+            "title": "app",
+            "tabs": [
+              {
+                "region": "ap-northeast-1",
+                "title": "api",
+                "logs": "/aws/lambda/partner-portal-frontoffice-dev-app"
+              }
+            ]
+          },
+          {
+            "title": "batch",
+            "tabs": [
+              {
+                "region": "ap-northeast-1",
+                "title": "remind",
+                "logs": "/aws/lambda/partner-portal-frontoffice-batch_remind"
+              }
+            ]
+          },
+          {
+            "title": "other",
+            "tabs": [
+              {
+                "region": "ap-northeast-1",
+                "title": "mail",
+                "logs": "/aws/lambda/partner-portal-frontoffice-dev-mail_sender"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "CoenraadS.bracket-pair-colorizer",
+    "streetsidesoftware.code-spell-checker",
+    "visualstudioexptteam.vscodeintellicode",
+    "alefragnani.bookmarks",
+    "sohamkamani.code-eol",
+    "ms-azuretools.vscode-docker",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "oderwat.indent-rainbow",
+    "shd101wyy.markdown-preview-enhanced",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "arjun.swagger-viewer",
+    "mosapride.zenkaku",
+    "ms-python.python",
+    "njpwerner.autodocstring",
+    "redhat.vscode-yaml",
+    "devAdvice.serverlessconsole"
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [9000],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "pip3 install -r requirements-dev.txt",
+  // Comment out to connect as root instead.
+  "remoteUser": "vscode",
+  "mounts": [
+    // Unix
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+    // Windows
+    // "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+  ]
+}

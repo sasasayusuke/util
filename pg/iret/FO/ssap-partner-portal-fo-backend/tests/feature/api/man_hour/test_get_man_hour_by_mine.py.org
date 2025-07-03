@@ -1,0 +1,235 @@
+import pytest
+from app.main import app
+from app.models.man_hour import (
+    AcquirementItemsSubAttribute,
+    DirectSupportManHoursAttribute,
+    ManHourSupporterModel,
+    PreSupportManHoursAttribute,
+    SalesSupportManHoursAttribute,
+    SupportItemsSubAttribute,
+)
+from app.models.project import ProjectModel
+from app.models.project_karte import ProjectKarteModel
+from fastapi.testclient import TestClient
+
+client = TestClient(app)
+
+"""
+TODO: 実装時点ではProjectとProjectKarteのCreate APIが存在せずテストスクリプトを書けないため、これらのAPIが実装されてからコーディングを再開する
+"""
+
+
+class TestGetManHourByMine:
+    @pytest.mark.parametrize(
+        "man_hour_model, project_model, project_karte_models, expected",
+        [
+            (
+                ManHourSupporterModel(
+                    data_type="supporter#89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    year_month="2021/07",
+                    supporter_user_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    supporter_name="田中太郎",
+                    supporter_organization_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    supporter_organization_name="ソニー株式会社",
+                    direct_support_man_hours=DirectSupportManHoursAttribute(
+                        items=[
+                            SupportItemsSubAttribute(
+                                project_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                                role="supporter",
+                                service_type="service-1",
+                                input_man_hour=10,
+                            ),
+                        ]
+                    ),
+                    pre_support_man_hours=PreSupportManHoursAttribute(
+                        items=[
+                            SupportItemsSubAttribute(
+                                project_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                                role="supporter",
+                                service_type="service-1",
+                                input_man_hour=20,
+                            ),
+                        ]
+                    ),
+                    sales_support_man_hours=SalesSupportManHoursAttribute(
+                        items=[
+                            AcquirementItemsSubAttribute(
+                                project_name="案件1",
+                                customer_name="顧客1",
+                                type="new",
+                                input_man_hour=30,
+                            ),
+                        ]
+                    ),
+                    ssap_man_hours={},
+                    holidays_man_hours={},
+                    summary_man_hour={},
+                    is_confirm=False,
+                    create_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    create_at="2022-04-23T03:21:39.356Z",
+                    update_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    update_at="2022-04-23T03:21:39.356Z",
+                    version="1",
+                ),
+                ProjectModel(
+                    id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    data_type="project",
+                    customer_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    name="案件1",
+                    main_sales_user_id="main_sales_user_id",
+                    support_date_from="2021/01/30",
+                    support_date_to="2021/02/28",
+                    total_contract_time=200,
+                    main_customer_user_id="b9b67094-cdab-494c-818e-d4845088269b",
+                    is_karte_remind=True,
+                    is_secret=False,
+                    satisfaction_average=0,
+                    create_at="2022-04-23T03:21:39.356Z",
+                    update_at="2022-04-23T03:21:39.356Z",
+                ),
+                [
+                    ProjectKarteModel(
+                        karte_id="7ac8bddf-88da-46c9-a504-a03d1661ad58",
+                        project_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                        customer_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                        date="2021/07/01",
+                        man_hour=10,
+                        is_draft=True,
+                        create_at="2022-04-23T03:21:39.356Z",
+                        update_at="2022-04-23T03:21:39.356Z",
+                    ),
+                    ProjectKarteModel(
+                        karte_id="7ac8bddf-88da-46c9-a504-a03d1661ad59",
+                        project_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                        customer_id="89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                        date="2021/07/02",
+                        man_hour=10,
+                        is_draft=True,
+                        create_at="2022-04-23T03:21:39.356Z",
+                        update_at="2022-04-23T03:21:39.356Z",
+                    ),
+                ],
+                {
+                    "yearMonth": "2021/07",
+                    "supporterUserId": "89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    "supporterName": "田中太郎",
+                    "supporterOrganizationId": "89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    "supporterOrganizationName": "ソニー株式会社",
+                    "directSupportManHours": {
+                        "items": [
+                            {
+                                "projectId": "89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                                "projectName": "案件1",
+                                "role": "supporter",
+                                "serviceType": "service-1",
+                                "karteManHour": 20,
+                                "inputManHour": 10,
+                            },
+                        ],
+                        "memo": None,
+                    },
+                    "preSupportManHours": {
+                        "items": [
+                            {
+                                "projectId": "89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                                "projectName": "案件1",
+                                "role": "supporter",
+                                "serviceType": "service-1",
+                                "inputManHour": 20,
+                            },
+                        ],
+                        "memo": None,
+                    },
+                    "salesSupportManHours": {
+                        "items": [
+                            {
+                                "projectName": "案件1",
+                                "customerName": "顧客1",
+                                "type": "new",
+                                "inputManHour": 30,
+                            },
+                        ],
+                        "memo": None,
+                    },
+                    "ssapManHours": {
+                        "meeting": 0,
+                        "study": 0,
+                        "learning": 0,
+                        "newService": 0,
+                        "startdash": 0,
+                        "improvement": 0,
+                        "ssap": 0,
+                        "qc": 0,
+                        "accounting": 0,
+                        "management": 0,
+                        "officeWork": 0,
+                        "others": 0,
+                        "memo": None,
+                    },
+                    "holidaysManHours": {
+                        "paidHoliday": 0,
+                        "holiday": 0,
+                        "private": 0,
+                        "others": 0,
+                        "departmentOthers": 0,
+                        "memo": None,
+                    },
+                    "summaryManHour": {
+                        "direct": 0,
+                        "pre": 0,
+                        "sales": 0,
+                        "ssap": 0,
+                        "others": 0,
+                        "total": 0,
+                    },
+                    "isConfirm": False,
+                    "createId": "89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    "createAt": "2022-04-23T03:21:39.356Z",
+                    "updateId": "89cbe2ed-f44c-4a1c-9408-c67b0ca2270d",
+                    "updateAt": "2022-04-23T03:21:39.356Z",
+                    "version": 1,
+                },
+            )
+        ],
+    )
+    @pytest.mark.usefixtures("auth_supporter_user")
+    def test_ok(
+        self, mocker, man_hour_model, project_model, project_karte_models, expected
+    ):
+        """支援者別工数の取得成功"""
+        mock = mocker.patch.object(ManHourSupporterModel, "get")
+        mock.return_value = man_hour_model
+
+        mock = mocker.patch.object(ProjectModel, "get")
+        mock.return_value = project_model
+
+        mock = mocker.patch.object(
+            ProjectKarteModel.project_id_start_datetime_index, "query"
+        )
+        mock.return_value = project_karte_models
+
+        response = client.get("/api/man-hours/me?year=2022&month=7")
+
+        actual = response.json()
+        assert response.status_code == 200
+        assert actual == expected
+
+    @pytest.mark.usefixtures("auth_supporter_user")
+    def test_validation_year(self):
+        """クエリパラメータ: yearのバリデーションチェック"""
+
+        month = 7
+
+        response = client.get(f"/api/man-hours/me?month={month}")
+
+        assert response.status_code == 422
+
+    @pytest.mark.usefixtures("auth_supporter_user")
+    def test_validation_month(self):
+        """クエリパラメータ: yearのバリデーションチェック"""
+
+        year = 2021
+
+        response = client.get(f"/api/man-hours/me?year={year}")
+
+        assert response.status_code == 422

@@ -1,0 +1,61 @@
+@mixin list-item() {
+  .v-list-item {
+    position: relative;
+    min-height: 0;
+    height: 37px;
+    font-size: 0.875rem;
+    &::before {
+      background-color: #ebf7ed;
+      opacity: 0;
+      mix-blend-mode: darken;
+    }
+    &:hover,
+    &:focus {
+      &::before {
+        opacity: 1;
+      }
+    }
+    &::after {
+      opacity: 1;
+      height: 1px;
+      width: calc(100% - 14px);
+      background-color: #ddd;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    &:nth-last-child(1) {
+      height: 36px;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin hoge($color: pink, $fSize: 32px) {
+  color: $color;
+  font-size: $fSize;
+}
+
+@mixin fontSize($size: 'normal') {
+  $sizes: (
+    // 10px
+    xxsmall: 0.625rem,
+    // 12px
+    xsmall: 0.75rem,
+    // 14px
+    small: 0.875rem,
+    // 16px
+    normal: 1rem,
+    // 18px
+    large: 1.125rem,
+    // 20px
+    xlarge: 1.25rem,
+    // 22px
+    xxlarge: 1.375rem,
+    // 24px
+    xxxlarge: 1.4rem
+  );
+  font-size: map-get($sizes, $size);
+}

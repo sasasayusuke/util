@@ -1,0 +1,16 @@
+#
+# 名称: ソルバー候補更新通知、個人ソルバー登録通知、個人ソルバー更新通知
+# 送信タイミング: ソルバー候補、個人ソルバー情報を初回登録もしくは更新した場合
+# 送信先: TO: SalesForce、CC: システム管理者
+#
+message:
+  subject:
+    data: 【Partner Portal】{{ subject }}
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        {{ solver_data }}
+      charset: UTF-8
+    html:
+      data: ""

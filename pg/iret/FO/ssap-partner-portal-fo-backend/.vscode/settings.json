@@ -1,0 +1,60 @@
+{
+  "autoDocstring.docstringFormat": "google",
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/usr/local/pip-global/bin/black",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "/usr/local/pip-global/bin/flake8",
+  "python.linting.flake8Args": ["--ignore=C901,F401,E203,E501,W503"],
+  "python.linting.lintOnSave": true,
+  "python.sortImports.path": "/usr/local/pip-global/bin/isort",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "/usr/local/pip-global/bin/pytest",
+  "python.testing.pytestArgs": [],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.envFile": "${workspaceFolder}/.env",
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "files.insertFinalNewline": true
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "nuxt.isNuxtApp": false
+}

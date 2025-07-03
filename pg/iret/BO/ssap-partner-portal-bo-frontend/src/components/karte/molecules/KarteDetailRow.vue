@@ -1,0 +1,131 @@
+<template>
+  <v-row class="o-karte-detail-row" no-gutters :class="classes">
+    <v-col>
+      <v-row
+        no-gutters
+        class="o-karte-detail-row__header"
+        justify="space-between"
+        align="center"
+      >
+        <v-col v-if="projectId" cols="auto customer-success__cols">
+          <v-col cols="auto customer-success__icon">
+            <Icon style-set="primary" size="25" class="mr-1">
+              icon-flag-variant
+            </Icon>
+          </v-col>
+          <component
+            :is="hx"
+            class="o-karte-detail-row__sub-title customer-success__sub-title"
+          >
+            {{ title }}
+          </component>
+        </v-col>
+        <v-col v-else cols="auto">
+          <component :is="hx" class="o-karte-detail-row__sub-title">
+            {{ title }}
+          </component>
+        </v-col>
+        <v-col v-if="projectId" cols="auto">
+          <Button
+            style-set="small-primary"
+            outlined
+            :to="forwardToUrl(`/project/${projectId}`)"
+            >{{ $t('project.pages.detail.name') }}</Button
+          >
+        </v-col>
+      </v-row>
+      <v-row no-gutters class="o-karte-detail-row__content">
+        <v-col>
+          <slot name="default" />
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
+</template>
+
+<script lang="ts">
+import { Icon, Button } from '~/components/common/atoms/index'
+import BaseComponent from '~/common/BaseComponent'
+
+export default BaseComponent.extend({
+  name: 'KarteDetailRow',
+  components: {
+    Button,
+    Icon,
+  },
+  props: {
+    projectId: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    /** 下線をつけるclassを追加するか否か */
+    isNoUnderLine: {
+      type: Boolean,
+      default: false,
+    },
+    /** is-short classを追加するか否か */
+    isShort: {
+      type: Boolean,
+      default: false,
+    },
+    hx: {
+      type: String,
+      default: 'h2',
+    },
+  },
+  data() {
+    return {
+      classes: {
+        'is-no-under-line': this.isNoUnderLine,
+        'is-short': this.isShort,
+      },
+    }
+  },
+})
+</script>
+
+<style lang="scss" scoped>
+.o-karte-detail-row {
+  padding: 24px 0;
+  border-bottom: 1px solid $c-gray-line;
+  &.is-no-under-line {
+    border-bottom: 0;
+  }
+  &.is-short {
+    padding: 0 0 24px;
+    border-bottom: 1px solid $c-gray-line;
+    &:nth-child(n + 2) {
+      margin-top: 24px;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+.o-karte-detail-row__header {
+  padding-bottom: 12px;
+}
+.o-karte-detail-row__sub-title {
+  @include fontSize($size: 'small');
+}
+.o-karte-detail-row__content {
+  p {
+    margin-bottom: 0;
+    word-break: break-word;
+  }
+}
+.customer-success__cols {
+  display: flex;
+  align-items: center;
+}
+.customer-success__icon {
+  padding: 0 !important;
+}
+.customer-success__sub-title {
+  color: #008a19 !important;
+}
+</style>

@@ -1,0 +1,55 @@
+#
+# 名称: アンケートお客様回答通知
+# 送信タイミング: お客様がアンケートを提出したとき
+# 送信先: TO：
+#   案件にアサインされた営業担当者。
+#   支援者責任者（ユーザー権限マトリクス表に準ずる）
+#   営業担当責任者（全員）、システム管理者（全員）、アンケート事務局スタッフ（全員）
+#   ※アンケートの開示OKとしている場合：案件にアサインされた支援者にも通知
+#
+message:
+  subject:
+    data: 【Partner Portal】{{ customer_name_project_name }}の{{ survey_month }}の{{ survey_type_name }}に回答がありました
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+
+        {{ customer_name_project_name }}の{{ survey_month }}の{{ survey_type_name }}に回答がありました。
+        URL：{{ fo_survey_detail_url }}
+        ※管理者向けURL
+        URL：{{ bo_survey_detail_url }}
+
+        開示可否：{{ disclosure }}
+        {% if service_manager_name -%}
+        サービス責任者：{{ service_manager_name }}
+        {%- else -%}
+        サービス責任者：なし
+        {%- endif %}
+        {% if main_supporter_user_name -%}
+        プロデューサー：{{ main_supporter_user_name }}
+        {%- else -%}
+        プロデューサー：なし
+        {%- endif %}
+        {% if supporter_users_names -%}
+        アクセラレーター：{{ supporter_users_names|join('、') }}
+        {%- else -%}
+        アクセラレーター：なし
+        {%- endif %}
+        担当営業：{{ sales_user_name }}
+        回答内容：
+        {%- for answer_info in survey_answer_info_list %}
+        【設問】{{ answer_info.description }}
+        【回答】{{ answer_info.answer }}
+        【その他】{{ answer_info.other_input }}
+        {% endfor %}
+
+        -----------------------------------------
+        本メールはシステムより自動送信されています。返信いただいてもお答えできませんのでご了承ください。
+        -----------------------------------------
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

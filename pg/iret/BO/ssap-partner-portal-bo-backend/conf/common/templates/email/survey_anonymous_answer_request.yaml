@@ -1,0 +1,47 @@
+#
+# 名称: 匿名アンケート回答依頼通知
+# 送信タイミング: スケジュール上の送信日時点
+# 送信先: TO：案件に設定されたアンケート送信先
+#         Cc：営業担当者
+#         Bcc：アンケート事務局スタッフ
+#
+message:
+  subject:
+    data: 【{{ formatted_month }}月度の評価のお願い】{{ survey_answer_due_date_title }}{{ customer_name }}　{{ answer_user_name }}様
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+        ご返信いただいてもお答えできませんのでご了承下さい。
+        （プロジェクト毎の依頼となるため、お客様によっては複数ご依頼差し上げる場合がある事、ご容赦ください。）
+
+        平素より大変お世話になっております。
+        {{ customer_name }}／{{ project_name }}の{{ summary_month }}の{{ survey_type_name }}へのご回答につきまして、ご依頼申し上げます。
+
+        ・URL：{{ fo_survey_detail_url }}
+
+        ※ご回答前にパスワードの入力が必要になります。別途送られる評価回答用パスワードが記載されたメールをご参照の上、ご入力をお願い申し上げます。
+        {%- if survey_answer_due_date |length != 0 %}
+        ・回答期限：{{ survey_answer_due_date }}
+        {%- endif %}
+
+        Sony Acceleration Platformではプログラム期間中、月に1度評価アンケートにご協力をお願いしております。
+        頂いたフィードバックはお客様のカスタマーサクセス達成のために活用し、Sony Acceleration Platform責任者を交えて組織的にサービス改善に取り組んでおります。
+        今後さらなるサービス向上を目的として参考にさせて頂きたく、ご多忙の折誠に恐縮ではございますが、ご協力の程宜しくお願い申し上げます。
+        担当営業への開示をご希望されない場合、 SGC-OIC-CSManager@sony.com 宛にご連絡下さい。
+
+        -----------------------------------------
+
+        今回メールを送付しております「Partner Portal」は、アカウントをご登録頂くと評価アンケートご回答だけではなく、支援内容やスケジュールをご確認頂くことが出来ます。（「Partner Portal」ご利用にあたって費用は一切発生いたしません）
+
+        ■操作方法等、Partner Portalに関する全般的なご要望・お問い合わせは下記までご連絡ください。
+        https://partner-portal.sony-startup-acceleration-program.com/contact
+
+        （案件識別ID：{{ project_identification_id }}）
+
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

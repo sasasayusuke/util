@@ -1,0 +1,97 @@
+// color
+$c-primary: #00ad19;
+$c-primary-dark: #008a19;
+$c-primary-over: #006819;
+// $c-primary-8: #ebf7ed;
+$c-primary-8: #dcf4e1;
+$c-primary-light: #c7eacd;
+
+$c-secondary: #1867c0;
+$c-secondary-over: #13529a;
+$c-secondary-10: #ebf1fa;
+
+$c-black: #000;
+$c-black-80: #333;
+$c-black-60: #666;
+$c-black-30: #b2b2b2;
+$c-black-20: #ccc;
+$c-black-question: #eee;
+$c-black-table-border: #f7f7f7;
+$c-black-table-bg: #f0f0f0;
+$c-black-page-bg: #fafafa;
+
+$c-disabled: $c-black-20;
+$c-disabled2: #8f8f8f;
+
+$c-white: #fff;
+
+$c-red: #d53030;
+$c-red-10: #faeded;
+$c-red-bright: #fc0f1a;
+
+$c-label: #0d3296;
+
+$c-gray-line: #c9c9c9;
+$c-gray-line-dark: #8f8f8f;
+$c-gray-line-light: #e3e3e3;
+
+// ボタン
+$buttonColors: (
+  primary: (
+    default: $c-primary-dark,
+    hover: $c-primary-over,
+  ),
+  secondary: (
+    default: $c-secondary,
+    hover: $c-secondary-over,
+  ),
+  tertiary: (
+    default: $c-black-60,
+    hover: #3d3d3d,
+  ),
+  error: (
+    default: $c-red,
+    hover: #ab2626,
+  ),
+  disabled: (
+    default: $c-disabled2,
+  ),
+  pagenation: (
+    default: $c-primary-dark,
+    hover: $c-primary-over,
+  ),
+);
+$buttonColorsOutline: (
+  primary: (
+    default: $c-primary-dark,
+    hover: #eaf4e9,
+  ),
+  secondary: (
+    default: $c-secondary,
+    hover: #ebf1fa,
+  ),
+  tertiary: (
+    default: $c-black-60,
+    hover: #f0f0f0,
+  ),
+  error: (
+    default: $c-red,
+    hover: #faeded,
+  ),
+  disabled: (
+    default: $c-disabled2,
+  ),
+  pagenation: (
+    default: $c-primary-dark,
+    hover: $c-primary-over,
+  ),
+);
+
+// vuetifyテーマデフォルトカラーメモ
+$v-primary: #1976d2;
+$v-secondary: #424242;
+$v-accent: #82b1ff;
+$v-error: #ff5252;
+$v-info: #2196f3;
+$v-success: #4caf50;
+$v-warning: #ffc107;

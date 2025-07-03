@@ -1,0 +1,35 @@
+#
+# 名称: 管理ユーザーのアカウント登録完了通知
+# 送信タイミング: 管理ユーザーののアカウント登録完了通知
+# 送信先: 登録された管理ユーザー
+#
+message:
+  subject:
+    data: 【Sony Acceleration Platform】Partner Portal BackOfficeユーザー登録完了のお知らせ
+    charset: UTF-8
+  body:
+    text:
+      data: |
+        {{ email_address }} 様
+
+        本メールは、Sony Acceleration Platformが提供する「Partner Portal」より自動送信しております。
+
+        「Partner Portal BackOffice」のご利用登録が完了しましたことをお知らせいたします。
+
+        【ご利用方法】
+        以下のページからサインインしてください。
+        Partner Portalのご利用には、Sony Acceleration Platformアカウントが必要です。
+        Sony Acceleration Platformアカウントをお持ちでない方は、本メールアドレスでアカウント登録を行ってください。（以下のサインインページからアカウント登録ができます）
+        ※別のメールアドレスでアカウント登録をいただいてもPartner Portal BackOfficeをご利用いただくことができませんので、ご注意ください。
+
+        Partner Portal BackOfficeサインインページ
+        {{ bo_top_url }}
+
+        -----------------------------------------
+        本メールはシステムより自動送信されています。返信いただいてもお答えできませんのでご了承ください。
+        -----------------------------------------
+        ※無断複写・転載を禁じます。
+        発行・編集　Sony Acceleration Platform
+      charset: UTF-8
+    html:
+      data: ""

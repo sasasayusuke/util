@@ -1,3 +1,0 @@
-[flake8]
-ignore = C901,F401,E203,E501,W503,E712
-exclude = node_modules

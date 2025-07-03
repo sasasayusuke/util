@@ -1,5 +1,0 @@
-lambda:
-  logRetentionInDays: 14
-
-events:
-  enabled: true

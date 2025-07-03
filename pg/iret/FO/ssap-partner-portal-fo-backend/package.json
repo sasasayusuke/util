@@ -1,0 +1,12 @@
+{
+  "name": "ssap-partner-portal-backoffice-backend",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Iret.inc",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-domain-manager": "6.0.*",
+    "serverless-python-requirements": "5.1.*"
+  }
+}
