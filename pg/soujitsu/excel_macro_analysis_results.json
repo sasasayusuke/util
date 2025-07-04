@@ -1,0 +1,724 @@
+{
+  "01_受領資料/管理変動費(202501).xls": {
+    "file_name": "管理変動費(202501).xls",
+    "file_path": "/home/sdt_op/projects/util/pg/soujitsu/01_受領資料/管理変動費(202501).xls",
+    "file_size": 622080,
+    "has_macros": false,
+    "vba_modules": [],
+    "worksheet_count": 10,
+    "worksheet_names": [
+      "電気使用料(一般)",
+      "電気使用料(動力-店舗内)",
+      "電気使用料(動力-空調用)",
+      "電気使用料(合計)",
+      "空調用ガス使用料",
+      "水道使用料",
+      "駐車サービス券_1140",
+      "駐車サービス券_1150",
+      "システム利用料",
+      "Sheet2"
+    ],
+    "error": null,
+    "macro_functions": [],
+    "macro_complexity": "None",
+    "data_summary": {
+      "電気使用料(一般)": {
+        "max_row": 254,
+        "max_column": 17,
+        "has_data": true
+      },
+      "電気使用料(動力-店舗内)": {
+        "max_row": 254,
+        "max_column": 16,
+        "has_data": true
+      },
+      "電気使用料(動力-空調用)": {
+        "max_row": 254,
+        "max_column": 16,
+        "has_data": true
+      },
+      "電気使用料(合計)": {
+        "max_row": 252,
+        "max_column": 13,
+        "has_data": true
+      },
+      "空調用ガス使用料": {
+        "max_row": 254,
+        "max_column": 16,
+        "has_data": true
+      },
+      "水道使用料": {
+        "max_row": 255,
+        "max_column": 16,
+        "has_data": true
+      },
+      "駐車サービス券_1140": {
+        "max_row": 223,
+        "max_column": 7,
+        "has_data": true
+      },
+      "駐車サービス券_1150": {
+        "max_row": 16,
+        "max_column": 7,
+        "has_data": true
+      },
+      "システム利用料": {
+        "max_row": 220,
+        "max_column": 7,
+        "has_data": true
+      },
+      "Sheet2": {
+        "max_row": 0,
+        "max_column": 0,
+        "has_data": false
+      }
+    }
+  },
+  "01_受領資料/管理変動費(202412).xls": {
+    "file_name": "管理変動費(202412).xls",
+    "file_path": "/home/sdt_op/projects/util/pg/soujitsu/01_受領資料/管理変動費(202412).xls",
+    "file_size": 622592,
+    "has_macros": false,
+    "vba_modules": [],
+    "worksheet_count": 10,
+    "worksheet_names": [
+      "電気使用料(一般)",
+      "電気使用料(動力-店舗内)",
+      "電気使用料(動力-空調用)",
+      "電気使用料(合計)",
+      "空調用ガス使用料",
+      "水道使用料",
+      "駐車サービス券_1140",
+      "駐車サービス券_1150",
+      "システム利用料",
+      "Sheet2"
+    ],
+    "error": null,
+    "macro_functions": [],
+    "macro_complexity": "None",
+    "data_summary": {
+      "電気使用料(一般)": {
+        "max_row": 254,
+        "max_column": 17,
+        "has_data": true
+      },
+      "電気使用料(動力-店舗内)": {
+        "max_row": 254,
+        "max_column": 16,
+        "has_data": true
+      },
+      "電気使用料(動力-空調用)": {
+        "max_row": 254,
+        "max_column": 16,
+        "has_data": true
+      },
+      "電気使用料(合計)": {
+        "max_row": 251,
+        "max_column": 13,
+        "has_data": true
+      },
+      "空調用ガス使用料": {
+        "max_row": 254,
+        "max_column": 16,
+        "has_data": true
+      },
+      "水道使用料": {
+        "max_row": 255,
+        "max_column": 16,
+        "has_data": true
+      },
+      "駐車サービス券_1140": {
+        "max_row": 222,
+        "max_column": 7,
+        "has_data": true
+      },
+      "駐車サービス券_1150": {
+        "max_row": 16,
+        "max_column": 7,
+        "has_data": true
+      },
+      "システム利用料": {
+        "max_row": 216,
+        "max_column": 7,
+        "has_data": true
+      },
+      "Sheet2": {
+        "max_row": 0,
+        "max_column": 0,
+        "has_data": false
+      }
+    }
+  },
+  "01_受領資料/管理変動費(202401).xls": {
+    "file_name": "管理変動費(202401).xls",
+    "file_path": "/home/sdt_op/projects/util/pg/soujitsu/01_受領資料/管理変動費(202401).xls",
+    "file_size": 585728,
+    "has_macros": false,
+    "vba_modules": [],
+    "worksheet_count": 10,
+    "worksheet_names": [
+      "電気使用料(一般)",
+      "電気使用料(動力-店舗内)",
+      "電気使用料(動力-空調用)",
+      "電気使用料(合計)",
+      "空調用ガス使用料",
+      "水道使用料",
+      "駐車サービス券_1140",
+      "駐車サービス券_1150",
+      "システム利用料",
+      "Sheet2"
+    ],
+    "error": null,
+    "macro_functions": [],
+    "macro_complexity": "None",
+    "data_summary": {
+      "電気使用料(一般)": {
+        "max_row": 247,
+        "max_column": 17,
+        "has_data": true
+      },
+      "電気使用料(動力-店舗内)": {
+        "max_row": 247,
+        "max_column": 16,
+        "has_data": true
+      },
+      "電気使用料(動力-空調用)": {
+        "max_row": 247,
+        "max_column": 16,
+        "has_data": true
+      },
+      "電気使用料(合計)": {
+        "max_row": 245,
+        "max_column": 13,
+        "has_data": true
+      },
+      "空調用ガス使用料": {
+        "max_row": 247,
+        "max_column": 16,
+        "has_data": true
+      },
+      "水道使用料": {
+        "max_row": 248,
+        "max_column": 16,
+        "has_data": true
+      },
+      "駐車サービス券_1140": {
+        "max_row": 222,
+        "max_column": 7,
+        "has_data": true
+      },
+      "駐車サービス券_1150": {
+        "max_row": 16,
+        "max_column": 7,
+        "has_data": true
+      },
+      "システム利用料": {
+        "max_row": 216,
+        "max_column": 7,
+        "has_data": true
+      },
+      "Sheet2": {
+        "max_row": 0,
+        "max_column": 0,
+        "has_data": false
+      }
+    }
+  },
+  "01_受領資料/計算用管理変動費Master.xls": {
+    "file_name": "計算用管理変動費Master.xls",
+    "file_path": "/home/sdt_op/projects/util/pg/soujitsu/01_受領資料/計算用管理変動費Master.xls",
+    "file_size": 589824,
+    "has_macros": true,
+    "vba_modules": [
+      {
+        "module_name": "Module1.bas",
+        "code_lines": 150,
+        "functions": [
+          "FDに値のコピー"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module1\"\r\nSub FDに値のコピー()\r\nAttribute FDに値のコピー.VB_Description = \"マクロ記録日 : 2002/12/2  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute FDに値のコピー.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' FDに値のコピー Macro\r\n' マクロ記録日 : 2002/12/2  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Columns(\"E:E\").Select\r\n    Selection.Copy\r\n    \r\n    \r\n    \r\n    \r\n    \r\n    Windows(\"管理変動費Master.xls\").Activate\r\n    ActiveWindow.WindowState = xlMaximized\r\n    ActiveWindow.SmallScroll ToRight:=1\r\n    Sheets(\"電気使用料(一般)\").Select\r\n    ..."
+      },
+      {
+        "module_name": "ThisWorkbook.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"ThisWorkbook\"\r\nAttribute VB_Base = \"0{00020819-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet1.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet1\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet2.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet2\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet3.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet3\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet4.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet4\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet5.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet5\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet6.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet6\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Module2.bas",
+        "code_lines": 2,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Module2\"\r\n"
+      },
+      {
+        "module_name": "Module3.bas",
+        "code_lines": 194,
+        "functions": [
+          "管理変動費master用FD作成"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module3\"\r\nSub 管理変動費master用FD作成()\r\nAttribute 管理変動費master用FD作成.VB_Description = \"マクロ記録日 : 2002/12/30  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute 管理変動費master用FD作成.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 管理変動費master用FD作成 Macro\r\n' マクロ記録日 : 2002/12/30  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    \r\n    Windows(\"計算用管理変動費Master.xls\").Activate\r\n    Columns(\"E:E\").Select\r\n    Application.CutCopyMode = False\r\n    Selection.Copy\r\n    Windows(\"管理変動費Master.xls\").Activate\r\n    Sheets(\"電気使用料(一般)\").Select..."
+      },
+      {
+        "module_name": "Module4.bas",
+        "code_lines": 20,
+        "functions": [
+          "Macro_test_1"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module4\"\r\nSub Macro_test_1()\r\nAttribute Macro_test_1.VB_Description = \"マクロ記録日 : 2006/7/30  ユーザー名 : ジャパンメンテナンス\"\r\nAttribute Macro_test_1.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' Macro_test_1 Macro\r\n' マクロ記録日 : 2006/7/30  ユーザー名 : ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Range(\"H2:H19\").Select\r\n    Selection.Copy\r\n    ChDir \"A:\\\"\r\n    Workbooks.Open Filename:=\"A:\\管理変動費Master.xls\"\r\n    Range(\"H2\").Select\r\n    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\r\n        :..."
+      },
+      {
+        "module_name": "Sheet7.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet7\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Module5.bas",
+        "code_lines": 46,
+        "functions": [
+          "電気合計チェック"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module5\"\r\nSub 電気合計チェック()\r\nAttribute 電気合計チェック.VB_Description = \"マクロ記録日 : 2009/8/4  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute 電気合計チェック.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 電気合計チェック Macro\r\n' マクロ記録日 : 2009/8/4  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n\r\n\r\n    MsgBox \"「管理変動費Master」登録し、開いていますか？\", vb\r\n    \r\n  Dim Msg, style, title, help, ctxt, respnse, mystring\r\n    Msg = \"計算用管理変動費Masterに管理変動費Master電気合計データをコピーします\"\r\n    style = vbYesNo + vbCritical + vbDefaultButton2\r\n    title = \"msgbox 確認\"\r\n  ..."
+      },
+      {
+        "module_name": "Sheet8.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet8\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      }
+    ],
+    "worksheet_count": 8,
+    "worksheet_names": [
+      "電気使用料(一般)",
+      "電気使用料(動力-店舗内)",
+      "電気使用料(動力-空調用)",
+      "電気使用料(合計)",
+      "空調用ガス使用料",
+      "水道使用料",
+      "光熱水使用量",
+      "光熱水使用量 (2)"
+    ],
+    "error": null,
+    "macro_functions": [
+      "FDに値のコピー",
+      "管理変動費master用FD作成",
+      "Macro_test_1",
+      "電気合計チェック"
+    ],
+    "macro_complexity": "High",
+    "data_summary": {
+      "電気使用料(一般)": {
+        "max_row": 254,
+        "max_column": 18,
+        "has_data": true
+      },
+      "電気使用料(動力-店舗内)": {
+        "max_row": 254,
+        "max_column": 18,
+        "has_data": true
+      },
+      "電気使用料(動力-空調用)": {
+        "max_row": 258,
+        "max_column": 18,
+        "has_data": true
+      },
+      "電気使用料(合計)": {
+        "max_row": 254,
+        "max_column": 17,
+        "has_data": true
+      },
+      "空調用ガス使用料": {
+        "max_row": 257,
+        "max_column": 18,
+        "has_data": true
+      },
+      "水道使用料": {
+        "max_row": 255,
+        "max_column": 18,
+        "has_data": true
+      },
+      "光熱水使用量": {
+        "max_row": 17,
+        "max_column": 4,
+        "has_data": true
+      },
+      "光熱水使用量 (2)": {
+        "max_row": 15,
+        "max_column": 4,
+        "has_data": true
+      }
+    }
+  },
+  "01_受領資料/MO報告光熱費.xls": {
+    "file_name": "MO報告光熱費.xls",
+    "file_path": "/home/sdt_op/projects/util/pg/soujitsu/01_受領資料/MO報告光熱費.xls",
+    "file_size": 1116672,
+    "has_macros": true,
+    "vba_modules": [
+      {
+        "module_name": "Module1.bas",
+        "code_lines": 262,
+        "functions": [
+          "準備1",
+          "テナント検針データコピー"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module1\"\r\nSub 準備1()\r\nAttribute 準備1.VB_Description = \"マクロ記録日 : 2002/12/1  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute 準備1.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 準備1 Macro\r\n' マクロ記録日 : 2002/12/1  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Sheets(\"JM報告（一般ガス水道）\").Select\r\n    \r\n       \r\n    Range(\"D4:D8\").Select\r\n    Application.CutCopyMode = False\r\n    Selection.Copy\r\n    Range(\"E4\").Select\r\n    Selection.PasteSpecial Paste:=xlValues, Operation:=xlNone, SkipBlanks:= _\r\n        False, Transpo..."
+      },
+      {
+        "module_name": "ThisWorkbook.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"ThisWorkbook\"\r\nAttribute VB_Base = \"0{00020819-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet1.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet1\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet10.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet10\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet3.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet3\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Module14.bas",
+        "code_lines": 59,
+        "functions": [
+          "データー移動",
+          "移動1期分"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module14\"\r\nSub データー移動()\r\nAttribute データー移動.VB_Description = \"マクロ記録日 : 2012/3/2  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute データー移動.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' データー移動 Macro\r\n' マクロ記録日 : 2012/3/2  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n\r\n    Range(\"J51:K84\").Select\r\n    Selection.Copy\r\n    Range(\"E2\").Select\r\n    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\r\n        :=False, Transpose:=False\r\n\r\n    Range(\"J159:K187\").Select\r\n    Selection.Copy\r\n   ..."
+      },
+      {
+        "module_name": "Sheet5.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet5\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet6.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet6\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Module2.bas",
+        "code_lines": 24,
+        "functions": [
+          "テスト1"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module2\"\r\nSub テスト1()\r\nAttribute テスト1.VB_Description = \"マクロ記録日 : 2002/12/2  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute テスト1.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' テスト1 Macro\r\n' マクロ記録日 : 2002/12/2  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Range(\"D4:D8\").Select\r\n    Application.CutCopyMode = False\r\n    Selection.Copy\r\n    With ActiveWindow\r\n        .Top = 91.75\r\n        .Left = 1.75\r\n    End With\r\n    Windows(\"電気料金検討.xls\").Activate\r\n    Range(\"L42\").Select\r\n    Selection.PasteSpecial Pa..."
+      },
+      {
+        "module_name": "Module3.bas",
+        "code_lines": 29,
+        "functions": [
+          "準備2"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module3\"\r\nSub 準備2()\r\nAttribute 準備2.VB_Description = \"マクロ記録日 : 2002/12/3  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute 準備2.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 準備2 Macro\r\n' マクロ記録日 : 2002/12/3  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Sheets(\"JM報告（電気）\").Select\r\n    Range(\"E202\").Select\r\n    Selection.Copy\r\n    Range(\"F202\").Select\r\n    Selection.PasteSpecial Paste:=xlValues, Operation:=xlNone, SkipBlanks:= _\r\n        False, Transpose:=False\r\n    ActiveWindow.SmallScroll Down:=5\r\n    'R..."
+      },
+      {
+        "module_name": "Module7.bas",
+        "code_lines": 69,
+        "functions": [
+          "空調データクリア"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module7\"\r\nSub 空調データクリア()\r\nAttribute 空調データクリア.VB_Description = \"マクロ記録日 : 2005/1/8  ユーザー名 : tenken\"\r\nAttribute 空調データクリア.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 空調データクリア Macro\r\n' マクロ記録日 : 2005/1/8  ユーザー名 : tenken\r\n'\r\n\r\n'\r\n     ActiveWindow.ScrollWorkbookTabs Sheets:=1\r\n    ActiveWindow.ScrollWorkbookTabs Sheets:=1\r\n    Sheets(\"空調料金按分\").Select\r\n    ActiveWindow.SmallScroll ToRight:=1\r\n      MsgBox \"データをクリアします\", vbOKCancel\r\n    Range(\"E2\").Select\r\n    ActiveWindow.SmallScroll ..."
+      },
+      {
+        "module_name": "Module4.bas",
+        "code_lines": 17,
+        "functions": [
+          "FD起動"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module4\"\r\nSub FD起動()\r\nAttribute FD起動.VB_Description = \"マクロ記録日 : 2002/12/8  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute FD起動.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' FD起動 Macro\r\n' マクロ記録日 : 2002/12/8  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    ChDir \"A:\\\"\r\n    Workbooks.Open Filename:=\"A:\\管理変動費Master.xls\"\r\n    \r\n    ActiveWindow.WindowState = xlMinimized\r\n    Range(\"B20\").Select\r\nEnd Sub\r\n"
+      },
+      {
+        "module_name": "Module5.bas",
+        "code_lines": 35,
+        "functions": [
+          "空調按分データ入力_Click",
+          "JM報告電気データ入力"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module5\"\r\nSub 空調按分データ入力_Click()\r\nAttribute 空調按分データ入力_Click.VB_Description = \"マクロ記録日 : 2002/12/15  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute 空調按分データ入力_Click.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 空調按分データ入力_Click Macro\r\n' マクロ記録日 : 2002/12/15  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    ActiveWindow.ScrollWorkbookTabs Sheets:=1\r\n    ActiveWindow.ScrollWorkbookTabs Sheets:=1\r\n    Sheets(\"空調料金按分\").Select\r\n    ActiveWindow.SmallScroll ToRight:=1\r\n     MsgBox \"データ入力しますか？\", vbOKCancel\r\n    Ran..."
+      },
+      {
+        "module_name": "Module6.bas",
+        "code_lines": 102,
+        "functions": [
+          "空調データ取込み78号棟",
+          "Macro3",
+          "Macro4"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module6\"\r\nSub 空調データ取込み78号棟()\r\nAttribute 空調データ取込み78号棟.VB_Description = \"マクロ記録日 : 2004/10/27  ユーザー名 : tenken\"\r\nAttribute 空調データ取込み78号棟.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 空調データ取込み78号棟 Macro\r\n' マクロ記録日 : 2004/10/27  ユーザー名 : tenken\r\n'\r\n\r\n'\r\nEnd Sub\r\nSub Macro3()\r\nAttribute Macro3.VB_Description = \"マクロ記録日 : 2004/10/27  ユーザー名 : tenken\"\r\nAttribute Macro3.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' Macro3 Macro\r\n' マクロ記録日 : 2004/10/27  ユーザー名 : tenken\r\n'\r\n\r\n'\r\n'   Sub テナント検針データコピー..."
+      },
+      {
+        "module_name": "Sheet7.cls",
+        "code_lines": 12,
+        "functions": [
+          "CommandButton1_Click"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Sheet7\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\nPrivate Sub CommandButton1_Click()\r\n  数値のコピー\r\nEnd Sub\r\n"
+      },
+      {
+        "module_name": "Sheet8.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet8\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Module8.bas",
+        "code_lines": 2,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Module8\"\r\n"
+      },
+      {
+        "module_name": "Module9.bas",
+        "code_lines": 264,
+        "functions": [
+          "準備3"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module9\"\r\nSub 準備3()\r\nAttribute 準備3.VB_Description = \"マクロ記録日 : 2006/5/10  ユーザー名 : ジャパンメンテナンス\"\r\nAttribute 準備3.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 準備3 Macro\r\n' マクロ記録日 : 2006/5/10  ユーザー名 : ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    \r\n     Sheets(\"JM報告（一般ガス水道）\").Select\r\n    Range(\"D4:D8\").Select\r\n    Application.CutCopyMode = False\r\n    Selection.Copy\r\n    Range(\"E4\").Select\r\n    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\r\n        :=False, Transpose:=False\r\n..."
+      },
+      {
+        "module_name": "Module10.bas",
+        "code_lines": 60,
+        "functions": [
+          "数値のコピー"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module10\"\r\nSub 数値のコピー()\r\nAttribute 数値のコピー.VB_Description = \"マクロ記録日 : 2006/9/16  ユーザー名 : ジャパンメンテナンス\"\r\nAttribute 数値のコピー.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 数値のコピー Macro\r\n' マクロ記録日 : 2006/9/16  ユーザー名 : ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    \r\n     MsgBox \"計算用管理変動費Master開いていますか？\"\r\n     \r\n    Windows(\"計算用管理変動費Master.xls\").Activate\r\n    \r\n    Sheets(\"電気使用料(動力-店舗内)\").Select\r\n    Columns(\"E:E\").Select\r\n    Application.CutCopyMode = False\r\n    Selection.Copy\r\n    Range(\"I1\").Select\r\n    Selec..."
+      },
+      {
+        "module_name": "UserForm1.frm",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"UserForm1\"\r\nAttribute VB_Base = \"0{8CB0C4CD-215C-4B53-8D0A-7BB590E4E925}{0FFDD151-50CF-441A-882E-E732C8FA0EA1}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = False\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = False\r\n"
+      },
+      {
+        "module_name": "Module11.bas",
+        "code_lines": 2,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Module11\"\r\n"
+      },
+      {
+        "module_name": "Module12.bas",
+        "code_lines": 37,
+        "functions": [
+          "準備1_1"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module12\"\r\nSub 準備1_1()\r\nAttribute 準備1_1.VB_Description = \"マクロ記録日 : 2007/3/11  ユーザー名 : ジャパンメンテナンス\"\r\nAttribute 準備1_1.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 準備1_1 Macro\r\n' マクロ記録日 : 2007/3/11  ユーザー名 : ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Range(\"D63\").Select\r\n    Selection.Copy\r\n    Range(\"E63\").Select\r\n    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\r\n        :=False, Transpose:=False\r\n    Range(\"G63\").Select\r\n    Application.CutCopyMode = False\r\n    Selec..."
+      },
+      {
+        "module_name": "Sheet9.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet9\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Module13.bas",
+        "code_lines": 161,
+        "functions": [
+          "前年データのコピー"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module13\"\r\nSub 前年データのコピー()\r\nAttribute 前年データのコピー.VB_Description = \"マクロ記録日 : 2009/1/28  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute 前年データのコピー.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' 前年データのコピー Macro\r\n' マクロ記録日 : 2009/1/28  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n'検討用のため前年同月の「テナント名」と「数値」を「計算用管理変動費Master」にコピーを行う。\r\n'\r\n    \r\n    \r\n    MsgBox \"「計算用管理変動費Master」開いていますか？\", vb\r\n    \r\n    MsgBox \"前年同月の「管理変動費Master」開いていますか？\", vb\r\n    \r\n  Dim Msg, style, title, help, ctxt, respnse, mystring\r\n    Msg = \"計算用管理変..."
+      },
+      {
+        "module_name": "Module15.bas",
+        "code_lines": 292,
+        "functions": [
+          "データの移動"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module15\"\r\nSub データの移動()\r\nAttribute データの移動.VB_Description = \"マクロ記録日 : 2012/8/1  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute データの移動.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' データの移動 Macro\r\n' マクロ記録日 : 2012/8/1  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n     Sheets(\"JM報告（一般ガス水道）\").Select\r\n    Range(\"D4:D8\").Select\r\n    Selection.Copy\r\n    Range(\"E4\").Select\r\n    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\r\n        :=False, Transpose:=False\r\n    \r\n    Range(\"D10\").S..."
+      },
+      {
+        "module_name": "Module16.bas",
+        "code_lines": 136,
+        "functions": [
+          "フードアレイ光熱費作成"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Module16\"\r\nSub フードアレイ光熱費作成()\r\nAttribute フードアレイ光熱費作成.VB_Description = \"マクロ記録日 : 2012/8/18  ユーザー名 : 株式会社ジャパンメンテナンス\"\r\nAttribute フードアレイ光熱費作成.VB_ProcData.VB_Invoke_Func = \" \\n14\"\r\n'\r\n' フードアレイ光熱費作成 Macro\r\n' マクロ記録日 : 2012/8/18  ユーザー名 : 株式会社ジャパンメンテナンス\r\n'\r\n\r\n'\r\n    Range(\"B4\").Select\r\n    Application.WindowState = xlMinimized\r\n    \r\n    Windows(\"MO報告光熱費.xls\").Activate\r\n    Sheets(\"テナント検針\").Select\r\n    ActiveWindow.SmallScroll Down:=-105\r\n    Range(\"N228:N230\").Select\r\n    Selection.C..."
+      },
+      {
+        "module_name": "Sheet4.cls",
+        "code_lines": 9,
+        "functions": [],
+        "code_snippet": "Attribute VB_Name = \"Sheet4\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\n"
+      },
+      {
+        "module_name": "Sheet11.cls",
+        "code_lines": 12,
+        "functions": [
+          "CommandButton1_Click"
+        ],
+        "code_snippet": "Attribute VB_Name = \"Sheet11\"\r\nAttribute VB_Base = \"0{00020820-0000-0000-C000-000000000046}\"\r\nAttribute VB_GlobalNameSpace = False\r\nAttribute VB_Creatable = False\r\nAttribute VB_PredeclaredId = True\r\nAttribute VB_Exposed = True\r\nAttribute VB_TemplateDerived = False\r\nAttribute VB_Customizable = True\r\nPrivate Sub CommandButton1_Click()\r\n  数値のコピー\r\nEnd Sub\r\n"
+      }
+    ],
+    "worksheet_count": 10,
+    "worksheet_names": [
+      "集計計算の説明",
+      "入力操作用シート",
+      "JM報告（電気）",
+      "空調料金按分",
+      "JM報告（一般ガス水道）",
+      "テナント検針",
+      "店名ﾘｽﾄ",
+      "5期空調按分",
+      "分電盤番号",
+      "入力操作用シート (旧)"
+    ],
+    "error": null,
+    "macro_functions": [
+      "準備1",
+      "テナント検針データコピー",
+      "データー移動",
+      "移動1期分",
+      "テスト1",
+      "準備2",
+      "空調データクリア",
+      "FD起動",
+      "空調按分データ入力_Click",
+      "JM報告電気データ入力",
+      "空調データ取込み78号棟",
+      "Macro3",
+      "Macro4",
+      "CommandButton1_Click",
+      "準備3",
+      "数値のコピー",
+      "準備1_1",
+      "前年データのコピー",
+      "データの移動",
+      "フードアレイ光熱費作成",
+      "CommandButton1_Click"
+    ],
+    "macro_complexity": "High",
+    "data_summary": {
+      "集計計算の説明": {
+        "max_row": 32,
+        "max_column": 3,
+        "has_data": true
+      },
+      "入力操作用シート": {
+        "max_row": 116,
+        "max_column": 3,
+        "has_data": true
+      },
+      "JM報告（電気）": {
+        "max_row": 337,
+        "max_column": 15,
+        "has_data": true
+      },
+      "空調料金按分": {
+        "max_row": 472,
+        "max_column": 63,
+        "has_data": true
+      },
+      "JM報告（一般ガス水道）": {
+        "max_row": 457,
+        "max_column": 21,
+        "has_data": true
+      },
+      "テナント検針": {
+        "max_row": 493,
+        "max_column": 23,
+        "has_data": true
+      },
+      "店名ﾘｽﾄ": {
+        "max_row": 262,
+        "max_column": 16,
+        "has_data": true
+      },
+      "5期空調按分": {
+        "max_row": 497,
+        "max_column": 6,
+        "has_data": true
+      },
+      "分電盤番号": {
+        "max_row": 215,
+        "max_column": 6,
+        "has_data": true
+      },
+      "入力操作用シート (旧)": {
+        "max_row": 116,
+        "max_column": 3,
+        "has_data": true
+      }
+    }
+  },
+  "01_受領資料/CSVデータ/検針結果出力ファイル1_20250101_20250131.xlsx": {
+    "file_name": "検針結果出力ファイル1_20250101_20250131.xlsx",
+    "file_path": "/home/sdt_op/projects/util/pg/soujitsu/01_受領資料/CSVデータ/検針結果出力ファイル1_20250101_20250131.xlsx",
+    "file_size": 227196,
+    "has_macros": false,
+    "vba_modules": [],
+    "worksheet_count": 3,
+    "worksheet_names": [
+      "検針結果",
+      "計量種別",
+      "テナント検針"
+    ],
+    "error": null,
+    "macro_functions": [],
+    "macro_complexity": "None",
+    "data_summary": {
+      "検針結果": {
+        "max_row": 473,
+        "max_column": 38,
+        "has_data": true
+      },
+      "計量種別": {
+        "max_row": 6,
+        "max_column": 20,
+        "has_data": true
+      },
+      "テナント検針": {
+        "max_row": 693,
+        "max_column": 25,
+        "has_data": true
+      }
+    }
+  }
+}
