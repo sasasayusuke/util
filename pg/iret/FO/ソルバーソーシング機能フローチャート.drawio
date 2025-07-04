@@ -1,0 +1,302 @@
+<mxfile host="app.diagrams.net" modified="2024-07-04T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="ソルバーソーシング機能フロー" id="solver-sourcing-flow">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- 開始 -->
+        <mxCell id="start" value="開始" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- ログイン -->
+        <mxCell id="login" value="ログイン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="480" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- ソルバーメニュー画面 -->
+        <mxCell id="menu" value="画面: ソルバーメニュー画面&lt;br&gt;場所: /solver/menu" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 法人ソルバー選択 -->
+        <mxCell id="selectCorp" value="操作: 法人ソルバー選択&lt;br&gt;ラベル: 「法人ソルバーを選択する」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="430" y="360" width="260" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 法人ソルバー情報チェック -->
+        <mxCell id="corpCheck" value="法人ソルバー情報&lt;br&gt;登録済み？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="470" y="480" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- 法人ソルバー情報初期設定 -->
+        <mxCell id="initCorpInfo" value="画面: 法人ソルバー情報入力&lt;br&gt;操作: 初期設定モーダル&lt;br&gt;ラベル: 「法人ソルバー情報を入力してください」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="100" y="480" width="280" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- 法人ソルバー情報保存 -->
+        <mxCell id="corpInfoSave" value="法人ソルバー情報保存&lt;br&gt;API: POST /solver-corporations" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="120" y="620" width="240" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 機能選択 -->
+        <mxCell id="menuChoice" value="機能選択" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="490" y="620" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 法人ソルバー情報詳細 -->
+        <mxCell id="corpDetail" value="画面: 法人ソルバー情報詳細&lt;br&gt;操作: 「法人ソルバー情報詳細」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 新規個人ソルバー申請 -->
+        <mxCell id="newSolverApp" value="画面: 新規個人ソルバー申請&lt;br&gt;操作: 「新規ソルバー申請」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="280" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- ソルバー候補一覧 -->
+        <mxCell id="candidateList" value="画面: ソルバー候補一覧&lt;br&gt;操作: 「ソルバー候補」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="520" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 個人ソルバー一覧 -->
+        <mxCell id="solverList" value="画面: 個人ソルバー一覧&lt;br&gt;操作: 「ソルバー一覧」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="760" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 稼働率・単価更新 -->
+        <mxCell id="utilRateUpdate" value="画面: 稼働率・単価更新&lt;br&gt;操作: 「稼働率・単価更新」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 個人ソルバー申請フロー -->
+        <mxCell id="basicInfo" value="セクション: 個人ソルバー基本情報&lt;br&gt;必須項目: 名前、かな、性別、生年月日、職歴" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="900" width="280" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="screeningItems" value="セクション: スクリーニング項目&lt;br&gt;8項目: 評価(はい/いいえ) + エビデンス" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1020" width="280" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="criteriaItems" value="セクション: クライテリア項目&lt;br&gt;8項目: エビデンス(テキスト)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1140" width="280" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tempSave" value="一時保存？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="1260" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="saveTemp" value="一時保存実行&lt;br&gt;メッセージ: 「一時保存しました」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1260" width="180" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="confirmScreen" value="確認画面&lt;br&gt;操作: 「確認画面に進む」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1260" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="submitApp" value="申請実行&lt;br&gt;操作: 「申請する」&lt;br&gt;API: POST /solvers" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1380" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appComplete" value="申請完了&lt;br&gt;メッセージ: 「申請が完了しました」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1520" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- ソルバー候補関連フロー -->
+        <mxCell id="candidateAction" value="ソルバー候補&lt;br&gt;アクション選択" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="550" y="900" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="newCandidate" value="画面: 新規ソルバー候補申請&lt;br&gt;操作: 「新規ソルバー候補申請」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="720" y="900" width="220" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="candidateDetail" value="画面: ソルバー候補詳細&lt;br&gt;操作: 候補者詳細表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="900" width="180" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="promoteCheck" value="個人ソルバー&lt;br&gt;登録？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1020" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="promoteSolver" value="個人ソルバーに登録&lt;br&gt;モーダル: 「個人ソルバーへの登録」&lt;br&gt;API: PATCH /solvers/{id}" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1140" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- 稼働率・単価更新フロー -->
+        <mxCell id="rateInput" value="稼働率・単価入力&lt;br&gt;項目: 稼働率(今月・来月)、単価(人月・時間)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="980" y="900" width="240" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bulkUpdate" value="一括更新実行&lt;br&gt;API: PUT /solvers/utilization-rate/{id}" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="980" y="1020" width="240" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="updateComplete" value="更新完了&lt;br&gt;メッセージ: 「更新が完了しました」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="980" y="1140" width="240" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- 終了 -->
+        <mxCell id="end" value="終了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1520" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- 接続線 -->
+        <!-- メインフロー -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="start" target="login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="login" target="menu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="menu" target="selectCorp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="selectCorp" target="corpCheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e5" value="未登録" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="corpCheck" target="initCorpInfo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="initCorpInfo" target="corpInfoSave">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="corpInfoSave" target="menuChoice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e8" value="登録済み" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="corpCheck" target="menuChoice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 機能選択からの分岐 -->
+        <mxCell id="e9" value="法人ソルバー情報詳細" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="menuChoice" target="corpDetail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e10" value="新規ソルバー申請" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="menuChoice" target="newSolverApp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e11" value="ソルバー候補" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="menuChoice" target="candidateList">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e12" value="ソルバー一覧" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="menuChoice" target="solverList">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e13" value="稼働率・単価更新" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="menuChoice" target="utilRateUpdate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 個人ソルバー申請フロー -->
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="newSolverApp" target="basicInfo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="basicInfo" target="screeningItems">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="screeningItems" target="criteriaItems">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="criteriaItems" target="tempSave">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e18" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tempSave" target="saveTemp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e19" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tempSave" target="confirmScreen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="confirmScreen" target="submitApp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="submitApp" target="appComplete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- ソルバー候補フロー -->
+        <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="candidateList" target="candidateAction">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e23" value="新規候補申請" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="candidateAction" target="newCandidate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e24" value="候補詳細" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="candidateAction" target="candidateDetail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="candidateDetail" target="promoteCheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e26" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="promoteCheck" target="promoteSolver">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 稼働率・単価更新フロー -->
+        <mxCell id="e27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="utilRateUpdate" target="rateInput">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rateInput" target="bulkUpdate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="bulkUpdate" target="updateComplete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 終了への接続 -->
+        <mxCell id="e30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="saveTemp" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="appComplete" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="solverList" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="promoteSolver" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="updateComplete" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="corpDetail" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="newCandidate" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e37" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="promoteCheck" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
