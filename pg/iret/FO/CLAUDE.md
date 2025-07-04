@@ -68,7 +68,7 @@
 
 ---
 
-## 📊 フローチャート（プレビュー用）
+## 📊 フローチャート
 
 ```mermaid
 flowchart TD
@@ -79,13 +79,6 @@ flowchart TD
     C --> End([終了])
     D --> End
 ```
-
----
-
-## 📁 draw.ioファイル
-- **ファイル名**: `[機能名]フローチャート.drawio`
-- **配置場所**: ルートディレクトリ
-- draw.ioで開いて編集可能です
 
 ---
 
@@ -207,7 +200,7 @@ flowchart TD
 2. **画面操作が具体的に分かる**
 3. **エラー時の対処が明確**
 4. **ソースコードと一致している**
-5. **draw.ioで編集可能**
+5. **Mermaid記法で見やすく表現**
 
 ### チェックリスト
 - [ ] 既存PDF/SVGを参照したか
@@ -216,71 +209,7 @@ flowchart TD
 - [ ] 全ての分岐を網羅しているか
 - [ ] エラーケースを記載したか
 - [ ] 新人でも理解できる説明か
-- [ ] draw.ioファイル（.drawio）を作成したか
-- [ ] draw.ioで開いて編集可能か確認したか
-
----
-
-## 📐 draw.ioファイル作成手順
-
-### 1. 基本テンプレートの作成
-```xml
-<!-- [機能名]フローチャート.drawio -->
-<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="Claude" version="24.0.0">
-  <diagram name="[機能名]フロー" id="unique-id">
-    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <!-- ここにフローチャート要素を追加 -->
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
-```
-
-### 2. よく使うパターン
-
-#### ログイン処理の例
-```xml
-<!-- 開始 -->
-<mxCell id="start" value="開始" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-  <mxGeometry x="380" y="40" width="120" height="60" as="geometry" />
-</mxCell>
-
-<!-- ログイン画面 -->
-<mxCell id="login" value="画面: ログイン画面&lt;br&gt;操作: ID/パスワード入力&lt;br&gt;「ログイン」ボタンクリック" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-  <mxGeometry x="330" y="140" width="220" height="80" as="geometry" />
-</mxCell>
-
-<!-- 認証判定 -->
-<mxCell id="auth" value="認証成功？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-  <mxGeometry x="370" y="260" width="140" height="100" as="geometry" />
-</mxCell>
-
-<!-- エラー表示 -->
-<mxCell id="error" value="エラー表示&lt;br&gt;「認証に失敗しました」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-  <mxGeometry x="140" y="270" width="180" height="80" as="geometry" />
-</mxCell>
-```
-
-### 3. 接続線の追加
-```xml
-<!-- 開始からログイン画面へ -->
-<mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="start" target="login">
-  <mxGeometry relative="1" as="geometry" />
-</mxCell>
-
-<!-- ログインから認証判定へ -->
-<mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="login" target="auth">
-  <mxGeometry relative="1" as="geometry" />
-</mxCell>
-
-<!-- 認証失敗時 -->
-<mxCell id="e3" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="auth" target="error">
-  <mxGeometry relative="1" as="geometry" />
-</mxCell>
-```
+- [ ] Mermaidフローチャートが正しく表示されるか
 
 ---
 
@@ -289,81 +218,69 @@ flowchart TD
 ### 作成場所
 - **必ずルートディレクトリに作成**
 - マークダウン形式（.md）で保存
-- draw.io形式（.drawio）も併せて作成
 
-### draw.io形式での出力
+### Mermaidフローチャートの基本
 
-#### 基本的なdraw.ioファイル構造
-```xml
-<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" etag="xxx" version="24.0.0" type="device">
-  <diagram name="ページ1" id="xxx">
-    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <!-- フローチャートの要素をここに配置 -->
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
+#### 基本構文
+```mermaid
+flowchart TD
+    Start([開始]) --> Process[処理]
+    Process --> Decision{判定}
+    Decision -->|Yes| Success[成功]
+    Decision -->|No| Error[エラー]
+    Success --> End([終了])
+    Error --> End
 ```
 
-#### フローチャート要素のテンプレート
+#### 記号の意味
+- `[  ]` : 処理（四角形）
+- `{  }` : 判定（ひし形）
+- `([ ])` : 開始/終了（角丸）
+- `(( ))` : データベース（円筒形）
+- `[[ ]]` : サブルーチン（二重線）
 
-**開始/終了（角丸）**
-```xml
-<mxCell id="node1" value="開始" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-  <mxGeometry x="380" y="40" width="120" height="60" as="geometry" />
-</mxCell>
+#### スタイルとテーマ
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#e1d5e7'}}}%%
+flowchart TD
+    A[処理] --> B{判定}
 ```
 
-**処理（四角形）**
-```xml
-<mxCell id="node2" value="画面: ○○画面&lt;br&gt;操作: 「○○」ボタン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-  <mxGeometry x="350" y="140" width="180" height="80" as="geometry" />
-</mxCell>
+### Mermaid記法の応用
+
+#### 1. サブグラフの使用
+```mermaid
+flowchart TD
+    Start([開始])
+    subgraph ログイン処理
+        A[ID/パスワード入力]
+        B{認証}
+        C[エラー表示]
+    end
+    Start --> A
+    A --> B
+    B -->|失敗| C
+    B -->|成功| End([終了])
 ```
 
-**判定（ひし形）**
-```xml
-<mxCell id="node3" value="条件判定&lt;br&gt;○○の場合？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-  <mxGeometry x="370" y="260" width="140" height="100" as="geometry" />
-</mxCell>
+#### 2. 詳細な説明の記載
+```mermaid
+flowchart TD
+    A["画面: ユーザー管理画面<br/>操作: 新規登録ボタン<br/>権限: 管理者のみ"]
+    B["フォーム入力<br/>・氏名（必須）<br/>・メール（必須）<br/>・権限選択"]
 ```
 
-**矢印（エッジ）**
-```xml
-<mxCell id="edge1" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="node3" target="node4">
-  <mxGeometry relative="1" as="geometry" />
-</mxCell>
+#### 3. 並列処理の表現
+```mermaid
+flowchart TD
+    A[データ取得] --> B[処理開始]
+    B --> C[メール送信]
+    B --> D[ログ記録]
+    B --> E[画面更新]
+    C --> F[完了]
+    D --> F
+    E --> F
 ```
-
-### ファイル出力形式
-1. **マークダウンファイル（.md）**
-   - 説明文書として作成
-   - Mermaid形式のプレビュー用フローチャート含む
-
-2. **draw.ioファイル（.drawio）**
-   - draw.ioで直接編集可能
-   - XML形式で保存
-   - 日本語フォント対応
-
-### draw.ioファイル作成のガイドライン
-- **色分け規則**
-  - 開始/終了: 青系（#dae8fc）
-  - 処理: 紫系（#e1d5e7）
-  - 判定: 黄系（#fff2cc）
-  - エラー処理: 赤系（#f8cecc）
-
-- **配置規則**
-  - グリッドサイズ: 10
-  - 要素間隔: 40px以上
-  - 中央揃えを基本とする
-
-- **テキスト規則**
-  - フォント: デフォルト（日本語対応）
-  - HTMLタグ使用可（&lt;br&gt;で改行）
-  - 重要な情報は太字（&lt;b&gt;タグ）
 
 ---
 
@@ -386,15 +303,12 @@ flowchart TD
 ### STEP 3: ドキュメント作成
 1. マークダウンファイル（.md）作成
    - 概要説明
-   - Mermaidでのプレビュー用フローチャート
+   - Mermaid記法でのフローチャート
    - 詳細な操作手順
-
-2. draw.ioファイル（.drawio）作成
-   - XML形式で編集可能なフローチャート
-   - 色分けと配置ルールに従う
-   - 日本語表示に対応
+   - エラー処理の記載
 
 ### STEP 4: 品質確認
-1. draw.ioで開いて編集可能か確認
+1. Mermaidフローチャートが正しく表示されるか
 2. 新人視点でのレビュー
 3. ソースコードとの整合性チェック
+4. 全ての分岐・エラーケースの網羅確認
