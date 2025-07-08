@@ -1,0 +1,258 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram id="5fmgL_nW-r5mPPO-MXAP" name="画面遷移図">
+    <mxGraphModel dx="1426" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EIpwTrs5msbDr24aALHZ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vKq2q07-uE4egdg5IBIb-1" target="vKq2q07-uE4egdg5IBIb-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vKq2q07-uE4egdg5IBIb-1" value="FOトップページ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EIpwTrs5msbDr24aALHZ-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vKq2q07-uE4egdg5IBIb-2" target="CYcPm1AqAQUssb8dOVjO-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vKq2q07-uE4egdg5IBIb-2" value="ログイン画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EIpwTrs5msbDr24aALHZ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="CYcPm1AqAQUssb8dOVjO-1" target="CYcPm1AqAQUssb8dOVjO-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CYcPm1AqAQUssb8dOVjO-1" value="利用規約" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CYcPm1AqAQUssb8dOVjO-2" value="メニュー画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EIpwTrs5msbDr24aALHZ-15" value="&lt;b&gt;&lt;font color=&quot;#ff0000&quot;&gt;※初回のみ表示&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="660" y="455" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YSdjMyRp5FoKtLC_WYgX-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="YSdjMyRp5FoKtLC_WYgX-4" edge="1" target="YSdjMyRp5FoKtLC_WYgX-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-2" value="一覧クリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="YSdjMyRp5FoKtLC_WYgX-35">
+          <mxGeometry x="-0.2842" y="-3" relative="1" as="geometry">
+            <mxPoint x="-2" y="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YSdjMyRp5FoKtLC_WYgX-4" value="人材要件一覧" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YSdjMyRp5FoKtLC_WYgX-58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="YSdjMyRp5FoKtLC_WYgX-21" target="YSdjMyRp5FoKtLC_WYgX-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-5" value="変更するボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="YSdjMyRp5FoKtLC_WYgX-58">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="37" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YSdjMyRp5FoKtLC_WYgX-21" value="人材要件詳細" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YSdjMyRp5FoKtLC_WYgX-22" value="応募ソルバー" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="CYcPm1AqAQUssb8dOVjO-2" target="YSdjMyRp5FoKtLC_WYgX-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="840" as="targetPoint" />
+            <mxPoint x="570" y="650" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-4" value="人材要件メニュークリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-3">
+          <mxGeometry x="-0.2842" y="-3" relative="1" as="geometry">
+            <mxPoint x="3" y="41" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-28" value="応募ソルバー&lt;div&gt;登録完了&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1198" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="iayWhnrRsWfLdrLTeNWp-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="555" y="1300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-31" value="人材要件一覧へ戻る" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1270" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-36" value="応募ソルバー&lt;br&gt;追加用ポップアップ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="YSdjMyRp5FoKtLC_WYgX-22" target="iayWhnrRsWfLdrLTeNWp-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="840" as="sourcePoint" />
+            <mxPoint x="760" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-46" value="変更するボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-45">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="37" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="YSdjMyRp5FoKtLC_WYgX-22" target="iayWhnrRsWfLdrLTeNWp-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="1140" as="sourcePoint" />
+            <mxPoint x="650" y="1240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="1130" />
+              <mxPoint x="780" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-48" value="個人ソルバー＋ボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-47">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="142" y="31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iayWhnrRsWfLdrLTeNWp-36" target="iayWhnrRsWfLdrLTeNWp-54">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="779.5" y="1330" as="sourcePoint" />
+            <mxPoint x="780" y="1360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-53" value="既存応募ソルバーを追加" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-52">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-54" value="応募ソルバー&lt;br&gt;追加用ポップアップ&lt;br&gt;完了" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-55" value="応募ソルバーへ戻る" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="1580" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-56" value="ソルバー候補&lt;br&gt;追加用ポップアップ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iayWhnrRsWfLdrLTeNWp-56" target="iayWhnrRsWfLdrLTeNWp-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="989.5" y="1330" as="sourcePoint" />
+            <mxPoint x="990" y="1360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-59" value="既存ソルバー候補を追加" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-58">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-60" value="応募ソルバー&lt;br&gt;追加用ポップアップ&lt;br&gt;完了" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-61" value="応募ソルバーへ戻る" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="1580" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="YSdjMyRp5FoKtLC_WYgX-22" target="iayWhnrRsWfLdrLTeNWp-56">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="1130" as="sourcePoint" />
+            <mxPoint x="850" y="1240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="1130" />
+              <mxPoint x="990" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-63" value="ソルバー候補＋ボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-62">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="291" y="31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iayWhnrRsWfLdrLTeNWp-56" target="iayWhnrRsWfLdrLTeNWp-66">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="1290" as="sourcePoint" />
+            <mxPoint x="1160" y="1370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="990" y="1300" />
+              <mxPoint x="1165" y="1300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-65" value="新規ソルバー候補を追加" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-64">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="129" y="41" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-66" value="新規個人ソルバー申請" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1370" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-68" value="別タブで開く" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1079" y="1430" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-69" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iayWhnrRsWfLdrLTeNWp-68" target="iayWhnrRsWfLdrLTeNWp-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1470" as="sourcePoint" />
+            <mxPoint x="1365" y="1580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1169" y="1470" />
+              <mxPoint x="990" y="1470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="YSdjMyRp5FoKtLC_WYgX-22" target="iayWhnrRsWfLdrLTeNWp-81">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="1120" as="sourcePoint" />
+            <mxPoint x="1320" y="1200" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="1130" />
+              <mxPoint x="1321" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-72" value="個人ソルバー編集ボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-71">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="524" y="31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-74" value="人材要件一覧へ戻る" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1270" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-75" value="応募ソルバー" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-79" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="YSdjMyRp5FoKtLC_WYgX-22" target="iayWhnrRsWfLdrLTeNWp-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="1120" as="sourcePoint" />
+            <mxPoint x="1650" y="1230" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="1130" />
+              <mxPoint x="400" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-80" value="一覧へ戻るボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-79">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="-157" y="24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-81" value="個人ソルバー情報詳細" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1256" y="1201" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-82" value="別タブで開く" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="1261" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-86" value="ソルバー候補情報詳細" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1526" y="1201" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-87" value="別タブで開く" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1261" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="YSdjMyRp5FoKtLC_WYgX-22" target="iayWhnrRsWfLdrLTeNWp-86">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="1130" as="sourcePoint" />
+            <mxPoint x="1991" y="1241" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="1130" />
+              <mxPoint x="1591" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iayWhnrRsWfLdrLTeNWp-89" value="ソルバー候補編集ボタンクリック" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iayWhnrRsWfLdrLTeNWp-88">
+          <mxGeometry x="-0.4146" y="1" relative="1" as="geometry">
+            <mxPoint x="716" y="31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
