@@ -1,0 +1,7 @@
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>
+<script src='http://192.168.0.7:8000/pleasanter/99_CDN配信対象外/10_マスタ/Scripts/三和サービス実績入力ダイアログ.js'></script>

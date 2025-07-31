@@ -1,0 +1,45 @@
+
+// 各画面ロード時に実行するメソッドを格納する
+$p.events.on_grid_load_arr = []
+$p.events.on_editor_load_arr = []
+
+
+// 格納したメソッドを実行するメソッド
+$p.events.on_grid_load = function () {
+    console.log("start!! on_grid_load_arr!!!")
+    $p.events.on_grid_load_arr.forEach(func => {
+        console.log(func)
+        func()
+    })
+}
+
+$p.events.on_editor_load = function () {
+    console.log("start!! on_editor_load_arr!!!")
+    $p.events.on_editor_load_arr.forEach(func => {
+        console.log(func)
+        func()
+    })
+}
+
+
+// 共通gridロード処理
+$p.events.on_grid_load_arr.push(function () {
+    try {
+        // サイトタイトル編集
+        document.title = JSON.parse(document.getElementById("JoinedSites").value)[0].Title + " - 一覧"
+
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+// 共通editorロード処理
+$p.events.on_editor_load_arr.push(function () {
+    try {
+        // サイトタイトル編集
+        document.title = JSON.parse(document.getElementById("JoinedSites").value)[0].Title + " - 編集"
+
+    } catch (err) {
+        console.log(err)
+    }
+})

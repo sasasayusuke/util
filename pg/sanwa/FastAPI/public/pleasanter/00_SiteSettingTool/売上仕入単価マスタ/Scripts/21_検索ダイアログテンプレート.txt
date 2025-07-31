@@ -1,0 +1,868 @@
+/**
+ * 検索ダイアログ
+ * @param {string} dialogId 検索ダイアログID
+ * @param {string} tableId 検索先テーブルID
+ * @param {Array} fields 項目ごとのパラメータ
+ * @param {Array} btnFields ダイアログ下部に表示するボタン
+ * @param {string} width ダイアログのwidthを指定
+ */
+let useSqlDialogs = [];
+let useIndividualSqlDialogs = [];
+async function create_searchDialog(dialogId,tableId,fields,btnFields = [],width = '750px'){
+    if (document.getElementById(dialogId)) {
+        let message = `ダイアログID "${dialogId}" は既に存在します。一意のIDを使用してください。`;
+        alert(message)
+        throw new Error(message);
+    }
+
+    let multipleFlg = false;
+    for(i = 0; i < 2; i++){
+        if(multipleFlg)dialogId += "_multiple";
+        // 何行になるかを計算し、配列に格納
+        let columnCountArr = [];
+        let rowCount = 0;
+        let newLineFlg = false;
+        for(let field of fields){
+            if(typeof(field.options) == 'object' && 'newLine' in field.options && field.options.newLine){
+                newLineFlg = true;
+                rowCount++;
+            }
+            else if(typeof(field.options) == 'object' && "newLine" in field.options && !field.options.newLine){
+                if(newLineFlg){
+                    columnCountArr.push(rowCount);
+                    rowCount = 0;
+                }
+                else{
+                    newLineFlg = true;
+                }
+            }
+        }
+
+        let filterHTML = '';
+        newLineFlg = false;
+        let arrCount = 0;
+        for(let field of fields){
+            if(field.type == 'search-table' && field.options.sql)useSqlDialogs.push(dialogId);
+            if(field.type == 'search-table' && field.options.individualSql)useIndividualSqlDialogs.push(dialogId);
+            if(typeof(field.options) == 'object' && 'newLine' in field.options && field.options.newLine){
+                if(newLineFlg){
+                    filterHTML += "</div>";
+                }
+                let conteiner_width = Math.floor(100 / columnCountArr[arrCount]);
+                filterHTML += `<div style="display: inline-block;width: ${conteiner_width}%;vertical-align: top;">`;
+                filterHTML += createField(dialogId, field.type, field.id, field.label, field.options,multipleFlg);
+                newLineFlg = true;
+            }
+            else if(typeof(field.options) == 'object' && "newLine" in field.options && !field.options.newLine){
+                if(newLineFlg){
+                    filterHTML += "</div>";
+                    filterHTML += `<div style="display: block;">`;
+                    filterHTML += createField(dialogId, field.type, field.id, field.label, field.options,multipleFlg);
+                    newLineFlg = true;
+                    arrCount++;
+                }
+            }
+            else{
+                filterHTML += createField(dialogId, field.type, field.id, field.label, field.options,multipleFlg);
+            }
+        }
+        if(newLineFlg)filterHTML += "</div>";
+
+        const btnHTML = btnFields.map(field => createField(dialogId, field.type, field.id, field.label, field.options,multipleFlg)).join('');
+        const dialogHTML      = searchDialogTemplate(dialogId,filterHTML,multipleFlg,btnHTML);
+        $('#Application').append(dialogHTML);
+
+        // 検索用のイベント登録
+        $(`#${dialogId}_searchButton`).on('click',function(e){
+            create_searchList($(this));
+        })
+
+        // searchArr作成（検索に必要な情報を格納）
+        const searchTable_items = fields.filter(e => e.type == 'search-table');
+        for(item of searchTable_items){
+            let tmp_searchObj = {dialogId:dialogId,searchTableId:tableId,tableId:item.id,width:width};
+            // toColumns作成
+            tmp_searchObj.toColumns = item.options.t_heads.map(e =>{
+                tmp = {ColumnName:e.ColumnName};
+
+                if('specialTerms'in e)tmp["specialTerms"] = e.specialTerms;
+                if('alignment' in e)tmp["alignment"] = e.alignment;
+                if(e.hidden)tmp["hidden"] = true;
+                if(e.type)tmp['type'] = e.type;
+                return tmp;
+
+            });
+            // options作成
+            tmp_searchObj.options = [];
+            let tmpArr;
+            fields.forEach(e => {
+                if('forColumnName' in e){
+                    tmpArr = {searchColumn:e.forColumnName,type:e.type,id:e.id};
+                    if("digitsNum" in e.options)tmpArr["digitsNum"] = e.options.digitsNum;
+                    if("alignment" in e.options)tmpArr["alignment"] = e.options.alignment;
+                    tmp_searchObj.options.push(tmpArr);
+                }
+            });
+            searchArr.push(tmp_searchObj);
+        }
+
+        // lookups作成
+        createLookups(dialogId,'',fields);
+
+        multipleFlg = true;
+    }
+}
+
+// ダイアログテンプレート
+function searchDialogTemplate(id,filterHTML,multipleFlg,btnHTML){
+
+    return `
+        <div id="${id}Dialog" class="searchDialog" style="display: none; margin-top: 10px;">
+            ${filterHTML}
+            <div class="command-center">
+                ${multipleFlg ? btnHTML : ''}
+                <button id="${id}_close" class="button button-icon ui-button ui-corner-all ui-widget applied customized" type="button" onclick="closeDialog('${id}Dialog',false);"style='position:relative;'>
+                    <span class="ui-button-icon ui-icon ui-icon-cancel"></span>
+                    <span class="ui-button-icon-space"> </span>終了
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// ③ダイアログを表示する
+$(document).on('click','.dialogSearch',function(){
+
+    // テーブルの検索機能は各ダイアログファイルに記載
+    if($(this).parent().prop('tagName') == 'TD')return;
+
+    let id = $(this).prev().attr('id');
+
+    const parentClass = $(this).parent().attr('class');
+    let type = '';
+    if(parentClass == 'text-set'){
+        id = id.slice(0,-2);
+        type = 'text-set';
+    }
+    else if(parentClass == 'range-text-container'){
+        id = id.slice(-2) == 'om' ? id.slice(0,-4) : id.slice(0,-2);
+        type = 'range-text';
+    }
+
+
+    let lookup = lookups.find(e => e.id == id);
+    let dialogId = lookup.searchDialog.id;
+    if(dialogId == "recipientNoSearch")return;  //納入先CD検索は個別処理
+    if(lookup.searchDialog.multiple)dialogId += "_multiple";
+    let title = lookup.searchDialog.title;
+    const width = searchArr.find(e => dialogId == e.dialogId).width;
+
+    if(parentClass == 'text-set'){
+        id += 'From';
+    }
+    else if(parentClass == 'range-text-container'){
+        id = $(this).prev().attr('id');
+    }
+
+    openDialog_for_searchDialog(dialogId,id,width,title)
+
+})
+
+function openDialog_for_searchDialog(dialogId,id,width,title){
+    searchOutputId.push({id:id,dialogId:dialogId});
+    $(`#${dialogId}Dialog td`).remove();
+    $(`#${dialogId}Dialog input`).val('');
+    $(`#${dialogId}Dialog`).dialog({
+        modal: true,
+        width: width,
+        resizable: true,
+        title:title,
+    });
+    $(`#${dialogId}Dialog`).css('max-height',"90vh");
+    $(`#${dialogId}Dialog`).focus();
+}
+
+
+// 検索ボタンが押されたら検索し、tableに表示
+async function create_searchList(event){
+
+    showLoading()
+
+    let dialogId = '';
+    if(searchOutputId.length == 0){
+        dialogId = $(event).closest('div.dialog').attr('id');
+    }else{
+        dialogId = searchOutputId[searchOutputId.length -1].dialogId;
+    }
+
+    // アクティブな検索ダイアログの情報を取得
+    let searchDialogData = searchArr.find(e => e.dialogId == dialogId);
+
+    let arr = [];
+    // 簡単なSQL・joinなど複雑なSQL・Pleasanterのテーブルに取得できる処理で分け
+    if(useSqlDialogs.includes(dialogId)){
+        try{
+            arr = await requestSQL(searchDialogData);
+        }catch{
+            return;
+        }
+    }
+    else if(useIndividualSqlDialogs.includes(dialogId)){
+        arr = await requestIndividualSQL(searchDialogData);
+        if(arr == null)return;
+    }
+    else{
+    // それ以外の場合
+        // 検索対象テーブルID
+        let tableId = searchDialogData.searchTableId;
+
+        if(tableId == ''){
+            alert('検索先IDが指定されていません。');
+            return;
+        }
+
+        let columns = [];
+        let filter = {};
+        let filterSearchType = {};
+        // 複数回Getしなきゃいけないテーブルは処理を分ける
+        if(searchDialogData.dialogId == 'auxiliarySubjectSearch'){
+
+            let tmpData = await commonGetData(MASTER_TABLES["科目マスタ"],['ResultId'],{ClassA:$(`#auxiliarySubjectSearch_subjectCD`).val()},{},{ClassA:'ExactMatch'},false,false);
+            if(tmpData.length != 1){
+                alert('科目CDを入力してください。');
+                return;
+            }
+            let KAMOKUCD_resultId = tmpData[0].ResultId;
+            columns = ['ClassC','ClassD'];
+            filter = {
+                ClassA:JSON.stringify([KAMOKUCD_resultId]),
+                ClassC:$('#auxiliarySubjectSearch_auxiliarySubjectCD').val(),
+                ClassD:$('#auxiliarySubjectSearch_teamName').val()
+            };
+            filterSearchType = {
+                ClassA:'ExactMatch',
+                ClassC:'ExactMatch',
+                ClassD:'PartialMatchMultiple',
+            }
+        }
+        else if(searchDialogData.dialogId == 'recipientNoSearch'){
+            let tmpData = await commonGetData(MASTER_TABLES["得意先マスタ"],['ResultId'],{ClassA:$(`#recipientNoSearch_custmerFrom`).val()},{},{ClassA:'ExactMatch'},false,false);
+            if(tmpData.length != 1){
+                alert('得意先CDを入力してください。');
+                return;
+            }
+            columns = ['ClassD','ClassE','ClassF'];
+            const custmerResultId = tmpData[0].ResultId;
+            const receptNo = $('#recipientNoSearch_recipientCD').val();
+            const receptName = $('#recipientNoSearch_recipientName1').val();
+            const furigana = $('#recipientNoSearch_furigana').val();
+            filter = {
+                // ClassA:JSON.stringify(custmerResultId)
+                ClassA:"223515"
+            };
+            if(receptNo != "")filter["ClassD"] = receptNo;
+            if(receptName != "")filter["ClassE"] = receptName;
+            if(furigana != "")filter["ClassI"] = furigana;
+
+            filterSearchType = {
+                ClassA:'ExactMatch',
+                ClassD:'PartialMatch',
+                ClassE:'PartialMatch',
+                ClassI:'PartialMatch',
+            }
+        }
+        else{
+            // gridColumns作成
+            columns = searchDialogData.toColumns.map(e => e.ColumnName);
+
+            // ColumnFilterHashとColumnFilterSearchTypes作成
+            searchDialogData.options.forEach(e => {
+                let res = create_filter(e,dialogId);
+                // res = {column:'ClassA',text:''}見本
+                if(Object.keys(res).length == 0){
+                    hideLoading();
+                    return;
+                }
+                filter[res.column] = res.text;
+                filterSearchType[res.column] = res.searchType;
+            });
+        }
+        tableData = await commonGetData(tableId,columns,filter,{},filterSearchType,false,false);
+        tableData.sort((a,b) => a.ClassA-b.ClassA)
+
+
+        if(tableData.length == 0){
+            alert('フィルター条件に合致するデータがありません。');
+            hideLoading();
+            return;
+        }
+        for(record of tableData){
+
+            // 日付はyyyy/mm/dd形式にして代入、Numでnullの場合は0に置換して代入
+            columns.forEach(e =>{
+                switch(e.substring(0,3)){
+                    case 'Num':
+                        record[e] = record[e] == null ? 0:record[e].toLocaleString();
+                        break;
+                    case 'Dat':
+                        // 1899-12-30だったら空文字を返し、それ以外なyyyy/mm/dd形式に置換
+                        if(record[e].substring(0,10) == ''){
+                            record[e] = '';
+                        }else{
+                            let dt = new Date(record[e]);
+                            record[e] = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(dt);
+                        }
+                        break;
+                    default:
+                        record[e] = record[e];
+                }
+            });
+        }
+        arr = tableData;
+    }
+    let html = '';
+    for(item of arr){
+        if(searchDialogData.multiple  || searchDialogData.dialogId.includes('_multiple')){
+            html += '<tr tabindex="0"><td class="searchTd bgc"><input type="checkbox" ></td>';
+        }else{
+            html += '<tr tabindex="0">';
+        }
+        searchDialogData.toColumns.forEach((e,i) => {
+            if('alignment' in e && 'hidden' in e){
+                html += `<td class="searchTd bgc" style='display:none; text-align:${e.alignment}' >${item[e.ColumnName]}</td>`
+            }
+            else if('alignment' in e){
+                html += `<td class="searchTd bgc" style='text-align:${e.alignment}' >${item[e.ColumnName]}</td>`
+            }
+            else if('hidden' in e){
+                html += `<td class="searchTd bgc" style='display:none;' >${item[e.ColumnName]}</td>`
+            }
+            else{
+                html += `<td class="searchTd bgc">${item[e.ColumnName]}</td>`
+            }
+        });
+        html += "</tr>";
+    }
+
+    // 追加する
+    $(`#${dialogId}_${searchDialogData.tableId}_readTable tbody tr`).remove();
+    $(`#${dialogId}_${searchDialogData.tableId}_readTable tbody`).append(html);
+    $(`#${dialogId}_${searchDialogData.tableId}_readTable tbody`).children().eq(0).focus();
+
+    hideLoading();
+}
+
+const fetchSql = async (query) => {
+    try {
+        showLoading()
+
+        const response = await fetch(SQL_URL, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                query: query
+            })
+        });
+
+        if (!response.ok) {
+            // レスポンスがエラーの場合
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        alert('SQLでエラーが発生しました。' + err);
+        console.error("SQLエラー:", err);
+        return { err: "Failed to execute SQL query." };
+    } finally {
+        hideLoading();
+    }
+
+};
+const fetchStored = async (param) =>{
+    try {
+        showLoading()
+
+        let response =  await fetch(STORED_PROCEDURE_URL,{
+            method:"POST",
+            headers:{
+                "content-type":'application/json',
+            },
+            body:JSON.stringify(param)
+        })
+        if(!response.ok){
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        response =  await response.json();
+        return response
+    } catch(err) {
+        alert('ストアドプロシージャでエラーが発生しました。' + err);
+        console.error("ストアドエラー:", err);
+        return { err: "Failed to execute stored query." };
+    } finally {
+        hideLoading();
+    }
+
+}
+
+const fetchRenderForm = async (param) => {
+    try {
+        showLoading()
+        // クエリーパラメータに変換
+        const queryString = new URLSearchParams(param).toString();
+        const url = `${RENDER_FORM_URL}?${queryString}`;
+
+        // APIの状態チェック
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+
+        // APIが正常な場合のみ新しいタブを開く
+        window.open(url, '_blank');
+
+    } catch (err) {
+        alert('入力画面生成でエラーが発生しました。' + err);
+        console.error("入力画面生成エラー:", err);
+        return { err: "Failed to execute input form." };
+    } finally {
+        hideLoading();
+    }
+}
+
+const createWhere = obj =>{
+    let whereStr = 'WHERE 0=0 ';
+    Object.keys(obj).forEach(e =>{
+        if(obj[e] == '' || typeof(obj[e]) === "undefined"){
+            return '';
+        }
+        else if(typeof(obj[e]) == 'object'){
+            // fromよりtoのほうが大きい場合は入れ替え
+            let from = obj[e]["from"];
+            let to = obj[e]["to"];
+            if(from != '' && to != '' && from > to) [from,to] = [to,from];
+
+            // from,toに値がある場合はbetween,片方の場合は比較演算子
+            if(from != '' && to != ''){
+                whereStr += `AND ${e} BETWEEN '${from}' AND '${to}'`;
+            }else if(from != ''){
+                whereStr += `AND ${e} >= '${from}'`;
+            }else if(to != ''){
+                whereStr += `AND ${e} <= '${to}'`;
+            }
+        }
+        else{
+            whereStr += `AND ${e} LIKE '%${obj[e]}%'`;
+        }
+    })
+    return whereStr;
+}
+
+const resMold = (res,dialogData) => {
+    for(record of res){
+        // 日付はyyyy/mm/dd形式にして代入、Numでnullの場合は0に置換して代入
+        dialogData.toColumns.forEach(e =>{
+            if(record[e.ColumnName] === null){
+                record[e.ColumnName] = '';
+            }
+            else if(typeof record[e.ColumnName] === "undefined"){
+                record[e.ColumnName] = '';
+            }
+            else if(e.type == 'time'){
+                record[e.ColumnName] = new Date(record[e.ColumnName]).toLocaleString('sv-SE').replaceAll('-','/');
+            }
+            else if(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?$/.test(record[e.ColumnName])){
+                let tmpDt = new Date(record[e.ColumnName]);
+                record[e.ColumnName] = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(tmpDt);
+            }
+            else if("alignment" in e){
+                record[e.ColumnName] = record[e.ColumnName].toLocaleString();
+                // record[e.ColumnName] = Number(record[e.ColumnName]).toLocaleString();
+            }
+            else{
+                record[e.ColumnName] = record[e.ColumnName];
+            }
+        });
+    }
+    return res;
+}
+
+
+const createWhereParam = (dialogData) =>{
+    let tmp     = {};
+    dialogData.options.forEach(e =>{
+        let fullId =  'fullId' in e ? e.fullId : dialogData.dialogId + "_" + e.id;
+        if(e.type == 'range-text' && "alignment" in e){
+            let fromVal = $(`#${fullId}From`).val().replaceAll(',','');
+            let toVal   = $(`#${fullId}To`).val().replaceAll(',','');
+            if((fromVal == '' && toVal == '') || !/^\d*$/.test(fromVal) || !/^\d*$/.test(toVal)){
+                tmp[e.searchColumn] = '';
+            }else{
+                tmp[e.searchColumn] = {from:Number(fromVal),to:Number(toVal)};
+            }
+        }
+        else if(e.type.slice(0,5) == 'range'){
+            let fromVal = $(`#${fullId}From`).val();
+            let toVal   = $(`#${fullId}To`).val();
+            if(fromVal == '' && toVal == ''){
+                tmp[e.searchColumn] = '';
+            }else{
+                tmp[e.searchColumn] = {from:fromVal,to:toVal};
+            }
+        }
+        else if(e.type == 'text-set'){
+            tmp[e.searchColumn] = $(`#${fullId}From`).val();
+        }
+        else{
+            tmp[e.searchColumn] = $(`#${fullId}`).val();
+        }
+    })
+    return tmp;
+}
+
+// 簡単なsql用の変数（汎用）
+async function requestSQL(dialogData){
+
+    // sql文作成
+    // 足し算やcase句など特殊な処理はspecialTermsというパラメータがあるのでそちらを使用
+    let select  = 'selectStr' in dialogData ? dialogData.selectStr :dialogData.toColumns.map(e => {
+        if('specialTerms' in e){
+            return e.specialTerms;
+        }else{
+            return e.ColumnName;
+        }
+    }).join(',');
+    let from    = 'fromStr' in dialogData ? dialogData.fromStr : dialogData.searchTableId;
+
+    // where作成
+    let tmp     = createWhereParam(dialogData);
+    let where = createWhere(tmp);
+
+    if(dialogData.dialogId.includes('estimateNoSearch')){
+        where += "ORDER BY 見積日付 DESC, 見積番号 DESC";
+    }
+    let sql = `SELECT TOP 1000 ${select} FROM ${from} ${where}`;
+
+    let res;
+    try{
+        res = await fetchSql(sql);
+    }catch{
+        return;
+    }
+
+    res = res.results;
+
+    // 成形
+    return resMold(res,dialogData);
+
+}
+
+// 複雑なsql用の関数（個別作成）
+async function requestIndividualSQL(dialogData){
+    // where作成
+    let tmp     = createWhereParam(dialogData);
+    let where = createWhere(tmp);
+    let sql;
+    // if('estimateNoSearch3'.includes(dialogData.dialogId)){
+    if(['estimateNoSearch3','estimateNoSearch3_multiple'].includes(dialogData.dialogId)){
+
+        let copy_dialogData = JSON.stringify(dialogData);
+        copy_dialogData = JSON.parse(copy_dialogData);
+        copy_dialogData.options = [
+            {searchColumn: 'MS.仕入先CD', type: 'range-text', id: 'supplierCD'}
+        ];
+        where2_param = createWhereParam(copy_dialogData);
+        let where2 = createWhere(where2_param);
+
+        sql = estimateNoSearch3_baseSQL(where,where2).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if(['estimateNoSearch4','estimateNoSearch4_multiple'].includes(dialogData.dialogId)){
+        sql = estimateNoSearch4_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if(['estimateNoSearch5','estimateNoSearch5_multiple'].includes(dialogData.dialogId)){
+        sql = estimateNoSearch5_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if(['mirrorSearch',"mirrorSearch_multiple"].includes(dialogData.dialogId)){
+        sql = mirrorSearch_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if(['urikakeKakuninSearch'].includes(dialogData.dialogId)){
+        sql = urikakeKakunin_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if(['productSearch1'].includes(dialogData.dialogId)){
+        sql = productSearch1_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if(['productSearch2'].includes(dialogData.dialogId)){
+        sql = productSearch2_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    else if('progressCheck'.includes(dialogData.dialogId)){
+        // 売上種別
+        let salesType = '';
+        switch($('#progressCheck_processingCategoryFrom').val()){
+            case '0':
+                salesType = ' AND (MHK.発注書発行日付 IS NULL AND MT.仕入日付 IS NULL)';
+                break;
+            case '1':
+                salesType = 'AND MHK.発注書発行日付 IS NOT NULL';
+                break;
+            case '2':
+                salesType = "AND MT.売上日付 IS NOT NULL";
+                break;
+        }
+
+        // 見積確定区分
+        let finalClassification = '';
+        switch($('#progressCheck_confirmationEstimateDatesFrom').val()){
+            case '0':
+                finalClassification = "AND ISNULL(MHK.見積確定区分,0) = 0";
+                break;
+            case '1':
+                finalClassification = "AND ISNULL(MHK.見積確定区分,0) = 1";
+        }
+        where += salesType + finalClassification;
+        sql = progressCheck_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    // 入金消込入力はストアドのため特殊処理
+    else if('ReceiptEntry'.includes(dialogData.dialogId)){
+
+        await receiptEntry_stored();
+        return null;
+    }
+    // 売上入力
+    else if('salesInput'.includes(dialogData.dialogId)){
+
+    }
+    // 売掛消費税調整入力
+    else if(['ReceivableSalesTaxAdjustmentEntrySearch'].includes(dialogData.dialogId)){
+        sql = ReceivableSalesTaxAdjustmentEntrySearch_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+
+    // 売掛消費税調整入力
+    else if(['ReceivableSalesTaxAdjustmentEntry'].includes(dialogData.dialogId)){
+        sql = ReceivableSalesTaxAdjustmentEntry_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+    }
+    
+    // 経費入力
+    else if(['ExpenseEntrySearch'].includes(dialogData.dialogId)){
+
+        let personCD = '';
+        let personCDFrom = $('#ExpenseEntrySearch_personCDFrom').val();
+        let personCDTo = $('#ExpenseEntrySearch_personCDTo').val();
+        
+        // 担当者Fromのみ入力
+        if(!personCDFrom == '' && personCDTo == ''){
+            personCD = `AND KH.経費番号 IN (SELECT DISTINCT 経費番号 FROM TD経費明細 WHERE 担当者CD >= '${personCDFrom}')`;
+        }
+        // 担当者Toのみ入力
+        else if(personCDFrom == '' && !personCDTo == ''){
+            personCD = `AND KH.経費番号 IN (SELECT DISTINCT 経費番号 FROM TD経費明細 WHERE 担当者CD <= '${personCDTo}')`;
+        }
+        // 担当者FromTo
+        else if(!personCDFrom == '' && !personCDTo == ''){
+            personCD = `AND KH.経費番号 IN (SELECT DISTINCT 経費番号 FROM TD経費明細 WHERE 担当者CD BETWEEN '${personCDFrom}' AND '${personCDTo}')`;
+        }
+        
+        where += personCD
+
+        sql = ExpenseEntrySearch_baseSQL(where).replaceAll('\n',' ').replaceAll(/\s{2,}/g, ' ');
+
+
+    }
+
+    let res;
+    try{
+        res = await fetchSql(sql);
+    }catch{
+        return;
+    }
+
+    res = res.results;
+    return resMold(res,dialogData);
+}
+
+// apiget用のColumnFilterHashとColumnFilterSearchTypesを作成する関数
+function create_filter(e,dialogId){
+    let res = {};
+    switch(e.type){
+        case 'text':
+            let val = $(`#${dialogId}_${e.id}`).val();
+            // エラー処理
+            if(val == ''){
+                return {};
+            }
+            res =  {column:e.searchColumn,text:val,searchType:'PartialMatch'};
+            break;
+        case 'number':
+            num = $(`#${dialogId}_${e.id}`).val().replaceAll(',','');
+            // エラー処理
+            if(num == ''){
+                return {};
+            }
+            res =  {column:e.searchColumn,text:num,searchType:'ExactMatch'};
+            break;
+        case 'range-text':
+            let fromVal = $(`#${dialogId}_${e.id}From`).val();
+            let toVal = $(`#${dialogId}_${e.id}To`).val();
+
+            if(fromVal == '' && toVal == ''){
+                return {};
+            }
+
+            // 検索先項目がNumかどうかで処理を分ける
+            let arr = [];
+            if(e.searchColumn.substring(0,3) == 'Num'){
+                arr = JSON.stringify([`${fromVal},${toVal}`]);
+
+            }
+            else{
+                // 数値項目ではない場合。数値化して全パターン取得
+                fromVal = fromVal == '' ? "0".repeat(e.digitsNum) : fromVal;
+                toVal = toVal == '' ? "9".repeat(e.digitsNum):toVal;
+
+                for(i = Number(fromVal); i <= Number(toVal); i++){
+                    arr.push(String(i).padStart(e.digitsNum,'0').slice(`-${e.digitsNum}`));
+                }
+                arr = JSON.stringify(arr);
+            }
+            res = {column:e.searchColumn,text:arr,searchType:'ExactMatchMultiple'}
+            break;
+        case 'range-number':
+            let fromNum = $(`#${dialogId}_${e.id}From`).val();
+            let toNum = $(`#${dialogId}_${e.id}To`).val();
+
+            if(fromNum == '' && toNum == ''){
+                return {};
+            }
+            let numArr = JSON.stringify([`${fromNum},${toNum}`]);
+            res = {column:e.searchColumn,text:numArr,searchType:'ExactMatchMultiple'}
+
+
+            break;
+        case 'datepicker':
+
+            let dt = $(`#${dialogId}_${e.id}`).val();
+            if(dt == ''){
+                return {};
+            }
+            res = {column:e.searchColumn,text:JSON.stringify([dt.replace('-','/')]),searchType:'ExactMatch'}
+            break;
+        case 'range-date':
+            let dtFrom = $(`#${dialogId}_${e.id}From`).val();
+            let dtTo = $(`#${dialogId}_${e.id}To`).val();
+
+            if(dtFrom == '' && dtTo == ''){
+                return {};
+            }
+
+            let dates = JSON.stringify([`${dtFrom.replaceAll('-','/')},${dtTo.replaceAll('-','/')}`]);
+            res =  {column:e.searchColumn,text:dates,searchType:'ExactMatchMultiple'};
+            break;
+    }
+    return res;
+}
+
+// 選択されたときの処理
+$(document).on('click','tr:has(".searchTd")',function(e){
+
+
+    let item = $(this);
+
+    // ふくすう選択ダイアログなら処理終了
+    if(item.children().eq(0).children().eq(0).attr('type')){
+        // inputがクリックされていたら処理終了
+        if($(e.target).is('input')){
+            return;
+        }
+        item.find('input:first').prop('checked', function( index, prop ){
+            return !prop;
+        });
+        return;
+    }
+
+    if(searchOutputId.length == 0 || searchOutputId[searchOutputId.length -1].id == "")return;
+
+    if(searchOutputId[searchOutputId.length - 1].id == "changeProductDialog_productNo"){
+        $(`#changeProductDialog_productNo`).val(item.children().eq(0).text().replaceAll(' ',''));
+        $(`#changeProductDialog_methodNo`).val(item.children().eq(1).text().replaceAll(' ',''));
+        $(`#changeProductDialog_productName`).val(item.children().eq(2).text().replaceAll(' ',''));
+    }
+    else if(searchOutputId[searchOutputId.length - 1].id == "changeProductDialog_AfterChangeNo" ){
+        $(`#changeProductDialog_AfterChangeNo`).val(item.children().eq(0).text().replaceAll(' ',''));
+        $(`#changeProductDialog_AfterMethodNo`).val(item.children().eq(1).text().replaceAll(' ',''));
+        $(`#changeProductDialog_AfterProductName`).val(item.children().eq(2).text().replaceAll(' ',''));
+    }
+    else{
+        $(`#${searchOutputId[searchOutputId.length -1].id}`).val(item.children()[0].textContent).trigger('input');
+    }
+
+    $(`#${searchOutputId[searchOutputId.length -1].dialogId}Dialog tbody`).html('');
+    $(`#${searchOutputId[searchOutputId.length -1].dialogId}Dialog`).dialog('close');
+    searchOutputId.pop();
+})
+
+// マウスオーバー時のイベント
+$(document).on('mouseover','.bgc',function(){
+    $('.bgc').parent().css('background-color','');
+    $(this).parent().css('background-color','silver')
+})
+$(document).on('mouseout','.bgc',function(){
+    $('.bgc').parent().css('background-color','');
+})
+
+// ダイアログを閉じるボタンが押された時の処理
+$(document).on('click','.ui-dialog-titlebar-close',function(){
+    let elem = $(this).parent().parent().next();
+    var prevObjectElement = elem.prevObject[0];
+
+    // prevObjectElementの子要素の中に'searchDialog'クラスを持つ要素があるかをチェック
+    var hasSearchDialogClass = $(prevObjectElement).children().hasClass('searchDialog');
+    if(hasSearchDialogClass){
+        searchOutputId.pop();
+    }
+})
+
+// エスケープで閉じる機能を廃止のためコメントアウト
+// escapeが押されたらsearchOutputIdの末尾を削除
+// $(document).keydown(async function(e){
+//     const key = e.keyCode;
+//     if(key != 27){
+//         return;
+//     }
+//     // dialogでエスケープキーを閉じるときのバリデーション対策
+//     now_varidate_flg = true;
+//     await sleep(0);
+//     now_varidate_flg = false;
+//     searchOutputId.pop();
+
+//     // 閉じたdialogを削除
+// })
+
+// 複数選択ダイアログで、チェックマークが入っている項目をカンマ区切りで呼出元項目に入力する関数
+function resultInput(event){
+
+
+    let items = Array.from($(`#${searchOutputId[searchOutputId.length-1].dialogId}Dialog tbody input[type="checkbox"]:checked`));
+
+    if(items.length == 0){
+        alert('選択されていません。');
+        return;
+    }
+
+    let resText = items.map(e => $(e).parent().parent().children().eq(1).text()).join(',');
+    $(`#${searchOutputId[searchOutputId.length -1].id}`).val(resText).trigger('input');
+    $(`#${searchOutputId[searchOutputId.length -1].dialogId}Dialog`).dialog('close');
+    searchOutputId.pop();
+}
+
+$(document).on('click','.ui-dialog-titlebar-close',function(){
+    let element = $(this).parent().parent();
+    element.find('table.searchTable tbody').html('');
+})
+
+$(document).on('keydown','tr:has(".searchTd")',function(e){
+    if(e.which == 13){
+        $(this).trigger('click');
+    }
+})

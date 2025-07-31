@@ -1,0 +1,103 @@
+//Dに入力されたらD1,D2を読み取り専用にする
+$p.on('change', 'NumD', function () {
+    if ($p.getControl('NumD').val() != "") {
+
+        $p.getControl('NumB').attr('readonly', true);
+        $p.getControl('NumB').css('background', '#f5f5f5');
+        $p.getControl('NumE').attr('readonly', true);
+        $p.getControl('NumE').css('background', '#f5f5f5');
+
+    }else if($p.getControl('NumD').val() === "") {
+
+        $p.getControl('NumB').attr('readonly', false);
+        $p.getControl('NumB').css('background', '#ffffff');
+        $p.getControl('NumE').attr('readonly', false);
+        $p.getControl('NumE').css('background', '#ffffff');
+    }
+
+});
+//Hに入力されたらH1,H2を読み取り専用にする
+$p.on('change', 'NumG', function () {
+
+    if ($p.getControl('NumG').val() != "") {
+
+        $p.getControl('NumC').attr('readonly', true);
+        $p.getControl('NumC').css('background', '#f5f5f5');
+        $p.getControl('NumF').attr('readonly', true);
+        $p.getControl('NumF').css('background', '#f5f5f5');
+
+    }else if($p.getControl('NumG').val() === "") {
+
+        $p.getControl('NumC').attr('readonly', false);
+        $p.getControl('NumC').css('background', '#ffffff');
+        $p.getControl('NumF').attr('readonly', false);
+        $p.getControl('NumF').css('background', '#ffffff');
+
+    }
+});
+
+
+//D1に入力されたらDを読み取り専用にする
+$p.on('change', 'NumB', function () {
+    if ($p.getControl('NumB').val() != "") {
+
+        $p.getControl('NumD').attr('readonly', true);
+        $p.getControl('NumD').css('background', '#f5f5f5');
+
+    }else if($p.getControl('NumB').val() === "" && $p.getControl('NumE').val() === "") {
+
+        $p.getControl('NumD').attr('readonly', false);
+        $p.getControl('NumD').css('background', '#ffffff');
+
+    }
+});
+
+
+//D2に入力されたらDを読み取り専用にする
+$p.on('change', 'NumE', function () {
+    if ($p.getControl('NumE').val() != "") {
+
+        $p.getControl('NumD').attr('readonly', true);
+        $p.getControl('NumD').css('background', '#f5f5f5');
+
+    }else if($p.getControl('NumB').val() === "" && $p.getControl('NumE').val() === "") {
+
+        $p.getControl('NumD').attr('readonly', false);
+        $p.getControl('NumD').css('background', '#ffffff');
+
+    }
+});
+
+//H1に入力されたらHを読み取り専用にする
+$p.on('change', 'NumC', function () {
+
+    if ($p.getControl('NumC').val() != "") {
+
+        $p.getControl('NumG').attr('readonly', true);
+        $p.getControl('NumG').css('background', '#f5f5f5');
+
+    }else if($p.getControl('NumC').val() === "" && $p.getControl('NumF').val() === "") {
+
+        $p.getControl('NumG').attr('readonly', false);
+        $p.getControl('NumG').css('background', '#ffffff');
+
+
+    }
+});
+
+//H2に入力されたらHを読み取り専用にする
+$p.on('change', 'NumF', function () {
+
+    if ($p.getControl('NumF').val() != "") {
+
+        $p.getControl('NumG').attr('readonly', true);
+        $p.getControl('NumG').css('background', '#f5f5f5');
+
+    }else if($p.getControl('NumC').val() === "" && $p.getControl('NumF').val() === "") {
+
+        $p.getControl('NumG').attr('readonly', false);
+        $p.getControl('NumG').css('background', '#ffffff');
+
+
+    }
+});

@@ -1,0 +1,11 @@
+let ShukeiCD = model.ClassM; // 集計CD
+
+if (ShukeiCD == ""){
+    // 集計CDが空だったら自身の値を入れて更新する
+    model.ClassM = model.ResultId;
+    // ルックアップ分
+    model.ClassN = model.ClassB; // 集計（得意先名1）
+    model.ClassO = model.ClassA; // 集計cd（得意先CD）
+    // 更新
+    model.UpdateOnExit = true;
+}

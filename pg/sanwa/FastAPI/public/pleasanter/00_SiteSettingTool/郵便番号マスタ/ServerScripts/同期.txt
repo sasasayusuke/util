@@ -1,0 +1,39 @@
+
+let filteredModel = {};
+
+// model から必要なフィールドだけを抽出する
+for (let key in model) {
+    if (model.hasOwnProperty(key)) {
+        filteredModel[key] = model[key];
+    }
+}
+
+// 送信するパラメータをオブジェクトで定義
+let data = {
+    "pleasanter_table_name": context.SiteTitle,
+    "record_data": filteredModel
+};
+
+
+// オブジェクトをJSON文字列に変換して、Contentプロパティにセット
+httpClient.Content = JSON.stringify(data);
+
+httpClient.Encoding = "utf-8";
+httpClient.MediaType = "application/json";
+
+// FastAPI サーバーのエンドポイントを指定
+httpClient.RequestUri = "http://localhost:8000/sync-record/" + context.Action;
+
+// POST メソッドでリクエストを送信する
+let response = httpClient.Post();
+
+// レスポンスの結果をチェックする
+if (!httpClient.IsSuccess) {
+    // エラーの場合、ステータスコードとレスポンス内容をログに出力し、例外を発生させる
+    context.Log("Error: 【" + httpClient.StatusCode + "】 " + response);
+    throw new Error("HTTPリクエストに失敗しました。以降の処理を中断します。");
+
+}
+
+// 成功時、レスポンス内容をログに出力する
+context.Log("成功: " + response);

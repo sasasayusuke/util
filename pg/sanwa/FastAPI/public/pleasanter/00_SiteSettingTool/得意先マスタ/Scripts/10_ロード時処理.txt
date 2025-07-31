@@ -1,0 +1,144 @@
+// スクリプトに記載しないと動作しないと思われる
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ロード時処理宣言＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// 各画面ロード時に実行するメソッドを格納する
+onGridLoadFuncs = []
+onEditorLoadFuncs = []
+
+// 格納したメソッドを実行するメソッド
+$p.events.on_grid_load = () => {
+    console.log("start!! onGridLoadFuncs!!!")
+    onGridLoadFuncs.forEach(func => {
+        // console.log(func)
+        func()
+    })
+}
+
+$p.events.on_editor_load = () => {
+    console.log("start!! onEditorLoadFuncs!!!")
+    onEditorLoadFuncs.forEach(func => {
+        // console.log(func)
+        func()
+    })
+}
+
+
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// 一覧画面
+onGridLoadFuncs.push(() => {
+    // サイトタイトル編集
+    document.title = JSON.parse(document.getElementById("JoinedSites").value)[0].Title + " - 一覧"
+})
+
+// 編集画面
+onEditorLoadFuncs.push(() => {
+    // サイトタイトル編集
+    document.title = JSON.parse(document.getElementById("JoinedSites").value)[0].Title + " - 編集"
+})
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+let masterTableFlag = Object.values(MASTER_TABLES).includes($p.siteId())
+
+// 一覧画面
+onGridLoadFuncs.push(async () => {
+    if (masterTableFlag) {
+        replaceBulkDeleteButton()
+        loadPermittion(masterTableFlag)
+    } else {
+        setInterval(() => {
+            loadPermittion(masterTableFlag)
+        }, 5000);
+    }
+
+})
+
+
+// 編集画面
+onEditorLoadFuncs.push(async () => {
+    if (masterTableFlag) {
+        loadPermittion(masterTableFlag)
+    }
+})
+
+
+
+/**
+ * オリジナル一括削除ボタンを作成する関数です。
+ */
+function replaceBulkDeleteButton() {
+    // テーブルの一覧画面以外は何もしない
+    if(!(($p.tableName() == "Result" || $p.tableName() == "Issue") && $p.action() == "index")) {
+        return
+    }
+    // 既にボタンがあったら何もしない
+    let bulkDelId = "BulkDeleteCommand"
+    let originBulkDelId = "OriginBulkDeleteCommand"
+    if (document.getElementById(originBulkDelId)) {
+        return
+    }
+    document.getElementById(bulkDelId)?.remove()
+
+    addButtonToMainCommands(originBulkDelId, "一括削除", async () => {
+        if ($p.selectedIds().length === 0) {
+            alert("削除するデータを選択してください")
+            return
+        }
+        if (!confirm("選択されたデータを削除しますか？")) {
+            return
+        }
+
+        $p.selectedIds().forEach(id => console.log($p.apiDelete({id})))
+
+        alert("選択データの一括削除が完了しました。");
+        // 表示が変わるため画面をリロード
+        location.reload();
+
+
+    }, "ui-icon-trash")
+}
+
+
+
+/**
+ * メインコマンドエリアにボタンを追加する関数です。
+ * @param {String} buttonId     ボタンID
+ * @param {String} buttonLabel  ラベル
+ * @param {Function} clickFunc  click時関数
+ * @param {String} icon         アイコン（empty指定でアイコンなし）
+ * @throws {Error}              処理中に発生したエラー
+ */
+function addButtonToMainCommands(buttonId, buttonLabel, clickFunc, icon = "ui-icon-disk") {
+    if (!document.getElementById("MainCommands")) {
+        return
+    }
+    const target = document.getElementById("MainCommands");
+    const elem = document.createElement('button');
+    elem.id = buttonId;
+    elem.className = 'button button-icon ui-button ui-corner-all ui-widget applied customized';
+    elem.onclick = clickFunc;
+    elem.innerText = buttonLabel;
+    if (icon !== "empty") {
+        const span = document.createElement('span');
+        span.className = `ui-button-icon ui-icon ${icon}`;
+        elem.appendChild(span);
+    }
+    const space = document.createElement('span');
+    space.className = "ui-button-icon-space";
+    elem.appendChild(space);
+
+    target.appendChild(elem);
+}
+
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝主キーを編集不可に＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+onEditorLoadFuncs.push(function(){
+  if($p.action() != 'edit'){
+      return;
+  }
+
+  $('#Results_ClassA').attr('disabled',true).css('background-color','#f5f5f5');
+
+})

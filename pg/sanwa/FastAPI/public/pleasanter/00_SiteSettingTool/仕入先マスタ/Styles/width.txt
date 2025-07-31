@@ -1,0 +1,12 @@
+.width500{
+    width:500px;
+}
+.width450{
+    width:450px;
+}
+.width250{
+    width:250px;
+}
+.width800{
+    width:800px;
+}
