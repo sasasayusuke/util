@@ -1,0 +1,2 @@
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'>
+<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>

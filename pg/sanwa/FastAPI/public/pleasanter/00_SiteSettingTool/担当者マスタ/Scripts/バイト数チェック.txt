@@ -1,0 +1,75 @@
+/**
+ * sjisで使えない文字列を返す
+ * @param {string} text エンコード文字列
+ * @returns {Array} 文字化けした文字列配列
+ */
+function detectUnsupportedChars(text) {
+    const utf16Array = Encoding.stringToCode(text); // 文字列をコードポイントの配列に変換
+    const sjisArray = Encoding.convert(utf16Array, 'SJIS', 'UNICODE'); // Shift JIS に変換
+    const restoredArray = Encoding.convert(sjisArray, 'UNICODE', 'SJIS'); // 再び UTF-16 に戻す
+    const restoredText = Encoding.codeToString(restoredArray); // 文字列に変換
+    
+    console.log(text);
+    console.log(restoredText);
+
+    text = Array.from(text);
+
+    let unsupportedChars = [];
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] !== restoredText[i]) {
+            unsupportedChars.push(text[i]); // 変換後に変化した文字をリストアップ
+        }
+    }
+    
+    return unsupportedChars;
+}
+
+/**
+ * 全角文字かチェックします。
+ * @param str チェック対象の文字列
+ * @returns 全角文字の場合 true
+ */
+function isFullWidth(str) {
+    return /^[^\x01-\x7E\uFF65-\uFF9F]+$/.test(str);
+}
+
+/**
+ * 入力文字のバリデーション
+ * @param {string} label 対象項目名
+ * @param {string} text 対象文字列
+ * @param {number} byte バイト数
+ */
+function byte_check(label,text,byte){
+    const unsuported_string = detectUnsupportedChars(text);
+    if(unsuported_string.length > 0){
+        alert(`下記文字列は使用できません。\n${unsuported_string.toString()}`);
+        return false;
+    }
+
+    const byte_count = Array.from(text).reduce((a,b) => a += isFullWidth(b) ? 2 : 1,0);
+    if(byte_count > byte){
+        alert(`${label}の文字数が多すぎます。`);
+        return false;
+    }
+    return true;
+}
+
+// マスタ用
+/*[
+    {item:'ClassA',byte:15},
+    {item:'ClassB',byte:15},
+    {item:'ClassC',byte:15},
+]*/
+function maste_byte_check(e,option){
+    for(item of option){
+        const label = $p.getControl(item["item"]).parent().parent().prev().text();
+        const text = $p.getControl(item["item"]).val();
+        if(!byte_check(label,text,item["byte"])){
+            return;
+        }
+    }
+    // 登録処理
+    const commandId = $p.action() == "new" ? "CreateCommand" : "UpdateCommand";
+    $(`#${commandId}`).click();
+}
+

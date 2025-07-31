@@ -1,0 +1,2 @@
+context.Log('test');
+model.ClassA = '8001'

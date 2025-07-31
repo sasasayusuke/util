@@ -1,0 +1,35 @@
+//メールフォルダ非表示
+document.querySelector('[data-value="2020628"]').style.display = 'none'; 
+
+$p.apiUsersGet({
+    id: $p.userId(),
+    done:  function (data) {
+         console.log(data.Response.Data[0].TenantManager)
+         if(data.Response.Data[0].TenantManager == true){
+             document.querySelector('[data-value="2020628"]').style.display = 'block'; 
+         }
+    }
+});
+
+//特定のユーザにのみ表示させる
+//if ([1,2,3].includes($p.userId())) {
+//    document.querySelector('[data-value="2020628"]').style.display = 'block'; 
+//}
+
+
+//特定のグループにのみ表示させる
+//$p.apiGroupsGet({
+//    id: $p.userId(),
+//    done: function (data) {
+//        console.log(data.Response.Data.length);
+//        console.log(data.Response.Data[0].GroupName);
+//
+//        for (let i = 0; i < data.Response.Data.length; i++) {
+//            if(data.Response.Data[i].GroupName=="取締役"){
+//                console.log(i);
+//                document.querySelector('[data-value="2020628"]').style.display = 'block'; 
+//                break;
+//            }
+//        }
+//    }
+//})

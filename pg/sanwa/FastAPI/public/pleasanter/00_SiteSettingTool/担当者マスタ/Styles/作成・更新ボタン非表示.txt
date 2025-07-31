@@ -1,0 +1,6 @@
+#CreateCommand{
+    display:none !important
+}
+#UpdateCommand{
+    display:none !important
+}

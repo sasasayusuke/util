@@ -1,0 +1,8 @@
+/*メールボタンを消す*/
+#EditOutgoingMail{
+    display: none !important;
+}
+/*コピーボタンを消す*/
+#OpenCopyDialogCommand{
+    display: none !important;
+}
