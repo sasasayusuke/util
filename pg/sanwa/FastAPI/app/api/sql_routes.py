@@ -26,8 +26,6 @@ def execute_get_tax_sql(request: getTaxQueryRequest, db: Session = Depends(get_d
     Returns:
         SQLQueryResponse: クエリ実行結果を含むレスポンスオブジェクト
     """
-    sql_executor = SQLExecutor(db)
-    
     #iDateの値に不正なデータがないかチェック
     if type(request.iDate) is not datetime.datetime:
         raise ServiceError('税率取得クエリに正しい引数(日付型)を渡してください')
@@ -38,6 +36,7 @@ def execute_get_tax_sql(request: getTaxQueryRequest, db: Session = Depends(get_d
 
     # managed_session を使ってセッションを管理
     with managed_session(db) as session:
+        sql_executor = SQLExecutor(session)
         results = sql_executor.execute_query(query)
         return results
 
@@ -52,10 +51,9 @@ def execute_sql(request: SQLQueryRequest, db: Session = Depends(get_db)):
     Returns:
         SQLQueryResponse: クエリ実行結果を含むレスポンスオブジェクト
     """
-    sql_executor = SQLExecutor(db)
-
     # managed_session を使ってセッションを管理
     with managed_session(db) as session:
+        sql_executor = SQLExecutor(session)
         results = sql_executor.execute_query(request.query)
         return results
 
@@ -70,10 +68,9 @@ def execute_stored_procedure(request: StoredQueryRequest, db: Session = Depends(
     Returns:
         StoredQueryResponse: ストアドプロシージャ実行結果を含むレスポンスオブジェクト
     """
-    sql_executor = SQLExecutor(db)
-
     # managed_session を使ってセッションを管理
     with managed_session(db) as session:
+        sql_executor = SQLExecutor(session)
         results = sql_executor.execute_stored_procedure(request.storedname, request.params, request.output_params)
         return results
 

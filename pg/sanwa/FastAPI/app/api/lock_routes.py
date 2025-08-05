@@ -1,8 +1,6 @@
 import logging
-import json
-from fastapi import Request, APIRouter, Depends, Query
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.utils.string_utils import decode_str_value, decode_bytes_value
 from app.utils.db_utils import get_db, managed_session, SQLExecutor
 from app.models.sql_models import lockQueryRequest,StoredQueryResponse,unlockQueryRequest
 from app.core.config import settings
@@ -27,10 +25,9 @@ def lock_data(request: lockQueryRequest, db: Session = Depends(get_db)):
     }
     outputparams = {"@RetST":"INT", "@RetMsg":"VARCHAR(255)"}
 
-    sql_executor = SQLExecutor(db)
-
     # managed_session を使ってセッションを管理
     with managed_session(db) as session:
+        sql_executor = SQLExecutor(session)
         results = sql_executor.execute_stored_procedure(stored_name, params, outputparams)
         return results
 
@@ -49,10 +46,9 @@ def lock_undata(request: unlockQueryRequest, db: Session = Depends(get_db)):
     }
     outputparams = {"@RetST":"INT", "@RetMsg":"VARCHAR(255)"}
 
-    sql_executor = SQLExecutor(db)
-
     # managed_session を使ってセッションを管理
     with managed_session(db) as session:
+        sql_executor = SQLExecutor(session)
         results = sql_executor.execute_stored_procedure(stored_name, params, outputparams)
         return results
 

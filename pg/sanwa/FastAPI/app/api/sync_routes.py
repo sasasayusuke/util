@@ -85,7 +85,7 @@ def update_record(request: RecordUpdateRequest, db: Session = Depends(get_db)):
             query = f"SELECT COUNT(*) as count FROM TM製品_メモ AS a WHERE a.製品NO = '{old_update_data['製品NO']}' AND a.仕様NO = '{old_update_data['仕様NO']}';"
 
             # STORED実行
-            result = dict(SQLExecutor(session).execute_query(query=query))
+            result = dict(sql_executor.execute_query(query=query))
             if int(result["results"][0]["count"]) < 1:
                 tmp_insert_memo_data = {}
                 tmp_insert_memo_data['メモ'] = new_memo_data
