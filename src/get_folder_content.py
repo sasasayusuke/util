@@ -1,10 +1,11 @@
-import os
+from __future__ import annotations
+
 import json
-import pyperclip
-from typing import Dict
-from pathlib import Path
-from collections import deque
+import os
 import sys
+from pathlib import Path
+
+import pyperclip
 
 # 標準出力のエンコードを utf-8 に設定
 sys.stdout.reconfigure(encoding='utf-8') # type: ignore
@@ -16,7 +17,7 @@ MODULE_TAIL_SIZE = 300  # ファイルごとの末尾の文字数
 MODULE_SIZE = MODULE_HEAD_SIZE + MODULE_TAIL_SIZE  # ファイルごとの最大文字数の制限
 MODULE_SIZE_LIMIT_MESSAGE = f"\n... （{MODULE_SIZE}文字数を超えるため中間は省略）...\n"
 
-TARGET_PATH = r"/root/services/1on1"
+TARGET_PATH = Path("/home/sdt_op/projects/gitea")
 
 
 EXCLUDED_FOLDERS = [
@@ -57,7 +58,7 @@ EXCLUDED_FILES = [
 ]
 
 
-def read_file_content(file_path: str) -> str:
+def read_file_content(file_path: Path) -> str:
     """
     ファイルの先頭と末尾を読み込み、MODULE_SIZE を超える場合は中間部分を省略
     複数のエンコーディングに対応し、エラー処理を強化
@@ -86,7 +87,7 @@ def read_file_content(file_path: str) -> str:
     # テキストとして読み込みを試行
     for encoding, kwargs in encodings:
         try:
-            with open(file_path, 'r', encoding=encoding, **kwargs) as f: # type: ignore
+            with file_path.open('r', encoding=encoding, **kwargs) as f:  # type: ignore
                 return process_file(f)
         except (UnicodeError, UnicodeDecodeError):
             continue
@@ -96,22 +97,23 @@ def read_file_content(file_path: str) -> str:
 
     # テキスト読み込みが全て失敗した場合はバイナリとして読み込み
     try:
-        with open(file_path, 'rb') as f:
+        with file_path.open('rb') as f:
             content = f.read()
             return f"バイナリファイル: {len(content):,} バイト"
     except Exception as e:
         return f"ファイル読み込みエラー: {str(e)}"
 
-def get_folder_structure() -> Dict:
+def get_folder_structure() -> dict[str, any]:
     """フォルダ構造を取得して辞書形式で返す"""
-    structure = {}
+    structure: dict[str, any] = {}
 
     for root, dirs, files in os.walk(TARGET_PATH):
-        relative_path = os.path.relpath(root, TARGET_PATH)
+        root_path = Path(root)
+        relative_path = root_path.relative_to(TARGET_PATH)
 
         current = structure
-        if relative_path != '.':
-            for part in relative_path.split(os.sep):
+        if str(relative_path) != '.':
+            for part in relative_path.parts:
                 current = current.setdefault(part, {})
 
         # 除外フォルダの処理
@@ -122,8 +124,7 @@ def get_folder_structure() -> Dict:
 
         # ファイルの処理
         for file in files:
-            file_path = os.path.join(root, file)
-            _, file_extension = os.path.splitext(file)
+            file_path = root_path / file
 
             if file in EXCLUDED_FILES:
                 current[f"{file} (除外)"] = "除外ファイル"
@@ -133,15 +134,15 @@ def get_folder_structure() -> Dict:
                 current[f"{file} (除外)"] = "除外拡張子"
                 continue
 
-            if os.path.getsize(file_path) > MAX_SIZE:
-                current[file] = f"ファイルサイズ制限超過: {os.path.getsize(file_path)} バイト"
+            if file_path.stat().st_size > MAX_SIZE:
+                current[file] = f"ファイルサイズ制限超過: {file_path.stat().st_size} バイト"
                 continue
 
             current[file] = read_file_content(file_path)
 
     return structure
 
-def structure_to_markdown(structure: Dict, depth: int = 0) -> str:
+def structure_to_markdown(structure: dict[str, any], depth: int = 0) -> str:
     """構造をマークダウン形式に変換"""
     markdown = ""
     for key, value in structure.items():
@@ -160,7 +161,7 @@ def structure_to_markdown(structure: Dict, depth: int = 0) -> str:
                 markdown += "  " * (depth + 1) + f"{value}\n"
     return markdown
 
-def output_structure(structure: Dict, output_format: str = 'markdown'):
+def output_structure(structure: dict[str, any], output_format: str = 'markdown') -> None:
     """構造を指定された形式で出力"""
     if output_format == 'json':
         output = json.dumps(structure, indent=2, ensure_ascii=False)
@@ -186,7 +187,7 @@ def output_structure(structure: Dict, output_format: str = 'markdown'):
         print(f"\nクリップボードへのコピーでエラーが発生しました: {str(e)}")
         print("出力はコンソールにのみ表示されます。")
 
-def main():
+def main() -> None:
     """メイン実行関数"""
     try:
         result = get_folder_structure()
