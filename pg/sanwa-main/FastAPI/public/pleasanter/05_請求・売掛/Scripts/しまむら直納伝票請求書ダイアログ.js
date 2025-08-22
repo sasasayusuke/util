@@ -114,6 +114,23 @@
         $(`#${dialogId}_requestPeriodTo`).val(getLastDateOfScope(date.val(),deadline.val(),formatDate(new Date())));
         $(`#${dialogId}_publishingDate`).val(getLastDateOfScope(date.val(),deadline.val(),formatDate(new Date())));
     })
+
+        $(document).on('blur',`#${dialogId}_requestDate`,function(){
+        let date = $(`#${dialogId}_requestDate`);
+        let deadline = $(`#${dialogId}_deadLine`);
+
+        if(date.val() == ""){
+            return;
+        }
+        if(deadline.val() == ""){
+            return;
+        }
+
+        $(`#${dialogId}_requestPeriodFrom`).val(getFirstDateOfScope(date.val(),deadline.val(),formatDate(new Date())));
+        $(`#${dialogId}_requestPeriodTo`).val(getLastDateOfScope(date.val(),deadline.val(),formatDate(new Date())));
+        $(`#${dialogId}_publishingDate`).val(getLastDateOfScope(date.val(),deadline.val(),formatDate(new Date())));
+    })
+
 }
 async function create_SIMAMURADirectDepositSlip_report(category,dialogId,dialogName,btnLabel){
     console.log(`start : ${dialogName}`);

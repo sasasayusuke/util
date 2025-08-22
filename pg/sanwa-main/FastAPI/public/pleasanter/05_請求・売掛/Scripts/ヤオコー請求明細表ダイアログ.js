@@ -125,3 +125,15 @@ $(document).on('blur','#YAOKOitemizedBillingListDialog_deadLine',function(){
     $('#YAOKOitemizedBillingListDialog_requestPeriodTo').val(toDt);
 })
 
+$(document).on('blur','#YAOKOitemizedBillingListDialog_requestDate',function(){
+    var requestYM = SpcToNull($('#YAOKOitemizedBillingListDialog_requestDate').val())
+    var requestD = SpcToNull($('#YAOKOitemizedBillingListDialog_deadLine').val())
+
+    if(requestD != null){
+        let element1 = document.getElementById('YAOKOitemizedBillingListDialog_requestPeriodFrom');
+        element1.value = getFirstDateOfScope(requestYM,requestD,'');
+        let element2 = document.getElementById('YAOKOitemizedBillingListDialog_requestPeriodTo');
+        element2.value = getLastDateOfScope(requestYM,requestD,'');
+    }
+})
+

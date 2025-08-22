@@ -58,8 +58,8 @@ class keihitorikomiService(BaseService):
 
         testcounter = 1
 
-        # 最終行('\x1a')を削除
-        request.params['csvData'] = [csvData for csvData in request.params['csvData'] if csvData[0] != '\x1a']
+        # 最終行('\x1a')を削除 - VBと同じくインデックス1（2番目の要素）をチェック
+        request.params['csvData'] = [csvData for csvData in request.params['csvData'] if len(csvData) > 1 and csvData[1] != '\x1a' and csvData[1] != '']
 
         for csvData in request.params['csvData']:
 
@@ -103,23 +103,22 @@ class keihitorikomiService(BaseService):
                 gRsA_dic['経費日付'] = "{}/{}/{}".format(csvData[0],csvData[1],csvData[2])
                 gRsA_dic['科目CD'] = csvData[5]
                 gRsA_dic['科目名'] = cKamoku.科目名
-                gRsA_dic['担当者CD'] = cConvTanto.m_積算担当者CD if cConvTanto.m_積算担当者CD else ""
-                gRsA_dic['担当者名'] = TantoResult[0].担当者名 if len(TantoResult) > 0 else ""
+                gRsA_dic['担当者CD'] = ""
+                gRsA_dic['担当者名'] = ""
                 gRsA_dic['科目摘要名'] = AnsiLeftB(SpcToNull(csvData[24], ""), 30).replace('"','')
                 gRsA_dic['消費税額'] = 0
                 gRsA_dic['金額'] = NullToZero(csvData[4])
                 gRsA_dic['補助CD'] = SpcToNull(csvData[10],0)
                 gRsA_dic['ERR区分'] = errKBN
 
-                # デバッグログ：借方データ
-                if csvData[5] in ['527']:  # 租税公課のみ（受取利息、受取配当金は貸方に出現）
-                    logger.debug(f"[借方] 科目CD: {csvData[5]}, 科目名: {cKamoku.科目名}, 金額: {csvData[4]}, 補助CD(csv[10]): {csvData[10]}, 変換後補助CD: {gRsA_dic['補助CD']}")
-
                 gRsA.append(gRsA_dic)
 
             # 貸方科目名取得
             cKamoku2 = ClsKamoku(csvData[14])
             if cKamoku2.GetbyID(session):
+                
+                # 貸方用に新しい辞書を作成
+                gRsA_dic = gRsA_tempdic.copy()
 
                 # エラーチェック
                 # 支払日付が存在しない日付だった場合エラー
@@ -140,8 +139,8 @@ class keihitorikomiService(BaseService):
                 gRsA_dic['経費日付'] = "{}/{}/{}".format(csvData[0],csvData[1],csvData[2])
                 gRsA_dic['科目CD'] = csvData[14]
                 gRsA_dic['科目名'] = cKamoku2.科目名
-                gRsA_dic['担当者CD'] = cConvTanto.m_積算担当者CD if cConvTanto.m_積算担当者CD else ""
-                gRsA_dic['担当者名'] = TantoResult[0].担当者名 if len(TantoResult) > 0 else ""
+                gRsA_dic['担当者CD'] = ""
+                gRsA_dic['担当者名'] = ""
                 gRsA_dic['科目摘要名'] = AnsiLeftB(SpcToNull(csvData[24], ""), 30).replace('"','')
                 gRsA_dic['消費税額'] = 0
                 if errKBN != 1:
@@ -150,10 +149,6 @@ class keihitorikomiService(BaseService):
                     gRsA_dic['金額'] = NullToZero(csvData[23])
                 gRsA_dic['補助CD'] = SpcToNull(csvData[19],0)
                 gRsA_dic['ERR区分'] = errKBN
-
-                # デバッグログ：貸方データ
-                if csvData[14] in ['600', '601']:  # 受取利息、受取配当金（貸方に出現）
-                    logger.debug(f"[貸方] 科目CD: {csvData[14]}, 科目名: {cKamoku2.科目名}, 金額: {csvData[23]}, 補助CD(csv[19]): {csvData[19]}, 変換後補助CD: {gRsA_dic['補助CD']}")
 
                 gRsA.append(gRsA_dic)
 
@@ -193,20 +188,15 @@ class keihitorikomiService(BaseService):
 
                     Mcnt = Mcnt + 1
 
-                    # デバッグログ：INSERT前のデータ確認
-                    if insert_data['科目CD'] in ['527', '600', '601']:  # 租税公課、受取利息、受取配当金
-                        logger.debug(f"[INSERT] 経費番号: {Number}, 枝番: {Mcnt}, 科目CD: {insert_data['科目CD']}, 科目名: {insert_data['科目名']}, 金額: {insert_data['金額']}, 補助CD: {insert_data['補助CD']}")
-
                     # 明細部作成
                     query = "INSERT INTO TD経費明細 \
-                        (経費番号, 枝番, 科目CD, 科目名, 金額, 担当者CD, 担当者名, 購入先名, 科目摘要cd, 科目摘要名, 初期登録日, 登録変更日, 消費税額, 補助CD) \
-                        VALUES ({}, {}, {}, '{}', {}, {}, '{}', '{}', null, '{}', '{}', '{}', {}, {})".format(
+                        (経費番号, 枝番, 科目CD, 科目名, 金額, 担当者CD, 担当者名, 購入先名, 科目摘要名, 初期登録日, 登録変更日, 消費税額, 補助CD) \
+                        VALUES ({}, {}, {}, '{}', {}, null, '{}', '{}', '{}', '{}', '{}', {}, {})".format(
                             Number,
                             Mcnt,
                             insert_data['科目CD'],
                             insert_data['科目名'],
                             insert_data['金額'],
-                            f"'{insert_data['担当者CD']}'" if insert_data.get('担当者CD') else "null",
                             insert_data['担当者名'],
                             "",
                             insert_data['科目摘要名'],

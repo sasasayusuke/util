@@ -26,6 +26,7 @@ from app.utils.excel_utils import (
 )
 from decimal import Decimal
 from app.utils.service_utils import ClsDates, ClsMitumoriH,ClsTanto
+from openpyxl.worksheet.pagebreak import Break
 
 # 名前を指定してロガーを取得する
 logger = logging.getLogger(settings.APP_NAME)
@@ -82,7 +83,7 @@ class MitsumorisyoService(BaseService):
             new_sheet.sheet_view.view = 'pageBreakPreview'
             new_sheet.sheet_view.zoomScaleSheetLayoutView = 100
             # データ量を判定して出力処理を振り分け
-            if storedresults["count"] < 18:  # データ数が16より少ない場合
+            if storedresults["count"] < 18 and len(storedresults["results"][1]) == 1:  # 仕分け区分が１つのみ　かつ　データ数が16より少ない場合
                 self.populate_data_to_sheet(
                     session,new_sheet,copy_ws, storedresults['results'], request, True)
             else:
@@ -119,7 +120,7 @@ class MitsumorisyoService(BaseService):
 
             # 不要分の表を削除
             delete_excel_object(ws, 40, 1, 73, 15)
-            ws.print_area = "A1:O36"
+            ws.print_area = "A1:O38"
 
         else:
             logger.info("処理状況確認 明細多い")
@@ -325,7 +326,7 @@ class MitsumorisyoService(BaseService):
         )
 
         current_row = start_row + 1  # 2行目からデータを挿入するため、開始行を1つ進める
-
+        max_rows_per_table = 38
         # 1行目に「仕分名称」を挿入
         if sorted_third_array:
             ws.cell(row=start_row, column=start_col).value = self.get_value_or_empty(sorted_third_array[0], "仕分番号")  # 仕分名称
@@ -400,6 +401,10 @@ class MitsumorisyoService(BaseService):
                         row = row + 2
                         page_count = page_count + 1
                         row_count_for_page = 1
+                        # 改ページ
+                        row_break = Break(row-3)
+                        ws.row_breaks.append(row_break)
+
                     # 計算式をセット
                     ws.cell(row=row+1,column=3,value='【{}小計】'.format(siwake_name)).alignment = Alignment(horizontal="center")
                     ws["C{}".format(row+1)]._style = copy(copy_ws['Q1']._style)
@@ -418,6 +423,10 @@ class MitsumorisyoService(BaseService):
                 row += 1
                 row_count_for_page += 1
                 sum_from = row
+                
+                # 改ページ
+                row_break = Break(row-5)
+                ws.row_breaks.append(row_break)
             
             # ページ最下行まで来たら新ページ作成
             if(row_count_for_page > max_rows_per_table):
@@ -426,6 +435,10 @@ class MitsumorisyoService(BaseService):
                 row_count_for_page = 1
                 page_count += 1
                 ws["C{}".format(row)]._style = copy(copy_ws['Q2']._style)
+
+                # 改ページ
+                row_break = Break(row-4)
+                ws.row_breaks.append(row_break)
 
             self.insert_row_data(ws,copy_ws,row,start_col,record,request)
             row += 1

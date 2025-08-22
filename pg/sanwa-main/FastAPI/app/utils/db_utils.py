@@ -1,9 +1,10 @@
 import logging
+import time
 from typing import Union, List
 from fastapi import HTTPException
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, Session
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from app.core.config import settings
 from app.core.exceptions import ServiceError
 from app.utils.string_utils import decode_str_value, decode_bytes_value
@@ -33,28 +34,51 @@ def get_db():
 
 # コンテキストマネージャの定義(複雑なトランザクションやエラーハンドリングが必要な場合に使用し、エラー発生時にはロールバック、正常時にはコミットを行う。)
 @contextmanager
-def managed_session(db: Session):
-    try:
-        # セッションを提供
-        yield db
-        # 正常終了時にコミット
-        db.commit()
-    except ServiceError as e:
-        # データベースエラーが発生した場合のロールバック
-        db.rollback()
-        raise HTTPException(status_code=500, detail=str(e))
-    except SQLAlchemyError as e:
-        # データベースエラーが発生した場合のロールバック
-        db.rollback()
-        message = f"SQLクエリ実行中にデータベースエラーが発生しました: {str(e)}"
+def managed_session(db: Session, retries: int = 5, wait: float = 1.0):
+    attempt = 0
+    while attempt < retries:
+        try:
+            # トランザクション開始
+            with db.begin():  # ←ここで begin() を明示的に開始
+                # セッション提供
+                yield db
+                # 正常終了時にコミット
+                # db.commit() # commit は with db.begin() のブロックを抜けると自動で行われる
+            break  # 成功したらループ抜け
+        except ServiceError as e:
+            # データベースエラーが発生した場合のロールバック
+            db.rollback()
+            raise HTTPException(status_code=500, detail=str(e))
+        except OperationalError as e:
+            # SQL Server デッドロック判定コード 1205
+            if "1205" in str(e):
+                attempt += 1
+                logger.warning(f"SQLクエリ実行中にデッドロック検出: リトライ {attempt}/{retries}")
+                db.rollback()
+                time.sleep(wait)  # 少し待って再試行
+                continue
+            else:
+                db.rollback()
+                message = f"SQLクエリ実行中にデータベースエラーが発生しました: {str(e)}"
+                logger.exception(message)
+                raise HTTPException(status_code=503, detail=message)
+        except SQLAlchemyError as e:
+            # データベースエラーが発生した場合のロールバック
+            db.rollback()
+            message = f"SQLクエリ実行中にデータベースエラーが発生しました: {str(e)}"
+            logger.exception(message)
+            raise HTTPException(status_code=503, detail=message)
+        except Exception as e:
+            # その他の例外が発生した場合のロールバック
+            db.rollback()
+            message = f"内部サーバーエラーが発生しました: {str(e)}"
+            logger.exception(message)
+            raise HTTPException(status_code=500, detail=message)
+    else:
+        # リトライ上限に達した場合
+        message = f"SQLクエリ実行中にデッドロックが連続発生しました。"
         logger.exception(message)
         raise HTTPException(status_code=503, detail=message)
-    except Exception as e:
-        # その他の例外が発生した場合のロールバック
-        db.rollback()
-        message = f"内部サーバーエラーが発生しました: {str(e)}"
-        logger.exception(message)
-        raise HTTPException(status_code=500, detail=message)
 
 # SQLExecutor クラスの定義
 class SQLExecutor:

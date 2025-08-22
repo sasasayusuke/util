@@ -17,6 +17,7 @@ from app.utils.excel_utils import (
     save_excel_to_buffer,
     range_copy_cell,
 )
+from openpyxl.worksheet.pagebreak import Break
 
 # 名前を指定してロガーを取得する
 logger = logging.getLogger(settings.APP_NAME)
@@ -127,7 +128,7 @@ class MitsumoriIraisyoService(BaseService):
 
     def populate_table_data(self, ws, results, sheet_name, request):
         """表データを仕入先CD-配送先CDの組み合わせで挿入し、必要に応じて表を追加"""
-        max_rows_per_table = 16  # 1つの表に入る最大行数
+        max_rows_per_table = 20  # 1つの表に入る最大行数
         row_start = 21  # 最初の表の開始行
         filtered_data = [
             detail for detail in results if f"{detail.get('仕入先CD')}-{detail.get('配送先CD')}" == sheet_name
@@ -144,7 +145,7 @@ class MitsumoriIraisyoService(BaseService):
             table_start_row = current_row #表の開始位置を変更（ループ用）
 
             if table_num == 1: #ループが初夏の場合
-                ws.unmerge_cells('A38:R38')
+                ws.unmerge_cells('A42:R42')
 
 
             if table_num > 0:
@@ -159,13 +160,13 @@ class MitsumoriIraisyoService(BaseService):
                 # コピー先ワークシート（「現在データ挿入中のワークシート」）
                 dst_sheet = ws  # 目的のシートを指定
 
-                # コピー範囲（A14からR38）
+                # コピー範囲（A14からR41）
                 min_col = 1  # A列
                 min_row = 14  # 14行
                 max_col = 18  # R列
-                max_row = 37  # 38行
+                max_row = 41  # 41行
 
-                # 表を挿入開始する位置（A41）
+                # 表を挿入開始する位置（A49）
                 shift_col = 0  # 列オフセット（A列に挿入するので0）
                 shift_row = current_row - 21 # 新しい行の位置に挿入
 
@@ -182,6 +183,12 @@ class MitsumoriIraisyoService(BaseService):
                     True,
                 )
 
+                # 改ページ
+
+                row_break = Break(table_start_row+20)
+                ws.row_breaks.append(row_break)
+                logger.info('改ページ：{}'.format(table_start_row+20))
+
             # === 固定データの挿入 ====
 
             # 表全体の開始位置から7行上にずれる場合の調整
@@ -189,7 +196,9 @@ class MitsumoriIraisyoService(BaseService):
             # 見積件名
             ws.cell(row = adjusted_start_row + 2, column=1).value = filtered_data[0].get('見積件名', '')
             # 希望納期
-            ws.cell(row=adjusted_start_row + 4, column=1).value = format_jp_date(request.params['希望納期'])
+            kibou_nouki = request.params['希望納期']
+            if kibou_nouki is not None:
+                ws.cell(row=adjusted_start_row + 4, column=1).value = format_jp_date(request.params['希望納期'])
             # 回答納期（空白）
             ws.cell(row = adjusted_start_row + 4, column=8).value = ""
             # 配送先
@@ -264,7 +273,8 @@ class MitsumoriIraisyoService(BaseService):
 
                 ws.cell(row=row, column=17).value = "" if detail.get('発注数', 0) in [0,None] else str(detail.get('発注数', 0)) + ' ' + detail.get('単位名', '')
 
-
+                if detail.get('仕入単価', '') != 0:
+                    ws.cell(row=row, column=18).value = detail.get('仕入単価', '')
 
             # 挿入した表の最後尾を更新
             current_row = table_start_row + max_rows_per_table  # 現在の行位置を更新
@@ -279,15 +289,15 @@ class MitsumoriIraisyoService(BaseService):
                 # コピー先ワークシート（「現在データ挿入中のワークシート」）
                 dst_sheet = ws  # 目的のシートを指定
 
-                # コピー範囲（A14からR61）
+                # コピー範囲（A42からR61）
                 min_col = 1  # A列
-                min_row = 38  # 39行
+                min_row = 42  # 39行
                 max_col = 18  # R列
-                max_row = 57  # 58行
+                max_row = 61  # 61行
 
                 # 表を挿入開始する位置（A41）
                 shift_col = 0  # 列オフセット（A列に挿入するので0）
-                shift_row = current_row - 37 # 新しい行の位置に挿入
+                shift_row = current_row - 41 # 新しい行の位置に挿入
 
                 # コピー範囲と挿入
                 range_copy_cell(
@@ -301,6 +311,10 @@ class MitsumoriIraisyoService(BaseService):
                     shift_row,
                     True,
                 )
+
+                # 改ページ
+                row_break = Break(table_start_row+20)
+                ws.row_breaks.append(row_break)
 
     def execute(self, request, session) -> Dict[str, Any]:
         """実行処理を行うメソッド"""

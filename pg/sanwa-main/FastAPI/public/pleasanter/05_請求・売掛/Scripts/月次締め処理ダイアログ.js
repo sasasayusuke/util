@@ -13,10 +13,28 @@
 				{value:"売掛",text:'売掛'},
 			]
 		}},
-		{ type: 'range-date', id: 'monthlyClosingDate', label: '月次締め日付', options: {
-			width: 'wide',
-			disabled:true,
-		}},
+		// { type: 'range-date', id: 'monthlyClosingDate', label: '月次締め日付', options: {
+		// 	width: 'wide',
+		// 	disabled:true,
+		// }},
+		{ type: 'free', id: 'monthlyClosingDate', label: '月次締め日付', options: {
+			str:`
+				<div id="MonthlyClosing_monthlyClosingDateField" class="field-wide both" style="">
+                    <p class="field-label"><label for="MonthlyClosing_monthlyClosingDateFrom" class="">月次締め日付</label></p>
+                    <div class="field-control">
+                        <div class="container-normal">
+                            <div class="range-text-container">
+                                <input id="MonthlyClosing_monthlyClosingDateFrom" name="MonthlyClosing_monthlyClosingDateFrom" class="control-textbox " type="date" max="9999-12-31" disabled>
+                                <span class="range-text-separator">→</span>
+                                <input id="MonthlyClosing_monthlyClosingDateTo" name="MonthlyClosing_monthlyClosingDateTo" class="control-textbox " type="date" max="9999-12-31" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="MonthlyClosing_monthlyClosingDate-error"></div>
+                </div>
+			`
+		}
+		},
 		{ type: 'free', id: 'confirmation', label: '確認', options: {
 			str:`
 				<h3 style="color: #007bff; font-weight: bold; margin-top: 0; text-align: center;">確認事項</h3>

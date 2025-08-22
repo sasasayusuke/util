@@ -380,10 +380,11 @@ class OkugaiSeikyusyoService(BaseService):
                     datetime.strftime(grs_head["納期S"],'%Y{}%m{}%d{}'.format('年','月','日')),
                     datetime.strftime(grs_head["納期E"],'%Y{}%m{}%d{}'.format('年','月','日')),
                 )
-            elif grs_head["納期S"] == None:
+            elif grs_head["納期S"] == None and grs_head["納期E"] != None:
                 ws['D15'].value = datetime.strftime(grs_head["納期E"],'%Y{}%m{}%d{}'.format('年','月','日'))
-            else:
-                datetime.strftime(grs_head["納期S"],'%Y{}%m{}%d{}'.format('年','月','日'))
+
+            elif grs_head["納期S"] != None:
+                ws['D15'].value = datetime.strftime(grs_head["納期S"],'%Y{}%m{}%d{}'.format('年','月','日'))
             
             if grs_head["納入得意先CD"] in ['2401','8801']:
                 ws['D16'].value = grs_head["現場名"].replace(grs_head["納入先CD"],"")
@@ -525,8 +526,8 @@ class OkugaiSeikyusyoService(BaseService):
             ws.cell(row=row,column=15,value="=SUM(O{}:O{})".format(23,row-2))
             
             # 印刷範囲の設定
-            # ws.print_area = 'A1:O{}'.format(((page_count-1) * 35) + 37)
-            ws.print_area = 'A1:O37'
+            ws.print_area = 'A1:O{}'.format(((page_count-1) * 35) + 37)
+            # ws.print_area = 'A1:O37'
 
 
             # 改ページプレビューの設定
@@ -547,7 +548,7 @@ class OkugaiSeikyusyoService(BaseService):
                     wb=wb,
                     ws=ws,
                     start_cell="A1",
-                    end_cell="O37"
+                    end_cell='O{}'.format(((page_count-1) * 35) + 37)
                 )
                 res_obj = converter.generate_pdf()
             else:

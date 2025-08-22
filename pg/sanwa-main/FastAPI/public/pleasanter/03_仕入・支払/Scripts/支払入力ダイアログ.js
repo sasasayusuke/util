@@ -308,7 +308,7 @@ async function nowPaymentData_for_paymentEntry(){
                     ) AS MAXDATE
                 ON MOTO.仕入先CD = MAXDATE.仕入先CD
                 AND MOTO.支払日付 = MAXDATE.支払日付
-            WHERE MOTO.仕入先CD = ${suplierCD.val()}
+            WHERE MOTO.仕入先CD = '${suplierCD.val()}'
         `;
         let res = await fetchSql(sql);
         res = res.results;

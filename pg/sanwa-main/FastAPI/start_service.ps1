@@ -1,7 +1,7 @@
 
 # ŠÂ‹«•Ï”‚Ìİ’è
-$env:ENVIRONMENT = "local"
-# $env:ENVIRONMENT = "development"
+# $env:ENVIRONMENT = "local"
+$env:ENVIRONMENT = "development"
 # $env:ENVIRONMENT = "test-development-backup"
 # $env:ENVIRONMENT = "product"
 

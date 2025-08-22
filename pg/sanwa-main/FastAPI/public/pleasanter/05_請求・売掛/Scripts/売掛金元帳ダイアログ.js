@@ -51,11 +51,6 @@
                 icon:'print',
                 onclick:`accountsReceivableDialog_report('${dialogId}','${category}','${dialogName}','${btnLabel}');`
             }},
-            { type: 'button_inline', id: 'check', label: '確認', options: {
-                icon:'print',
-                onclick:`openDialog_for_searchDialog('urikakeKakuninSearch','',1000,'請求確認画面');`
-
-            }},
         ]);
         // ダイアログを開くボタンを追加
         commonModifyLink(dialogName, function() {openDialog(dialogId)})
@@ -127,6 +122,18 @@ async function accountsReceivableDialog_report(dialogId,category,dialogName,btnL
 
 
 $(document).on('blur','#accountsReceivableDialog_deadLine',function(){
+    var requestYM = SpcToNull($('#accountsReceivableDialog_requestDate').val())
+    var requestD = SpcToNull($('#accountsReceivableDialog_deadLine').val())
+    console.log(requestYM)
+    console.log(requestD)
+
+    let element1 = document.getElementById('accountsReceivableDialog_periodFrom');
+    element1.value = getFirstDateOfScope(requestYM,requestD,'');
+    let element2 = document.getElementById('accountsReceivableDialog_periodTo');
+    element2.value = getLastDateOfScope(requestYM,requestD,'');
+})
+
+$(document).on('blur','#accountsReceivableDialog_requestDate',function(){
     var requestYM = SpcToNull($('#accountsReceivableDialog_requestDate').val())
     var requestD = SpcToNull($('#accountsReceivableDialog_deadLine').val())
     console.log(requestYM)
