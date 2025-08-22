@@ -1,0 +1,30 @@
+[project]
+name = "util-scripts"
+version = "0.1.0"
+description = "Utility scripts collection"
+requires-python = ">=3.8"
+dependencies = [
+    "pyperclip>=1.8.0",
+    "pyyaml>=6.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
