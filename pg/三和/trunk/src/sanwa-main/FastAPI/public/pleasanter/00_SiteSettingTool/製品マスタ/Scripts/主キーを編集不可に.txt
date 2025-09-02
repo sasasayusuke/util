@@ -1,0 +1,9 @@
+onEditorLoadFuncs.push(function(){
+    if($p.action() != 'edit'){
+        return;
+    }
+
+    $('#Results_ClassA').attr('disabled',true).css('background-color','#f5f5f5');
+    $('#Results_ClassB').attr('disabled',true).css('background-color','#f5f5f5');
+
+})

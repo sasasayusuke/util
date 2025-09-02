@@ -1,0 +1,57 @@
+Option Explicit
+
+ 
+Sub a()
+
+    
+    Dim ws As Variant
+    Dim lastRow As Long
+    Dim i As Long
+    
+    For Each ws In Worksheets
+        ws.Activate
+        
+        '最終行を取得
+        lastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+    
+        'テーブル名をセル結合
+        ws.Range("D1:G1").Merge
+        
+        '罫線を引く
+        ws.Range("A1:G1").Borders(xlEdgeTop).LineStyle = xlContinuous
+        ws.Range("A1:G1").Borders(xlEdgeLeft).LineStyle = xlContinuous
+        ws.Range("A1:G1").Borders(xlEdgeBottom).LineStyle = xlContinuous
+        ws.Range("A1:G1").Borders(xlEdgeRight).LineStyle = xlContinuous
+        ws.Range("A1:G1").Borders(xlInsideVertical).LineStyle = xlContinuous
+        ws.Range("A1:G1").Borders(xlInsideHorizontal).LineStyle = xlContinuous
+        
+        ws.Range("A3:R" & lastRow).Borders(xlEdgeTop).LineStyle = xlContinuous
+        ws.Range("A3:R" & lastRow).Borders(xlEdgeLeft).LineStyle = xlContinuous
+        ws.Range("A3:R" & lastRow).Borders(xlEdgeBottom).LineStyle = xlContinuous
+        ws.Range("A3:R" & lastRow).Borders(xlEdgeRight).LineStyle = xlContinuous
+        ws.Range("A3:R" & lastRow).Borders(xlInsideVertical).LineStyle = xlContinuous
+        ws.Range("A3:R" & lastRow).Borders(xlInsideHorizontal).LineStyle = xlContinuous
+        
+        '背景色
+        ws.Range("A1").Interior.Color = RGB(255, 242, 204)
+        ws.Range("C1").Interior.Color = RGB(255, 242, 204)
+        ws.Range("A3:Q4").Interior.Color = RGB(255, 242, 204)
+        ws.Range("R3:R4").Interior.Color = RGB(198, 224, 180)
+        
+               
+        '列幅を整える
+        ws.Columns.AutoFit
+        ws.Rows.AutoFit
+        Range("A1").Select
+        
+        '揃え
+        Columns("D:G").HorizontalAlignment = xlCenter
+        Columns("H:J").HorizontalAlignment = xlRight
+        Columns("K:N").HorizontalAlignment = xlCenter
+        Columns("P:Q").HorizontalAlignment = xlCenter
+        
+        Rows("3:4").HorizontalAlignment = xlCenter
+        
+    Next
+
+End Sub

@@ -1,0 +1,3 @@
+<script src='http://192.168.10.54:8000/pleasanter/01_共通/Scripts/02_開発環境向け共通変数.js?ts=<?= time() ?'></script>
+<script src='http://192.168.10.54:8000/pleasanter/01_共通/Scripts/00_共通.js?ts=<?= time() ?'></script>
+<script src='http://192.168.10.54:8000/react/build/form.iife.js?ts=<?= time() ?'></script>

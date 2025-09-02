@@ -1,0 +1,6 @@
+$(document).on('change', '#Results_NumB, #Results_ClassC', function() {
+    var A = $('#Results_NumA').text().trim();
+    var C = $('#Results_ClassC').val();
+
+   $p.set($('#Results_Class100'), A + '__' + C);
+});

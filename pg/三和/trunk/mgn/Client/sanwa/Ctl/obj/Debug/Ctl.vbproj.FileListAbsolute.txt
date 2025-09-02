@@ -1,0 +1,10 @@
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\bin\Debug\Ctl.dll
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\bin\Debug\Ctl.pdb
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\bin\Debug\Ctl.xml
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.vbproj.AssemblyReference.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.Resources.resources
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.vbproj.GenerateResource.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.vbproj.CoreCompileInputs.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.dll
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.xml
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Ctl\obj\Debug\Ctl.pdb

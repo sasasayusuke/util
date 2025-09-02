@@ -1,0 +1,2185 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.3.1",
+    "BaseSiteId": 1842069,
+    "Server": "http://192.168.10.54",
+    "CreatorName": "sdt-support",
+    "PackageTime": "2025-02-27T20:54:29.4778816+09:00",
+    "Convertors": [
+      {
+        "SiteId": 1842069,
+        "SiteTitle": "承認",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[1842073,1842072,1842071,1842070]"
+      },
+      {
+        "SiteId": 2020602,
+        "SiteTitle": "請求書ワークフロー",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2020628,
+        "SiteTitle": "メール",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 1842069,
+      "Title": "承認",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 1920840,
+      "InheritPermission": 1842069,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2020602,
+      "Title": "請求書ワークフロー",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 1842069,
+      "InheritPermission": 2020602,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ResultId",
+          "TitleBody",
+          "Status",
+          "ClassA",
+          "Owner",
+          "ClassH",
+          "Creator",
+          "CreatedTime",
+          "Updator",
+          "UpdatedTime"
+        ],
+        "FilterColumns": [
+          "Status",
+          "Owner",
+          "ClassH",
+          "ClassA",
+          "ClassC",
+          "ClassD",
+          "ClassE",
+          "ClassM",
+          "ClassN",
+          "ClassO",
+          "ClassP",
+          "ClassQ",
+          "ClassR",
+          "ClassS",
+          "ClassT",
+          "ClassU",
+          "ClassV",
+          "ClassW",
+          "ClassX",
+          "ClassY",
+          "ClassZ",
+          "Class001",
+          "Class002",
+          "Class003",
+          "Class004",
+          "Class005",
+          "Class006",
+          "Class007",
+          "Class008",
+          "Class009",
+          "Class010",
+          "Class011",
+          "Class012",
+          "Class013",
+          "Class014",
+          "Class015",
+          "Class016",
+          "Class017",
+          "Class018",
+          "Class019",
+          "Class020",
+          "Class021",
+          "Class022",
+          "Class023",
+          "Class024",
+          "Class025",
+          "Class026",
+          "Class027",
+          "Class028",
+          "Class029",
+          "Class030",
+          "Class031",
+          "Class032",
+          "Class033",
+          "Class034",
+          "Class035",
+          "Class036",
+          "Class037",
+          "Class038",
+          "Class039",
+          "Class040",
+          "Class041",
+          "Class042",
+          "Class043",
+          "Class044",
+          "Class045",
+          "Class046",
+          "Class047",
+          "Class048",
+          "Class049",
+          "Class050",
+          "Class051",
+          "Class052",
+          "Class053",
+          "Class054",
+          "Class055",
+          "Class056",
+          "Class057",
+          "Class058",
+          "Class059",
+          "Class060",
+          "Class061",
+          "Class062",
+          "Class063",
+          "Class064",
+          "Class065",
+          "Class066",
+          "Class067",
+          "Class068",
+          "Class069",
+          "Class070",
+          "Class071",
+          "Class072",
+          "Class073",
+          "Class074",
+          "Class075",
+          "Class076",
+          "Class077",
+          "Class078",
+          "Class079",
+          "Class080",
+          "Class081",
+          "Class082",
+          "Class083",
+          "Class084",
+          "Class085",
+          "Class086",
+          "Class087",
+          "Class088",
+          "Class089",
+          "Class090",
+          "Class091",
+          "Class092",
+          "Class093",
+          "Class094",
+          "Class095",
+          "Class096",
+          "Class097",
+          "Class098",
+          "Class099",
+          "Class100",
+          "NumB",
+          "NumC",
+          "NumD",
+          "NumE",
+          "NumF",
+          "NumG",
+          "NumH",
+          "NumI",
+          "NumJ",
+          "NumK",
+          "NumL",
+          "NumM",
+          "NumN",
+          "NumO",
+          "NumP",
+          "NumQ",
+          "NumR",
+          "NumS",
+          "NumT",
+          "NumU",
+          "NumV",
+          "NumW",
+          "NumX",
+          "NumY",
+          "NumZ",
+          "Num001",
+          "Num002",
+          "Num003",
+          "Num004",
+          "Num005",
+          "Num006",
+          "Num007",
+          "Num008",
+          "Num009",
+          "Num010",
+          "Num011",
+          "Num012",
+          "Num013",
+          "Num014",
+          "Num015",
+          "Num016",
+          "Num017",
+          "Num018",
+          "Num019",
+          "Num020",
+          "Num021",
+          "Num022",
+          "Num023",
+          "Num024",
+          "Num025",
+          "Num026",
+          "Num027",
+          "Num028",
+          "Num029",
+          "Num030",
+          "Num031",
+          "Num032",
+          "Num033",
+          "Num034",
+          "Num035",
+          "Num036",
+          "Num037",
+          "Num038",
+          "Num039",
+          "Num040",
+          "Num041",
+          "Num042",
+          "Num043",
+          "Num044",
+          "Num045",
+          "Num046",
+          "Num047",
+          "Num048",
+          "Num049",
+          "Num050",
+          "Num051",
+          "Num052",
+          "Num053",
+          "Num054",
+          "Num055",
+          "Num056",
+          "Num057",
+          "Num058",
+          "Num059",
+          "Num060",
+          "Num061",
+          "Num062",
+          "Num063",
+          "Num064",
+          "Num065",
+          "Num066",
+          "Num067",
+          "Num068",
+          "Num069",
+          "Num070",
+          "Num071",
+          "Num072",
+          "Num073",
+          "Num074",
+          "Num075",
+          "Num076",
+          "Num077",
+          "Num078",
+          "Num079",
+          "Num080",
+          "Num081",
+          "Num082",
+          "Num083",
+          "Num084",
+          "Num085",
+          "Num086",
+          "Num087",
+          "Num088",
+          "Num089",
+          "Num090",
+          "Num091",
+          "Num092",
+          "Num093",
+          "Num094",
+          "Num095",
+          "Num096",
+          "Num097",
+          "Num098",
+          "Num099",
+          "Num100",
+          "DateG",
+          "DateH",
+          "DateI",
+          "DateJ",
+          "DateK",
+          "DateL",
+          "DateM",
+          "DateN",
+          "DateO",
+          "DateP",
+          "DateQ",
+          "DateR",
+          "DateS",
+          "DateT",
+          "DateU",
+          "DateV",
+          "DateW",
+          "DateX",
+          "DateY",
+          "DateZ",
+          "CheckA",
+          "CheckB",
+          "CheckC",
+          "CheckD",
+          "CheckE",
+          "CheckF",
+          "CheckG",
+          "CheckH",
+          "CheckI",
+          "CheckJ",
+          "CheckK",
+          "CheckL",
+          "CheckM",
+          "CheckN",
+          "CheckO",
+          "CheckP",
+          "CheckQ",
+          "CheckR",
+          "CheckS",
+          "CheckT",
+          "CheckU",
+          "CheckV",
+          "CheckW",
+          "CheckX",
+          "CheckY",
+          "CheckZ"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "Status",
+            "_Section-1",
+            "Title",
+            "Owner",
+            "ClassH",
+            "ClassA",
+            "DateD",
+            "ClassC",
+            "ClassD",
+            "ClassE",
+            "AttachmentsA",
+            "DescriptionA",
+            "_Section-2",
+            "Manager",
+            "DateB",
+            "DescriptionB",
+            "_Section-3",
+            "ClassB",
+            "DateC",
+            "DescriptionC",
+            "_Section-5",
+            "ClassF",
+            "DateE",
+            "DescriptionD",
+            "_Section-6",
+            "ClassG",
+            "DateF",
+            "DescriptionE",
+            "ClassI",
+            "ClassJ",
+            "ClassK",
+            "ClassL"
+          ]
+        },
+        "TabLatestId": 1,
+        "SectionLatestId": 6,
+        "Sections": [
+          {
+            "Id": 1,
+            "LabelText": "申請者入力エリア",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 2,
+            "LabelText": "グループマネージャ承認時入力エリア",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 3,
+            "LabelText": "部長承認時入力エリア",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 5,
+            "LabelText": "取締役承認時入力エリア",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 6,
+            "LabelText": "最終承認時入力エリア",
+            "AllowExpand": false,
+            "Expand": true
+          }
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "申請区分",
+            "ChoicesText": "請求書",
+            "NotInsertBlankChoice": true,
+            "DefaultInput": "請求書",
+            "ExtendedControlCss": "disabled2 disabled3",
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "Status",
+            "ChoicesText": "100,申請前,申請前,status-new\n200,申請済,申請済,status-preparation\n300,グループマネージャ承認済,グループマネージャ承認済,status-approved-1\n350,部長承認済,部長承認済,status-approved-2\n400,取締役承認済,取締役承認済,status-approved-3\n500,最終承認済,最終承認済,status-review\n600,棄却,棄却,status-rejected"
+          },
+          {
+            "ColumnName": "NumA",
+            "LabelText": "金額"
+          },
+          {
+            "ColumnName": "TitleBody",
+            "GridLabelText": "タイトル"
+          },
+          {
+            "ColumnName": "Manager",
+            "LabelText": "承認者",
+            "ChoicesText": "\n[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"Groups\": \"[3]\",\n        \"Disabled\": \"false\"\n      },\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "DefaultInput": ""
+          },
+          {
+            "ColumnName": "Owner",
+            "LabelText": "申請者",
+            "UseSearch": true,
+            "ExtendedControlCss": "disabled",
+            "ValidateRequired": true,
+            "AutoPostBack": true
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "起票日時",
+            "DefaultInput": "0",
+            "EditorFormat": "Ymdhms",
+            "NoWrap": true,
+            "ExtendedControlCss": "disabled",
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "承認/棄却日時",
+            "EditorFormat": "Ymdhms",
+            "ExtendedControlCss": "disabled",
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "AttachmentsA",
+            "LabelText": "申請ファイル",
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "承認者",
+            "ChoicesText": "[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"Groups\": \"[2]\",\n        \"Disabled\": \"false\"\n      },\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "ExtendedControlCss": "disabled",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "承認/棄却日時",
+            "EditorFormat": "Ymdhms",
+            "ExtendedControlCss": "disabled",
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "DescriptionA",
+            "LabelText": "備考",
+            "ExtendedControlCss": "disabled2 disabled3",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionB",
+            "LabelText": "コメント①",
+            "ExtendedControlCss": "disabled1 disabled3",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionC",
+            "LabelText": "コメント②",
+            "ExtendedControlCss": "disabled1 disabled2",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionD",
+            "LabelText": "コメント③",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionE",
+            "LabelText": "コメント④",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionF",
+            "EditorReadOnly": true,
+            "FieldCss": "field-wide"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "請求担当部署"
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "請求担当者名"
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "請求処理担当",
+            "ChoicesText": "[[Users]]",
+            "UseSearch": true,
+            "MultipleSelections": true,
+            "NoWrap": true,
+            "AutoPostBack": true,
+            "FieldCss": "field-wide"
+          },
+          {
+            "ColumnName": "DateD",
+            "LabelText": "入金予定日",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "承認者",
+            "ChoicesText": "[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"Groups\": \"[1]\",\n        \"Disabled\": \"false\"\n      },\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateE",
+            "LabelText": "承認/棄却日時",
+            "EditorFormat": "Ymdhms"
+          },
+          {
+            "ColumnName": "ClassG",
+            "LabelText": "最終承認者",
+            "ChoicesText": "[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"DeptCode\": 1\n      }\n    }\n  }\n]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateF",
+            "LabelText": "最終承認/棄却日時",
+            "EditorFormat": "Ymdhms"
+          },
+          {
+            "ColumnName": "ClassH",
+            "LabelText": "所属部署",
+            "ChoicesText": "[\n  {\n    \"TableName\": \"Depts\",\n    \"View\": {\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "UseSearch": true,
+            "NotInsertBlankChoice": true,
+            "DefaultInput": "[[Self]]",
+            "ValidateRequired": true,
+            "AutoPostBack": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassI",
+            "LabelText": "グループマネージャー承認者(処理用)",
+            "ChoicesText": "\n[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"Groups\": \"[3]\",\n        \"Disabled\": \"false\"\n      },\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "MultipleSelections": true,
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassJ",
+            "LabelText": "部長承認者(処理用)",
+            "ChoicesText": "[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"Groups\": \"[2]\",\n        \"Disabled\": \"false\"\n      },\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "MultipleSelections": true,
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassK",
+            "LabelText": "取締役承認者(処理用)",
+            "ChoicesText": "\n[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"Groups\": \"[1]\",\n        \"Disabled\": \"false\"\n      },\n      \"ColumnFilterExpressions\": {\n        \"DeptId\": \"[@ClassH]\"\n    }\n    }\n  }\n]",
+            "MultipleSelections": true,
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassL",
+            "LabelText": "最終承認者(処理用)",
+            "ChoicesText": "[\n  {\n    \"TableName\": \"Users\",\n    \"View\": {\n      \"ColumnFilterHash\": {\n        \"DeptCode\": 1\n      }\n    }\n  }\n]",
+            "MultipleSelections": true,
+            "Hide": true
+          }
+        ],
+        "Links": [
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassG",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "DeptCode": "1",
+                "Disabled": "false"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "Manager",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "Groups": "[3]",
+                "Disabled": "false"
+              },
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassB",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "Groups": "[2]",
+                "Disabled": "false"
+              },
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Depts",
+            "ColumnName": "ClassH",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassI",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "Groups": "[3]",
+                "Disabled": "false"
+              },
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassJ",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "Groups": "[2]",
+                "Disabled": "false"
+              },
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassL",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "DeptCode": "1"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassK",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "Groups": "[1]",
+                "Disabled": "false"
+              },
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "TableName": "Users",
+            "ColumnName": "ClassF",
+            "SiteId": 0,
+            "View": {
+              "Id": 0,
+              "ColumnFilterHash": {
+                "Groups": "[1]",
+                "Disabled": "false"
+              },
+              "ColumnFilterExpressions": {
+                "DeptId": "[@ClassH]"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          }
+        ],
+        "Processes": [
+          {
+            "Id": 2,
+            "Name": "グループマネージャ承認",
+            "DisplayName": "承認",
+            "CurrentStatus": 200,
+            "ChangedStatus": 300,
+            "ConfirmationMessage": "この申請を承認します。よろしいですか？",
+            "SuccessMessage": "承認しました。",
+            "OnClick": "groupManagerApproval($(this))",
+            "Groups": [
+              3
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 3,
+            "Name": "部長承認",
+            "DisplayName": "承認",
+            "CurrentStatus": 300,
+            "ChangedStatus": 350,
+            "ConfirmationMessage": "この申請を承認します。よろしいですか？",
+            "SuccessMessage": "承認しました。",
+            "OnClick": "ManagerApproval($(this))",
+            "Groups": [
+              2
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 4,
+            "Name": "取締役承認",
+            "DisplayName": "承認",
+            "CurrentStatus": 350,
+            "ChangedStatus": 400,
+            "ConfirmationMessage": "この申請を承認します。よろしいですか？",
+            "SuccessMessage": "承認しました。",
+            "OnClick": "DirectorApproval($(this))",
+            "Groups": [
+              1
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 5,
+            "Name": "最終承認",
+            "DisplayName": "承認",
+            "CurrentStatus": 400,
+            "ChangedStatus": 500,
+            "ConfirmationMessage": "この申請を承認します。よろしいですか？",
+            "SuccessMessage": "承認しました。",
+            "OnClick": "finalApproval($(this))",
+            "Depts": [
+              1
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 6,
+            "Name": "グループマネージャ差し戻し",
+            "DisplayName": "差戻",
+            "CurrentStatus": 200,
+            "ChangedStatus": 100,
+            "OnClick": "groupManagerReturn($(this))",
+            "Groups": [
+              3
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "Notifications": [
+              {
+                "Type": 1,
+                "Subject": "【請求書】申請差し戻し",
+                "Address": "[Owner]",
+                "MediaType": "application/json",
+                "Body": "申請が差し戻されました。\n下記URLよりご確認ください。\n{Url}",
+                "BeforeCondition": 0,
+                "AfterCondition": 0,
+                "Expression": 0,
+                "Id": 1
+              }
+            ]
+          },
+          {
+            "Id": 7,
+            "Name": "部長差し戻し",
+            "DisplayName": "差戻",
+            "CurrentStatus": 300,
+            "ChangedStatus": 100,
+            "OnClick": "ManagerReturn($(this))",
+            "Groups": [
+              2
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "Notifications": [
+              {
+                "Type": 1,
+                "Subject": "【請求書】申請差し戻し",
+                "Address": "[Owner]",
+                "MediaType": "application/json",
+                "Body": "申請が差し戻されました。\n下記URLよりご確認ください。\n{Url}",
+                "BeforeCondition": 0,
+                "AfterCondition": 0,
+                "Expression": 0,
+                "Id": 1
+              }
+            ]
+          },
+          {
+            "Id": 8,
+            "Name": "取締役差し戻し",
+            "DisplayName": "差戻",
+            "CurrentStatus": 350,
+            "ChangedStatus": 100,
+            "OnClick": "DirectorReturn($(this))",
+            "Groups": [
+              1
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "Notifications": [
+              {
+                "Type": 1,
+                "Subject": "【請求書】申請差し戻し",
+                "Address": "[Owner]",
+                "MediaType": "application/json",
+                "Body": "申請が差し戻されました。\n下記URLよりご確認ください。\n{Url}",
+                "BeforeCondition": 0,
+                "AfterCondition": 0,
+                "Expression": 0,
+                "Id": 1
+              }
+            ]
+          },
+          {
+            "Id": 9,
+            "Name": "社長差し戻し",
+            "DisplayName": "差戻",
+            "CurrentStatus": 400,
+            "ChangedStatus": 100,
+            "OnClick": "finalReturn($(this))",
+            "Depts": [
+              1
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "Notifications": [
+              {
+                "Type": 1,
+                "Subject": "【請求書】申請差し戻し",
+                "Address": "[Owner]",
+                "MediaType": "application/json",
+                "Body": "申請が差し戻されました。\n下記URLよりご確認ください。\n{Url}",
+                "BeforeCondition": 0,
+                "AfterCondition": 0,
+                "Expression": 0,
+                "Id": 1
+              }
+            ]
+          },
+          {
+            "Id": 10,
+            "Name": "申請",
+            "CurrentStatus": 100,
+            "ChangedStatus": 200,
+            "ConfirmationMessage": "この内容で申請しますか？",
+            "SuccessMessage": "申請しました。",
+            "OnClick": "application($(this))",
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 11,
+            "Name": "グループマネージャ却下",
+            "DisplayName": "却下",
+            "CurrentStatus": 200,
+            "ChangedStatus": 600,
+            "OnClick": "groupManagerReject($(this))",
+            "Groups": [
+              3
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 12,
+            "Name": "部長却下",
+            "DisplayName": "却下",
+            "CurrentStatus": 300,
+            "ChangedStatus": 600,
+            "OnClick": "ManagerReject($(this))",
+            "Groups": [
+              2
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 13,
+            "Name": "取締役却下",
+            "DisplayName": "却下",
+            "CurrentStatus": 350,
+            "ChangedStatus": 600,
+            "OnClick": "DirectorReject($(this))",
+            "Groups": [
+              1
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 14,
+            "Name": "最終承認却下",
+            "DisplayName": "却下",
+            "CurrentStatus": 400,
+            "ChangedStatus": 600,
+            "OnClick": "finalReject($(this))",
+            "Depts": [
+              1
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            }
+          }
+        ],
+        "StatusControls": [
+          {
+            "Id": 1,
+            "Name": "申請後データロック(一般社員のみ)",
+            "Status": 200,
+            "ColumnHash": {
+              "Manager": "ReadOnly",
+              "ClassB": "ReadOnly",
+              "ClassF": "ReadOnly",
+              "ClassG": "ReadOnly",
+              "DateB": "ReadOnly",
+              "DateC": "ReadOnly",
+              "DateE": "ReadOnly",
+              "DateF": "ReadOnly",
+              "DescriptionB": "ReadOnly",
+              "DescriptionC": "ReadOnly",
+              "DescriptionD": "ReadOnly",
+              "DescriptionE": "ReadOnly"
+            },
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "Groups": [
+              5
+            ]
+          }
+        ],
+        "ViewLatestId": 4,
+        "Styles": [
+          {
+            "Title": "ボタン非表示",
+            "New": true,
+            "Edit": true,
+            "Body": "/*メールボタンを消す*/\n#EditOutgoingMail{\n    display: none !important;\n}\n/*コピーボタンを消す*/\n#OpenCopyDialogCommand{\n    display: none !important;\n}\n",
+            "Id": 1
+          },
+          {
+            "Title": "ステータス",
+            "New": true,
+            "Edit": true,
+            "Index": true,
+            "Body": ".status-approved-1{\n    background-color: #fa8072;\n}\n.status-approved-2{\n    background-color: #4CAF50;\n}\n.status-approved-3{\n    background-color: #90CAF9;\n}\n",
+            "Id": 2
+          },
+          {
+            "Title": "状況のスタイル変更",
+            "New": true,
+            "Edit": true,
+            "Body": "#Results_Status {\n    opacity:1.0;  /* 透明度 */\n}",
+            "Id": 3
+          },
+          {
+            "Title": "一覧のボタン非表示",
+            "Index": true,
+            "Body": "#EditImportSettings{display:none!important}\n#OpenExportSelectorDialogCommand{display:none!important}\n#BulkDeleteCommand{display:none!important}",
+            "Id": 4
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "CDN読み込み",
+            "All": true,
+            "Body": "// js読み込み\nconst scripts = [\n    \"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js\",\n]\nfor ( const script of scripts ) {\n    console.log(script)\n    var elm = document.createElement(\"script\");\n    elm.src = script;\n    document.head.appendChild(elm);\n}\n",
+            "Id": 10
+          },
+          {
+            "Title": "申請",
+            "New": true,
+            "Edit": true,
+            "Body": "//申請ボタンを押下した時の処理\nasync function application(e){\n  try{\n      //確認フォーム\n      let answer = confirm('この内容で申請します。よろしいですか。')\n\n      //キャンセルする場合終了\n      if(!answer){\n          return\n      }\n\n      $p.loading(e)\n      let applicantDept = $p.getControl('ClassH').val() //申請者の組織取得\n      //組織に所属していなかったらエラー\n      if(applicantDept == 0){\n        $p.setMessage('#Message', JSON.stringify({\n            Css:'alert-error',\n            Text:'所属部署を選択してください。'\n        }));\n        $p.loaded()\n        return\n      }\n      let users = \"\"\n      //組織を指定してユーザ情報取得\n      await $.ajax({\n          url: 'http://192.168.10.54/api/users/get',\n          type: 'POST',\n          contentType: 'application/json',\n          data: JSON.stringify({\n              \"View\": {\n                  \"ColumnFilterHash\": {\n                      \"DeptId\":applicantDept,\n                  }\n              }\n          }),\n          success: function(response) {\n              console.log('成功:', response);\n              users = response.Response.Data\n              console.log(users)\n              \n          },\n          error: function(xhr, status, error) {\n              console.error('エラー:', error);\n          }\n      });\n      //取得したユーザ情報からユーザIDだけを取り出す\n      let userIds = users.map(item => item.UserId)\n      console.log(userIds)\n\n      //グループマネージャーのグループ情報取得\n      let groupManagers = \"\"\n      await $p.apiGroupsGet({\n          id:3,\n          done: function (data) {\n              console.log(data);\n              console.log('グループマネージャーのグループ情報の取得に成功しました。');\n              groupManagers = data.Response.Data[0].GroupMembers\n              console.log(groupManagers)\n          },\n          fail: function () {\n              console.log('グループマネージャーのグループ情報の取得に失敗しました。');\n          },\n      });\n      // 取得したグループの中からユーザIDの部分を取り出す\n      groupManagers = groupManagers.map(item => {\n          const parts = item.split(','); // カンマで分割\n          return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n      });\n      console.log(groupManagers)\n      //該当の組織に所属しているグループマネージャーのユーザID取得\n      let groupManagerId = userIds.filter(userId => groupManagers.includes(userId));\n      console.log(groupManagerId)\n\n      //部長のグループ情報取得\n      let Managers = \"\"\n      await $p.apiGroupsGet({\n          id:2,\n          done: function (data) {\n              console.log(data);\n              console.log('部長グループ情報の取得に成功しました。');\n              Managers = data.Response.Data[0].GroupMembers\n              console.log(Managers)\n          },\n          fail: function () {\n              console.log('部長グループ情報の取得に失敗しました。');\n          },\n      });\n      // 取得したグループの中からユーザIDの部分を取り出す\n      Managers = Managers.map(item => {\n          const parts = item.split(','); // カンマで分割\n          return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n      });\n      //該当の組織に所属している部長のユーザID取得\n      let ManagerId = userIds.filter(userId => Managers.includes(userId));\n      console.log(ManagerId)\n\n\n      //メール用の変数\n      let mailTitle = '【請求書】承認依頼通知'\n      let mailBody = [\n          `請求書の申請がされました。下記URLよりご確認ください。`,\n          `${location.origin}/items/${$p.id()}`\n      ]\n\n        //取締役のグループ情報取得\n        let directors = \"\"\n        let directorId = ''\n        await $p.apiGroupsGet({\n            id:1,\n            done: function (data) {\n                console.log(data);\n                console.log('取締役グループ情報の取得に成功しました。');\n                directors = data.Response.Data[0].GroupMembers\n                console.log(directors)\n                // 取得したグループの中からユーザIDの部分を取り出す\n                directors = directors.map(item => {\n                    const parts = item.split(','); // カンマで分割\n                    return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n                });\n                //該当の組織に所属している部長のユーザID取得\n                directorId = userIds.filter(userId => directors.includes(userId));\n                console.log(directorId)\n            },\n            fail: function () {\n                console.log('取締役グループ情報の取得に失敗しました。');\n            },\n        });\n      //社長ユーザID用\n      let presidentId = ''\n      //申請者の役職判定\n      if(groupManagerId.includes($p.userId())|| ManagerId.includes($p.userId()) || directorId.includes($p.userId()) || applicantDept == 1){\n          //申請者がグループマネージャーの場合\n          if(groupManagerId.includes($p.userId())){\n            　//部長のユーザIDデータ成形\n            　let ManagerIdStr = JSON.stringify(ManagerId.map(String));\n              //レコード更新\n              await $p.apiUpdate({\n                id:$p.id(),\n                data: {\n                    ApiVersion: 1.1,\n                    Status:300,//グループマネージャー承認済\n                    DescriptionHash:{\n                        DescriptionB:'スキップ',//コメントにスキップの文言セット\n                    },\n                    ClassHash: {\n                        ClassJ:ManagerIdStr,//承認対象\n                    }\n                },\n                done: function (data) {\n                    console.log('データの更新に成功しました。');\n                },\n                fail: function (data) {\n                    console.log('データの更新に失敗しました。');\n                },\n             });\n              //部長にメール送信\n              for(Manager of ManagerId){\n                await $p.apiCreate({\n                    id:MAIL_TABLE,\n                    data: {\n                        Title:mailTitle,//件名\n                        Body:mailBody.join('\\n'),//内容\n                        ClassHash: {\n                            ClassA:Manager //宛先\n                        }\n                    },\n                    done: function (data) {\n                        console.log('メール送信に成功しました。');\n                    },\n                    fail: function (data) {\n                        console.log(data);\n                    }\n                }); \n              }\n          }else if(ManagerId.includes($p.userId())){ //申請者が部長の場合\n            //取締役のグループ情報取得\n            let directors = \"\"\n            await $p.apiGroupsGet({\n                id:1,\n                done: function (data) {\n                    console.log(data);\n                    console.log('取締役グループ情報の取得に成功しました。');\n                    directors = data.Response.Data[0].GroupMembers\n                    console.log(directors)\n                },\n                fail: function () {\n                    console.log('取締役グループ情報の取得に失敗しました。');\n                },\n            });\n            // 取得したグループの中からユーザIDの部分を取り出す\n            directors = directors.map(item => {\n                const parts = item.split(','); // カンマで分割\n                return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n            });\n            //該当の組織に所属している部長のユーザID取得\n            let directorId = userIds.filter(userId => directors.includes(userId));\n            console.log(directorId)\n        \n              //取締役のユーザIDデータ成形\n              let directorIdStr = JSON.stringify(directorId.map(String));\n              //レコード更新\n              await $p.apiUpdate({\n                id:$p.id(),\n                data: {\n                    ApiVersion: 1.1,\n                    Status:350,//部長承認済\n                    DescriptionHash:{\n                        DescriptionB:'スキップ',//コメントにスキップの文言セット\n                        DescriptionC:'スキップ',\n                    },\n                    ClassHash: {\n                        ClassK:directorIdStr,//承認対象\n                    }\n                },\n                done: function (data) {\n                    console.log('データの更新に成功しました。');\n                },\n                fail: function (data) {\n                    console.log('データの更新に失敗しました。');\n                },\n             });\n              //取締役にメール送信\n              for(director of directorId){\n                await $p.apiCreate({\n                    id:MAIL_TABLE,\n                    data: {\n                        Title:mailTitle,//件名\n                        Body:mailBody.join('\\n'),//内容\n                        ClassHash: {\n                            ClassA:director //宛先\n                        }\n                    },\n                    done: function (data) {\n                        console.log('メール送信に成功しました。');\n                    },\n                    fail: function (data) {\n                        console.log(data);\n                    }\n                }); \n              }\n\n          }else if(directorId.includes($p.userId()) ){ //申請者が取締役の場合\n              //ユーザ情報からユーザIDを取得\n              await $.ajax({\n                url: 'http://192.168.10.54/api/users/get',\n                type: 'POST',\n                contentType: 'application/json',\n                data: JSON.stringify({\n                  \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"DeptId\":1,//三和商研代表\n                    }\n                }\n                }),\n                success: function(response) {\n                  console.log('成功:', response);\n                  presidentId = response.Response.Data\n                  //取得したユーザ情報からユーザIDだけを取り出す\n                  presidentId =  presidentId.map(item => item.UserId)\n                  console.log(presidentId)\n                    \n                },\n                error: function(xhr, status, error) {\n                    console.error('エラー:', error);\n                }\n              });\n              //データ成形\n              let presidentIdStr = JSON.stringify(presidentId.map(String));\n                //レコード更新\n                await $p.apiUpdate({\n                    id:$p.id(),\n                    data: {\n                        ApiVersion: 1.1,\n                        Status:400,//取締役承認済\n                        DescriptionHash:{\n                            DescriptionB:'スキップ',\n                            DescriptionC:'スキップ',\n                            DescriptionD:'スキップ',\n                        },\n                        ClassHash: {\n                            ClassL:presidentIdStr,//承認対象\n                        }\n                    },\n                    done: function (data) {\n                        console.log('データの更新に成功しました。');\n                    },\n                    fail: function (data) {\n                        console.log('データの更新に失敗しました。');\n                    },\n                });\n                //社長にメール送信\n                for(president of presidentId){\n                    await $p.apiCreate({\n                        id:MAIL_TABLE,\n                        data: {\n                            Title:mailTitle,//件名\n                            Body:mailBody.join('\\n'),//内容\n                            ClassHash: {\n                                ClassA:president//宛先\n                            }\n                        },\n                        done: function (data) {\n                            console.log('メール送信に成功しました。');\n                        },\n                        fail: function (data) {\n                            console.log(data);\n                        }\n                    }); \n                }\n            }else{\n                //申請者が社長の場合\n                //レコード更新\n                await $p.apiUpdate({\n                    id:$p.id(),\n                    data: {\n                        ApiVersion: 1.1,\n                        Status:500,//最終承認済\n                        DescriptionHash:{\n                            DescriptionB:'スキップ',\n                            DescriptionC:'スキップ',\n                            DescriptionD:'スキップ',\n                            DescriptionE:'スキップ',\n\n                        }\n                    },\n                    done: function (data) {\n                        console.log('データの更新に成功しました。');\n                    },\n                    fail: function (data) {\n                        console.log('データの更新に失敗しました。');\n                    },\n                });\n                //請求処理担担にメール送信\n                let addresses = $p.getControl('ClassE').val()\n                mailTitle = '【請求書】承認通知'\n                mailBody = [\n                    `請求書が承認されました。下記URLよりご確認ください。`,\n                    `${location.origin}/items/${$p.id()}`\n                ]\n                for(address of addresses){\n                    await $p.apiCreate({\n                        id:MAIL_TABLE,\n                        data: {\n                            Title:mailTitle,//件名\n                            Body:mailBody.join('\\n'),//内容\n                            ClassHash: {\n                                ClassA:address //宛先\n                            }\n                        },\n                        done: function (data) {\n                            console.log('メール送信に成功しました。');\n                        },\n                        fail: function (data) {\n                            console.log(data);\n                        }\n                    }); \n                }\n\n                \n            }\n      }else{\n            //グループマネージャーIDデータ成形\n            let groupManagerIdStr = JSON.stringify(groupManagerId.map(String));\n            //レコード更新\n            await $p.apiUpdate({\n                id:$p.id(),\n                data: {\n                    ApiVersion: 1.1,\n                    Status:200,//申請済\n                    ClassHash: {\n                        ClassI:groupManagerIdStr,//承認対象\n                    }\n                },\n                done: function (data) {\n                    console.log('データの更新に成功しました。');\n                },\n                fail: function (data) {\n                    console.log('データの更新に失敗しました。');\n                },\n            });\n          //グループマネージャーにメール送信\n            for(groupManager of groupManagerId){\n                await $p.apiCreate({\n                    id:MAIL_TABLE,\n                    data: {\n                        Title:mailTitle,//件名\n                        Body:mailBody.join('\\n'),//内容\n                        ClassHash: {\n                            ClassA:groupManager//宛先\n                        }\n                    },\n                    done: function (data) {\n                        console.log('メール送信に成功しました。');\n                    },\n                    fail: function (data) {\n                        console.log(data);\n                    }\n                });\n            }\n            \n      }\n      $p.loaded()\n      $p.clearMessage();\n      $p.setMessage('#Message', JSON.stringify({\n          Css: 'alert-success',\n          Text: '申請しました。'\n      }));\n\n  }catch(e){\n      if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n          $p.setMessage('#Message', JSON.stringify({\n              Css: 'alert-error',\n              Text: e.message\n          }));\n          console.log(e.message)\n      }else{\n          $p.setMessage('#Message', JSON.stringify({\n              Css: 'alert-error',\n              Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n          }));\n          console.log(e.message)\n      }\n      $p.loaded()\n  }\n}",
+            "Id": 12
+          },
+          {
+            "Title": "グループマネージャー承認",
+            "New": true,
+            "Edit": true,
+            "Body": "//グループマネージャー承認処理\nasync function groupManagerApproval(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を承認します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('Manager').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n        let applicant = $p.getControl('Owner').val() //申請者\n        let applicantDept = $p.getControl('ClassH').val() //申請者の組織取得\n        let users = \"\"\n        //メール送信先取得処理\n        //組織を指定してユーザ情報取得\n        await $.ajax({\n            url: 'http://192.168.10.54/api/users/get',\n            type: 'POST',\n            contentType: 'application/json',\n            data: JSON.stringify({\n                \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"DeptId\":applicantDept,\n                    }\n                }\n            }),\n            success: function(response) {\n                console.log('成功:', response);\n                users = response.Response.Data\n                console.log(users)\n                \n            },\n            error: function(xhr, status, error) {\n                console.error('エラー:', error);\n            }\n        });\n        //取得したユーザ情報からユーザIDだけを取り出す\n        let userIds = users.map(item => item.UserId)\n        console.log(userIds)\n        \n        //部長のグループ情報取得\n        let Managers = \"\"\n        await $p.apiGroupsGet({\n            id:2,\n            done: function (data) {\n                console.log(data);\n                console.log('部長グループ情報の取得に成功しました。');\n                Managers = data.Response.Data[0].GroupMembers\n                console.log(Managers)\n            },\n            fail: function () {\n                console.log('部長グループ情報の取得に失敗しました。');\n            },\n        });\n        // 取得したグループの中からユーザIDの部分を取り出す\n        Managers = Managers.map(item => {\n            const parts = item.split(','); // カンマで分割\n            return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n        });\n        //該当の組織に所属している部長のユーザID取得\n        let ManagerId = userIds.filter(userId => Managers.includes(userId));\n        console.log(ManagerId)\n\n\n        //メール用の変数\n        let groupManager = commonGetVal('Manager')//承認者の名前取得\n        let mailTitle = '【請求書】承認依頼通知'\n        let mailBody = [\n            `${groupManager}より請求書の承認依頼が届きました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n\n\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n\n        //部長のユーザIDデータ成形\n        let ManagerIdStr = JSON.stringify(ManagerId.map(String));\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:300,//グループマネージャー承認済\n                Manager:$p.getControl('Manager').val(),\n                DescriptionHash:{\n                    DescriptionB:$p.getControl('DescriptionB').val()\n                },\n                ClassHash: {\n                    ClassJ:ManagerIdStr,//承認対象\n                },\n                DateHash:{\n                    DateB:formattedDate,//承認日\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n\n        //部長にメール送信\n        for(Manager of ManagerId){\n            await $p.apiCreate({\n                id:MAIL_TABLE,\n                data: {\n                    Title:mailTitle,//件名\n                    Body:mailBody.join('\\n'),//内容\n                    ClassHash: {\n                        ClassA:Manager //宛先\n                    }\n                },\n                done: function (data) {\n                    console.log('メール送信に成功しました。');\n                },\n                fail: function (data) {\n                    console.log(data);\n                }\n            }); \n        }\n        //ローディング終了\n        $p.loaded()\n        $p.clearMessage();\n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '承認しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 13
+          },
+          {
+            "Title": "部長承認",
+            "New": true,
+            "Edit": true,
+            "Body": "//部長承認処理\nasync function ManagerApproval(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を承認します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('ClassB').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n//----------------------------メール送信先取得処理-----------------------------\n        let applicantDept = $p.getControl('ClassH').val() //申請者の組織取得\n        let users = \"\"\n        //メール送信先取得処理\n        //組織を指定してユーザ情報取得\n        await $.ajax({\n            url: 'http://192.168.10.54/api/users/get',\n            type: 'POST',\n            contentType: 'application/json',\n            data: JSON.stringify({\n                \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"DeptId\":applicantDept,\n                    }\n                }\n            }),\n            success: function(response) {\n                console.log('成功:', response);\n                users = response.Response.Data\n                console.log(users)\n                \n            },\n            error: function(xhr, status, error) {\n                console.error('エラー:', error);\n            }\n        });\n        //取得したユーザ情報からユーザIDだけを取り出す\n        let userIds = users.map(item => item.UserId)\n        console.log(userIds)\n\n        //取締役のグループ情報取得\n        let directors = \"\"\n        let directorId = ''\n        await $p.apiGroupsGet({\n            id:1,\n            done: function (data) {\n                console.log(data);\n                console.log('取締役グループ情報の取得に成功しました。');\n                directors = data.Response.Data[0].GroupMembers\n                console.log(directors)\n                // 取得したグループの中からユーザIDの部分を取り出す\n                directors = directors.map(item => {\n                    const parts = item.split(','); // カンマで分割\n                    return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n                });\n                //該当の組織に所属している部長のユーザID取得\n                directorId = userIds.filter(userId => directors.includes(userId));\n                console.log(directorId)\n            },\n            fail: function () {\n                console.log('取締役グループ情報の取得に失敗しました。');\n            },\n        });\n        // // 取得したグループの中からユーザIDの部分を取り出す\n        // directors = directors.map(item => {\n        //     const parts = item.split(','); // カンマで分割\n        //     return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す\n        // });\n        // //該当の組織に所属している部長のユーザID取得\n        // let directorId = userIds.filter(userId => directors.includes(userId));\n        // console.log(directorId)\n        \n\n        //部長の名前\n        let directorName = commonGetVal('ClassB')\n        let mailTitle = '【請求書】承認依頼通知'\n        let mailBody = [\n            `${directorName}より請求書の承認依頼が届きました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n\n\n\n\n//------------------------------------------------------------------------------------\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n        //取締役のユーザIDデータ成形\n        let directorIdStr = JSON.stringify(directorId.map(String));\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:350,//部長承認済\n                DescriptionHash:{\n                    DescriptionC:$p.getControl('DescriptionC').val(),\n                },\n                ClassHash: {\n                    ClassB:$p.getControl('ClassB').val(),//承認者\n                    ClassK:directorIdStr,//承認対象\n                },\n                DateHash:{\n                    DateC:formattedDate,//承認日\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n\n//------------------------------------------------------------------------------------\n        // 取締役にメール送信処理\n        for(director of directorId){\n            await $p.apiCreate({\n                id:MAIL_TABLE,\n                data: {\n                    Title:mailTitle,//件名\n                    Body:mailBody.join('\\n'),//内容\n                    ClassHash: {\n                        ClassA:director //宛先\n                    }\n                },\n                done: function (data) {\n                    console.log('メール送信に成功しました。');\n                },\n                fail: function (data) {\n                    console.log(data);\n                }\n            }); \n        }\n        $p.loaded()\n        $p.clearMessage();\n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '承認しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 14
+          },
+          {
+            "Title": "取締役承認",
+            "New": true,
+            "Edit": true,
+            "Body": "//取締役承認処理\nasync function DirectorApproval(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を承認します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('ClassF').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n//----------------------------メール送信先取得処理-----------------------------\n        //メール用の変数\n        let presidentId = '' //社長のユーザID\n        //取締役の名前\n        let directorName = commonGetVal('ClassF')\n        let mailTitle = '【請求書】承認依頼通知'\n        let mailBody = [\n            `${directorName}より請求書の承認依頼が届きました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n\n        //ユーザ情報からメールアドレスを取得\n        await $.ajax({\n        url: 'http://192.168.10.54/api/users/get',\n        type: 'POST',\n        contentType: 'application/json',\n        data: JSON.stringify({\n            \"View\": {\n            \"ApiGetMailAddresses\": true,\n            \"ColumnFilterHash\": {\n                \"DeptId\":1,//三和商研代表\n            }\n        }\n        }),\n        success: function(response) {\n            console.log('成功:', response);\n            presidentId = response.Response.Data\n            //取得したユーザ情報からメールアドレスだけを取り出す\n            presidentId = presidentId.map(item => item.UserId)\n            console.log(presidentId)\n            \n        },\n        error: function(xhr, status, error) {\n            console.error('エラー:', error);\n        }\n        });\n\n\n//------------------------------------------------------------------------------------\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n        //データ成形\n        let presidentIdStr = JSON.stringify(presidentId.map(String));\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:400,//取締役承認済\n                DescriptionHash:{\n                    DescriptionD:$p.getControl('DescriptionD').val(),\n                },\n                ClassHash: {\n                    ClassF:$p.getControl('ClassF').val(),//承認者\n                    ClassL:presidentIdStr,//承認対象\n                },\n                DateHash:{\n                    DateE:formattedDate,//承認日\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n\n//------------------------------------------------------------------------------------\n        // 社長にメール送信処理\n        for(president of presidentId){\n            await $p.apiCreate({\n                id:MAIL_TABLE,\n                data: {\n                    Title:mailTitle,//件名\n                    Body:mailBody.join('\\n'),//内容\n                    ClassHash: {\n                        ClassA:president //宛先\n                    }\n                },\n                done: function (data) {\n                    console.log('メール送信に成功しました。');\n                },\n                fail: function (data) {\n                    console.log(data);\n                }\n            }); \n        }\n        $p.loaded()\n        $p.clearMessage();\n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '承認しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 15
+          },
+          {
+            "Title": "最終承認",
+            "New": true,
+            "Edit": true,
+            "Body": "//最終承認処理\nasync function finalApproval(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を承認します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('ClassG').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n//------------------------------------------------------------------------------------\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:500,//最終承認済\n                ClassHash:{\n                    ClassG:$p.getControl('ClassG').val(),//承認者\n                },\n                DescriptionHash:{\n                    DescriptionE:$p.getControl('DescriptionE').val(),\n\n                },\n                DateHash:{\n                    DateF:formattedDate,//承認日\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n        //申請者と請求処理担当にメール送信\n        let applicant = $p.getControl('Owner').val()\n        let to = $p.getControl('ClassE').val()\n\n        //メール用の変数\n        let president = commonGetVal('ClassG') //社長の名前\n        let mailTitle = '【請求書】承認通知'\n        let mailBody = [\n            `${president}より請求書が承認されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n        let mailAddresses = [applicant, ...to]; \n        for(mailAddress of mailAddresses){\n            await $p.apiCreate({\n                id:MAIL_TABLE,\n                data: {\n                    Title:mailTitle,//件名\n                    Body:mailBody.join('\\n'),//内容\n                    ClassHash: {\n                        ClassA:mailAddress //宛先\n                    }\n                },\n                done: function (data) {\n                    console.log('メール送信に成功しました。');\n                },\n                fail: function (data) {\n                    console.log(data);\n                }\n            }); \n        }\n        $p.loaded()\n        $p.clearMessage();\n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '承認しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 16
+          },
+          {
+            "Title": "状況によって読み取り専用・ボタン表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "//状況によって読み取り専用にする・申請者と承認対象が自分のレコードのみ更新ボタン表示\n$p.events.on_editor_load = function () {\n    $(\"#UpdateCommand\").hide()//更新ボタン\n    $(\"#Process_10\").hide()//申請ボタン\n    let Status = $p.getControl('Status').val()\n    let applicant = $p.getControl('Owner').val() //申請者\n    let groupManager = $p.getControl('ClassI').val()//グループマネージャー\n    let buchou = $p.getControl('ClassJ').val() //部長\n    let torishimari = $p.getControl('ClassK').val() //取締役\n    let shachou = $p.getControl('ClassL').val()  //社長\n    //申請前\n    if(Status == 100 ){\n        //申請者が自分のときのみ申請者入力エリア編集可\n        if(applicant != $p.userId()){\n            //申請者入力エリア\n            $('#Results_ClassH').prop('disabled', true)//所属部署\n            $('#Results_ClassA').prop('disabled', true)//申請区分\n            $('#Results_DateD').prop('disabled', true)//起票日時\n            $('#Results_ClassC').prop('disabled', true)//請求担当部署\n            $('#Results_ClassD').prop('disabled', true)///請求担当者名\n            $('#Results_ClassE').prop('disabled', true)//請求処理担当\n            $('#Results_DescriptionA').prop('disabled', true)//備考\n            $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n            $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n            $('#Results_Status').prop('disabled', true)//状況\n            $('#Results_Owner').prop('disabled', true)//申請者\n            //グループマネージャー承認時入力エリア\n            $('#Results_Manager').prop('disabled', true)//承認者\n            $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionB').prop('disabled', true)//コメント①\n            //部長承認時入力エリア\n            $('#Results_ClassB').prop('disabled', true)//承認者\n            $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionC').prop('disabled', true)//コメント①\n            //取締役承認時入力エリア\n            $('#Results_ClassF').prop('disabled', true)//承認者\n            $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionD').prop('disabled', true)//コメント①\n            //最終承認時入力エリア\n            $('#Results_ClassG').prop('disabled', true)//承認者\n            $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionE').prop('disabled', true)//コメント①\n            //時計アイコン\n            $('.ui-icon.ui-icon-clock.current-time').hide();\n            //人物アイコン\n            $('.ui-icon.ui-icon-person.current-user').hide();\n            $('.ui-icon.ui-icon-person.current-dept').hide();\n            \n        }else{\n            $(\"#UpdateCommand\").show()\n            $(\"#Process_10\").show()//申請ボタン\n            $('#Results_Status').prop('disabled', true)//状況\n            $('#Results_Owner').prop('disabled', true)//申請者\n            $('#Results_ClassH').prop('disabled', true)//所属部署\n            //グループマネージャー承認時入力エリア\n            $('#Results_Manager').prop('disabled', true)//承認者\n            $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionB').prop('disabled', true)//コメント①\n            //部長承認時入力エリア\n            $('#Results_ClassB').prop('disabled', true)//承認者\n            $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionC').prop('disabled', true)//コメント①\n            //取締役承認時入力エリア\n            $('#Results_ClassF').prop('disabled', true)//承認者\n            $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionD').prop('disabled', true)//コメント①\n            //最終承認時入力エリア\n            $('#Results_ClassG').prop('disabled', true)//承認者\n            $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n            $('#Results_DescriptionE').prop('disabled', true)//コメント①\n            //時計アイコン\n            $('.ui-icon.ui-icon-clock.current-time').hide();\n            //人物アイコン\n            $('.ui-icon.ui-icon-person.current-user').hide();\n            $('.ui-icon.ui-icon-person.current-dept').hide();\n        }\n    }\n    \n    //申請済み\n    if(Status == 200 ){\n        $('#Results_Status').prop('disabled', true)//状況\n        $('#Results_Title').prop('disabled', true)//タイトル\n        $('#Results_Owner').prop('disabled', true)//申請者\n        $('#Results_ClassH').prop('disabled', true)//所属部署\n        $('#Results_ClassA').prop('disabled', true)//申請区分\n        $('#Results_DateD').prop('disabled', true)//起票日時\n        $('#Results_ClassC').prop('disabled', true)//請求担当部署\n        $('#Results_ClassD').prop('disabled', true)///請求担当者名\n        $('#Results_ClassE').prop('disabled', true)//請求処理担当\n        $('#Results_DescriptionA').prop('disabled', true)//備考\n        $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n        $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n        //承認対象のグループマネージャーのみ編集可能\n        if(!groupManager.includes(String($p.userId()))){\n            //グループマネージャー承認時入力エリア\n            $('#Results_Manager').prop('disabled', true)//承認者\n            $('#Results_DescriptionB').prop('disabled', true)//コメント①\n        }\n        $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n        //部長承認時入力エリア\n        $('#Results_ClassB').prop('disabled', true)//承認者\n        $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionC').prop('disabled', true)//コメント①\n        //取締役承認時入力エリア\n        $('#Results_ClassF').prop('disabled', true)//承認者\n        $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionD').prop('disabled', true)//コメント①\n        //最終承認時入力エリア\n        $('#Results_ClassG').prop('disabled', true)//承認者\n        $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionE').prop('disabled', true)//コメント①\n        //削除ボタン\n        $('#DeleteCommand').hide()\n        //時計アイコン\n        $('.ui-icon.ui-icon-clock.current-time').hide();\n        //人物アイコン\n        $('.ui-icon.ui-icon-person.current-user').hide();\n        $('.ui-icon.ui-icon-person.current-dept').hide();\n    }\n    //グループマネージャー承認\n    if(Status == 300){\n        //申請時入力エリア\n        $('#Results_Status').prop('disabled', true)//状況\n        $('#Results_Title').prop('disabled', true)//タイトル\n        $('#Results_Owner').prop('disabled', true)//申請者\n        $('#Results_ClassH').prop('disabled', true)//所属部署\n        $('#Results_ClassA').prop('disabled', true)//申請区分\n        $('#Results_DateD').prop('disabled', true)//起票日時\n        $('#Results_ClassC').prop('disabled', true)//請求担当部署\n        $('#Results_ClassD').prop('disabled', true)///請求担当者名\n        $('#Results_ClassE').prop('disabled', true)//請求処理担当\n        $('#Results_DescriptionA').prop('disabled', true)//備考\n        $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n        $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n        //グループマネージャー承認時入力エリア\n        $('#Results_Manager').prop('disabled', true)//承認者\n        $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionB').prop('disabled', true)//コメント①\n        //承認対象の部長のみ編集可能\n        if(!buchou.includes(String($p.userId()))){\n            //部長承認時入力エリア\n            $('#Results_ClassB').prop('disabled', true)//承認者\n            $('#Results_DescriptionC').prop('disabled', true)//コメント②\n        }\n        $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n        //取締役承認時入力エリア\n        $('#Results_ClassF').prop('disabled', true)//承認者\n        $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionD').prop('disabled', true)//コメント①\n        //最終承認時入力エリア\n        $('#Results_ClassG').prop('disabled', true)//承認者\n        $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionE').prop('disabled', true)//コメント①\n        //削除ボタン\n        $('#DeleteCommand').hide()\n        //時計アイコン\n        $('.ui-icon.ui-icon-clock.current-time').hide();\n        //人物アイコン\n        $('.ui-icon.ui-icon-person.current-user').hide();\n        $('.ui-icon.ui-icon-person.current-dept').hide();\n    }\n    //部長承認\n    if(Status == 350){\n        //申請時入力エリア\n        $('#Results_Status').prop('disabled', true)//状況\n        $('#Results_Title').prop('disabled', true)//タイトル\n        $('#Results_Owner').prop('disabled', true)//申請者\n        $('#Results_ClassH').prop('disabled', true)//所属部署\n        $('#Results_ClassA').prop('disabled', true)//申請区分\n        $('#Results_DateD').prop('disabled', true)//起票日時\n        $('#Results_ClassC').prop('disabled', true)//請求担当部署\n        $('#Results_ClassD').prop('disabled', true)///請求担当者名\n        $('#Results_ClassE').prop('disabled', true)//請求処理担当\n        $('#Results_DescriptionA').prop('disabled', true)//備考\n        $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n        $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n        //グループマネージャー承認時入力エリア\n        $('#Results_Manager').prop('disabled', true)//承認者\n        $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionB').prop('disabled', true)//コメント①\n        //部長承認時入力エリア\n        $('#Results_ClassB').prop('disabled', true)//承認者\n        $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionC').prop('disabled', true)//コメント①\n        //承認対象の取締役のみ編集可能\n        if(!torishimari.includes(String($p.userId()))){\n            //取締役承認時入力エリア\n            $('#Results_ClassF').prop('disabled', true)//承認者\n            $('#Results_DescriptionD').prop('disabled', true)//コメント③\n        }\n        $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n        //最終承認時入力エリア\n        $('#Results_ClassG').prop('disabled', true)//承認者\n        $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionE').prop('disabled', true)//コメント①\n        //削除ボタン\n        $('#DeleteCommand').hide() \n        //時計アイコン\n        $('.ui-icon.ui-icon-clock.current-time').hide();\n        //人物アイコン\n        $('.ui-icon.ui-icon-person.current-user').hide();\n        $('.ui-icon.ui-icon-person.current-dept').hide();\n    }\n    //取締役承認\n    if(Status == 400){\n        //申請時入力エリア\n        $('#Results_Status').prop('disabled', true)//状況\n        $('#Results_Title').prop('disabled', true)//タイトル\n        $('#Results_Owner').prop('disabled', true)//申請者\n        $('#Results_ClassH').prop('disabled', true)//所属部署\n        $('#Results_ClassA').prop('disabled', true)//申請区分\n        $('#Results_DateD').prop('disabled', true)//起票日時\n        $('#Results_ClassC').prop('disabled', true)//請求担当部署\n        $('#Results_ClassD').prop('disabled', true)///請求担当者名\n        $('#Results_ClassE').prop('disabled', true)//請求処理担当\n        $('#Results_DescriptionA').prop('disabled', true)//備考\n        $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n        $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n        //グループマネージャー承認時入力エリア\n        $('#Results_Manager').prop('disabled', true)//承認者\n        $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionB').prop('disabled', true)//コメント①\n        //部長承認時入力エリア\n        $('#Results_ClassB').prop('disabled', true)//承認者\n        $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionC').prop('disabled', true)//コメント①\n        //取締役承認時入力エリア\n        $('#Results_ClassF').prop('disabled', true)//承認者\n        $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionD').prop('disabled', true)//コメント①\n        //承認対象の社長のみ編集可能\n        if(!shachou.includes(String($p.userId()))){\n            //最終承認時入力エリア\n            $('#Results_ClassG').prop('disabled', true)//承認者\n            $('#Results_DescriptionE').prop('disabled', true)//コメント④\n        }\n        $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n        //削除ボタン\n        $('#DeleteCommand').hide()\n        //時計アイコン\n        $('.ui-icon.ui-icon-clock.current-time').hide();\n        //人物アイコン\n        $('.ui-icon.ui-icon-person.current-user').hide();\n        $('.ui-icon.ui-icon-person.current-dept').hide();\n    }\n    //最終承認\n    if(Status == 500){\n        //申請時入力エリア\n        $('#Results_Status').prop('disabled', true)//状況\n        $('#Results_Title').prop('disabled', true)//タイトル\n        $('#Results_Owner').prop('disabled', true)//申請者\n        $('#Results_ClassH').prop('disabled', true)//所属部署\n       $('#Results_ClassA').prop('disabled', true)//申請区分\n        $('#Results_DateD').prop('disabled', true)//起票日時\n        $('#Results_ClassC').prop('disabled', true)//請求担当部署\n        $('#Results_ClassD').prop('disabled', true)///請求担当者名\n        $('#Results_ClassE').prop('disabled', true)//請求処理担当\n        $('#Results_DescriptionA').prop('disabled', true)//備考\n        $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n        $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n        //グループマネージャー承認時入力エリア\n        $('#Results_Manager').prop('disabled', true)//承認者\n        $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionB').prop('disabled', true)//コメント①\n        //部長承認時入力エリア\n        $('#Results_ClassB').prop('disabled', true)//承認者\n        $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionC').prop('disabled', true)//コメント①\n        //取締役承認時入力エリア\n        $('#Results_ClassF').prop('disabled', true)//承認者\n        $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionD').prop('disabled', true)//コメント①\n        //最終承認時入力エリア\n        $('#Results_ClassG').prop('disabled', true)//承認者\n        $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionE').prop('disabled', true)//コメント①\n        //削除ボタン\n        $('#DeleteCommand').hide()\n        //時計アイコン\n        $('.ui-icon.ui-icon-clock.current-time').hide();\n        //人物アイコン\n        $('.ui-icon.ui-icon-person.current-user').hide();\n        $('.ui-icon.ui-icon-person.current-dept').hide();\n\n    }\n    //棄却\n    if(Status == 600){\n        //申請時入力エリア\n        $('#Results_Status').prop('disabled', true)//状況\n        $('#Results_Title').prop('disabled', true)//タイトル\n        $('#Results_Owner').prop('disabled', true)//申請者\n        $('#Results_ClassH').prop('disabled', true)//所属部署\n        $('#Results_ClassA').prop('disabled', true)//申請区分\n        $('#Results_DateD').prop('disabled', true)//起票日時\n        $('#Results_ClassC').prop('disabled', true)//請求担当部署\n        $('#Results_ClassD').prop('disabled', true)///請求担当者名\n        $('#Results_ClassE').prop('disabled', true)//請求処理担当\n        $('#Results_DescriptionA').prop('disabled', true)//備考\n        $('#AttachmentsA\\\\.upload').hide();//申請ファイル\n        $('.ui-icon.ui-icon-circle-close.delete-file').hide();//ファイル削除アイコン\n        //グループマネージャー承認時入力エリア\n        $('#Results_Manager').prop('disabled', true)//承認者\n        $('#Results_DateB').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionB').prop('disabled', true)//コメント①\n        //部長承認時入力エリア\n        $('#Results_ClassB').prop('disabled', true)//承認者\n        $('#Results_DateC').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionC').prop('disabled', true)//コメント①\n        //取締役承認時入力エリア\n        $('#Results_ClassF').prop('disabled', true)//承認者\n        $('#Results_DateE').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionD').prop('disabled', true)//コメント①\n        //最終承認時入力エリア\n        $('#Results_ClassG').prop('disabled', true)//承認者\n        $('#Results_DateF').prop('disabled', true)//承認/棄却日時\n        $('#Results_DescriptionE').prop('disabled', true)//コメント①\n        //削除ボタン\n        $('#DeleteCommand').hide()\n        //時計アイコン\n        $('.ui-icon.ui-icon-clock.current-time').hide();\n        //人物アイコン\n        $('.ui-icon.ui-icon-person.current-user').hide();\n        $('.ui-icon.ui-icon-person.current-dept').hide();\n\n    }\n\n}",
+            "Id": 17
+          },
+          {
+            "Title": "共通変数",
+            "All": true,
+            "Body": "const MAIL_TABLE = \"2020628\"",
+            "Id": 18
+          },
+          {
+            "Title": "グループマネージャー棄却",
+            "New": true,
+            "Edit": true,
+            "Body": "//グループマネージャー棄却処理\nasync function groupManagerReject(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を却下します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('Manager').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n\n        //メール用の変数\n        let groupManager = commonGetVal('Manager')\n        let mailTitle = '【請求書】申請棄却通知'\n        let mailBody = [\n            `${groupManager}より請求書の申請が却下されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:600,//棄却\n                Manager:$p.getControl('Manager').val(),//承認者\n                DescriptionHash:{\n                    DescriptionB:$p.getControl('DescriptionB').val()\n                },\n\n                DateHash:{\n                    DateB:formattedDate,//承認日\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        $p.loaded()\n        $p.clearMessage(); \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '却下しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 19
+          },
+          {
+            "Title": "部長棄却",
+            "New": true,
+            "Edit": true,
+            "Body": "//部長棄却処理\nasync function ManagerReject(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を却下します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('ClassB').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n\n        //メール用の変数\n        let Manager = commonGetVal('ClassB')\n        let mailTitle = '【請求書】申請棄却通知'\n        let mailBody = [\n            `${Manager}より請求書の申請が却下されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:600,//棄却\n                DescriptionHash:{\n                    DescriptionC:$p.getControl('DescriptionC').val()\n                },\n                DateHash:{\n                    DateC:formattedDate,//棄却日\n                },\n                ClassHash:{\n                    ClassB:$p.getControl('ClassB').val(),//承認者\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        $p.loaded()\n        $p.clearMessage();         \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '却下しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 20
+          },
+          {
+            "Title": "取締役棄却",
+            "New": true,
+            "Edit": true,
+            "Body": "//取締役棄却処理\nasync function DirectorReject(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を却下します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('ClassF').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n\n        //メール用の変数\n        let director = commonGetVal('ClassF')\n        let mailTitle = '【請求書】申請棄却通知'\n        let mailBody = [\n            `${director}より請求書の申請が却下されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n        //承認日セット\n        $p.set($p.getControl('DateE'),formattedDate)\n        //ステータス変更\n        $p.set($p.getControl('Status'),600) //棄却\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:600,//棄却\n                DescriptionHash:{\n                    DescriptionD:$p.getControl('DescriptionD').val()\n                },\n\n                DateHash:{\n                    DateE:formattedDate,//承認日\n                },\n                ClassHash:{\n                    ClassF:$p.getControl('ClassF').val()//承認者\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n        \n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        $p.loaded()\n        $p.clearMessage(); \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '却下しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 21
+          },
+          {
+            "Title": "最終棄却",
+            "New": true,
+            "Edit": true,
+            "Body": "//最終棄却処理\nasync function finalReject(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を却下します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //承認者が空白だったらエラー\n        let approver = $p.getControl('ClassG').val()\n        if(!approver){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: '承認者を選択してください。'\n            }));\n            return\n        }\n        //ローディング\n        $p.loading(e)\n\n        //メール用の変数\n        let president = commonGetVal('ClassG')\n        let mailTitle = '【請求書】申請棄却通知'\n        let mailBody = [\n            `${president}より請求書の申請が却下されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n        //承認日\n        const now = new Date();\n\n        const year = now.getFullYear();\n        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1\n        const day = String(now.getDate()).padStart(2, '0');\n        const hours = String(now.getHours()).padStart(2, '0');\n        const minutes = String(now.getMinutes()).padStart(2, '0');\n        const seconds = String(now.getSeconds()).padStart(2, '0');\n        const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;\n\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:600,//棄却\n                DescriptionHash:{\n                    DescriptionE:$p.getControl('DescriptionE').val()\n                },\n\n                DateHash:{\n                    DateF:formattedDate,//棄却日\n                },\n                ClassHash:{\n                    ClassG:$p.getControl('ClassG').val()//承認者\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n        \n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        \n        $p.loaded()\n        $p.clearMessage(); \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '却下しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 22
+          },
+          {
+            "Title": "表示名取得する関数",
+            "New": true,
+            "Edit": true,
+            "Body": "/**\n * \n * @param {String} label 項目名\n * @param {boolean} valueFlg trueなら表示名、falseならリンクID\n */\nfunction commonGetVal(label, valueFlg = false) {\n    let value = \"\"\n    try {\n        if ($p.getControl(label).prop(\"tagName\") === \"SELECT\") {\n            if ($p.getControl(label).attr(\"multiple\")) {\n                value = valueFlg ? $p.getControl(label).val() : $p.getControl(label).next().children().last().text()\n            } else {\n                value = valueFlg ? $p.getControl(label).children(':selected').val() : $p.getControl(label).children(':selected').text()\n            }\n        } else if ($p.getControl(label).prop(\"tagName\") === \"INPUT\") {\n            value = $p.getControl(label).val()\n        } else if ($p.getControl($p.getColumnName(label)).prop(\"tagName\") === \"TEXTAREA\") {\n            value = $p.getControl(label).val()\n        }\n\n    } catch (e) {\n        console.log(label)\n        console.log(e)\n        value = \"\"\n    } finally {\n        return value\n    }\n}",
+            "Id": 24
+          },
+          {
+            "Title": "グループマネージャー差し戻し",
+            "New": true,
+            "Edit": true,
+            "Body": "//グループマネージャー差戻処理\nasync function groupManagerReturn(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を差し戻します。よろしいですか？')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //ローディング\n        $p.loading(e)\n\n\n        //差し戻した人の名前を取得\n        let groupManager  = ''\n        await $.ajax({\n            url: 'http://192.168.10.54/api/users/get',\n            type: 'POST',\n            contentType: 'application/json',\n            data: JSON.stringify({\n                \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"UserId\":$p.userId(),\n                    }\n                }\n            }),\n            success: function(response) {\n                console.log('成功:', response);\n                groupManager = response.Response.Data[0].Name\n                console.log(groupManager)\n                \n            },\n            error: function(xhr, status, error) {\n                console.error('エラー:', error);\n            }\n        });\n        //メール用の変数\n        let mailTitle = '【請求書】差戻通知'\n        let mailBody = [\n            `${groupManager}より請求書の申請が差し戻されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:100,//申請前\n                ClassHash:{\n                    ClassI:'',//処理用承認者\n                }\n\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n        \n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        \n        $p.loaded()\n        $p.clearMessage(); \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '差し戻しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 25
+          },
+          {
+            "Title": "部長差し戻し",
+            "New": true,
+            "Edit": true,
+            "Body": "//部長差し戻し処理\nasync function ManagerReturn(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を差し戻します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //ローディング\n        $p.loading(e)\n\n        //差し戻した人の名前を取得\n        let Manager = ''\n        await $.ajax({\n            url: 'http://192.168.10.54/api/users/get',\n            type: 'POST',\n            contentType: 'application/json',\n            data: JSON.stringify({\n                \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"UserId\":$p.userId(),\n                    }\n                }\n            }),\n            success: function(response) {\n                console.log('成功:', response);\n                Manager = response.Response.Data[0].Name\n                console.log(Manager)\n                \n            },\n            error: function(xhr, status, error) {\n                console.error('エラー:', error);\n            }\n        });\n        //メール用の変数\n        let mailTitle = '【請求書】差戻通知'\n        let mailBody = [\n            `${Manager}より請求書の申請が差し戻されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n        //レコード更新\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:100,//申請前\n                Manager:'',//承認者を空白\n                DateHash:{\n                    DateB:'1899/12/31',//承認日を空白\n                },\n                ClassHash:{\n                    ClassI:'',//処理用承認者\n                    ClassJ:'',\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n        \n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        \n        $p.loaded()\n        $p.clearMessage(); \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '差し戻しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 26
+          },
+          {
+            "Title": "取締役差し戻し",
+            "New": true,
+            "Edit": true,
+            "Body": "//取締役差し戻し処理\nasync function DirectorReturn(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を差し戻します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //ローディング\n        $p.loading(e)\n        //差し戻した人の名前を取得\n        let director = ''\n        await $.ajax({\n            url: 'http://192.168.10.54/api/users/get',\n            type: 'POST',\n            contentType: 'application/json',\n            data: JSON.stringify({\n                \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"UserId\":$p.userId(),\n                    }\n                }\n            }),\n            success: function(response) {\n                console.log('成功:', response);\n                director  = response.Response.Data[0].Name\n                console.log(director)\n                \n            },\n            error: function(xhr, status, error) {\n                console.error('エラー:', error);\n            }\n        });\n        //メール用の変数\n        let mailTitle = '【請求書】差戻通知'\n        let mailBody = [\n            `${director}より請求書の申請が差し戻されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n        //ステータス変更と承認者と承認日を空白にする\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:100,//申請前\n                Manager:'',//承認者を空白\n                DateHash:{\n                    DateB:'1899/12/31',//承認日を空白\n                    DateC:'1899/12/31'\n                },\n                ClassHash:{\n                    ClassB:'',\n                    ClassI:'',//処理用承認者\n                    ClassJ:'',\n                    ClassK:'',\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n        \n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        $p.loaded()\n        $p.clearMessage();         \n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '差し戻しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 27
+          },
+          {
+            "Title": "社長差し戻し",
+            "New": true,
+            "Edit": true,
+            "Body": "//社長差し戻し処理\nasync function finalReturn(e){\n    try{\n        //確認フォーム\n        let answer = confirm('この申請を差し戻します。よろしいですか。')\n\n        //キャンセルする場合終了\n        if(!answer){\n            return\n        }\n        //ローディング\n        $p.loading(e)\n        //差し戻した人の名前を取得\n        let president  = ''\n        await $.ajax({\n            url: 'http://192.168.10.54/api/users/get',\n            type: 'POST',\n            contentType: 'application/json',\n            data: JSON.stringify({\n                \"View\": {\n                    \"ColumnFilterHash\": {\n                        \"UserId\":$p.userId(),\n                    }\n                }\n            }),\n            success: function(response) {\n                console.log('成功:', response);\n                president = response.Response.Data[0].Name\n                console.log(president)\n                \n            },\n            error: function(xhr, status, error) {\n                console.error('エラー:', error);\n            }\n        });\n        //メール用の変数\n        let mailTitle = '【請求書】差戻通知'\n        let mailBody = [\n            `${president}より請求書の申請が差し戻されました。下記URLよりご確認ください。`,\n            `${location.origin}/items/${$p.id()}`\n        ]\n        //ステータス変更と承認者と承認日を空白にする\n        await $p.apiUpdate({\n            id:$p.id(),\n            data: {\n                ApiVersion: 1.1,\n                Status:100,//申請前\n                Manager:'',\n                DateHash:{\n                    DateB:'1899/12/31',\n                    DateC:'1899/12/31',\n                    DateE:'1899/12/31'\n                },\n                ClassHash:{\n                    ClassB:'',\n                    ClassF:'',\n                    ClassI:'',//処理用承認者\n                    ClassJ:'',\n                    ClassK:'',\n                    ClassL:'',\n                }\n            },\n            done: function (data) {\n                console.log('データの更新に成功しました。');\n            },\n            fail: function (data) {\n                console.log('データの更新に失敗しました。');\n            },\n        });\n\n        //申請者にメール送信\n        let applicant = $p.getControl('Owner').val() //申請者\n        await $p.apiCreate({\n            id:MAIL_TABLE,\n            data: {\n                Title:mailTitle,//件名\n                Body:mailBody.join('\\n'),//内容\n                ClassHash: {\n                    ClassA:applicant //宛先\n                }\n            },\n            done: function (data) {\n                console.log('メール送信に成功しました。');\n            },\n            fail: function (data) {\n                console.log(data);\n            }\n        }); \n        \n        \n        $p.loaded()\n        $p.clearMessage();\n        $p.setMessage('#Message', JSON.stringify({\n            Css: 'alert-success',\n            Text: '差し戻しました。'\n        }));\n\n    }catch(e){\n        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: e.message\n            }));\n            console.log(e.message)\n        }else{\n            $p.setMessage('#Message', JSON.stringify({\n                Css: 'alert-error',\n                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'\n            }));\n            console.log(e.message)\n        }\n        $p.loaded()\n    }\n}\n",
+            "Id": 28
+          }
+        ],
+        "AllowRestoreHistories": false,
+        "SwitchRecordWithAjax": true,
+        "SwitchCommandButtonsAutoPostBack": true,
+        "UseIncompleteFilter": false,
+        "UseOwnFilter": false,
+        "TitleSeparator": "_",
+        "SaveViewType": 2,
+        "NoDisplayIfReadOnly": false,
+        "PermissionForCreating": {
+          "Owner": 31
+        },
+        "PermissionForUpdating": {
+          "Owner": 31,
+          "ClassI": 31,
+          "ClassJ": 31,
+          "ClassK": 31,
+          "ClassL": 31,
+          "ClassE": 1
+        },
+        "CreateColumnAccessControls": [
+          {
+            "ColumnName": "NumA",
+            "Type": 15
+          }
+        ]
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2020628,
+      "Title": "メール",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 1842069,
+      "InheritPermission": 2020602,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ResultId",
+          "Title",
+          "ClassA",
+          "Body"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "Title",
+            "ClassA",
+            "Body"
+          ]
+        },
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "宛先",
+            "ChoicesText": "[[Users]]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "Title",
+            "LabelText": "件名"
+          }
+        ],
+        "Notifications": [
+          {
+            "Type": 1,
+            "Subject": "[Title]",
+            "Address": "[ClassA]",
+            "Encoding": "utf-8",
+            "MediaType": "application/json",
+            "UseCustomFormat": true,
+            "Format": "{\"Name\":\"[Body]\",\"ValueOnly\":\"true\"}",
+            "MonitorChangesColumns": [
+              "Title",
+              "Body",
+              "ClassA",
+              "Comments"
+            ],
+            "BeforeCondition": 0,
+            "AfterCondition": 0,
+            "Expression": 0,
+            "AfterUpdate": false,
+            "AfterDelete": false,
+            "AfterCopy": false,
+            "AfterBulkUpdate": false,
+            "AfterBulkDelete": false,
+            "AfterImport": false,
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 1842069,
+      "Permissions": [
+        {
+          "ReferenceId": 1842069,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 1,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 2,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 3,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 5,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 1,
+          "GroupId": 0,
+          "UserId": 0,
+          "PermissionType": 2
+        }
+      ]
+    },
+    {
+      "SiteId": 2020602,
+      "Permissions": [
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 1,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 2,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 3,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 0,
+          "GroupId": 5,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2020602,
+          "DeptId": 1,
+          "GroupId": 0,
+          "UserId": 0,
+          "PermissionType": 2
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231247,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231438,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231438,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231438,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231438,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231438,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231445,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231445,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231445,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231445,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231456,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231459,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231459,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231468,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231468,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231474,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231474,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231474,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231474,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231483,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231483,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231483,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231483,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231483,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231496,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231496,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231496,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231496,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231513,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231513,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2231513,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2232715,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2232715,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233940,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233940,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233940,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233947,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233947,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 56,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233952,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 56,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233976,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 56,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233985,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 56,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2233995,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 50,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 51,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 52,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 53,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 54,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 55,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 56,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 57,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2234003,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 62,
+          "PermissionType": 1
+        }
+      ]
+    },
+    {
+      "SiteId": 2020628,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [
+      {
+        "DeptId": 1,
+        "DeptCode": "1"
+      }
+    ],
+    "GroupIdList": [
+      {
+        "GroupId": 1,
+        "GroupName": "取締役"
+      },
+      {
+        "GroupId": 2,
+        "GroupName": "部長"
+      },
+      {
+        "GroupId": 3,
+        "GroupName": "グループマネージャー"
+      },
+      {
+        "GroupId": 5,
+        "GroupName": "一般社員"
+      }
+    ],
+    "UserIdList": [
+      {
+        "UserId": 1,
+        "LoginId": "Administrator"
+      },
+      {
+        "UserId": 51,
+        "LoginId": "buchou"
+      },
+      {
+        "UserId": 56,
+        "LoginId": "buchou2"
+      },
+      {
+        "UserId": 50,
+        "LoginId": "groupManager"
+      },
+      {
+        "UserId": 55,
+        "LoginId": "groupManager2"
+      },
+      {
+        "UserId": 53,
+        "LoginId": "shachou"
+      },
+      {
+        "UserId": 52,
+        "LoginId": "torishimari"
+      },
+      {
+        "UserId": 57,
+        "LoginId": "torishimari2"
+      },
+      {
+        "UserId": 54,
+        "LoginId": "テスト申請者"
+      },
+      {
+        "UserId": 62,
+        "LoginId": "他部署取締役"
+      }
+    ]
+  }
+}

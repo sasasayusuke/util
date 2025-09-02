@@ -1,0 +1,8 @@
+$(document).on('change', '#Results_NumB, #Results_ClassB, #Results_NumC, #Results_NumD', function() {
+    var A = $('#Results_NumB').val();
+    var B = $('#Results_ClassB').val();
+    var C = $('#Results_NumC').val();
+    var D = $('#Results_NumD').val();
+
+   $p.set($('#Results_Class100'), A + '__' + B + '__' + C + '__' + D);
+});

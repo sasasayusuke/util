@@ -1,0 +1,15 @@
+﻿{
+    "SmtpHost": "smtp.gmail.com",
+    "SmtpPort": 587,
+    "SmtpUserName": "system@sanwashouken.co.jp",
+    "SmtpPassword": "sanwa1171",
+    "SmtpEnableSsl": false,
+    "ServerCertificateValidationCallback": false,
+    "SecureSocketOptions": null,
+    "FixedFrom": "pleasanter@sms-datatech.co.jp",
+    "AllowedFrom": null,
+    "SupportFrom": "\"Pleasanter.org\" <support@pleasanter.org>",
+    "InternalDomains": "",
+    "Encoding": null,
+    "ContentEncoding": null
+}

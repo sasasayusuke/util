@@ -1,0 +1,2765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>GrapeCity.CalcEngine</name>
+  </assembly>
+  <members>
+    <member name="T:GrapeCity.CalcEngine.IAsyncFunctionManager">
+      <summary>非同期関数が完了した後の処理を扱う非同期関数マネージャを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IAsyncFunctionManager.OnDataChanged(GrapeCity.CalcEngine.AsyncApplication)">
+      <summary>非同期関数が完了したときに呼び出されます。</summary>
+      <param name="asyncApplication">非同期関数アプリケーションを示す<see cref="T:GrapeCity.CalcEngine.AsyncApplication" />オブジェクト。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.AsyncApplication">
+      <summary>リアルタイムデータ（トピックパラメーター）に関するデータベースを提供する一意の非同期アプリケーションを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.#ctor">
+      <summary><see cref="T:GrapeCity.CalcEngine.AsyncApplication" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.AsyncApplication.Topics">
+      <summary>トピックを取得します。</summary>
+      <value>トピック。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.Reset">
+      <summary>このインスタンスをリセットします。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.CreateTopicKey(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.IArguments)">
+      <summary>非同期呼び出しの分類に使用される一意のトピックキーを作成します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />インスタンス。</param>
+      <param name="arguments">関数のすべての引数を示す<see cref="T:GrapeCity.CalcEngine.IArguments" />インスタンス。</param>
+      <returns>一意のトピックキーを表す<see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.CreateTopic(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.IArguments)">
+      <summary>非同期トピックを作成します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />インスタンス。</param>
+      <param name="arguments">関数のすべての引数を示す<see cref="T:GrapeCity.CalcEngine.IArguments" />インスタンス。</param>
+      <returns><see cref="T:GrapeCity.CalcEngine.AsyncTopic" /> オブジェクトは非同期トピックを示します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.GetData">
+      <summary>非同期アプリケーション内のすべてのトピックの最後に受信されたデータを取得します。</summary>
+      <returns>トピックのIDと受信データを対応付けるディクショナリー。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.Dispose(System.Boolean)">
+      <summary>アンマネージリソースを解放します。オプションで、マネージリソースを解放することもできます。</summary>
+      <param name="disposing">
+        マネージリソースとアンマネージリソースを両方とも解放する場合は<c>true</c>、アンマネージリソースのみを解放する場合は<c>false</c>。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.Dispose">
+      <summary>アンマネージリソースの解放またはリセットに関連付けられたアプリケーション定義のタスクを実行します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.Finalize">
+      <summary><see cref="T:GrapeCity.CalcEngine.AsyncApplication" />クラスのインスタンスをファイナライズします。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.AsyncApplication.IsServerStarted">
+      <summary>このインスタンスがサーバーによって起動されるかどうかを示す値を取得または設定します。</summary>
+      <value>このインスタンスがサーバーで起動されている場合は<c>true</c>。 それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.ConnectData(GrapeCity.CalcEngine.AsyncTopic)">
+      <summary>データを接続します。</summary>
+      <param name="topic">非同期トピック。</param>
+      <returns>データの接続が成功した場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.Start">
+      <summary>非同期アプリケーションを開始します。</summary>
+      <returns>非同期アプリケーションが正常に開始された場合は<c>true</c>、それ以外の場合は<c>false</c>&gt;。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.Stop">
+      <summary>非同期アプリケーションを停止します。</summary>
+    </member>
+    <member name="E:GrapeCity.CalcEngine.AsyncApplication.DataChanged">
+      <summary>非同期アプリケーションから受け取ったデータが変更されたときに発生します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.AddChangedTopic(System.Int32,System.String)">
+      <summary>指定したトピックを変更リストに追加します。</summary>
+      <param name="topicId">トピックIDを示す整数値。</param>
+      <param name="topicKey">トピックキーを示す文字列値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncApplication.OnDataChanged">
+      <summary>非同期アプリケーションから受け取ったデータが変更されたときに呼び出されます。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.AsyncTopic">
+      <summary>非同期トピックを表します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.BuiltInDatas">
+      <summary>内部使用のみ。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.BuiltInDatas.GetFunction(GrapeCity.CalcEngine.BuiltinFunction)">
+      <summary>関数IDによって関数を取得します。</summary>
+      <param name="functionId">関数IDを表す整数値。</param>
+      <returns>対応する関数を表す<see cref="T:GrapeCity.CalcEngine.Function" />値。</returns>
+    </member><!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.BuiltInFunctions.FILTERXMLFunctionExpression.GetXmlNamespaceManager(System.Xml.XPath.XPathNavigator)" --><member name="T:GrapeCity.CalcEngine.BuiltInFunctions.EncodeType">
+      <summary>数式でエントリがどのようにエンコードされるかを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.BuiltInFunctions.EncodeType.Field">
+      <summary>エントリはそのまま表示されます（「TheName」のように）。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.BuiltInFunctions.EncodeType.EncodeField">
+      <summary>エントリは角かっこで囲まれて表示されます（「[TheName]」など）。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.BuiltInFunctions.EncodeType.HalfEncodeField">
+      <summary>エントリは先頭に角かっこで囲まれて表示されます（「[TheName]」など）。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IDelegate">
+      <summary>LAMBDA関数によって返される関数デリゲートを表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IDelegate.ParameterCount">
+      <summary>デリゲートが受け入れるパラメーターの総数を示す整数値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IDelegate.Item(System.Int32)">
+      <summary>指定された位置のパラメータを取得します。</summary>
+      <param name="index">パラメータの位置。</param>
+      <returns>パラメーターを表す<see cref="T:GrapeCity.CalcEngine.IParameter" />オブジェクト。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IParameter">
+      <summary>LAMBDA関数のパラメーターを表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IParameter.Name">
+      <summary>パラメータの宣言された名前を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IParameter.Optional">
+      <summary>ブール値を取得して、パラメーターを省略できるかどうかを示します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IParameter.Value">
+      <summary>このパラメーターの引数として渡すことができる<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトを作成します。</summary>
+      <returns>このパラメーターの引数として渡すことができる<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトを作成します。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CalcError">
+      <summary>計算エラーを表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.None">
+      <summary>エラーが発生しません。 この値は内部で使用され、コードで直接使用されることは想定されていません。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Null">
+      <summary>#NULL!</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.DivideByZero">
+      <summary>#DIV/0!</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Value">
+      <summary>#VALUE!</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Reference">
+      <summary>#REF!</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Name">
+      <summary>名前エラーは #NAME? と表示されます。 このエラーは、含まれる数式に認識できないテキストが含まれていることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Number">
+      <summary>#NUM!</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.NotAvailable">
+      <summary>#N/A</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.GettingData">
+      <summary>#GETTING_DATA</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Spill">
+      <summary>スピル エラーは #SPILL! と表示されます。 このエラーは、隣接するセルが空ではないため、数式の結果を表示できないことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Connect">
+      <summary>接続エラーは #CONNECT! と表示されます。 このエラーは、サービスへの接続が失敗したことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Blocked">
+      <summary>ブロックされたエラーは #BLOCKED! と表示されます。 このエラーは、サービスへの接続がブロックされたことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Unknown">
+      <summary>不明なエラーは #UNKNOWN! と表示されます。 このエラーは、リッチ値タイプが不明なリッチ値を示しています。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Field">
+      <summary>フィールド エラーは #FIELD! として表示されます。 このエラーは、リッチ値キーが見つからなかったことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Calc">
+      <summary>計算エラーは #CALC! として表示されます。 このエラーは、計算エンジンが現在サポートしていないシナリオを示しています。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.Busy">
+      <summary>ビジー エラーは #BUSY! と表示されます。 このエラーは、サービスからのデータを待機していることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CalcError.External">
+      <summary>#EXTERNAL!</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CellReference">
+      <summary>特定のコンテキストに関係するセル参照を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellReference.Empty">
+      <summary>空のCellReferenceインスタンス。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.#ctor(System.Int32,System.Int32)">
+      <summary>絶対セル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />構造体の新しいインスタンスを初期化します。</summary>
+      <param name="row">行のインデックスを示す整数。</param>
+      <param name="column">列のインデックスを示す整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.#ctor(System.Int32,System.Int32,GrapeCity.CalcEngine.CellRelation)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CellReference" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="row">行のインデックスを示す整数。</param>
+      <param name="column">列のインデックスを示す整数。</param>
+      <param name="relation">この<see cref="T:GrapeCity.CalcEngine.CellReference" />のソースとの関係を示す<see cref="P:GrapeCity.CalcEngine.CellReference.Relation" />値。</param>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellReference.Relation">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.CellReference" />のソースとの関係を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.CellReference" />のソースとの関係を示す<see cref="P:GrapeCity.CalcEngine.CellReference.Relation" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellReference.Column">
+      <summary>列のインデックスを取得します。</summary>
+      <value>列のインデックスを表す整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellReference.Row">
+      <summary>行のインデックスを取得します。</summary>
+      <value>行のインデックスを表す整数。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.op_Equality(GrapeCity.CalcEngine.CellReference,GrapeCity.CalcEngine.CellReference)">
+      <summary>2つの<see cref="T:GrapeCity.CalcEngine.CellReference" />値が等しいかどうかを示す値を返します。</summary>
+      <param name="cell1">比較する最初の<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="cell2">比較する2番目の<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <returns>2つの値が等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.op_Inequality(GrapeCity.CalcEngine.CellReference,GrapeCity.CalcEngine.CellReference)">
+      <summary>2つの<see cref="T:GrapeCity.CalcEngine.CellReference" />値が等しくないかどうかを示す値を返します。</summary>
+      <param name="cell1">比較する最初の<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="cell2">比較する2番目の<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <returns>2つの値が等しくない場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.Equals(GrapeCity.CalcEngine.CellReference)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.CellReference" />が同じ型の別の<see cref="T:GrapeCity.CalcEngine.CellReference" />と等しいかどうかを示します。</summary>
+      <param name="other">このオブジェクトと比較するオブジェクト。</param>
+      <returns>現在の<see cref="T:GrapeCity.CalcEngine.CellReference" />が比較対象の<see cref="T:GrapeCity.CalcEngine.CellReference" />と等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.Equals(System.Object)">
+      <summary>指定した<see cref="T:System.Object" />がこのインスタンスと等しいかどうかを判断します。</summary>
+      <param name="obj">このインスタンスと比較する<see cref="T:System.Object" />。</param>
+      <returns>指定した <see cref="T:System.Object" /> が現在の インスタンス と等しい場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.CompareTo(GrapeCity.CalcEngine.CellReference)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.CellReference" />を別の<see cref="T:GrapeCity.CalcEngine.CellReference" />と比較します。</summary>
+      <param name="other">この<see cref="T:GrapeCity.CalcEngine.CellReference" />と比較する<see cref="T:GrapeCity.CalcEngine.CellReference" />。</param>
+      <returns>比較する<see cref="T:GrapeCity.CalcEngine.CellReference" />値の相対的順序を示す値。戻り値の意味は次のとおりです。0より小さい: このオブジェクトはotherパラメーターより小さい。0: このオブジェクトはotherパラメーターと等しい。0より大きい: このオブジェクトはotherパラメーターより大きい。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.ToAbsolute(System.Int32,System.Int32)">
+      <summary><paramref name="contextRow" />と<paramref name="contextColumn" />によって指定されたコンテキストセルに対する<see cref="T:GrapeCity.CalcEngine.CellReference" />オブジェクトの絶対参照を返します。</summary>
+      <param name="contextRow">コンテキストセルの行インデックスを示す整数。</param>
+      <param name="contextColumn">コンテキストセルの列インデックスを示す整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.ToRelative(System.Int32,System.Int32)">
+      <summary><paramref name="contextRow" />と<paramref name="contextColumn" />によって指定されたコンテキストセルに対する<see cref="T:GrapeCity.CalcEngine.CellReference" />オブジェクトのターゲット参照を返します。<see cref="T:GrapeCity.CalcEngine.CellReference" />の位置状態は変更されません。</summary>
+      <param name="contextRow">コンテキスト行インデックスを示す整数値。</param>
+      <param name="contextColumn">コンテキスト列インデックスを示す整数値。</param>
+      <returns>ターゲット場所を示す<see cref="T:GrapeCity.CalcEngine.CellReference" />。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.SwitchReferenceType">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.CellReference" />の参照型を切り替えます。</summary>
+      <returns>新しい参照型。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellReference.SwitchReferenceType(GrapeCity.CalcEngine.CellRelation)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.CellReference" />の参照型を指定した参照型に切り替えます。</summary>
+      <param name="newReferenceType">新しい参照型。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CellValue">
+      <summary>セル値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValue.Invalid">
+      <summary>無効なセル値を表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.GetNumber(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CellValue" />オブジェクトからプ数値を取得します。</summary>
+      <param name="context">評価コンテキスト。</param>
+      <returns>数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.GetLogical(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CellValue" />オブジェクトからプ数値を取得します。</summary>
+      <param name="context">評価コンテキスト。</param>
+      <returns>数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.Equals(GrapeCity.CalcEngine.CellValue)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.CellValue" />値が別の<see cref="T:GrapeCity.CalcEngine.CellValue" />値と等しいかどうかを示します。</summary>
+      <param name="other">この<see cref="T:GrapeCity.CalcEngine.CellValue" />値と比較する<see cref="T:GrapeCity.CalcEngine.CellValue" />値。</param>
+      <returns>現在のオブジェクトがotherパラメーターと等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.Equals(System.Object)">
+      <summary>指定した<see cref="T:System.Object" />がこのインスタンスと等しいかどうかを判断します。</summary>
+      <param name="obj">このインスタンスと比較する<see cref="T:System.Object" />。</param>
+      <returns>指定した <see cref="T:System.Object" /> が現在の インスタンス と等しい場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.IsValid">
+      <summary>このセル値が有効かどうかを判断します。</summary>
+      <returns>指定したセル値が有効な場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Number">
+      <summary><see cref="T:System.Double" />値を取得します。</summary>
+      <value>数値を表す<see cref="T:System.Double" />値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.GetText(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CellValue" />値から<see cref="T:System.String" />値を取得します。</summary>
+      <param name="context">評価コンテキスト。</param>
+      <returns><see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Logical">
+      <summary><see cref="T:System.Boolean" />値を取得します。</summary>
+      <value>ブール値を表す<see cref="T:System.Boolean" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Error">
+      <summary><see cref="T:GrapeCity.CalcEngine.CalcError" />値を取得します。</summary>
+      <value>エラーを表す<see cref="T:GrapeCity.CalcEngine.CalcError" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.DateTime">
+      <summary><see cref="P:GrapeCity.CalcEngine.CellValue.DateTime" />値を取得します。</summary>
+      <value>日付を表す<see cref="P:GrapeCity.CalcEngine.CellValue.DateTime" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.TimeSpan">
+      <summary><see cref="P:GrapeCity.CalcEngine.CellValue.TimeSpan" />値を取得します。</summary>
+      <value>タイムスパン（期間や時間の長さ）を表す<see cref="P:GrapeCity.CalcEngine.CellValue.TimeSpan" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Text">
+      <summary><see cref="T:System.String" />値を取得します。</summary>
+      <value>テキストを表す<see cref="T:System.String" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Object">
+      <summary><see cref="T:System.Object" />値を取得します。</summary>
+      <value>値を表す<see cref="T:System.Object" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Type">
+      <summary>値型を示す<see cref="T:GrapeCity.CalcEngine.CellValueType" />値を取得します。</summary>
+      <value>種類。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.CellValue.Type2">
+      <summary>値型を示す<see cref="T:GrapeCity.CalcEngine.ValueType" />値を取得します。</summary>
+      <value>種類。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.Reset">
+      <summary>このセル値を<c>null</c>にリセットします。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.Box">
+      <summary>このセル値のボックス化された値を返します。</summary>
+      <returns>ボックス化された値を表す<see cref="T:System.Object" />オブジェクトインスタンス。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValue.SetValue(System.Object)">
+      <summary><see cref="T:System.Object" />値を設定します。</summary>
+      <param name="value">設定する<see cref="T:System.Object" />値。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.SpilledValueType">
+      <summary>セル値の型を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.Number">
+      <summary>倍精度浮動小数点数を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.Logical">
+      <summary>論理（ブール）値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.Error">
+      <summary><see cref="T:GrapeCity.CalcEngine.CalcError" />を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.Text">
+      <summary>テキストを指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.DateTime">
+      <summary><see cref="F:GrapeCity.CalcEngine.SpilledValueType.DateTime" />値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.TimeSpan">
+      <summary><see cref="F:GrapeCity.CalcEngine.SpilledValueType.TimeSpan" />値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.SpilledValueType.Empty">
+      <summary>空の値（<c>null</c>）を指定します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CellValueType">
+      <summary>セル値の型を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Number">
+      <summary>倍精度浮動小数点数を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Logical">
+      <summary>論理（ブール）値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Error">
+      <summary><see cref="T:GrapeCity.CalcEngine.CalcError" />を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Text">
+      <summary>テキストを指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.DateTime">
+      <summary><see cref="F:GrapeCity.CalcEngine.CellValueType.DateTime" />値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.TimeSpan">
+      <summary><see cref="F:GrapeCity.CalcEngine.CellValueType.TimeSpan" />値を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Empty">
+      <summary>空の値（<c>null</c>）を指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Object">
+      <summary>一般オブジェクトを指定します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CellValueType.Image">
+      <summary>セルのインライン画像を指定します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Wildcard.IsMatch(GrapeCity.CalcEngine.WildcardToken[],System.String,System.Boolean,System.Int32,System.StringComparison)">
+      <summary>ワイルドカード文字列をトークンと照合します。私のコーディング能力で可能な最良のパフォーマンスが得られる非再帰的アルゴリズムを使用しています。</summary>
+      <param name="tokens">トークン。</param>
+      <param name="str">文字列。</param>
+      <returns></returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Wildcard.ParseTokens(System.String,System.Boolean)">
+      <summary>ワイルドカードトークンを解析します。</summary>
+      <param name="pattern">ワイルドカードのパターンを示す文字列値。</param>
+      <param name="startsWithTokens">パターンを&quot;starts with&quot;比較に使用する場合は&lt;c&gt;true&lt;/c&gt;。</param>
+      <returns><see cref="T:GrapeCity.CalcEngine.WildcardToken" />配列は、ウィルカードトークンを表します。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.WildcardToken">
+      <summary></summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.WildcardToken.#ctor(System.Int32)">
+      <summary><see cref="T:GrapeCity.CalcEngine.WildcardToken" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="type">型。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.WildcardToken.#ctor(System.Char)">
+      <summary><see cref="T:GrapeCity.CalcEngine.WildcardToken" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="token">トークン。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ICloneable`1">
+      <summary>既存インスタンスと同じ値を持つ新しいクラスインスタンスを作成するクローニングをサポートします。</summary>
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ICloneable`1.Clone">
+      <summary>現在のインスタンスのコピーである新しいオブジェクトを作成します。</summary>
+      <returns>現在のインスタンスのコピーである新しいオブジェクト。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.RangeCache">
+      <summary>一般的な範囲操作のキャッシュを提供するクラスを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeCache.FindEquals(GrapeCity.CalcEngine.IReadonlyPrimitiveValue,System.Boolean,GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary>指定された<see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />値と一致するセルを検索します。</summary>
+      <param name="find">比較する値。</param>
+      <param name="xlookupCompatible">
+        マッチングがXLOOKUP / XMATCH関数と互換性がある場合は&lt;c&gt;true&lt;/c&gt;。それ以外の場合は&lt;c&gt;false&lt;/c&gt;。</param>
+      <param name="context">評価コンテキスト。</param>
+      <returns></returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeCache.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeCache.Equals(System.Object)">
+      <summary>指定した<see cref="T:System.Object" />がこのインスタンスと等しいかどうかを判断します。</summary>
+      <param name="obj">このインスタンスと比較する<see cref="T:System.Object" />。</param>
+      <returns>指定した <see cref="T:System.Object" /> が現在の インスタンス と等しい場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeCache.Equals(GrapeCity.CalcEngine.RangeCache)">
+      <summary>現在のオブジェクトが同じ型の別のオブジェクトと等しいかどうかを示します。</summary>
+      <param name="other">このオブジェクトと比較するオブジェクト。</param>
+      <returns>現在のオブジェクトが &lt;paramref name=&quot;other&quot;/&gt; パラメータと等しい場合は &lt;c&gt;true&lt;/c&gt;、そうでない場合は &lt;c&gt;false&lt;/c&gt;。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.RangeReference">
+      <summary>特定のコンテキストに関係する範囲参照を表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.TopLeft">
+      <summary>左上のセル参照を取得します。</summary>
+      <value>左上のセル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.BottomRight">
+      <summary>右下のセル参照を取得します。</summary>
+      <value>右下のセル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.Column">
+      <summary>左端の列のインデックスを取得します。</summary>
+      <value>左端の列のインデックスを表す整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.Row">
+      <summary>一番上の行のインデックスを取得します。</summary>
+      <value>一番上の行のインデックスを表す整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.Column2">
+      <summary>右端の列のインデックスを取得します。</summary>
+      <value>右端の列のインデックスを表す整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.Row2">
+      <summary>一番下の行のインデックスを取得します。</summary>
+      <value>一番下の行のインデックスを表す整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.Relation">
+      <summary>ソースを含む左上のセルの相対値を取得します。</summary>
+      <value>左上のセルとソースの相対関係を表す <see cref="P:GrapeCity.CalcEngine.RangeReference.Relation" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.Relation2">
+      <summary>ソースを含む右下のセルの相対値を取得します。</summary>
+      <value>右下のセルとソースとの相対関係を表す <see cref="P:GrapeCity.CalcEngine.RangeReference.Relation" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.IsWholeRow">
+      <summary>このインスタンスが行全体かどうかを示す値を取得します。</summary>
+      <value>このインスタンスが行全体の場合は<c>true</c>。 それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.RangeReference.IsWholeColumn">
+      <summary>このインスタンスが列全体かどうかを示す値を取得します。</summary>
+      <value>このインスタンスが列全体の場合は<c>true</c>。 それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.IsOneCell">
+      <summary>この参照が単一のセルかどうかを示す値を取得します。</summary>
+      <value>この参照が単一のセルの場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.Offset(System.Int32,System.Int32)">
+      <summary>この<seealso cref="T:GrapeCity.CalcEngine.RangeReference" />を指定した量だけ平行移動します。</summary>
+      <param name="translateRows">y座標のオフセット量。</param>
+      <param name="translateColumns">&gt;x座標のオフセット量。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.ToAbsolute(System.Int32,System.Int32)">
+      <summary><paramref name="contextRow" />と<paramref name="contextColumn" />によって指定されたコンテキストセルに対する<see cref="T:GrapeCity.CalcEngine.RangeReference" />オブジェクトの絶対参照を返します。</summary>
+      <param name="contextRow">コンテキストセルの行インデックスを示す整数。</param>
+      <param name="contextColumn">コンテキストセルの列インデックスを示す整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.ToRelative(System.Int32,System.Int32)">
+      <summary><paramref name="contextRow" />と<paramref name="contextColumn" />によって指定されたコンテキストセルに対する<see cref="T:GrapeCity.CalcEngine.RangeReference" />オブジェクトのターゲット参照を返します。<see cref="T:GrapeCity.CalcEngine.RangeReference" />の位置状態は変更されません。</summary>
+      <param name="contextRow">コンテキストセルの行インデックスを示す整数。</param>
+      <param name="contextColumn">コンテキストセルの列インデックスを示す整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.ToContextWithoutReorder(System.Int32,System.Int32)">
+      <summary><paramref name="contextRow" />と<paramref name="contextColumn" />によって指定されたコンテキストセルに対する<see cref="T:GrapeCity.CalcEngine.RangeReference" />オブジェクトのターゲット参照を返します。<see cref="T:GrapeCity.CalcEngine.RangeReference" />の位置状態は変更されません。</summary>
+      <param name="contextRow">コンテキストセルの行インデックスを示す整数。</param>
+      <param name="contextColumn">コンテキストセルの列インデックスを示す整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.ToAbsolute">
+      <summary>絶対参照を取得するために相対参照フラグを削除します。</summary>
+      <returns>この参照の絶対参照を表す<see cref="!:RangeReference." />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.Equals(GrapeCity.CalcEngine.RangeReference)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.RangeReference" />が同じ型の別の<see cref="T:GrapeCity.CalcEngine.RangeReference" />と等しいかどうかを示します。</summary>
+      <param name="other">このオブジェクトと比較するオブジェクト。</param>
+      <returns>現在の<see cref="T:GrapeCity.CalcEngine.RangeReference" />が比較対象の<see cref="T:GrapeCity.CalcEngine.RangeReference" />と等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.Equals(System.Object)">
+      <summary>指定した<see cref="T:System.Object" />がこのインスタンスと等しいかどうかを判断します。</summary>
+      <param name="obj">このインスタンスと比較する<see cref="T:System.Object" />。</param>
+      <returns>指定した <see cref="T:System.Object" /> が現在の インスタンス と等しい場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.CompareTo(GrapeCity.CalcEngine.RangeReference)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.RangeReference" />を別の<see cref="T:GrapeCity.CalcEngine.RangeReference" />と比較します。</summary>
+      <param name="other">この<see cref="T:GrapeCity.CalcEngine.RangeReference" />と比較する<see cref="T:GrapeCity.CalcEngine.RangeReference" />。</param>
+      <returns>比較する<see cref="T:GrapeCity.CalcEngine.RangeReference" />値の相対的順序を示す値。戻り値の意味は次のとおりです。0より小さい: このオブジェクトはotherパラメーターより小さい。0: このオブジェクトはotherパラメーターと等しい。0より大きい: このオブジェクトはotherパラメーターより大きい。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.IsEmpty">
+      <summary>このインスタンスが空かどうかを判断します。</summary>
+      <returns>このインスタンスが空の場合は<c>true</c>、それ以外の場合は<c>false。</c></returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.#ctor(System.Int32,System.Int32,GrapeCity.CalcEngine.CellRelation)">
+      <summary><see cref="T:GrapeCity.CalcEngine.RangeReference" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="row">行インデックスを示す整数値。</param>
+      <param name="column">列インデックスを示す整数値。</param>
+      <param name="position">参照が相対参照、絶対参照、相対参照と絶対参照の混在のいずれであるかを示す<see cref="T:GrapeCity.CalcEngine.CellRelation" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary><see cref="T:GrapeCity.CalcEngine.RangeReference" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="row">一番上の行の絶対インデックスを示す整数値。</param>
+      <param name="column">左端の列の絶対インデックスを示す整数値。</param>
+      <param name="row2">一番下の行の絶対インデックスを示す整数値。</param>
+      <param name="column2">右端の列の絶対インデックスを示す整数値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.#ctor(System.Int32,System.Int32,GrapeCity.CalcEngine.CellRelation,System.Int32,System.Int32,GrapeCity.CalcEngine.CellRelation)">
+      <summary><see cref="T:GrapeCity.CalcEngine.RangeReference" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="row">一番上の行のインデックスを示す整数値。</param>
+      <param name="column">左端の列のインデックスを示す整数値。</param>
+      <param name="topLeftPosition">左上の参照が相対参照、絶対参照、相対参照と絶対参照の混在のいずれであるかを示す<see cref="T:GrapeCity.CalcEngine.CellRelation" />値。</param>
+      <param name="row2">一番下の行のインデックスを示す整数値。</param>
+      <param name="column2">右端の列のインデックスを示す整数値。</param>
+      <param name="bottomRightPosition">右下の参照が相対参照、絶対参照、相対参照と絶対参照の混在のいずれであるかを示す<see cref="T:GrapeCity.CalcEngine.CellRelation" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.#ctor(GrapeCity.CalcEngine.CellReference,GrapeCity.CalcEngine.CellReference)">
+      <summary><see cref="T:GrapeCity.CalcEngine.RangeReference" /> 構造体の新しいインスタンスを初期化します。</summary>
+      <param name="topLeft">左上の参照。</param>
+      <param name="bottomRight">右下の参照。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.IntersectWith(GrapeCity.CalcEngine.RangeReference@)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.RangeReference" />範囲を指定した<see cref="T:GrapeCity.CalcEngine.RangeReference" />範囲と交差します。</summary>
+      <param name="range">交差する<see cref="T:GrapeCity.CalcEngine.RangeReference" />範囲。</param>
+      <returns>交差した<see cref="T:GrapeCity.CalcEngine.RangeReference" />範囲を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />範囲。</returns>
+      <remarks>すべての行と列がすべて絶対的または相対的であることを確認してください。</remarks>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.IsIntersected(GrapeCity.CalcEngine.RangeReference@)">
+      <summary>この参照が指定した参照と交差しているかどうかを判断します。</summary>
+      <param name="rangeReference">範囲参照。</param>
+      <returns>この参照が指定した参照と交差している場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.IsIntersected(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>この参照が指定した参照と交差しているかどうかを判断します。</summary>
+      <param name="row">セル範囲の一番上の行のインデックスを示す整数値。</param>
+      <param name="column">セル範囲の左端の列のインデックスを示す整数値。</param>
+      <param name="row2">セル範囲の一番下の行のインデックスを示す整数値。</param>
+      <param name="column2">セル範囲の右端の列のインデックスを示す整数値。</param>
+      <returns>指定した行が交差している場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.ReorderAbsolute">
+      <summary>絶対範囲参照を並べ替えます。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.SwitchReferenceType">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.CellReference" />の参照型を切り替えます。</summary>
+      <returns>新しい参照型。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.RangeReference.SwitchReferenceType(GrapeCity.CalcEngine.CellRelation)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.CellReference" />の参照型を指定した参照型に切り替えます。</summary>
+      <param name="newReferenceType">新しい参照型。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.SparseArray`1">
+      <summary>インデックスによってアクセスできる、オブジェクトの厳密に型指定された配列を表します。オブジェクトを操作するためのメソッドを提供します。</summary>
+      <typeparam name="T">リスト内の要素の型。</typeparam>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.#ctor(System.Int32)">
+      <summary>内容が空で指定した初期長さを持つSparseArrayクラスの新しいインスタンスを初期化します。</summary>
+      <param name="length">新しいSparseArrayに格納できる要素の数。</param>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SparseArray`1.Item(System.Int32)">
+      <summary>指定したインデックスにある要素を取得または設定します。</summary>
+      <param name="index">取得または設定する要素の0から始まるインデックス。</param>
+      <returns>指定したインデックスにある要素。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Clear(System.Int32,System.Int32)">
+      <summary>SparseArrayから指定した範囲内のすべての要素を削除します。</summary>
+      <param name="index">範囲の0から始まるインデックス。</param>
+      <param name="length">範囲の長さ。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Clear">
+      <summary><see cref="!:SparseArray" />からすべての項目を削除します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Clone(System.Boolean)">
+      <summary>現在のインスタンスのコピーである新しいオブジェクトを作成します。</summary>
+      <returns>このインスタンスのコピーである新しいオブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.System#ICloneable#Clone">
+      <summary>現在のインスタンスのコピーである新しいオブジェクトを作成します。</summary>
+      <returns>このインスタンスのコピーである新しいオブジェクト。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SparseArray`1.Length">
+      <summary>SparseArray内の要素の総数を表す32ビット整数を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SparseArray`1.DataLength">
+      <summary>現在<see cref="T:GrapeCity.CalcEngine.SparseArray`1" />にあるnull以外のデータの長さを返します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SparseArray`1.System#Collections#Generic#ICollection{T}#Count">
+      <summary>SparseArrayに含まれる要素の数を取得します。</summary>
+      <value>数。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.RemoveRange(System.Int32,System.Int32)">
+      <summary>SparseArrayから一連の項目を削除します。</summary>
+      <param name="index">
+            削除する最初の項目のインデックス。0以上Length未満である必要があります。この範囲を超えると、IndexOutOfRangeExceptionがスローされます。
+            </param>
+      <param name="count">
+            削除するnull項目の数。0以上Length - index未満である必要があります。この範囲を超えると、ArgumentOutOfRangeExceptionがスローされます。
+            </param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.InsertRange(System.Int32,System.Int32)">
+      <summary>指定した数の新しいnull項目をSparseArrayの指定したインデックスに挿入します。</summary>
+      <param name="index">
+            挿入点。0以上Length以下である必要があります。この範囲を超えるとIndexOutOfRangeExceptionがスローされます。
+            </param>
+      <param name="count">
+            挿入するnull項目の数。この値が0以下の場合は、ArgumentOutOfRangeExceptionがスローされます。
+            </param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.IndexOf(`0)">
+      <summary>SparseArray内の特定の項目のインデックスを確認します。</summary>
+      <param name="item">SparseArray内で検索するオブジェクト。</param>
+      <returns>リスト内で項目が見つかった場合はそのインデックス、それ以外の場合は-1。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Fill(System.Int32,System.Int32,`0)">
+      <summary>配列の範囲に指定した値を格納します。</summary>
+      <param name="index">範囲の開始インデックス。</param>
+      <param name="length">範囲の長さ。</param>
+      <param name="value">格納する値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Copy(GrapeCity.CalcEngine.SparseArray{`0},System.Int32,GrapeCity.CalcEngine.SparseArray{`0},System.Int32,System.Int32)">
+      <summary>SparseArrayの指定したソースインデックス以降にある指定した数の要素をコピーし、別のSparseArrayの指定したターゲットインデックス以降に貼り付けます。長さとインデックスは32ビット整数で指定します。</summary>
+      <param name="source">コピーするデータを含むSparseArray。</param>
+      <param name="sourceIndex">ソース内のコピーを開始するインデックスを表す32ビット整数。</param>
+      <param name="target">データを受け取るSparseArray。</param>
+      <param name="targetIndex">ターゲット内の格納を開始するインデックスを表す32ビット整数。</param>
+      <param name="length">コピーする要素の数を表す32ビット整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Move(GrapeCity.CalcEngine.SparseArray{`0},System.Int32,GrapeCity.CalcEngine.SparseArray{`0},System.Int32,System.Int32)">
+      <summary>SparseArrayの指定したソースインデックス以降にある指定した数の要素を移動し、別のSparseArrayの指定したターゲットインデックス以降に貼り付けます。移動元の範囲の要素はクリアされます。長さとインデックスは32ビット整数で指定します。</summary>
+      <param name="source">移動するデータを含むSparseArray。</param>
+      <param name="sourceIndex">ソース内の移動を開始するインデックスを表す32ビット整数。</param>
+      <param name="target">データを受け取るSparseArray。</param>
+      <param name="targetIndex">ターゲット内の格納を開始するインデックスを表す32ビット整数。</param>
+      <param name="length">移動する要素の数を表す32ビット整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Swap(GrapeCity.CalcEngine.SparseArray{`0},System.Int32,GrapeCity.CalcEngine.SparseArray{`0},System.Int32,System.Int32)">
+      <summary>SparseArrayの指定したソースインデックス以降にある指定した数の要素を、別のSparseArrayの指定したターゲットインデックス以降と入れ替えます。長さとインデックスは32ビット整数で指定します。</summary>
+      <param name="source">入れ替えるデータを含むSparseArray。</param>
+      <param name="sourceIndex">ソース内の入れ替えを開始するインデックスを表す32ビット整数。</param>
+      <param name="target">データを受け取るSparseArray。</param>
+      <param name="targetIndex">ターゲット内の格納を開始するインデックスを表す32ビット整数。</param>
+      <param name="length">入れ替える要素の数を表す32ビット整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)">
+      <summary>SparseArrayの指定したインデックスに項目を挿入します。</summary>
+      <param name="index">項目を挿入する位置の0から始まるインデックス。</param>
+      <param name="item">SparseArrayに挿入するオブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.System#Collections#Generic#IList{T}#RemoveAt(System.Int32)">
+      <summary>指定したインデックスにあるSparseArray項目を削除します。</summary>
+      <param name="index">削除する項目のゼロから始まるインデックス。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.System#Collections#Generic#ICollection{T}#Add(`0)">
+      <summary>SparseArrayに項目を追加します。</summary>
+      <param name="item">SparseArrayに追加するオブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.Contains(`0)">
+      <summary>SparseArrayに特定の値が含まれているかどうかを判断します。</summary>
+      <param name="item">SparseArray内で検索するオブジェクト。</param>
+      <returns>項目が見つかった場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.CopyTo(`0[],System.Int32)">
+      <summary>現在の1次元System.Arrayのすべての要素を、指定した1次元SparseArrayの指定したSparseArrayインデックス以降にコピーします。インデックスは32ビット整数で指定します。</summary>
+      <param name="array">現在のSparseArrayの要素のコピー先となる1次元System.Array。</param>
+      <param name="arrayIndex">配列内のコピーを開始するインデックスを表す32ビット整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.CopyTo(`0[],System.Int32,System.Int32)">
+      <summary>現在の1次元System.Arrayのすべての要素を、指定した1次元SparseArrayの指定したSparseArrayインデックス以降にコピーします。インデックスは32ビット整数で指定します。</summary>
+      <param name="array">現在のSparseArrayの要素のコピー先となる1次元System.Array。</param>
+      <param name="arrayIndex">配列内のコピーを開始するインデックスを表す32ビット整数。</param>
+      <param name="length">コピーする要素の数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.CopyTo(`0[],System.Int32,System.Int32,System.Int32)">
+      <summary>現在の1次元System.Arrayのすべての要素を、指定した1次元SparseArrayの指定したSparseArrayインデックス以降にコピーします。インデックスは32ビット整数で指定します。</summary>
+      <param name="array">現在のSparseArrayの要素のコピー先となる1次元System.Array。</param>
+      <param name="arrayIndex">配列内のコピーを開始するインデックスを表す32ビット整数。</param>
+      <param name="length">コピーする要素の数。</param>
+      <param name="startCopyingIndex">コピーを開始するインデックスを示す32ビット整数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
+      <summary>コレクションを列挙する列挙子を返します。</summary>
+      <returns>コレクションの列挙に使用できる<see cref="T:System.Collections.IEnumerator" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SparseArray`1.System#Collections#IEnumerable#GetEnumerator">
+      <summary>コレクションを列挙する列挙子を返します。</summary>
+      <returns>コレクションの列挙に使用できる<see cref="T:System.Collections.IEnumerator" />オブジェクト。</returns>
+    </member><!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.NextNonEmptyIndex(System.Int32)" --> <!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.NextNonEmptyIndex(System.Int32,`0@)" --> <!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.NextNonEmptyQuickAccessKey(System.Int32,`0@)" --> <!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.NextNonEmptyQuickAccessKey(System.Int32,`0@,System.Int32@)" --> <!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.PreviousNonEmptyIndex(System.Int32)" --> <!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.PreviousNonEmptyIndex(System.Int32,`0@)" --> <!-- Badly formed XML comment ignored for member "M:GrapeCity.CalcEngine.SparseArray`1.PreviousNonEmptyQuickAccessKey(System.Int32,`0@,System.Int32@)" --><member name="M:GrapeCity.CalcEngine.SparseArray`1.Equals(GrapeCity.CalcEngine.SparseArray{`0})">
+      <summary>現在のオブジェクトが同じ型の別のオブジェクトと等しいかどうかを示します。</summary>
+      <param name="other">このオブジェクトと比較するオブジェクト。</param>
+      <returns>現在のオブジェクトが<paramref name="other" />パラメーターと等しい場合はtrue、それ以外の場合はfalse。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.AggregateFunction">
+      <summary>サポートされているすべての集計関数を表します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IValuesArray">
+      <summary>値の2次元配列を表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IValuesArray.RowCount">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />の行数を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />の列数を表す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IValuesArray.ColumnCount">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />の列数を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />の列数を表す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IValuesArray.Item(System.Int32,System.Int32)">
+      <summary>指定した行と列にある<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />を取得します。</summary>
+      <param name="row">行インデックスを示す整数値。</param>
+      <param name="column">列インデックスを示す整数値。</param>
+      <returns>IPrimitiveValue。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValuesArray.Transpose">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />の行と列を入れ替えます。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValuesArray.Resize(System.Int32,System.Int32)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />のサイズを指定した行数および列数に変更します。</summary>
+      <param name="rowCount">行の総数。</param>
+      <param name="columnCount">列の総数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValuesArray.SetValue(System.Object)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValuesArray" />オブジェクトに値を設定します。</summary>
+      <param name="values">1つ以上の値を含むオブジェクト。</param>
+      <returns>値が設定された場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+      <remarks><paramref name="values" />が配列の場合は、配列の各要素がこの<see cref="T:GrapeCity.CalcEngine.IValuesArray" />オブジェクトの対応する要素に設定されます。それ以外の場合は、すべての要素に同じ値が設定されます。</remarks>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CacheOptions">
+      <summary>キャッシュの処理方法の詳細を定義します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CacheOptions.On">
+      <summary>キャッシュを使用する必要があります。キャッシュされたデータは、メモリ内での寿命が短くなります。これはデフォルトのオプションです。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CacheOptions.Aggressive">
+      <summary>キャッシングは可能な限り使用する必要があります。 キャッシュされたデータは長期間メモリに保存されます。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.CacheOptions.None">
+      <summary>キャッシュは使用されません。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.AsyncFunction">
+      <summary>計算スレッドをロックせずに結果を後で返すことができる非同期関数を表します。</summary><seealso cref="T:GrapeCity.CalcEngine.Function" /></member>
+    <member name="M:GrapeCity.CalcEngine.AsyncFunction.#ctor(System.String,System.Int32,System.Int32,GrapeCity.CalcEngine.FunctionAttributes)">
+      <summary><see cref="T:GrapeCity.CalcEngine.AsyncFunction" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="functionName">関数の名前。</param>
+      <param name="minArgs">引数の最小数を示す整数値。</param>
+      <param name="maxArgs">引数の最大数を示す整数値。</param>
+      <param name="attributes">関数の属性を示す<see cref="T:GrapeCity.CalcEngine.FunctionAttributes" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncFunction.CreateApplicationKey(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.IArguments)">
+      <summary>非同期関数の分類に使用される一意のアプリケーションキーを作成します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />インスタンス。</param>
+      <param name="arguments">関数のすべての引数を示す<see cref="T:GrapeCity.CalcEngine.IArguments" />インスタンス。</param>
+      <returns>一意のアプリケーションキーを表す<see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.AsyncFunction.CreateApplication(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.IArguments)">
+      <summary>非同期アプリケーションを作成します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />インスタンス。</param>
+      <param name="arguments">関数のすべての引数を示す<see cref="T:GrapeCity.CalcEngine.IArguments" />インスタンス。</param>
+      <returns>非同期アプリケーションを示す<see cref="T:GrapeCity.CalcEngine.AsyncApplication" />オブジェクト。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.Expression">
+      <summary>式の基本クラスを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.ContainsReference">
+      <summary>式に参照が含まれているかどうかを示す値を取得します。</summary>
+      <value>式に参照が含まれている場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.ContainsMixedReference">
+      <summary>式に相対参照と絶対参照の両方が含まれているかどうかを示す値を取得します。</summary>
+      <value>式に相対参照と絶対参照の両方が含まれている場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.ContainsRelativeReference">
+      <summary>式に相対参照が含まれているかどうかを示す値を取得します。</summary>
+      <value>式に相対参照が含まれている場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.ContainsAbsoluteReference">
+      <summary>式に相対参照が含まれているかどうかを示す値を取得します。</summary>
+      <value>式に相対参照が含まれている場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.ContainsHyperlink">
+      <summary>この式にハイパーリンク関数が含まれているかどうかを判断します。</summary>
+      <returns>この式にハイパーリンク関数が含まれている場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Expression.ExpressionCount">
+      <summary>子式の総数を取得します。</summary>
+      <value>子式の総数を示す整数値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.GetExpression(System.Int32)">
+      <summary>指定した位置にある式を取得します。</summary>
+      <param name="index">式の位置を示す整数値。</param>
+      <returns>指定した位置にある式。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.SetExpression(System.Int32,GrapeCity.CalcEngine.Expression)">
+      <summary>指定した位置にある式を置き換えます。</summary>
+      <param name="index">置き換える式の位置を示す整数値。</param>
+      <param name="expression">置き換える式。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.Unparse(GrapeCity.CalcEngine.FormulaEngine,System.Text.StringBuilder)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.Expression" />を数式テキストに逆解析します。</summary>
+      <param name="engine">数式エンジン。</param>
+      <param name="sb">数式テキストを追加する<see cref="T:System.Text.StringBuilder" />。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.Equals(GrapeCity.CalcEngine.Expression)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.Expression" />が別の<see cref="T:GrapeCity.CalcEngine.Expression" />と等しいかどうかを示します。</summary>
+      <param name="other">このインスタンスと比較する<see cref="T:GrapeCity.CalcEngine.Expression" />。</param>
+      <returns>現在の<see cref="T:GrapeCity.CalcEngine.Expression" />が比較対象の<see cref="T:GrapeCity.CalcEngine.Expression" />と等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.Equals(System.Object)">
+      <summary>指定した<see cref="T:System.Object" />がこのインスタンスと等しいかどうかを判断します。</summary>
+      <param name="obj">このインスタンスと比較する<see cref="T:System.Object" />。</param>
+      <returns>指定した <see cref="T:System.Object" /> が現在の インスタンス と等しい場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.Clone(GrapeCity.CalcEngine.FormulaEngine)">
+      <summary>指定した解析コンテキストを使用して、現在の<see cref="T:GrapeCity.CalcEngine.Expression" />をクローンします。</summary>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>浅い複製された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.IsImplicitIntersectionOperatorAdded">
+      <summary>下位互換性のための暗黙の交差演算子式が追加されているかどうかを判別します。 エクスポート時に、現在の式の子を@で追加する必要があるかどうかを判断します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Expression.NodeCount">
+      <summary>子式の総数を取得します。</summary>
+      <value>子式の総数を示す整数値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Expression.GetNode(System.Int32)">
+      <summary>指定した位置にある式を取得します。</summary>
+      <param name="index">式の位置を示す整数値。</param>
+      <returns>指定した位置にある式。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.FunctionAttributes">
+      <summary>カスタム関数の評価属性を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.SingleCell">
+      <summary>関数が配列数式を単一セル数式として処理するかどうかを示します。SUMやCOUNTなどの一部の関数は、配列数式を単一セル数式として処理します。その他の関数は、配列数式を複数セル数式として処理します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Volatile">
+      <summary>関数は自動的に再計算されます。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Constant">
+      <summary>関数は定数値を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Async">
+      <summary>関数は非同期関数を含みます。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Visual">
+      <summary>データ視覚化機能は、セルの値を視覚化します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Spillable">
+      <summary>関数は配列を返すことができます。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Boolean">
+      <summary>関数が戻り値としてブール値を返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Number">
+      <summary>関数が戻り値として数値を返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Date">
+      <summary>関数が戻り値として日付を返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Time">
+      <summary>関数が戻り値としてタイムスパンを返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Text">
+      <summary>関数が戻り値として文字列を返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Error">
+      <summary>関数が戻り値としてCalcErrorを返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Reference">
+      <summary>関数が戻り値として参照を返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Array">
+      <summary>関数が戻り値として配列を返すことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionAttributes.Variant">
+      <summary>関数が戻り値としてバリアントを返すことを示します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IStructuredObject">
+      <summary>データをスプレッドシートとして格納する構造化オブジェクトを表します。</summary><seealso cref="!:System.IEquatable&lt;GrapeCity.CalcEngine.IStructuredObject&gt;" /></member>
+    <member name="M:GrapeCity.CalcEngine.IStructuredObject.IsUndefined">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクトが未定義かどうかを判別します。</summary>
+      <returns>このオブジェクトが空未定義の場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IStructuredObject.Name">
+      <summary><see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクトの名前を取得します。</summary>
+      <value><see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクトの名前を表す文字列値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IStructuredObject.GetColumnId(System.String)">
+      <summary>指定した列の相対列インデックスを取得します。</summary>
+      <param name="columnName">列を示す文字列値。</param>
+      <returns>相対列インデックスを示す整数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IStructuredObject.GetColumnName(System.Int32)">
+      <summary>指定した列のテーブル列名を取得します。</summary>
+      <param name="id">構造化オブジェクト内での列の一意のIDを示す整数値。</param>
+      <returns>列名を示す文字列。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IStructuredObject.SetColumnName(System.Int32,System.String)">
+      <summary>指定した列のテーブル列名を取得します。</summary>
+      <param name="index">テーブル列インデックスを示す整数値。</param>
+      <param name="columnName">列を示す文字列値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IStructuredObject.GetColumnIndex(System.Int32)">
+      <summary>指定した列のテーブル列インデックスを取得します。</summary>
+      <param name="id">構造化オブジェクト内での列の一意のIDを示す整数値。</param>
+      <returns>指定した列のテーブル列インデックスを表す<see cref="T:System.Int32" />値。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IStructuredObject.Range">
+      <summary>構造化オブジェクトの範囲参照を取得します。</summary>
+      <value>構造化オブジェクトの範囲を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />値。</value>
+      <remarks><see cref="T:GrapeCity.CalcEngine.RangeReference" />値は絶対参照である必要があります。</remarks>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IStructuredObject.HeaderRowCount">
+      <summary>見出し行の数を取得します。</summary>
+      <value>見出し行の数を表す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IStructuredObject.TotalsRowCount">
+      <summary>集計行の数を取得します。</summary>
+      <value>集計行の数を表す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IStructuredObject.ReferenceSource">
+      <summary><see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクトを含む<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクトを取得します。</summary>
+      <value><see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクトを含む<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IStructuredObject.GetReplacedStructuredObj">
+      <summary>削除された場合は、この<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />の交換品を取得します。</summary>
+      <returns>この<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />の置き換え。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.StructuredItemSpecifiers">
+      <summary>構造化オブジェクトの項目指定子を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.Default">
+      <summary>デフォルトの項目指定子。Dataと同じ効果を持ちます。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.All">
+      <summary>テーブル全体。列見出し、データ、集計行（存在する場合）が含まれます。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.Data">
+      <summary>データ行のみ。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.Headers">
+      <summary>見出し行のみ。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.Totals">
+      <summary>集計行のみ。存在しない場合はnullを返します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.ThisRow">
+      <summary>数式と同じ行にあるセルのみ。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.StructuredItemSpecifiers.RowHeaders">
+      <summary>行見出し。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Forecast.IEtsModel.Count">
+      <summary>モデル内の項目の合計数を表す整数値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Forecast.IEtsModel.Timelines">
+      <summary>絞り込まれたタイムライン データを取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Forecast.IEtsModel.Values">
+      <summary>絞り込まれた値を取得します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Forecast.IEtsModel.GetTimeline(System.Int32)">
+      <summary>EtsModelからインデックスに対応するタイムラインを取得します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Forecast.IEtsModel.GetTimelineIndex(System.Double)">
+      <summary>EtsModel のタイムラインに関する対応するインデックスを取得します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.Function">
+      <summary>計算エンジンの関数を表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.#ctor(System.String,System.Int32,System.Int32,GrapeCity.CalcEngine.FunctionAttributes)">
+      <summary><see cref="T:GrapeCity.CalcEngine.Function" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="functionName">関数名を表す文字列値。</param>
+      <param name="minArgs">引数の最小数を示す整数値。</param>
+      <param name="maxArgs">引数の最大数を示す整数値。</param>
+      <param name="attributes">関数の属性を示す<see cref="T:GrapeCity.CalcEngine.FunctionAttributes" />値。</param>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.Settings">
+      <summary>関数の設定を取得または設定します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.Hidden">
+      <summary>関数が非表示にされているかどうかを示すブール値を取得します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.CalculateFormulaArrayDimensions(GrapeCity.CalcEngine.IArguments,System.Int32@,System.Int32@)">
+      <summary>ターゲットの動的に評価された配列の次元を更新します。</summary>
+      <param name="arguments">関数の引数。</param>
+      <param name="rowCount">返された配列の行数。</param>
+      <param name="columnCount">返された配列の列数。</param>
+      <returns>次元がこの関数によって決定される場合は<c>true</c>。 それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.GetFormulaArrayDimensions(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.IValue,System.Int32@,System.Int32@)">
+      <summary>指定された引数の次元を計算します。</summary>
+      <param name="context">評価コンテキスト。</param>
+      <param name="value">関数の引数。</param>
+      <param name="rowCount">返された配列の行数。</param>
+      <param name="columnCount">返された配列の列数。</param>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.Name">
+      <summary>関数名を取得します。</summary>
+      <value>関数名を示す<see cref="T:System.String" />値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.MinArgs">
+      <summary>関数の引数の最小数を取得します。</summary>
+      <value>引数の最小数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.MaxArgs">
+      <summary>関数の引数の最大数を取得します。</summary>
+      <value>引数の最大数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.IsAttached">
+      <summary>この関数がワークブックセットにアタッチされているかどうかを示す値を取得します。</summary>
+      <value>この関数がワークブックセットにアタッチされている場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.Clone">
+      <summary>この関数をクローンします。</summary>
+      <returns>クローンされた関数を表す<see cref="T:GrapeCity.CalcEngine.Function" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.Evaluate(GrapeCity.CalcEngine.IArguments,GrapeCity.CalcEngine.IValue)">
+      <summary>指定された引数に基づいて関数を評価し、評価値を<paramref name="result" />に設定します。</summary>
+      <param name="arguments">引数のセットを示す<see cref="T:GrapeCity.CalcEngine.IArguments" />オブジェクト。</param>
+      <param name="result">結果値を設定する<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.StartEvaluatingFormulaArray(GrapeCity.CalcEngine.IArguments)">
+      <summary>数式配列として複数のセルの評価を開始します。</summary>
+      <param name="arguments">引数のセットを示す<see cref="T:GrapeCity.CalcEngine.Arguments" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.FinishEvaluatingFormulaArray(GrapeCity.CalcEngine.IArguments)">
+      <summary>複数のセルを数式配列として評価し終えます。</summary>
+      <param name="arguments">引数のセットを示す<see cref="T:GrapeCity.CalcEngine.Arguments" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.Equals(System.Object)">
+      <summary>指定した<see cref="T:System.Object" />がこのインスタンスと等しいかどうかを判断します。</summary>
+      <param name="obj">現在のオブジェクトと比較するオブジェクト。</param>
+      <returns>指定した <see cref="T:System.Object" /> が現在の インスタンス と等しい場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.Equals(GrapeCity.CalcEngine.Function)">
+      <summary>現在のオブジェクトが同じ型の別のオブジェクトと等しいかどうかを示します。</summary>
+      <param name="other">このオブジェクトと比較するオブジェクト。</param>
+      <returns>現在のオブジェクトが<paramref name="other" />パラメーターと等しい場合はtrue、それ以外の場合はfalse。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.IsArrayParameter(System.Int32)">
+      <summary>指定されたインデックスの式を配列パラメーターとして評価するかどうかを決定します。</summary>
+      <param name="argIndex">整数値は、引数のインデックスを示します。</param>
+      <returns>&lt;c&gt;true&lt;/c&gt;関数は、指定されたパラメーターを配列として評価します。それ以外の場合、関数は範囲の各セルを個別に評価します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.IsExplicitPrecedent(System.Int32)">
+      <summary>評価結果が引数のすべての値に依存するかどうかを判別します。</summary>
+      <param name="argIndex">整数値は、引数のインデックスを示します。</param>
+      <returns>評価結果が引数のすべての値に依存する場合は <c>true</c>。それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.GetVisibilityDependent(System.Int32,System.Int32)">
+      <summary>可視性の変化が計算に影響するかどうかを決定します。</summary>
+      <param name="argIndex">整数値は、引数のインデックスを示します。</param>
+      <param name="argumentCount">整数値は、引数の総数を示します。</param>
+      <returns>値可視性の変化が計算にどのように影響するかを表します<see cref="T:GrapeCity.CalcEngine.Function.VisibilityDependent" />。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.GetArgumentType(System.Int32,System.Int32)">
+      <summary>指定されたインデックスの式が入力名であるかどうかを判断します。</summary>
+      <param name="argIndex">引数の位置。</param>
+      <param name="argCount">引数の総数。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.Function.VisibilityDependent">
+      <summary>可視性の変化が計算にどのように影響するかを表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.Function.VisibilityDependent.None">
+      <summary>可視性の変更は計算に影響しません。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.Function.VisibilityDependent.Rows">
+      <summary>行の可視性の変更は計算に影響します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.Function.VisibilityDependent.Columns">
+      <summary>列の可視性の変更は計算に影響します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.Function.VisibilityDependent.Both">
+      <summary>行と列の両方の可視性の変更が計算に影響します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.CanReturnDelegate">
+      <summary>関数が結果として<see cref="T:GrapeCity.CalcEngine.IDelegate" />オブジェクトを返すことができるかどうかを示すブール値を取得または設定します。</summary>
+      <returns>関数が結果として<see cref="T:GrapeCity.CalcEngine.IDelegate" />オブジェクトを返すことができる場合は<c>true</c>。それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.GetMinimumArgumentCount(System.Int32)">
+      <summary>関数に渡す必要がある引数の最小数を取得します。</summary>
+      <param name="function">情報を抽出する機能。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Function.GetFunctionName(GrapeCity.CalcEngine.ICalcEngineLanguagePackage)">
+      <summary>関数のローカライズされた名前を取得します。</summary>
+      <param name="languagePackage">言語パッケージを示す<see cref="T:GrapeCity.CalcEngine.ICalcEngineLanguagePackage" />オブジェクト。</param>
+      <returns>関数のローカライズされた名前を表す文字列値。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.Function.Category">
+      <summary>関数のカテゴリを取得します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ArgumentType">
+      <summary>関数のタイプを表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ArgumentType.Value">
+      <summary>値の引数を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ArgumentType.Variable">
+      <summary>変数の引数を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ArgumentType.VariableCalculation">
+      <summary>可変引数の計算を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ArgumentType.Calculation">
+      <summary>関数の計算を表します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.FunctionSettings">
+      <summary>関数の設定を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionSettings.AnyArguments">
+      <summary>引数の合計数は任意です。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionSettings.OddArguments">
+      <summary>引数の合計数が奇数です。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionSettings.EvenArguments">
+      <summary>引数の合計数は偶数です。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionSettings.Hidden">
+      <summary>この関数は非表示になっています。 式の中で直接使用しないでください。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionSettings.Obsoleted">
+      <summary>この関数は廃止されました。 計算には使用できますが、UI では使用できません。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.FunctionCategory">
+      <summary>関数のカテゴリを表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Custom">
+      <summary>カスタムの関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Financial">
+      <summary>財務関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.DateTime">
+      <summary>日付と時刻の関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.MathTrigonometry">
+      <summary>数学/三角関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Statistical">
+      <summary>統計関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.LookupReference">
+      <summary>検索/行列関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Database">
+      <summary>データベース関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Text">
+      <summary>文字列関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Logical">
+      <summary>論理関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Information">
+      <summary>情報関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Engineering">
+      <summary>エンジニアリング関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Cube">
+      <summary>キューブ関数。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Compatibility">
+      <summary>関数は、精度が向上し、使用法をより適切に反映した名前を持つ新しい関数に置き換えられました。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.FunctionCategory.Web">
+      <summary>ウェブ関数。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.BuiltinFunction">
+      <summary>サポートされているすべての組み込み関数を表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ArrayHelper.Clone``1(``0[],System.Int32)">
+      <summary>指定した配列を新しい配列にクローンします。</summary>
+      <typeparam name="T">配列内の要素の型。</typeparam>
+      <param name="source">クローンする配列ソース。</param>
+      <param name="length">クローンする要素の数を示す整数値。</param>
+      <returns>複製された配列を表す<see cref="!:T[]" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ArrayHelper.Fill``1(``0[],``0,System.Int32,System.Int32)">
+      <summary>startIndex (両端を含む) とインデックスの次のカウント数の範囲内にある指定された配列の要素に、型 T の指定された値を割り当てます。</summary>
+      <typeparam name="T">配列の要素の型。</typeparam>
+      <param name="array">埋められる配列。</param>
+      <param name="value">指定された範囲内の要素の新しい値。</param>
+      <param name="startIndex">充填が開始される System.Array 内のインデックスを表す 32 ビット整数。</param>
+      <param name="count">コピーする要素の数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ArrayHelper.Clone``1(``0[],System.Int32,System.Int32)">
+      <summary>指定した配列を新しい配列にクローンします。</summary>
+      <typeparam name="T">配列内の要素の型。</typeparam>
+      <param name="source">クローンする配列ソース。</param>
+      <param name="index">クローンする要素の開始インデックスを示す整数値。</param>
+      <param name="length">クローンする要素の数を示す整数値。</param>
+      <returns>複製された配列を表す<see cref="!:T[]" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ArrayHelper.Clone``1(``0[])">
+      <summary>指定した配列を新しい配列にクローンします。</summary>
+      <typeparam name="T">配列内の要素の型。</typeparam>
+      <param name="source">クローンする配列ソース。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ArrayHelper.Clone``2(``0[])">
+      <summary>指定した配列を新しい配列にクローンします。</summary>
+      <typeparam name="T1">ソース配列の要素のタイプ。</typeparam>
+      <typeparam name="T2">宛先配列の要素のタイプ。</typeparam>
+      <param name="source">クローンする配列ソース。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ArrayHelper.Sort(System.Int32[],System.Double[])">
+      <summary>比較可能なもので<paramref name="array" />をソートします。 <paramref name="keys" /></summary>
+      <param name="array">配列をソートする必要があります。</param>
+      <param name="keys">比較をサポートするキー。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CalcHelper">
+      <summary>計算用のutil関数が含まれています。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.GetDaysInMonth(System.Int32,System.Int32)">
+      <summary>指定した月の日数を取得します。</summary>
+      <param name="year">年を示す整数値。</param>
+      <param name="month">月を示す整数値。</param>
+      <returns>指定した月の日数を表す整数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.IsLeapYear(System.Int32,System.Boolean)">
+      <summary>指定した年号の指定した年がうるう年かどうかを判断します。</summary>
+      <param name="year">年。</param>
+      <param name="excelCompatible">1900年がExcelと同様のうるう年として指定される場合は<c>true</c>。それ以外の場合は<c>false</c>。</param>
+      <returns>指定した年がうるう年の場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.ToDate(System.Double,System.Boolean,System.Boolean)">
+      <summary>日付シリアル値を&lt;see cref=&quot;T:System.DateTime&quot; /&gt;値に変換します。</summary>
+      <param name="value">日付シリアル値を示す倍精度値。</param>
+      <param name="isDate1904">1904年日付方式を使用する場合は&lt;c&gt;true&lt;/c&gt;。</param>
+      <param name="excelDateTimeCompatible">
+        日時システムがExcelと互換性がある場合は<c>true</c>。 それ以外の場合は<c>false</c>。</param>
+      <returns>日付シリアル値を表す倍精度値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.TryToDate(System.Double,System.Boolean,System.Boolean,System.DateTime@)">
+      <summary>日付シリアル値を&lt;see cref=&quot;T:System.DateTime&quot; /&gt;値に変換します。</summary>
+      <param name="value">日付シリアル値を示す倍精度値。</param>
+      <param name="isDate1904">1904年日付方式を使用する場合は&lt;c&gt;true&lt;/c&gt;。</param>
+      <param name="excelDateTimeCompatible">
+        日時システムがExcelと互換性がある場合は<c>true</c>。 それ以外の場合は<c>false</c>。</param>
+      <param name="date">対応する日付を表す<see cref="T:System.DateTime" />値。</param>
+      <returns>日付シリアルが<see cref="T:System.DateTime" />値に変換できる場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.ToNumber(System.TimeSpan)">
+      <summary>timeSpanを数値に変換します。</summary>
+      <param name="date"><see cref="T:System.TimeSpan" />の値。</param>
+      <returns>タイムスパンシリアル値を表す倍精度値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.ToNumber(System.DateTime,System.Boolean,System.Boolean)">
+      <summary>DateTimeを数値に変換します。</summary>
+      <param name="date"><see cref="T:System.DateTime" />の値。</param>
+      <param name="isDate1904">1904年日付方式を使用する場合は&lt;c&gt;true&lt;/c&gt;。</param>
+      <returns>日付シリアル値を表す倍精度値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.TryConvertToNumber(System.Object,System.Double@)">
+      <summary>値をその数値に相当する値に変換します。</summary>
+      <param name="obj">変換する値。</param>
+      <param name="result">数値。</param>
+      <returns>値を数値に正常に変換できる場合は <c>true</c> 。 それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.IsNumericValue(System.Object)">
+      <summary>指定された値が数値であるかどうかを示すブール値を取得します。</summary>
+      <param name="value">チェックする値。</param>
+      <returns>指定された値が数値の場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Sum(System.Double[])">
+      <summary>値のセット内ですべての値の合計を返します。</summary>
+      <param name="values">値のセット。</param>
+      <returns>すべての値の合計を表す<see cref="T:System.Double" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Sum(System.Double[],System.Double@)">
+      <summary>値のセット内ですべての値の合計を返します。</summary>
+      <param name="values">値のセット。</param>
+      <param name="sum2">すべての二乗値の合計。</param>
+      <returns>すべての値の合計を表す<see cref="T:System.Double" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.MinMax(System.Double[],System.Double@,System.Double@,System.Double)">
+      <summary>値のセットの最小値と最大値を返します。</summary>
+      <param name="values">値のセット。</param>
+      <param name="min">最小値。</param>
+      <param name="max">最大値。</param>
+      <param name="lowestAcceptedValue">値のセットの中で最も低い許容値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.MinMax(System.Double[],System.Double@,System.Double@)">
+      <summary>値のセットの最小値と最大値を返します。</summary>
+      <param name="values">値のセット。</param>
+      <param name="min">最小値。</param>
+      <param name="max">最大値。</param>
+      <param name="lowestAcceptedValue">値のセットの中で最も低い許容値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Min(System.Double[])">
+      <summary>値のセットの最小値を返します。</summary>
+      <param name="values">値のセット。</param>
+      <returns>最小値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Abs(System.Double[])">
+      <summary>倍精度浮動小数点数配列の絶対値を返します。</summary>
+      <param name="values"></param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Max(System.Double[])">
+      <summary>値のセットの最大値を返します。</summary>
+      <param name="values">値のセット。</param>
+      <returns>最大値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Max(System.Double[],System.Int32,System.Int32)">
+      <summary>値のセットの最大値を返します。</summary>
+      <param name="values">値のセット。</param>
+      <param name="index">比較する開始インデックス。</param>
+      <param name="index">比較する要素の合計数。</param>
+      <returns>最大値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Percentile(System.Double[],System.Double)">
+      <summary>指定されたランクのパーセンタイル値を返します</summary>
+      <param name="values">ソートされた値のセット。</param>
+      <param name="rank">ランク。</param>
+      <returns></returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Median(System.Double[])">
+      <summary>値のセットの中央値を返します。</summary>
+      <param name="values">値のセット。</param>
+      <returns>値のセットの中央値を表す<see cref="T:System.Double" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CalcHelper.Smoothstep(System.Double,System.Double,System.Double)">
+      <summary>0 と 1 の間の滑らかなエルミート補間を返します。</summary>
+      <param name="edge0">範囲内の最小値。</param>
+      <param name="edge1">範囲内の最大値。</param>
+      <param name="x">補間する指定された値。</param>
+      <returns>x が [edge0,edge1] の範囲内にある場合は、0 から 1 までの値。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.Extensions">
+      <summary>計算エンジンアセンブリの拡張メソッドが含まれます。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Extensions.GetValue(GrapeCity.CalcEngine.IReadonlyPrimitiveValue,GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.CellValue@,System.Boolean)">
+      <summary>指定された<see cref="T:GrapeCity.CalcEngine.CellValue" />構造体に対する<see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />インスタンスの値を取得します。</summary>
+      <param name="value"><see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />インスタンスの値。</param>
+      <param name="context">参照から値を取得するための評価コンテキスト。</param>
+      <param name="cellValue">データを設定するターゲット<see cref="T:GrapeCity.CalcEngine.CellValue" />構造体。</param>
+      <param name="directValue">
+        元のオブジェクト値がプリミティブ値に変換されない場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />インスタンスの値を表すオブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Extensions.GetValue(GrapeCity.CalcEngine.IReadonlyPrimitiveValue,GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />インスタンスの値をオブジェクトとして取得します。</summary>
+      <param name="value"><see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />インスタンスの値。</param>
+      <param name="context">参照から値を取得するための評価コンテキスト。</param>
+      <param name="directValue">
+        元のオブジェクト値がプリミティブ値に変換されない場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue" />インスタンスの値を表すオブジェクト。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.StringBuilderCache">
+      <summary>スレッドごとのStringBuilderのキャッシュされた再利用可能インスタンスを提供します。これは、作成および回収されるインスタンスの数を減少させる最適化手法です。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.StringBuilderCache.Acquire(System.Int32)">
+      <summary>特定のサイズを使用するストリングビルダーを取得します。これは何度でも呼び出すことができます。ストリングビルダーがキャッシュに格納されている場合は、それが返されてキャッシュは空になります。後続の呼び出しでは、新しいストリングビルダーが返されます。</summary>
+      <param name="capacity">容量。</param>
+      <returns>StringBuilderインスタンスはスレッドローカルストレージにキャッシュされるため、スレッドごとに1つずつ存在します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.StringBuilderCache.GetStringAndRelease(System.Text.StringBuilder)">
+      <summary>ストリングビルダーのToString()を実行し、それをキャッシュに解放して、結果の文字列を返します。</summary>
+      <param name="sb">ストリングビルダー。</param>
+      <returns>System.String。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.StringBuilderCache.Release(System.Text.StringBuilder)">
+      <summary>指定したビルダーが大きすぎない場合、それをキャッシュに配置します。解放されたストリングビルダーは使用しないでください。Releaseがアンバランスであっても問題ありません。次回Acquireが呼び出されたときに新しいストリングビルダーが作成されるだけです。</summary>
+      <param name="sb">ストリングビルダー。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.Utils">
+      <summary>内部使用のみ。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.Utils.Swap``1(``0@,``0@)">
+      <summary>2つの変数の値を交換します。</summary>
+      <typeparam name="T">変数の型。</typeparam>
+      <param name="a">最初の変数。</param>
+      <param name="b">2番目の変数。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IArguments">
+      <summary>関数に渡される引数のセットを表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IArguments.EvaluationContext">
+      <summary>評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />インスタンスを取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IArguments.Count">
+      <summary>引数の総数を取得します。</summary>
+      <value>引数の総数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IArguments.Item(System.Int32)">
+      <summary>指定したインデックスにある<see cref="T:GrapeCity.CalcEngine.IValue" />引数を取得します。</summary>
+      <param name="index">引数のインデックスを示す整数値。</param>
+      <returns>指定した引数の値を示す<see cref="T:GrapeCity.CalcEngine.IValue" />インスタンス。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IArguments.GetArrayValue(System.Int32,System.Int32,System.Int32,GrapeCity.CalcEngine.IPrimitiveValue)">
+      <summary>配列引数内の項目の値を取得します。</summary>
+      <param name="index">引数のインデックスを示す整数値。</param>
+      <param name="row">項目の行配列インデックスを示す整数値。</param>
+      <param name="column">項目の列配列インデックスを示す整数値。</param>
+      <param name="result">配列引数内の指定した項目の値を含む<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />インスタンス。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IArguments.AllocSharedValue(System.Int32)">
+      <summary>複数の<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトを割り当てます。</summary>
+      <param name="count">割り当てる<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトの総数。</param>
+      <returns>割り当てられた最初の<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトのインデックスを示す、0から始まる整数。</returns>
+      <remarks>計算エンジンは、共有値を自動的に解放しません。<see cref="M:GrapeCity.CalcEngine.IArguments.AllocSharedValue(System.Int32)" />が呼び出された場合は、関数から存在する前に<see cref="M:GrapeCity.CalcEngine.IArguments.DeallocSharedValue" />も呼び出されていることを確認してください。</remarks>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IArguments.DeallocSharedValue">
+      <summary>最後に作成された<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトの割り当てを解除します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IArguments.SharedValueIndex">
+      <summary>最初に割り当てられた値のインデックスを取得します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IEvaluationContext">
+      <summary>評価可能クラスの派生元のインタフェース。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.LanguagePackage">
+      <summary>計算用の現在の言語パッケージを取得します。</summary>
+      <value>言語パッケージを表す<see cref="T:GrapeCity.CalcEngine.ICalcEngineLanguagePackage" />オブジェクト。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ExcelDateTimeCompatible">
+      <summary>日付時刻の処理はLotus123と互換性があります。1900年はうるう年ではないとみなされます。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.Date1904">
+      <summary>日付のシリアル値への変換に使用される日付方式が1904年1月1日から始まるかどうかを取得または設定します。</summary>
+      <value>日付方式が1904年に始まる場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.CachingEnabled">
+      <summary>計算キャッシュが有効かどうかを示す値を取得します。</summary>
+      <value>計算キャッシュが有効になっている場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.GetRangeCache(GrapeCity.CalcEngine.IReferenceSource,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>範囲キャッシュを取得します。</summary>
+      <param name="source">データのソース。</param>
+      <param name="row">&lt;c&gt;true&lt;/c&gt;に設定されている場合は、行を検索します。それ以外の場合は、列を検索します。</param>
+      <param name="column"><see cref="!:row" />がtrueの場合、行インデックスを示します。それ以外の場合は、列インデックスを示します。</param>
+      <param name="row2"><see cref="!:row" />がtrueの場合、最初の列を示します。それ以外の場合は、最初の行を示します。</param>
+      <param name="column2"><see cref="!:row" />がtrueの場合、最後の列を示します。それ以外の場合は、最後の行を示します。</param>
+      <returns>利用可能な場合は<see cref="T:GrapeCity.CalcEngine.RangeCache" />オブジェクト。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ContextRow">
+      <summary>評価される数式を含むセルの行インデックスを取得します。</summary>
+      <value>セルの行インデックスを示す、0から始まる整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ContextColumn">
+      <summary>評価される数式を含むセルの列インデックスを取得します。</summary>
+      <value>セルの列インデックスを示す、0から始まる整数。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ArrayRowOffset">
+      <summary>数式配列内のセルの行オフセットを取得します。</summary>
+      <value>ゼロベースの整数は、セルの行オフセットを示します。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ArrayColumnOffset">
+      <summary>数式配列内のセルの列オフセットを取得します。</summary>
+      <value>ゼロベースの整数は、セルの列オフセットを示します。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ArrayRowCount">
+      <summary>数式配列内の行の総数を取得します。</summary>
+      <value>整数は、数式配列内の行の総数を示します。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ArrayColumnCount">
+      <summary>数式配列内の列の総数を取得します。</summary>
+      <value>整数は、数式配列内の列の総数を示します。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.ReferenceSource">
+      <summary>数式が評価される参照ソースを取得します。</summary>
+      <value>数式が評価される参照ソースを表す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.AllocValue">
+      <summary>新しい<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトを割り当てます。</summary>
+      <returns>新しく割り当てられた<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.AllocValue(System.Int32)">
+      <summary>複数の<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトを割り当てます。</summary>
+      <param name="count">割り当てる<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトの総数。</param>
+      <returns>割り当てられた最初の<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトのインデックスを示す、0から始まる整数。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.DeallocValue">
+      <summary>最後に作成された<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトの割り当てを解除します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.DeallocValue(System.Int32)">
+      <summary>最後に作成された<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトの割り当てを解除します。</summary>
+      <param name="count">割り当てを解除する<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトの総数。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.GetValue(System.Int32)">
+      <summary>指定したインデックスにある<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトを取得します。</summary>
+      <param name="index"><see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトのインデックスを示す、0から始まる整数。</param>
+      <returns>IValue。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IEvaluationContext.Error">
+      <summary>計算エラーを取得または設定します。</summary>
+      <value>計算エラー値。</value>
+      <remarks>最初の計算エラーが最も高い優先順位を持ちます。これは計算エラーが解消されるまで維持されます。</remarks>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.EnterContext(GrapeCity.CalcEngine.IReferenceSource,System.Int32,System.Int32)">
+      <summary>指定した評価コンテキストに入ります。</summary>
+      <param name="source">数式を使用する<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</param>
+      <param name="contextRow">コンテキスト行インデックスを示す整数値。</param>
+      <param name="contextColumn">コンテキスト列インデックスを示す整数値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.ExitContext">
+      <summary>現在の評価コンテキストから抜けて以前の評価コンテキストに戻ります。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.Evaluate(GrapeCity.CalcEngine.Expression,GrapeCity.CalcEngine.IValue)">
+      <summary>指定された式を評価し、評価結果を<paramref name="result" />パラメーターによって返します。</summary>
+      <param name="expression">評価する式。</param>
+      <param name="result">評価結果を格納する<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.Evaluate(GrapeCity.CalcEngine.IDelegate,GrapeCity.CalcEngine.IValue)">
+      <summary>指定された式を評価し、評価結果を<paramref name="result" />パラメーターによって返します。</summary>
+      <param name="delegate">評価する式。</param>
+      <param name="result">評価結果を格納する<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.CastToInt(System.Double)">
+      <summary>指定された<see cref="T:System.Double" />値を<see cref="T:System.Int32" />値にキャストします。</summary>
+      <param name="value"><see cref="T:System.Double" />の値。</param>
+      <returns>対応する<see cref="T:System.Int32" />値。<see cref="T:System.Double" />値をキャストできない場合、<see cref="P:GrapeCity.CalcEngine.IEvaluationContext.Error" />は<see cref="F:GrapeCity.CalcEngine.CalcError.Number" />に設定されます。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IEvaluationContext.CastToLong(System.Double)">
+      <summary>指定された<see cref="T:System.Double" />値を<see cref="T:System.Int64" />値にキャストします。</summary>
+      <param name="value"><see cref="T:System.Double" />の値。</param>
+      <returns>対応する<see cref="T:System.Int64" />値。<see cref="T:System.Double" />値をキャストできない場合、<see cref="P:GrapeCity.CalcEngine.IEvaluationContext.Error" />は<see cref="F:GrapeCity.CalcEngine.CalcError.Number" />に設定されます。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IReferenceSource">
+      <summary>セル参照または範囲参照のソースを示します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IReferenceSource.Name">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />の名前を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />の名前を表す文字列値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IReferenceSource.Supports3DReference">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクトが3D参照をサポートするかどうかを示す値を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクトが3D参照をサポートする場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IReferenceSource.Date1904">
+      <summary>日付のシリアル値への変換に使用される日付方式が1904年に始まるかどうかを取得します。</summary>
+      <value>日付方式が1904年に始まる場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。デフォルトは&lt;c&gt;false&lt;/c&gt;です。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.EnsureCalculated(GrapeCity.CalcEngine.IEvaluationContext,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>指定した範囲内のすべてのセルが計算されているようにします。</summary>
+      <param name="context">評価コンテキスト。</param>
+      <param name="row">2次元行列の一番上の行インデックスを示す整数値。</param>
+      <param name="column">2次元行列の左端の列インデックスを示す整数値。</param>
+      <param name="row2">2次元行列の右端の行インデックスを示す整数値。</param>
+      <param name="column2">2次元行列の右端の列インデックスを示す整数値。</param>
+      <param name="enableSpilledArray"><c>true</c>に設定されている場合[こぼれた配列を有効にする]。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.Get3DReferenceIndex">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクトの3D参照インデックスを取得します。</summary>
+      <returns>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクトの3D参照インデックスを示す整数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetValue(GrapeCity.CalcEngine.IEvaluationContext,System.Int32,System.Int32,GrapeCity.CalcEngine.IPrimitiveValue)">
+      <summary>2次元行列の指定した位置にある値を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="row">2次元行列の行インデックスを示す整数値。</param>
+      <param name="column">2次元行列の列インデックスを示す整数値。</param>
+      <param name="result">指定した位置にある値を表す<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetValue(GrapeCity.CalcEngine.IEvaluationContext,System.Int32,System.Int32,System.Int32,System.Int32,GrapeCity.CalcEngine.IValuesArray,System.Boolean)">
+      <summary>2次元行列の指定した範囲にある値を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="row">2次元行列の一番上の行インデックスを示す整数値。</param>
+      <param name="column">2次元行列の左端の列インデックスを示す整数値。</param>
+      <param name="row2">2次元行列の右端の行インデックスを示す整数値。</param>
+      <param name="column2">2次元行列の右端の列インデックスを示す整数値。</param>
+      <param name="result">指定した範囲にある値を表す<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />オブジェクト。</param>
+      <param name="keepEmptyValue">空の値を空のままにするかどうかを表すブール値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetValue(GrapeCity.CalcEngine.IEvaluationContext,System.Int32,System.Int32,System.Int32,System.Int32,GrapeCity.CalcEngine.CellValue[],System.Int32)">
+      <summary>2次元行列の指定した範囲にある値を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="row">2次元行列の一番上の行インデックスを示す整数値。</param>
+      <param name="column">2次元行列の左端の列インデックスを示す整数値。</param>
+      <param name="row2">2次元行列の右端の行インデックスを示す整数値。</param>
+      <param name="column2">2次元行列の右端の列インデックスを示す整数値。</param>
+      <param name="result">指定した範囲にある値を表す<see cref="T:GrapeCity.CalcEngine.CellValue" />配列。</param>
+      <param name="index">データを書き込む開始項目インデックス。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetValue(GrapeCity.CalcEngine.IEvaluationContext,System.Int32,System.Int32,GrapeCity.CalcEngine.CellValue@)">
+      <summary>2次元行列の指定した位置にある値を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="row">2次元行列の行インデックスを示す整数値。</param>
+      <param name="column">2次元行列の列インデックスを示す整数値。</param>
+      <param name="result">指定した位置にある値を表す<see cref="T:GrapeCity.CalcEngine.CellValue" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetText(GrapeCity.CalcEngine.IEvaluationContext,System.Int32,System.Int32)">
+      <summary>2次元行列の指定された位置にあるテキストを取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="row">2次元行列の行インデックスを示す整数値。</param>
+      <param name="column">2次元行列の列インデックスを示す整数値。</param>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IReferenceSource.RowCount">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />内の行数を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />の行数を表す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IReferenceSource.ColumnCount">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />内の列数を取得します。</summary>
+      <value>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />の列数を表す整数値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetReferenceExpression(GrapeCity.CalcEngine.FormulaEngine)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />を評価する参照式を取得します。</summary>
+      <param name="formulaEngine">数式エンジンを示す<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />オブジェクト。</param>
+      <returns>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />を評価する参照式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetReferenceExpression(GrapeCity.CalcEngine.FormulaEngine,GrapeCity.CalcEngine.IStructuredObject,GrapeCity.CalcEngine.StructuredItemSpecifiers,System.Int32,System.Int32)">
+      <summary>指定した<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />を評価する参照式を取得します。</summary>
+      <param name="formulaEngine">数式エンジンを示す<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />オブジェクト。</param>
+      <param name="structuredObject">構造化オブジェクトを示す<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクト。</param>
+      <param name="itemSpecifiers">項目指定子を表す<see cref="T:GrapeCity.CalcEngine.StructuredItemSpecifiers" />値。</param>
+      <param name="columnId">最初の列を示す整数値。</param>
+      <param name="columnId2">2番目の列を示す整数値。</param>
+      <returns>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />を評価する参照式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.GetReferenceExpression(GrapeCity.CalcEngine.FormulaEngine,GrapeCity.CalcEngine.IStructuredObject,GrapeCity.CalcEngine.Expression)">
+      <summary>指定した<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />を評価する参照式を取得します。</summary>
+      <param name="formulaEngine">数式エンジンを示す<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />オブジェクト。</param>
+      <param name="structuredObject">構造化オブジェクトを示す<see cref="T:GrapeCity.CalcEngine.IStructuredObject" />オブジェクト。</param>
+      <param name="expression">この式は <see cref="T:GrapeCity.CalcEngine.IStructuredObject" /> を参照します。</param>
+      <returns>この<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />を評価する参照式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReferenceSource.IsUndefined">
+      <summary>この参照ソースが未定義かどうかを判断します。</summary>
+      <returns>この参照ソースが未定義の場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IReadonlyPrimitiveValue">
+      <summary>計算エンジンのプリミティブな計算値のためのインタフェースを表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.ValueType">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />インスタンスの値型を取得します。</summary>
+      <value><see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />インスタンスのデータの型。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetNumber(GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:System.Double" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <param name="catchError">
+        評価コンテキストが計算エラーを追跡する場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:System.Double" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetText(GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:System.String" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <param name="catchError">
+        評価コンテキストが計算エラーを追跡する場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetLogical(GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:System.Boolean" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <param name="catchError">
+        評価コンテキストが計算エラーを追跡する場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:System.Boolean" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetError(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CalcError" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <returns><see cref="T:GrapeCity.CalcEngine.CalcError" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetDate(GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:System.DateTime" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <param name="catchError">
+        評価コンテキストが計算エラーを追跡する場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:System.DateTime" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetTime(GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:System.TimeSpan" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <param name="catchError">
+        評価コンテキストが計算エラーを追跡する場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:System.TimeSpan" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IReadonlyPrimitiveValue.GetObject(GrapeCity.CalcEngine.IEvaluationContext,System.Boolean)">
+      <summary><see cref="T:System.Object" />値を取得します。</summary>
+      <param name="context">値を取得するための評価コンテキスト。</param>
+      <param name="catchError">
+        評価コンテキストが計算エラーを追跡する場合は<c>true</c>、それ以外の場合は<c>false</c>。</param>
+      <returns><see cref="T:System.Object" />値。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IFormattedCellValue">
+      <summary>セルの値を書式文字列で表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IFormattedCellValue.BasicValue">
+      <summary>このセル値の元の値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IFormattedCellValue.Format">
+      <summary>この値の書式設定に使用される数値書式文字列を取得します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IFormattedCellValue2">
+      <summary>セルの値を書式文字列で表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IFormattedCellValue2.FormattedText">
+      <summary>セル値の書式設定されたテキストを取得します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IPrimitiveValue">
+      <summary>計算エンジンのプリミティブな計算値のためのインタフェースを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(GrapeCity.CalcEngine.IEvaluationContext,System.Double)">
+      <summary><see cref="T:System.Double" />値を設定します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="value">設定する<see cref="T:System.Double" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(System.Object,System.Boolean)">
+      <summary><see cref="T:System.Object" />値を設定します。</summary>
+      <param name="value">設定する<see cref="T:System.Object" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(GrapeCity.CalcEngine.CalcError)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CalcError" />値を設定します。</summary>
+      <param name="value">設定する<see cref="T:GrapeCity.CalcEngine.CalcError" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(GrapeCity.CalcEngine.IEvaluationContext,System.String)">
+      <summary><see cref="T:System.String" />値を設定します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="value">設定する<see cref="T:System.String" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(System.Boolean)">
+      <summary><see cref="T:System.Boolean" />値を設定します。</summary>
+      <param name="value">設定する<see cref="T:System.Boolean" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(System.DateTime)">
+      <summary><see cref="T:System.DateTime" />値を設定します。</summary>
+      <param name="value">設定する<see cref="T:System.DateTime" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.SetValue(System.TimeSpan)">
+      <summary><see cref="T:System.TimeSpan" />値を設定します。</summary>
+      <param name="value">設定する<see cref="T:System.TimeSpan" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.Reset">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />オブジェクトを空にリセットします。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IPrimitiveValue.CompareTo(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.IPrimitiveValue)">
+      <summary>このインスタンスを指定した<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />オブジェクトと比較し、両者の相対関係を示す値を返します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <param name="value">比較する値を示す<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />オブジェクト。</param>
+      <returns>このインスタンスとvalueの大小関係を示す符号付きの数値。戻り値の意味は次のとおりです。0より小さい: このインスタンスはvalueより小さい。0: このインスタンスはvalueと等しい。0より大きい: このインスタンスはvalueより大きい、またはvalueがnull。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IValue">
+      <summary>計算エンジンの計算値のためのインタフェースを表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IValue.ReferenceCount">
+      <summary>参照カウントを取得します。</summary>
+      <value>参照カウントを表す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IValue.ReferenceSourceCount">
+      <summary>参照ソースカウントを取得します。</summary>
+      <value>参照ソースカウントを表す整数値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetReferenceSource(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary>参照ソースを取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <value>参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetReferenceSource2(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary>終了参照ソースを取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <value>終了参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetReferenceSource(GrapeCity.CalcEngine.IEvaluationContext,System.Int32)">
+      <summary>指定した位置にある参照ソースを取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="sourceIndex">参照ソースの位置を示す整数値。</param>
+      <value>参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetReference(GrapeCity.CalcEngine.IEvaluationContext,System.Int32)">
+      <summary>指定した位置にある参照を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="index">配列内の位置を示す整数値。</param>
+      <returns>指定した位置にある参照を表す<see cref="!:RangeReference." />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetAccessibleReference(GrapeCity.CalcEngine.IEvaluationContext,System.Int32)">
+      <summary>指定された位置のセル範囲参照を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="index">整数値は配列内の位置を示します。 <see cref="P:GrapeCity.CalcEngine.IValue.ValueType" /> が <see cref="F:GrapeCity.CalcEngine.ValueType.Reference3D" />の場合、参照元の位置を示します。</param>
+      <returns>指定した位置にある参照を表す<see cref="!:RangeReference." />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetRowCount(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary>評価される範囲参照の行数を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <returns>評価される範囲参照の行数を表す整数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetColumnCount(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary>評価される範囲参照の列数を取得します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.EvaluationContext" />オブジェクト。</param>
+      <returns>評価される範囲参照の列数を表す整数値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.CopyReferenceTo(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.RangeReference[],System.Int32)">
+      <summary>すべての参照を配列の指定した位置にコピーします。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="array">コピー先の配列。</param>
+      <param name="index">配列内の位置を示す整数値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.SetReference(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.CellReference,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />の値を指定したセル参照に設定します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="cellRef">セル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="refSource">参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.SetReference(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.RangeReference,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />の値を指定した参照に設定します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />値。</param>
+      <param name="refSource">参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.SetReference(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.RangeReference[],GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />の値を指定した参照配列に設定します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="rangeRefs">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />の配列。</param>
+      <param name="refSource">参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.SetReference(GrapeCity.CalcEngine.IEvaluationContext,GrapeCity.CalcEngine.RangeReference,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />の値を指定した3D参照に設定します。</summary>
+      <param name="context">評価コンテキストを示す<see cref="T:GrapeCity.CalcEngine.IEvaluationContext" />値。</param>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />の配列。</param>
+      <param name="startRefSource">開始参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />値。</param>
+      <param name="endRefSource">終了参照ソースを示す<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.SetValue(GrapeCity.CalcEngine.IValuesArray)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />の値を指定した<see cref="T:GrapeCity.CalcEngine.IValuesArray" />に設定します。</summary>
+      <param name="valuesArray">新しい値を表す<see cref="T:GrapeCity.CalcEngine.IValuesArray" />値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetValuesArray">
+      <summary>値配列の値を取得します。</summary>
+      <returns>値配列を表す<see cref="T:GrapeCity.CalcEngine.IValuesArray" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.CreateValuesArray(System.Int32,System.Int32)">
+      <summary>新しい値配列を作成します。</summary>
+      <param name="rowCount">値配列の行数を示す整数値。</param>
+      <param name="columnCount">値配列の列数を示す整数値。</param>
+      <returns>値配列を表す<see cref="T:GrapeCity.CalcEngine.IValuesArray" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetDelegate">
+      <summary><see cref="T:GrapeCity.CalcEngine.IDelegate" />オブジェクトを取得します。</summary>
+      <returns>LAMBDA関数によって返される<see cref="T:GrapeCity.CalcEngine.IDelegate" />オブジェクト。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IValue.ValueType">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />インスタンスの値型を取得します。</summary>
+      <value><see cref="T:GrapeCity.CalcEngine.IValue" />インスタンスのデータの型。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IValue.GetPrimitiveValue(GrapeCity.CalcEngine.IEvaluationContext)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトからプリミティブ値を取得します。</summary>
+      <returns>この<see cref="T:GrapeCity.CalcEngine.IValue" />オブジェクトによって参照されている<see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />インスタンス。</returns>
+      <remarks>この関数が呼び出された後、このオブジェクトが変更されないままであることは保証されません。</remarks>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.PrimitiveValueType">
+      <summary>評価されるプリミティブ値の型を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Empty">
+      <summary>値が返されないことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Error">
+      <summary>値型が計算エラーであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Logical">
+      <summary>値型がブール値であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Text">
+      <summary>値型が文字列であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Number">
+      <summary>値型が数値であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.DateTime">
+      <summary>値型が、Excel 2010から導入されたDateTimeであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.TimeSpan">
+      <summary>値型がTimeSpanであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Image">
+      <summary>セルのインライン画像を示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.PrimitiveValueType.Object">
+      <summary>値型が一般オブジェクトであることを示します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ValueType">
+      <summary>評価値の型を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Empty">
+      <summary>値が返されないことを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Error">
+      <summary>値型が計算エラーであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Logical">
+      <summary>値型がブール値であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Text">
+      <summary>値型が文字列であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Number">
+      <summary>値型が数値であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.DateTime">
+      <summary>値のタイプがDateTimeであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.TimeSpan">
+      <summary>値型がTimeSpanであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Integer">
+      <summary>値型が数値であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Image">
+      <summary>セルのインライン画像を示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Delegate">
+      <summary>値の型がデリゲートであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Object">
+      <summary>値型が一般オブジェクトであることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.ValuesArray">
+      <summary>値型が配列であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.ArrayReference">
+      <summary>アンカー演算子(#)の評価結果を示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Reference">
+      <summary>値型が（数式で宣言された、または計算された）参照であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.AdjustableReference">
+      <summary>値型が、数式で宣言された参照であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.MultiReference">
+      <summary>値型がマルチ参照であることを示します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.ValueType.Reference3D">
+      <summary>値型が3D参照であることを示します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IIndirectCellValue">
+      <summary>計算セルの値を保持するオブジェクトを表します。 <see cref="T:GrapeCity.CalcEngine.IIndirectCellValue" />オブジェクトは、計算中にそれ自体を保持することはありません。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IIndirectCellValue.GetValue(GrapeCity.CalcEngine.IPrimitiveValue)">
+      <summary>この <see cref="T:GrapeCity.CalcEngine.IIndirectCellValue" />オブジェクトの値を取得し、<paramref name="target" /> オブジェクトに設定します。</summary>
+      <param name="primitiveValue">値を設定するオブジェクト。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ICellValue">
+      <summary>順序セル値であるオブジェクトを表します。 順序セルの値は、計算中そのまま保持されます。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ICalcEngineLanguagePackage">
+      <summary>数式の言語パッケージを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ICalcEngineLanguagePackage.GetArgument(GrapeCity.CalcEngine.Function,System.String)">
+      <summary>指定されたローカライズされた引数の英語の引数値を取得します。</summary>
+      <param name="function">処理中の関数</param>
+      <param name="localizedParam">ローカライズされたパラメーター。</param>
+      <returns>指定したローカライズされたパラメーターの英語パラメーター値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ICalcEngineLanguagePackage.GetName(GrapeCity.CalcEngine.Function)">
+      <summary>関数のローカライズされた名前を取得します。</summary>
+      <param name="function">組み込み関数を示す<see cref="T:GrapeCity.CalcEngine.BuiltinFunction" />値。</param>
+      <returns>関数のローカライズされた名前を表す文字列値。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.BinaryOperatorExpression.ExpressionCount">
+      <summary>子式の総数を取得します。</summary>
+      <value>子式の総数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.BinaryOperatorExpression.LeftExpression">
+      <summary>左辺の式を取得または設定します。</summary>
+      <value>左辺の式。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.BinaryOperatorExpression.RightExpression">
+      <summary>右辺の式を取得または設定します。</summary>
+      <value>右辺の式。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.BinaryOperatorExpression.Symbol">
+      <summary>演算子の記号を取得します。</summary>
+      <value>演算子の記号を示す文字列値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.BinaryOperatorExpression.SetExpression(System.Int32,GrapeCity.CalcEngine.Expression)">
+      <summary>指定した位置にある式を置き換えます。</summary>
+      <param name="index">置き換える式の位置を示す整数値。</param>
+      <param name="expression">置き換える式。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.BinaryOperatorExpression.GetExpression(System.Int32)">
+      <summary>指定した位置にある式を取得します。</summary>
+      <param name="index">式の位置を示す整数値。</param>
+      <returns>指定した位置にある式。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.BinaryOperatorExpression.Equals(GrapeCity.CalcEngine.Expression)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.Expression" />が別の<see cref="T:GrapeCity.CalcEngine.Expression" />と等しいかどうかを示します。</summary>
+      <param name="other">比較するインスタンス。</param>
+      <returns>現在の<see cref="T:GrapeCity.CalcEngine.Expression" />が比較対象の<see cref="T:GrapeCity.CalcEngine.Expression" />と等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.BinaryOperatorExpression.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.BinaryOperatorExpression.Unparse(GrapeCity.CalcEngine.FormulaEngine,System.Text.StringBuilder)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.BinaryOperatorExpression" />を数式テキストに逆解析します。</summary>
+      <param name="engine">逆解析するパーサー。</param>
+      <param name="sb">数式テキストを追加する<see cref="T:System.Text.StringBuilder" />。</param>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.UnaryOperatorExpression.ExpressionCount">
+      <summary>子式の総数を取得します。</summary>
+      <value>子式の総数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.UnaryOperatorExpression.Expression">
+      <summary>式を取得または設定します。</summary>
+      <value>式。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.UnaryOperatorExpression.Symbol">
+      <summary>演算子の記号を取得します。</summary>
+      <value>演算子の記号を示す文字列値。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.UnaryOperatorExpression.SetExpression(System.Int32,GrapeCity.CalcEngine.Expression)">
+      <summary>指定した位置にある式を置き換えます。</summary>
+      <param name="index">置き換える式の位置を示す整数値。</param>
+      <param name="expression">置き換える式。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.UnaryOperatorExpression.GetExpression(System.Int32)">
+      <summary>指定した位置にある式を取得します。</summary>
+      <param name="index">式の位置を示す整数値。</param>
+      <returns>指定した位置にある式。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.UnaryOperatorExpression.Unparse(GrapeCity.CalcEngine.FormulaEngine,System.Text.StringBuilder)">
+      <summary>現在の<see cref="T:GrapeCity.CalcEngine.UnaryOperatorExpression" />を数式テキストに逆解析します。</summary>
+      <param name="engine">逆解析するパーサー。</param>
+      <param name="sb">数式テキストを追加する<see cref="T:System.Text.StringBuilder" />。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.UnaryOperatorExpression.Equals(GrapeCity.CalcEngine.Expression)">
+      <summary>現在の<see cref="P:GrapeCity.CalcEngine.UnaryOperatorExpression.Expression" />が別の<see cref="P:GrapeCity.CalcEngine.UnaryOperatorExpression.Expression" />と等しいかどうかを示します。</summary>
+      <param name="other">比較するインスタンス。</param>
+      <returns>現在の<see cref="P:GrapeCity.CalcEngine.UnaryOperatorExpression.Expression" />が比較対象の<see cref="P:GrapeCity.CalcEngine.UnaryOperatorExpression.Expression" />と等しい場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.UnaryOperatorExpression.GetHashCode">
+      <summary>このインスタンスのハッシュコードを返します。</summary>
+      <returns>このインスタンスのハッシュコードは、ハッシュアルゴリズムや、ハッシュテーブルのようなデータ構造での使用に適しています。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.FormulaEngine">
+      <summary>数式エンジンを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.Clone(GrapeCity.CalcEngine.Expression)">
+      <summary>指定した式をクローンします。</summary>
+      <param name="expression">クローンする式。</param>
+      <returns>新しくクローンされた式。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.SetLanguagePackage(GrapeCity.CalcEngine.ICalcEngineLanguagePackage)">
+      <summary>言語パッケージを設定します。</summary>
+      <param name="languagePackage">新しい言語パッケージ。</param>
+      <returns>古い言語パッケージ。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.ContextTranslatedRowCount">
+      <summary>式を数式に逆解析するときに平行移動される、現在の参照ソースの行数を取得または設定します。</summary>
+      <value>平行移動される行の数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.ContextTranslatedColumnCount">
+      <summary>式を数式に逆解析するときに平行移動される、現在の参照ソースの列数を取得または設定します。</summary>
+      <value>平行移動される列の数を示す整数値。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.Culture">
+      <summary>解析および逆解析処理に使用される現在の<see cref="T:System.Globalization.CultureInfo" />オブジェクトを取得します。</summary>
+      <value>現在のカルチャを表す<see cref="T:System.Globalization.CultureInfo" />オブジェクト。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.IsA1Reference">
+      <summary>現在の解析モードがA1参照スタイルであるかどうかを示す値を取得します。</summary>
+      <value>現在の解析モードがA1参照スタイルである場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.StrictR1C1Boundary">
+      <summary>R1C1参照スタイルで解析するとき、非連結範囲はすべて#REF!として解析されます。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnstrictR1C1Boundary">
+      <summary>R1C1参照スタイルが非連結かどうかを確認することを停止します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.EnterContext(GrapeCity.CalcEngine.IReferenceSource,System.Int32,System.Int32)">
+      <summary>指定した解析コンテキストに入ります。</summary>
+      <param name="source">数式を使用する<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</param>
+      <param name="contextRow">コンテキスト行インデックスを示す整数値。</param>
+      <param name="contextColumn">コンテキスト列インデックスを示す整数値。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.EnterContext(GrapeCity.CalcEngine.IReferenceSource,System.Int32,System.Int32,System.Boolean)">
+      <summary>指定した解析コンテキストに入ります。</summary>
+      <param name="source">数式を使用する<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</param>
+      <param name="contextRow">コンテキスト行インデックスを示す整数値。</param>
+      <param name="contextColumn">コンテキスト列インデックスを示す整数値。</param>
+      <param name="isA1Reference"><c>true</c>に設定した場合、数式はA1参照形式を使用します。それ以外の場合は、R1C1参照形式を使用します。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.ExitContext">
+      <summary>現在の解析コンテキストから抜けて以前の解析コンテキストに戻ります。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.Parse(System.String,GrapeCity.CalcEngine.Expression@,System.Boolean)">
+      <summary>指定した数式テキストを式に解析します。</summary>
+      <param name="formulaText">数式テキストを示す文字列。</param>
+      <param name="parsedExpression">解析された式。</param>
+      <param name="detectFormulaSymbol"></param>
+      <returns>数式を<seealso cref="T:GrapeCity.CalcEngine.Expression" />インスタンスに解析できる場合は<c>true</c>、それ以外の場合は<c>false</c> 。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.Highlight(System.String,System.Boolean)">
+      <summary>指定した数式テキストを式に解析します。</summary>
+      <param name="formulaText">数式テキストを示す文字列。</param>
+      <param name="detectFormulaSymbol">「=」文字を検出してスキップするかどうかを決定します。</param>
+      <returns>ハイライのトデータを表す<see cref="T:GrapeCity.CalcEngine.SyntaxHighlight" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.Unparse(GrapeCity.CalcEngine.IReferenceSource,System.Int32,System.Int32,GrapeCity.CalcEngine.Expression)">
+      <summary>指定した式を数式テキストに逆解析します。</summary>
+      <param name="contextSource">数式を使用する<see cref="T:GrapeCity.CalcEngine.IReferenceSource" />オブジェクト。</param>
+      <param name="contextRow">コンテキスト行インデックスを示す整数値。</param>
+      <param name="contextColumn">コンテキスト列インデックスを示す整数値。</param>
+      <param name="expr">式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</param>
+      <returns>入力式から逆解析された数式テキスト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.Unparse(GrapeCity.CalcEngine.Expression)">
+      <summary>指定した式を数式テキストに逆解析します。</summary>
+      <param name="expr">式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</param>
+      <returns>入力式から逆解析された数式テキスト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.AddResolver(GrapeCity.CalcEngine.ISymbolResolver)">
+      <summary>セル参照や外部参照などの逆解析される記号を解決するカスタム記号レゾルバーを追加します。</summary>
+      <param name="resolver">追加するカスタム記号レゾルバー。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.RemoveResolver(GrapeCity.CalcEngine.ISymbolResolver)">
+      <summary>セル参照や外部参照などの逆解析される記号を解決するカスタム記号レゾルバーを削除します。</summary>
+      <param name="resolver">削除するカスタム記号レゾルバー。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.AddResolver(GrapeCity.CalcEngine.IFunctionResolver)">
+      <summary>カスタム関数を解決するカスタム関数レゾルバーを追加します。</summary>
+      <param name="resolver">追加するカスタム関数レゾルバー。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.RemoveResolver(GrapeCity.CalcEngine.IFunctionResolver)">
+      <summary>カスタム関数を解決するカスタム関数レゾルバーを削除します。</summary>
+      <param name="resolver">削除するカスタム関数レゾルバー。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.AddResolver(GrapeCity.CalcEngine.IOperatorResolver)">
+      <summary>標準演算子をカスタム演算子によってオーバーライドできるようにするカスタム演算子レゾルバーを追加します。</summary>
+      <param name="resolver">追加するカスタム演算子レゾルバー。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.RemoveResolver(GrapeCity.CalcEngine.IOperatorResolver)">
+      <summary>標準演算子をカスタム演算子によってオーバーライドできるようにするカスタム演算子レゾルバーを削除します。</summary>
+      <param name="resolver">削除するカスタム演算子レゾルバー。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.GetFunction(System.String)">
+      <summary>指定された名前から関数を取得します。</summary>
+      <param name="name">文字列値は関数名を示します。</param>
+      <returns>関数を表す<see cref="T:GrapeCity.CalcEngine.Function" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.TryParseR1C1Reference(System.String,GrapeCity.CalcEngine.RangeReference@)">
+      <summary>R1C1形式の範囲参照の文字列表現を対応する<see cref="T:GrapeCity.CalcEngine.RangeReference" />に変換します。戻り値は、変換が成功したかどうかを示します。</summary>
+      <param name="ref">変換する範囲参照を含む文字列。</param>
+      <param name="rangeRef">解析された範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />値。</param>
+      <returns>変換が成功した場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(GrapeCity.CalcEngine.RangeReference)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <returns>A1参照スタイルの範囲参照を表す<see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseReferenceSource(GrapeCity.CalcEngine.IReferenceSource,System.Text.StringBuilder)">
+      <summary>指定した参照ソースを解析解除します</summary>
+      <param name="source">解析解除する参照ソース。</param>
+      <param name="sb">A1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseReferenceSource(GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>指定した参照ソースを解析解除します</summary>
+      <param name="source">解析解除する参照ソース。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(GrapeCity.CalcEngine.RangeReference,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />値。</param>
+      <param name="sb">A1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.RangeReference,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />値。</param>
+      <param name="sb">A1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(GrapeCity.CalcEngine.CellReference,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="cellRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">A1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.CellReference,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="cellRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">A1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(GrapeCity.CalcEngine.RangeReference,System.Text.StringBuilder,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">A1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.RangeReference)">
+      <summary>R1C1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <returns>R1C1参照スタイルの範囲参照を表す<see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.RangeReference,System.Text.StringBuilder,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>R1C1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">R1C1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.RangeReference,System.Text.StringBuilder)">
+      <summary>R1C1参照スタイルの範囲参照を逆解析します。</summary>
+      <param name="rangeRef">範囲参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">R1C1参照スタイルの範囲参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseError(GrapeCity.CalcEngine.CalcError)">
+      <summary>指定した<see cref="T:GrapeCity.CalcEngine.CalcError" />値を逆解析します。</summary>
+      <param name="error">計算エラーを示す<see cref="T:GrapeCity.CalcEngine.CalcError" />値。</param>
+      <returns>計算エラーテキストを表す文字列値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.TryParseA1Reference(System.String,System.Int32,System.Int32,GrapeCity.CalcEngine.RangeReference@)">
+      <summary>A1形式の範囲参照の文字列表現を対応する<see cref="T:GrapeCity.CalcEngine.RangeReference" />に変換します。戻り値は、変換が成功したかどうかを示します。</summary>
+      <param name="ref">変換する範囲参照を含む文字列。</param>
+      <param name="baseRow">コンテキスト行を示す整数値。</param>
+      <param name="baseColumn">コンテキスト列を示す整数値。</param>
+      <param name="rangeRef">解析された範囲参照を表す<see cref="T:GrapeCity.CalcEngine.RangeReference" />値。</param>
+      <returns>変換が成功した場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(GrapeCity.CalcEngine.CellReference)">
+      <summary>A1参照スタイルのセル参照を逆解析します。</summary>
+      <param name="cellReference">セル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <returns>A1参照スタイルのセル参照を表す<see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.CellReference)">
+      <summary>R1C1参照スタイルのセル参照を逆解析します。</summary>
+      <param name="cellReference">セル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <returns>R1C1参照スタイルのセル参照を表す<see cref="T:System.String" />値。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(GrapeCity.CalcEngine.CellReference,System.Text.StringBuilder,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>A1参照スタイルのセル参照を逆解析します。</summary>
+      <param name="cellReference">セル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">A1参照スタイルのセル参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseA1Reference(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>A1参照スタイルの範囲参照を逆解析します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.UnparseR1C1Reference(GrapeCity.CalcEngine.CellReference,System.Text.StringBuilder,GrapeCity.CalcEngine.IReferenceSource,GrapeCity.CalcEngine.IReferenceSource)">
+      <summary>R1C1参照スタイルのセル参照を逆解析します。</summary>
+      <param name="cellReference">セル参照を表す<see cref="T:GrapeCity.CalcEngine.CellReference" />値。</param>
+      <param name="sb">R1C1参照スタイルのセル参照を格納する<see cref="T:System.Text.StringBuilder" />オブジェクト。</param>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.StartImporting">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />をインポート状態としてマークします。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.StopImporting">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />をインポート状態からマークを外します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.IsImporting">
+      <summary>コンテキストがインポート処理中かどうかを示すブール値を取得します。</summary>
+      <value>コンテキストがインポート処理中の場合は <c>true</c> 。 それ以外の場合は <c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.IsExporting">
+      <summary>コンテキストがエクスポート処理中かどうかを示すブール値を取得します。</summary>
+      <value>コンテキストがエクスポート処理中の場合は<c>true</c> 。 それ以外の場合は <c>false</c>。</value>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.StartExporting">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />をエクスポート状態としてマークします。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.StopExportting">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.FormulaEngine" />をエクスポート状態からマークを外します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.FormulaEngine.AppendTableColumn(System.String,System.Text.StringBuilder)">
+      <summary>構造化参照の列名を追加します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.FormulaEngine.ColumnSeparator">
+      <summary>現在のカルチャから列区切り文字を取得します</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IFunctionResolver">
+      <summary>関数を解決するインタフェースを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IFunctionResolver.Resolve(System.String)">
+      <summary>指定した名前から関数を解決します。</summary>
+      <param name="name">関数名を示す文字列値。</param>
+      <returns>解析された関数を表す<see cref="T:GrapeCity.CalcEngine.Function" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IFunctionResolver.Find(System.String)">
+      <summary><paramref name="prefix" /> で始まる名前を持つすべての関数を検索します。</summary>
+      <param name="prefix">関数名のプレフィックステキスト。</param>
+      <returns><paramref name="prefix" /> で始まる名前を持つすべての関数。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ISymbolResolver">
+      <summary>記号を解決するインタフェースを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.Resolve(GrapeCity.CalcEngine.FormulaEngine,System.Char*,System.Int32,System.Int32)">
+      <summary>指定した記号から式を解決します。</summary>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <param name="formula">数式テキストを示す文字配列。</param>
+      <param name="index">記号の開始インデックスを示す整数値。</param>
+      <param name="length">記号の長さを示す整数値。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.Resolve(GrapeCity.CalcEngine.FormulaEngine,System.String)">
+      <summary>指定した記号から式を解決します。</summary>
+      <param name="symbol">記号名を示す文字列値。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.GetUndefinedExpression(GrapeCity.CalcEngine.FormulaEngine,System.String)">
+      <summary>指定した記号から未定義の式を解決します。</summary>
+      <param name="symbol">記号を示す文字列値。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.GetUndefinedExpression(GrapeCity.CalcEngine.FormulaEngine,System.Char*,System.Int32)">
+      <summary>指定した記号から未定義の式を解決します。</summary>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <param name="symbol">数式テキストを示す文字配列。</param>
+      <param name="length">記号の長さを示す整数値。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.ResolveReferenceSource(GrapeCity.CalcEngine.FormulaEngine,System.String,System.String,System.String)">
+      <summary>指定したパス、ブック名、参照ソース名から参照ソースを解決します。</summary>
+      <param name="path">ブックのパスを示す文字列値。</param>
+      <param name="bookName">ブック名を示す文字列値。</param>
+      <param name="refSourceName">参照ソースを示す文字列値。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.ResolveReferenceSource(GrapeCity.CalcEngine.FormulaEngine,System.Int32,System.String)">
+      <summary>指定したブックインデックスと参照ソース名から参照ソースを解決します。</summary>
+      <param name="bookIndex">ブックインデックスを示す整数値。</param>
+      <param name="refSourceName">参照ソースを示す文字列値。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.ResolveStructuredObject(GrapeCity.CalcEngine.FormulaEngine,System.Char*,System.Int32,System.Int32)">
+      <summary>指定したオブジェクト名から構造化オブジェクトを解決します。</summary>
+      <param name="formula">数式テキストを示す文字配列。</param>
+      <param name="index">オブジェクト名の開始インデックスを示す整数値。</param>
+      <param name="length">オブジェクト名の長さを示す整数値。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISymbolResolver.ResolveStructuredObject(GrapeCity.CalcEngine.FormulaEngine,System.Int32,System.Int32)">
+      <summary>指定したセル位置から構造化オブジェクトを解決します。</summary>
+      <param name="row">コンテキスト行を示す整数値。</param>
+      <param name="column">コンテキスト列を示す整数値。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns>解析された式を表す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IOperatorResolver">
+      <summary>演算子の動作をオーバーライドできるインタフェースを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IOperatorResolver.Resolve(GrapeCity.CalcEngine.FormulaEngine,GrapeCity.CalcEngine.OperatorType,GrapeCity.CalcEngine.Expression,GrapeCity.CalcEngine.Expression)">
+      <summary>解析演算子を解決します。</summary>
+      <param name="opType">演算子を示す<see cref="T:GrapeCity.CalcEngine.OperatorType" />値。</param>
+      <param name="leftArg">左引数式を示す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</param>
+      <param name="rightArg">右引数式を示す<see cref="T:GrapeCity.CalcEngine.Expression" />オブジェクト。</param>
+      <param name="engine"><see cref="T:GrapeCity.CalcEngine.FormulaEngine" /> オブジェクトは数式パーサーを示します。</param>
+      <returns></returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.OperatorType">
+      <summary>演算子のリストを列挙します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Percentage">
+      <summary>パーセント演算子（%）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Negation">
+      <summary>マイナス演算子（-）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Plus">
+      <summary>プラス演算子（+）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.ReferenceSource">
+      <summary>参照ソース演算子（!）を表します。</summary>
+    </member><!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.OperatorType.DoesNotEquals" --> <!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.OperatorType.LessThanOrEquals" --> <!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.OperatorType.LessThan" --><member name="F:GrapeCity.CalcEngine.OperatorType.GreaterThanOrEquals">
+      <summary>以上演算子（&gt;=）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.GreaterThan">
+      <summary>大なり演算子（&gt;）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Equals">
+      <summary>等号演算子（=）を表します。</summary>
+    </member><!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.OperatorType.Concatenation" --><member name="F:GrapeCity.CalcEngine.OperatorType.Subtraction">
+      <summary>減算演算子（-）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Addition">
+      <summary>加算演算子（+）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Division">
+      <summary>除算演算子（/）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Multiplication">
+      <summary>乗算演算子（*）を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.OperatorType.Exponentiation">
+      <summary>指数演算子（^）を表します。</summary>
+    </member><!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.TokenSubType.Concat" --> <!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.TokenSubType.LessThan" --> <!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.TokenSubType.LessThanOrEquals" --> <!-- Badly formed XML comment ignored for member "F:GrapeCity.CalcEngine.TokenSubType.DoesNotEquals" --><member name="T:GrapeCity.CalcEngine.IRichValue">
+      <summary>豊富なセル値を表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IRichValue.ShowDetailsIcon">
+      <summary><see cref="!:RichValue&lt;T&gt;" />オブジェクトのアイコンを表示するかどうかを示すブール値を取得または設定します。</summary>
+      <remarks>
+        <para>値が<c>true</c>の場合は、<see cref="!:RichValue&lt;T&gt;" />オブジェクトのアイコンが使用可能であれば表示されます。それ以外の場合は、デフォルトのアイコンが表示されます。</para>
+        <para>値が<c>false</c>の場合、アイコンは表示されません。</para>
+        <para>値が<c>null</c>の場合は、<see cref="!:RichValue&lt;T&gt;" />オブジェクトのアイコンが使用可能であれば表示されます。それ以外の場合は、アイコンが表示されません。</para>
+      </remarks>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IRichValue.FieldCount">
+      <summary>フィールドの総数を取得します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IRichValue.GetFieldName(System.Int32)">
+      <summary>フィールドの名前を取得します。</summary>
+      <param name="index">整数値はフィールドインデックスを示します。</param>
+      <returns>文字列値はフィールドの名前を表します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IRichValue.TryGetFieldValue(System.Int32,GrapeCity.CalcEngine.IPrimitiveValue)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクトから指定されたフィールド値を取得します。</summary>
+      <param name="index">整数値はフィールドインデックスを示します。</param>
+      <param name="result"><see cref="T:GrapeCity.CalcEngine.IPrimitiveValue" />オブジェクトは結果を示します。</param>
+      <returns>ブール値は、フィールド値が正常に返されるかどうかを示します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IRichValue.TryGetFieldValue(System.Int32,GrapeCity.CalcEngine.CellValue@)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクトから指定されたフィールド値を取得します。</summary>
+      <param name="index">整数値はフィールドインデックスを示します。</param>
+      <param name="result"><see cref="T:GrapeCity.CalcEngine.CellValue" />オブジェクトは結果を示します。</param>
+      <returns>ブール値は、フィールド値が正常に返されるかどうかを示します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IRichValue.TryGetFieldValue(System.String,System.Object@)">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクトから指定されたフィールド値を取得します。</summary>
+      <param name="name">フィールド名。</param>
+      <param name="value">フィールド値。</param>
+      <returns>ブール値は、フィールド値が正常に返されるかどうかを示します。</returns>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.IRichValue.IsSameField(GrapeCity.CalcEngine.IRichValue)">
+      <summary>このオブジェクトが指定されたオブジェクトと同じフィールドを持っているかどうかを示すブール値を取得します。</summary>
+      <param name="value">比較する<see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクト</param>
+      <returns>このオブジェクトが指定されたオブジェクトと同じフィールドがある場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.IRichValueArraySupport">
+      <summary>こぼれをサポートするインターフェースを表します。<see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクトを参照してください。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.IRichValueArraySupport.EvaluatedValueType">
+      <summary><see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクトの現在の評価値の型を取得または設定します。</summary>
+      <remarks><see cref="T:GrapeCity.CalcEngine.IRichValue" />オブジェクトが<see cref="F:GrapeCity.CalcEngine.RichValueValueType.Array" />タイプの場合、それは不変可能であると見なされます。</remarks>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.RichValueValueType">
+      <summary><see cref="T:GrapeCity.CalcEngine.IRichValueArraySupport" />オブジェクトの評価値の型を表します。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.RichValueValueType.Rich">
+      <summary><see cref="T:GrapeCity.CalcEngine.IRichValue" />値。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.RichValueValueType.Array">
+      <summary>セルにスピルされる値の配列。</summary>
+    </member>
+    <member name="F:GrapeCity.CalcEngine.RichValueValueType.Primitive">
+      <summary>プリミティブ値。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.CellValueDataTypeAttribute">
+      <summary>ユーザーが処理セル値のデータ型を示すことを可能にする属性を表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.CellValueDataTypeAttribute.#ctor(GrapeCity.CalcEngine.PrimitiveValueType)">
+      <summary><see cref="T:GrapeCity.CalcEngine.CellValueDataTypeAttribute" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="type">処理セル値のデータ型を示す <see cref="T:GrapeCity.CalcEngine.PrimitiveValueType" />値。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.SyntaxHighlight">
+      <summary>数式の構文強調表示情報を表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlight.Formula">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.SyntaxHighlight" />値の対応する数式を取得します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SyntaxHighlight.GetFunctionEntry(System.Int32,System.Int32,System.Int32,System.Boolean)">
+      <summary>指定された文字インデックスにある関数の構文強調表示エントリを取得します。</summary>
+      <param name="index">ハイライトエントリを取得する文字のインデックス。</param>
+      <param name="row">現在の行を示す整数値。</param>
+      <param name="column">現在の列を示す整数値。</param>
+      <param name="intellisense">
+        エントリがインテリセンスに使用される場合は <c>true</c> (関数名にキャレットが含まれている場合はエントリの祖先が返されます)。 それ以外の場合は、キャレットの正確なエントリが返されます。</param>
+      <returns>関数の構文強調表示エントリを表す <see cref="T:GrapeCity.CalcEngine.SyntaxHighlightEntry" />値。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlight.Count">
+      <summary>強調表示項目の総数を取得します。</summary>
+      <returns>強調表示項目の総数を表す整数値。</returns>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlight.IsValidFormula">
+      <summary>現在の数式が有効かどうかを示します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.SyntaxHighlight.Accept(GrapeCity.CalcEngine.ISyntaxHighlighter,System.Int32,System.Int32)">
+      <summary>強調表示項目を処理する構文ハイライターとして、指定された構文ハイライターを受け入れます。</summary>
+      <param name="syntaxHighlighter">構文ハイライター。</param>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.SyntaxHighlightEntry">
+      <summary>数式の指定した位置の構文強調表示情報を表します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.PrefixWhitespace">
+      <summary>エントリの前の空白文字の合計数を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.SuffixWhitespace">
+      <summary>エントリの後の空白文字の合計数を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsSpilledCell">
+      <summary>ハイライトエントリがスピルセルであるかどうかを示す値を取得します。</summary>
+      <value>ハイライトエントリがスピルセルである場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.FieldName">
+      <summary>ハイライトエントリがフィールド名式の場合、フィールド名の値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsFieldName">
+      <summary>ハイライトエントリがフィールド名であるかどうかを示す値を取得します。</summary>
+      <value>ハイライトエントリがファイル名要素の場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.EncodeType">
+      <summary>ハイライトエントリが「[]」/「[」でエンコードされているか、エンコードが不要かを示す値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.CharIndex">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.SyntaxHighlightEntry" />の数式内での開始文字インデックスを取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsDefinedName">
+      <summary>ハイライトエントリが定義名であるかどうかを示す値を取得します。</summary>
+      <value>ハイライトエントリが定義名要素の場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsParenthesis">
+      <summary>ハイライトエントリが括弧であるかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsFucntionDelegate">
+      <summary>ハイライトエントリが関数デリゲートであるかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsEvaluatedName">
+      <summary>ハイライトエントリが評価された名前かどうかを示す値を取得します。</summary>
+      <value>ハイライトエントリが評価された名前の場合は <c>true</c> 。 それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsParameter">
+      <summary>ハイライトエントリがパラメータであるかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsStructureReference">
+      <summary>ハイライトエントリが構造参照であるかどうかを示す値を取得します。</summary>
+      <value>ハイライトエントリが構造参照である場合は <c>true</c> 。 それ以外の場合は <c>false</c>。</value>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsUncompleted">
+      <summary>ハイライトエントリがまだ完了していないかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.CharLength">
+      <summary>この<see cref="T:GrapeCity.CalcEngine.SyntaxHighlightEntry" />の数式内での文字長を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.Function">
+      <summary>この強調表示項目の対応する<see cref="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.Function" />オブジェクトを取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.Count">
+      <summary>引数の総数を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.Item(System.Int32)">
+      <summary>指定した引数インデックスにある<see cref="T:GrapeCity.CalcEngine.SyntaxHighlightEntry" />値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.ArgbColor">
+      <summary>この強調表示項目のARGB色を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.IsColorized">
+      <summary>構文強調表示項目に色を付けるかどうかを示すブール値を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.Reference">
+      <summary>この項目の対応する参照を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.FirstSource">
+      <summary>この項目の最初の対応する参照を取得します。</summary>
+    </member>
+    <member name="P:GrapeCity.CalcEngine.SyntaxHighlightEntry.LastSource">
+      <summary>この項目の最後の対応する参照を取得します。</summary>
+    </member>
+    <member name="T:GrapeCity.CalcEngine.ISyntaxHighlighter">
+      <summary>強調表示を実行する構文ハイライターを表します。</summary>
+    </member>
+    <member name="M:GrapeCity.CalcEngine.ISyntaxHighlighter.Visit(GrapeCity.CalcEngine.SyntaxHighlight,GrapeCity.CalcEngine.SyntaxHighlightEntry@)">
+      <summary>指定された構文強調表示項目にアクセスします。</summary>
+      <param name="syntaxHighlight">構文強調表示。</param>
+      <param name="syntaxHighlightEntry">処理する構文強調表示項目。</param>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IndexOf(System.String,System.Char,System.Int32,System.Int32)">
+      <summary>指定した文字をこのインスタンス内で検索し、最初に見つかった位置の0から始まるインデックスを返します。検索は指定した文字位置から開始され、指定した数の文字位置が調べられます。</summary>
+      <param name="s">チェックする文字列。</param>
+      <param name="value">検索するUnicode文字。</param>
+      <param name="startIndex">検索の開始位置。</param>
+      <param name="count">調べる文字位置の数。</param>
+      <returns>文字が見つかった場合は、その位置を示す0から始まるインデックス。見つからなかった場合は-1。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IndexOfWhiteSpace(System.String,System.Int32,System.Int32)">
+      <summary>指定した文字をこのインスタンス内で検索し、最初に見つかった位置の0から始まるインデックスを返します。検索は指定した文字位置から開始され、指定した数の文字位置が調べられます。</summary>
+      <param name="s">チェックする文字列。</param>
+      <param name="startIndex">検索の開始位置。</param>
+      <param name="count">調べる文字位置の数。</param>
+      <returns>文字が見つかった場合は、その位置を示す0から始まるインデックス。見つからなかった場合は-1。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IndexOfWhiteSpace(System.Char*,System.Int32)">
+      <summary>指定した文字をこのインスタンス内で検索し、最初に見つかった位置の0から始まるインデックスを返します。検索は指定した文字位置から開始され、指定した数の文字位置が調べられます。</summary>
+      <param name="s">チェックする文字列。</param>
+      <param name="count">調べる文字位置の数。</param>
+      <returns>文字が見つかった場合は、その位置を示す0から始まるインデックス。見つからなかった場合は-1。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IndexOf(System.Char*,System.Char,System.Int32,System.Int32)">
+      <summary>指定した文字をこのインスタンス内で検索し、最初に見つかった位置の0から始まるインデックスを返します。検索は指定した文字位置から開始され、指定した数の文字位置が調べられます。</summary>
+      <param name="pChars">チェックする文字列。</param>
+      <param name="value">検索するUnicode文字。</param>
+      <param name="startIndex">検索の開始位置。</param>
+      <param name="count">調べる文字位置の数。</param>
+      <returns>文字が見つかった場合は、その位置を示す0から始まるインデックス。見つからなかった場合は-1。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.LastIndexOf(System.String,System.Char,System.Int32,System.Int32)">
+      <summary>指定したUnicode文字をこのインスタンス内の部分文字列で検索し、最後に見つかった位置の0から始まるインデックスを返します。検索は指定した文字位置から開始され、文字列の先頭に向かって指定した数の文字位置が調べられます。</summary>
+      <param name="s">チェックする文字列。</param>
+      <param name="value">検索するUnicode文字。</param>
+      <param name="startIndex">検索の開始位置。検索はstartIndexからこのインスタンスの先頭に向かって行われます。</param>
+      <param name="count">調べる文字位置の数。</param>
+      <returns>文字が見つかった場合は、その位置を示す0から始まるインデックス。文字が見つからなかった場合、または現在のインスタンスが&lt;see cref=&quot;F:System.String.Empty&quot; /&gt;と等しい場合は-1。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsWhiteSpace(System.Char)">
+      <summary>指定した文字が空白文字かどうかを判断します。</summary>
+      <param name="c">c。</param>
+      <returns>指定した文字が空白文字の場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.TrimBreakableSpace(System.String)">
+      <summary>現在の文字列から、指定した文字が最初に見つかった位置より前の部分、および最後に見つかった位置より後の部分をすべて除去します。</summary>
+      <param name="s">トリミングする文字列。</param>
+      <returns>トリミングされた文字列を表す文字列値。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsAsciiLetterOrDigit(System.Char)">
+      <summary>指定された Unicode 文字が文字として分類されるか、10 進数として分類されるかを示します。</summary>
+      <param name="c">評価するUnicode文字。</param>
+      <returns><paramref name="c" />が文字または 10 進数の場合は<c>true</c>。 それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsDigit(System.Char)">
+      <summary>指定された Unicode 文字が 10 進数として分類されるかどうかを示します。</summary>
+      <param name="c">評価するUnicode文字。</param>
+      <returns><paramref name="c" />が文字または 10 進数の場合は<c>true</c>。 それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsAsciiLetter(System.Char)">
+      <summary>指定された Unicode 文字が文字として分類されるか、10 進数として分類されるかを示します。</summary>
+      <param name="c">評価するUnicode文字。</param>
+      <returns><paramref name="c" />が文字または 10 進数の場合は<c>true</c>。 それ以外の場合は <c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsInRange(System.Char,System.Int32,System.Int32)">
+      <summary>指定された Unicode 文字が指定された文字範囲内にあるかどうかを示します。</summary>
+      <param name="c">評価するUnicode文字。</param>
+      <returns>&lt;paramref name=&quot;c&quot; /&gt;が文字でも10進数の文字でもない場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsAsciiLetter(System.String)">
+      <summary>指定されたUnicode文字が文字として分類されていないかどうかを示します。</summary>
+      <param name="text">評価するUnicode文字。</param>
+      <returns>cが小文字の場合はtrue、それ以外の場合はfalse。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.GetAnsiCompatibleFromJapanese(System.String)">
+      <summary>日本語の文字からANSI互換文字を取得します。</summary>
+      <param name="text">元のテキストを示す文字列値。</param>
+      <returns>ANSI互換文字を表す文字列値。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.MemoryCopy(System.Byte*,System.Byte*,System.UInt32)">
+      <summary>指定した移動先にmemmoveします。</summary>
+      <param name="src">ターゲットアドレス。</param>
+      <param name="dest">コピーするバイトのアドレス。</param>
+      <param name="bytesToCopy">コピーするバイト数。</param>
+    </member>
+    <member name="M:GrapeCity.CoreRT.IsInfinityOrNaN(System.Double)">
+      <summary>指定した数字が正/負の無限大またはNaN（Not a Number）に評価されるかどうかを示す値を返します。</summary>
+      <param name="d">数字。</param>
+      <returns><paramref name="d" />が無限大または<see cref="F:System.Double.NaN" />と評価された場合は<c>true</c>。 それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.Replace(System.String,System.Char,System.Char)">
+      <summary>指定したUnicode文字を指定した文字列内で検索し、一致するすべての文字位置を別のUnicode文字に置換します。</summary>
+      <param name="text">置換する文字列値。</param>
+      <param name="oldChar">置換されるUnicode文字。</param>
+      <param name="newChar">oldCharに一致するすべての文字位置を置換するUnicode文字。</param>
+      <remarks>この関数は<paramref name="text" />を直接変更します。</remarks>
+    </member>
+    <member name="M:GrapeCity.CoreRT.EqualsOrdinal(System.String,System.String)">
+      <summary>指定した2つのStringオブジェクトが同じ値を持つかどうかを判断します。</summary>
+      <param name="strA">比較する最初の文字列。</param>
+      <param name="strB">比較する2番目の文字列。</param>
+      <returns>aの値とbの値が同じである場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。aとbがどちらもnullである場合は&lt;c&gt;true&lt;/c&gt;を返します。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.StartsWithOrdinal(System.String,System.String,System.Int32)">
+      <summary>指定した文字列の先頭部分が別の指定した文字列と一致するかどうかを判断します。文字列は順序どおりに比較されます。</summary>
+      <param name="str">チェックする文字列。</param>
+      <param name="startsWith">比較する開始文字インデックス。</param>
+      <returns><paramref name="str" />が<paramref name="startsWith" />で始まる場合は<c>true</c>、それ以外の場合は<c>false</c>。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.CompareOrdinal(System.String,System.String)">
+      <summary>各文字列の対応する&lt;see cref=&quot;T:System.Char&quot; /&gt;オブジェクトの数値を評価することによって、指定した2つの&lt;see cref=&quot;T:System.String&quot; /&gt;オブジェクトを比較します。</summary>
+      <param name="strA">比較する最初の文字列。</param>
+      <param name="strB">比較する2番目の文字列。</param>
+      <returns>2つの被比較数の間の辞書的関係を示す整数。</returns>
+      <remarks>0より小さい: strAはstrBより小さい。0: strAとstrBは等しい。0より大きい: strAはstrBより大きい。</remarks>
+    </member>
+    <member name="M:GrapeCity.CoreRT.CompareOrdinalIgnoreCase(System.String,System.String)">
+      <summary>序数の（2分木）ソートルールを使用し、比較対象文字列の大文字と小文字の違いを無視して、指定した2つの&lt;see cref=&quot;T:System.String&quot; /&gt;オブジェクトを比較します。</summary>
+      <param name="strA">比較する最初の文字列。</param>
+      <param name="strB">比較する2番目の文字列。</param>
+      <returns>2つの被比較数の間の辞書的関係を示す整数。</returns>
+      <remarks>0より小さい: strAはstrBより小さい。0: strAとstrBは等しい。0より大きい: strAはstrBより大きい。文字列定数を比較するときは、パフォーマンスを向上させるため、大文字の文字列を渡してください。</remarks>
+    </member>
+    <member name="M:GrapeCity.CoreRT.EqualsOrdinalIgnoreCase(System.String,System.String)">
+      <summary>序数の（2分木）ソートルールを使用し、比較対象文字列の大文字と小文字の違いを無視した場合に、指定した2つのStringオブジェクトが同じ値を持つかどうかを判断します。</summary>
+      <param name="stringA">比較する最初の文字列。</param>
+      <param name="strB">比較する2番目の文字列。</param>
+      <returns>aの値とbの値が同じである場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。aとbがどちらもnullである場合は&lt;c&gt;true&lt;/c&gt;を返します。</returns>
+      <remarks>文字列定数を比較するときは、パフォーマンスを向上させるため、大文字の文字列を渡してください。</remarks>
+    </member>
+    <member name="M:GrapeCity.CoreRT.EqualsOrdinalIgnoreCase(System.Char*,System.Int32,System.String)">
+      <summary>序数の（2分木）ソートルールを使用し、比較対象文字列の大文字と小文字の違いを無視した場合に、指定した2つのStringオブジェクトが同じ値を持つかどうかを判断します。</summary>
+      <param name="ap">比較する最初の文字列。</param>
+      <param name="length"></param>
+      <param name="strB">比較する2番目の文字列。</param>
+      <returns>aの値とbの値が同じである場合は&lt;c&gt;true&lt;/c&gt;、それ以外の場合は&lt;c&gt;false&lt;/c&gt;。aとbがどちらもnullである場合は&lt;c&gt;true&lt;/c&gt;を返します。</returns>
+      <remarks>文字列定数を比較するときは、パフォーマンスを向上させるため、大文字の文字列を渡してください。</remarks>
+    </member>
+    <member name="M:GrapeCity.CoreRT.GetByteCount(System.String,System.Int32,System.Int32,System.Int32)">
+      <summary>指定した部分文字列から総バイト数を取得します。</summary>
+      <param name="text">テキスト。</param>
+      <param name="charIndex">計算する文字の開始インデックス。</param>
+      <param name="length">計算する部分文字列の長さ。</param>
+      <param name="codepage">現在の&lt;see cref=&quot;T:System.Globalization.TextInfo&quot; /&gt;によって表されている書記体系で使用されるコードページ。</param>
+      <returns>指定した部分文字列の総バイト数。</returns>
+    </member>
+    <member name="M:GrapeCity.CoreRT.GetCharacterLengthFromBytes(System.String,System.Int32,System.Int32,System.Int32)">
+      <summary>バイトから文字長を取得します。</summary>
+      <param name="text">テキスト。</param>
+      <param name="charIndex">計算する文字の開始インデックス。負の値は、右から左へ計算することを示します。</param>
+      <param name="bytes">バイト。</param>
+      <param name="codepage">現在の&lt;see cref=&quot;T:System.Globalization.TextInfo&quot; /&gt;によって表されている書記体系で使用されるコードページ。</param>
+      <returns>開始インデックスが文字の先頭を指していない場合は負の値。</returns>
+    </member>
+  </members>
+</doc>

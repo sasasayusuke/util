@@ -1,0 +1,8 @@
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\SnwA01.vbproj.AssemblyReference.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\Interop.ADODB.dll
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\Interop.ADOX.dll
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\Interop.DAO.dll
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\SnwA01.vbproj.ResolveComReference.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\SnwA01.SnwA01F00.resources
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\SnwA01.vbproj.GenerateResource.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\SnwA01Menu\obj\Debug\SnwA01.vbproj.CoreCompileInputs.cache

@@ -1,0 +1,1796 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SnwMT01
+</name>
+</assembly>
+<members>
+<member name="T:SnwMT01.My.Resources.Resources">
+<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member>
+<member name="P:SnwMT01.My.Resources.Resources.ResourceManager">
+<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member>
+<member name="P:SnwMT01.My.Resources.Resources.Culture">
+<summary>
+  すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member>
+<member name="T:SnwMT01.clsBukken">
+ <summary>
+ 物件情報データクラス
+ 2015/11/26 oosawa      売上合計・出精値引合計・原価合計・原価率の項目を追加
+ 2024/07/23 oosawa      予定業種区分が抜けていたので追加
+ </summary>
+</member>
+<member name="T:SnwMT01.clsBusyo">
+ <summary>
+ 部署クラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsCSVReader">
+ <summary>
+ CsvReader クラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsCSVReader_UNI">
+ <summary>
+ CsvReader_UNI クラス
+	'Unicode用
+	'2018/04/11 oosawa      新設
+	'2018/04/11 oosawa      カンマの処理を修正
+ </summary>
+</member>
+<member name="T:SnwMT01.clsDates">
+ <summary>
+ Datesクラス
+ Ver.1.01           '2013.11.26     更新日付をDateからNowに変更
+ </summary>
+</member>
+<member name="T:SnwMT01.clsDspKyakuZaiko">
+ <summary>
+ 客先在庫マスタクラス
+ 2009/09/17  oosawa  新規作成
+ 2009/10/05  oosawa  スカラー値を返すように変更
+ 2009/11/26  oosawa  納期が空の場合はゼロで返す
+ </summary>
+</member>
+<member name="T:SnwMT01.clsDspSyaZaiko">
+ <summary>
+ 社内在庫マスタクラス
+ 2009/09/17  oosawa  新規作成
+ 2009/10/05  oosawa  スカラー値を返すように変更
+ 2009/11/26  oosawa  納期が空の場合はゼロで返す
+ </summary>
+</member>
+<member name="T:SnwMT01.clsHaisosaki">
+ <summary>
+ 配送先マスタクラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsKokyakutmp">
+ <summary>
+ 得意先マスタクラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsKoujiTanto">
+ <summary>
+ 工事担当クラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsLoginControl">
+ <summary>
+///////////////////////////
+ログイン制御クラス
+///////////////////////////
+Ver.1.00           '2018.03.26     新設 
+ </summary>
+</member>
+<member name="T:SnwMT01.clsMitsumoriM">
+ <summary>
+ TD見積シートMクラス
+ 2018/05/03  oosawa      新設
+ 2018/11/03  oosawa      明細備考追加
+ </summary>
+</member>
+<member name="T:SnwMT01.clsMitumoriH">
+ <summary>
+ TD見積クラス（仮）
+ 2018/10/06  oosawa      isU区分追加
+ </summary>
+</member>
+<member name="T:SnwMT01.clsNonyusaki">
+ <summary>
+ 納入先マスタクラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsSeihin">
+ <summary>
+ TM製品クラス
+ 2015/01/10  oosawa      廃盤FLG追加
+ 2015/01/29  oosawa      ロケーション追加
+ 2017/03/27  oosawa      入出庫用コード追加
+ 2023/07/28  oosawa      取組区分名追加
+ </summary>
+</member>
+<member name="T:SnwMT01.clsSiiresaki">
+ <summary>
+ 仕入先マスタクラス
+ 2023/09/26  oosawa      インボイス登録番号追加
+ </summary>
+</member>
+<member name="T:SnwMT01.clsSirTanka">
+ <summary>
+ 仕入先単価マスタクラス
+ 2015/06/11 oosawa      新設
+ </summary>
+</member>
+<member name="T:SnwMT01.clsSPD">
+ <summary>
+ '2014/11/11 LineSwap2追加 セルブロックでの入替用
+ '2014/11/13 Search追加　全セル内検索用
+ '2017/03/30 ColSwap 列の入替（LineSwap2パクリ版） 
+ </summary>
+</member>
+<member name="P:SnwMT01.clsSPD.CtlSpd">
+ <summary>
+ プロパティ宣言
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.clsSPD.LineInsert(System.Int32,System.Int32@)">
+ <summary>
+ 行の挿入
+ </summary>
+ <param name="MaxRow"></param>
+ <param name="iRow"></param>
+ <returns>
+ 戻り値:
+ ・0  - 正常
+ ・-1 - 上限
+ </returns>
+</member>
+<member name="M:SnwMT01.clsSPD.LineDelete(System.Int32@)">
+ <summary>
+ 行の削除
+ </summary>
+ <param name="iRow"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.LineSwap(System.Int32@)">
+ <summary>
+ 行の入れ替え(未使用部品)
+ </summary>
+ <param name="Dest"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.LineSwap2(System.Int32@)">
+ <summary>
+ 行の入れ替え
+ </summary>
+ <param name="MOVEROW"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.ColSwap(System.Int32@,System.Int32@,System.Int32@)">
+ <summary>
+ 列の入れ替え
+ </summary>
+ <param name="minCol"></param>
+ <param name="maxCol"></param>
+ <param name="MOVECOL"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.LineBColorChange(System.Int64@,System.Int32@)">
+ <summary>
+ 行の色を変える(未使用部品)
+ </summary>
+ <param name="lColor"></param>
+ <param name="iRow"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.LineCopyHold">
+ <summary>
+ 複写する為の行情報の保持
+ </summary>
+</member>
+<member name="M:SnwMT01.clsSPD.LinePaste">
+ <summary>
+ コピーした行の複写
+ </summary>
+</member>
+<member name="M:SnwMT01.clsSPD.SprClearText">
+ <summary>
+ スプレッドシートの値をクリアする（ブロック指定）
+ </summary>
+</member>
+<member name="M:SnwMT01.clsSPD.SearchCol(System.Int32,System.Int32,System.Int32,System.String)">
+ <summary>
+ セル内検索 (未使用部品)
+ </summary>
+ <param name="lCol"></param>
+ <param name="lRowStart"></param>
+ <param name="lRowEnd"></param>
+ <param name="Text"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.clsSPD.Search(System.Int32,System.Int32,System.String)">
+ <summary>
+ 全セル内検索
+ </summary>
+ <param name="lRowStart"></param>
+ <param name="lColStart"></param>
+ <param name="Text"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.clsSPD.GetTextEX(System.Int32,System.Int32,System.Boolean@)">
+ <summary>
+ セルの値取得
+ 標準関数:GetTextの拡張版
+ 戻り値をセルのテキストにしたバージョン
+ </summary>
+ <param name="iCol"></param>
+ <param name="iRow"></param>
+ <param name="bRet"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.clsSPD.RowBackColorSet2(System.String@,System.Int32@)">
+ <summary>
+ 行背景色設定
+ ----------------------------------
+    UPDATE      2019/08/10  移設
+ ----------------------------------
+ </summary>
+ <param name="Mode"></param>
+ <param name="iRow"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.GetLastNonEmptyRowEx(System.String)">
+ <summary>
+ 最後の行番号を取得するメソッド
+ </summary>
+ <param name="Mode">
+     Other  : Full Check
+     MT02F00: 員数入力
+ </param>
+ <returns>最終行:Integer</returns>
+</member>
+<member name="M:SnwMT01.clsSPD.GetLastNonEmptyColEx">
+ <summary>
+ 最後の列番号を取得するメソッド
+ </summary>
+ <returns>最終列:Integer</returns>
+</member>
+<member name="M:SnwMT01.clsSPD.Dispose">
+ <summary>
+ IDisposable.Dispose の実装
+ </summary>
+</member>
+<member name="M:SnwMT01.clsSPD.Dispose(System.Boolean)">
+ <summary>
+ Dispose本体 (Overridable にして派生クラスで上書き可能にする)
+ </summary>
+ <param name="disposing"></param>
+</member>
+<member name="M:SnwMT01.clsSPD.Finalize">
+ <summary>
+ デストラクタ (Finalize)
+ </summary>
+</member>
+<member name="T:SnwMT01.clsSuishin">
+ <summary>
+ 推進部クラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsTanto">
+ <summary>
+ 担当者クラス
+ 2014/06/05 oosawa      メールアドレス新設
+ 2022/09/27 oosawa      問い合わせ先　読み込みのみ追加
+ </summary>
+</member>
+<member name="T:SnwMT01.clsTokuisaki">
+ <summary>
+ 得意先マスタクラス
+ </summary>
+</member>
+<member name="T:SnwMT01.clsUriSirTanka">
+ <summary>
+ 売上仕入単価マスタクラス
+ 2015/09/25 oosawa      新設
+ </summary>
+</member>
+<member name="T:SnwMT01.clsWelBukkenKubun">
+ <summary>
+ ウエルシア物件区分マスタクラス
+ 2015/06/11 oosawa      新設
+ </summary>
+</member>
+<member name="T:SnwMT01.clsWelBukkenNaiyo">
+ <summary>
+ ウエルシア物件内容マスタクラス
+ 2015/06/11 oosawa      新設
+ </summary>
+</member>
+<member name="T:SnwMT01.cls作業区分">
+ <summary>
+ 作業区分クラス (員数入力で使用)
+ </summary>
+</member>
+<member name="T:SnwMT01.iDate">
+ <summary>
+ 'Ver.1.00           '2002.04.17
+ 'Ver.1.01           '2003.04.16     Class_Tarminateを付ける
+ </summary>
+</member>
+<member name="T:SnwMT01.OpSubCls">
+ <summary>
+ Ver.1.00           '2003.09.25 OptionButtonのカーソル制御の為作成
+ </summary>
+</member>
+<member name="T:SnwMT01.BukkenSen_cls">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社 三和商研
+   業務名               販売管理システム
+   部門名               見積部門
+   プログラム名         物件選択処理
+   作成会社             テクノウェア株式会社
+   作成日               2003/04/22
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2003/12/04  kawamura  合計金額に出精値引を含める
+                              物件種別の区分追加
+        2004/01/17  oosawa　　見積日付・見積番号の降順に並べる
+                              idcの開放
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.HaiSen_cls">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社 三和商研
+   業務名               販売管理システム
+   部門名               見積部門
+   プログラム名         配送先選択処理
+   作成会社             テクノウェア株式会社
+   作成日               2024/09/18
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.KyakuZaikoSen_cls">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.MitsuMSen_cls">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:SnwMT01.MitsuMSen_cls.ck_NotZero_Enter(System.Object,System.EventArgs)">
+
+Private Sub tx_D1_GotFocus()
+    Item_Check (tx_D1.TabIndex)
+    Set PreviousControl = Me.ActiveControl
+End Sub
+
+Private Sub tx_D2_GotFocus()
+    Item_Check (tx_D2.TabIndex)
+    Set PreviousControl = Me.ActiveControl
+End Sub
+
+Private Sub tx_H1_GotFocus()
+    Item_Check (tx_H1.TabIndex)
+    Set PreviousControl = Me.ActiveControl
+End Sub
+
+Private Sub tx_H2_GotFocus()
+    Item_Check (tx_H2.TabIndex)
+    Set PreviousControl = Me.ActiveControl
+End Sub
+</member>
+<member name="T:SnwMT01.NonSen_cls">
+ <summary>
+ --------------------------------------------------------------------
+    UPDATE
+        2004/01/09  oosawa  フリガナ検索を前方一致型に変える
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SeiSenArray_cls">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.SeiSen_cls">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.SelKokTmp_cls">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.SelSeiInfChk">
+ <summary>
+    2015/01/10  oosawa      廃盤FLG追加での修正
+    2015/06/19  oosawa      仕様NOを範囲指定に変更
+ </summary>
+</member>
+<member name="T:SnwMT01.SentakMitumori_cls">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社 三和商研
+   業務名               販売管理システム
+   部門名               見積部門
+   プログラム名         見積共通選択処理
+   作成会社             テクノウェア株式会社
+   作成日               2003/04/22
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2003/12/04  kawamura  合計金額に出精値引を含める
+                              物件種別の区分追加
+        2003/12/10  kawamura  抽出条件と表示の見積日付→納期S
+        2004/01/17  oosawa　　納期S・見積番号の降順に並べる
+                              idcの開放
+        2012/09/06  oosawa      物件種別をスタテッククラスに変更し名称を持ってくる
+        2012/09/10  oosawa      得意先CD9999:社内は表示しないように変更
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SentakNM_cls">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.SirSen_cls">
+ <summary>
+ --------------------------------------------------------------------
+    UPDATE
+        2004/01/09  oosawa  フリガナ検索を前方一致型に変える
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.TokSen_cls">
+ <summary>
+ --------------------------------------------------------------------
+    UPDATE
+        2004/01/09  oosawa  フリガナ検索を前方一致型に変える
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.Fw_Msg">
+ <summary>
+ Ver.1.00           不明
+ Ver.1.01           2003.01.15              ProgMax:ProgValueの型をStringからLongに
+                                            ProgMaxのGetを設定
+                                            ｸﾞﾛｰﾊﾞﾙ変数の削除
+ Ver.1.02           2015/10/23  ooswa       ProgValueのGetを設定
+ </summary>
+</member>
+<member name="T:SnwMT01.DBStd">
+ <summary>
+ ADODB VERSION
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2002.05.03     SQLDateRange '9999/12/31'対応
+ Ver.1.02           '2002.09.19     SQLIntRange 大小比較をINTに変換後比較
+ Ver.1.03           '2003.04.28     SQLCurRange 作成
+ Ver.1.04           '2003.06.18     SQLCurRange 不具合修正
+ Ver.1.05           '2005.03.03     SQLIntRange 大小比較をINTに変換だとｵｰﾊﾞｰﾌﾛｰになるのでclngにする
+ </summary>
+</member>
+<member name="T:SnwMT01.DBStd.wsTypes">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:SnwMT01.DBStd.DBOpen(System.String,ADODB.Connection@,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="Provider"></param>
+ <param name="Cn"></param>
+ <param name="ReturnErr"></param>
+ <returns>true: 正常終了、false:異常終了</returns>
+</member>
+<member name="M:SnwMT01.DBStd.DBClose(ADODB.Connection@)">
+ <summary>
+ 
+ </summary>
+ <param name="Cn"></param>
+ <returns>true: 正常終了、false:異常終了</returns>
+</member>
+<member name="M:SnwMT01.DBStd.GetErrorDetails(ADODB.Connection)">
+ <summary>
+ 発生しているエラーを Public ErrorDetails にセットし、その内容を文字列で返します
+ </summary>
+ <param name="Cn"></param>
+ <returns>String</returns>
+</member>
+<member name="M:SnwMT01.DBStd.OpenRs(System.String,ADODB.Connection,ADODB.CursorTypeEnum,ADODB.LockTypeEnum,System.Int32)">
+ <summary>
+ レコードを開く
+ </summary>
+ <param name="Source"></param>
+ <param name="Cn"></param>
+ <param name="CursorType"></param>
+ <param name="LockType"></param>
+ <param name="Options"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.ReleaseRs(ADODB.Recordset@)">
+ <summary>
+ 
+ </summary>
+ <param name="rs"></param>
+</member>
+<member name="M:SnwMT01.DBStd.SQLIntRange(System.String,System.Object,System.Object,SnwMT01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="TextFrom"></param>
+ <param name="TextTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLCurRange(System.String,System.Object,System.Object,SnwMT01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="TextFrom"></param>
+ <param name="TextTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLQuoteString(System.Object)">
+ <summary>
+ 
+ </summary>
+ <param name="code"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLString(System.Object)">
+ <summary>
+ 文字列内のダブルクォーテーションチェックルーチン
+ 書式        st = SQLString(CODE)
+ </summary>
+ <param name="code"></param>
+ <returns>変換されたコード</returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLStringRange(System.String,System.Object,System.Object,SnwMT01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="TextFrom"></param>
+ <param name="TextTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLDate(System.Object,SnwMT01.DBStd.wsTypes)">
+ <summary>
+ 
+ </summary>
+ <param name="d"></param>
+ <param name="wsType"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLDateRange(System.String,System.Object,System.Object,SnwMT01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="DateFrom"></param>
+ <param name="DateTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.SQLBetween(System.String,System.Object,System.Object,System.String,SnwMT01.DBStd.wsTypes)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="DateFrom"></param>
+ <param name="DateTo"></param>
+ <param name="Prefix"></param>
+ <param name="wsType"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.DBStd.DownloadRecords(ADODB.Recordset,ADODB.Recordset)">
+ <summary>
+ ダウンロードレコードセットと受信用レコードセットの双方に存在する同一名のフィールドについて
+ ダウンロードレコードセットからレコードを取り出し受信用レコードセットへ格納します
+ </summary>
+ <param name="SourceRs"></param>
+ <param name="ReceiveRs"></param>
+ <returns>0: 格納レコード数,-1: 一致するフィールド名がない</returns>
+</member>
+<member name="T:SnwMT01.ModKubuns">
+ <summary>
+ 2023/04/18 業種区分追加
+ </summary>
+</member>
+<member name="T:SnwMT01.OutText">
+ <summary>
+ ADODB VERSION
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2003/01/14 FileOverWriteCheck:開いているファイルのチェックを追加
+ Ver.1.02           '2003/01/14 FileOverWriteCheck:CompelOverWriteを付ける
+                                                    強制的に上書きをしてしまうようにする
+ Ver.1.03           '2003/10/17 NumberingFileName:ファイルが存在していたらナンバリングしてファイル名を返すを追加
+                                                    （未使用）デバッグしていない
+ Ver.1.04           '2004/07/09 FileOverWriteCheck:圧縮ファイルでの書き込みに対応(2048)
+ Ver.1.05           '2004/11/02 OutputTextFileFromRecordset:(FileAppend)追加書きに対応
+ 2004/11/02 FileWriteFieldsをPublicに変更
+ Ver.1.06           '2006/08/11 テキストファイルに項目名をセットするかのフラグ(ItemNameRow)を追加---浅井建築
+ Ver.1.06           '2009/02/04 FileOverWriteCheckの特殊属性でのエラーメッセージに属性を表示するように変更
+ Ver.1.10           '2011/09/02 OutputTextFileFromRecordset・FileWriteFields
+                                    除外する項目を指定するプロパティ「AryExcludeFields」を追加 
+ </summary>
+</member>
+<member name="T:SnwMT01.Snw_CM">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:SnwMT01.Snw_CM.GetDates(System.String)">
+ <summary>
+ 更新日付を取得します。
+ </summary>
+ <param name="ID">更新日付名</param>
+ <returns>日付</returns>
+</member>
+<member name="M:SnwMT01.Snw_CM.GetCountry">
+ <summary>
+ 国情報取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Snw_CM.PrevInstance">
+ <summary>
+ 同名のプロセスが起動しているかどうかを示す値を返します。
+ </summary>
+ <returns>
+ プロセス起動判定結果(<c>Boolean</c>)
+ <c>True</c>:同名のプロセスが起動中
+ <c>False</c>:同名のプロセスは未起動
+ </returns>
+ <remarks></remarks>
+</member>
+<member name="T:SnwMT01.spInterface">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.StdLib">
+ <summary>
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2002.08.20     CurrentObjCaption 修正
+ Ver.1.02           '2002.09.19     SpcToNull NULLのチェックを追加
+ Ver.1.03           '2002.10.16     IsCheckNullでNULLの場合、Trim$がｴﾗｰになるのでTrimにする
+ Ver.1.04           '2002.10.16     CurrentObjCaption レポートでも使用するのでObject型に変更
+ Ver.1.05           '2003.05.16     OpenChildForm CloseMeを追加 ×使えない
+ Ver.1.06           '2003.09.30     GetDecimalFormat$を追加
+ Ver.1.07           '2003.10.03     CutTextを追加
+
+ Ver.1.11           '2012.07.25     AnsiLeftBがWin7だと泣き分かれを起こすので修正
+ Ver.1.12           '2012/10/09     AnsiLeftBの修正がおかしいので修正
+ </summary>
+</member>
+<member name="F:SnwMT01.StdLib.HourGlassSwNest">
+ <summary>
+ マウスカーソルの変更回数カウント
+ </summary>
+</member>
+<member name="F:SnwMT01.StdLib.MB_ICONMASK">
+ <summary>
+ メッセージボックス定数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.MessageBeep(System.Int32)">
+ <summary>
+ メッセージビープ関数の宣言
+ </summary>
+ <param name="uType"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.StdLib.eFormMode">
+ <summary>
+ フォームモードの列挙型
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.BeepA">
+ <summary>
+ ビープ音を鳴らすサブルーチン
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.MSGbeep(System.Int32)">
+ <summary>
+ メッセージビープ音を鳴らすサブルーチン
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.BeepMsgBox(System.String,System.Int32,System.String)">
+ <summary>
+ ビープ音を鳴らし、メッセージボックスを表示する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.CurrentObjCaption">
+ <summary>
+ 現在のオブジェクトの標題を取得する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.MsgTitle(System.String)">
+ <summary>
+ メッセージボックスのタイトルを取得する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.CriticalAlarm(System.String,System.String)">
+ <summary>
+ 項目ﾁｪｯｸｴﾗｰﾒｯｾｰｼﾞ（三角！)
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.CheckAlarm(System.String,System.String)">
+ <summary>
+ 項目チェックエラーメッセージ（三角！)
+ </summary>
+ <param name="msg"></param>
+ <param name="Title"></param>
+</member>
+<member name="M:SnwMT01.StdLib.VerifyYesNo(System.String,Microsoft.VisualBasic.MsgBoxStyle,System.String)">
+ <summary>
+ 確認ﾒｯｾｰｼﾞ
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.YesNo(System.String,System.String)">
+ <summary>
+ 確認メッセージ（吹き出し？）
+ </summary>
+ <param name="msg"></param>
+ <param name="Title"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.NoYes(System.String,System.String)">
+ <summary>
+ 確認メッセージ（吹き出し？）
+ </summary>
+ <param name="msg"></param>
+ <param name="Title"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.Question(System.String,Microsoft.VisualBasic.MsgBoxStyle,System.String)">
+ <summary>
+ 確認ﾒｯｾｰｼﾞ（吹き出し？）
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.Inform(System.String,System.String)">
+ <summary>
+ 情報メッセージを表示する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.ConvertDialogResultToMsgBoxResult(System.Windows.Forms.DialogResult)">
+ <summary>
+ DialogResult を MsgBoxResult に変換
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.HourGlass(System.Boolean)">
+ <summary>
+ マウスカーソルを砂時計に変更するサブルーチン
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.CutOutPath(System.String)">
+ <summary>
+ フルパスからファイル名を除いたパスを取得する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.AppPath(System.String,System.Boolean)">
+ <summary>
+ アプリケーションのパスを取得する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.SeparateFilename(System.String,System.String@,System.String@,System.String@)">
+ <summary>
+ ファイル名を分離するサブルーチン
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.SetObjectArray(System.Object[])">
+ <summary>
+ 任意の数のオブジェクトを配列に格納する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.NullToZero(System.Object,System.Object)">
+ <summary>
+ Null 値をゼロに変換する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.SpcToNull(System.Object,System.Object)">
+ <summary>
+ スペースを Null に変換する関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.SelText(System.Windows.Forms.Control)">
+ <summary>
+ テキストを選択するサブルーチン
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.AnsiRightB(System.String,System.Int32)">
+ <summary>
+ ANSI 版 RightB 関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.AnsiLeftB(System.String,System.Int32)">
+ <summary>
+ ANSI 版 LeftB 関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.AnsiLenB(System.String)">
+ <summary>
+ ANSI 版 LenB 関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.AnsiMidB(System.String,System.Int32,System.Int32)">
+ <summary>
+ ANSI 版 MidB 関数
+ </summary>
+</member>
+<member name="M:SnwMT01.StdLib.IsCheckNull(System.Object)">
+ <summary>
+ IsCheckNull
+ 指定文字列が ＮＵＬＬ／空白 かチェックする
+ </summary>
+ <param name="Chk_Str">チェックする文字列</param>
+ <returns>True  : ＮＵＬＬ／空白、False : ＮＵＬＬ／空白でない</returns>
+</member>
+<member name="M:SnwMT01.StdLib.IsCheckText(System.Windows.Forms.Control)">
+ <summary>
+ IsCheckText
+ 指定テキストが ＮＵＬＬ／空白 かチェックする
+ </summary>
+ <param name="ctl">チェックするテキスト</param>
+ <returns>True  : ＮＵＬＬ／空白、False : ＮＵＬＬ／空白でない</returns>
+</member>
+<member name="M:SnwMT01.StdLib.ISRound(System.Decimal,System.Int32)">
+ <summary>
+ 四捨五入ルーチン
+ Round(Num,Keta)
+ 少数点以下第２位で四捨五入して、少数点位下１桁の値にする場合
+ Round(四捨五入する値 , 1)
+ </summary>
+ <param name="Num">四捨五入する値</param>
+ <param name="Keta">四捨五入した結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.ISRoundUp(System.Decimal,System.Int32)">
+ <summary>
+ 切り上げルーチン
+ </summary>
+ <param name="Num">切り捨てする値</param>
+ <param name="Keta">切り捨てした結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.ISRoundDown(System.Decimal,System.Int32)">
+ <summary>
+ 切り捨てルーチン
+ </summary>
+ <param name="Num">切り捨てする値</param>
+ <param name="Keta">切り捨てした結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.ISHasuu_rtn(System.Int32,System.Decimal,System.Int32)">
+ <summary>
+ 端数処理ルーチン
+ </summary>
+ <param name="kubun">端数区分</param>
+ <param name="Num">値</param>
+ <param name="Keta">結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.ISInt(System.Object)">
+ <summary>
+ 整数チェックルーチン
+ </summary>
+ <param name="code">調べたい文字列</param>
+ <returns>True (．－を含まない整数の場合)  ,  False（それ以外の場合）</returns>
+</member>
+<member name="M:SnwMT01.StdLib.GetDecimalFormat(System.Decimal,System.Int32,System.Boolean,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="Number"></param>
+ <param name="Place"></param>
+ <param name="DispZero"></param>
+ <param name="DispComma"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.StdLib.CutText(System.String,System.Int32)">
+ <summary>
+ 
+ </summary>
+ <param name="Text"></param>
+ <param name="ByteLength"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.StdLib_Date">
+ <summary>
+ Ver.1.00           '?
+ Ver.1.01           '2003.10.07 GetFirstDateOfScope･GetLastDateOfScope修正
+ </summary>
+</member>
+<member name="T:SnwMT01.VB6Conv">
+ <summary>
+ VB6 Obsolete Alternative Functions
+ </summary>
+</member>
+<member name="M:SnwMT01.VB6Conv.PixelsToTwipsX(System.Int32)">
+ <summary>
+ PixelsToTwipsX
+ </summary>
+ <param name="x"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.TwipsToPixelsX(System.Int32)">
+ <summary>
+ TwipsToPixelsX
+ </summary>
+ <param name="x"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.PixelsToTwipsY(System.Int32)">
+ <summary>
+ PixelsToTwipsY
+ </summary>
+ <param name="y"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.TwipsToPixelsY(System.Int32)">
+ <summary>
+ TwipsToPixelsY
+ </summary>
+ <param name="y"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.LenB(System.String)">
+ <summary>
+ LenB代替え関数
+ </summary>
+ <param name="str"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.Left(System.String,System.Int32)">
+ <summary>
+ Left代替え関数
+ </summary>
+ <param name="str"></param>
+ <param name="length"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.Right(System.String,System.Int32)">
+ <summary>
+ Right代替え関数
+ </summary>
+ <param name="str"></param>
+ <param name="length"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.Mid(System.String,System.Int32,System.Int32)">
+ <summary>
+ Mid代替え関数
+ </summary>
+ <param name="str"></param>
+ <param name="Pos"></param>
+ <param name="length"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.CopyArray(System.Array)">
+ <summary>
+ CopyArray代替え関数
+ </summary>
+ <param name="sourceArray"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.FontChangeBold(System.Drawing.Font,System.Boolean)">
+ <summary>
+ FontChangeBold代替え関数
+ </summary>
+ <param name="currentFont"></param>
+ <param name="bold"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.VB6Conv.TextWidth(System.String,System.Drawing.Font)">
+ <summary>
+ TextWidth 関数のVB.NET版
+ </summary>
+ <param name="text"></param>
+ <param name="font"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.WheelCtl">
+ <summary>
+ Ver.1.00           '2003.09.22 Spread3.0Jでのホイール制御の為作成
+ Ver.1.00           '2024.11.12 Spread17.0Jでのホイール制御の為作成
+ </summary>
+</member>
+<member name="T:SnwMT01.Win32API">
+ <summary>
+ ---------------------------------------------------------
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2003.09.30  ShellExecuteEXを追加
+                                 CloseHandleを追加
+                                 WaitForSingleObjectを追加
+ Ver.1.02           '2004.10.28  GetIniにフラグを新設（AppPathを付けるor付けない)
+ Ver.1.03           '2005.02.03  GetIniの変数を1024→2048へ
+ Ver.1.04           '2014.08.25  GetIniの変数を2048→4096へ
+ Ver.1.05           '2020.04.04  GetFullName(表示名取得)を追加
+ ---------------------------------------------------------
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API.GetIni(System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ INIファイルより読み込み
+ </summary>
+ <param name="Section"></param>
+ <param name="Key"></param>
+ <param name="INIFile"></param>
+ <param name="AddAppPath"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.WriteIni(System.String,System.String,System.String,System.String)">
+ <summary>
+ INIファイルに書き込み
+ </summary>
+ <param name="Section"></param>
+ <param name="Key"></param>
+ <param name="Str"></param>
+ <param name="INIFile"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.SendReturnKey">
+ <summary>
+ Returnキー送信
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API.SendTabKey">
+ <summary>
+ TABキー送信
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API.SendSHTabKey">
+ <summary>
+ Shift+TABキー送信
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API.UniAsczToStr(System.String)">
+ <summary>
+ NULL文字を除去する関数
+ </summary>
+ <param name="Buf"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.SetFormTop(System.Windows.Forms.Form,System.Int32)">
+ <summary>
+ フォームを常に手前に表示
+ </summary>
+ <param name="frmObject"></param>
+ <param name="Optn"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.GetUName">
+ <summary>
+ ユーザー名を取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.GetFullName">
+ <summary>
+ ユーザーのフルネームを取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.GetADFullName">
+ <summary>
+ ドメインコンテキストからユーザー情報を取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.GetLocalFullName">
+ <summary>
+ WMI 経由で Win32_UserAccount からユーザー情報を取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API.GetNetworkFullName">
+ <summary>
+ NetWorkアカウントからユーザー情報を取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.Win32API_FileIO">
+ <summary>
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2003.09.26     フォルダ作成モジュール追加[MKFolder]
+ Ver.1.02           '2013.08.08     ファイル名に使えない文字を取り除くを追加[replaceNGchar]
+ Ver.1.03           '2017.02.09     OpenFileDialogでxlsxを開くように
+ Ver.1.04           '2019.08.03     OpenFileDialogでtxtを開くように
+ Ver.1.05           '2020.01.11     OpenFileDialogでtxtとcsvを開くように
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.Y_GetFolder(System.IntPtr,System.String,System.String)">
+ <summary>
+ 「フォルダの参照」ダイアログを呼び出す
+ </summary>
+ <param name="hwnd">呼び出し元のウィンドウハンドル</param>
+ <param name="title">ダイアログに表示するメッセージ</param>
+ <param name="rootPath">ルートパス名  ””ならデスクトップ</param>
+ <returns>選択したフォルダのフルパス名 キャンセル時は””</returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.GetFolderDialog(System.IntPtr,System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="hwnd"></param>
+ <param name="title"></param>
+ <param name="rootPath"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.GetOpenFileDialog(System.IntPtr,System.String,System.String,System.String,System.String@)">
+ <summary>
+ 
+ </summary>
+ <param name="hwnd"></param>
+ <param name="filter"></param>
+ <param name="defaultExt"></param>
+ <param name="title"></param>
+ <param name="filePath"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.GetSaveFileDialog(System.IntPtr,System.String,System.String,System.String,System.String@)">
+ <summary>
+ 
+ </summary>
+ <param name="hwnd"></param>
+ <param name="filter"></param>
+ <param name="defaultExt"></param>
+ <param name="title"></param>
+ <param name="filePath"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.OpenSaveDialog(System.String@,System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="sFileName"></param>
+ <param name="DefaultFileName"></param>
+ <param name="DefaultExt"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.ShowOpenFileDialog(System.String@,System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="sFileName"></param>
+ <param name="DefaultFileName"></param>
+ <param name="DefaultExt"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.CompactPathEx(System.String,System.Int32)">
+ <summary>
+ 
+ </summary>
+ <param name="strPath">省略したいフルパス</param>
+ <param name="intMax">文字数</param>
+ <returns>戻り値 : 省略されたパスが返る</returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.MKFolder(System.String,System.Int32)">
+ <summary>
+ 
+ </summary>
+ <param name="strPath"></param>
+ <param name="lngCheck"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwMT01.Win32API_FileIO.ReplaceNGchar(System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="sourceStr"></param>
+ <param name="replaceChar"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.Win32API_FileIO.WindowWrapper">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwMT01.Win32API_GetInfo">
+ <summary>
+ Ver.1.00           '2003.04.09
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API_GetInfo.GetPCName">
+ <summary>
+ コンピュータ名を取得する関数
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.Win32API_IME">
+ <summary>
+ Ver.1.00           '2003.08.01
+ </summary>
+</member>
+<member name="M:SnwMT01.Win32API_IME.ImmOpenModeSet(System.IntPtr,SnwMT01.Win32API_IME.ConversionMODE)">
+ <summary>
+ 
+ </summary>
+ <param name="hwnd"></param>
+ <param name="ConversionStatus"></param>
+</member>
+<member name="T:SnwMT01.xl">
+ <summary>
+ Ver.1.01           '2004.02.05     xlOpenBookに読取専用属性をセットできるようにする。
+ Ver.1.02           '2014.08.09     xlOpenBookにリンクの更新方法を指定
+ Ver.1.03           '2015/02/18     画面更新しない(EXCEL2013で2010以前に比べ処理が遅くなった為追加)
+                                    ただし、動きが見えなくなる。デバッグ時Trueにする事。
+ </summary>
+</member>
+<member name="M:SnwMT01.xl.xlOpen">
+ <summary>
+ Excelオブジェクト生成
+ </summary>
+ <returns>Excel.Application オブジェクト異常終了時には Nothing を返す</returns>
+</member>
+<member name="M:SnwMT01.xl.xlCopyRange(Microsoft.Office.Interop.Excel.Range@,Microsoft.Office.Interop.Excel.Range@)">
+ <summary>
+ 
+ </summary>
+ <param name="src"></param>
+ <param name="dst"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwMT01.SnwMT01F00">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積入力部門
+   プログラム名         見積入力
+   作成会社             テクノウェア株式会社
+   作成日               2003/06/03
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2003/11/05  oosawa      表示項目設定追加(SnwMT02F10)
+        2003/11/18  oosawa      原価の掛率で売価を出すように追加
+                                SnwMT02F11画面追加
+        2003/11/18  oosawa      OPボタンにF7情報を追加
+        2003/11/21  oosawa      F7情報時エラー内容項目を消す
+        2003/11/25  oosawa      員数チェック時もとの場所に戻るように変更
+        2003/12/02  oosawa      前回単価参照にサイズを追加
+        2003/12/06  oosawa      前回単価参照を得意先で抽出するように変更
+        2004/01/22  oosawa      EXCEL取込で桁を切り捨てるように変更
+        2004/02/05  oosawa      選択画面からだとHOLDしないのをするように修正
+        2004/03/05  oosawa      テンプレート取り込みで全て直送にする
+        2004/03/05  oosawa      原価率での売価算出を追加
+        2004/03/29  oosawa      Excel出力パス名を「現場名」から「見積件名」に変える
+        2004/04/01  oosawa      売価変更でゼロ割・オーバーフローが出るのを修正
+        2005/03/26  oosawa      エラー行番号をメッセージに出すように変更
+        2005/07/05  kawamura    [固定列]設定機能の追加。設定値はiniファイルに保持
+        2005/07/05  kawamura    選択項目のリスト幅をiniファイルに保持
+        2005/11/01  kawamura    [U区分]項目の追加。Uを入力行は背景色を黄色にする
+        2006/11/02  oosawa      前回単価参照に「見積件名」「仕入先」を追加し、100件にした
+        2006/11/15  kawamura    前回単価参照で単価選択時の項目追加による不具合
+        2007/02/16  kawamura    見積選択表示で見積日付を[mm/dd]→[yy/mm/dd]
+        2007/03/09  oosawa      単価参照で仕入単価・売上単価両方０以外は出るように変更
+        2007/11/17  oosawa      テンプレート選択の明細数を200から300に変更
+        2008/01/23  oosawa      原価率での制限を設ける。
+        2008/02/20  oosawa      原価率でのエラーメッセージが実行環境でうまくいかないので
+                                Msgboxをエラー項目に変更
+        2008/05/22  oosawa      員数部のクリアを追加
+        2008/06/10  oosawa      員数部の幅を広がるようにする
+        2009/02/26  oosawa      2008/05/22に社内在庫～転用までのクリアを追加
+        2009/07/28  oosawa      単価検索に得意先・仕入先を追加
+        2009/08/13  oosawa      開始納期は必ず入力するように変更（在庫の関係）
+        2009/09/26  oosawa      社内在庫参照数・客先在庫参照数の表示
+                                F08・F09を変更し、
+                                社内在庫履歴表示(F08)・客先在庫履歴表示(F09)を追加
+        2009/11/16  oosawa      単価参照でTimeoutが発生
+        2009/11/26  oosawa      納期Sを未入力対応に変更（在庫関係はでなくなる）
+        2009/12/02  oosawa      担当者での抽出を追加
+        2010/04/08  oosawa      区分A・Sの場合の仕入先・配送先クリアが抜けていた。
+        2010/04/23  oosawa      次画面OPEN時、前画面が消えないことがあるのでおまじない（DOEVENTS）を入れる
+        2010/05/06  oosawa      処理種別で0～2以外が入力できてしまう
+        2010/06/16  oosawa      コメント（ACS）はチェック時にクリアするように変更
+        2011/11/29  oosawa      見積区分での抽出追加
+                                売上単価ﾏｽﾀとの単価違いをエラーとして表示する
+                                仕分レベルの時間を未入力時00:00をセットし、入力しなくても良いようにする
+                                    (F02)時間がスペースならば00:00をセット
+        2011/12/26  oosawa      UPDATE時、DB接続エラーにて再接続できるように修正
+        2012/07/02  oosawa      F05、見積NO+行NOでの連結で、売上Dの単価・仕入Dの単価を表示するように修正
+        2012/08/21  oosawa      物件種別に5:内装を追加
+        2012/09/06  oosawa      物件種別をスタテッククラスに変更し名称を持ってくる
+        2012/10/03  oosawa      F05で、日付を新設し、日付以前の100件で検索できるように修正
+        2013/03/08  oosawa      部署CD・社内伝用得意先項目追加
+        2013/03/28  oosawa      ドラッグモードボタンの追加
+        2013/04/09  oosawa      本発注から仮発注になった場合、発注情報を削除するように変更
+        2013/07/19  oosawa      社内在庫参照・客先在庫参照をやめる
+                                「社内伝票扱い」追加
+        2013/08/08  oosawa      売上・仕入更新済みの場合登録不可にする
+        2013/08/09  oosawa      見積区分を廃止する
+        2013/09/02  oosawa      仕分レベル設定に日付一括を追加
+        2013/09/18  oosawa      売上・仕入済みでも変更可能に
+                                売上日・仕入日を表示
+        2013/12/26  oosawa      売上・仕入が両方更新済みならば登録不可にする（2013/08/08の修正）
+        2014/04/22  oosawa      受注区分を初期値１に
+                                受注日の初期値をオペ日に
+        2014/04/25  oosawa      納入先に「9999」を入力できないように変更
+ 
+        2014/07/10  oosawa      中国 切替　バージョン
+        2014/09/09  oosawa      発注調整欄追加
+                                仕入済数表示
+        2014/09/15  oosawa      売上・仕入済みの場合、社内伝に変更できないように変更
+        2014/11/03  oosawa      売上済CNT表示・ロック
+        2014/11/11  oosawa      行入替モジュールブロック対応
+        2014/11/18  oosawa      新売上バージョン
+
+        2015/01/09  oosawa      仕入日を未仕入行数に変更
+        2015/01/13  oosawa      削除メッセージを3回に増やした！！！
+        2015/01/20  oosawa      更新済を一時解除する。登録できなくなった。
+        2015/01/24  oosawa      非課税の考えを導入
+        2015/01/30  oosawa      得意先3055の場合、販売の部分を入力可能にする。
+        2015/02/04  oosawa      他社伝票番号を追加
+        2015/05/15  oosawa      現場名を28から40桁に変更
+        2015/05/28  oosawa      物件種別検索を追加
+        2015/06/19  oosawa      仕様NOを範囲指定に変更
+        2015/06/29  oosawa      販売先に3055の入力を不可にする。
+        2015/07/10  oosawa      物件番号の入力追加
+        2015/07/20  oosawa      仕入単価マスタの追加（仕入変更時単価参照）
+        2015/08/28  oosawa      Wel要望により桁指定の税込端数計算を追加
+        2015/09/28  oosawa      売上仕入単価マスタ追加
+                                仕入単価マスタの廃止
+        2015/09/29  oosawa      しまむら用明細納品日付の欄を追加
+        2015/10/07  oosawa      仕分レベルの桁数を20→40へ変更
+        2015/10/13  oosawa      しまむら伝票種類に3:FAX消耗品 4:FAX直納を追加
+        2015/10/16  oosawa      YM関係の項目追加
+        2015/10/19  oosawa      Wel1%計算を追加（Z???:経費を除く）
+        2015/10/26  oosawa      名称を在庫管理する製品のみロックする
+        2015/11/03  oosawa      Wel化粧品メーカー用に在庫管理除外区分を新設
+        2015/11/13  oosawa      2015/10/26修正分のロックをサイズのみにする
+        2015/11/19  oosawa      SM内容区分追加（しまむら内の分割　0:なし 1:ﾃﾞｨﾊﾞﾛ 2:台湾しまむら 3:システム開発）
+        2015/11/26  oosawa      選択画面に物件番号を表示
+        2015/12/01  oosawa      チェックボックスのチェンジイベントが発生してしまうのを除外
+        2016/02/09  oosawa      Wel1%を製品マスタの費用区分で計算するように変更
+        2016/03/07  oosawa      他社部門CDを仕分レベル設定に追加
+        2016/03/10  oosawa      INIファイルで得意先：三和商研3055が検索できないように制御
+                                製品NO:拓Z204が検索できないように制御
+        2016/04/07  oosawa      「得意先に税集計区分3：税対象外を追加」に伴う修正
+                                税集計区分を変更可能に
+        2016/06/22  oosawa      クレーム明細区分（1:クレーム）
+                                作業区分CD（1:施工 2:コール 3:内装）を追加
+        2016/06/23  oosawa      U区分でRGBでの色付け追加
+        2016/08/01  oosawa      データセット時、配列セットのミスにより最終行がEmptyで上書きされていた。
+        2016/08/03  oosawa      F14:しまむら仕様NOに無条件でSを入れる
+        2016/08/26  oosawa      しまむら伝票種類 FAXをmailに変更
+        2016/10/26  oosawa      開始納期の範囲指定を追加
+                                他社伝番・納品日のロック解除は保留
+        2016/11/11  oosawa      社内在庫欄にマイナスが入るように変更
+        2016/12/21  oosawa      得意先：9999はエラー（社内伝票扱いで処理）
+                                社内在庫・発注調整数欄は使用不可。後で非表示にする。
+        2017/01/06  oosawa      しまむら消耗品取込変更3150用
+        2017/01/17  oosawa      Welの1%を変動できるように変更
+        2017/02/06  oosawa      作業区分に4:クレームを追加
+                                tx_クレーム区分を非表示
+        2017/02/08  oosawa      見積ｺﾋﾟｰ機能停止（社長命令）
+        2017/02/10  oosawa      製品でのロックの不具合修正
+                                社内伝の場合、仕入先3150：三和倉庫は指定できないようにする
+                                社内在庫数を取り込まないように変更
+        2017/04/07  oosawa      新規作成時のロック情報生成
+        2017/07/03  oosawa      R:赤･B:青･H:灰のカラーを追加
+        2017/10/05  oosawa      員数取込・ＳＭ取込時、行をつぶさないように修正
+        2017/12/20  oosawa      ENTERKEYでの移動方向変更
+        2018/03/26  oosawa      ログインIDで制御
+                                    保存ができないように変更
+        2018/04/10  oosawa      レビットの集計データ取込作成F15
+        2018/04/11  oosawa      保存時に再表示するように変更（見積明細連番の為）
+        2018/06/19  oosawa      コメント行の書き換え防止に仕入済CNTを新設
+        2018/09/29  oosawa      見積明細連番の桁を9桁へ変更
+        2018/11/01  oosawa      原価合計を表示
+        2018/11/03  oosawa      F12員数取込で行指定を追加
+        2019/12/12  oosawa      レビット用追番Rを追加
+                                レビット取込変更
+        2019/12/24  oosawa      消費税の計算がうまくいっていないのでチェック時に再計算するように変更
+        2020/09/16  oosawa      入出庫日を入庫日と出庫日に分割
+        2020/10/30  oosawa      ロックできる（開ける）データを３までに制御する
+        2021/02/25  oosawa      統計用集計CDを追加
+        2021/04/11  oosawa      見積確定区分を選択画面へ表示
+        2021/10/08  oosawa      YK物件区分に「3：担当者案件」を追加（稟議書）
+        2021/11/09  oosawa      YKサプライ区分の名称を「請求管轄」へ
+                                YKサプライ区分の「2:システム」を「2:情報システム」へ
+                                YK請求区分の3:ﾁｪｰﾝｽﾄｱの名称に伝票を追加
+        2022/08/31  oosawa      物件種別に6:委託　追加
+                                統計集計で委託を集計する為
+        2022/09/02  oosawa      作業区分3：内装の削除
+        2022/10/10  oosawa      ベルク請求管轄区分・BtoB番号追加
+        2022/11/11  oosawa      EXCEL取込時エラー箇所を簡易的に表示するように
+        2022/11/18  oosawa      担当者・工事担当は仕入・売上計上後変更不可
+        2022/11/21  oosawa      物件種別5:その他は入力不可にする
+        2022/11/22  oosawa      物件種別5:その他は入力可にする
+                                工事担当CD:サポート(98)は物件種別5,6、
+                                工事担当CD:コールセンター(99)は物件種別2、
+                                98･99以外は0,1,4のみ入力可能とする。
+ 
+        2023/04/04  oosawa      作業区分3：内装の削除の復活
+        2023/04/07  oosawa      コピー時、単価はコピーしない　（保留中）
+        2023/04/18  oosawa      tx_業種区分の追加
+                                物件種別から4:内装の削除
+        2023/05/11  oosawa      コピー時、単価はコピーしない
+        2023/07/18  oosawa      サイズ変更できてしまう不具合修正
+        2023/09/26  oosawa      仕入先が非インボイス(番号なし)の場合、行全体の文字を赤くする
+        2023/10/20  oosawa      2016/04/07追加の税集計区分を非表示に変更（ﾃﾞｻﾞｲﾝ画面で非表示にしただけ）
+                                    変な修正をしてしまう為
+        2023/10/31  oosawa      担当者CDを2桁から3桁へ変更（社員番号変更に伴う変更）
+        2024/01/18  oosawa      統合用見積番号入力欄を追加
+        2024/01/31  oosawa      工事担当サポート削除
+        2024/01/31  oosawa      サポートを委託に変更し、6：委託のみ登録可とする
+                                5：その他はなくす (岩間指示・大道了解)
+        2024/02/14  oosawa      業種区分も仕入・売上後は変更不可に
+        2024/02/20  oosawa      コード入力時、労務費の場合は作業区分を1:工事にする。
+                                物件種別が2：メンテの場合は作業区分を2：コールセンターにする。
+        2024/03/27  oosawa      入庫日のロックはしない
+        2024/04/26  oosawa      Col見積区分のロックはしない
+        2024/06/21  oosawa      見積確定区分を明細側へ移動
+        2024/06/25  oosawa      業種区分1内装の場合、作業区分が0or1の場合は3に更新する
+        2024/07/16  oosawa      発注済の区分としてU区分にZを入力できるように変更(色付)
+        2024/07/19  oosawa      製品取得時に売上仕入単価マスタから単価を取ってきているが小数点以下が落ちていたので修正
+        2024/07/23  oosawa      完工日付と完了日付を統合（テーブルは残してある）
+ 途中↓
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT01F00S">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               販売管理システム
+   部門名               見積部門
+   プログラム名         員数シート選択処理
+   作成会社             テクノウェア株式会社
+   作成日               2003/04/22
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2003/12/04  kawamura  合計金額に出精値引を含める
+        2004/01/17  oosawa    見積日付・見積番号の降順に並べる
+                              idcの開放
+        2004/11/29  oosawa    更新日での制御を追加
+        2005/07/05  kawamura  選択項目のリスト幅をiniファイルに保持
+        2009/12/02  oosawa    担当者での抽出を追加
+        2010/05/06  oosawa    処理種別で0～2以外が入力できてしまう
+        2011/11/29  oosawa    見積区分での抽出追加
+                              売上単価ﾏｽﾀとの単価違いをエラーとして表示する
+                              仕分レベルの時間を未入力時00:00をセットし、入力しなくても良いようにする
+        2012/09/13  oosawa    SelListVw.Widthの幅を追従するように変更
+        2012/10/26  oosawa    最大化で表示するように変更
+                              登録変更日を表示するように変更
+        2013/01/15  oosawa    原価率を表示
+        2013/09/18  oosawa    売上・仕入済みでも変更可能に
+                              売上日・仕入日を表示
+        2015/01/09  oosawa    仕入日を未仕入行数に変更
+        2015/01/19  oosawa    仕入日を復活
+        2016/10/26  oosawa    開始納期の範囲指定を追加
+        2017/02/08  oosawa    見積ｺﾋﾟｰ機能停止（社長命令）
+        2020/06/18  oosawa    経過表と統合
+        2020/10/30  oosawa    ロックできる（開ける）データを３までに制御する
+ 
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F00">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社 三和商研
+   業務名               販売管理システム
+   部門名               見積部門
+   プログラム名         員数入力処理
+   作成会社             テクノウェア株式会社
+   作成日               2003/04/22
+   作成者               oosawa
+   引継日               2003/06/12
+   引継者               kawamura
+ --------------------------------------------------------------------
+    UPDATE
+        2005/07/05  kawamura    [固定列]設定機能の追加。設定値はiniファイルに保持
+        2005/10/14  kawamura    [U区分]項目の追加。Uを入力行は背景色を黄色にする
+        2006/06/22  oosawa      取り込み時のHOLDを追加
+        2006/06/22  oosawa      明示的インスタンスに変更
+        2009/08/26  oosawa      EXCEL取り込みエラー時　行番号をだすように変更
+        2010/01/05  oosawa      見積区分がコメントでない行のみ合計対象とする
+        2010/01/06  oosawa      上記修正
+        2010/06/16  oosawa      コメント（ACS）はチェック時にクリアするように変更
+        2013/03/28  oosawa      ドラッグモードボタンの追加
+        2013/04/09  oosawa      本発注から仮発注になった場合、発注情報を削除するように変更
+        2013/07/19  oosawa      社内在庫参照・客先在庫参照をやめる
+        2013/08/08  oosawa      売上・仕入更新済みの場合登録不可にする
+        2013/12/26  oosawa      売上・仕入が両方更新済みならば登録不可にする（2013/08/08の修正）
+        2015/02/04  oosawa      明細に伝票番号の欄を追加
+        2015/08/28  oosawa      Wel要望により桁指定の税込端数計算を追加
+        2015/09/29  oosawa      しまむら用明細納品日付の欄を追加
+        2015/10/26  oosawa      名称を在庫管理する製品のみロックする
+        2015/11/03  oosawa      Wel化粧品メーカー用に在庫管理除外区分を新設
+        2015/11/13  oosawa      2015/10/26修正分のロックをサイズのみにする
+        2015/12/01  oosawa      チェックボックスのチェンジイベントが発生してしまうのを除外
+        2016/06/23  oosawa      U区分でRGBでの色付け追加
+        2016/06/22  oosawa      クレーム明細区分（1:クレーム）
+                                作業区分CD（1:施工 2:コール 3:内装）を追加
+        2017/01/17  oosawa      Welの1%を変動できるように変更
+        2017/02/10  oosawa      製品でのロックの不具合修正
+                                社内伝の場合、仕入先3150：三和倉庫は指定できないようにする
+                                社内在庫数を取り込まないように変更
+        2017/03/10  oosawa      仕入業者を追加
+                                仕入先を出荷元として処理する
+                                表示を「仕入先」から「出荷元」に変更
+        2017/04/07  oosawa      新規作成時のロック情報生成
+        2017/06/27  oosawa      数量表示で小数点カットの不具合
+        2017/07/03  oosawa      R:赤･B:青･H:灰のカラーを追加
+        2017/10/05  oosawa      員数取込・ＳＭ取込時、行をつぶさないように修正
+        2017/12/20  oosawa      ENTERKEYでの移動方向変更
+        2018/04/10  oosawa      レビットの集計データ取込作成F15
+        2018/04/11  oosawa      保存時に再表示するように変更（見積明細連番の為）
+        2018/06/19  oosawa      コメント行の書き換え防止に仕入済CNTを新設
+        2018/07/31  oosawa      社内伝に3150のチェックをストアドでも行なう
+        2019/12/12  oosawa      レビット用追番Rを追加
+                                レビット取込変更
+        2019/12/24  oosawa      消費税の計算がうまくいっていないのでチェック時に再計算するように変更
+        2020/03/31  oosawa      ↑それでも税がZEROになる。ResumuNextはずす
+ 
+ 途中↓
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="M:SnwMT01.SnwMT02F00.FpSpd_EditModeStarting(System.Object,FarPoint.Win.Spread.EditModeStartingEventArgs)">
+ <summary>
+ FpSpd編集開始前
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SnwMT01.SnwMT02F00.FpSpd_EditModeOn(System.Object,System.EventArgs)">
+ <summary>
+ FpSpd編集開始、Keyイベントのハンドルの追加
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SnwMT01.SnwMT02F00.FpSpd_EditModeOff(System.Object,System.EventArgs)">
+ <summary>
+ FpSpd編集終了、Keyイベントのハンドルの削除
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="T:SnwMT01.SnwMT02F01">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         員数入力処理（定価の掛率設定）
+   作成会社             テクノウェア株式会社
+   作成日               2003/06/13
+   作成者               kawamura
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F02">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         員数入力処理（仕分レベル設定処理）
+   作成会社             テクノウェア株式会社
+   作成日               2003/06/13
+   作成者               kawamura
+ --------------------------------------------------------------------
+ 
+    UPDATE
+        2011/11/29  oosawa      (F02)時間がスペースならば00:00をセット
+        2013/09/02  oosawa      仕分レベル設定に日付一括を追加
+        2014/04/22  oosawa      仕分レベルの納期に前画面の納期Sをセット（空白の場合）
+        2015/10/07  oosawa      仕分レベルの桁数を20→30へ変更
+        2020/06/24  oosawa      仕分レベル取込追加
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F03">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         仕分員数リスト出力画面（ＥＸＣＥＬ）
+   作成会社             テクノウェア株式会社
+   作成日               2003/06/16
+   作成者               kawamura
+ --------------------------------------------------------------------
+    UPDATE
+        2011/03/14  oosawa      マジックナンバーで持っているのでずれていた
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F04">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         員数シート取込画面（ＥＸＣＥＬ）
+   作成会社             テクノウェア株式会社
+   作成日               2003/06/16
+   作成者               kawamura
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F05">
+ <summary>
+ --------------------------------------------------------------------
+    UPDATE
+        2018/06/20  oosawa      見積数量がゼロのデータはださない
+ -------------------------------------------------------------------- 
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F06">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               マスタ部門
+   プログラム名         員数入力処理（顧客テンプレート選択）
+   作成会社             テクノウェア株式会社
+   作成日               2003/07/02
+   作成者               kawamura
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F07">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         見積入力処理（見積コピー処理）
+   作成会社             テクノウェア株式会社
+   作成日               2003/07/25
+   作成者               kawamura
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F08">
+ <summary>
+ 社内在庫履歴表示
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F09">
+ <summary>
+ 客先在庫履歴表示
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F10">
+ <summary>
+ 表示項目設定
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F11">
+ <summary>
+ 売価変更
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F12">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         員数取込画面（レコードセット）
+   作成会社             テクノウェア株式会社
+   作成日               2004/02/16
+   作成者               oosawa
+ --------------------------------------------------------------------
+ 
+        2018/11/03  oosawa      F12員数取込で行指定を追加
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F13">
+ <summary>
+ 原価割れ設定
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F14">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         員数シート取込画面（ＥＸＣＥＬ）
+   作成会社             テクノウェア株式会社
+   作成日               2015/11/09
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2016/08/03  oosawa      仕様NOに無条件でSを入れる
+        2017/08/04  oosawa      しまむら新EDI用レイアウトに変更
+                                　（進捗確認データ）
+        2017/10/05  oosawa      取込時つぶさないように修正
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F15">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         レビットデータ取込画面（ＴＸＴ）
+   作成会社
+   作成日               2018/04/10
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2018/04/10  oosawa      新設
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT02F16">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算データ管理システム
+   部門名               見積部門
+   プログラム名         員数入力処理（入出庫日指定）
+   作成会社             テクノウェア株式会社
+   作成日               2018/05/03
+   作成者               kawamura
+ --------------------------------------------------------------------
+ 
+    UPDATE
+        2018/05/03  oosawa      新設
+        2020/09/16  oosawa      入庫日・出庫日の切替
+ -------------------------------------------------------------------- 
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT03F00S">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社 三和商研
+   業務名               販売管理システム
+   部門名               見積部門
+   プログラム名         見積共通選択処理
+   作成会社             テクノウェア株式会社
+   作成日               2003/04/22
+   作成者               oosawa
+ --------------------------------------------------------------------
+    UPDATE
+        2003/12/04  kawamura  合計金額に出精値引を含める
+                              物件種別の区分追加
+        2004/01/17  oosawa    見積日付・見積番号の降順に並べる
+                              idcの開放
+ --------------------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwMT01.SnwMT01B01">
+ <summary>
+ 
+ </summary>
+</member>
+</members>
+</doc>

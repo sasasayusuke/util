@@ -1,0 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/2.0.0/encoding.min.js"></script>
+<script src='http://localhost:8000/pleasanter/01_共通/Scripts/00_共通.js?ts=<?= time() ?'></script>
+<script src='http://localhost:8000/pleasanter/01_共通/Scripts/01_ローカル向け共通変数.js?ts=<?= time() ?'></script>
+<script src='http://localhost:8000/pleasanter/01_共通/Scripts/99_権限処理.js?ts=<?= time() ?'></script>

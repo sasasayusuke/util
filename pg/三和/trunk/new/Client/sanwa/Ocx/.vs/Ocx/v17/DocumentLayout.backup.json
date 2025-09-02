@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{28FFC36A-316B-445D-8A89-BA08D12D8485}|ExText\\ExText.vbproj|c:\\share\\src\\mgn\\client\\sanwa\\ocx_20250415\\extext\\extextbox.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{28FFC36A-316B-445D-8A89-BA08D12D8485}|ExText\\ExText.vbproj|solutionrelative:extext\\extextbox.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECD3EE2-3143-49CD-AB4F-91287EC70664}|ExDateText\\ExDateText.vbproj|C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\exdatetext\\exdatetextboxd.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{BECD3EE2-3143-49CD-AB4F-91287EC70664}|ExDateText\\ExDateText.vbproj|solutionrelative:exdatetext\\exdatetextboxd.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECD3EE2-3143-49CD-AB4F-91287EC70664}|ExDateText\\ExDateText.vbproj|C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\exdatetext\\exdatetextboxm.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{BECD3EE2-3143-49CD-AB4F-91287EC70664}|ExDateText\\ExDateText.vbproj|solutionrelative:exdatetext\\exdatetextboxm.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECD3EE2-3143-49CD-AB4F-91287EC70664}|ExDateText\\ExDateText.vbproj|C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\exdatetext\\exdatetextboxy.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{BECD3EE2-3143-49CD-AB4F-91287EC70664}|ExDateText\\ExDateText.vbproj|solutionrelative:exdatetext\\exdatetextboxy.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D5308C7-012D-49EF-9008-22ACFFDCE373}|ExNmText\\ExNmText.vbproj|C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\exnmtext\\exnmtextbox.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{5D5308C7-012D-49EF-9008-22ACFFDCE373}|ExNmText\\ExNmText.vbproj|solutionrelative:exnmtext\\exnmtextbox.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ExDateTextBoxD.vb",
+              "DocumentMoniker": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExDateText\\ExDateTextBoxD.vb",
+              "RelativeDocumentMoniker": "ExDateText\\ExDateTextBoxD.vb",
+              "ToolTip": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExDateText\\ExDateTextBoxD.vb",
+              "RelativeToolTip": "ExDateText\\ExDateTextBoxD.vb",
+              "ViewState": "AgIAAGUCAAAAAAAAAAAcwG0CAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-14T01:45:21.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExDateTextBoxM.vb",
+              "DocumentMoniker": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExDateText\\ExDateTextBoxM.vb",
+              "RelativeDocumentMoniker": "ExDateText\\ExDateTextBoxM.vb",
+              "ToolTip": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExDateText\\ExDateTextBoxM.vb",
+              "RelativeToolTip": "ExDateText\\ExDateTextBoxM.vb",
+              "ViewState": "AgIAAGUCAAAAAAAAAAAcwIECAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-14T01:44:52.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ExDateTextBoxY.vb",
+              "DocumentMoniker": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExDateText\\ExDateTextBoxY.vb",
+              "RelativeDocumentMoniker": "ExDateText\\ExDateTextBoxY.vb",
+              "ToolTip": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExDateText\\ExDateTextBoxY.vb",
+              "RelativeToolTip": "ExDateText\\ExDateTextBoxY.vb",
+              "ViewState": "AgIAAIECAAAAAAAAAAAcwJYCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-14T01:44:24.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExNmTextBox.vb",
+              "DocumentMoniker": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExNmText\\ExNmTextBox.vb",
+              "RelativeDocumentMoniker": "ExNmText\\ExNmTextBox.vb",
+              "ToolTip": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExNmText\\ExNmTextBox.vb",
+              "RelativeToolTip": "ExNmText\\ExNmTextBox.vb",
+              "ViewState": "AgIAAFQDAAAAAAAAAAAAAFsDAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-14T01:43:25.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExTextBox.vb",
+              "DocumentMoniker": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExText\\ExTextBox.vb",
+              "RelativeDocumentMoniker": "ExText\\ExTextBox.vb",
+              "ToolTip": "C:\\share\\src\\mgn\\Client\\sanwa\\Ocx_20250415\\ExText\\ExTextBox.vb",
+              "RelativeToolTip": "ExText\\ExTextBox.vb",
+              "ViewState": "AgIAADoEAAAAAAAAAAAAACkEAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-14T01:42:03.732Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

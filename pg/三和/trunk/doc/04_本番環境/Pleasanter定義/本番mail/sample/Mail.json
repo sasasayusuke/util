@@ -1,0 +1,15 @@
+{
+    "SmtpHost": "smtp.gmail.com",
+    "SmtpPort": 587,
+    "SmtpUserName": "sdt.autolabo.matter@gmail.com",
+    "SmtpPassword": "cqruqvkgwiallsrc",
+    "SmtpEnableSsl": true,
+    "ServerCertificateValidationCallback": false,
+    "SecureSocketOptions": null,
+    "FixedFrom": "pleasanter@sms-datatech.co.jp",
+    "AllowedFrom": null,
+    "SupportFrom": "\"Pleasanter.org\" <support@pleasanter.org>",
+    "InternalDomains": "",
+    "Encoding": null,
+    "ContentEncoding": null
+}

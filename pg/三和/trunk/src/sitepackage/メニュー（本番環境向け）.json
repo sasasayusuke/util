@@ -1,0 +1,3668 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.3.1",
+    "BaseSiteId": 2676205,
+    "Server": "http://192.168.10.54",
+    "CreatorName": "sdt-support",
+    "PackageTime": "2025-01-31T03:33:05.0876932+09:00",
+    "Convertors": [
+      {
+        "SiteId": 2676205,
+        "SiteTitle": "メニュー（本番環境向け）",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[2676206,2676220,2676229,2676238,2676260,2676266,2676277,2676279,2676275,2676278]"
+      },
+      {
+        "SiteId": 2676206,
+        "SiteTitle": "見積・発注",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[0,0,2676207,2676215,2676214,2676208,2676210,2676211,2676212,2676213]"
+      },
+      {
+        "SiteId": 2676207,
+        "SiteTitle": "見積書出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676208,
+        "SiteTitle": "見積書出力（屋外広告物専用）",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676210,
+        "SiteTitle": "見積書出力（コーセー専用）",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676211,
+        "SiteTitle": "注文書出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676212,
+        "SiteTitle": "経過確認表出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676213,
+        "SiteTitle": "出荷リスト出力（梱包出荷用）",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676214,
+        "SiteTitle": "発注書出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676215,
+        "SiteTitle": "見積依頼書出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676216,
+        "SiteTitle": "施工依頼書",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676217,
+        "SiteTitle": "発注一覧表出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676218,
+        "SiteTitle": "入庫リスト作成",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676219,
+        "SiteTitle": "部材リスト（一覧）出力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676220,
+        "SiteTitle": "仕入・支払",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[0,2676226,0,2676227,2676221,0,2676228,2676222,2676223,2676225]"
+      },
+      {
+        "SiteId": 2676221,
+        "SiteTitle": "仕入日計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676222,
+        "SiteTitle": "支払日計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676223,
+        "SiteTitle": "支払予定表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676225,
+        "SiteTitle": "支払データ取込処理",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676226,
+        "SiteTitle": "仕入入力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676227,
+        "SiteTitle": "仕入入力(社内伝用)",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676228,
+        "SiteTitle": "支払入力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676229,
+        "SiteTitle": "売上・入金",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[2676236,2676235,2676230,0,2676237,2676231,2676232,2676233,2676234]"
+      },
+      {
+        "SiteId": 2676230,
+        "SiteTitle": "売上日計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676231,
+        "SiteTitle": "入金日計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676232,
+        "SiteTitle": "未回収一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676233,
+        "SiteTitle": "消込済一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676234,
+        "SiteTitle": "入金予定表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676235,
+        "SiteTitle": "納品書発行",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676236,
+        "SiteTitle": "売上入力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676237,
+        "SiteTitle": "入金消込入力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676238,
+        "SiteTitle": "請求・売掛",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[2676239,2676259,2676258,2676240,2676242,2676243,2676244,2676245,2676246,2676247,2676248,2676249,2676250,2676251,2676252,2676253,2676254,2676257,2676255]"
+      },
+      {
+        "SiteId": 2676239,
+        "SiteTitle": "請求書発行",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676240,
+        "SiteTitle": "売掛金元帳",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676242,
+        "SiteTitle": "請求一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676243,
+        "SiteTitle": "請求明細一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676244,
+        "SiteTitle": "ジョイテック請求明細一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676245,
+        "SiteTitle": "しまむら直納伝票請求書",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676246,
+        "SiteTitle": "ヤオコー請求明細表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676247,
+        "SiteTitle": "マミーマート請求明細表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676248,
+        "SiteTitle": "ウエルシア中日施工集計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676249,
+        "SiteTitle": "ウエルシア請求明細",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676250,
+        "SiteTitle": "請求原価率表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676251,
+        "SiteTitle": "請求書発行　屋外広告物専用",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676252,
+        "SiteTitle": "請求書発行　コーセー専用",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676253,
+        "SiteTitle": "売掛金集計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676254,
+        "SiteTitle": "売掛明細一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676255,
+        "SiteTitle": "月次締め処理",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676257,
+        "SiteTitle": "売掛消費税調整入力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676258,
+        "SiteTitle": "手入力鏡発行",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676259,
+        "SiteTitle": "売上前請求書発行",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676260,
+        "SiteTitle": "支払・買掛",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[]"
+      },
+      {
+        "SiteId": 2676261,
+        "SiteTitle": "買掛金元帳",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676262,
+        "SiteTitle": "検収一覧表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676263,
+        "SiteTitle": "仕入先検収明細表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676264,
+        "SiteTitle": "買掛金集計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676265,
+        "SiteTitle": "月ズレチェック表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676266,
+        "SiteTitle": "統計",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[]"
+      },
+      {
+        "SiteId": 2676267,
+        "SiteTitle": "得意先別年間売上順位推移表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676268,
+        "SiteTitle": "仕入先別年間仕入順位推移表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676269,
+        "SiteTitle": "統計推移表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676270,
+        "SiteTitle": "統計推移表（日単位）",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676271,
+        "SiteTitle": "チーム別積上チェック表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676273,
+        "SiteTitle": "顧客別施工金額実績表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676274,
+        "SiteTitle": "クレーム集計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676275,
+        "SiteTitle": "保守",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[]"
+      },
+      {
+        "SiteId": 2676276,
+        "SiteTitle": "製品No変更",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676278,
+        "SiteTitle": "ロックデータ削除",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676279,
+        "SiteTitle": "経費",
+        "ReferenceType": "Sites",
+        "IncludeData": false,
+        "Order": "[0,2676283,2676280,2676281,2676282]"
+      },
+      {
+        "SiteId": 2676280,
+        "SiteTitle": "按分経費集計表",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676281,
+        "SiteTitle": "経費取込処理",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676282,
+        "SiteTitle": "EXCEL仕訳TXT出力処理",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      },
+      {
+        "SiteId": 2676283,
+        "SiteTitle": "経費入力",
+        "ReferenceType": "Dashboards",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 2676205,
+      "Title": "メニュー（本番環境向け）",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2191953,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676206,
+      "Title": "見積・発注",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/出荷リスト出力（梱包出荷用）.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/施工依頼書ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/注文書出力ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/発注書出力.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/経過確認表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/見積依頼書出力.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/見積書出力(コーセー専用)ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/見積書出力(屋外広告物専用)ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/見積書出力ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/発注一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/入庫リストダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/02_見積・発注/Scripts/部材リストダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676207,
+      "Title": "見積書出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676208,
+      "Title": "見積書出力（屋外広告物専用）",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676210,
+      "Title": "見積書出力（コーセー専用）",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676211,
+      "Title": "注文書出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676212,
+      "Title": "経過確認表出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676213,
+      "Title": "出荷リスト出力（梱包出荷用）",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676214,
+      "Title": "発注書出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676215,
+      "Title": "見積依頼書出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676216,
+      "Title": "施工依頼書",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676217,
+      "Title": "発注一覧表出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.10.54/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676218,
+      "Title": "入庫リスト作成",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.10.54/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676219,
+      "Title": "部材リスト（一覧）出力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676206,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.10.54/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676220,
+      "Title": "仕入・支払",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/03_仕入・支払/Scripts/仕入日計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/03_仕入・支払/Scripts/支払データ取込ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/03_仕入・支払/Scripts/支払予定表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/03_仕入・支払/Scripts/支払入力ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/03_仕入・支払/Scripts/支払日計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/03_仕入・支払/Scripts/仕入入力ダイアログ.js'></script>",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676221,
+      "Title": "仕入日計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676222,
+      "Title": "支払日計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676223,
+      "Title": "支払予定表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676225,
+      "Title": "支払データ取込処理",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676226,
+      "Title": "仕入入力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676227,
+      "Title": "仕入入力(社内伝用)",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676228,
+      "Title": "支払入力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676220,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676229,
+      "Title": "売上・入金",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/入金予定表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/入金日計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/入金消込入力ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/売上日計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/未回収一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/消込済一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/納品書発行ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/04_売上・入金/Scripts/売上入力ダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676230,
+      "Title": "売上日計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676231,
+      "Title": "入金日計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676232,
+      "Title": "未回収一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676233,
+      "Title": "消込済一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676234,
+      "Title": "入金予定表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676235,
+      "Title": "納品書発行",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676236,
+      "Title": "売上入力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676237,
+      "Title": "入金消込入力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676229,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676238,
+      "Title": "請求・売掛",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/しまむら直納伝票請求書ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/ウエルシア中日施工集計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/ウエルシア請求明細ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/ジョイテック請求明細一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/マミーマート請求明細表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/ヤオコー請求明細表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/売掛明細一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/売掛消費税調整入力ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/売掛金元帳ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/売掛金集計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/手入力鏡発行ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/月次締め処理ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/請求一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/請求原価率表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/請求明細一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/請求書発行　コーセー専用ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/請求書発行　屋外広告物専用ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/05_請求・売掛/Scripts/請求書発行ダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676239,
+      "Title": "請求書発行",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676240,
+      "Title": "売掛金元帳",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676242,
+      "Title": "請求一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676243,
+      "Title": "請求明細一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676244,
+      "Title": "ジョイテック請求明細一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676245,
+      "Title": "しまむら直納伝票請求書",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676246,
+      "Title": "ヤオコー請求明細表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676247,
+      "Title": "マミーマート請求明細表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676248,
+      "Title": "ウエルシア中日施工集計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676249,
+      "Title": "ウエルシア請求明細",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676250,
+      "Title": "請求原価率表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676251,
+      "Title": "請求書発行　屋外広告物専用",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676252,
+      "Title": "請求書発行　コーセー専用",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676253,
+      "Title": "売掛金集計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676254,
+      "Title": "売掛明細一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676255,
+      "Title": "月次締め処理",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676257,
+      "Title": "売掛消費税調整入力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676258,
+      "Title": "手入力鏡発行",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676259,
+      "Title": "売上前請求書発行",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676238,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676260,
+      "Title": "支払・買掛",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/06_支払・買掛/Scripts/チーム別仕入先検収明細表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/06_支払・買掛/Scripts/月ズレチェック表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/06_支払・買掛/Scripts/検収一覧表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/06_支払・買掛/Scripts/買掛金元帳ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/06_支払・買掛/Scripts/買掛金集計表ダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676261,
+      "Title": "買掛金元帳",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676260,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676262,
+      "Title": "検収一覧表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676260,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676263,
+      "Title": "仕入先検収明細表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676260,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676264,
+      "Title": "買掛金集計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676260,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676265,
+      "Title": "月ズレチェック表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676260,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676266,
+      "Title": "統計",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/クレーム集計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/チーム別積上チェック表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/仕入先別年間仕入順位推移表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/得意先別年間売上順位推移表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/統計推移表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/統計推移表（日単位）ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/07_統計/Scripts/顧客別施工金額実績表ダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676267,
+      "Title": "得意先別年間売上順位推移表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676268,
+      "Title": "仕入先別年間仕入順位推移表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676269,
+      "Title": "統計推移表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676270,
+      "Title": "統計推移表（日単位）",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676271,
+      "Title": "チーム別積上チェック表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676273,
+      "Title": "顧客別施工金額実績表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676274,
+      "Title": "クレーム集計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676266,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676275,
+      "Title": "保守",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/09_保守/Scripts/製品No変更ダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676276,
+      "Title": "製品No変更",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676275,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676278,
+      "Title": "ロックデータ削除",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676275,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676279,
+      "Title": "経費",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Sites",
+      "ParentId": 2676205,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Sites",
+        "Scripts": [
+          {
+            "Title": "10_ロード時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n\n// 各画面ロード時に実行するメソッドを格納する\nonGridLoadFuncs = []\nonEditorLoadFuncs = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = () => {\n    console.log(\"start!! onGridLoadFuncs!!!\")\n    onGridLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n$p.events.on_editor_load = () => {\n    console.log(\"start!! onEditorLoadFuncs!!!\")\n    onEditorLoadFuncs.forEach(func => {\n        // console.log(func)\n        func()\n    })\n}\n\n\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 一覧\"\n})\n\n// 編集画面\n\nonEditorLoadFuncs.push(() => {\n    // サイトタイトル編集\n    document.title = JSON.parse(document.getElementById(\"JoinedSites\").value)[0].Title + \" - 編集\"\n})\n\n// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n// 一覧画面\n\nonGridLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n\n\n// 編集画面\n\nonEditorLoadFuncs.push(async () => {\n    loadPermittion()\n    setInterval(() => {\n        loadPermittion()\n    }, 2500);\n})\n",
+            "Id": 1
+          },
+          {
+            "Title": "11_保存時処理.js",
+            "All": true,
+            "Body": "// スクリプトに記載しないと動作しないと思われる\n\n// 保存押下時に実行するメソッドを格納する\nbeforeCreateFuncs = []\nbeforeUpdateFuncs = []\n\n$p.events.before_send_Create = function (e) {\n    console.log(\"start!! beforeCreateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeCreateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}\n\n$p.events.before_send_Update = function (e) {\n    console.log(\"start!! beforeUpdateFuncs!!!\")\n    // falseをreturnするまで繰り返す\n    return beforeUpdateFuncs.every(func => {\n        console.log(func)\n        return func(e)\n    })\n}",
+            "Id": 2
+          }
+        ],
+        "Htmls": [
+          {
+            "Title": "アセット読込　最初",
+            "PositionType": 1000,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/00_共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/03_本番環境向け共通変数.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/99_権限処理.js'></script>\n",
+            "Id": 2
+          },
+          {
+            "Title": "アセット読込　最後",
+            "PositionType": 9010,
+            "All": true,
+            "Body": "<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/20_ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/21_検索ダイアログテンプレート.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/22_ダイアログ共通.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/30_帳票系.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/40_住所検索.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/41_自動入力変換.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/50_見積番号検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/60_得意先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/61_納入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/62_製品検索マスタダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/63_チーム検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/64_科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/65_仕入先検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/66_支払区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/67_部署検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/68_工事担当検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/69_物件選択検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/70_担当者検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/71_補助科目検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/72_入金区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/73_ウエルシア物件区分検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/01_共通/Scripts/74_入金検索ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/08_経費/Scripts/EXCEL仕訳TXT出力処理ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/08_経費/Scripts/按分経費集計表ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/08_経費/Scripts/経費入力ダイアログ.js'></script>\n<script src='http://192.168.0.7:8000/pleasanter/08_経費/Scripts/経費取込処理ダイアログ.js'></script>\n",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676280,
+      "Title": "按分経費集計表",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676279,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676281,
+      "Title": "経費取込処理",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676279,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676282,
+      "Title": "EXCEL仕訳TXT出力処理",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676279,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    },
+    {
+      "TenantId": 1,
+      "SiteId": 2676283,
+      "Title": "経費入力",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Dashboards",
+      "ParentId": 2676279,
+      "InheritPermission": 2676205,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Dashboards",
+        "Scripts": [
+          {
+            "Title": "停止アラートとリダイレクト",
+            "All": true,
+            "Body": "    // アラートメッセージの表示\n    alert(\"サービスが停止している可能性があるので、ホーム画面へリダイレクト致します。\\n何度もこの画面が表示されるようであれば、サポートへご連絡ください\");\n\n    // OKをクリックするとリダイレクト\n    window.location.href = \"http://192.168.0.7/\";",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 2676205,
+      "Permissions": [
+        {
+          "ReferenceId": 2676205,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": -1,
+          "PermissionType": 31
+        },
+        {
+          "ReferenceId": 2676205,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 2676205,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 2,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 2676205,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 3,
+          "PermissionType": 511
+        }
+      ]
+    },
+    {
+      "SiteId": 2676206,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676207,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676208,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676210,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676211,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676212,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676213,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676214,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676215,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676216,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676217,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676218,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676219,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676220,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676221,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676222,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676223,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676225,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676226,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676227,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676228,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676229,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676230,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676231,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676232,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676233,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676234,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676235,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676236,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676237,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676238,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676239,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676240,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676242,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676243,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676244,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676245,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676246,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676247,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676248,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676249,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676250,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676251,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676252,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676253,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676254,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676255,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676257,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676258,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676259,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676260,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676261,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676262,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676263,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676264,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676265,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676266,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676267,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676268,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676269,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676270,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676271,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676273,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676274,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676275,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676276,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676278,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676279,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676280,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676281,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676282,
+      "Permissions": []
+    },
+    {
+      "SiteId": 2676283,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": [
+      {
+        "UserId": 1,
+        "LoginId": "Administrator"
+      },
+      {
+        "UserId": 2,
+        "LoginId": "sdtadmin"
+      },
+      {
+        "UserId": 3,
+        "LoginId": "sdt-support"
+      }
+    ]
+  }
+}

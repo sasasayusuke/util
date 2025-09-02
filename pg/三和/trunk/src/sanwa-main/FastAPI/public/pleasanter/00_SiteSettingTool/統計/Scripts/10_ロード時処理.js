@@ -1,0 +1,60 @@
+// スクリプトに記載しないと動作しないと思われる
+
+
+// 各画面ロード時に実行するメソッドを格納する
+onGridLoadFuncs = []
+onEditorLoadFuncs = []
+
+// 格納したメソッドを実行するメソッド
+$p.events.on_grid_load = () => {
+    console.log("start!! onGridLoadFuncs!!!")
+    onGridLoadFuncs.forEach(func => {
+        // console.log(func)
+        func()
+    })
+}
+
+$p.events.on_editor_load = () => {
+    console.log("start!! onEditorLoadFuncs!!!")
+    onEditorLoadFuncs.forEach(func => {
+        // console.log(func)
+        func()
+    })
+}
+
+
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝タイトル修正処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 一覧画面
+
+onGridLoadFuncs.push(() => {
+    // サイトタイトル編集
+    document.title = JSON.parse(document.getElementById("JoinedSites").value)[0].Title + " - 一覧"
+})
+
+// 編集画面
+
+onEditorLoadFuncs.push(() => {
+    // サイトタイトル編集
+    document.title = JSON.parse(document.getElementById("JoinedSites").value)[0].Title + " - 編集"
+})
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝閲覧権限処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 一覧画面
+
+onGridLoadFuncs.push(async () => {
+    loadPermittion()
+    setInterval(() => {
+        loadPermittion()
+    }, 2500);
+})
+
+
+// 編集画面
+
+onEditorLoadFuncs.push(async () => {
+    loadPermittion()
+    setInterval(() => {
+        loadPermittion()
+    }, 2500);
+})

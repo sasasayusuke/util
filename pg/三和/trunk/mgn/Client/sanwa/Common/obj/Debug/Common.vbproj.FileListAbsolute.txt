@@ -1,0 +1,4 @@
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Common\obj\Debug\Common.vbproj.AssemblyReference.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Common\obj\Debug\Common.Resources.resources
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Common\obj\Debug\Common.vbproj.GenerateResource.cache
+C:\svn\YJY_三和商研受発注システム\trunk\mgn\Client\sanwa\Common\obj\Debug\Common.vbproj.CoreCompileInputs.cache

@@ -1,0 +1,742 @@
+# ローカル環境のPleasanter設定
+見積・発注:
+  ID: 2714776
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+仕入・支払:
+  ID: 2714790
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+売上・入金:
+  ID: 2714798
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+請求・売掛:
+  ID: 2714808
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+支払・買掛:
+  ID: 2714828
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+統計:
+  ID: 2714835
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+経費:
+  ID: 2714846
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+保守:
+  ID: 2714843
+  Scripts:
+    - Id: 1
+      Title: "10_ロード時処理"
+      ScriptAll: true
+    - Id: 2
+      Title: "11_保存時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+仕入明細入力:
+  ID: 3064538
+  Styles:
+    - Id: 1
+      Title: "size80"
+      StyleAll: true
+  Scripts:
+    - Id: 1
+      Title: "ロード時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+売上明細入力:
+  ID: 3064554
+  Styles:
+    - Id: 1
+      Title: "size80"
+      StyleAll: true
+  Scripts:
+    - Id: 1
+      Title: "ロード時処理"
+      ScriptAll: true
+  Htmls:
+    - Id: 1
+      Title: "loc_assets_required"
+      HtmlPositionType: "HeadTop"
+      HtmlAll: true
+    - Id: 2
+      Title: "loc_assets"
+      HtmlPositionType: "BodyScriptBottom"
+      HtmlAll: true
+
+物件入力:
+  ID: 3064532
+  ClassA: 物件番号
+  ClassB: 物件名
+  ClassC: 物件略称
+  ClassD: 得意先CD
+  ClassE: 得意先名1
+  ClassF: 得意先名2
+  ClassG: 得TEL
+  ClassH: 得FAX
+  ClassI: 得意先担当者
+  ClassJ: 集計CD
+  # ClassK: 集計 # DBにない
+  ClassL: 納入得意先CD
+  ClassM: 納入先CD
+  ClassN: 納入先名1
+  ClassO: 納入先名2
+  ClassP: 郵便番号
+  ClassQ: 住所1
+  ClassR: 住所2
+  ClassS: 納TEL
+  ClassT: 納FAX
+  ClassU: 納入先担当者
+  ClassV: 担当者CD
+  # ClassW: 担当者名 # DBにない
+  ClassX: 部署CD
+  # ClassY: 部署名 # DBにない
+  ClassZ: 工事担当CD
+  # NumA: 売上合計 # DBにない
+  # NumB: 出精値引き # DBにない
+  # NumC: 原価合計 # DBにない
+  # NumD: 原価率 # DBにない
+  DateA: 物件登録日付
+  DateB: 予定納期S
+  DateC: 予定納期E
+  DateD: 予定オープン日
+  DateE: 予定受付日付
+  DateF: 予定完工日付
+  DateG: 予定請求予定日付
+  # Class001: 工事担当者名 # DBにない
+  Class002: 予定業種区分
+  Class003: 予定物件種別
+  SDB_NAME: TD物件情報
+  KEYS:
+    - 物件番号
+
+ヤオコー製品変換マスタ:
+  ID: 1841975
+  ClassA: 得意先CD
+  # ClassB: 得意先名 # DBにない
+  ClassD: 仕様NO
+  # ClassE: 名称 # DBにない
+  ClassG: 他社部門CD
+  ClassH: 他社製品CD
+  # NumA: W # DBにない
+  # NumB: D # DBにない
+  # NumC: H # DBにない
+  # NumD: D1 # DBにない
+  # NumE: D2 # DBにない
+  # NumF: H1 # DBにない
+  # NumG: H2 # DBにない
+  ClassI: 製品NO
+  # Class100: 主キー項目 # DBにない
+  SDB_NAME: TM製品変換
+  KEYS:
+    - 得意先CD
+    - 製品NO
+    - 仕様NO
+    - 他社製品CD
+
+三研実績入力:
+  ID: 1841976
+  NumA: 売上税抜金額_元
+  NumB: 原価税抜金額_元
+  NumC: 人件一般費_元
+  NumD: 営業外費_元
+  NumE: 元円比率
+  NumF: 売上税抜金額_円
+  NumG: 原価税抜金額_円
+  NumH: 人件一般費_円
+  NumI: 営業外費_円
+  DateB: 年月
+  SDB_NAME: TM三研情報
+  KEYS:
+    - 年月
+
+仕入先マスタ:
+  ID: 1841977
+  ClassA: 仕入先CD
+  ClassB: 仕入先名1
+  ClassC: 仕入先名2
+  ClassD: インボイス登録番号
+  ClassE: 略称
+  ClassF: フリガナ
+  ClassG: 郵便番号
+  ClassH: 住所１
+  ClassI: 住所２
+  ClassJ: 電話番号
+  ClassK: FAX番号
+  ClassL: 仕入先担当者名
+  ClassM: メモ
+  ClassN: 担当者CD
+  # ClassO: 担当者名 # DBにない
+  ClassP: 締日
+  ClassQ: 支払方法
+  # ClassR: 支払方法 # DBにない
+  ClassS: 決算月
+  ClassT: 支払様式
+  # ClassU: 支払様式 # DBにない
+  ClassV: 支払サイクル
+  # ClassW: 支払サイクル # DBにない
+  ClassX: 支払区分CD
+  # ClassY: 支払区分1 # DBにない
+  # ClassZ: 支払区分2 # DBにない
+  NumA: 導入支払金額
+  NumB: 導入買掛金額
+  DateA: 最終使用日
+  Class007: 支払予定日
+  Class001: 税集計区分
+  # Class002: 税集計区分 # DBにない
+  Class003: 仕入端数
+  # Class004: 仕入端数 # DBにない
+  Class005: 消費税端数
+  # Class006: 消費税端数 # DBにない
+  SDB_NAME: TM仕入先
+  KEYS:
+    - 仕入先CD
+
+会社マスタ:
+  ID: 1841978
+  ClassA: 社名1
+  ClassB: 社名2
+  ClassC: 郵便番号
+  ClassD: 住所1
+  ClassE: 住所2
+  ClassF: 電話番号
+  ClassG: FAX番号
+  ClassH: 代表者名
+  ClassI: 期首月
+  ClassJ: 締日
+  ClassK: インボイス登録番号
+  DateA: 入力開始日
+  ClassL: コールセンター番号
+  ClassM: 会社ID
+  SDB_NAME: TM会社
+  KEYS:
+    - 会社ID
+
+担当者マスタ:
+  ID: 3064531
+  NumB: 担当者CD
+  ClassB: 担当者名
+  ClassC: メールアドレス
+  ClassD: 部署CD
+  # ClassE: 部署名 # DBにない
+  ClassF: 問い合わせ先
+  NumA: 順序
+  SDB_NAME: TM担当者
+  KEYS:
+    - 担当者CD
+
+科目マスタ:
+  ID: 1841980
+  NumB: 科目CD
+  ClassB: 科目名
+  ClassC: 借方消費税区分
+  ClassD: 貸方消費税区分
+  ClassE: 集計CD
+  ClassF: 按分区分
+  NumA: 順序
+  SDB_NAME: TM科目
+  KEYS:
+    - 科目CD
+
+税率マスタ:
+  ID: 1841981
+  NumA: 旧税率
+  NumB: 税率
+  DateA: 切替日付
+  ClassA: 税率ID
+  SDB_NAME: TM税率
+  KEYS:
+    - 税率ID
+
+請求金額マスタ:
+  ID: 1841982
+  ClassA: 得意先CD
+  # ClassB: 得意先名 # DBにない
+  NumA: 前月残高
+  NumB: 入金金額
+  NumC: 調整金額
+  NumD: 売上金額
+  NumE: 返品金額
+  NumF: 訂正金額
+  NumG: 消費税額
+  NumH: 当月残高
+  NumI: 伝票枚数
+  DateA: 請求日付
+  DateB: 請求開始日付
+  DateC: 請求終了日付
+  # Class100: 主キー項目 # DBにない
+  SDB_NAME: TM請求金額
+  KEYS:
+    - 得意先CD
+    - 請求日付
+
+配送先マスタ:
+  ID: 1841983
+  ClassA: 配送先CD
+  ClassB: 配送先名1
+  ClassC: 配送先名2
+  ClassD: 略称
+  ClassE: フリガナ
+  ClassF: 郵便番号
+  ClassG: 住所1
+  ClassH: 住所2
+  ClassI: 電話番号
+  ClassJ: FAX番号
+  ClassK: 配送先担当者名
+  ClassL: メモ
+  SDB_NAME: TM配送先
+  KEYS:
+    - 配送先CD
+
+ウエルシア物件内容マスタ:
+  ID: 1841984
+  NumA: ウエルシア物件内容CD
+  ClassB: ウエルシア物件内容名
+  SDB_NAME: TMウエルシア物件内容
+  KEYS:
+    - ウエルシア物件内容CD
+
+ウエルシア物件区分マスタ:
+  ID: 1841997
+  NumA: ウエルシア物件区分CD
+  ClassB: ウエルシア物件区分名
+  SDB_NAME: TMウエルシア物件区分
+  KEYS:
+    - ウエルシア物件区分CD
+
+売上仕入単価マスタ:
+  ID: 1841985
+  ClassA: 得意先CD
+  # ClassB: 得意先名 # DBにない
+  ClassC: 仕入先CD
+  # ClassD: 仕入先名 # DBにない
+  ClassE: PC区分
+  ClassG: 仕様NO
+  # ClassH: 名称 # DBにない
+  NumA: 大口売上単価
+  NumB: 大口仕入単価
+  NumC: 小口売上単価
+  NumD: 小口仕入単価
+  DateA: 初期登録日
+  # Class100: 主キー項目 # DBにない
+  # NumI: W # DBにない
+  # NumJ: D # DBにない
+  # NumK: H # DBにない
+  # NumL: D1 # DBにない
+  # NumE: D2 # DBにない
+  # NumF: H1 # DBにない
+  # NumG: H2 # DBにない
+  ClassJ: 製品NO
+  SDB_NAME: TM売上仕入単価
+  KEYS:
+    - 得意先CD
+    - 仕入先CD
+    - PC区分
+    - 製品NO
+    - 仕様NO
+
+売掛金額マスタ:
+  ID: 1841986
+  ClassA: 得意先CD
+  # ClassB: 得意先名 # DBにない
+  NumA: 前月残高
+  NumB: 入金金額
+  NumC: 調整金額
+  NumD: 売上金額
+  NumE: 返品金額
+  NumF: 訂正金額
+  NumG: 消費税額
+  NumH: 当月残高
+  NumI: 伝票枚数
+  DateA: 売掛開始日付
+  DateB: 売掛終了日付
+  NumJ: 非課税金額
+  # Class100: 主キー項目 # DBにない
+  DateC: 売掛日付
+  SDB_NAME: TM売掛金額
+  KEYS:
+    - 得意先CD
+    - 売掛日付
+
+得意先マスタ:
+  ID: 1841987
+  ClassA: 得意先CD
+  ClassB: 得意先名1
+  ClassC: 得意先名2
+  ClassD: 略称
+  ClassE: フリガナ
+  ClassF: 郵便番号
+  ClassG: 住所1
+  ClassH: 住所2
+  ClassI: 電話番号
+  ClassJ: FAX番号
+  ClassK: 得意先担当者名
+  ClassL: メモ
+  ClassM: 集計CD
+  # ClassN: 集計 # DBにない
+  ClassQ: 担当者CD
+  # ClassR: 担当者名 # DBにない
+  ClassS: 締日
+  ClassT: 回収方法
+  # ClassU: 回収方法 # DBにない
+  ClassV: 決算月
+  ClassW: 請求様式
+  # ClassX: 請求様式 # DBにない
+  ClassY: 入金サイクル
+  # ClassZ: 入金サイクル # DBにない
+  NumA: 導入請求金額
+  NumB: 導入売掛金額
+  DateA: 最終使用日
+  Class001: 入金区分CD
+  Class010: 入金予定日
+  # Class002: 入金区分１ # DBにない
+  # Class003: 入金区分２ # DBにない
+  Class004: 税集計区分
+  # Class005: 税集計区分 # DBにない
+  Class006: 売上端数
+  # Class007: 売上端数 # DBにない
+  Class008: 消費税端数
+  # Class009: 消費税端数 # DBにない
+  SDB_NAME: TM得意先
+  KEYS:
+    - 得意先CD
+
+支払金額マスタ:
+  ID: 1841988
+  ClassA: 仕入先CD
+  # ClassB: 仕入先名 # DBにない
+  NumA: 前月残高
+  NumB: 支払金額
+  NumC: 調整金額
+  NumD: 仕入金額
+  NumE: 返品金額
+  NumF: 訂正金額
+  NumG: 消費税額
+  NumH: 当月残高
+  NumI: 伝票枚数
+  DateA: 支払日付
+  DateB: 支払開始日付
+  DateC: 支払終了日付
+  # Class100: 主キー項目 # DBにない
+  SDB_NAME: TM支払金額
+  KEYS:
+    - 仕入先CD
+    - 支払日付
+
+棚番マスタ:
+  ID: 1841989
+  ClassB: 仕様NO
+  # ClassC: 漢字名称 # DBにない
+  ClassF: 棚番名
+  # NumA: W # DBにない
+  # NumB: D # DBにない
+  # NumC: H # DBにない
+  # NumD: D1 # DBにない
+  # NumE: D2 # DBにない
+  # NumF: H1 # DBにない
+  # NumG: H2 # DBにない
+  ClassG: 製品NO
+  NumH: 行NO
+
+  SDB_NAME: TM棚番
+  KEYS:
+    - 棚番名
+    - 製品NO
+    - 仕様NO
+    - 行NO
+
+納入先マスタ:
+  ID: 1841990
+  ClassA: 得意先CD
+  # ClassB: 得意先名1 # DBにない
+  # ClassC: 得意先名2 # DBにない
+  ClassD: 納入先CD
+  ClassE: 納入先名1
+  ClassF: 納入先名2
+  ClassG: 略称
+  ClassH: 表示用店舗名
+  ClassI: フリガナ
+  ClassJ: 郵便番号
+  ClassK: 住所1
+  ClassL: 住所2
+  ClassM: 電話番号
+  ClassN: FAX番号
+  ClassO: 納入先担当者名
+  ClassP: メモ
+  # ClassQ: 担当者CD # DBにない
+  # ClassR: 担当者名 # DBにない
+  DateA: 最終使用日
+  # Class100: 主キー項目 # DBにない
+  SDB_NAME: TM納入先
+  KEYS:
+    - 得意先CD
+    - 納入先CD
+
+補助科目マスタ:
+  ID: 1841991
+  ClassA: 科目CD
+  # ClassB: 科目名 # DBにない
+  ClassC: 補助CD
+  ClassD: 補助科目名
+  ClassE: 借方消費税区分
+  ClassF: 貸方消費税区分
+  ClassG: 按分区分
+  # Class100: 主キー項目 # DBにない
+  SDB_NAME: TM補助科目
+  KEYS:
+    - 科目CD
+    - 補助CD
+
+郵便番号マスタ:
+  ID: 1480503
+
+製品マスタ:
+  ID: 1841992
+  ClassA: 製品NO
+  ClassB: 仕様NO
+  ClassC: 漢字名称
+  ClassD: カナ名称
+  ClassE: ベース色
+  ClassG: 入出庫用CD
+  ClassH: 単位名
+  ClassI: 費用区分
+  ClassL: 主仕入先CD
+  # ClassM: 主仕入先名 # DBにない
+  ClassN: 売上税区分
+  # ClassO: 売上税区分 # DBにない
+  ClassP: 仕入税区分
+  # ClassQ: 仕入税区分 # DBにない
+  ClassR: 在庫区分
+  # ClassS: 在庫区分 # DBにない
+  ClassT: サイズ変更区分
+  # ClassU: サイズ変更区分 # DBにない
+  ClassW: 取組区分
+  # ClassX: 取組区分 # DBにない
+  NumA: W
+  NumB: D1
+  NumC: H1
+  NumD: D
+  NumE: D2
+  NumF: H2
+  NumG: H
+  NumH: 定価
+  # NumI: 売上単価 # DBにない
+  # NumJ: 仕入単価 # DBにない
+  DateA: 取組終了年月
+  CheckA: 廃盤FLG
+  DescriptionA: メモ
+  # Class100: 主キー項目 # DBにない
+  # ClassZ: 費用区分名 # DBにない
+  SDB_NAME: TM製品
+  KEYS:
+    - 製品NO
+    - 仕様NO
+  RINKS:
+    - 主仕入先CD
+
+買掛金額マスタ:
+  ID: 1841993
+  ClassA: 仕入先CD
+  # ClassB: 仕入先名 # DBにない
+  NumA: 前月残高
+  NumB: 支払金額
+  NumC: 調整金額
+  NumD: 仕入金額
+  NumE: 返品金額
+  NumF: 訂正金額
+  NumG: 消費税額
+  NumH: 当月残高
+  NumI: 非課税金額
+  NumJ: 伝票枚数
+  DateA: 買掛開始日付
+  DateB: 買掛終了日付
+  # Class100: 主キー項目 # DBにない
+  DateC: 買掛日付
+  SDB_NAME: TM買掛金額
+  KEYS:
+    - 仕入先CD
+    - 買掛日付
+
+工事担当マスタ:
+  ID: 1841994
+  NumB: 工事担当CD
+  ClassB: 工事担当名
+  NumA: 順序
+  SDB_NAME: TM工事担当
+  KEYS:
+    - 工事担当CD
+
+三和サービス実績入力:
+  ID: 1841996
+
+人数按分マスタ:
+  ID: 3066123
+  NumB: 部CD
+  ClassB: 統計集計先CD
+  ClassD: 集計先名
+  NumC: 営業担当CD
+  NumD: 工事担当CD
+  NumA: 比率
+  # Class100: 主キー項目 # DBにない
+  SDB_NAME: TM人数按分v2
+  KEYS:
+    - 部CD
+    - 統計集計先CD
+    - 営業担当CD
+    - 工事担当CD
+
+入金区分マスタ:
+  ID: 2190740
+  NumA: 入金区分CD
+  ClassB: 入金区分名
+  # ClassC: 入金種別 # DBにない
+  ClassD: 入金種別
+  SDB_NAME: TM入金区分
+  KEYS:
+    - 入金区分CD
+
+支払区分マスタ:
+  ID: 2190749
+  NumA: 支払区分CD
+  ClassB: 支払区分名
+  # ClassC: 支払種別 # DBにない
+  ClassD: 支払種別
+  SDB_NAME: TM支払区分
+  KEYS:
+    - 支払区分CD
+
+部署マスタ:
+  ID: 3064556
+  NumB: 部署CD
+  ClassB: 部署名
+  NumA: 順序
+  SDB_NAME: TM部署
+  KEYS:
+    - 部署CD

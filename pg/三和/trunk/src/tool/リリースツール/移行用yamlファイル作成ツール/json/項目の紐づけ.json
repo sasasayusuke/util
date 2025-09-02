@@ -1,0 +1,457 @@
+﻿{
+    "物件入力": {
+        "KEYS": [
+            "物件番号"
+        ],
+        "ClassA": "物件番号",
+        "ClassB": "物件名",
+        "ClassC": "物件略称",
+        "ClassD": "得意先CD",
+        "ClassE": "得意先名1",
+        "ClassF": "得意先名2",
+        "ClassG": "得TEL",
+        "ClassH": "得FAX",
+        "ClassI": "得意先担当者",
+        "ClassJ": "集計CD",
+        "ClassL": "納入得意先CD",
+        "ClassM": "納入先CD",
+        "ClassN": "納入先名1",
+        "ClassO": "納入先名2",
+        "ClassP": "郵便番号",
+        "ClassQ": "住所1",
+        "ClassR": "住所2",
+        "ClassS": "納TEL",
+        "ClassT": "納FAX",
+        "ClassU": "納入先担当者",
+        "ClassV": "担当者CD",
+        "ClassX": "部署CD",
+        "ClassZ": "工事担当CD",
+        "DateA": "物件登録日付",
+        "DateB": "予定納期S",
+        "DateC": "予定納期E",
+        "DateD": "予定オープン日",
+        "DateE": "予定受付日付",
+        "DateF": "予定完工日付",
+        "DateG": "予定請求予定日付",
+        "Class002": "予定業種区分",
+        "Class003": "予定物件種別",
+        "SDB_NAME": "TD物件情報"
+    },
+    "ヤオコー製品変換マスタ": {
+        "KEYS": [
+            "得意先CD",
+            "製品NO",
+            "仕様NO",
+            "他社製品CD"
+        ],
+        "ClassA": "得意先CD",
+        "ClassD": "仕様NO",
+        "ClassG": "部門CD",
+        "ClassH": "他社製品CD",
+        "ClassI": "製品NO",
+        "SDB_NAME": "TD製品変換"
+    },
+    "三研実績入力": {
+        "KEYS": [
+            "実績日付"
+        ],
+        "NumA": "売上税抜金額_元",
+        "NumB": "原価税抜金額_元",
+        "NumC": "人件一般費_元",
+        "NumD": "営業外費_元",
+        "NumE": "元円比率",
+        "NumF": "売上税抜金額_円",
+        "NumG": "原価税抜金額_円",
+        "NumH": "人件一般費_円",
+        "NumI": "営業外費_円",
+        "DateB": "実績日付",
+        "SDB_NAME": "TM三研情報"
+    },
+    "仕入先マスタ": {
+        "KEYS": [
+            "仕入先CD"
+        ],
+        "ClassA": "仕入先CD",
+        "ClassB": "仕入先名1",
+        "ClassC": "仕入先名2",
+        "ClassD": "インボイス登録番号",
+        "ClassE": "略称",
+        "ClassF": "フリガナ",
+        "ClassG": "郵便番号",
+        "ClassH": "住所１",
+        "ClassI": "住所２",
+        "ClassJ": "電話番号",
+        "ClassK": "FAX番号",
+        "ClassL": "仕入先担当者名",
+        "ClassM": "メモ",
+        "ClassN": "担当者CD",
+        "ClassP": "締日",
+        "ClassQ": "支払方法",
+        "ClassS": "決算月",
+        "ClassT": "支払様式",
+        "ClassV": "支払サイクル",
+        "ClassX": "支払区分CD",
+        "NumA": "導入支払金額",
+        "NumB": "導入買掛金額",
+        "DateA": "最終使用日",
+        "Class007": "支払予定日",
+        "Class001": "税集計区分",
+        "Class003": "仕入端数",
+        "Class005": "消費税端数",
+        "SDB_NAME": "TM仕入先"
+    },
+    "会社マスタ": {
+        "KEYS": [
+            "会社ID"
+        ],
+        "ClassA": "社名1",
+        "ClassB": "社名2",
+        "ClassC": "郵便番号",
+        "ClassD": "住所1",
+        "ClassE": "住所2",
+        "ClassF": "電話番号",
+        "ClassG": "FAX番号",
+        "ClassH": "代表者名",
+        "ClassI": "期首月",
+        "ClassJ": "締日",
+        "ClassK": "インボイス登録番号",
+        "DateA": "入力開始日",
+        "ClassL": "コールセンター番号",
+        "ClassM": "会社ID",
+        "SDB_NAME": "TM会社"
+    },
+    "担当者マスタ": {
+        "KEYS": [
+            "担当者CD"
+        ],
+        "ClassA": "担当者CD",
+        "ClassB": "担当者名",
+        "ClassC": "メールアドレス",
+        "ClassD": "部署CD",
+        "ClassF": "問い合わせ先",
+        "NumA": "順序",
+        "SDB_NAME": "TM担当者"
+    },
+    "科目マスタ": {
+        "KEYS": [
+            "科目CD"
+        ],
+        "ClassA": "科目CD",
+        "ClassB": "科目名",
+        "ClassC": "借方消費税区分",
+        "ClassD": "貸方消費税区分",
+        "ClassE": "集計CD",
+        "ClassF": "按分区分",
+        "NumA": "順序",
+        "SDB_NAME": "TM科目"
+    },
+    "税率マスタ": {
+        "KEYS": [
+            "税率ID"
+        ],
+        "NumA": "旧税率",
+        "NumB": "税率",
+        "DateA": "切替日付",
+        "ClassA": "税率ID",
+        "SDB_NAME": "TM税率"
+    },
+    "請求金額マスタ": {
+        "KEYS": [
+            "得意先CD",
+            "請求日付"
+        ],
+        "ClassA": "得意先CD",
+        "NumA": "前月残高",
+        "NumB": "入金金額",
+        "NumC": "調整金額",
+        "NumD": "売上金額",
+        "NumE": "返品金額",
+        "NumF": "訂正金額",
+        "NumG": "消費税額",
+        "NumH": "当月残高",
+        "NumI": "伝票枚数",
+        "DateA": "請求日付",
+        "DateB": "請求開始日付",
+        "DateC": "請求終了日付",
+        "SDB_NAME": "TM請求金額"
+    },
+    "配送先マスタ": {
+        "KEYS": [
+            "配送先CD"
+        ],
+        "ClassA": "配送先CD",
+        "ClassB": "配送先名1",
+        "ClassC": "配送先名2",
+        "ClassD": "略称",
+        "ClassE": "フリガナ",
+        "ClassF": "郵便番号",
+        "ClassG": "住所1",
+        "ClassH": "住所2",
+        "ClassI": "電話番号",
+        "ClassJ": "FAX番号",
+        "ClassK": "配送先担当者名",
+        "ClassL": "メモ",
+        "SDB_NAME": "TM配送先"
+    },
+    "ウエルシア物件内容マスタ": {
+        "KEYS": [
+            "ウエルシア物件内容CD"
+        ],
+        "ClassA": "ウエルシア物件内容CD",
+        "ClassB": "ウエルシア物件内容名",
+        "SDB_NAME": "TMウエルシア物件内容"
+    },
+    "ウエルシア物件区分マスタ": {
+        "KEYS": [
+            "ウエルシア物件区分CD"
+        ],
+        "ClassA": "ウエルシア物件区分CD",
+        "ClassB": "ウエルシア物件区分名",
+        "SDB_NAME": "TMウエルシア物件区分"
+    },
+    "売上仕入単価マスタ": {
+        "KEYS": [
+            "得意先CD",
+            "仕入先CD",
+            "PC区分",
+            "製品NO",
+            "仕様NO"
+        ],
+        "ClassA": "得意先CD",
+        "ClassC": "仕入先CD",
+        "ClassE": "PC区分",
+        "ClassG": "仕様NO",
+        "NumA": "大口売上単価",
+        "NumB": "大口仕入単価",
+        "NumC": "小口売上単価",
+        "NumD": "小口仕入単価",
+        "DateA": "初期登録日",
+        "ClassJ": "製品NO",
+        "SDB_NAME": "TM売上仕入単価"
+    },
+    "売掛金額マスタ": {
+        "KEYS": [
+            "得意先CD",
+            "売掛日付"
+        ],
+        "ClassA": "得意先CD",
+        "NumA": "前月残高",
+        "NumB": "入金金額",
+        "NumC": "調整金額",
+        "NumD": "売上金額",
+        "NumE": "返品金額",
+        "NumF": "訂正金額",
+        "NumG": "消費税額",
+        "NumH": "当月残高",
+        "NumI": "伝票枚数",
+        "DateA": "売掛開始日付",
+        "DateB": "売掛終了日付",
+        "NumJ": "非課税金額",
+        "DateC": "売掛日付",
+        "SDB_NAME": "TM売掛金額"
+    },
+    "得意先マスタ": {
+        "KEYS": [
+            "得意先CD"
+        ],
+        "ClassA": "得意先CD",
+        "ClassB": "得意先名1",
+        "ClassC": "得意先名2",
+        "ClassD": "略称",
+        "ClassE": "フリガナ",
+        "ClassF": "郵便番号",
+        "ClassG": "住所1",
+        "ClassH": "住所2",
+        "ClassI": "電話番号",
+        "ClassJ": "FAX番号",
+        "ClassK": "得意先担当者名",
+        "ClassL": "メモ",
+        "ClassM": "集計CD",
+        "ClassQ": "担当者CD",
+        "ClassS": "締日",
+        "ClassT": "回収方法",
+        "ClassV": "決算月",
+        "ClassW": "請求様式",
+        "ClassY": "入金サイクル",
+        "NumA": "導入請求金額",
+        "NumB": "導入売掛金額",
+        "DateA": "最終使用日",
+        "Class001": "入金区分CD",
+        "Class010": "入金予定日",
+        "Class004": "税集計区分",
+        "Class006": "売上端数",
+        "Class008": "消費税端数",
+        "SDB_NAME": "TM得意先"
+    },
+    "支払金額マスタ": {
+        "KEYS": [
+            "仕入先CD",
+            "支払日付"
+        ],
+        "ClassA": "仕入先CD",
+        "NumA": "前月残高",
+        "NumB": "支払金額",
+        "NumC": "調整金額",
+        "NumD": "仕入金額",
+        "NumE": "返品金額",
+        "NumF": "訂正金額",
+        "NumG": "消費税額",
+        "NumH": "当月残高",
+        "NumI": "伝票枚数",
+        "DateA": "支払日付",
+        "DateB": "支払開始日付",
+        "DateC": "支払終了日付",
+        "SDB_NAME": "TM支払金額"
+    },
+    "棚番マスタ": {
+        "KEYS": [
+            "棚番名"
+        ],
+        "ClassB": "仕様NO",
+        "ClassF": "棚番名",
+        "ClassG": "製品NO",
+        "SDB_NAME": "TM棚番"
+    },
+    "納入先マスタ": {
+        "KEYS": [
+            "得意先CD",
+            "納入先CD"
+        ],
+        "ClassA": "得意先CD",
+        "ClassD": "納入先CD",
+        "ClassE": "納入先名1",
+        "ClassF": "納入先名2",
+        "ClassG": "略称",
+        "ClassH": "表示用店舗名",
+        "ClassI": "フリガナ",
+        "ClassJ": "郵便番号",
+        "ClassK": "住所1",
+        "ClassL": "住所2",
+        "ClassM": "電話番号",
+        "ClassN": "FAX番号",
+        "ClassO": "納入先担当者名",
+        "ClassP": "メモ",
+        "DateA": "最終使用日",
+        "SDB_NAME": "TM納入先"
+    },
+    "補助科目マスタ": {
+        "KEYS": [
+            "科目CD",
+            "補助CD"
+        ],
+        "ClassA": "科目CD",
+        "ClassC": "補助CD",
+        "ClassD": "補助科目名",
+        "ClassE": "借方消費税区分",
+        "ClassF": "貸方消費税区分",
+        "ClassG": "按分区分",
+        "SDB_NAME": "TM補助科目"
+    },
+    "製品マスタ": {
+        "KEYS": [
+            "製品NO",
+            "仕様NO"
+        ],
+        "ClassA": "製品NO",
+        "ClassB": "仕様NO",
+        "ClassC": "漢字名称",
+        "ClassD": "カナ名称",
+        "ClassE": "ベース色",
+        "ClassG": "入出庫用CD",
+        "ClassH": "単位名",
+        "ClassI": "費用区分",
+        "ClassL": "主仕入先CD",
+        "ClassN": "売上税区分",
+        "ClassP": "仕入税区分",
+        "ClassR": "在庫区分",
+        "ClassT": "サイズ変更区分",
+        "ClassW": "取組区分",
+        "NumA": "W",
+        "NumB": "D1",
+        "NumC": "H1",
+        "NumD": "D",
+        "NumE": "D2",
+        "NumF": "H2",
+        "NumG": "H",
+        "NumH": "定価",
+        "DateA": "取組終了年月",
+        "CheckA": "廃盤FLG",
+        "DescriptionA": "メモ",
+        "SDB_NAME": "TM製品",
+        "RINKS": [
+            "主仕入先CD"
+        ]
+    },
+    "買掛金額マスタ": {
+        "KEYS": [
+            "仕入先CD",
+            "買掛日付"
+        ],
+        "ClassA": "仕入先CD",
+        "NumA": "前月残高",
+        "NumB": "支払金額",
+        "NumC": "調整金額",
+        "NumD": "仕入金額",
+        "NumE": "返品金額",
+        "NumF": "訂正金額",
+        "NumG": "消費税額",
+        "NumH": "当月残高",
+        "NumI": "非課税金額",
+        "NumJ": "伝票枚数",
+        "DateA": "買掛開始日付",
+        "DateB": "買掛終了日付",
+        "DateC": "買掛日付",
+        "SDB_NAME": "TM買掛金額"
+    },
+    "工事担当マスタ": {
+        "KEYS": [
+            "工事担当CD"
+        ],
+        "ClassA": "工事担当CD",
+        "ClassB": "工事担当名",
+        "ClassC": "順序",
+        "SDB_NAME": "TM工事担当"
+    },
+    "人数按分マスタ": {
+        "KEYS": [
+            "部CD",
+            "統計集計先CD",
+            "営業担当CD",
+            "工事担当CD"
+        ],
+        "NumB": "部CD",
+        "ClassB": "統計集計先CD",
+        "ClassD": "集計先名",
+        "NumC": "営業担当CD",
+        "NumD": "工事担当CD",
+        "NumA": "比率",
+        "SDB_NAME": "TM人数按分v2"
+    },
+    "入金区分マスタ": {
+        "KEYS": [
+            "入金区分CD"
+        ],
+        "ClassA": "入金区分CD",
+        "ClassB": "入金区分名",
+        "ClassD": "入金種別",
+        "SDB_NAME": "TM入金区分"
+    },
+    "支払区分マスタ": {
+        "KEYS": [
+            "支払区分CD"
+        ],
+        "ClassA": "支払区分CD",
+        "ClassB": "支払区分名",
+        "ClassD": "支払種別",
+        "SDB_NAME": "TM支払区分"
+    },
+    "部署マスタ": {
+        "KEYS": [
+            "部署CD"
+        ],
+        "ClassA": "部署CD",
+        "ClassB": "部署名",
+        "ClassC": "順序",
+        "SDB_NAME": "TM部署"
+    }
+}

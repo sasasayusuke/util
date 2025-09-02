@@ -1,0 +1,1742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>FarPoint.PDF</name>
+  </assembly>
+  <members>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Document">
+      <summary>ドキュメントを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Document.#ctor">
+      <summary>新しいドキュメントを作成します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.EMF.Document.Item(System.Int32)">
+      <summary>レコードを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Document.Play(FarPoint.PDF.Drawing.Graphics)">
+      <summary>指定したグラフィックデバイスにレコードを再生します。</summary>
+      <param name="g">グラフィックデバイス</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Document.Add(FarPoint.PDF.Drawing.EMF.Records.Record)">
+      <summary>レコードを追加します。</summary>
+      <param name="rec">レコード</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Document.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Reader">
+      <summary>リーダーを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Reader.Read(System.IO.Stream,System.Type[])">
+      <summary>新しいリーダーを作成します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.Record">
+      <summary>破棄をサポートするインタフェース。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Records.Record.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Records.Record.Read(System.Byte[],System.Int32,System.Int32)">
+      <summary>レコードを読み取ります。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Records.Record.Play(FarPoint.PDF.Drawing.Graphics)">
+      <summary>グラフィックデバイスにレコードを再生します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Records.Record.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.EMF.Records.Record.ObjectID">
+      <summary>オブジェクト識別子を取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.Record.m_ObjectID">
+      <summary>オブジェクト識別子を設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.RECTL">
+      <summary>四角形レコードを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RECTL.left">
+      <summary>左辺の長さを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RECTL.top">
+      <summary>上辺の長さを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RECTL.right">
+      <summary>右辺の長さを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RECTL.bottom">
+      <summary>下辺の長さを設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.POINTS">
+      <summary>ポイント（16ビット）レコードを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.POINTS.x">
+      <summary>ポイントのx座標を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.POINTS.y">
+      <summary>ポイントのy座標を設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.POINTL">
+      <summary>ポイント（32ビット）レコードを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.POINTL.x">
+      <summary>ポイントのx座標を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.POINTL.y">
+      <summary>ポイントのy座標を設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.SIZEL">
+      <summary>サイズレコードを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.SIZEL.cx">
+      <summary>x座標の変更を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.SIZEL.cy">
+      <summary>y座標の変更を設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.XFORM">
+      <summary>変換レコードを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.XFORM.eM11">
+      <summary>行列値を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.XFORM.eM12">
+      <summary>行列値を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.XFORM.M21">
+      <summary>行列値を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.XFORM.M22">
+      <summary>行列値を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.XFORM.eDx">
+      <summary>行列値を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.XFORM.eDy">
+      <summary>行列値を設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.RGNDATA">
+      <summary>領域データレコードを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Records.RGNDATA.Read(System.Byte[],System.Int32,System.Int32)">
+      <summary>領域データを読み取ります。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.LOGFONT">
+      <summary>フォントレコードを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfHeight">
+      <summary>フォントの高さパラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfWidth">
+      <summary>フォントの幅パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfEscapement">
+      <summary>フォントの字送りパラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfOrientation">
+      <summary>フォントの方向パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfWeight">
+      <summary>フォントのウェイトパラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfItalic">
+      <summary>フォントの斜体パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfUnderline">
+      <summary>フォントの下線パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfStrikeOut">
+      <summary>フォントの取り消し線パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfCharSet">
+      <summary>フォントの文字セットパラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfOutPrecision">
+      <summary>フォントの出力精度パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfClipPrecision">
+      <summary>フォントのクリップボード精度パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfQuality">
+      <summary>フォントの品質パラメーターを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfPitchAndFamily">
+      <summary>フォントのピッチおよびフォントファミリーパラメーターを設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.lfFaceName">
+      <summary>フォントのフォントフェース名パラメーターを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.EMF.Records.LOGFONT.Read(System.Byte[],System.Int32,System.Int32)">
+      <summary>フォントパラメーターを読み取ります。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.RecordType">
+      <summary>レコードの種類を指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_HEADER">
+      <summary>[1] レコードはヘッダです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_POLYGON">
+      <summary>[3] レコードはPolygonです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_POLYPOLYGON">
+      <summary>[8] レコードはPolyPolygonです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETWINDOWEXTEX">
+      <summary>[9] レコードはSetWindowExtExです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETWINDOWORGEX">
+      <summary>[10] レコードはSetWindowOrgExです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETVIEWPORTEXTEX">
+      <summary>[11] レコードはSetViewportExtExです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_EOF">
+      <summary>[14] レコードはEOF（ファイルの終わり）です。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETMAPMODE">
+      <summary>[17] レコードはSetMapModeです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETBKMODE">
+      <summary>[18] レコードはSetBkModeです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETPOLYFILLMODE">
+      <summary>[19] レコードはSetPolyFillModeです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETROP2">
+      <summary>[20] レコードはSetROPです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETSTRETCHBLTMODE">
+      <summary>[21] レコードはSetStretchBltModeです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETTEXTALIGN">
+      <summary>[22] レコードはSetTextAlignです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETTEXTCOLOR">
+      <summary>[24] レコードはSetTextColorです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETBKCOLOR">
+      <summary>[25] レコードはSetBkColorです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_INTERSECTCLIPRECT">
+      <summary>[30] レコードはIntersectClipRectです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SAVEDC">
+      <summary>[33] レコードはSaveDCです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_RESTOREDC">
+      <summary>[34] レコードはRestoreDCです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SELECTOBJECT">
+      <summary>[37] レコードはSelectObjectです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_DELETEOBJECT">
+      <summary>[40] レコードはDeleteObjectです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SELECTPALETTE">
+      <summary>[48] レコードはSelectPaletteです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETMITERLIMIT">
+      <summary>[58] レコードはSetMiterLimitです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_BEGINPATH">
+      <summary>[59] レコードはBeginPathです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_ENDPATH">
+      <summary>[60] レコードはEndPathです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_GDICOMMENT">
+      <summary>[70] レコードはGDICommentです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_EXTSELECTCLIPRGN">
+      <summary>[75] レコードはExtSelectClipRgnです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_BITBLT">
+      <summary>[76] レコードはBitBltです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_EXTCREATEFONTINDIRECTW">
+      <summary>[82] レコードはExtCreateFontIndirectWです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_STRETCHDIBITS">
+      <summary>[81] レコードはStretchDIBitsです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_EXTTEXTOUTW">
+      <summary>[84] レコードはExtTextOutWです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_POLYGON16">
+      <summary>[86] レコードはPolygon（16ビット）です。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_POLYPOLYGON16">
+      <summary>[91] レコードはPolyPolygon（16ビット）です。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.RecordType.EMR_SETICMMODE">
+      <summary>[98] レコードはSetICMModeです。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.ROP2">
+      <summary>ROP（ラスター演算子）を指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_BLACK">
+      <summary>[1] 黒を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_NOTMERGEPEN">
+      <summary>[2] マージペンを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_MASKNOTPEN">
+      <summary>[3] 背景色とペンの反転に共通する色の組み合わせを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_NOTCOPYPEN">
+      <summary>[4] コピーペンの反転を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_MASKPENNOT">
+      <summary>[5] ペンと表示の反転に共通する色の組み合わせを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_NOT">
+      <summary>[6] 色の反転を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_XORPEN">
+      <summary>[7] ペンと表示の色の組み合わせを使用します。ただし、両方に共通する色は除きます。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_NOTMASKPEN">
+      <summary>[8] マスクペンの反転を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_MASKPEN">
+      <summary>[9] ペンと表示の両方に共通の色の組み合わせを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_NOTXORPEN">
+      <summary>[1] XORペンの反転を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_NOP">
+      <summary>[10] NOPを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_MERGENOTPEN">
+      <summary>[12] 表示の色とペンの色の反転の組み合わせを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_COPYPEN">
+      <summary>[13] ペンの色を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_MERGEPENNOT">
+      <summary>[14] ペンの色と表示の色の反転の組み合わせを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_MERGEPEN">
+      <summary>[15] マージペンを使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_WHITE">
+      <summary>[16] 白を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.ROP2.R2_LAST">
+      <summary>最後の色と白を使用します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.EMF.Records.BkMode">
+      <summary>背景モードを指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.BkMode.TRANSPARENT">
+      <summary>[1] 透明な背景を使用します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Drawing.EMF.Records.BkMode.OPAQUE">
+      <summary>[2] 不透明な背景を使用します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.Graphics">
+      <summary>グラフィックデバイス描画関数を表します。</summary>
+      <remarks>このクラスは、PDFページオブジェクトに対するすべての描画関数を実行します。PDFグラフィック状態は、GraphicState構造体とGraphicsStateStack構造体を使用して維持されます。PDFグラフィック状態が変更された場合は必ず、グラフィック状態構造体を更新してください。</remarks>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Graphics.ShowColor">
+      <summary>色が表示されるかどうかを示す値を取得または設定します。</summary>
+      <value>色が表示される場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawArc(System.Drawing.Pen,System.Drawing.Rectangle,System.Single,System.Single)">
+      <summary>Rectangle構造体によって指定された、楕円の一部を表す円弧を描画します。</summary>
+      <param name="pen">円弧の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="rectangle">円弧の境界を定義するRectangle構造体</param>
+      <param name="startAngle">x軸から円弧の始点までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターから円弧の終点までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawArc(System.Drawing.Pen,System.Drawing.RectangleF,System.Single,System.Single)">
+      <summary>Rectangle構造体によって指定された、楕円の一部を表す円弧を描画します。</summary>
+      <param name="pen">円弧の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="rectangle">円弧の境界を定義するRectangleF構造体</param>
+      <param name="startAngle">x軸から円弧の始点までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターから円弧の終点までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawArc(System.Drawing.Pen,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された、楕円の一部を表す円弧を描画します。</summary>
+      <param name="pen">円弧の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x">円弧を定義する矩形の左上隅のx座標</param>
+      <param name="y">円弧を定義する矩形の左上隅のy座標</param>
+      <param name="width">円弧を定義する矩形の幅</param>
+      <param name="height">円弧を定義する矩形の高さ</param>
+      <param name="startAngle">x軸から円弧の始点までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターから円弧の終点までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawArc(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された、楕円の一部を表す円弧を描画します。</summary>
+      <param name="pen">円弧の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x">円弧を定義する矩形の左上隅のx座標</param>
+      <param name="y">円弧を定義する矩形の左上隅のy座標</param>
+      <param name="width">円弧を定義する矩形の幅</param>
+      <param name="height">円弧を定義する矩形の高さ</param>
+      <param name="startAngle">x軸から円弧の始点までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターから円弧の終点までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawBezier(System.Drawing.Pen,System.Drawing.Point,System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
+      <summary>4つのPoint構造体によって定義されたベジエスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、およびスタイルを決定するPen構造体</param>
+      <param name="pt1">曲線の始点を表すPoint構造体</param>
+      <param name="pt2">曲線の1つ目の制御点を表すPoint構造体</param>
+      <param name="pt3">曲線の2つ目の制御点を表すPoint構造体</param>
+      <param name="pt4">曲線の終点を表すPoint構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawBezier(System.Drawing.Pen,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.PointF)">
+      <summary>4つのPoint構造体によって定義されたベジエスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、およびスタイルを決定するPen構造体</param>
+      <param name="pt1">曲線の始点を表すPointF構造体</param>
+      <param name="pt2">曲線の1つ目の制御点を表すPointF構造体</param>
+      <param name="pt3">曲線の2つ目の制御点を表すPointF構造体</param>
+      <param name="pt4">曲線の終点を表すPointF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawBezier(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+      <summary>ポイントを表す4つの順序付けられた座標のペアによって定義されたベジエスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x1">曲線の始点のx座標</param>
+      <param name="y1">曲線の始点のy座標</param>
+      <param name="x2">曲線の1つ目の制御点のx座標</param>
+      <param name="y2">曲線の1つ目の制御点のy座標</param>
+      <param name="x3">曲線の2つ目の制御点のx座標</param>
+      <param name="y3">曲線の2つ目の制御点のy座標</param>
+      <param name="x4">曲線の終点のx座標</param>
+      <param name="y4">曲線の終点のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawClosedCurve(System.Drawing.Pen,System.Drawing.Point[])">
+      <summary>Point構造体の配列によって定義された、閉じたカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawClosedCurve(System.Drawing.Pen,System.Drawing.PointF[])">
+      <summary>PointF構造体の配列によって定義された、閉じたカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawClosedCurve(System.Drawing.Pen,System.Drawing.Point[],System.Single,System.Drawing.Drawing2D.FillMode)">
+      <summary>指定した曲率を使用して、Point構造体の配列によって定義された、閉じたカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+      <param name="fillmode">曲線の塗りつぶし方法を決定するFillMode列挙体のメンバ。このパラメーターは必須ですが、無視されます。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawClosedCurve(System.Drawing.Pen,System.Drawing.PointF[],System.Single,System.Drawing.Drawing2D.FillMode)">
+      <summary>指定した曲率を使用して、PointF構造体の配列によって定義された、閉じたカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+      <param name="fillmode">曲線の塗りつぶし方法を決定するFillMode列挙体のメンバ。このパラメーターは必須ですが、無視されます。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.Point[])">
+      <summary>指定したPoint構造体の配列によってカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.PointF[])">
+      <summary>指定したPointF構造体の配列によってカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.Point[],System.Single)">
+      <summary>指定した曲率を使用して、指定したPoint構造体の配列によってカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.PointF[],System.Single)">
+      <summary>指定した曲率を使用して、指定したPointF構造体の配列によってカーディナルスプラインを描画します。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.PointF[],System.Int32,System.Int32)">
+      <summary>指定したPointF構造体の配列によってカーディナルスプラインを描画します。描画は、配列の最初の要素からオフセットされた位置から始まります。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+      <param name="offset">pointsパラメーターの最初の要素から曲線の始点までのオフセット</param>
+      <param name="numberOfSegments">曲線を構成する、始点以降のセグメントの数</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.Point[],System.Int32,System.Int32,System.Single)">
+      <summary>指定した曲率を使用して、指定したPoint構造体の配列によってカーディナルスプラインを描画します。描画は、配列の最初の要素からオフセットされた位置から始まります。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+      <param name="offset">pointsパラメーターの最初の要素から曲線の始点までのオフセット</param>
+      <param name="numberOfSegments">曲線を構成する、始点以降のセグメントの数</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawCurve(System.Drawing.Pen,System.Drawing.PointF[],System.Int32,System.Int32,System.Single)">
+      <summary>指定した曲率を使用して、指定したPointF構造体の配列によってカーディナルスプラインを描画します。描画は、配列の最初の要素からオフセットされた位置から始まります。</summary>
+      <param name="pen">曲線の色、幅、および高さを決定するPenオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+      <param name="offset">pointsパラメーターの最初の要素から曲線の始点までのオフセット</param>
+      <param name="numberOfSegments">曲線を構成する、始点以降のセグメントの数</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawEllipse(System.Drawing.Pen,System.Drawing.Rectangle)">
+      <summary>座標のペア、高さ、および幅によって指定された境界矩形によって定義される楕円を描画します。</summary>
+      <param name="pen">楕円の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="rectangle">楕円の境界を定義するRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawEllipse(System.Drawing.Pen,System.Drawing.RectangleF)">
+      <summary>座標のペア、高さ、および幅によって指定された境界矩形によって定義される楕円を描画します。</summary>
+      <param name="pen">楕円の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="rectangle">楕円の境界を定義するRectangleF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawEllipse(System.Drawing.Pen,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>座標のペア、高さ、および幅によって指定された境界矩形によって定義される楕円を描画します。</summary>
+      <param name="pen">楕円の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x">楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">楕円を定義する境界矩形の幅</param>
+      <param name="height">楕円を定義する境界矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawEllipse(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、高さ、および幅によって指定された境界矩形によって定義される楕円を描画します。</summary>
+      <param name="pen">楕円の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x">楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">楕円を定義する境界矩形の幅</param>
+      <param name="height">楕円を定義する境界矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawLine(System.Drawing.Pen,System.Drawing.Point,System.Drawing.Point)">
+      <summary>座標のペアによって指定された2つの点を結ぶ線を描画します。</summary>
+      <param name="pen">線の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="pt1">1つ目の端点を表すPoint構造体</param>
+      <param name="pt2">2つ目の端点を表すPoint構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawLine(System.Drawing.Pen,System.Drawing.PointF,System.Drawing.PointF)">
+      <summary>座標のペアによって指定された2つの点を結ぶ線を描画します。</summary>
+      <param name="pen">線の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="pt1">1つ目の端点を表すPointF構造体</param>
+      <param name="pt2">2つ目の端点を表すPointF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawLine(System.Drawing.Pen,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>座標のペアによって指定された2つの点を結ぶ線を描画します。</summary>
+      <param name="pen">線の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x1">1つ目の端点のx座標</param>
+      <param name="y1">1つ目の端点のy座標</param>
+      <param name="x2">2つ目の端点のx座標</param>
+      <param name="y2">2つ目の端点のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawLine(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペアによって指定された2つの点を結ぶ線を描画します。</summary>
+      <param name="pen">線の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x1">1つ目の端点のx座標</param>
+      <param name="y1">1つ目の端点のy座標</param>
+      <param name="x2">2つ目の端点のx座標</param>
+      <param name="y2">2つ目の端点のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawLine(System.Drawing.Color,System.Single,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペアによって指定された2つの点を結ぶ線を描画します。</summary>
+      <param name="color">色。</param>
+      <param name="thickness">太さ。</param>
+      <param name="x1">1つ目の端点のx座標</param>
+      <param name="y1">1つ目の端点のy座標</param>
+      <param name="x2">2つ目の端点のx座標</param>
+      <param name="y2">2つ目の端点のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPath(System.Drawing.Pen,System.Drawing.Drawing2D.GraphicsPath)">
+      <summary>GraphicsPathオブジェクトを描画します。</summary>
+      <param name="pen">パスの色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="path">描画するGraphicsPathオブジェクト</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPie(System.Drawing.Pen,System.Drawing.Rectangle,System.Single,System.Single)">
+      <summary>Rectangle構造体によって指定された楕円と2本の放射状の線によって定義されるパイ形状を描画します。</summary>
+      <param name="pen">パイ形状の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="rectangle">パイ形状の基となる楕円を定義する境界矩形を表すRectangle構造体</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPie(System.Drawing.Pen,System.Drawing.RectangleF,System.Single,System.Single)">
+      <summary>RectangleF構造体によって指定された楕円と2本の放射状の線によって定義されるパイ形状を描画します。</summary>
+      <param name="pen">パイ形状の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="rectangle">パイ形状の基となる楕円を定義する境界矩形を表すRectangleF構造体</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPie(System.Drawing.Pen,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された楕円と2本の放射状の線によって定義されるパイ形状を描画します。</summary>
+      <param name="pen">パイ形状の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x">パイ形状の基となる楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">パイ形状の基となる楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">パイ形状の基となる楕円を定義する境界矩形の幅</param>
+      <param name="height">パイ形状の基となる楕円を定義する境界矩形の高さ</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPie(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された楕円と2本の放射状の線によって定義されるパイ形状を描画します。</summary>
+      <param name="pen">パイ形状の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="x">パイ形状の基となる楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">パイ形状の基となる楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">パイ形状の基となる楕円を定義する境界矩形の幅</param>
+      <param name="height">パイ形状の基となる楕円を定義する境界矩形の高さ</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawRectangle(System.Drawing.Pen,System.Drawing.Rectangle)">
+      <summary>座標のペア、幅、および高さによって指定された四角形を描画します。</summary>
+      <param name="pen">座標のペア、幅、および高さによって指定された四角形を描画します。</param>
+      <param name="rectangle">描画する四角形を表すRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawRectangle(System.Drawing.Pen,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>座標のペア、幅、および高さによって指定された四角形を描画します。</summary>
+      <param name="pen">座標のペア、幅、および高さによって指定された四角形を描画します。</param>
+      <param name="x">描画する四角形の左上隅のx座標</param>
+      <param name="y">描画する四角形の左上隅のy座標</param>
+      <param name="width">描画する四角形の幅</param>
+      <param name="height">描画する四角形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawRectangle(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された四角形を描画します。</summary>
+      <param name="pen">座標のペア、幅、および高さによって指定された四角形を描画します。</param>
+      <param name="x">描画する四角形の左上隅のx座標</param>
+      <param name="y">描画する四角形の左上隅のy座標</param>
+      <param name="width">描画する四角形の幅</param>
+      <param name="height">描画する四角形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPolygon(System.Drawing.Pen,System.Drawing.Point[])">
+      <summary>Point構造体の配列によって定義された多角形を描画します。</summary>
+      <param name="pen">多角形の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="points">多角形の頂点を表すPoint構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawPolygon(System.Drawing.Pen,System.Drawing.PointF[])">
+      <summary>Point構造体の配列によって定義された多角形を描画します。</summary>
+      <param name="pen">多角形の色、幅、およびスタイルを決定するPenオブジェクト</param>
+      <param name="points">多角形の頂点を表すPointF構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF)">
+      <summary>指定したBrushオブジェクトとFontオブジェクトを使用して、指定した位置に指定したテキスト文字列を描画します。</summary>
+      <param name="s">描画する文字列</param>
+      <param name="font">文字列の書式を定義するFontオブジェクト</param>
+      <param name="brush">描画するテキストの色とテクスチャを決定するBrushオブジェクト</param>
+      <param name="point">描画するテキストの左上隅を指定するPointF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>指定したBrushオブジェクトとFontオブジェクトを使用して、指定した矩形内に指定したテキスト文字列を描画します。</summary>
+      <param name="s">描画する文字列</param>
+      <param name="font">文字列の書式を定義するFontオブジェクト</param>
+      <param name="brush">描画するテキストの色とテクスチャを決定するBrushオブジェクト</param>
+      <param name="rectangle">描画するテキストの位置を指定するRectangleF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF,System.Drawing.StringFormat)">
+      <summary>指定したBrushオブジェクトとFontオブジェクト、および指定したStringFormatオブジェクトの書式属性を使用して、指定した位置に指定したテキスト文字列を描画します。</summary>
+      <param name="s">描画する文字列</param>
+      <param name="font">文字列の書式を定義するFontオブジェクト</param>
+      <param name="brush">描画するテキストの色とテクスチャを決定するBrushオブジェクト</param>
+      <param name="point">描画するテキストの左上隅を指定するPointF構造体</param>
+      <param name="format">描画するテキストに適用する書式属性（行間隔や配置など）を指定するStringFormatオブジェクト</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat)">
+      <summary>指定したBrushオブジェクトとFontオブジェクト、および指定したStringFormatオブジェクトの書式属性を使用して、指定した矩形内に指定したテキスト文字列を描画します。</summary>
+      <param name="s">描画する文字列</param>
+      <param name="font">文字列の書式を定義するFontオブジェクト</param>
+      <param name="brush">描画するテキストの色とテクスチャを決定するBrushオブジェクト</param>
+      <param name="rectangle">描画するテキストの位置を指定するRectangleF構造体</param>
+      <param name="format">描画するテキストに適用する書式属性（行間隔や配置など）を指定するStringFormatオブジェクト</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat,System.Boolean)">
+      <summary>内部使用のみ。</summary>
+      <param name="s"></param>
+      <param name="font"></param>
+      <param name="brush"></param>
+      <param name="rectangle"></param>
+      <param name="format"></param>
+      <param name="singleLine"></param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Single,System.Single)">
+      <summary>指定したBrushオブジェクトとFontオブジェクトを使用して、指定した位置に指定したテキスト文字列を描画します。</summary>
+      <param name="s">描画する文字列</param>
+      <param name="font">文字列の書式を定義するFontオブジェクト</param>
+      <param name="brush">描画するテキストの色とテクスチャを決定するBrushオブジェクト</param>
+      <param name="x">描画するテキストの左上隅のx座標</param>
+      <param name="y">描画するテキストの左上隅のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.Save">
+      <summary>現在の結果を保存します。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.Restore(System.Object)">
+      <summary>状態を復元する</summary>
+      <param name="state"></param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Single,System.Single,System.Drawing.StringFormat)">
+      <summary>指定したBrushオブジェクトとFontオブジェクト、および指定したStringFormatオブジェクトの書式属性を使用して、指定した位置に指定したテキスト文字列を描画します。</summary>
+      <param name="s">描画する文字列</param>
+      <param name="font">文字列の書式を定義するFontオブジェクト</param>
+      <param name="brush">描画するテキストの色とテクスチャを決定するBrushオブジェクト</param>
+      <param name="x">描画するテキストの左上隅のx座標</param>
+      <param name="y">描画するテキストの左上隅のy座標</param>
+      <param name="format">描画するテキストに適用する書式属性（行間隔や配置など）を指定するStringFormatオブジェクト</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Single,System.Single)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="x">描画する画像の左上隅のx座標</param>
+      <param name="y">描画する画像の左上隅のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Int32,System.Int32)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="x">描画する画像の左上隅のx座標</param>
+      <param name="y">描画する画像の左上隅のy座標</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.Point)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="point">描画する画像の左上隅の位置を表すPoint構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.PointF)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="point">描画する画像の左上隅の位置を表すPoint構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Boolean)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="x">描画する画像の左上隅のx座標</param>
+      <param name="y">描画する画像の左上隅のy座標</param>
+      <param name="keepTransparency">画像の透過性を維持するかどうかを示します。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Int32,System.Int32,System.Boolean)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="x">描画する画像の左上隅のx座標</param>
+      <param name="y">描画する画像の左上隅のy座標</param>
+      <param name="keepTransparency">画像の透過性を維持するかどうかを示します。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.Point,System.Boolean)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="point">描画する画像の左上隅の位置を表すPoint構造体</param>
+      <param name="keepTransparency">画像の透過性を維持するかどうかを示します。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.PointF,System.Boolean)">
+      <summary>そのオリジナルの物理サイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="point">描画する画像の左上隅の位置を表すPoint構造体</param>
+      <param name="keepTransparency">画像の透過性を維持するかどうかを示します。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.Rectangle)">
+      <summary>指定したサイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="rectangle">描画する画像の位置とサイズを指定するRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.RectangleF)">
+      <summary>指定したサイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="rectangle">描画する画像の位置とサイズを指定するRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.DrawImage(System.Drawing.Image,System.Drawing.RectangleF,System.Boolean)">
+      <summary>指定したサイズを使用して、指定した位置に指定したImageオブジェクトを描画します。</summary>
+      <param name="image">描画するImageオブジェクト</param>
+      <param name="rectangle">描画する画像の位置とサイズを指定するRectangle構造体</param>
+      <param name="keepTransparency">画像の透過性を維持するかどうかを示します。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillClosedCurve(System.Drawing.Brush,System.Drawing.Point[])">
+      <summary>Point構造体の配列によって定義された、閉じたカーディナルスプライン曲線の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillClosedCurve(System.Drawing.Brush,System.Drawing.PointF[])">
+      <summary>PointF構造体の配列によって定義された、閉じたカーディナルスプライン曲線の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillClosedCurve(System.Drawing.Brush,System.Drawing.Point[],System.Drawing.Drawing2D.FillMode)">
+      <summary>指定した塗りつぶしモードを使用して、Point構造体の配列によって定義された、閉じたカーディナルスプライン曲線の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+      <param name="fillmode">曲線の塗りつぶし方法を決定するFillMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillClosedCurve(System.Drawing.Brush,System.Drawing.PointF[],System.Drawing.Drawing2D.FillMode)">
+      <summary>指定した塗りつぶしモードを使用して、PointF構造体の配列によって定義された、閉じたカーディナルスプライン曲線の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+      <param name="fillmode">曲線の塗りつぶし方法を決定するFillMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillClosedCurve(System.Drawing.Brush,System.Drawing.Point[],System.Drawing.Drawing2D.FillMode,System.Single)">
+      <summary>指定した塗りつぶしモードと曲率を使用して、Point構造体の配列によって定義された、閉じたカーディナルスプライン曲線の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">スプラインを定義するPoint構造体の配列</param>
+      <param name="fillmode">曲線の塗りつぶし方法を決定するFillMode列挙体のメンバ</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillClosedCurve(System.Drawing.Brush,System.Drawing.PointF[],System.Drawing.Drawing2D.FillMode,System.Single)">
+      <summary>指定した塗りつぶしモードと曲率を使用して、PointF構造体の配列によって定義された、閉じたカーディナルスプライン曲線の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">スプラインを定義するPointF構造体の配列</param>
+      <param name="fillmode">曲線の塗りつぶし方法を決定するFillMode列挙体のメンバ</param>
+      <param name="tension">曲線の曲率を指定する0.0F以上の値</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillEllipse(System.Drawing.Brush,System.Drawing.Rectangle)">
+      <summary>座標のペア、幅、および高さによって指定された境界矩形によって定義される楕円の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="rectangle">楕円を定義する境界矩形を表すRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillEllipse(System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>座標のペア、幅、および高さによって指定された境界矩形によって定義される楕円の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="rectangle">楕円を定義する境界矩形を表すRectangleF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillEllipse(System.Drawing.Brush,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>座標のペア、幅、および高さによって指定された境界矩形によって定義される楕円の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">楕円を定義する境界矩形の幅</param>
+      <param name="height">楕円を定義する境界矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillEllipse(System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された境界矩形によって定義される楕円の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">楕円を定義する境界矩形の幅</param>
+      <param name="height">楕円を定義する境界矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPie(System.Drawing.Brush,System.Drawing.Rectangle,System.Single,System.Single)">
+      <summary>Rectangle構造体によって指定された楕円と2本の放射状の線によって定義されるパイ形状の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="rectangle">パイ形状の基となる楕円を定義する境界矩形を表すRectangle構造体</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPie(System.Drawing.Brush,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された楕円と2本の放射状の線によって定義されるパイ形状の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">パイ形状の基となる楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">パイ形状の基となる楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">パイ形状の基となる楕円を定義する境界矩形の幅</param>
+      <param name="height">パイ形状の基となる楕円を定義する境界矩形の高さ</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPie(System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された楕円と2本の放射状の線によって定義されるパイ形状の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">パイ形状の基となる楕円を定義する境界矩形の左上隅のx座標</param>
+      <param name="y">パイ形状の基となる楕円を定義する境界矩形の左上隅のy座標</param>
+      <param name="width">パイ形状の基となる楕円を定義する境界矩形の幅</param>
+      <param name="height">パイ形状の基となる楕円を定義する境界矩形の高さ</param>
+      <param name="startAngle">x軸からパイ形状の1つ目の辺までの、時計回りの角度（°単位）</param>
+      <param name="sweepAngle">startAngleパラメーターからパイ形状の2つ目の辺までの、時計回りの角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillRectangle(System.Drawing.Brush,System.Drawing.Rectangle)">
+      <summary>Rectangle構造体によって指定された矩形の内部を塗りつぶします。塗りつぶし領域はFillMode.Alternateによって決定されます。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="rectangle">塗りつぶす矩形を表すRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillRectangle(System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>Rectangle構造体によって指定された矩形の内部を塗りつぶします。塗りつぶし領域はFillMode.Alternateによって決定されます。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="rectangle">塗りつぶす矩形を表すRectangleF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillRectangle(System.Drawing.Brush,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>座標のペア、幅、および高さによって指定された矩形の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">塗りつぶす矩形の左上隅のx座標</param>
+      <param name="y">塗りつぶす矩形の左上隅のy座標</param>
+      <param name="width">塗りつぶす矩形の幅</param>
+      <param name="height">塗りつぶす矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillRectangle(System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された矩形の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">塗りつぶす矩形の左上隅のx座標</param>
+      <param name="y">塗りつぶす矩形の左上隅のy座標</param>
+      <param name="width">塗りつぶす矩形の幅</param>
+      <param name="height">塗りつぶす矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillRectangle(System.Drawing.Color,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標のペア、幅、および高さによって指定された矩形の内部を塗りつぶします。</summary>
+      <param name="fillColor">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="x">塗りつぶす矩形の左上隅のx座標</param>
+      <param name="y">塗りつぶす矩形の左上隅のy座標</param>
+      <param name="width">塗りつぶす矩形の幅</param>
+      <param name="height">塗りつぶす矩形の高さ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPolygon(System.Drawing.Brush,System.Drawing.Point[])">
+      <summary>Point構造体によって指定された点の配列によって定義される多角形の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">塗りつぶす多角形の頂点を表すPoint構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPolygon(System.Drawing.Brush,System.Drawing.PointF[])">
+      <summary>Point構造体によって指定された点の配列によって定義される多角形の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">塗りつぶす多角形の頂点を表すPointF構造体の配列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPolygon(System.Drawing.Brush,System.Drawing.Point[],System.Drawing.Drawing2D.FillMode)">
+      <summary>指定した塗りつぶしモードを使用して、Point構造体によって指定された点の配列によって定義される多角形の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">塗りつぶす多角形の頂点を表すPoint構造体の配列</param>
+      <param name="fillmode">塗りつぶしのスタイルを決定するFillMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.FillPolygon(System.Drawing.Brush,System.Drawing.PointF[],System.Drawing.Drawing2D.FillMode)">
+      <summary>指定した塗りつぶしモードを使用して、Point構造体によって指定された点の配列によって定義される多角形の内部を塗りつぶします。</summary>
+      <param name="brush">塗りつぶしの特性を決定するBrushオブジェクト</param>
+      <param name="points">塗りつぶす多角形の頂点を表すPoint構造体の配列</param>
+      <param name="fillmode">塗りつぶしのスタイルを決定するFillMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.Drawing2D.GraphicsPath)">
+      <summary>このGraphicsオブジェクトのクリップ領域を、指定したGraphicsPathオブジェクトに設定します。</summary>
+      <param name="path">新しいクリップ領域を表すGraphicsPathオブジェクト</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.Rectangle)">
+      <summary>このGraphicsオブジェクトのクリップ領域を、Rectangle構造体によって指定された矩形に設定します。</summary>
+      <param name="rectangle">新しいクリップ領域を表すRectangle構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.RectangleF)">
+      <summary>このGraphicsオブジェクトのクリップ領域を、RectangleF構造体によって指定された矩形に設定します。</summary>
+      <param name="rectangle">新しいクリップ領域を表すRectangleF構造体</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.Drawing2D.GraphicsPath,System.Drawing.Drawing2D.CombineMode)">
+      <summary>このGraphicsオブジェクトのクリップ領域を、現在のクリップ領域と指定したGraphicsPathオブジェクトに対して指定した結合操作を実行した結果に設定します。</summary>
+      <param name="path">新しいクリップ領域を表すGraphicsPathオブジェクト</param>
+      <param name="mode">使用する結合操作を指定するCombineMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.Rectangle,System.Drawing.Drawing2D.CombineMode)">
+      <summary>このGraphicsオブジェクトのクリッピング領域を、現在のクリッピング領域とRectangle構造体によって指定された矩形に対して指定した結合操作を実行した結果に設定します。</summary>
+      <param name="rectangle">結合するRectangle構造体</param>
+      <param name="mode">使用する結合操作を指定するCombineMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.RectangleF,System.Drawing.Drawing2D.CombineMode)">
+      <summary>このGraphicsオブジェクトのクリッピング領域を、現在のクリッピング領域とRectangleF構造体によって指定された矩形に対して指定した結合操作を実行した結果に設定します。</summary>
+      <param name="rectangle">結合するRectangleF構造体</param>
+      <param name="mode">使用する結合操作を指定するCombineMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip``1(``0)">
+      <summary>clipDataに基づいてクリップを動的に設定します。</summary>
+      <typeparam name="T">現在この関数でサポートされているのは、Rectangle、RectangleF、Point[]、PointF[]です。</typeparam>
+      <param name="clipData">クリップデータ。</param>
+      <remarks>この関数は内部でのみ使用されます。</remarks>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.SetClip(System.Drawing.Region,System.Drawing.Drawing2D.CombineMode)">
+      <summary>このGraphicsオブジェクトのクリッピング領域を、現在のクリッピング領域と指定したRegionオブジェクトに対して指定した結合操作を実行した結果に設定します。</summary>
+      <param name="region">結合するRegion構造体</param>
+      <param name="mode">使用する結合操作を指定するCombineMode列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.MultiplyTransform(System.Drawing.Drawing2D.Matrix)">
+      <summary>このGraphicsオブジェクトと指定したMatrixオブジェクトのワールド変換を乗算します。</summary>
+      <param name="matrix">ワールド変換を乗算する3x3のMatrixオブジェクト</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.MultiplyTransform(System.Drawing.Drawing2D.Matrix,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>このGraphicsオブジェクトと指定したMatrixオブジェクトのワールド変換を指定した順序で乗算します。</summary>
+      <param name="matrix">ワールド変換を乗算する3x3のMatrixオブジェクト</param>
+      <param name="order">乗算の順序を決定するMatrixOrder列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.RotateTransform(System.Single)">
+      <summary>このGraphicsオブジェクトの変換行列に、指定した回転を適用します。</summary>
+      <param name="angle">回転角度（°単位）</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.RotateTransform(System.Single,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>このGraphicsオブジェクトの変換行列に、指定した回転を指定した順序で適用します。</summary>
+      <param name="angle">回転角度（°単位）</param>
+      <param name="order">乗算の順序を決定するMatrixOrder列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.ScaleTransform(System.Single,System.Single)">
+      <summary>このGraphicsオブジェクトの変換行列の前に指定したスケーリング操作を付加することによって、この変換行列にスケーリング操作を適用します。</summary>
+      <param name="sx">x方向のスケーリング係数</param>
+      <param name="sy">y方向のスケーリング係数</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.ScaleTransform(System.Single,System.Single,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>このGraphicsオブジェクトの変換行列に、指定したスケーリング操作を指定した順序で適用します。</summary>
+      <param name="sx">x方向のスケーリング係数</param>
+      <param name="sy">y方向のスケーリング係数</param>
+      <param name="order">乗算の順序を決定するMatrixOrder列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.TranslateTransform(System.Single,System.Single)">
+      <summary>このGraphicsオブジェクトの変換行列の前に、指定した平行移動を付加します。</summary>
+      <param name="dx">平行移動のx成分</param>
+      <param name="dy">平行移動のy成分</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.TranslateTransform(System.Single,System.Single,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>このGraphicsオブジェクトの変換行列に、指定した平行移動を指定した順序で適用します。</summary>
+      <param name="dx">平行移動のx成分</param>
+      <param name="dy">平行移動のy成分</param>
+      <param name="order">乗算の順序を決定するMatrixOrder列挙体のメンバ</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.ResetTransform">
+      <summary>このGraphicsオブジェクトのワールド変換行列を単位行列にリセットします。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.ResetClip">
+      <summary>クリップボード操作をリセットします。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Graphics.Clip">
+      <summary>クリップボード操作を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Graphics.Transform">
+      <summary>このGraphicsオブジェクトのワールド変換を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Graphics.PageUnit">
+      <summary>このGraphicsオブジェクトでのページ座標に使用される単位を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Graphics.Dpi">
+      <summary>解像度（ドット/インチまたはピクセル/インチ）を取得または設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.Commit">
+      <summary>保存されているすべての状態をクリアします。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Graphics.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.Matrix">
+      <summary>System.Drawing.Drawing2D.Matrixのラッパーを表します。これは、行列変換が実行されるたびにイベントを発生させます。</summary>
+    </member>
+    <member name="E:FarPoint.PDF.Drawing.Matrix.Transformed">
+      <summary>変換が実行されたときに発生します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.#ctor">
+      <summary>デフォルト値を使用して、新しい変換行列を作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+      <summary>指定したパラメーターを使用して、新しい変換行列を作成します。</summary>
+      <param name="m11">m11</param>
+      <param name="m12">m12</param>
+      <param name="m21">m21</param>
+      <param name="m22">m22</param>
+      <param name="dx">dx</param>
+      <param name="dy">dy</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.#ctor(System.Drawing.Drawing2D.Matrix)">
+      <summary>新しい変換行列を作成します。</summary>
+      <param name="matrix">行列</param>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.Elements">
+      <summary>要素を取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.IsIdentity">
+      <summary>変換が単位行列かどうかを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.IsInvertible">
+      <summary>変換が反転できるかどうかを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.OffsetX">
+      <summary>水平（X方向）のオフセットを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.OffsetY">
+      <summary>垂直（Y方向）のオフセットを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.TransformMatrix">
+      <summary>変換行列のクローンを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Clone">
+      <summary>クローンします。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Multiply(FarPoint.PDF.Drawing.Matrix)">
+      <summary>乗算します。</summary>
+      <param name="matrix">行列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Multiply(System.Drawing.Drawing2D.Matrix)">
+      <summary>乗算します。</summary>
+      <param name="matrix">行列</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Multiply(FarPoint.PDF.Drawing.Matrix,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>乗算します。</summary>
+      <param name="matrix">行列</param>
+      <param name="order">行列の順序</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Multiply(System.Drawing.Drawing2D.Matrix,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>乗算します。</summary>
+      <param name="matrix">行列</param>
+      <param name="order">行列の順序</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Reset">
+      <summary>リセットします。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Rotate(System.Single)">
+      <summary>回転します。</summary>
+      <param name="angle">回転角度</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Rotate(System.Single,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>回転します。</summary>
+      <param name="angle">回転角度</param>
+      <param name="order">行列の順序</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Scale(System.Single,System.Single)">
+      <summary>スケールします。</summary>
+      <param name="scaleX">水平方向（X方向）のスケール</param>
+      <param name="scaleY">垂直方向（Y方向）のスケール</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Scale(System.Single,System.Single,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>スケールします。</summary>
+      <param name="scaleX">水平方向（X方向）のスケール</param>
+      <param name="scaleY">垂直方向（Y方向）のスケール</param>
+      <param name="order">行列の順序</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Translate(System.Single,System.Single)">
+      <summary>平行移動します。</summary>
+      <param name="offsetX">水平方向（X方向）のオフセット</param>
+      <param name="offsetY">垂直方向（Y方向）のオフセット</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Translate(System.Single,System.Single,System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>平行移動します。</summary>
+      <param name="offsetX">水平方向（X方向）のオフセット</param>
+      <param name="offsetY">垂直方向（Y方向）のオフセット</param>
+      <param name="order">行列の順序</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Dispose">
+      <summary>マネージリソースを破棄して、リソースを解放します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Dispose(System.Boolean)">
+      <summary>マネージリソースを破棄します。</summary>
+      <param name="disposing">破棄するかどうか</param>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.Finalize">
+      <summary>このデストラクターは、Disposeメソッドが呼び出されない場合にのみ実行します。これは、基本クラスにファイナライズの機会を与えます。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.Matrix.TranformedEventArgs">
+      <summary>実行された変換と、変換のパラメーターを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Drawing.Matrix.TranformedEventArgs.#ctor(System.String,System.Object[],System.Drawing.Drawing2D.MatrixOrder)">
+      <summary>新しい変換イベント引数オブジェクトを作成します。</summary>
+      <param name="tranform">変換</param>
+      <param name="parameters">パラメーター</param>
+      <param name="order">行列の順序</param>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.TranformedEventArgs.TransformType">
+      <summary>変換の種類を取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.TranformedEventArgs.Parameters">
+      <summary>パラメーターを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Drawing.Matrix.TranformedEventArgs.Order">
+      <summary>行列の順序を取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Drawing.Matrix.TransformEventHandler">
+      <summary>Transformイベントを処理する定義済みメソッドを表します。</summary>
+    </member><!-- Badly formed XML comment ignored for member "F:FarPoint.PDF.PdfEncryption.x" --> <!-- Badly formed XML comment ignored for member "F:FarPoint.PDF.PdfEncryption.y" --><member name="T:FarPoint.PDF.PdfSecurity">
+      <summary>PDF文書にセキュリティと暗号化を提供するために必要な情報を格納します。</summary>
+      <remarks>文書を開くパスワードが設定されている場合には、ビューワー（アプリケーション）はパスワードを要求する必要があります。文書にパスワードが設定されていない場合には、文書を開く際にパスワードは要求されません。文書を開くパスワード、または権限パスワードを正しく設定することで、ユーザーは、文書を開き、暗号化を解除し、画面に表示できるようになります。暗号化が解除された文書に対して許可される操作は、文書を開くときに使用したパスワード、および、このクラスの<see cref="P:FarPoint.PDF.PdfSecurity.Permissions" />プロパティで指定された権限によって決まります。</remarks>
+    </member>
+    <member name="M:FarPoint.PDF.PdfSecurity.#ctor(System.String,System.String,FarPoint.PDF.PdfPermissions)">
+      <summary>指定されたパスワード、および権限により<see cref="T:FarPoint.PDF.PdfSecurity" />クラスのインスタンスを生成します。</summary>
+      <param name="ownerPassword">入力された場合、閲覧者に文書への無制限のアクセスを許可するパスワード。</param>
+      <param name="userPassword">入力された場合、閲覧者にこのクラスの<see cref="P:FarPoint.PDF.PdfSecurity.Permissions" />プロパティで指定された権限を許可するパスワード。</param>
+      <param name="permissions">このオブジェクトに初期設定する<see cref="P:FarPoint.PDF.PdfSecurity.Permissions" />プロパティの値。</param>
+    </member>
+    <member name="M:FarPoint.PDF.PdfSecurity.#ctor(System.String,System.String)">
+      <summary>指定されたパスワード、およびデフォルトの権限により<see cref="T:FarPoint.PDF.PdfSecurity" />クラスのインスタンスを生成します。デフォルトでは、すべての権限が許可されます。</summary>
+      <param name="ownerPassword">入力された場合、閲覧者に文書への無制限のアクセスを許可するパスワード。</param>
+      <param name="userPassword">入力された場合、閲覧者にこのクラスの<see cref="P:FarPoint.PDF.PdfSecurity.Permissions" />プロパティで指定された権限を許可するパスワード。</param>
+    </member>
+    <member name="M:FarPoint.PDF.PdfSecurity.#ctor(System.String)">
+      <summary>指定されたパスワード、およびデフォルトの権限により<see cref="T:FarPoint.PDF.PdfSecurity" />クラスのインスタンスを生成します。デフォルトでは、すべての権限が許可されます。</summary>
+      <param name="ownerPassword">入力された場合、閲覧者に文書への無制限のアクセスを許可するパスワード。</param>
+    </member>
+    <member name="P:FarPoint.PDF.PdfSecurity.OwnerPassword">
+      <summary>ユーザーに許可された権限に関わらず、文書への完全な権限を許可する権限パスワード。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.PdfSecurity.UserPassword">
+      <summary>リーダーで入力可能な文書を開くパスワード。この値が空の場合、ユーザーはパスワードを要求されません。ただし、ユーザーは、指定された権限に限定されます。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.PdfSecurity.Permissions">
+      <summary>文書に対してユーザーに許可する権限を指定します。<see cref="T:FarPoint.PDF.PdfPermissions" />　列挙体の値はビットごとのOR演算で複数、指定できます。</summary>
+      <remarks>デフォルトでは全ての権限が設定され、許可されます。</remarks>
+    </member>
+    <member name="P:FarPoint.PDF.PdfSecurity.Use128Bit">
+      <summary>128bit暗号化を使用して全ての権限を有効にするにはTrueに設定します。限られた権限を40bit暗号化で使用するにはFalseを設定します。 <see cref="F:FarPoint.PDF.PdfPermissions.AllowFillIn" />、<see cref="F:FarPoint.PDF.PdfPermissions.AllowAccessibleReaders" />、および<see cref="F:FarPoint.PDF.PdfPermissions.AllowAssembly" />権限は、この値をTrueに設定する必要があります。</summary>
+      <remarks>デフォルトではTrueです。</remarks>
+    </member>
+    <member name="T:FarPoint.PDF.PdfPermissions">
+      <summary>PDF文書で有効な権限を指定します。これらの値は、ビットごとのOR演算で複数、指定できます。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.None">
+      <summary>ユーザーアクセスが許可されている文書を開いたときにその文書の印刷を許可します。これはリビジョン2のパーミッションです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowPrint">
+      <summary>ユーザーアクセスが許可されている文書を開いたときにその文書の印刷を許可します。これはリビジョン2のパーミッションです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowModifyContents">
+      <summary>ユーザーのアクセス権限で文書が開かれた場合、文書の変更を許可します。注釈の追加または修正は、この権限に関わらず可能です。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowCopy">
+      <summary>ユーザーアクセスが許可されている文書を開いたときにその文書のテキストまたは画像のコピーを許可します。これはリビジョン2のパーミッションです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowModifyAnnotations">
+      <summary>ユーザーアクセスが許可されている文書を開いたときにその文書への注釈の追加または既存の注釈の修正を許可します。これはリビジョン2またはリビジョン3のパーミッションです。リビジョン3では、ビット10（AllowAccessibleReaders）で指定されている場合を除き、文書の内容のコピー/貼り付けは制限されます。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowFillIn">
+      <summary>ユーザーアクセスが許可されている文書を開いたときにその文書のフォームフィールドへの入力を許可します。これはリビジョン3のみのパーミッションです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowAccessibleReaders">
+      <summary>ユーザーのアクセス権限で文書が開かれた場合、文書のテキストおよび画像をアクセシビリティのために抽出することを許可します（まれにアクセシビリティ以外の目的での「画面の読み上げ」の可能性も考えられます）。この権限を設定するには、<see cref="P:FarPoint.PDF.PdfSecurity.Use128Bit" />プロパティをTrueに設定する必要があります。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.AllowAssembly">
+      <summary>ユーザーアクセスが許可されている文書を開いたときに次の操作を許可します。ページの挿入/回転/削除、ブックマークまたはサムネイル画像の作成。これらはAllowModifyContentsがfalseの場合でも許可されます。これはリビジョン3のみのパーミッションです。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.PdfPermissions.All">
+      <summary>すべてを許可します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception">
+      <summary>例外を表します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.enum_Code">
+      <summary>例外を発生させたエラーの種類を指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.enum_Code.ErrNotTrueTypeFont">
+      <summary>フォントがTrueTypeフォントでないことが原因で例外が発生しました。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.enum_Code.ErrIncorrectFlateStream">
+      <summary>データストリームが正しくない（拡張または収縮している）ことが原因で例外が発生しました。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.enum_Code.ErrIncorrectFontData">
+      <summary>フォントデータが正しくないことが原因で例外が発生しました。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.enum_Code.ErrAlreadyProcess">
+      <summary>すでに処理中であることが原因で例外が発生しました。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.enum_Code.ErrUnrecognizedImageFormat">
+      <summary>認識できない画像形式が原因で例外が発生しました。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.enum_Code.ErrOwnerPassword">
+      <summary>パスワードがnullまたは長さを超過したことが原因で例外が発生しました。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Exception.ErrorCode">
+      <summary>エラーコードを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.m_ErrorCode">
+      <summary>エラーコードを設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Exception.Message">
+      <summary>エラーメッセージを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Exception.m_Message">
+      <summary>エラーメッセージを設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.ErrIncorrectFontData">
+      <summary>フォントデータが正しくないことが原因で発生した例外を処理します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.ErrAlreadyProcess">
+      <summary>すでに処理中であることが原因で発生した例外を処理します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.ErrUnrecognizedImageFormat">
+      <summary>認識できない画像形式が原因で発生した例外を処理します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.ErrIncorrectFlateStream">
+      <summary>データストリームが正しくない（拡張または収縮している）ことが原因で発生した例外を処理します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.ErrOwnerPassword">
+      <summary>パスワードがnullまたは長さを超過したことが原因で発生した例外を処理します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Exception.ErrUserPassword">
+      <summary>パスワードがnullまたは長さを超過したことが原因で発生した例外を処理します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ImageObject">
+      <summary>PDF文書内の画像を表します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.Name">
+      <summary>画像オブジェクトの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.Width">
+      <summary>元の画像の幅を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.Height">
+      <summary>元の画像の高さを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.ColorSpace">
+      <summary>画像の色空間を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.BPC">
+      <summary>階調（成分あたりのビット数）を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.EmbedFormat">
+      <summary>画像埋め込み形式を取得または設定します。これは元の画像の種類とは異なる場合があります。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ImageObject.BaseImage">
+      <summary>基になる画像を取得または設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.#ctor(System.Drawing.Image,FarPoint.PDF.Objects.PDFObjectCollection)">
+      <summary>画像オブジェクトを初期化します。</summary>
+      <param name="image">使用する画像</param>
+      <param name="objs">ページ内のPDFオブジェクトのコレクション</param>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.#ctor(System.Drawing.Image,FarPoint.PDF.Objects.PDFObjectCollection,System.Boolean)">
+      <summary>画像オブジェクトを初期化します。</summary>
+      <param name="image">使用する画像</param>
+      <param name="objs">ページ内のPDFオブジェクトのコレクション</param>
+      <param name="keepTransparent">画像オブジェクトはBMPタイプを使用してピクセルの透過性を保持しようとします。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.Equals(System.Object)">
+      <summary>画像オブジェクトが指定したオブジェクトと等しいかどうかを判定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.GetHashCode">
+      <summary>ハッシュコードを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.GetFormat(System.Drawing.Image)">
+      <summary>画像の画像形式を返します。</summary>
+      <param name="image">使用する画像</param>
+      <remarks>デフォルトでは、BMPとGIF以外の画像はすべてJPEG形式で埋め込まれます。</remarks>
+      <returns>画像の種類</returns>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.ResaveImageMemory(System.Drawing.Image,System.IO.Stream,FarPoint.PDF.Objects.ImageObject.ImageType)">
+      <summary>画像オブジェクトを指定した形式でメモリに保存します。</summary>
+      <param name="image">保存する画像</param>
+      <param name="ostr">出力ストリーム</param>
+      <param name="format">保存する形式</param>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ImageObject.UpdateImageData(System.IO.Stream)">
+      <summary>画像データを更新します。</summary>
+      <param name="istr">画像ストリーム</param>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ImageObject.ImageType">
+      <summary>サポートされている画像の種類を指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageType.JPEG">
+      <summary>[0] JPEG画像タイプ</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageType.GIF">
+      <summary>[1] GIF画像タイプ</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageType.BMP">
+      <summary>[2] BMP画像タイプ</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ImageObject.IImageHelper">
+      <summary>Image Decoderクラスのために定義されたインタフェース。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ImageObject.ImageParameters">
+      <summary>画像パラメーターを表します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.width">
+      <summary>画像の幅を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.height">
+      <summary>画像の高さを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.colorspace">
+      <summary>画像の色空間を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.bpc">
+      <summary>画像の成分あたりのビット数（BPC）を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.type">
+      <summary>画像の種類を設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.streamLength">
+      <summary>画像ストリームの長さを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.data">
+      <summary>データを設定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ImageObject.ImageParameters.TransparentIndex">
+      <summary>画像の透過インデックスを設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ObjectBase">
+      <summary>基本オブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ObjectBase.CloneTo(FarPoint.PDF.Objects.ObjectBase)">
+      <summary>指定したオブジェクトをクローンします。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ObjectBase.Number">
+      <summary>数字のIDを取得または設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PDFObject">
+      <summary>PDFの基本オブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.#ctor">
+      <summary>PDFオブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.Commit">
+      <summary>コミットします。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.Number">
+      <summary>番号を取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.Value">
+      <summary>値を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.Dictionary">
+      <summary>ディクショナリーを取得または設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PDFObject.ReferenceObject">
+      <summary>参照オブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.ReferenceObject.#ctor">
+      <summary>新しい参照オブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.ReferenceObject.#ctor(FarPoint.PDF.Objects.PDFObject)">
+      <summary>新しい参照オブジェクトを作成します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.ReferenceObject.Object">
+      <summary>PDFオブジェクトを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.PDFObject.ReferenceObject.m_Object">
+      <summary>PDFオブジェクトを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PDFObject.ArrayObject">
+      <summary>配列オブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.ArrayObject.#ctor">
+      <summary>新しい配列オブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.ArrayObject.#ctor(System.Object[])">
+      <summary>新しい配列オブジェクトを作成します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.ArrayObject.Values">
+      <summary>値の配列リストを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PDFObject.StringObject">
+      <summary>文字列オブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.StringObject.#ctor">
+      <summary>新しい文字列オブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.StringObject.#ctor(System.String,System.Int32)">
+      <summary>新しい文字列オブジェクトを作成します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.StringObject.Value">
+      <summary>値を取得または設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PDFObject.DictionaryObject">
+      <summary>ディクショナリーオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.DictionaryObject.#ctor">
+      <summary>新しいディクショナリーオブジェクトを作成します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.DictionaryObject.Item(System.String)">
+      <summary>値を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.DictionaryObject.Keys">
+      <summary>キーのコレクションを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.DictionaryObject.Remove(System.String)">
+      <summary>コレクションからキーを削除します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.DictionaryObject.ContainsKey(System.String)">
+      <summary>コレクションに指定したキーが含まれるかどうかを返します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObject.DictionaryObject.Clear">
+      <summary>コレクション全体をクリアします。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObject.DictionaryObject.Number">
+      <summary>番号を取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.BinaryStreamObject">
+      <summary>バイナリストリームオブジェクトを表します。</summary>
+      <remarks>このクラスは、GIF画像の色空間をUnicodeストリームとして格納するために使用されます。このクラスが必要な理由は、デフォルトのストリームにはASCII形式の値しか格納されないためです。</remarks>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.BinaryStreamObject.#ctor">
+      <summary>新しいバイナリストリームオブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.BinaryStreamObject.#ctor(System.Byte[])">
+      <summary>新しいバイナリストリームオブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.BinaryStreamObject.Commit">
+      <summary>コミットします。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.StreamObject">
+      <summary>ストリームオブジェクトを表します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.StreamObject.enum_FilterType">
+      <summary>画像特有のフィルタの種類を指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.StreamObject.enum_FilterType.Raw">
+      <summary>[0] 生データ。フィルタは使用されません。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.StreamObject.enum_FilterType.Flate">
+      <summary>フラットフィルタが使用されます。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.StreamObject.enum_FilterType.DCTDecode">
+      <summary>DTCDecodeフィルタが使用されます（JPEG規格に基づく不可逆フィルタ）。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.StreamObject.#ctor">
+      <summary>新しいストリームオブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.StreamObject.GetStream">
+      <summary>ストリームを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.StreamObject.GetStreamLength">
+      <summary>ストリームの長さを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.StreamObject.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.StreamObject.Commit">
+      <summary>コミットします。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.StreamObject.FilterType">
+      <summary>画像フィルタの種類を取得または設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PDFObjectCollection">
+      <summary>PDFオブジェクトのコレクションを表します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObjectCollection.Item(System.Int32)">
+      <summary>PDFオブジェクトを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObjectCollection.Version">
+      <summary>バージョンを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PDFObjectCollection.VersionNumver">
+      <summary>バージョン番号を取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObjectCollection.Add(FarPoint.PDF.Objects.PDFObject)">
+      <summary>PDFオブジェクトをコレクションに追加します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObjectCollection.Remove(FarPoint.PDF.Objects.PDFObject)">
+      <summary>PDFオブジェクトをコレクションから削除します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObjectCollection.FindObject(System.Type)">
+      <summary>PDFオブジェクトを検索します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObjectCollection.FindObjects(System.Type)">
+      <summary>PDFオブジェクトの配列を検索します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PDFObjectCollection.Numbering">
+      <summary>PDFオブジェクトの数をカウントします。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.FontObject">
+      <summary>フォントオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.FontObject.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.FontObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.CurrentOrdering">
+      <summary>順序付けを設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.FontObject.LoadFontData(System.Boolean)">
+      <summary>フォントデータをロードします。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.FontObject.SetFontData">
+      <summary>フォントデータを設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.FontObject.Commit">
+      <summary>コミットします。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.FontObject.Name">
+      <summary>名前を取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.m_Name">
+      <summary>名前を設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.FontObject.FontName">
+      <summary>フォント名を取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.m_FontName">
+      <summary>フォント名を設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.FontObject.BaseLine">
+      <summary>ベースラインを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.m_BaseLine">
+      <summary>ベースラインを設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.FontObject.Descent">
+      <summary>ディセントを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.m_Descent">
+      <summary>ディセントを設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.FontObject.IsStandardFont">
+      <summary>フォントが標準フォントかどうかを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.m_StandardFont">
+      <summary>フォントが標準フォントかどうかを設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.FontObject.Embed">
+      <summary>埋め込みを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.FontObject.m_Embed">
+      <summary>埋め込みを設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.FontObject.GetGlyphIndex(System.Char,System.Int32@)">
+      <summary>グリフインデックスを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.InfoObject">
+      <summary>情報オブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.InfoObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.InfoObject.Title">
+      <summary>タイトルを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.InfoObject.Author">
+      <summary>作者を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.InfoObject.Subject">
+      <summary>サブタイトルを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.InfoObject.Creator">
+      <summary>作成者を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.InfoObject.Producer">
+      <summary>生成者を取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.InfoObject.CreationDate">
+      <summary>作成日を取得または設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.InfoObject.Get(System.String)">
+      <summary>文字列を取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.InfoObject.Set(System.String,System.Object)">
+      <summary>文字列を設定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PageObject">
+      <summary>PDFオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PageObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PageObject.PaperSize">
+      <summary>用紙サイズを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PageObject.Content">
+      <summary>コンテンツオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PageObject.Resource">
+      <summary>リソースオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PageObject.Parent">
+      <summary>ページオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PageObject.GetGraphics">
+      <summary>グラフィックを取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PageObject.GetGraphics(System.Drawing.Graphics)">
+      <summary>グラフィックを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.PageObject.m_Objects">
+      <summary>オブジェクトのコレクションを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.RootObject">
+      <summary>ルートオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.RootObject.#ctor">
+      <summary>新しいルートオブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.RootObject.#ctor(FarPoint.PDF.Objects.PagesObject)">
+      <summary>新しいルートオブジェクトを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.RootObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ContentObject">
+      <summary>コンテンツオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ContentObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ContentObject.Commit">
+      <summary>コミットします。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ContentObject.Dispose">
+      <summary>リソースを破棄します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ContentObject.Writer">
+      <summary>テキストライターを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ContentObject.m_Writer">
+      <summary>テキストライターを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ContentObject.m_Page">
+      <summary>ページオブジェクトを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PatternObject">
+      <summary>TextureBrushオブジェクトを使用して作成されたタイリングパターンを表します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PatternObject.Name">
+      <summary>名前を取得または設定します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PatternObject.Equals(System.Object)">
+      <summary>オブジェクトが指定したオブジェクトと等しいかどうかを返します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PatternObject.GetHashCode">
+      <summary>ハッシュコードを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.PagesObject">
+      <summary>ページオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PagesObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PagesObject.PaperSize">
+      <summary>用紙サイズを取得または設定します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PagesObject.Count">
+      <summary>ページ数を取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PagesObject.Item(System.Int32)">
+      <summary>ページオブジェクトを取得します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.PagesObject.AllowEmbedExternalFont">
+      <summary>外部フォントをPDFファイルに埋め込めるかどうかを示す値を取得または設定します。</summary>
+      <value>外部フォントをPDFファイルに埋め込める場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PagesObject.CreatePage">
+      <summary>ページを作成します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.PagesObject.Add(FarPoint.PDF.Objects.PageObject)">
+      <summary>ページを追加します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.PagesObject.m_Objects">
+      <summary>オブジェクトのコレクションを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.PagesObject.m_Pages">
+      <summary>ページの配列を取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.PagesObject.m_ResourceManager">
+      <summary>リソースマネージャを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.Objects.ResourcesObject">
+      <summary>リソースオブジェクトを表します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Objects.ResourcesObject.ToString">
+      <summary>文字列に変換します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.Objects.ResourcesObject.AllowEmbedExternalFont">
+      <summary>外部フォントをPDFファイルに埋め込めるかどうかを示す値を取得または設定します。</summary>
+      <value>外部フォントをPDFファイルに埋め込める場合は<c>true</c>、それ以外の場合は<c>false</c>。</value>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ResourcesObject.ResourceManager">
+      <summary>リソースマネージャを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ResourcesObject.m_UseFont">
+      <summary>フォントのハッシュテーブルを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ResourcesObject.m_FontDic">
+      <summary>フォントディクショナリーを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ResourcesObject.m_ImageDic">
+      <summary>画像ディクショナリーを取得します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.Objects.ResourcesObject.m_PatternDic">
+      <summary>パターンディクショナリーを取得します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.SupportedProduct">
+      <summary>サポートされている製品を指定する列挙体を示します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.SupportedProduct.SpreadWin">
+      <summary>SpreadWin 製品の対応を指定します。</summary>
+    </member>
+    <member name="F:FarPoint.PDF.SupportedProduct.SpreadWeb">
+      <summary>SpreadWeb 製品の対応を指定します。</summary>
+    </member>
+    <member name="T:FarPoint.PDF.ISupportedProduct">
+      <summary>サポートされている製品を指定する方法を表すインタフェースを示します。</summary>
+    </member>
+    <member name="P:FarPoint.PDF.ISupportedProduct.Product">
+      <summary>対応されている製品を指定する SupportedProduct の値を示す列挙体の値を取得します。</summary>
+    </member>
+    <member name="M:FarPoint.PDF.Writer.#ctor(FarPoint.PDF.Document,System.IO.Stream,FarPoint.PDF.PdfSecurity)">
+      <summary>指定した設定を使用して、新しいWriterオブジェクトを作成します。</summary>
+      <param name="doc">ドキュメント。</param>
+      <param name="strm">ストリーム。</param>
+      <param name="security">PDFセキュリティ情報。</param>
+    </member>
+    <member name="M:FarPoint.PDF.Writer.Write(FarPoint.PDF.Document,System.IO.Stream,FarPoint.PDF.PdfSecurity)">
+      <summary>指定したセキュリティ情報を使用して、指定したドキュメントをストリームに書き込みます。</summary>
+      <param name="doc">印刷するドキュメント</param>
+      <param name="strm">ストリーム。</param>
+      <param name="security">PDFセキュリティ情報。</param>
+    </member>
+  </members>
+</doc>

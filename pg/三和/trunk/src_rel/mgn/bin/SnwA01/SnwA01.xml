@@ -1,0 +1,588 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SnwA01
+</name>
+</assembly>
+<members>
+<member name="T:SnwA01.My.Resources.Resources">
+<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member>
+<member name="P:SnwA01.My.Resources.Resources.ResourceManager">
+<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member>
+<member name="P:SnwA01.My.Resources.Resources.Culture">
+<summary>
+  すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member>
+<member name="T:SnwA01.clsLoginControl">
+ <summary>
+///////////////////////////
+ログイン制御クラス
+///////////////////////////
+Ver.1.00           '2018.03.26     新設 
+ </summary>
+</member>
+<member name="T:SnwA01.DBStd">
+ <summary>
+ ADODB VERSION
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2002.05.03     SQLDateRange '9999/12/31'対応
+ Ver.1.02           '2002.09.19     SQLIntRange 大小比較をINTに変換後比較
+ Ver.1.03           '2003.04.28     SQLCurRange 作成
+ Ver.1.04           '2003.06.18     SQLCurRange 不具合修正
+ Ver.1.05           '2005.03.03     SQLIntRange 大小比較をINTに変換だとｵｰﾊﾞｰﾌﾛｰになるのでclngにする
+ </summary>
+</member>
+<member name="T:SnwA01.DBStd.wsTypes">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:SnwA01.DBStd.DBOpen(System.String,ADODB.Connection@,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="Provider"></param>
+ <param name="Cn"></param>
+ <param name="ReturnErr"></param>
+ <returns>true: 正常終了、false:異常終了</returns>
+</member>
+<member name="M:SnwA01.DBStd.DBClose(ADODB.Connection@)">
+ <summary>
+ 
+ </summary>
+ <param name="Cn"></param>
+ <returns>true: 正常終了、false:異常終了</returns>
+</member>
+<member name="M:SnwA01.DBStd.GetErrorDetails(ADODB.Connection)">
+ <summary>
+ 発生しているエラーを Public ErrorDetails にセットし、その内容を文字列で返します
+ </summary>
+ <param name="Cn"></param>
+ <returns>String</returns>
+</member>
+<member name="M:SnwA01.DBStd.OpenRs(System.String,ADODB.Connection,ADODB.CursorTypeEnum,ADODB.LockTypeEnum,System.Int32)">
+ <summary>
+ レコードを開く
+ </summary>
+ <param name="Source"></param>
+ <param name="Cn"></param>
+ <param name="CursorType"></param>
+ <param name="LockType"></param>
+ <param name="Options"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.ReleaseRs(ADODB.Recordset@)">
+ <summary>
+ 
+ </summary>
+ <param name="rs"></param>
+</member>
+<member name="M:SnwA01.DBStd.SQLIntRange(System.String,System.Object,System.Object,SnwA01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="TextFrom"></param>
+ <param name="TextTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLCurRange(System.String,System.Object,System.Object,SnwA01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="TextFrom"></param>
+ <param name="TextTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLQuoteString(System.Object)">
+ <summary>
+ 
+ </summary>
+ <param name="code"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLString(System.Object)">
+ <summary>
+ 文字列内のダブルクォーテーションチェックルーチン
+ 書式        st = SQLString(CODE)
+ </summary>
+ <param name="code"></param>
+ <returns>変換されたコード</returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLStringRange(System.String,System.Object,System.Object,SnwA01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="TextFrom"></param>
+ <param name="TextTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLDate(System.Object,SnwA01.DBStd.wsTypes)">
+ <summary>
+ 
+ </summary>
+ <param name="d"></param>
+ <param name="wsType"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLDateRange(System.String,System.Object,System.Object,SnwA01.DBStd.wsTypes,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="DateFrom"></param>
+ <param name="DateTo"></param>
+ <param name="wsType"></param>
+ <param name="CharJoin"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.SQLBetween(System.String,System.Object,System.Object,System.String,SnwA01.DBStd.wsTypes)">
+ <summary>
+ 
+ </summary>
+ <param name="FieldName"></param>
+ <param name="DateFrom"></param>
+ <param name="DateTo"></param>
+ <param name="Prefix"></param>
+ <param name="wsType"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.DBStd.DownloadRecords(ADODB.Recordset,ADODB.Recordset)">
+ <summary>
+ ダウンロードレコードセットと受信用レコードセットの双方に存在する同一名のフィールドについて
+ ダウンロードレコードセットからレコードを取り出し受信用レコードセットへ格納します
+ </summary>
+ <param name="SourceRs"></param>
+ <param name="ReceiveRs"></param>
+ <returns>0: 格納レコード数,-1: 一致するフィールド名がない</returns>
+</member>
+<member name="T:SnwA01.Snw_CM">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:SnwA01.Snw_CM.GetDates(System.String)">
+ <summary>
+ 更新日付を取得します。
+ </summary>
+ <param name="ID">更新日付名</param>
+ <returns>日付</returns>
+</member>
+<member name="M:SnwA01.Snw_CM.GetCountry">
+ <summary>
+ 国情報取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.Snw_CM.PrevInstance">
+ <summary>
+ 同名のプロセスが起動しているかどうかを示す値を返します。
+ </summary>
+ <returns>
+ プロセス起動判定結果(<c>Boolean</c>)
+ <c>True</c>:同名のプロセスが起動中
+ <c>False</c>:同名のプロセスは未起動
+ </returns>
+ <remarks></remarks>
+</member>
+<member name="T:SnwA01.spInterface">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwA01.StdLib">
+ <summary>
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2002.08.20     CurrentObjCaption 修正
+ Ver.1.02           '2002.09.19     SpcToNull NULLのチェックを追加
+ Ver.1.03           '2002.10.16     IsCheckNullでNULLの場合、Trim$がｴﾗｰになるのでTrimにする
+ Ver.1.04           '2002.10.16     CurrentObjCaption レポートでも使用するのでObject型に変更
+ Ver.1.05           '2003.05.16     OpenChildForm CloseMeを追加 ×使えない
+ Ver.1.06           '2003.09.30     GetDecimalFormat$を追加
+ Ver.1.07           '2003.10.03     CutTextを追加
+
+ Ver.1.11           '2012.07.25     AnsiLeftBがWin7だと泣き分かれを起こすので修正
+ Ver.1.12           '2012/10/09     AnsiLeftBの修正がおかしいので修正
+ </summary>
+</member>
+<member name="F:SnwA01.StdLib.HourGlassSwNest">
+ <summary>
+ マウスカーソルの変更回数カウント
+ </summary>
+</member>
+<member name="F:SnwA01.StdLib.MB_ICONMASK">
+ <summary>
+ メッセージボックス定数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.MessageBeep(System.Int32)">
+ <summary>
+ メッセージビープ関数の宣言
+ </summary>
+ <param name="uType"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwA01.StdLib.eFormMode">
+ <summary>
+ フォームモードの列挙型
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.BeepA">
+ <summary>
+ ビープ音を鳴らすサブルーチン
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.MSGbeep(System.Int32)">
+ <summary>
+ メッセージビープ音を鳴らすサブルーチン
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.BeepMsgBox(System.String,System.Int32,System.String)">
+ <summary>
+ ビープ音を鳴らし、メッセージボックスを表示する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.CurrentObjCaption">
+ <summary>
+ 現在のオブジェクトの標題を取得する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.MsgTitle(System.String)">
+ <summary>
+ メッセージボックスのタイトルを取得する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.CriticalAlarm(System.String,System.String)">
+ <summary>
+ 項目ﾁｪｯｸｴﾗｰﾒｯｾｰｼﾞ（三角！)
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.CheckAlarm(System.String,System.String)">
+ <summary>
+ 項目チェックエラーメッセージ（三角！)
+ </summary>
+ <param name="msg"></param>
+ <param name="Title"></param>
+</member>
+<member name="M:SnwA01.StdLib.VerifyYesNo(System.String,Microsoft.VisualBasic.MsgBoxStyle,System.String)">
+ <summary>
+ 確認ﾒｯｾｰｼﾞ
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.YesNo(System.String,System.String)">
+ <summary>
+ 確認メッセージ（吹き出し？）
+ </summary>
+ <param name="msg"></param>
+ <param name="Title"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.NoYes(System.String,System.String)">
+ <summary>
+ 確認メッセージ（吹き出し？）
+ </summary>
+ <param name="msg"></param>
+ <param name="Title"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.Question(System.String,Microsoft.VisualBasic.MsgBoxStyle,System.String)">
+ <summary>
+ 確認ﾒｯｾｰｼﾞ（吹き出し？）
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.Inform(System.String,System.String)">
+ <summary>
+ 情報メッセージを表示する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.ConvertDialogResultToMsgBoxResult(System.Windows.Forms.DialogResult)">
+ <summary>
+ DialogResult を MsgBoxResult に変換
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.HourGlass(System.Boolean)">
+ <summary>
+ マウスカーソルを砂時計に変更するサブルーチン
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.CutOutPath(System.String)">
+ <summary>
+ フルパスからファイル名を除いたパスを取得する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.AppPath(System.String,System.Boolean)">
+ <summary>
+ アプリケーションのパスを取得する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.SeparateFilename(System.String,System.String@,System.String@,System.String@)">
+ <summary>
+ ファイル名を分離するサブルーチン
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.SetObjectArray(System.Object[])">
+ <summary>
+ 任意の数のオブジェクトを配列に格納する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.NullToZero(System.Object,System.Object)">
+ <summary>
+ Null 値をゼロに変換する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.SpcToNull(System.Object,System.Object)">
+ <summary>
+ スペースを Null に変換する関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.SelText(System.Windows.Forms.Control)">
+ <summary>
+ テキストを選択するサブルーチン
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.AnsiRightB(System.String,System.Int32)">
+ <summary>
+ ANSI 版 RightB 関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.AnsiLeftB(System.String,System.Int32)">
+ <summary>
+ ANSI 版 LeftB 関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.AnsiLenB(System.String)">
+ <summary>
+ ANSI 版 LenB 関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.AnsiMidB(System.String,System.Int32,System.Int32)">
+ <summary>
+ ANSI 版 MidB 関数
+ </summary>
+</member>
+<member name="M:SnwA01.StdLib.IsCheckNull(System.Object)">
+ <summary>
+ IsCheckNull
+ 指定文字列が ＮＵＬＬ／空白 かチェックする
+ </summary>
+ <param name="Chk_Str">チェックする文字列</param>
+ <returns>True  : ＮＵＬＬ／空白、False : ＮＵＬＬ／空白でない</returns>
+</member>
+<member name="M:SnwA01.StdLib.IsCheckText(System.Windows.Forms.Control)">
+ <summary>
+ IsCheckText
+ 指定テキストが ＮＵＬＬ／空白 かチェックする
+ </summary>
+ <param name="ctl">チェックするテキスト</param>
+ <returns>True  : ＮＵＬＬ／空白、False : ＮＵＬＬ／空白でない</returns>
+</member>
+<member name="M:SnwA01.StdLib.ISRound(System.Decimal,System.Int32)">
+ <summary>
+ 四捨五入ルーチン
+ Round(Num,Keta)
+ 少数点以下第２位で四捨五入して、少数点位下１桁の値にする場合
+ Round(四捨五入する値 , 1)
+ </summary>
+ <param name="Num">四捨五入する値</param>
+ <param name="Keta">四捨五入した結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.ISRoundUp(System.Decimal,System.Int32)">
+ <summary>
+ 切り上げルーチン
+ </summary>
+ <param name="Num">切り捨てする値</param>
+ <param name="Keta">切り捨てした結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.ISRoundDown(System.Decimal,System.Int32)">
+ <summary>
+ 切り捨てルーチン
+ </summary>
+ <param name="Num">切り捨てする値</param>
+ <param name="Keta">切り捨てした結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.ISHasuu_rtn(System.Int32,System.Decimal,System.Int32)">
+ <summary>
+ 端数処理ルーチン
+ </summary>
+ <param name="kubun">端数区分</param>
+ <param name="Num">値</param>
+ <param name="Keta">結果の桁数</param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.ISInt(System.Object)">
+ <summary>
+ 整数チェックルーチン
+ </summary>
+ <param name="code">調べたい文字列</param>
+ <returns>True (．－を含まない整数の場合)  ,  False（それ以外の場合）</returns>
+</member>
+<member name="M:SnwA01.StdLib.GetDecimalFormat(System.Decimal,System.Int32,System.Boolean,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="Number"></param>
+ <param name="Place"></param>
+ <param name="DispZero"></param>
+ <param name="DispComma"></param>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.StdLib.CutText(System.String,System.Int32)">
+ <summary>
+ 
+ </summary>
+ <param name="Text"></param>
+ <param name="ByteLength"></param>
+ <returns></returns>
+</member>
+<member name="T:SnwA01.Win32API">
+ <summary>
+ ---------------------------------------------------------
+ Ver.1.00           '2002.04.17
+ Ver.1.01           '2003.09.30  ShellExecuteEXを追加
+                                 CloseHandleを追加
+                                 WaitForSingleObjectを追加
+ Ver.1.02           '2004.10.28  GetIniにフラグを新設（AppPathを付けるor付けない)
+ Ver.1.03           '2005.02.03  GetIniの変数を1024→2048へ
+ Ver.1.04           '2014.08.25  GetIniの変数を2048→4096へ
+ Ver.1.05           '2020.04.04  GetFullName(表示名取得)を追加
+ ---------------------------------------------------------
+ </summary>
+</member>
+<member name="T:SnwA01.Win32API_GetInfo">
+ <summary>
+ Ver.1.00           '2003.04.09
+ </summary>
+</member>
+<member name="M:SnwA01.Win32API_GetInfo.GetPCName">
+ <summary>
+ コンピュータ名を取得する関数
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:SnwA01.SnwA01F00">
+ <summary>
+ --------------------------------------------------------------------
+   ユーザー名           株式会社三和商研
+   業務名               積算・販売管理システム
+   部門名
+   プログラム名
+   作成会社             テクノウェア株式会社
+   作成日               2003/07/16
+   作成者               kawamura
+ --------------------------------------------------------------------
+   ﾒﾝﾃ版　日付        担当者       内容
+      01  2003/09/30  kawamura    プログラムの起動をShellExecuteExに変更
+                                  終了するまで監視を行い、全ＰＧが終了していないとメッセージを表示
+      02  2004/12/01  kawamura    「月次締め処理を追加」
+      02  2004/12/16  oosawa      「発注一覧表出力処理を追加」
+      03  2006/07/05  kawamura    「月別締別売上集計表を追加」
+      04  2009/03/17  oosawa      「納品書用CSV出力処理」を追加
+      05  2009/09/18  kawamura    追加
+ 
+ 
+        2012/05/07  oosawa          統計メニュー作成
+                                    得意先別年間売上順位推移表・仕入別年間仕入順位推移表　追加
+        2012/05/18  oosawa          担当者別仕入先原価推移表作成 追加
+        2012/07/31  oosawa          経費データ取込処理追加
+        2012/08/07  oosawa          支払予定表処理追加
+        2012/08/10  oosawa          入金消込入力処理追加
+        2012/08/20  oosawa          未回収一覧表追加
+        2012/08/29  oosawa          消込済一覧表追加
+        2012/08/31  oosawa          担当者別得意先別物件別売上推移表追加
+        2012/09/14  oosawa          物件種別得意先別売上推移表追加
+        2012/11/06  oosawa          担当者別売上仕入推移表追加
+        2013/04/03  oosawa          担当者別店舗別原価売価積上表追加
+        2013/05/01  oosawa          請求明細一覧表追加
+        2013/05/17  oosawa          担当者別在庫金額増減推移表追加
+        2013/08/28  oosawa          得意先別売上仕入推移表
+        2014/02/14  oosawa          担当者別売上仕入推移表TK06からTK10に変更（名称も担当者別推移表に変更）
+        2014/08/25  oosawa          担当者別売上仕入推移表TK10からTK11に変更（旧担当者別推移表も表示）
+        2015/02/26  oosawa          チーム別推移表TK18からTK19へ変更
+        2015/03/04  oosawa          TK14からTK20へ変更
+        2015/05/20  oosawa          入金予定表追加
+        2015/06/11  oosawa          ウエルシア物件内容マスタ追加
+        2015/09/02  oosawa          消費税調整入力を追加
+        2015/10/21  oosawa          YK請求明細表追加
+        2015/10/23  oosawa          MM請求明細表追加
+        2015/11/26  oosawa          見積明細一覧追加
+        2016/03/10  oosawa          拓用に制御
+        2016/07/12  oosawa          発注一覧表を復活
+        2016/07/16  oosawa          TK22・TK23
+        2016/12/25  oosawa          パラメータを設定できるように
+        2017/05/31  oosawa          月ズレチェック表追加
+        2017/12/05  oosawa          「受注明細票」の名称を「発注書」へ変更
+        2018/02/19  oosawa          統計表、新組織に変更TK29
+        2018/03/29  oosawa          メニューのロックを追加
+        2021/02/13  oosawa          統計変更・按分変更
+        2022/09/07  oosawa          統計変更2022・按分変更2022 Part2
+        2023/03/08  oosawa          表題にDB名を表示
+        2023/04/21  oosawa          統計変更2023・按分変更2023
+        2023/07/25  oosawa          見積出力・発注書出力　できないように Enable=false
+        2023/09/27  oosawa          統計集計2023年10月以降追加
+ -------------------------------------------------------------------- 
+ </summary>
+</member>
+<member name="M:SnwA01.SnwA01F00.CbStart_8_Click(System.Object,System.EventArgs)">
+ <summary>
+ 見積入力起動
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SnwA01.SnwA01F00.CbStart_16_Click(System.Object,System.EventArgs)">
+ <summary>
+ 標準ブラウザ起動
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SnwA01.SnwA01F00.GetDefaultBrowserProgId">
+ <summary>
+ 標準ブラウザのProgIdを取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SnwA01.SnwA01F00.Timer1_Tick(System.Object,System.EventArgs)">
+ <summary>
+ Timer Tick
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="T:SnwA01.AutoVerup">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwA01.SnwDefs">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:SnwA01.SnwMain">
+ <summary>
+ 
+ </summary>
+</member>
+</members>
+</doc>

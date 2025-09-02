@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\svn\\YJY_\u4E09\u548C\u5546\u7814\u53D7\u767A\u6CE8\u30B7\u30B9\u30C6\u30E0\\trunk\\mgn\\Client\\sanwa\\SnwMT01\u898B\u7A4D\u5165\u529B_\u65BD\u5DE5_\u5009\u5EAB_\u4ED5\u5165\u5143_Revit_meisai\\SnwMT01\\",
+  "Documents": [],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

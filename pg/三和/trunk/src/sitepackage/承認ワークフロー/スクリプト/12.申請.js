@@ -1,0 +1,425 @@
+//申請ボタンを押下した時の処理
+async function application(e){
+    try{
+        //確認フォーム
+        let answer = confirm('この内容で申請します。よろしいですか。')
+  
+        //キャンセルする場合終了
+        if(!answer){
+            return
+        }
+  
+        $p.loading(e)
+        let applicantDept = $p.getControl('ClassH').val() //申請者の組織取得
+        //組織に所属していなかったらエラー
+        if(applicantDept == 0){
+          $p.setMessage('#Message', JSON.stringify({
+              Css:'alert-error',
+              Text:'所属部署を選択してください。'
+          }));
+          $p.loaded()
+          return
+        }
+        let users = ""
+        //組織を指定してユーザ情報取得
+        await $.ajax({
+            url: 'http://192.168.10.54/api/users/get',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "View": {
+                    "ColumnFilterHash": {
+                        "DeptId":applicantDept,
+                    }
+                }
+            }),
+            success: function(response) {
+                console.log('成功:', response);
+                users = response.Response.Data
+                console.log(users)
+                
+            },
+            error: function(xhr, status, error) {
+                console.error('エラー:', error);
+            }
+        });
+        //取得したユーザ情報からユーザIDだけを取り出す
+        let userIds = users.map(item => item.UserId)
+        console.log(userIds)
+  
+        //グループマネージャーのグループ情報取得
+        let groupManagers = ""
+        await $p.apiGroupsGet({
+            id:3,
+            done: function (data) {
+                console.log(data);
+                console.log('グループマネージャーのグループ情報の取得に成功しました。');
+                groupManagers = data.Response.Data[0].GroupMembers
+                console.log(groupManagers)
+            },
+            fail: function () {
+                console.log('グループマネージャーのグループ情報の取得に失敗しました。');
+            },
+        });
+        // 取得したグループの中からユーザIDの部分を取り出す
+        groupManagers = groupManagers.map(item => {
+            const parts = item.split(','); // カンマで分割
+            return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す
+        });
+        console.log(groupManagers)
+        //該当の組織に所属しているグループマネージャーのユーザID取得
+        let groupManagerId = userIds.filter(userId => groupManagers.includes(userId));
+        console.log(groupManagerId)
+  
+        //部長のグループ情報取得
+        let Managers = ""
+        await $p.apiGroupsGet({
+            id:2,
+            done: function (data) {
+                console.log(data);
+                console.log('部長グループ情報の取得に成功しました。');
+                Managers = data.Response.Data[0].GroupMembers
+                console.log(Managers)
+            },
+            fail: function () {
+                console.log('部長グループ情報の取得に失敗しました。');
+            },
+        });
+        // 取得したグループの中からユーザIDの部分を取り出す
+        Managers = Managers.map(item => {
+            const parts = item.split(','); // カンマで分割
+            return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す
+        });
+        //該当の組織に所属している部長のユーザID取得
+        let ManagerId = userIds.filter(userId => Managers.includes(userId));
+        console.log(ManagerId)
+  
+  
+        //メール用の変数
+        let mailTitle = '【請求書】承認依頼通知'
+        let mailBody = [
+            `請求書の申請がされました。下記URLよりご確認ください。`,
+            `${location.origin}/items/${$p.id()}`
+        ]
+  
+          //取締役のグループ情報取得
+          let directors = ""
+          let directorId = ''
+          await $p.apiGroupsGet({
+              id:1,
+              done: function (data) {
+                  console.log(data);
+                  console.log('取締役グループ情報の取得に成功しました。');
+                  directors = data.Response.Data[0].GroupMembers
+                  console.log(directors)
+                  // 取得したグループの中からユーザIDの部分を取り出す
+                  directors = directors.map(item => {
+                      const parts = item.split(','); // カンマで分割
+                      return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す
+                  });
+                  //該当の組織に所属している部長のユーザID取得
+                  directorId = userIds.filter(userId => directors.includes(userId));
+                  console.log(directorId)
+              },
+              fail: function () {
+                  console.log('取締役グループ情報の取得に失敗しました。');
+              },
+          });
+        //社長ユーザID用
+        let presidentId = ''
+        //申請者の役職判定
+        if(groupManagerId.includes($p.userId())|| ManagerId.includes($p.userId()) || directorId.includes($p.userId()) || applicantDept == 1){
+            //申請者がグループマネージャーの場合
+            if(groupManagerId.includes($p.userId())){
+              　//部長のユーザIDデータ成形
+              　let ManagerIdStr = JSON.stringify(ManagerId.map(String));
+                //レコード更新
+                await $p.apiUpdate({
+                  id:$p.id(),
+                  data: {
+                      ApiVersion: 1.1,
+                      Status:300,//グループマネージャー承認済
+                      DescriptionHash:{
+                          DescriptionB:'スキップ',//コメントにスキップの文言セット
+                      },
+                      ClassHash: {
+                          ClassJ:ManagerIdStr,//承認対象
+                      }
+                  },
+                  done: function (data) {
+                      console.log('データの更新に成功しました。');
+                  },
+                  fail: function (data) {
+                      console.log('データの更新に失敗しました。');
+                  },
+               });
+                //部長にメール送信
+                for(Manager of ManagerId){
+                  await $p.apiCreate({
+                      id:MAIL_TABLE,
+                      data: {
+                          Title:mailTitle,//件名
+                          Body:mailBody.join('\n'),//内容
+                          ClassHash: {
+                              ClassA:Manager //宛先
+                          }
+                      },
+                      done: function (data) {
+                          console.log('メール送信に成功しました。');
+                      },
+                      fail: function (data) {
+                          console.log(data);
+                      }
+                  }); 
+                }
+            }else if(ManagerId.includes($p.userId())){ //申請者が部長の場合
+              //取締役のグループ情報取得
+              let directors = ""
+              await $p.apiGroupsGet({
+                  id:1,
+                  done: function (data) {
+                      console.log(data);
+                      console.log('取締役グループ情報の取得に成功しました。');
+                      directors = data.Response.Data[0].GroupMembers
+                      console.log(directors)
+                  },
+                  fail: function () {
+                      console.log('取締役グループ情報の取得に失敗しました。');
+                  },
+              });
+              // 取得したグループの中からユーザIDの部分を取り出す
+              directors = directors.map(item => {
+                  const parts = item.split(','); // カンマで分割
+                  return parseInt(parts[1], 10); // 2番目の部分を数値に変換して返す
+              });
+              //該当の組織に所属している部長のユーザID取得
+              let directorId = userIds.filter(userId => directors.includes(userId));
+              console.log(directorId)
+          
+                //取締役のユーザIDデータ成形
+                let directorIdStr = JSON.stringify(directorId.map(String));
+                //レコード更新
+                await $p.apiUpdate({
+                  id:$p.id(),
+                  data: {
+                      ApiVersion: 1.1,
+                      Status:350,//部長承認済
+                      DescriptionHash:{
+                          DescriptionB:'スキップ',//コメントにスキップの文言セット
+                          DescriptionC:'スキップ',
+                      },
+                      ClassHash: {
+                          ClassK:directorIdStr,//承認対象
+                      }
+                  },
+                  done: function (data) {
+                      console.log('データの更新に成功しました。');
+                  },
+                  fail: function (data) {
+                      console.log('データの更新に失敗しました。');
+                  },
+               });
+                //取締役にメール送信
+                for(director of directorId){
+                  await $p.apiCreate({
+                      id:MAIL_TABLE,
+                      data: {
+                          Title:mailTitle,//件名
+                          Body:mailBody.join('\n'),//内容
+                          ClassHash: {
+                              ClassA:director //宛先
+                          }
+                      },
+                      done: function (data) {
+                          console.log('メール送信に成功しました。');
+                      },
+                      fail: function (data) {
+                          console.log(data);
+                      }
+                  }); 
+                }
+  
+            }else if(directorId.includes($p.userId()) ){ //申請者が取締役の場合
+                //ユーザ情報からユーザIDを取得
+                await $.ajax({
+                  url: 'http://192.168.10.54/api/users/get',
+                  type: 'POST',
+                  contentType: 'application/json',
+                  data: JSON.stringify({
+                    "View": {
+                      "ColumnFilterHash": {
+                          "DeptId":1,//三和商研代表
+                      }
+                  }
+                  }),
+                  success: function(response) {
+                    console.log('成功:', response);
+                    presidentId = response.Response.Data
+                    //取得したユーザ情報からユーザIDだけを取り出す
+                    presidentId =  presidentId.map(item => item.UserId)
+                    console.log(presidentId)
+                      
+                  },
+                  error: function(xhr, status, error) {
+                      console.error('エラー:', error);
+                  }
+                });
+                //データ成形
+                let presidentIdStr = JSON.stringify(presidentId.map(String));
+                  //レコード更新
+                  await $p.apiUpdate({
+                      id:$p.id(),
+                      data: {
+                          ApiVersion: 1.1,
+                          Status:400,//取締役承認済
+                          DescriptionHash:{
+                              DescriptionB:'スキップ',
+                              DescriptionC:'スキップ',
+                              DescriptionD:'スキップ',
+                          },
+                          ClassHash: {
+                              ClassL:presidentIdStr,//承認対象
+                          }
+                      },
+                      done: function (data) {
+                          console.log('データの更新に成功しました。');
+                      },
+                      fail: function (data) {
+                          console.log('データの更新に失敗しました。');
+                      },
+                  });
+                  //社長にメール送信
+                  for(president of presidentId){
+                      await $p.apiCreate({
+                          id:MAIL_TABLE,
+                          data: {
+                              Title:mailTitle,//件名
+                              Body:mailBody.join('\n'),//内容
+                              ClassHash: {
+                                  ClassA:president//宛先
+                              }
+                          },
+                          done: function (data) {
+                              console.log('メール送信に成功しました。');
+                          },
+                          fail: function (data) {
+                              console.log(data);
+                          }
+                      }); 
+                  }
+              }else{
+                  //申請者が社長の場合
+                  //レコード更新
+                  await $p.apiUpdate({
+                      id:$p.id(),
+                      data: {
+                          ApiVersion: 1.1,
+                          Status:500,//最終承認済
+                          DescriptionHash:{
+                              DescriptionB:'スキップ',
+                              DescriptionC:'スキップ',
+                              DescriptionD:'スキップ',
+                              DescriptionE:'スキップ',
+  
+                          }
+                      },
+                      done: function (data) {
+                          console.log('データの更新に成功しました。');
+                      },
+                      fail: function (data) {
+                          console.log('データの更新に失敗しました。');
+                      },
+                  });
+                  //請求処理担担にメール送信
+                  let addresses = $p.getControl('ClassE').val()
+                  mailTitle = '【請求書】承認通知'
+                  mailBody = [
+                      `請求書が承認されました。下記URLよりご確認ください。`,
+                      `${location.origin}/items/${$p.id()}`
+                  ]
+                  for(address of addresses){
+                      await $p.apiCreate({
+                          id:MAIL_TABLE,
+                          data: {
+                              Title:mailTitle,//件名
+                              Body:mailBody.join('\n'),//内容
+                              ClassHash: {
+                                  ClassA:address //宛先
+                              }
+                          },
+                          done: function (data) {
+                              console.log('メール送信に成功しました。');
+                          },
+                          fail: function (data) {
+                              console.log(data);
+                          }
+                      }); 
+                  }
+  
+                  
+              }
+        }else{
+              //グループマネージャーIDデータ成形
+              let groupManagerIdStr = JSON.stringify(groupManagerId.map(String));
+              //レコード更新
+              await $p.apiUpdate({
+                  id:$p.id(),
+                  data: {
+                      ApiVersion: 1.1,
+                      Status:200,//申請済
+                      ClassHash: {
+                          ClassI:groupManagerIdStr,//承認対象
+                      }
+                  },
+                  done: function (data) {
+                      console.log('データの更新に成功しました。');
+                  },
+                  fail: function (data) {
+                      console.log('データの更新に失敗しました。');
+                  },
+              });
+            //グループマネージャーにメール送信
+              for(groupManager of groupManagerId){
+                  await $p.apiCreate({
+                      id:MAIL_TABLE,
+                      data: {
+                          Title:mailTitle,//件名
+                          Body:mailBody.join('\n'),//内容
+                          ClassHash: {
+                              ClassA:groupManager//宛先
+                          }
+                      },
+                      done: function (data) {
+                          console.log('メール送信に成功しました。');
+                      },
+                      fail: function (data) {
+                          console.log(data);
+                      }
+                  });
+              }
+              
+        }
+        $p.loaded()
+        $p.clearMessage();
+        $p.setMessage('#Message', JSON.stringify({
+            Css: 'alert-success',
+            Text: '申請しました。'
+        }));
+  
+    }catch(e){
+        if(e.message.startsWith('E01')||e.message.startsWith('E02')||e.message.startsWith('E03')||e.message.startsWith('E04')||e.message.startsWith('E05')||e.message.startsWith('E06')){
+            $p.setMessage('#Message', JSON.stringify({
+                Css: 'alert-error',
+                Text: e.message
+            }));
+            console.log(e.message)
+        }else{
+            $p.setMessage('#Message', JSON.stringify({
+                Css: 'alert-error',
+                Text: 'E99:エラーが発生しました。サポートにお問い合わせください。'
+            }));
+            console.log(e.message)
+        }
+        $p.loaded()
+    }
+  }

@@ -1,0 +1,1 @@
+$("#MainCommands button:last-child").after($('<button id="OriginBulkDeleteCommand" class="button button-icon ui-button ui-corner-all ui-widget applied" onclick="o_BulkDelete();">一括削除</button>'))

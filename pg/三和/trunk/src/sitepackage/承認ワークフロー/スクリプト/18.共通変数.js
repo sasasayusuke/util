@@ -1,0 +1,1 @@
+const MAIL_TABLE = "2020628"

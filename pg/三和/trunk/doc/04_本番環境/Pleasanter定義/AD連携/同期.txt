@@ -1,0 +1,10 @@
+https://pleasanter.org/ja/manual/active-directory-sync
+
+URLから同期
+
+http://192.168.0.7/users/syncbyldap
+
+同期コマンド
+定期的に同期するための設定
+タスクスケジューラを使用し定期的にActive Directoryの情報を同期する設定を行えば、
+最新の人事データをプリザンターに取り込む事が可能です。

@@ -1,0 +1,8 @@
+https://pleasanter.org/ja/manual/active-directory-sync
+
+実行方法
+ブラウザのURL欄に以下のコマンドを入力することで、LDAP同期処理を行うことができます。{ServerName}は実行環境に合わせて変更してください。
+http(s)://{ServerName}/users/syncbyldap
+
+http://192.168.0.7/users/syncbyldap
+

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ExText
+</name>
+</assembly>
+<members>
+<member name="T:ExText.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ExText.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ExText.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:ExText.ExTextBox.IMEModeType">
+ <summary>
+ IMEModeType
+ </summary>
+</member>
+<member name="T:ExText.ExTextBox.CharSize">
+ <summary>
+ CharSize
+ </summary>
+</member>
+<member name="T:ExText.ExTextBox.LenType">
+ <summary>
+ LenType
+ </summary>
+</member>
+<member name="T:ExText.ExTextBox.AppearanceType">
+ <summary>
+ AppearanceType
+ </summary>
+</member>
+<member name="T:ExText.ExTextBox.BorderStyleType">
+ <summary>
+ BorderStyleType
+ </summary>
+</member>
+</members>
+</doc>
