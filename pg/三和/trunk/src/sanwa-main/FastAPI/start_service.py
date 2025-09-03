@@ -21,7 +21,7 @@ def run_fastapi(env_config=None):
 		# "ENVIRONMENT": "test-development-backup",
 		# "ENVIRONMENT": "product",
 
-        "APP_ROOT": r"C:\svn\trunk\src\sanwa-main\FastAPI",
+        "APP_ROOT": r"C:\Users\NT-210174\Desktop\work\util\pg\三和\trunk\src\sanwa-main\FastAPI",
         "PLEASANTER_HOST": "192.168.10.54",
         "PLEASANTER_API_KEY": "e66695678fd2e310b17a79a86632f841a83a97f4c95d39774921a839ef1d36dd184715250c60a54897f42f875a4967afb49b77dc24a69fb3ee4d7fde7db210ce",
         "DB_HOST": "192.168.10.54",

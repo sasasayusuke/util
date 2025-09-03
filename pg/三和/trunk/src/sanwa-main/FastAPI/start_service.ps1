@@ -5,8 +5,7 @@ $env:ENVIRONMENT = "local"
 # $env:ENVIRONMENT = "test-development-backup"
 # $env:ENVIRONMENT = "product"
 
-$env:APP_ROOT = "C:\svn\ŽO˜a\trunk\src\sanwa-main\FastAPI"
-
+$env:APP_ROOT = "C:\Users\NT-210174\Desktop\work\util\pg\ŽO˜a\trunk\src\sanwa-main\FastAPI"
 $env:PLEASANTER_HOST = "192.168.10.54"
 
 $env:PLEASANTER_API_KEY = "e66695678fd2e310b17a79a86632f841a83a97f4c95d39774921a839ef1d36dd184715250c60a54897f42f875a4967afb49b77dc24a69fb3ee4d7fde7db210ce"
