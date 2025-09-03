@@ -80,6 +80,13 @@ window.onload = async function () {
         let context = await res.json();
         console.log("結果リザルト",context);
 
+        // データが0件の場合はエラーメッセージを表示して画面を閉じる
+        if (!context.content.data || context.content.data.length === 0) {
+            alert('表示できる明細データがありません。');
+            window.close();
+            return;
+        }
+
         // viewsを作成
         const columns = context.content.columns;
         const view_names = columns[0].views;

@@ -6,6 +6,13 @@ import Layout from '../components/layout/ModalLayout';
 import DetailTable from '../components/tables/DetailTable';
 
 export default function FormUriage({ context }) {
+  // データが0件の場合はエラーメッセージを表示して画面を閉じる
+  if (!context.content.data || context.content.data.length === 0) {
+    alert('表示できる明細データがありません。');
+    window.close();
+    return null;
+  }
+
   // 初期化時に、data の各行に "仕入明細行番号" プロパティを追加（行番号は index+1）
   const initialData = context.content.data.map((row, index) => ({ ...row, 売上明細行番号: index + 1 }));
   const [data, setData] = useState(initialData);

@@ -75,6 +75,13 @@ window.onload = async function () {
 
 		record_count = context.data.length;
 
+		// データが0件の場合はエラーメッセージを表示して画面を閉じる
+		if (record_count === 0) {
+			alert('表示できる明細データがありません。');
+			window.close();
+			return;
+		}
+
 		// viewsを作成
         const columns = context.columns;
         const view_names = columns[0].views;
