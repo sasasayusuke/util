@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import DatePicker from '../components/fields/DatePicker';
 import FunctionKeys from '../components/fields/FunctionKeys';
 import InfoCard from '../components/fields/InfoCard';
-import Layout from '../components/layout/Layout';
+import Layout from '../components/layout/ModalLayout';
 import DetailTable from '../components/tables/DetailTable';
 
 export default function FormShiire({ context }) {
