@@ -502,13 +502,14 @@ async function search_salesInput_table(process_category,noAlert_flg = false){
                 // sessionStorageに登録
                 sessionStorage.setItem(session_storage_name,json_str);
 
-                if(process_category == '1'){
-                    if(!(await LockData('売上番号',sales_no))){
-                        // await UnLockData('見積番号',estimate_no);
-                        // lookup_blank_for_salesInput();
-                        return;
-                    }
-                }
+                // 売上番号のロックは入力画面側で行うため、ここではロックしない
+                // if(process_category == '1'){
+                //     if(!(await LockData('売上番号',sales_no))){
+                //         // await UnLockData('見積番号',estimate_no);
+                //         // lookup_blank_for_salesInput();
+                //         return;
+                //     }
+                // }
 
                 window.open(`/items/${INPUT_GUIS["売上明細入力"]}/index?uriage_id=${session_storage_name}`, '_blank');
 

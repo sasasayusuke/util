@@ -38,6 +38,31 @@ export default function FormUriage({ context }) {
   const [合計金額,set合計金額 ] = useState(0);
   const tmp = [外税対象額,外税,非課税金額,合計金額];
 
+  // 画面を開く際にロック処理を実行
+  useEffect(() => {
+    const lockData = async () => {
+      try {
+        const 見積番号 = queryParams.get("@i見積番号");
+        const 売上番号 = queryParams.get("@i売上番号");
+        
+        // 見積番号のロック
+        if (見積番号) {
+          await LockData('見積番号', 見積番号);
+        }
+        
+        // 売上番号のロック
+        if (売上番号) {
+          await LockData('売上番号', 売上番号);
+        }
+      } catch (error) {
+        alert('ロック処理でエラーが発生しました: ' + error.message);
+        window.close();
+      }
+    };
+    
+    lockData();
+  }, []);
+
 
 
   // テーブルデータ更新専用ハンドラ  
@@ -103,7 +128,18 @@ export default function FormUriage({ context }) {
   async function hundleF12Click(){
     if(!confirm('現在の処理を終了します。\nよろしいですか？'))return;
 
-    await UnLockData('売上番号',queryParams.get("@i売上番号"));
+    // すべてのロックを解除
+    const 見積番号 = queryParams.get("@i見積番号");
+    const 売上番号 = queryParams.get("@i売上番号");
+    
+    if (見積番号) {
+      await UnLockData('見積番号', 見積番号);
+    }
+    
+    if (売上番号) {
+      await UnLockData('売上番号', 売上番号);
+    }
+    
     window.close();
   }
 

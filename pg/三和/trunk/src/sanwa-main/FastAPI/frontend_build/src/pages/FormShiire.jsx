@@ -35,6 +35,31 @@ export default function FormShiire({ context }) {
   // 読み込み時に実行されるAPIの状態を管理する
   const [準備完了,set準備完了] = useState(false);
 
+  // 画面を開く際にロック処理を実行
+  useEffect(() => {
+    const lockData = async () => {
+      try {
+        const 見積番号 = queryParams.get("@i見積番号");
+        const 仕入番号 = queryParams.get("@i仕入番号");
+        
+        // 見積番号のロック
+        if (見積番号) {
+          await LockData('見積番号', 見積番号);
+        }
+        
+        // 仕入番号のロック
+        if (仕入番号) {
+          await LockData('仕入番号', 仕入番号);
+        }
+      } catch (error) {
+        alert('ロック処理でエラーが発生しました: ' + error.message);
+        window.close();
+      }
+    };
+    
+    lockData();
+  }, []);
+
 
   // 仕入日付の変更ハンドラ
   const [DateFlg,setDateFlg] = useState(false);
@@ -205,8 +230,18 @@ export default function FormShiire({ context }) {
   async function hundleBackClick(){
     if(!confirm('現在の処理を終了します。\nよろしいですか？'))return;
 
-    // 番号を確認
-    await UnLockData('仕入番号',queryParams.get("@i仕入番号"));
+    // すべてのロックを解除
+    const 見積番号 = queryParams.get("@i見積番号");
+    const 仕入番号 = queryParams.get("@i仕入番号");
+    
+    if (見積番号) {
+      await UnLockData('見積番号', 見積番号);
+    }
+    
+    if (仕入番号) {
+      await UnLockData('仕入番号', 仕入番号);
+    }
+    
     window.close();
   }
 

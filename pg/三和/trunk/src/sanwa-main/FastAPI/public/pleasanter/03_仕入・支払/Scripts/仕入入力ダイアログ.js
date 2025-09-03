@@ -589,10 +589,11 @@ function SetupItems_for_stockInput(category, dialogId, dialogName, btnLabel, res
             // sessionStorageに登録
             sessionStorage.setItem(session_storage_name,json_str);
 
-            if(!(await LockData('仕入番号',record['仕入番号']))){
-                // UnLockData('見積番号',$(`#${dialogId}_estimateFrom`).val());
-                return;
-            }
+            // 仕入番号のロックは入力画面側で行うため、ここではロックしない
+            // if(!(await LockData('仕入番号',record['仕入番号']))){
+            //     // UnLockData('見積番号',$(`#${dialogId}_estimateFrom`).val());
+            //     return;
+            // }
 
             // 子画面（仕入明細入力画面）を別タブで開く
             window.open(`/items/${INPUT_GUIS["仕入明細入力"]}/index?siire_id=${session_storage_name}`, '_blank');
