@@ -190,7 +190,8 @@ const salesInput_baseSQL = (e)=>{
  */
 const lookup_blank_for_salesInput = (lock_flg = false,focus_Flg = false) =>{
     const estimate_no = $('#salesInput_estimateNo').val();
-    if(lock_flg && estimate_no != "")UnLockData('見積番号',estimate_no);
+    // ロック解除は入力画面側で行うため、ここでは不要
+    // if(lock_flg && estimate_no != "")UnLockData('見積番号',estimate_no);
 
     if(focus_Flg){
         $('#salesInput_estimateNo').val('').focus();
@@ -274,10 +275,11 @@ async function salesInput_lookup(tableData){
         lookup_blank_for_salesInput(false,true);
         return;
     }
-    if(!(await LockData('見積番号',tableData.results[0].見積番号))){
-        lookup_blank_for_salesInput(false,true);
-        return;
-    }
+    // 見積番号のロックは入力画面側で行うため、ここではロックしない
+    // if(!(await LockData('見積番号',tableData.results[0].見積番号))){
+    //     lookup_blank_for_salesInput(false,true);
+    //     return;
+    // }
 
     tableData = tableData.results[0];
 

@@ -256,11 +256,12 @@ async function search_table_for_stockInput(category, dialogId, dialogName, btnLa
                         element_estimateNo.focus();
                         return;
                     case 0:
-                        if(!executeLock_flg){
-                            if(!(await LockData('見積番号',estimateNo))){
-                                item_delete_for_stockInput(dialogId,true,true);
-                            }
-                        }
+                        // 見積番号のロックは入力画面側で行うため、ここではロックしない
+                        // if(!executeLock_flg){
+                        //     if(!(await LockData('見積番号',estimateNo))){
+                        //         item_delete_for_stockInput(dialogId,true,true);
+                        //     }
+                        // }
                         return;
                     default:
                         element_estimateNo.val('').focus();
@@ -606,9 +607,9 @@ function SetupItems_for_stockInput(category, dialogId, dialogName, btnLabel, res
                     clearSearchInputValue(dialogId);
                     $('#stockInput1_supplierField').val('');
                     $('#stockInput1_totalAmount').val("");
-                    // いったんロック解除
-                    const estimateNo = $(`#stockInput${dialogName.includes('社内伝') ? '2':'1'}_estimateFrom`).val();
-                    await UnLockData('見積番号',estimateNo);
+                    // ロック解除は入力画面側で行うため、ここでは不要
+                    // const estimateNo = $(`#stockInput${dialogName.includes('社内伝') ? '2':'1'}_estimateFrom`).val();
+                    // await UnLockData('見積番号',estimateNo);
                     search_table_for_stockInput(category,dialogId,dialogName,btnLabel,dialogName.includes('社内伝') ? '社内伝':'通常伝',false,true);
                 }
             });
@@ -649,9 +650,10 @@ $(document).on('focus','#stockInput1_processCdFrom,#stockInput2_processCdFrom',a
  */
 async function item_delete_for_stockInput(dialogId,lockFlg = false,focusFlg = false){
     const estimate_no = $(`#${dialogId}_estimateFrom`).val();
-    if(estimate_no != "" && !lockFlg){
-        UnLockData('見積番号',estimate_no);
-    }
+    // ロック解除は入力画面側で行うため、ここでは不要
+    // if(estimate_no != "" && !lockFlg){
+    //     UnLockData('見積番号',estimate_no);
+    // }
     if(focusFlg){
         $(`#${dialogId}_estimateFrom`).val('').focus();
     }else{
