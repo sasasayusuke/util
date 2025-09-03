@@ -26,8 +26,13 @@ export default function FormShiire({ context }) {
   const [copyedRow,setCopyedRow] = useState(null);
 
   const [処理区分,set処理区分] = useState(context.headers.find(header => header.label === '処理区分')["value"]);
-  const [仕入日付,set仕入日付] = useState(context.headers.find(header => header.label === '仕入日付')["value"]);
-  const [支払日付,set支払日付] = useState(context.headers.find(header => header.label === '支払日付')["value"]);
+  
+  // LocalStorageから仕入日付を取得（保存されていれば優先）
+  const savedDate = localStorage.getItem('仕入明細_仕入日付');
+  const initialDate = savedDate && savedDate !== 'null' ? savedDate : context.headers.find(header => header.label === '仕入日付')["value"];
+  
+  const [仕入日付,set仕入日付] = useState(initialDate);
+  const [支払日付,set支払日付] = useState(initialDate);
 
   // 合計ヘッダー用state
   const [税抜金額,set税抜金額] = useState(0);
@@ -65,6 +70,7 @@ export default function FormShiire({ context }) {
   }, []);
 
 
+
   // 仕入日付の変更ハンドラ
   const [DateFlg,setDateFlg] = useState(false);
   async function change_stock_date(e){
@@ -84,6 +90,8 @@ export default function FormShiire({ context }) {
       }
       set仕入日付(new_date);
       set支払日付(new_date);
+      // LocalStorageに仕入日付を保存
+      localStorage.setItem('仕入明細_仕入日付', new_date);
     }catch(e){
       // alert('予期せぬエラーが発生しました。');
       alert(e.message);
@@ -271,6 +279,9 @@ export default function FormShiire({ context }) {
     if (confirmOk) {
       try {
         await uploadForm(data,仕入日付,支払日付);
+        
+        // 登録成功時に仕入日付をLocalStorageに保存
+        localStorage.setItem('仕入明細_仕入日付', 仕入日付);
         
         // 登録成功後、見積番号のロック解除（外部関数でやっていない分を補完）
         const estiNo = queryParams.get("@i見積番号");
