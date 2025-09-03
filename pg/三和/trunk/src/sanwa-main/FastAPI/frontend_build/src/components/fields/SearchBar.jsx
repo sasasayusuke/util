@@ -21,8 +21,6 @@ export default function SearchBar({
 				onKeyDown={onKeyDown}
 				onFocus={onFocus}
 				onBlur={onBlur}
-				tabIndex={0}
-				autoFocus={false}
 			/>
 			<button
 				onClick={onSearch}

@@ -15,16 +15,8 @@ export default function DetailTable({
   onSearchBlur,
   focusedRow,
   setFocusedRow,
-  tableRefs,
-  viewList = {}
+  tableRefs
 }) {
-  // デバッグ用ログ
-  console.log('DetailTable - 受信したデータ:', {
-    columns_length: columns.length,
-    data_length: data.length,
-    data_sample: data.slice(0, 2),
-    columns_sample: columns.slice(0, 3)
-  });
   // 検索用テキスト
   const [searchText, setSearchText] = useState('');
 
@@ -69,15 +61,8 @@ export default function DetailTable({
   // }, [columnsWithHiddenFlag]);
 
   const visibleColumns = useMemo(() => {
-    const result = viewList[selectedView] || [];
-    console.log('DetailTable - visibleColumns:', {
-      selectedView,
-      viewList,
-      result_length: result.length,
-      result_sample: result.slice(0, 3)
-    });
-    return result;
-  }, [selectedView, viewList]);
+    return view_list[selectedView];
+  }, [selectedView]);
 
 
   // ラジオボタンの選択変更時のハンドラ
@@ -193,12 +178,14 @@ export default function DetailTable({
 
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="border rounded-md p-2">
       {/* テーブル本体 */}
-      <div className="flex-1 min-h-0 overflow-auto">
-        <div className="min-w-full overflow-x-auto overflow-y-auto" style={{ maxHeight: '40vh' }}>
+      <div className="w-full overflow-x-auto">
+        {/* 高さを固定したい場合などは max-h-96 を使用 */}
+        <div className="relative  overflow-y-auto   max-h-[calc(100vh-270px)]">
           {/* ここで key に selectedView を指定することで、view 変更時にテーブル全体が再マウントされます */}
-          <table key={selectedView} className="border-collapse table-fixed w-full min-w-max" style={{ tableLayout: 'fixed' }}>
+          <table key={'test'} className="border-collapse table-fixed w-full" style={{ tableLayout: 'fixed' }}>
+          {/* <table key={selectedView} className="border-collapse table-fixed w-full" style={{ tableLayout: 'fixed' }}> */}
             <colgroup>
               {visibleColumns.map((col, idx) => (
                 <col key={idx} style={{ width: col.width || 'auto' }} />
@@ -241,7 +228,7 @@ export default function DetailTable({
       </div>
 
       {/* 検索バーとラジオボタン */}
-      <div className="flex items-center justify-between mt-2 flex-shrink-0">
+      <div className="flex items-center justify-between mt-4">
       {searchColumnLabel && (
         <SearchBar
           value={searchText}

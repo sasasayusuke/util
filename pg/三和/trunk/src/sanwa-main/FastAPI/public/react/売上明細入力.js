@@ -2,28 +2,21 @@ let tax_category   = "";
 let sales_fraction = "";
 let tax_fraction   = "";
 
-// モーダル環境でのパラメータ取得
-function getModalParams() {
-    if (window.uriageModalContext) {
-        // モーダル環境
-        return window.uriageModalContext.modalParams;
-    } else {
-        // 従来の別タブ環境（後方互換性）
-        const queryParams_name = new URLSearchParams(window.location.search);
-        const session_storage_name = queryParams_name.get("uriage_id");
-        const session_json = JSON.parse(sessionStorage.getItem(session_storage_name));
-        return session_json;
-    }
-}
+// 遷移元画面から渡されたsessionstorageの識別子を取得
+const queryParams_name = new URLSearchParams(window.location.search);
+const session_storage_name = queryParams_name.get("uriage_id");
+// sessionStorageからクエリパラメータをJSON形式で取得
+const session_json = JSON.parse(sessionStorage.getItem(session_storage_name));
+// URLsearchparamsに変換（仕様変更の為、再度URLsearchparamsに変換）
+const queryParams = new URLSearchParams(session_json);
 
-const modalParams = getModalParams();
-const category = modalParams["category"];
-const title = modalParams["title"];
-const user = modalParams["user"];
-const opentime = modalParams["opentime"];
+const category = queryParams.get("category")
+const title = queryParams.get("title")
+const user = queryParams.get("user")
+const opentime = queryParams.get("opentime")
 
-const update_flg = modalParams['更新フラグ'] === 'true' ? true:false; //更新可能の場合はtrue
-const process_category = modalParams["@i処理区分"];
+const update_flg = queryParams.get('更新フラグ') === 'true' ? true:false; //更新可能の場合はtrue
+const process_category = queryParams.get("@i処理区分");
 
 
 let view_list;
@@ -32,40 +25,40 @@ window.onload = async function () {
     try{
 		showLoading();
 
-        await get_taxRate(modalParams['売上日付']);
+        await get_taxRate(queryParams.get('売上日付'));
 
         let itemParams = {
-            "処理区分名": modalParams["処理区分名"],
-            "抽出区分名": modalParams["抽出区分名"],
-            "見積件名": modalParams["見積件名"],
-            "得意先CD": modalParams["得意先CD"],
-            "得意先名": modalParams["得意先名"],
-            "納入得意先CD": modalParams["納入得意先CD"],
-            "納入先CD": modalParams["納入先CD"],
-            "納入先名": modalParams["納入先名"],
-            "売上日付": modalParams['売上日付'],
-            "更新フラグ": modalParams['更新フラグ'],
+            "処理区分名": queryParams.get("処理区分名"),
+            "抽出区分名": queryParams.get("抽出区分名"),
+            "見積件名": queryParams.get("見積件名"),
+            "得意先CD": queryParams.get("得意先CD"),
+            "得意先名": queryParams.get("得意先名"),
+            "納入得意先CD": queryParams.get("納入得意先CD"),
+            "納入先CD": queryParams.get("納入先CD"),
+            "納入先名": queryParams.get("納入先名"),
+            "売上日付":queryParams.get('売上日付'),
+            "更新フラグ":queryParams.get('更新フラグ'),
 
-            "@i処理区分": modalParams["@i処理区分"],
-            "@i見積番号": modalParams["@i見積番号"],
-            "@i売上番号": modalParams["@i売上番号"],
-            "@i抽出区分": modalParams["@i抽出区分"],
-            "@is仕入日付": modalParams["@is仕入日付"],
-            "@ie仕入日付": modalParams["@ie仕入日付"],
+            "@i処理区分": queryParams.get("@i処理区分"),
+            "@i見積番号": queryParams.get("@i見積番号"),
+            "@i売上番号": queryParams.get("@i売上番号"),
+            "@i抽出区分": queryParams.get("@i抽出区分"),
+            "@is仕入日付": queryParams.get("@is仕入日付"),
+            "@ie仕入日付": queryParams.get("@ie仕入日付"),
         };
 
         let fetchParams = {
-            "category": modalParams["category"],
-            "title": modalParams["title"],
-            "button": modalParams["button"],
-            "user": modalParams["user"],
-            "opentime": modalParams["opentime"],
-            "params": itemParams
+            "category": queryParams.get("category"),
+            "title":  queryParams.get("title"),
+            "button": queryParams.get("button"),
+            "user": queryParams.get("user"),
+            "opentime": queryParams.get("opentime"),
+            "params":itemParams
         }
 
-        tax_category   = modalParams['税集計区分'];
-        sales_fraction = modalParams['売上端数'];
-        tax_fraction   = modalParams['消費税端数'];
+        tax_category   = queryParams.get('税集計区分');
+        sales_fraction = queryParams.get('売上端数');
+        tax_fraction   = queryParams.get('消費税端数');
 
         console.log('パラメータ',fetchParams)
 
@@ -123,9 +116,6 @@ window.onload = async function () {
         // Reactバンドルが読み込まれた後、window.FormLib があるはず
         if (window.FormLib) {
             try {
-                // modalParamsをcontextに追加
-                context.modalParams = modalParams;
-                context.view_list = view_list;
                 window.FormLib.initFormUriage(mainId, context);
             } catch (error) {
                 console.error('FormLib の初期化中にエラーが発生しました:', error);
@@ -196,12 +186,6 @@ function checkForm(records,sales_date,gGetuDate){
   // ===================登録処理=====================
 async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,外税,非課税金額,合計金額){
     try{
-        // 更新処理時のリアルタイム判定（別タブ版と同じ動き）
-        if(modalParams["@i処理区分"] == 1 && modalParams["月次更新日"] && new Date(sales_date) <= new Date(modalParams["月次更新日"])){
-            alert('更新済みの為、修正できません。');
-            return;
-        }
-        
         if(checkForm(records,sales_date,gGetuDate) == false){
             return;
         }
@@ -212,8 +196,8 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
         }
 
         const itemParams = {
-            "@i売上番号": modalParams["@i売上番号"],
-            "@i見積番号": modalParams["@i見積番号"],
+            "@i売上番号": queryParams.get("@i売上番号"),
+            "@i見積番号": queryParams.get("@i見積番号"),
             "@i売上日付": sales_date,
 
             "@i合計金額"  : 合計金額,
@@ -221,11 +205,11 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
             "@i外税対象額": 外税対象額,
             "@i外税額"    : 外税,
 
-            "@i税集計区分": modalParams['税集計区分'],
-            "@i売上端数": modalParams['売上端数'],
-            "@i消費税端数": modalParams['消費税端数'],
+            "@i税集計区分": queryParams.get('税集計区分'),
+            "@i売上端数": queryParams.get('売上端数'),
+            "@i消費税端数": queryParams.get('消費税端数'),
 
-            "@i得意先CD": modalParams['得意先CD'],
+            "@i得意先CD": queryParams.get('得意先CD'),
 
             "入力データ": records
         };
@@ -259,18 +243,12 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
         } 
         else {
             // アンロック
-            if(modalParams['@i処理区分'] == '1'){
-                await UnLockData('売上番号',modalParams["@i売上番号"]);
+            if(queryParams.get('@i処理区分') == '1'){
+                await UnLockData('売上番号',queryParams.get("@i売上番号"));
             }
-            
-            // モーダルの場合はコールバック関数を呼び出し
-            if (window.uriageModalContext) {
-                window.uriageModalContext.onComplete();
-            } else {
-                // 従来の別タブ環境（後方互換性）
-                localStorage.setItem(`${session_storage_name}_delete`,'false');
-                window.close();
-            }
+            // 画面を閉じるフラグを建てる
+            localStorage.setItem(`${session_storage_name}_delete`,'false');
+            window.close();
         }
     }catch(e){
         alert('予期せぬエラーが発生しました。');
@@ -293,7 +271,7 @@ async function purge(){
         showLoading();
         // ===================チェック処理=====================
         let itemParams = {
-            "@i見積番号": modalParams["@i見積番号"]
+            "@i見積番号": queryParams.get("@i見積番号")
         }
         let fetchParams = {
             "category": '売上・入金',
@@ -329,8 +307,8 @@ async function purge(){
 
         // ===================削除処理=====================
         itemParams = {
-            "@i売上番号": modalParams["@i売上番号"],
-            "@i見積番号": modalParams["@i見積番号"]
+            "@i売上番号": queryParams.get("@i売上番号"),
+            "@i見積番号": queryParams.get("@i見積番号")
         }
     
         fetchParams = {
@@ -359,16 +337,9 @@ async function purge(){
         res = await res.json();
 
         // ロック解除
-        await UnLockData('売上番号',modalParams["@i売上番号"]);
-        
-        // モーダルの場合はコールバック関数を呼び出し
-        if (window.uriageModalContext) {
-            window.uriageModalContext.onComplete();
-        } else {
-            // 従来の別タブ環境（後方互換性）
-            localStorage.setItem(`${session_storage_name}_delete`,'false');
-            window.close();
-        }
+        await UnLockData('売上番号',queryParams.get("@i売上番号"));
+        localStorage.setItem(`${session_storage_name}_delete`,'false');
+        window.close();
 
     }catch(e){
         alert('予期せぬエラーが発生しました。');

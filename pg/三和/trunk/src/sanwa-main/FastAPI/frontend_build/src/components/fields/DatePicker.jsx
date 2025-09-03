@@ -32,10 +32,11 @@ export default function DatePicker({ name, value = '', onFocus, onBlur, minDate 
         type="date"
         name={name}
         value={selectedDate}
+        // value={date}
         onChange={handleDateChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        tabIndex={0}
+        // min={minDate}  // ここで最小選択日を 1899-12-30 に設定
         className="
             px-2
             border border-black rounded-md

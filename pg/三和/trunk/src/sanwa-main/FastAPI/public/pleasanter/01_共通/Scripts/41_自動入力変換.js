@@ -1,32 +1,3 @@
-// 自動入力変換のタイマーを管理するグローバル変数
-let _globalAutoKanaTimers = [];
-let _autoKanaModalOpen = false;
-
-/**
- * モーダル表示時に自動カナ変換のタイマーを停止
- */
-function pauseAutoKanaTimers() {
-    _autoKanaModalOpen = true;
-    _globalAutoKanaTimers.forEach(timer => {
-        if (timer) {
-            clearInterval(timer);
-        }
-    });
-}
-
-/**
- * モーダル閉じる時に自動カナ変換のタイマーを再開
- */
-function resumeAutoKanaTimers() {
-    _autoKanaModalOpen = false;
-    // 各要素のfocusイベントを再トリガーしてタイマーを再開
-    // ただし、実際にはフォーカスされている要素のみ再開する
-    document.querySelectorAll('input:focus').forEach(el => {
-        const focusEvent = new Event('focus');
-        el.dispatchEvent(focusEvent);
-    });
-}
-
 /**
  * 指定した項目に入力されたらｶﾅ文字に変換して別項目に入力する関数です。
  *
@@ -90,15 +61,7 @@ function inputAutoKana(label1, label2, passedOptions = {}) {
     }
 
     function _clearInterval() {
-        if (timer) {
-            clearInterval(timer);
-            // グローバル配列からも削除
-            const index = _globalAutoKanaTimers.indexOf(timer);
-            if (index > -1) {
-                _globalAutoKanaTimers.splice(index, 1);
-            }
-            timer = null;
-        }
+        clearInterval(timer);
     }
 
     function _eventBlur() {
@@ -136,13 +99,7 @@ function inputAutoKana(label1, label2, passedOptions = {}) {
     }
 
     function _setInterval() {
-        if (!_autoKanaModalOpen) {
-            timer = setInterval(_checkValue, 10);
-            // タイマーをグローバル配列に追加
-            if (!_globalAutoKanaTimers.includes(timer)) {
-                _globalAutoKanaTimers.push(timer);
-            }
-        }
+        timer = setInterval(_checkValue, 10);
     }
 
     function _setKana(new_values) {

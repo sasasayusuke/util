@@ -1,6 +1,0 @@
-$(document).on('blur', '#Results_ClassA, #Results_ClassD', function () {
-    var A = $('#Results_ClassA').text().trim();
-    var B = $('#Results_ClassD').val();
-
-   $p.set($('#Results_Class100'), A + '__' + B);
-})

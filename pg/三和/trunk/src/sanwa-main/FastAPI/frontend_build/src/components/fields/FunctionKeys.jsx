@@ -1,5 +1,5 @@
 // FunctionKeys.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import KeyButton from './KeyButton';
 
 /**
@@ -13,22 +13,12 @@ export default function FunctionKeys({ keyConfig, currentState }) {
   // 現在の状態に応じたキー設定を取得する
   // keyConfig の中から currentState に対応するオブジェクトを抽出する
   const actions = keyConfig[currentState] || {};
-  const containerRef = useRef(null);
 
   // ----------------------------
   // キーボードイベントの処理
   // ----------------------------
   // キーが押されたとき、対応するアクション（onClick）を実行する
   function handleKeyDown(e) {
-    // 入力要素にフォーカスがある場合はFキー処理をスキップ
-    const activeElement = document.activeElement;
-    const inputElements = ['INPUT', 'TEXTAREA', 'SELECT'];
-    if (inputElements.includes(activeElement.tagName)) {
-      return;
-    }
-    
-    // モーダル内のフォーカスチェックを簡略化
-    // 入力要素以外でFキーを有効にする
     switch (e.key) {
       case 'F1':
         if (actions.F1 && actions.F1.onClick) {
@@ -118,15 +108,8 @@ export default function FunctionKeys({ keyConfig, currentState }) {
 
   // コンポーネントのマウント時にキーボードイベントのリスナーを追加し、アンマウント時に解除する
   useEffect(() => {
-    // 常にdocumentにイベントリスナーを追加
-    document.addEventListener('keydown', handleKeyDown);
-    
-    // 強制フォーカスを削除 - 自然なフォーカス動作を許可
-    // モーダルコンテナへの自動フォーカスは入力ボックスのフォーカスを阻害するため削除
-    
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [currentState, keyConfig]);
 
   // ----------------------------

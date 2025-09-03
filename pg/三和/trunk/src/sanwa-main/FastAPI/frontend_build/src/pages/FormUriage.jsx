@@ -2,82 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import DatePicker from '../components/fields/DatePicker';
 import FunctionKeys from '../components/fields/FunctionKeys';
 import InfoCard from '../components/fields/InfoCard';
-import ModalLayout from '../components/layout/ModalLayout';
+import Layout from '../components/layout/Layout';
 import DetailTable from '../components/tables/DetailTable';
 
-// Shadow DOM内からグローバル関数にアクセスするためのプロキシ関数群
-function getGlobalFunction(functionName) {
-  try {
-    // 親ウィンドウのグローバル関数にアクセスを試行
-    return window.parent?.[functionName] || window.top?.[functionName] || window[functionName];
-  } catch (e) {
-    console.warn(`グローバル関数 ${functionName} にアクセスできません:`, e);
-    return null;
-  }
-}
-
-// グローバル関数のプロキシ
-function clsDates(param) {
-  const globalFunc = getGlobalFunction('clsDates');
-  if (globalFunc) {
-    return new globalFunc(param);
-  }
-  console.warn('clsDates関数が見つかりません');
-  return { GetbyID: async () => {}, updateDate: new Date() };
-}
-
-function GetTax(date) {
-  const globalFunc = getGlobalFunction('GetTax');
-  if (globalFunc) {
-    return globalFunc(date);
-  }
-  console.warn('GetTax関数が見つかりません');
-  return Promise.resolve({ results: [{ 税率: 10 }] });
-}
-
-function upload(data, salesDate, gGetuDate, 税抜金額, 外税対象額, 外税, 非課税金額, 合計金額) {
-  const globalFunc = getGlobalFunction('upload');
-  if (globalFunc) {
-    return globalFunc(data, salesDate, gGetuDate, 税抜金額, 外税対象額, 外税, 非課税金額, 合計金額);
-  }
-  console.warn('upload関数が見つかりません');
-  alert('アップロード機能が利用できません');
-}
-
-function purge() {
-  const globalFunc = getGlobalFunction('purge');
-  if (globalFunc) {
-    return globalFunc();
-  }
-  console.warn('purge関数が見つかりません');
-  alert('削除機能が利用できません');
-}
-
-function UnLockData(type, id) {
-  const globalFunc = getGlobalFunction('UnLockData');
-  if (globalFunc) {
-    return globalFunc(type, id);
-  }
-  console.warn('UnLockData関数が見つかりません');
-  return Promise.resolve();
-}
-
 export default function FormUriage({ context }) {
-  // contextから値を取得（デフォルト値付き）
-  const update_flg = context.update_flg ?? true;
-  const process_category = context.process_category ?? '0';
-  
-  // デバッグ用ログ
-  console.log('FormUriage - 受信した値:', {
-    update_flg,
-    process_category,
-    context_keys: Object.keys(context),
-    context_content: context.content,
-    data_length: context.content?.data?.length,
-    view_list: context.view_list,
-    has_view_list: !!context.view_list
-  });
-  
   // 初期化時に、data の各行に "仕入明細行番号" プロパティを追加（行番号は index+1）
   const initialData = context.content.data.map((row, index) => ({ ...row, 売上明細行番号: index + 1 }));
   const [data, setData] = useState(initialData);
@@ -130,115 +58,6 @@ export default function FormUriage({ context }) {
     setData(updatedData);
   }
 
-  // ===================合計計算処理=====================
-  async function calc_total(data,sales_date,set税抜金額,set外税対象額,set外税,set非課税金額,set合計金額){
-    try{
-      // チェックされている行のデータを取得
-      const checked_rows = data.filter(e => e.CHECK);
-      
-      let check = null;
-      let getdata = "";
-      let wDenKB  = 0;
-      let wZeiKB  = 0;
-      let wTotal  = 0;
-      let wKingak = 0;
-      let wZeikin = 0;
-      let wSiSoto = 0;
-      let wSiUchi = 0;
-      let wSiUZei = 0;
-      let wHeSoto = 0;
-      let wHeUchi = 0;
-      let wHeUZei = 0;
-      let wTeSoto = 0;
-      let wTeUchi = 0;
-      let wTeUZei = 0;
-      let wZeiTotal = 0;
-      let wSiHika = 0;
-      let wHeHika = 0;
-
-      for (const row of checked_rows){
-        // 伝票区分
-        check = row["伝票区分"];
-        getdata = check;
-        wDenKB = check ?  getdata : "";
-
-        // 合計金額
-        check = row["売上金額"];
-        getdata = check;
-        wKingak = check ? getdata : 0;
-
-        // 売上税区分
-        check = row["売上税区分"];
-        getdata = check;
-        wZeiKB = check ? getdata : 0;
-
-        // 消費税額
-        check = row["消費税額"];
-        getdata = check;
-        wZeikin = check ? getdata : 0;
-
-        switch(wDenKB){
-          case '1': // 売上
-            switch(wZeiKB){
-              case 0: // 外税
-                wSiSoto += wKingak;
-                wZeiTotal += wZeikin;
-                break;
-              case 1: // 内税
-                wSiUchi += wKingak;
-                wSiUZei += wZeikin;
-                break;
-              default: // 非課税
-                wSiHika += wKingak;
-                break;
-            }
-            wTotal += wKingak;
-            break;
-          case '2': // 返品
-            switch(wZeiKB){
-              case 0: // 外税
-                wHeSoto += wKingak;
-                wZeiTotal += wZeikin;
-                break;
-              case 1: // 内税
-                wHeUchi += wKingak;
-                wHeUZei += wZeikin;
-                break;
-              default: // 非課税
-                wHeHika += wKingak;
-                break;
-            }
-            wTotal += wKingak;
-            break;
-          case '3': // 訂正
-            if(wZeiKB == 0){
-              wTeSoto += wKingak;
-            }else{
-              wTeUchi += wKingak;
-            }
-            wTeUZei += wZeikin;
-            wTotal += wKingak;
-            break;
-        }
-      }
-      
-      // 結果を設定
-      set税抜金額(
-        (wSiSoto + wSiUchi - wSiUZei) + 
-        (wHeSoto + wHeUchi - wHeUZei) +
-        (wSiHika + wHeHika) +
-        (wTeSoto + wTeUchi - wTeUZei)
-      );
-      set外税対象額((wSiSoto + wHeSoto));
-      set非課税金額(wSiHika + wHeHika);
-      set外税(wZeiTotal);
-      set合計金額(wTotal);
-
-    } catch(e){
-      console.error('計算エラー:', e);
-    }
-  }
-
   useEffect(() => {
     // 合計の計算
     calc_total(data,salesDate,set税抜金額,set外税対象額,set外税,set非課税金額,set合計金額);
@@ -254,16 +73,6 @@ export default function FormUriage({ context }) {
     };
     fetchData();
   }, []);
-
-  // 税率取得関数
-  async function get_taxRate(date) {
-    try {
-      var res = await GetTax(new Date(date));
-      // ZEIRITU = res.results[0].税率; // グローバル変数として設定（必要に応じて）
-    } catch (e) {
-      console.error("Error fetching tax:", e);
-    }
-  }
 
   useEffect(()=>{
     get_taxRate(salesDate);
@@ -291,10 +100,10 @@ export default function FormUriage({ context }) {
   }
 
   // 戻るボタンのハンドラ
-  async function hundleBackClick(){
+  async function hundleF12Click(){
     if(!confirm('現在の処理を終了します。\nよろしいですか？'))return;
 
-    await UnLockData('売上番号',context.売上番号);
+    await UnLockData('売上番号',queryParams.get("@i売上番号"));
     window.close();
   }
 
@@ -327,7 +136,7 @@ export default function FormUriage({ context }) {
       },
       F12: {
         label: '戻る',
-        onClick: hundleBackClick,
+        onClick:hundleF12Click,
       },
     },
     new_CK: {
@@ -349,7 +158,7 @@ export default function FormUriage({ context }) {
       },
       F12: {
         label: '戻る',
-        onClick: hundleBackClick,
+        onClick: hundleF12Click,
       },
     },
     update_default: {
@@ -367,7 +176,7 @@ export default function FormUriage({ context }) {
       },
       F12: {
         label: '戻る',
-        onClick: hundleBackClick,
+        onClick: hundleF12Click,
       },
     },
     update_CK: {
@@ -390,7 +199,7 @@ export default function FormUriage({ context }) {
       },
       F12: {
         label: '戻る',
-        onClick: hundleBackClick,
+        onClick: hundleF12Click,
       },
     },
     updated: {
@@ -400,7 +209,7 @@ export default function FormUriage({ context }) {
       // },
       F12: {
         label: '戻る',
-        onClick: hundleBackClick,
+        onClick: hundleF12Click,
       },
     },
 
@@ -441,10 +250,8 @@ export default function FormUriage({ context }) {
   
 
   return (
-    <ModalLayout
-      title="売上明細入力"
+    <Layout
       message={message}
-      onClose={hundleBackClick}
       leftHeaderContent={
         <>
           {
@@ -539,7 +346,6 @@ export default function FormUriage({ context }) {
           focusedRow = {focusedRow}
           setFocusedRow = {setFocusedRow}
           tableRefs={tableRefs}
-          viewList = {context.view_list}
         />
       }
       keyButtonContent={

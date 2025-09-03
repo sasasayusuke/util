@@ -1,5 +1,0 @@
-$('#Results_ClassB').on('input',function(){
-
-    $('#Results_ClassD').val($('#Results_ClassB').val().slice(0,4));
-
-})

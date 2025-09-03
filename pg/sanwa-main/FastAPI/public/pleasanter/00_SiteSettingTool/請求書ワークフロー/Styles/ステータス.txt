@@ -1,9 +1,0 @@
-.status-approved-1{
-    background-color: #fa8072;
-}
-.status-approved-2{
-    background-color: #4CAF50;
-}
-.status-approved-3{
-    background-color: #90CAF9;
-}

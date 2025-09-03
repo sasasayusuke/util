@@ -1,8 +1,6 @@
 // 売上前請求書alert制御用
 let sales_before_flg = false;
 let dates;
-// モーダル表示中フラグ
-let uriage_modal_open = false;
 //売上入力
 {
 
@@ -490,10 +488,19 @@ async function search_salesInput_table(process_category,noAlert_flg = false){
                 params.append("売上端数", sales_fraction);
                 params.append("消費税端数", tax_fraction);
 
-                // 更新フラグは常にtrueにして、売上明細入力.js内でリアルタイム判定させる（別タブ版と同じ動き）
-                params.append('更新フラグ',true);
-                // 判定用の月次更新日も渡す
-                params.append('月次更新日', dates ? dates.toISOString() : null);
+                if(process_category == 1 && new Date(sales_date) <= dates){
+                    alert('更新済みの為、修正できません。');
+                    params.append('更新フラグ',false);
+                }else{
+                    params.append('更新フラグ',true);
+                }
+
+                // json文字列に変換し、sessionStorageにパラメータに保存
+                const json_str = JSON.stringify(Object.fromEntries(params));
+                // 遷移先での識別子（これをURLに入れて渡す）
+                const session_storage_name = `uriage_${new Date().getTime()}`;
+                // sessionStorageに登録
+                sessionStorage.setItem(session_storage_name,json_str);
 
                 if(process_category == '1'){
                     if(!(await LockData('売上番号',sales_no))){
@@ -503,11 +510,16 @@ async function search_salesInput_table(process_category,noAlert_flg = false){
                     }
                 }
 
-                // パラメータオブジェクトを直接作成
-                const modalParams = Object.fromEntries(params);
+                window.open(`/items/${INPUT_GUIS["売上明細入力"]}/index?uriage_id=${session_storage_name}`, '_blank');
 
-                // 売上明細入力画面をモーダルで開く
-                openUriageModal(modalParams, process_category);
+                // 明細が閉じたら画面を初期化
+                window.addEventListener('storage', function(event) {
+                    if (event.key === `${session_storage_name}_delete` && event.newValue === 'false') {
+                        localStorage.clear();
+                        $('#salesInput_searchTable_inputTable input').val('');
+                        search_salesInput_table(process_category,true);
+                    }
+                });
             }
 
             catch(err){
@@ -531,294 +543,14 @@ $(document).on('click','#salesInput .textClear',async function(){
 
 // 処理区分にフォーカスが入ったら画面を初期化
 $(document).on('focus','#salesInput_processCategoryFrom',function(){
-    if(!sales_before_flg && !uriage_modal_open){
+    if(!sales_before_flg){
         lookup_blank_for_salesInput(true);
     }
     
 })
 // 見積番号にフォーカスが入ったら画面を初期化
 $(document).on('focus','#salesInput_estimateNo',async function(){
-    if(!sales_before_flg && !uriage_modal_open){
+    if(!sales_before_flg){
         lookup_blank_for_salesInput(true);
     }
 })
-
-/**
- * 売上明細入力画面をモーダルで開く関数
- * @param {Object} modalParams パラメータオブジェクト
- * @param {string} process_category 処理区分
- */
-async function openUriageModal(modalParams, process_category) {
-    // モーダルのHTML構造を作成
-    const modalId = 'uriageModal';
-    const modalContainerId = 'uriageModalContainer';
-    const modalHtml = `
-        <div id="${modalId}" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
-                <div id="${modalContainerId}" style="width: 100%; height: 100%;">
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // 既存のモーダルがあれば削除
-    const existingModal = document.getElementById(modalId);
-    if (existingModal) {
-        existingModal.remove();
-    }
-    
-    // モーダルをbodyに追加
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
-    
-    const modal = document.getElementById(modalId);
-    // const closeBtn = modal.querySelector('.close');
-    
-    // モーダルを表示
-    modal.style.display = 'block';
-    
-    // モーダル表示フラグをON
-    uriage_modal_open = true;
-    
-    // 自動カナ変換のタイマーを停止
-    if (typeof pauseAutoKanaTimers === 'function') {
-        pauseAutoKanaTimers();
-    }
-    
-    // フォーカス管理とタブトラップを設定
-    setupModalFocus(modal);
-    
-    // 完了時のコールバック関数を定義
-    const onComplete = async function() {
-        closeUriageModal(modalId);
-        
-        $('#salesInput_searchTable_inputTable input').val('');
-        search_salesInput_table(process_category, true);
-    };
-
-    // 閉じるボタンのイベント（React側で処理）
-    // closeBtn.onclick = function() {
-    //     closeUriageModal(modalId);
-    // };
-    
-    // 売上明細入力.jsの機能を実行
-    await loadUriageModalContent(modalParams, onComplete);
-}
-
-/**
- * 売上明細モーダルを閉じる関数
- * @param {string} modalId モーダルID
- */
-function closeUriageModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        // Reactのrootをクリーンアップ
-        const modalContainerId = 'uriageModalContainer';
-        if (window.FormLib && window.FormLib.cleanupRoot) {
-            window.FormLib.cleanupRoot(modalContainerId);
-        }
-        modal.style.display = 'none';
-        modal.remove();
-        
-        // モーダル表示フラグをOFF
-        uriage_modal_open = false;
-        
-        // 自動カナ変換のタイマーを再開
-        if (typeof resumeAutoKanaTimers === 'function') {
-            resumeAutoKanaTimers();
-        }
-    }
-}
-
-/**
- * モーダルのフォーカス管理とタブトラップを設定
- * @param {HTMLElement} modal モーダル要素
- */
-function setupModalFocus(modal) {
-    const modalContent = modal.querySelector('.modal-content');
-    if (!modalContent) return;
-    
-    // フォーカス可能な要素を取得
-    const focusableElements = modalContent.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    
-    // Escapeキーでモーダルを閉じる
-    function handleKeyDown(e) {
-        if (e.key === 'Escape') {
-            const modalId = modal.id;
-            if (modalId === 'uriageModal') {
-                closeUriageModal(modalId);
-            } else if (modalId === 'siireModal') {
-                closeSiireModal(modalId);
-            }
-            return;
-        }
-        
-        // Tabキーでのフォーカストラップ
-        if (e.key === 'Tab') {
-            if (e.shiftKey) {
-                // Shift+Tab
-                if (document.activeElement === firstFocusableElement) {
-                    lastFocusableElement.focus();
-                    e.preventDefault();
-                }
-            } else {
-                // Tab
-                if (document.activeElement === lastFocusableElement) {
-                    firstFocusableElement.focus();
-                    e.preventDefault();
-                }
-            }
-        }
-    }
-    
-    modalContent.addEventListener('keydown', handleKeyDown);
-    
-    // 初期フォーカスを設定
-    if (firstFocusableElement) {
-        firstFocusableElement.focus();
-    } else {
-        modalContent.focus();
-    }
-}
-
-/**
- * 売上明細入力.jsの内容をモーダル内で実行する関数
- * @param {Object} modalParams パラメータオブジェクト
- * @param {Function} onComplete 完了時のコールバック関数
- */
-async function loadUriageModalContent(modalParams, onComplete) {
-    try {
-        showLoading();
-
-        await get_taxRate(modalParams['売上日付']);
-
-        let itemParams = {
-            "処理区分名": modalParams["処理区分名"],
-            "抽出区分名": modalParams["抽出区分名"],
-            "見積件名": modalParams["見積件名"],
-            "得意先CD": modalParams["得意先CD"],
-            "得意先名": modalParams["得意先名"],
-            "納入得意先CD": modalParams["納入得意先CD"],
-            "納入先CD": modalParams["納入先CD"],
-            "納入先名": modalParams["納入先名"],
-            "売上日付": modalParams['売上日付'],
-            "更新フラグ": modalParams['更新フラグ'],
-
-            "@i処理区分": modalParams["@i処理区分"],
-            "@i見積番号": modalParams["@i見積番号"],
-            "@i売上番号": modalParams["@i売上番号"],
-            "@i抽出区分": modalParams["@i抽出区分"],
-            "@is仕入日付": modalParams["@is仕入日付"],
-            "@ie仕入日付": modalParams["@ie仕入日付"],
-        };
-
-        let fetchParams = {
-            "category": modalParams["category"],
-            "title": modalParams["title"],
-            "button": modalParams["button"],
-            "user": modalParams["user"],
-            "opentime": modalParams["opentime"],
-            "params": itemParams
-        };
-
-        let res = await fetch(SERVICE_URL, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(fetchParams)
-        });
-
-        if (!res.ok) {
-            const err = await res.json();
-            throw new Error(err);
-        }
-
-        let context = await res.json();
-
-        // viewsを作成
-        const columns = context.content.columns;
-        const view_names = columns[0].views;
-        let views = {};
-        view_names.forEach((e) => {
-            views[e] = [];
-        });
-        
-        columns.forEach((e) => {
-            if (!('views' in e)) {
-                for (const view in views) {
-                    views[view].push(e);
-                }
-            } else {
-                e.views.forEach((j) => {
-                    views[j].push(e);
-                });
-            }
-        });
-
-        if (context["content"]["gUcnt"] != 0) {
-            alert('原価売価未確定が存在します。');
-        }
-
-        // 作成したviewsをcontextに追加
-        context.view_list = views;
-
-        // Reactをマウントするための要素の取得
-        const modalId = 'uriageModal';
-        const modalContainerId = 'uriageModalContainer';
-        const container = document.querySelector(`#${modalId} #${modalContainerId}`);
-
-        // コンテナの初期化
-        container.innerHTML = "";
-
-        // Reactバンドルが読み込まれた後、window.FormLib があるはず
-        if (window.FormLib) {
-            try {
-                // contextに必要な値を追加
-                context.update_flg = modalParams['更新フラグ'] === 'true' || modalParams['更新フラグ'] === true;
-                context.process_category = modalParams['@i処理区分'];
-                
-                // デバッグ用ログ
-                console.log('売上入力 - modalParams:', {
-                    更新フラグ: modalParams['更新フラグ'],
-                    処理区分: modalParams['@i処理区分']
-                });
-                console.log('売上入力 - context値:', {
-                    update_flg: context.update_flg,
-                    process_category: context.process_category
-                });
-                
-                // モーダル用のコンテキストを設定
-                window.uriageModalContext = {
-                    modalParams: modalParams,
-                    onComplete: onComplete
-                };
-                window.FormLib.initFormUriage(container.id, context);
-            } catch (error) {
-                console.error('FormLib の初期化中にエラーが発生しました:', error);
-            }
-        } else {
-            console.error('FormLib が見つかりません');
-        }
-        hideLoading();
-
-    } catch (error) {
-        console.error('予期せぬエラー：', error.message);
-        alert('読み込み処理' + error.message);
-        throw error;
-    } finally {
-        hideLoading();
-    }
-}
-
-// 税率取得関数（売上明細入力.jsから移植）
-async function get_taxRate(date) {
-    try {
-        var res = await GetTax(new Date(date));
-        ZEIRITU = res.results[0].税率;
-    } catch (e) {
-        console.error("Error fetching tax:", e);
-    }
-}

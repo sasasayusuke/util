@@ -1,8 +1,0 @@
-$(document).on('change', '#Results_ClassA, #Results_ClassI, #Results_ClassD, #Results_ClassG', function() {
-    var A = $('#Results_ClassA').text().trim();
-    var I = $('#Results_ClassI').val();
-    var D = $('#Results_ClassD').val().trim();
-    var G = $('#Results_ClassG').val();
-
-   $p.set($('#Results_Class100'), A + '__' + I + '__' + D + '__' + G);
-});

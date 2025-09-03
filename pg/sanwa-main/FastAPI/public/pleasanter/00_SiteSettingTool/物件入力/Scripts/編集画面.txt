@@ -1,3 +1,0 @@
-
-// 郵便番号横に住所検索ボタンを追加する
-createAndAddAddressButton("郵便番号")
