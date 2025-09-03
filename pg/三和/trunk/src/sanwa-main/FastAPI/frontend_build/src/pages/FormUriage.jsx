@@ -42,28 +42,16 @@ export default function FormUriage({ context }) {
   useEffect(() => {
     const lockData = async () => {
       try {
-        const 見積番号 = queryParams.get("@i見積番号");
-        const 売上番号 = queryParams.get("@i売上番号");
+        const estiNo = queryParams.get("@i見積番号");
         
         // 見積番号のロック
-        if (見積番号) {
-          if (!await LockData('見積番号', 見積番号)) {
+        if (estiNo) {
+          if (!await LockData('見積番号', estiNo)) {
             window.close();
             return;
           }
         }
         
-        // 売上番号のロック
-        if (売上番号) {
-          if (!await LockData('売上番号', 売上番号)) {
-            // 見積番号がロックされていた場合は解除
-            if (見積番号) {
-              await UnLockData('見積番号', 見積番号);
-            }
-            window.close();
-            return;
-          }
-        }
       } catch (error) {
         alert('ロック処理でエラーが発生しました: ' + error.message);
         window.close();
@@ -139,17 +127,12 @@ export default function FormUriage({ context }) {
     if(!confirm('現在の処理を終了します。\nよろしいですか？'))return;
 
     // すべてのロックを解除
-    const 見積番号 = queryParams.get("@i見積番号");
-    const 売上番号 = queryParams.get("@i売上番号");
+    const estiNo = queryParams.get("@i見積番号");
     
-    if (見積番号) {
-      await UnLockData('見積番号', 見積番号);
+    if (estiNo) {
+      await UnLockData('見積番号', estiNo);
     }
-    
-    if (売上番号) {
-      await UnLockData('売上番号', 売上番号);
-    }
-    
+
     window.close();
   }
 

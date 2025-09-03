@@ -39,24 +39,11 @@ export default function FormShiire({ context }) {
   useEffect(() => {
     const lockData = async () => {
       try {
-        const 見積番号 = queryParams.get("@i見積番号");
-        const 仕入番号 = queryParams.get("@i仕入番号");
+        const estiNo = queryParams.get("@i見積番号");
         
         // 見積番号のロック
-        if (見積番号) {
-          if (!await LockData('見積番号', 見積番号)) {
-            window.close();
-            return;
-          }
-        }
-        
-        // 仕入番号のロック
-        if (仕入番号) {
-          if (!await LockData('仕入番号', 仕入番号)) {
-            // 見積番号がロックされていた場合は解除
-            if (見積番号) {
-              await UnLockData('見積番号', 見積番号);
-            }
+        if (estiNo) {
+          if (!await LockData('見積番号', estiNo)) {
             window.close();
             return;
           }
@@ -241,15 +228,9 @@ export default function FormShiire({ context }) {
     if(!confirm('現在の処理を終了します。\nよろしいですか？'))return;
 
     // すべてのロックを解除
-    const 見積番号 = queryParams.get("@i見積番号");
-    const 仕入番号 = queryParams.get("@i仕入番号");
-    
-    if (見積番号) {
-      await UnLockData('見積番号', 見積番号);
-    }
-    
-    if (仕入番号) {
-      await UnLockData('仕入番号', 仕入番号);
+    const estiNo = queryParams.get("@i見積番号");
+    if (estiNo) {
+      await UnLockData('見積番号', estiNo);
     }
     
     window.close();
