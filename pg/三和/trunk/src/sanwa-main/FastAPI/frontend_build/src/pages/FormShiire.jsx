@@ -44,12 +44,22 @@ export default function FormShiire({ context }) {
         
         // 見積番号のロック
         if (見積番号) {
-          await LockData('見積番号', 見積番号);
+          if (!await LockData('見積番号', 見積番号)) {
+            window.close();
+            return;
+          }
         }
         
         // 仕入番号のロック
         if (仕入番号) {
-          await LockData('仕入番号', 仕入番号);
+          if (!await LockData('仕入番号', 仕入番号)) {
+            // 見積番号がロックされていた場合は解除
+            if (見積番号) {
+              await UnLockData('見積番号', 見積番号);
+            }
+            window.close();
+            return;
+          }
         }
       } catch (error) {
         alert('ロック処理でエラーが発生しました: ' + error.message);

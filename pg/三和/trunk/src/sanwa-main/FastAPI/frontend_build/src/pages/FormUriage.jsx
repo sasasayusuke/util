@@ -47,12 +47,22 @@ export default function FormUriage({ context }) {
         
         // 見積番号のロック
         if (見積番号) {
-          await LockData('見積番号', 見積番号);
+          if (!await LockData('見積番号', 見積番号)) {
+            window.close();
+            return;
+          }
         }
         
         // 売上番号のロック
         if (売上番号) {
-          await LockData('売上番号', 売上番号);
+          if (!await LockData('売上番号', 売上番号)) {
+            // 見積番号がロックされていた場合は解除
+            if (見積番号) {
+              await UnLockData('見積番号', 見積番号);
+            }
+            window.close();
+            return;
+          }
         }
       } catch (error) {
         alert('ロック処理でエラーが発生しました: ' + error.message);
