@@ -250,9 +250,9 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
         } 
         else {
             // アンロック
-            if(queryParams.get('@i処理区分') == '1'){
-                await UnLockData('売上番号',queryParams.get("@i売上番号"));
-            }
+            // if(queryParams.get('@i処理区分') == '1'){
+            //     await UnLockData('売上番号',queryParams.get("@i売上番号"));
+            // }
             // 画面を閉じるフラグを建てる
             localStorage.setItem(`${session_storage_name}_delete`,'false');
             window.close();
@@ -344,7 +344,7 @@ async function purge(){
         res = await res.json();
 
         // ロック解除
-        await UnLockData('売上番号',queryParams.get("@i売上番号"));
+        // await UnLockData('売上番号',queryParams.get("@i売上番号"));
         localStorage.setItem(`${session_storage_name}_delete`,'false');
         window.close();
 
