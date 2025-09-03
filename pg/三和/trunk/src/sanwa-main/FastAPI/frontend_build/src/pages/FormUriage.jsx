@@ -109,7 +109,22 @@ export default function FormUriage({ context }) {
   // 登録ボタンのハンドラ
   async function handleUploadClick() {
     // uploadForm は外部実装
-    upload(data,salesDate,gGetuDate,税抜金額,外税対象額,外税,非課税金額,合計金額);
+    try {
+      await upload(data,salesDate,gGetuDate,税抜金額,外税対象額,外税,非課税金額,合計金額);
+      
+      // 登録成功後、見積番号のロック解除（外部関数でやっていない分を補完）
+      const estiNo = queryParams.get("@i見積番号");
+      if (estiNo) {
+        await UnLockData('見積番号', estiNo);
+      }
+    } catch (error) {
+      // エラー時もロック解除
+      const estiNo = queryParams.get("@i見積番号");
+      if (estiNo) {
+        await UnLockData('見積番号', estiNo);
+      }
+      throw error;
+    }
   }
 
   // F9のクリック時の共通ロジック
@@ -119,7 +134,22 @@ export default function FormUriage({ context }) {
 
   // 全削除ボタンのハンドラ
   async function handleDeleteClick(){
-    purge();
+    try {
+      await purge();
+      
+      // 削除成功後、見積番号のロック解除（外部関数でやっていない分を補完）
+      const estiNo = queryParams.get("@i見積番号");
+      if (estiNo) {
+        await UnLockData('見積番号', estiNo);
+      }
+    } catch (error) {
+      // エラー時もロック解除
+      const estiNo = queryParams.get("@i見積番号");
+      if (estiNo) {
+        await UnLockData('見積番号', estiNo);
+      }
+      throw error;
+    }
   }
 
   // 戻るボタンのハンドラ

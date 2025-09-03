@@ -262,7 +262,22 @@ export default function FormShiire({ context }) {
     // uploadForm は外部実装
     let confirmOk = confirm("保存しますか？");
     if (confirmOk) {
-      uploadForm(data,仕入日付,支払日付);
+      try {
+        await uploadForm(data,仕入日付,支払日付);
+        
+        // 登録成功後、見積番号のロック解除（外部関数でやっていない分を補完）
+        const estiNo = queryParams.get("@i見積番号");
+        if (estiNo) {
+          await UnLockData('見積番号', estiNo);
+        }
+      } catch (error) {
+        // エラー時もロック解除
+        const estiNo = queryParams.get("@i見積番号");
+        if (estiNo) {
+          await UnLockData('見積番号', estiNo);
+        }
+        throw error;
+      }
     }
   }
 
@@ -274,7 +289,22 @@ export default function FormShiire({ context }) {
     // deleteForm は外部実装
     let deleteOk = confirm("表示されている明細情報をすべて削除しますか？");
     if (deleteOk) {
-      deleteForm();
+      try {
+        await deleteForm();
+        
+        // 削除成功後、見積番号のロック解除（外部関数でやっていない分を補完）
+        const estiNo = queryParams.get("@i見積番号");
+        if (estiNo) {
+          await UnLockData('見積番号', estiNo);
+        }
+      } catch (error) {
+        // エラー時もロック解除
+        const estiNo = queryParams.get("@i見積番号");
+        if (estiNo) {
+          await UnLockData('見積番号', estiNo);
+        }
+        throw error;
+      }
     }
   }
 
