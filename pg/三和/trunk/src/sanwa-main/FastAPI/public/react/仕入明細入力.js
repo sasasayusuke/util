@@ -473,8 +473,8 @@ async function calc_total(data,payment_date,set税抜金額,set外税対象額,s
 
 	}catch(e){
 		// alert('予期せぬエラーが発生しました。');
-		alert('[GEN-031] 計算処理' + e.message);
 		console.error('[GEN-031]', e);
+		alert('[GEN-031] 計算処理' + e.message);
 		return;
 	}
 }
@@ -545,8 +545,8 @@ function get_tax(data,rowIndex){
 		return wZeikin;
 	}catch(e){
 		// alert('予期せぬエラーが発生しました。');
-		alert('[GEN-032] 税取得処理' + e.message);
 		console.error('[GEN-032]', e);
+		alert('[GEN-032] 税取得処理' + e.message);
 		return;
 	}
 }

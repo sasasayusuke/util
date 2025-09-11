@@ -296,8 +296,8 @@ export default function FormUriage({ context }) {
       }
       setSalesDate(new_date);
     }catch(e){
-      alert('[GEN-033] 予期せぬエラーが発生しました。');
       console.error('[GEN-033]', e);
+      alert('[GEN-033] 予期せぬエラーが発生しました。');
       return;
     }
     finally{

@@ -291,8 +291,8 @@ const fetchSql = async (query) => {
         const data = await response.json();
         return data;
     } catch (err) {
-        alert('[DB-077] SQLでエラーが発生しました。' + err);
         console.error('[DB-077] SQLエラー:', err);
+        alert('[DB-077] SQLでエラーが発生しました。' + err);
         return { err: "Failed to execute SQL query." };
     } finally {
         hideLoading();
@@ -316,8 +316,8 @@ const fetchStored = async (param) =>{
         response =  await response.json();
         return response
     } catch(err) {
-        alert('[DB-078] ストアドプロシージャでエラーが発生しました。' + err);
         console.error('[DB-078] ストアドエラー:', err);
+        alert('[DB-078] ストアドプロシージャでエラーが発生しました。' + err);
         return { err: "Failed to execute stored query." };
     } finally {
         hideLoading();
@@ -342,8 +342,8 @@ const fetchRenderForm = async (param) => {
         window.open(url, '_blank');
 
     } catch (err) {
-        alert('[UI-079] 入力画面生成でエラーが発生しました。' + err);
         console.error('[UI-079] 入力画面生成エラー:', err);
+        alert('[UI-079] 入力画面生成でエラーが発生しました。' + err);
         return { err: "Failed to execute input form." };
     } finally {
         hideLoading();

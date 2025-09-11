@@ -185,8 +185,8 @@ function checkForm(records,sales_date,gGetuDate){
 
 
     }catch(e){
-        alert('[GEN-026] 予期せぬエラーが発生しました。');
         console.error('[GEN-026]', e);
+        alert('[GEN-026] 予期せぬエラーが発生しました。');
         return false;
     }
 }
@@ -258,8 +258,8 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
             window.close();
         }
     }catch(e){
-        alert('[GEN-027] 予期せぬエラーが発生しました。');
         console.error('[GEN-027]', e);
+        alert('[GEN-027] 予期せぬエラーが発生しました。');
         return false;
     }
     finally{
@@ -349,8 +349,8 @@ async function purge(){
         window.close();
 
     }catch(e){
-        alert('[GEN-029] 予期せぬエラーが発生しました。');
         console.error('[GEN-029]', e);
+        alert('[GEN-029] 予期せぬエラーが発生しました。');
         return false;
     }
     finally{
@@ -478,8 +478,8 @@ async function calc_total(data,sales_date,set税抜金額,set外税対象額,set
 
 
     }catch(e){
-        alert('[GEN-028] 予期せぬエラーが発生しました。');
         console.error('[GEN-028]', e);
+        alert('[GEN-028] 予期せぬエラーが発生しました。');
         return;
     }
 }
