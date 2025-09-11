@@ -246,18 +246,11 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
             const errorData = await res.json();
             console.error('[API-017]', errorData);
             alert('[API-008] ' + errorData.message);
-            return false
-        } 
-        else {
-            // アンロック
-            // if(queryParams.get('@i処理区分') == '1'){
-            //     await UnLockData('売上番号',queryParams.get("@i売上番号"));
-            // }
-            // 画面を閉じるフラグを建てる
-            localStorage.setItem(`${session_storage_name}_delete`,'false');
-            window.close();
-        }
-    }catch(e){
+			return false
+		}
+		localStorage.setItem(`${session_storage_name}_delete`,'false');
+		
+    } catch(error) {
         console.error('[GEN-027]', e);
         alert('[GEN-027] 予期せぬエラーが発生しました。');
         return false;
@@ -343,10 +336,7 @@ async function purge(){
         }
         res = await res.json();
 
-        // ロック解除
-        // await UnLockData('売上番号',queryParams.get("@i売上番号"));
         localStorage.setItem(`${session_storage_name}_delete`,'false');
-        window.close();
 
     }catch(e){
         console.error('[GEN-029]', e);

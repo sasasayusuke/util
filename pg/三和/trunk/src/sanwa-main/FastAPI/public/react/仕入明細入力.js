@@ -275,19 +275,9 @@ async function uploadForm(records,stocking_date,payment_date) {
 			console.error('[API-018]', errorData);
 			alert('[API-008] ' + errorData.message);
 			return false
-		} else {
-
-			// アンロック
-			// if(queryParams.get('@i処理区分') == '1'){
-			// 	await UnLockData('仕入番号',queryParams.get("@i仕入番号"));
-			// }
-
-			// localestorageに削除フラグを登録
-			// localStorage.setItem(`${session_storage_name}_delete`,records.filter(e => e.CHECK == true).length  == record_count && queryParams.get('@i処理区分') == 0 ? 'false':'true');
-			localStorage.setItem(`${session_storage_name}_delete`,'false');
-			window.close();
 		}
-
+		localStorage.setItem(`${session_storage_name}_delete`,'false');
+		
     } catch(error) {
         console.error('[GEN-024] 予期せぬエラー：', error.message);
         alert('[GEN-024] 登録処理' + error.message);
@@ -335,14 +325,9 @@ async function deleteForm() {
 			console.error('[API-018]', errorData);
 			alert('[API-008] ' + errorData.message);
 			return false
-		} else {
-			// 番号を確認
-			// await UnLockData('仕入番号',queryParams.get("@i仕入番号"));
-			// localestorageに削除フラグを登録
-			localStorage.setItem(`${session_storage_name}_delete`,'false');
-			window.close();
 		}
-
+		localStorage.setItem(`${session_storage_name}_delete`,'false');
+		
     } catch(error) {
         console.error('[GEN-025] 予期せぬエラー：', error.message);
         alert('[GEN-025] 削除処理' + error.message);

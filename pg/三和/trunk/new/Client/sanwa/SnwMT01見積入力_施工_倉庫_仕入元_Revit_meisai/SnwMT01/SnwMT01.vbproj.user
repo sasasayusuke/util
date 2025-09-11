@@ -13,7 +13,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-    <StartArguments>"Provider=SQLOLEDB%3bData Source=192.168.10.54%3bDatabase=SanwaSDB%3bUser ID=sa%3bPassword=1qaz!QAZ"</StartArguments>
+    <StartArguments>"Provider=SQLOLEDB%3bData Source=192.168.10.54%3bDatabase=SanwaSDB_241016%3bUser ID=sa%3bPassword=1qaz!QAZ"</StartArguments>
     <EnableSQLServerDebugging>false</EnableSQLServerDebugging>
   </PropertyGroup>
 </Project>

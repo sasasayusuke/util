@@ -1829,100 +1829,82 @@ function null_to_zero(value,defaultvalue = 0){
 
 
 async function LockData(name,no,check=0,code=''){
-    try{
-        const param = {
-            iDataName:name,
-            iNumber:no,
-            iDataCode:code,
-            iCheck:check,
-            iPCName:$p.loginId()
-        }
-        let res = await fetch(LOCK_URL,{
-            method:'POST',
-            headers:{
-                "content-type": "application/json",
-            },
-            body:JSON.stringify(param)
-        })
-        if(!res.ok){
-            throw new Error;
-        }
-        res = await res.json();
-        const st = res["output_values"]["@RetST"];
-        const msg = res["output_values"]["@RetMsg"];
-        if(st != 0){
-            alert(`${st}:${msg}`);
-            return false;
-        }
-
-        return true;
-    }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+    const param = {
+        iDataName:name,
+        iNumber:no,
+        iDataCode:code,
+        iCheck:check,
+        iPCName:$p.loginId()
+    }
+    let res = await fetch(LOCK_URL,{
+        method:'POST',
+        headers:{
+            "content-type": "application/json",
+        },
+        body:JSON.stringify(param)
+    })
+    if(!res.ok){
+        throw new Error;
+    }
+    res = await res.json();
+    const st = res["output_values"]["@RetST"];
+    const msg = res["output_values"]["@RetMsg"];
+    if(st != 0){
+        alert(`${st}:${msg}`);
         return false;
     }
+
+    return true;
 }
 
 async function UnLockData(name,no,code=""){
-    try{
-        if(no == "")return;
-        const param = {
-            iDataName:name,
-            iNumber:no,
-            iDataCode:code,
-            iPCName:$p.userName()
-        }
-        let res = await fetch(UNLOCK_URL,{
-            method:'POST',
-            headers:{
-                "content-type": "application/json",
-            },
-            body:JSON.stringify(param)
-        })
-        if(!res.ok){
-            throw new Error;
-        }
-        res = await res.json();
-        const st = res["output_values"]["@RetST"];
-        const msg = res["output_values"]["@RetMsg"];
-        if(st != 0){
-            alert(`${st}:${msg}`);
-            return false;
-        }
-
-        return true;
-    }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+    if(no == "")return;
+    const param = {
+        iDataName:name,
+        iNumber:no,
+        iDataCode:code,
+        iPCName:$p.userName()
+    }
+    let res = await fetch(UNLOCK_URL,{
+        method:'POST',
+        headers:{
+            "content-type": "application/json",
+        },
+        body:JSON.stringify(param)
+    })
+    if(!res.ok){
+        throw new Error;
+    }
+    res = await res.json();
+    const st = res["output_values"]["@RetST"];
+    const msg = res["output_values"]["@RetMsg"];
+    if(st != 0){
+        alert(`${st}:${msg}`);
         return false;
     }
+
+    return true;
 }
 
 async function GetTax(date){
-    try{
-        const param = {
-            iDate:date
-        }
-        let res = await fetch(GET_TAX_URL,{
-            method:'POST',
-            headers:{
-                "content-type": "application/json",
-            },
-            body:JSON.stringify(param)
-        })
-
-        if (!res.ok) {
-            // レスポンスがエラーの場合
-            throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const data = await res.json();
-        return data;
-    }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
-        return 0;
+    const param = {
+        iDate:date
     }
+    let res = await fetch(GET_TAX_URL,{
+        method:'POST',
+        headers:{
+            "content-type": "application/json",
+        },
+        body:JSON.stringify(param)
+    })
+
+    if (!res.ok) {
+        // レスポンスがエラーの場合
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const data = await res.json();
+    return data;
 }
 
 class ClsMitumoriH{

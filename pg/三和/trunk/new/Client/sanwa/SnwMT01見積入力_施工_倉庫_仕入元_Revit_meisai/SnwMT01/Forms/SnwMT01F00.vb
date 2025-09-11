@@ -1573,8 +1573,8 @@ Form_KeyDown_Err:
 		'If ItemNo > [tx_担当者CD].TabIndex And ([tx_担当者CD].Text <> HTANTOCD Or IsDBNull(HTANTOCD)) Then
 		'Dim StrHTANTOCD As String = If(IsDBNull(HTANTOCD), String.Empty, HTANTOCD.ToString())
 		'If ItemNo > [tx_担当者CD].TabIndex And ([tx_担当者CD].Text <> StrHTANTOCD) Then
-		'If ItemNo > [tx_担当者CD].TabIndex And ([tx_担当者CD].Text <> Convert.ToString(HTANTOCD) Or IsDBNull(HTANTOCD)) Then
-		If ItemNo > [tx_担当者CD].TabIndex Then
+		If ItemNo > [tx_担当者CD].TabIndex And ([tx_担当者CD].Text <> Convert.ToString(HTANTOCD) Or IsDBNull(HTANTOCD)) Then
+			'If ItemNo > [tx_担当者CD].TabIndex Then
 			If IsCheckText([tx_担当者CD]) = False Then
 				CriticalAlarm("担当者CDが未入力です。")
 				'UPGRADE_WARNING: オブジェクト tx_担当者CD.Undo の既定プロパティを解決できませんでした。 詳細については、'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"' をクリックしてください。
@@ -1763,8 +1763,8 @@ Form_KeyDown_Err:
 		'If ItemNo > [tx_工事担当CD].TabIndex And ([tx_工事担当CD].Text <> HKOUJITANTOCD Or IsDBNull(HKOUJITANTOCD)) Then
 		'Dim StrHKOUJITANTOCD As String = If(IsDBNull(HKOUJITANTOCD), String.Empty, HKOUJITANTOCD.ToString())
 		'If ItemNo > [tx_工事担当CD].TabIndex And ([tx_工事担当CD].Text <> StrHKOUJITANTOCD) Then
-		'If ItemNo > [tx_工事担当CD].TabIndex And ([tx_工事担当CD].Text <> Convert.ToString(HKOUJITANTOCD) Or IsDBNull(HKOUJITANTOCD)) Then
-		If ItemNo > [tx_工事担当CD].TabIndex Then
+		If ItemNo > [tx_工事担当CD].TabIndex And ([tx_工事担当CD].Text <> Convert.ToString(HKOUJITANTOCD) Or IsDBNull(HKOUJITANTOCD)) Then
+			'If ItemNo > [tx_工事担当CD].TabIndex Then
 			If IsCheckText([tx_工事担当CD]) = False Then
 				CriticalAlarm("工事担当が未入力です。")
 				'UPGRADE_WARNING: オブジェクト tx_工事担当CD.Undo の既定プロパティを解決できませんでした。 詳細については、'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"' をクリックしてください。
@@ -2498,8 +2498,8 @@ Form_KeyDown_Err:
 		'If ItemNo > [tx_業種区分].TabIndex And ([tx_業種区分].Text <> H業種区分 Or IsDBNull(H業種区分)) Then
 		'Dim StrH業種区分 As String = If(IsDBNull(H業種区分), String.Empty, H業種区分.ToString())
 		'If ItemNo > [tx_業種区分].TabIndex And ([tx_業種区分].Text <> StrH業種区分) Then
-		'If ItemNo > [tx_業種区分].TabIndex And ([tx_業種区分].Text <> Convert.ToString(H業種区分) Or IsDBNull(H業種区分)) Then
-		If ItemNo > [tx_業種区分].TabIndex Then
+		If ItemNo > [tx_業種区分].TabIndex And ([tx_業種区分].Text <> Convert.ToString(H業種区分) Or IsDBNull(H業種区分)) Then
+			'If ItemNo > [tx_業種区分].TabIndex Then
 			'UPGRADE_WARNING: Null/IsNull() の使用が見つかりました。 詳細については、'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="2EED02CB-5C0E-4DC1-AE94-4FAA3A30F51A"' をクリックしてください。
 			If Not IsDBNull(HD_売上日付) Then
 				'            Me.Refresh
