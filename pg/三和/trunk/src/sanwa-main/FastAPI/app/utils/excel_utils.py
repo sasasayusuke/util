@@ -102,7 +102,7 @@ def save_excel_to_buffer(buffer: io.BytesIO, wb: Workbook, password: str = None)
                 pythoncom.CoInitialize()
                 logger.info(f"Excel Applicationの起動を開始します。{settings.get_env()}")
                 excel = win32.Dispatch("Excel.Application")
-                excel.DisplayAlerts = False
+                excel.Visible = False
                 logger.info("Excel Applicationの起動が完了しました")
                 try:
                     # ダイアログを無効化
@@ -110,21 +110,24 @@ def save_excel_to_buffer(buffer: io.BytesIO, wb: Workbook, password: str = None)
                     wb_com = excel.Workbooks.Open(tmp_file_path)
                     wb_com.Password = password
                     wb_com.SaveAs(tmp_file_path, Password=password)
-                    wb_com.Close()
+                    wb_com.Close(SaveChanges=False)
+                    excel.DisplayAlerts = True
                 finally:
                     pass
-                    # Excelアプリケーションの終了
-                    # excel.Quit()
             except Exception as e:
                 logger.warning(f"パスワード設定に失敗しました。パスワードなしで保存します: {str(e)}")
                 try:
                     # パスワード設定に失敗した場合、パスワードなしで保存
                     wb_com = excel.Workbooks.Open(tmp_file_path)
                     wb_com.SaveAs(tmp_file_path)
-                    wb_com.Close()
+                    wb_com.Close(SaveChanges=False)
                 except Exception as e:
                     raise ServiceError(f"パスワードなしでの保存にも失敗しました: {str(e)}")
             finally:
+                del wb_com
+                # Excelアプリケーションの終了
+                excel.Quit()
+                del excel
                 # COM環境のクリーンアップ
                 pythoncom.CoUninitialize()
 
@@ -602,12 +605,15 @@ class ExcelPDFConverter:
                 ws = wb.Worksheets[self.ws.title]
                 ws.PageSetup.PrintArea = f"{self.start_cell}:{self.end_cell}"
                 ws.ExportAsFixedFormat(0, pdf_path)
-                wb.Close(SaveChanges=False)
+                if callable(getattr(wb, "Close", None)):
+                    wb.Close(SaveChanges=False)
 
                 with open(pdf_path, 'rb') as f:
                     pdf = f.read()
 
             finally:
+                del ws
+                del wb
                 excel.Quit()
                 del excel
                 for path in [excel_path, pdf_path]:
@@ -829,6 +835,7 @@ def file_generate_response(buffer, wb, output_format):
                 workbook.ExportAsFixedFormat(0, pdf_file_path)
                 workbook.Close(SaveChanges=False)
                 # finally:
+                del workbook
                 excel.Quit()
                 del excel
                 # PDFをレスポンスとして返却
