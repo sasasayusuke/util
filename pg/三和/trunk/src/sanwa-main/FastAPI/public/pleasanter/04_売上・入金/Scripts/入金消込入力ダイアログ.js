@@ -322,8 +322,8 @@ $(document).on('blur',`.ReceiptEntry_inputTable_0`,async function(){
         }
     }
     catch(err){
-        alert('予期せぬエラーが発生しました。');
-        console.error("入金消込入力",err);
+        alert('[GEN-041] 予期せぬエラーが発生しました。');
+        console.error('[GEN-041] 入金消込入力', err);
         clear_items();
         return;
     }
@@ -350,8 +350,8 @@ function receptEntry_initilize(flg = false){
         $('#ReceiptEntry2_requestDateTo').val(monthDateGein(99));
         gGetuDateFlg_for_receptEntry = false;
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-042] 予期せぬエラーが発生しました。');
+        console.error('[GEN-042]', e);
         return;
     }
 }
@@ -396,8 +396,8 @@ async function sum_total_for_receptEntry(){
         $('#ReceiptEntry_sum_col_kesikomi').text(kesikomi.toLocaleString());
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-043] 予期せぬエラーが発生しました。');
+        console.error('[GEN-043]', e);
         return;
     }
 }
@@ -502,8 +502,8 @@ async function DepositErasingInput(){
             }
         });
     }catch(e){
-        console.error(e);
-        alert('予期せぬエラーが発生しました。');
+        console.error('[GEN-044]', e);
+        alert('[GEN-044] 予期せぬエラーが発生しました。');
     }
 }
 let HAddDate_for_receptEntry;
@@ -621,8 +621,8 @@ async function download_NyukinD_for_receptEntry(){
 
     }
     catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error('download_NyukinD_for_receptEntry',e);
+        alert('[GEN-045] 予期せぬエラーが発生しました。');
+        console.error('[GEN-045] download_NyukinD_for_receptEntry', e);
         return -2;
     }
 }
@@ -652,8 +652,8 @@ function SetupSeik_for_receptEntry(results){
 
     }
     catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-046] 予期せぬエラーが発生しました。');
+        console.error('[GEN-046]', e);
         return;
     }
 }
@@ -740,8 +740,8 @@ async function Download_UriageD_for_receptEntry(){
         sum_total_for_receptEntry();
     }
     catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-047] 予期せぬエラーが発生しました。');
+        console.error('[GEN-047]', e);
         return -1;
     }finally{
         clearInterval(interval);
@@ -785,8 +785,8 @@ $(document).on('click','#ReceiptEntry_searchTable_readTable tr:has(".searchTd")'
         sum_total_for_receptEntry();
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-048] 予期せぬエラーが発生しました。');
+        console.error('[GEN-048]', e);
         return;
     }
 
@@ -853,8 +853,8 @@ function NoSearch_for_receptEntry(){
         console.log(document.activeElement);
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-049] 予期せぬエラーが発生しました。');
+        console.error('[GEN-049]', e);
         return;
     }
 }
@@ -897,8 +897,8 @@ async function GetFirstSeik_for_receptEntry(custmerCD){
             HfirstDate_for_receptEntry = new Date(res[0].請求日付);
         }
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-050] 予期せぬエラーが発生しました。');
+        console.error('[GEN-050]', e);
         return;
     }
 }
@@ -939,8 +939,8 @@ async function GetNowseik_for_receptEntry(){
             SetupSeik_for_receptEntry(res);
         }
     }catch(e){
-        console.error(e);
-        alert('予期せぬエラーが発生しました。');
+        console.error('[GEN-051]', e);
+        alert('[GEN-051] 予期せぬエラーが発生しました。');
         return;
     }
 }
@@ -975,8 +975,8 @@ $(document).on('click','#receptEntry_before',async function(){
 
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-052] 予期せぬエラーが発生しました。');
+        console.error('[GEN-052]', e);
         return;
     }
 })
@@ -1003,8 +1003,8 @@ $(document).on('click','#receptEntry_after',async function(){
         }
         SetupSeik_for_receptEntry(res.results);
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-053] 予期せぬエラーが発生しました。');
+        console.error('[GEN-053]', e);
         return;
     }
 })
@@ -1013,8 +1013,8 @@ async function save_for_receptEntry(){
     try{
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-054] 予期せぬエラーが発生しました。');
+        console.error('[GEN-054]', e);
         return;
     }
 }
@@ -1082,8 +1082,8 @@ async function saveClick_for_receptEntry(category,dialogId,dialogName,btnLabel){
         alert('入金消込処理が終了しました。')
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-055] 予期せぬエラーが発生しました。');
+        console.error('[GEN-055]', e);
         return;
     }
 }
@@ -1164,8 +1164,8 @@ async function item_check_for_receptEntry(){
         return false;
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-056] 予期せぬエラーが発生しました。');
+        console.error('[GEN-056]', e);
         return;
     }
 }
@@ -1206,8 +1206,8 @@ async function purge_for_receptEntry(category,dialogId,dialogName){
         receptEntry_initilize();
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-057] 予期せぬエラーが発生しました。');
+        console.error('[GEN-057]', e);
         return;
     }
 }

@@ -8,7 +8,7 @@ import DetailTable from '../components/tables/DetailTable';
 export default function FormShiire({ context }) {
   // データが0件の場合はエラーメッセージを表示して画面を閉じる
   if (!context.data || context.data.length === 0) {
-    alert('表示できる明細データがありません。');
+    alert('[DB-004] 表示できる明細データがありません。');
     window.close();
     return null;
   }
@@ -61,7 +61,7 @@ export default function FormShiire({ context }) {
           }
         }
       } catch (error) {
-        alert('ロック処理でエラーが発生しました: ' + error.message);
+        alert('[DB-006] ロック処理でエラーが発生しました: ' + error.message);
         window.close();
       }
     };
@@ -94,8 +94,8 @@ export default function FormShiire({ context }) {
       localStorage.setItem('仕入明細_仕入日付', new_date);
     }catch(e){
       // alert('予期せぬエラーが発生しました。');
-      alert(e.message);
-      console.error(e);
+      alert('[GEN-034] ' + e.message);
+      console.error('[GEN-034]', e);
       return;
     }
     finally{
@@ -121,9 +121,9 @@ export default function FormShiire({ context }) {
       }
       set支払日付(new_date);
     }catch(e){
-      alert(e.message);
+      alert('[GEN-035] ' + e.message);
       // alert('予期せぬエラーが発生しました。');
-      console.error(e);
+      console.error('[GEN-035]', e);
       return;
     }
     finally{
@@ -143,7 +143,7 @@ export default function FormShiire({ context }) {
       var res = await GetTax(new Date(支払日付));
       ZEIRITU = res.results[0].税率;
     } catch (e) {
-      console.error("Error fetching tax:", e);
+      console.error("[API-007] Error fetching tax:", e);
     }
   }
 

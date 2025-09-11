@@ -2,7 +2,7 @@
 htmls = {};
 function createAndAddDialog(dialogId, title, fields, btnFields = [], submitHandler,lastSql = "") {
     if (document.getElementById(dialogId)) {
-        let message = `ダイアログID "${dialogId}" は既に存在します。一意のIDを使用してください。`;
+        let message = `[SYS-074] ダイアログID "${dialogId}" は既に存在します。一意のIDを使用してください。`;
         alert(message)
         throw new Error(message);
     }
@@ -267,7 +267,10 @@ async function get_history(listName,number,id){
 
     }catch(err){
         $(`#${id} .input-container span`).text('');
-        console.error('前回出力情報取得処理',err);
+        message = "[SYS-072] 前回出力情報取得処理"
+        console.error(message,err);
+        alert(message)
+
         return;
     }
 }

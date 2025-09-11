@@ -248,7 +248,7 @@ document.body.appendChild(loadingOverlay);
 const createField = (dialogId, type, id, label, options = {},multipleFlg = false) => {
     const fullId = `${dialogId}_${id}`;
     if (document.getElementById(fullId)) {
-        let message = `フィールドID "${fullId}" は既に存在します。一意のIDを使用してください。`;
+        let message = `[SYS-063] フィールドID "${fullId}" は既に存在します。一意のIDを使用してください。`;
         alert(message)
         throw new Error(message);
     }
@@ -284,7 +284,7 @@ const createField = (dialogId, type, id, label, options = {},multipleFlg = false
     
 
     if(['text-set','select','radio'].includes(type) && !('values' in options) && !('searchDialog' in options)  && !(options.disabled)){
-        let message = `ダイアログ名:"${dialogId}"　項目ID:"${id}" の選択肢（values）を指定してください`;
+        let message = `[SYS-064] ダイアログ名:"${dialogId}"　項目ID:"${id}" の選択肢（values）を指定してください`;
         alert(message)
         throw new Error(message);
     }
@@ -1021,8 +1021,8 @@ async function dialogLookups(t,parentClass = ''){
         }
 
     } catch(error) {
-        console.error('ルックアップエラー：', error);
-        alert('予期せぬエラーが発生しました。');
+        console.error('[GEN-036] ルックアップエラー：', error);
+        alert('[GEN-036] 予期せぬエラーが発生しました。');
     } finally {
         hideLoading();
     }
@@ -1456,8 +1456,8 @@ async function download_report(param, fileName = "", accept="application/vnd.ope
 
         if (!res.ok) {
             const errorData = await res.json();
-            console.error(errorData);
-            throw new Error(errorData.message);
+            console.error('[API-065]', errorData);
+            throw new Error('[API-065] ' + errorData.message);
         }
 
         // 成功メッセージをヘッダーから取得して表示
@@ -1502,8 +1502,8 @@ async function download_report(param, fileName = "", accept="application/vnd.ope
         }
 
     } catch(error) {
-        console.error('予期せぬエラー：', error.message);
-        alert(error.message);
+        console.error('[GEN-066] 予期せぬエラー：', error.message);
+        alert('[GEN-066] ' + error.message);
         throw error;
     } finally {
         hideLoading();

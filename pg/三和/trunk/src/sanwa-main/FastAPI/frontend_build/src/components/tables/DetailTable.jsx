@@ -173,7 +173,7 @@ export default function DetailTable({
     }
 
     // 全く見つからなかった場合
-    alert('該当データは存在しません。');
+    alert('[DB-004] 該当データは存在しません。');
   }
 
 

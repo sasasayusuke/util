@@ -45,7 +45,7 @@ async function loadPermittion(masterTableFlag=false, copyOnFlag=false) {
 
         setTimeout(() => {
             // アラートメッセージの表示
-            alert("権限登録が設定されていないので、ホーム画面へリダイレクト致します。\n何度もこの画面が表示されるようであれば、サポートへご連絡ください");
+            alert("[AUTH-003] 権限登録が設定されていないので、ホーム画面へリダイレクト致します。\n何度もこの画面が表示されるようであれば、サポートへご連絡ください");
             // OKをクリックするとリダイレクト
             window.location.href = HOME_URL;
         }, 100)
@@ -99,7 +99,7 @@ async function loadPermittion(masterTableFlag=false, copyOnFlag=false) {
 
             setTimeout(() => {
             // アラートメッセージの表示
-                alert("一般権限が設定されていないので、ホーム画面へリダイレクト致します。\n何度もこの画面が表示されるようであれば、サポートへご連絡ください");
+                alert("[AUTH-001] 一般権限が設定されていないので、ホーム画面へリダイレクト致します。\n何度もこの画面が表示されるようであれば、サポートへご連絡ください");
                 // OKをクリックするとリダイレクト
                 window.location.href = HOME_URL;
             }, 100);
@@ -108,7 +108,7 @@ async function loadPermittion(masterTableFlag=false, copyOnFlag=false) {
             document.body.innerHTML = ''
             setTimeout(() => {
                 // アラートメッセージの表示
-                alert("設定された権限が不正なので、ホーム画面へリダイレクト致します。\n何度もこの画面が表示されるようであれば、サポートへご連絡ください");
+                alert("[AUTH-002] 設定された権限が不正なので、ホーム画面へリダイレクト致します。\n何度もこの画面が表示されるようであれば、サポートへご連絡ください");
                 // OKをクリックするとリダイレクト
                 window.location.href = HOME_URL;
             }, 100);

@@ -64,8 +64,8 @@ window.onload = async function () {
 		// 初期表示用データ
 		if (!res.ok) {
 			const errorData = await res.json();
-			console.error(errorData);
-			throw new Error(errorData);
+			console.error('[API-018]', errorData);
+			throw new Error('[API-018] ' + JSON.stringify(errorData));
 		}
 
 
@@ -77,7 +77,7 @@ window.onload = async function () {
 
 		// データが0件の場合はエラーメッセージを表示して画面を閉じる
 		if (record_count === 0) {
-			alert('表示できる明細データがありません。');
+			alert('[DB-004] 表示できる明細データがありません。');
 			window.close();
 			return;
 		}
@@ -132,17 +132,17 @@ window.onload = async function () {
 			try {
 				window.FormLib.initFormShiire(mainId, context);
 			} catch (error) {
-				console.error('FormLib の初期化中にエラーが発生しました:', error);
+				console.error('[GEN-019] FormLib の初期化中にエラーが発生しました:', error);
 			}
 		} else {
-			console.error('FormLib が見つかりません');
+			console.error('[GEN-020] FormLib が見つかりません');
 		}
 		hideLoading()
 
     } catch(error) {
-        console.error('予期せぬエラー：', error.message);
+        console.error('[GEN-021] 予期せぬエラー：', error.message);
         // alert('予期せぬエラーが発生しました。');
-        alert('読み込み処理' + error.message);
+        alert('[GEN-030]' + error.message);
         throw error;
     } finally {
         hideLoading();
@@ -194,8 +194,8 @@ async function checkForm(records) {
 		hideLoading()
 		if (!res.ok) {
 			const errorData = await res.json();
-			console.error(errorData);
-			alert(errorData.message);
+			console.error('[API-018]', errorData);
+			alert('[API-008] ' + errorData.message);
 			return false
 		} else {
 			// alert("チェックが完了しました。");
@@ -203,8 +203,8 @@ async function checkForm(records) {
 		}
 
     } catch(error) {
-        console.error('予期せぬエラー：', error.message);
-        alert( 'チェック処理' + error.message);
+        console.error('[GEN-023]', error.message);
+        alert('[GEN-023]' + error.message);
         throw error;
     } finally {
         hideLoading();
@@ -272,8 +272,8 @@ async function uploadForm(records,stocking_date,payment_date) {
 		hideLoading()
 		if (!res.ok) {
 			const errorData = await res.json();
-			console.error(errorData);
-			alert(errorData.message);
+			console.error('[API-018]', errorData);
+			alert('[API-008] ' + errorData.message);
 			return false
 		} else {
 
@@ -289,8 +289,8 @@ async function uploadForm(records,stocking_date,payment_date) {
 		}
 
     } catch(error) {
-        console.error('予期せぬエラー：', error.message);
-        alert('登録処理' + error.message);
+        console.error('[GEN-024] 予期せぬエラー：', error.message);
+        alert('[GEN-024] 登録処理' + error.message);
         throw error;
     } finally {
         hideLoading();
@@ -332,8 +332,8 @@ async function deleteForm() {
 		hideLoading()
 		if (!res.ok) {
 			const errorData = await res.json();
-			console.error(errorData);
-			alert(errorData.message);
+			console.error('[API-018]', errorData);
+			alert('[API-008] ' + errorData.message);
 			return false
 		} else {
 			// 番号を確認
@@ -344,8 +344,8 @@ async function deleteForm() {
 		}
 
     } catch(error) {
-        console.error('予期せぬエラー：', error.message);
-        alert('削除処理' + error.message);
+        console.error('[GEN-025] 予期せぬエラー：', error.message);
+        alert('[GEN-025] 削除処理' + error.message);
         throw error;
     } finally {
         hideLoading();
@@ -473,8 +473,8 @@ async function calc_total(data,payment_date,set税抜金額,set外税対象額,s
 
 	}catch(e){
 		// alert('予期せぬエラーが発生しました。');
-		alert('計算処理' + e.message);
-		console.error(e);
+		alert('[GEN-031] 計算処理' + e.message);
+		console.error('[GEN-031]', e);
 		return;
 	}
 }
@@ -545,8 +545,8 @@ function get_tax(data,rowIndex){
 		return wZeikin;
 	}catch(e){
 		// alert('予期せぬエラーが発生しました。');
-		alert('税取得処理' + e.message);
-		console.error(e);
+		alert('[GEN-032] 税取得処理' + e.message);
+		console.error('[GEN-032]', e);
 		return;
 	}
 }

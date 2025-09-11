@@ -8,7 +8,7 @@ import DetailTable from '../components/tables/DetailTable';
 export default function FormUriage({ context }) {
   // データが0件の場合はエラーメッセージを表示して画面を閉じる
   if (!context.content.data || context.content.data.length === 0) {
-    alert('表示できる明細データがありません。');
+    alert('[DB-004] 表示できる明細データがありません。');
     window.close();
     return null;
   }
@@ -60,7 +60,7 @@ export default function FormUriage({ context }) {
         }
         
       } catch (error) {
-        alert('ロック処理でエラーが発生しました: ' + error.message);
+        alert('[DB-006] ロック処理でエラーが発生しました: ' + error.message);
         window.close();
       }
     };
@@ -296,8 +296,8 @@ export default function FormUriage({ context }) {
       }
       setSalesDate(new_date);
     }catch(e){
-      alert('予期せぬエラーが発生しました。');
-      console.error(e);
+      alert('[GEN-033] 予期せぬエラーが発生しました。');
+      console.error('[GEN-033]', e);
       return;
     }
     finally{

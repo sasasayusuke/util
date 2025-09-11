@@ -38,8 +38,8 @@ function commonIsNull(obj) {
 function commonCheckStatus(applyStatuses = "all") {
     if ($p.action() !== "edit" && $p.action() !== "new") {
         let message = "編集画面で使用を想定"
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-067] ' + message)
+        throw new Error('[SYS-067] ' + message)
     }
     let allFlg = false;
     if (!Array.isArray(applyStatuses)) {
@@ -133,8 +133,8 @@ function commonGetDivisionName(input, value) {
 function commonGetValue(label, valueFlg = true) {
     if ($p.action() !== "edit" && $p.action() !== "new") {
         let message = "編集画面で使用を想定"
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-068] ' + message)
+        throw new Error('[SYS-068] ' + message)
     }
     const control = $p.getControl($p.getColumnName(label));
     const tagName = control.prop("tagName");
@@ -166,8 +166,8 @@ function commonGetValue(label, valueFlg = true) {
 function commonSetValue(label, value) {
     if ($p.action() !== "edit" && $p.action() !== "new") {
         let message = "編集画面で使用を想定"
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-069] ' + message)
+        throw new Error('[SYS-069] ' + message)
     }
 
     // 値が変更されている場合
@@ -193,15 +193,15 @@ function commonSetValue(label, value) {
 function commonGetId(label, prefix = true, suffix = false) {
     if ($p.action() !== "edit" && $p.action() !== "new") {
         let message = "編集画面で使用を想定"
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-070] ' + message)
+        throw new Error('[SYS-070] ' + message)
     }
 
     let id = $p.getColumnName(label);
     if (commonIsNull(id)) {
         let message = `commonGetId ：ラベル不正。${label}`
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-071] ' + message)
+        throw new Error('[SYS-071] ' + message)
     }
     id = prefix ? `${$p.tableName()}_${id}` : id;
     id = suffix ? `${id}Field` : id;
@@ -435,16 +435,16 @@ function commonAddButtonToNextField(ItemLabel, buttonId, buttonLabel, clickFunc,
     const targetField = document.getElementById(commonGetId(ItemLabel));
     if (!targetField) {
         let message = `commonAddButtonToNextField :対象項目が見つかりません。${ItemLabel}`
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-072] ' + message)
+        throw new Error('[SYS-072] ' + message)
     }
 
     // container-normal クラスを持つ親要素を見つける
     const containerElement = targetField.closest('.container-normal');
     if (!containerElement) {
         let message = `commonAddButtonToNextField :container-normalクラスを持つ親要素が見つかりません。`
-        alert(message)
-        throw new Error(message)
+        alert('[SYS-073] ' + message)
+        throw new Error('[SYS-073] ' + message)
     }
 
     // 新しいボタン要素を作成

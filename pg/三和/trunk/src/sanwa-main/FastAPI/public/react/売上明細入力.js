@@ -73,7 +73,7 @@ window.onload = async function () {
 
         if(!res.ok){
             const err = await res.json();
-            throw new Error(err);
+            throw new Error('[API-075] ' + JSON.stringify(err));
         }
 
         // 初期表示用データ
@@ -82,7 +82,7 @@ window.onload = async function () {
 
         // データが0件の場合はエラーメッセージを表示して画面を閉じる
         if (!context.content.data || context.content.data.length === 0) {
-            alert('表示できる明細データがありません。');
+            alert('[DB-004] 表示できる明細データがありません。');
             window.close();
             return;
         }
@@ -109,7 +109,7 @@ window.onload = async function () {
         view_list = views;
         
         if(context["content"]["gUcnt"] != 0){
-            alert('原価売価未確定が存在します。');
+            alert('[UI-011] 原価売価未確定が存在します。');
         }
 
         // Reactをマウントするための要素の取得
@@ -125,14 +125,14 @@ window.onload = async function () {
             try {
                 window.FormLib.initFormUriage(mainId, context);
             } catch (error) {
-                console.error('FormLib の初期化中にエラーが発生しました:', error);
+                console.error('[GEN-013] FormLib の初期化中にエラーが発生しました:', error);
             }
         } else {
-            console.error('FormLib が見つかりません');
+            console.error('[GEN-014] FormLib が見つかりません');
         }
     }catch(e){
-        console.error('明細読み込み処理エラー',e);
-        alert('予期せぬエラーが発生しました。');
+        console.error('[GEN-015] 明細読み込み処理エラー',e);
+        alert('[GEN-015] 予期せぬエラーが発生しました。');
     }finally{
         hideLoading();
     }
@@ -145,7 +145,7 @@ async function get_taxRate(date){
         var res = await GetTax(new Date(date));
         ZEIRITU = res.results[0].税率;
     } catch (e) {
-        console.error("Error fetching tax:", e);
+        console.error("[API-007] Error fetching tax:", e);
     }
 }
 
@@ -157,7 +157,7 @@ function checkForm(records,sales_date,gGetuDate){
             return false;
         }
         if(new Date(sales_date) <= gGetuDate){
-            alert('更新済みの為、修正できません。');
+            alert('[DB-005] 更新済みの為、修正できません。');
             return false;
         }
         if(records.length == 0){
@@ -185,8 +185,8 @@ function checkForm(records,sales_date,gGetuDate){
 
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-026] 予期せぬエラーが発生しました。');
+        console.error('[GEN-026]', e);
         return false;
     }
 }
@@ -244,8 +244,8 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
 
         if (!res.ok) {
             const errorData = await res.json();
-            console.error(errorData);
-            alert(errorData.message);
+            console.error('[API-017]', errorData);
+            alert('[API-008] ' + errorData.message);
             return false
         } 
         else {
@@ -258,8 +258,8 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
             window.close();
         }
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-027] 予期せぬエラーが発生しました。');
+        console.error('[GEN-027]', e);
         return false;
     }
     finally{
@@ -301,7 +301,7 @@ async function purge(){
 
         if(!res.ok){
             const err = await res.json();
-            throw new Error(err);
+            throw new Error('[API-076] ' + JSON.stringify(err));
         }
         res = await res.json();
         flg = res.flg;
@@ -349,8 +349,8 @@ async function purge(){
         window.close();
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-029] 予期せぬエラーが発生しました。');
+        console.error('[GEN-029]', e);
         return false;
     }
     finally{
@@ -478,8 +478,8 @@ async function calc_total(data,sales_date,set税抜金額,set外税対象額,set
 
 
     }catch(e){
-        alert('予期せぬエラーが発生しました。');
-        console.error(e);
+        alert('[GEN-028] 予期せぬエラーが発生しました。');
+        console.error('[GEN-028]', e);
         return;
     }
 }
