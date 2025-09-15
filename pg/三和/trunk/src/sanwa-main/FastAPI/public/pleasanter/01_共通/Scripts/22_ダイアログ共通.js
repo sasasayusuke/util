@@ -1021,8 +1021,9 @@ async function dialogLookups(t,parentClass = ''){
         }
 
     } catch(error) {
-        console.error('[GEN-036] ルックアップエラー：', error);
-        alert('[GEN-036] 予期せぬエラーが発生しました。');
+        message = '[GEN-036] ルックアップエラー：' + error
+        console.error(message);
+        alert(message);
     } finally {
         hideLoading();
     }
@@ -1502,8 +1503,9 @@ async function download_report(param, fileName = "", accept="application/vnd.ope
         }
 
     } catch(error) {
-        console.error('[GEN-066] 予期せぬエラー：', error.message);
-        alert('[GEN-066] ' + error.message);
+        message = '[GEN-066] ファイルダウンロード中にエラーが発生しました'
+        console.error(message, error.message);
+        alert(message + error.message);
         throw error;
     } finally {
         hideLoading();

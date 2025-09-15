@@ -132,6 +132,8 @@ export default function FormUriage({ context }) {
       }
       throw error;
     }
+    window.close()
+
   }
 
   // F9のクリック時の共通ロジック
@@ -157,6 +159,8 @@ export default function FormUriage({ context }) {
       }
       throw error;
     }
+    window.close()
+
   }
 
   // 戻るボタンのハンドラ
@@ -297,7 +301,6 @@ export default function FormUriage({ context }) {
       setSalesDate(new_date);
     }catch(e){
       console.error('[GEN-033]', e);
-      alert('[GEN-033] 予期せぬエラーが発生しました。');
       return;
     }
     finally{

@@ -140,9 +140,9 @@ window.onload = async function () {
 		hideLoading()
 
     } catch(error) {
-        console.error('[GEN-021] 予期せぬエラー：', error.message);
-        // alert('予期せぬエラーが発生しました。');
-        alert('[GEN-030]' + error.message);
+		message = '[GEN-021] 表示に時間がかかっている可能性があります。F5を押下し再表示を試してみてください。：' + error.message
+        console.error(message);
+        alert(message);
         throw error;
     } finally {
         hideLoading();
@@ -203,8 +203,9 @@ async function checkForm(records) {
 		}
 
     } catch(error) {
-        console.error('[GEN-023]', error.message);
-        alert('[GEN-023]' + error.message);
+		message = '[GEN-023]' + error.message
+        console.error(message);
+        alert(message);
         throw error;
     } finally {
         hideLoading();
@@ -279,8 +280,9 @@ async function uploadForm(records,stocking_date,payment_date) {
 		localStorage.setItem(`${session_storage_name}_delete`,'false');
 		
     } catch(error) {
-        console.error('[GEN-024] 予期せぬエラー：', error.message);
-        alert('[GEN-024] 登録処理' + error.message);
+		message = '[GEN-024] 更新処理エラー：' + error.message
+        console.error(message);
+        alert(message);
         throw error;
     } finally {
         hideLoading();
@@ -329,8 +331,9 @@ async function deleteForm() {
 		localStorage.setItem(`${session_storage_name}_delete`,'false');
 		
     } catch(error) {
-        console.error('[GEN-025] 予期せぬエラー：', error.message);
-        alert('[GEN-025] 削除処理' + error.message);
+		message = '[GEN-025] 削除処理エラー' + error.message
+        console.error(message);
+        alert(message);
         throw error;
     } finally {
         hideLoading();
@@ -457,7 +460,6 @@ async function calc_total(data,payment_date,set税抜金額,set外税対象額,s
 
 
 	}catch(e){
-		// alert('予期せぬエラーが発生しました。');
 		console.error('[GEN-031]', e);
 		alert('[GEN-031] 計算処理' + e.message);
 		return;
@@ -529,7 +531,6 @@ function get_tax(data,rowIndex){
 		}
 		return wZeikin;
 	}catch(e){
-		// alert('予期せぬエラーが発生しました。');
 		console.error('[GEN-032]', e);
 		alert('[GEN-032] 税取得処理' + e.message);
 		return;

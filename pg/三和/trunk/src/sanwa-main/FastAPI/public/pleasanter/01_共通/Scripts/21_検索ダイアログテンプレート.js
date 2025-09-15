@@ -291,9 +291,9 @@ const fetchSql = async (query) => {
         const data = await response.json();
         return data;
     } catch (err) {
-        console.error('[DB-077] SQLエラー:', err);
-        alert('[DB-077] SQLでエラーが発生しました。' + err);
-        return { err: "Failed to execute SQL query." };
+        message = '[DB-077] SQLエラー:' + err
+        console.error(message);
+        return { err: message };
     } finally {
         hideLoading();
     }

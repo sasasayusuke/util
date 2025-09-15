@@ -131,8 +131,9 @@ window.onload = async function () {
             console.error('[GEN-014] FormLib が見つかりません');
         }
     }catch(e){
-        console.error('[GEN-015] 明細読み込み処理エラー',e);
-        alert('[GEN-015] 予期せぬエラーが発生しました。');
+		message = '[GEN-015] 表示に時間がかかっている可能性があります。F5を押下し再表示を試してみてください。：' + e.message
+        console.error(message);
+        alert(message);
     }finally{
         hideLoading();
     }
@@ -184,9 +185,10 @@ function checkForm(records,sales_date,gGetuDate){
         return true;
 
 
-    }catch(e){
-        console.error('[GEN-026]', e);
-        alert('[GEN-026] 予期せぬエラーが発生しました。');
+    }catch(error){
+		message = '[GEN-026]' + error.message
+        console.error(message);
+        alert(message);
         return false;
     }
 }
@@ -251,8 +253,9 @@ async function upload(records,sales_date,gGetuDate,税抜金額,外税対象額,
 		localStorage.setItem(`${session_storage_name}_delete`,'false');
 		
     } catch(error) {
-        console.error('[GEN-027]', e);
-        alert('[GEN-027] 予期せぬエラーが発生しました。');
+		message = '[GEN-027] 更新処理エラー：' + error.message
+        console.error(message);
+        alert(message);
         return false;
     }
     finally{
@@ -339,8 +342,9 @@ async function purge(){
         localStorage.setItem(`${session_storage_name}_delete`,'false');
 
     }catch(e){
-        console.error('[GEN-029]', e);
-        alert('[GEN-029] 予期せぬエラーが発生しました。');
+        message = '[GEN-029] 削除処理エラー' + error.message
+        console.error(message);
+        alert(message);
         return false;
     }
     finally{

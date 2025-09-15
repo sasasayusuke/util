@@ -93,9 +93,7 @@ export default function FormShiire({ context }) {
       // LocalStorageに仕入日付を保存
       localStorage.setItem('仕入明細_仕入日付', new_date);
     }catch(e){
-      // alert('予期せぬエラーが発生しました。');
       console.error('[GEN-034]', e);
-      alert('[GEN-034] ' + e.message);
       return;
     }
     finally{
@@ -121,7 +119,6 @@ export default function FormShiire({ context }) {
       }
       set支払日付(new_date);
     }catch(e){
-      // alert('予期せぬエラーが発生しました。');
       console.error('[GEN-035]', e);
       alert('[GEN-035] ' + e.message);
       return;
@@ -296,6 +293,7 @@ export default function FormShiire({ context }) {
         }
         throw error;
       }
+      window.close()
     }
   }
 
@@ -323,6 +321,7 @@ export default function FormShiire({ context }) {
         }
         throw error;
       }
+      window.close()
     }
   }
 
