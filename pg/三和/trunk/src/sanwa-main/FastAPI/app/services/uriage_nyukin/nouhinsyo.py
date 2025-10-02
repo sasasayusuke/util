@@ -12,6 +12,11 @@ from app.core.exceptions import ServiceError
 from app.utils.service_utils import ClsTokuisaki, ClsOutputRireki,ClsTanto
 import openpyxl
 from openpyxl.styles.alignment import Alignment
+from openpyxl.worksheet.pagebreak import Break
+from app.utils.excel_utils import (
+    range_copy_cell_by_address,
+    delete_excel_object,
+)
 
 # 名前を指定してロガーを取得する
 logger = logging.getLogger(settings.APP_NAME)
@@ -39,7 +44,13 @@ class NouhinsyoService(BaseService):
 
         with get_excel_buffer() as buffer:
             wb = create_excel_object('Template_納品書.xlsx')
-            ws = wb.active
+
+            template_sheet = wb['Template']
+            copy_ws = template_sheet
+            ws = wb.copy_worksheet(template_sheet)
+            # 改ページプレビューの設定を追加
+            ws.sheet_view.view = 'pageBreakPreview'
+            ws.sheet_view.zoomScaleSheetLayoutView = 100
 
             # 初期位置指定
             start_row = 21
@@ -132,146 +143,139 @@ class NouhinsyoService(BaseService):
             #     # データを書き込んだ後、次の行に移動
             #     row_num += 1
 
+            # # 明細欄を追加する関数
+            # def insert_detail(ws,copy_ws,row):
+            #     row = ((page_count-1) * table_height) + 39
+            #     range_copy_cell_by_address(copy_ws,ws,'A1','O35','A{}'.format(row),True)
+            #     return row
+
+
             # 明細データ記載
-            page_break_flg = False
             page_num = 1
             page_row_num = 1
-            for row_siwake_data in storedresults['results'][1]:
-                total_amount = 0
-                # 改ページする
-                if page_break_flg:
-                    page_break_flg = False
+            total_amount = 0
+            shiwake = ""
+            isFirstTable = True
+            isLastTableRow = False
 
-                    # ページ追加
-                    row_num = row_num + (31 - page_row_num)
-                    page_num += 1
-                    range_copy_cell(ws,ws,1,30,13,59,0,row_num-32,False)
-                    ws.unmerge_cells('B{t1}:D{t1}'.format(t1=str(row_num-1)))
-                    range_copy_cell(ws,ws,1,row_num-31,13,row_num-31,0,30,True)
-                    relative_reference_copy(ws,ws,9,row_num-30,0,30)
-                    relative_reference_copy(ws,ws,12,row_num-30,0,30)
-                    page_row_num = 1
-
-                # 仕分名称を追加
-                ws.cell(row=row_num, column=2, value=row_siwake_data['仕分名称'])._style = copy(ws.cell(row=start_row, column=2)._style)
-                # データを書き込んだ後、次の行に移動
-                row_num += 1
-                page_row_num += 1
-
-                for row_data in storedresults['results'][2]:
-                    if row_siwake_data['仕分番号'] == row_data['仕分番号']:
+            # 修正
+            for row_data in storedresults['results'][2]:
+                if shiwake != row_data['仕分番号']:
+                    # 合計を表示
+                    if page_num > 1:
+                        # 合計を表示
+                        ws.cell(row=row_num, column=2, value='【合　　計】')._style = copy(ws.cell(row=start_row, column=2)._style)
+                        # 中央表示
+                        center_bottom = Alignment(horizontal='center',vertical='bottom')
+                        ws['B'+ str(row_num)].alignment = center_bottom
+                        ws.cell(row=row_num, column=13, value=total_amount)._style = copy(ws.cell(row=start_row, column=13)._style)
+                        total_amount = 0
+                        logger.info("=================================================================仕分区分が変更で改行")
+                        # 仕分区分が変更になった場合、改ページする
+                        row_num = ((page_num - 1) * 30)
+                        range_copy_cell(copy_ws,ws,1,30,13,59,0,row_num,True)
                         # 改ページ
-                        if page_num == 1:
-                            if page_row_num == 9:
-                                row_num += 3
-                                page_num += 1
-                                page_row_num = 1
-                        else:
-                            if page_row_num == 28:
-                                row_num += 3
-                                page_num += 1
-                                # ページ追加
-                                range_copy_cell(ws,ws,1,30,13,59,0,row_num-32,False)
-                                ws.unmerge_cells('B{t1}:D{t1}'.format(t1=str(row_num-1)))
-                                range_copy_cell(ws,ws,1,row_num-31,13,row_num-31,0,30,True)
-                                relative_reference_copy(ws,ws,9,row_num-30,0,30)
-                                relative_reference_copy(ws,ws,12,row_num-30,0,30)
-                                page_row_num = 1
-  
-                        #2行目以降なら行コピー
-                        if page_row_num != 1:
-                            range_copy_cell(ws,ws,1,row_num-1,13,row_num-1,0,1,False)
-                            relative_reference_copy(ws,ws,9,row_num-1,0,1)
-                            relative_reference_copy(ws,ws,12,row_num-1,0,1)
-                        ws.cell(row=row_num, column=1, value=row_data['行番号'])._style = copy(ws.cell(row=start_row, column=1)._style)
-                        if row_data['見積区分'] == 'C' or row_data['見積区分'] == 'A' or row_data['見積区分'] == 'S':
-                            ws.cell(row=row_num, column=2, value='  ' + row_data['漢字名称'])._style = copy(ws.cell(row=start_row, column=2)._style)
-                        else:
-                            ws.cell(row=row_num, column=2, value=row_data['漢字名称'])._style = copy(ws.cell(row=start_row, column=2)._style)
-                        if row_data['W'] != 0:
-                            ws.cell(row=row_num, column=5, value=row_data['W'])._style = copy(ws.cell(row=start_row, column=5)._style)
-                        if row_data['D'] != 0:
-                            ws.cell(row=row_num, column=6, value=row_data['D'])._style = copy(ws.cell(row=start_row, column=6)._style)
-                        else:
-                            if row_data['D1'] != 0:
-                                if row_data['D2'] != 0:
-                                    ws.cell(row=row_num, column=6, value=str(row_data['D1']) + '/' + str(row_data['D2']))._style = copy(ws.cell(row=start_row, column=6)._style)
-                                else:
-                                    ws.cell(row=row_num, column=6, value=row_data['D1'])._style = copy(ws.cell(row=start_row, column=6)._style)
-                            else:
-                                if row_data['D2'] != 0:
-                                    ws.cell(row=row_num, column=6, value=row_data['D2'])._style = copy(ws.cell(row=start_row, column=6)._style)
-                        if row_data['H'] != 0:
-                            ws.cell(row=row_num, column=7, value=row_data['H'])._style = copy(ws.cell(row=start_row, column=7)._style)
-                        else:
-                            if row_data['H1'] != 0:
-                                if row_data['H2'] != 0:
-                                    ws.cell(row=row_num, column=7, value=str(row_data['H1']) + '/' + str(row_data['H2']))._style = copy(ws.cell(row=start_row, column=7)._style)
-                                else:
-                                    ws.cell(row=row_num, column=7, value=row_data['H1'])._style = copy(ws.cell(row=start_row, column=7)._style)
-                            else:
-                                if row_data['H2'] != 0:
-                                    ws.cell(row=row_num, column=7, value=row_data['H2'])._style = copy(ws.cell(row=start_row, column=7)._style)
-                        ws.cell(row=row_num, column=8, value=row_data['数量'])._style = copy(ws.cell(row=start_row, column=8)._style)
-                        ws.cell(row=row_num, column=10, value=row_data['単位名'])._style = copy(ws.cell(row=start_row, column=10)._style)
-                        ws.cell(row=row_num, column=11, value=row_data['売上単価'])._style = copy(ws.cell(row=start_row, column=11)._style)
-                        if row_data['見積区分'] != 'A' or row_data['見積区分'] != 'C' or row_data['見積区分'] != 'S':
-                            ws.cell(row=row_num, column=13, value=int(row_data['数量']) * int(row_data['売上単価']))._style = copy(ws.cell(row=start_row, column=13)._style)
+                        row_break = Break(row_num-1)
+                        ws.row_breaks.append(row_break)
+                        row_num += 2
 
-                        # 合計金額計算
-                        total_amount += int(row_data['数量']) * int(row_data['売上単価'])
-                        # データを書き込んだ後、次の行に移動
-                        row_num += 1
-                        page_row_num += 1
+                    page_num += 1 
+                    shiwake = row_data['仕分番号']
+                    # 仕分名称を追加
+                    ws.cell(row=row_num, column=2, value=row_data['仕分名称'])._style = copy(ws.cell(row=start_row, column=2)._style)
+                    # データを書き込んだ後、次の行に移動
+                    row_num += 1
+                    page_row_num = 1
+                    isLastTableRow = False
                 
-                # 合計を表示
-                # 改ページ
-                if page_num == 1:
-                    if page_row_num == 9:
-                        row_num += 3
-                        page_num += 1
-                        page_row_num = 1
-                else:
-                    if page_row_num == 28:
-                        row_num += 3
-                        page_num += 1
-                        # ページ追加
-                        range_copy_cell(ws,ws,1,30,13,59,0,row_num-32,False)
-                        ws.unmerge_cells('B{t1}:D{t1}'.format(t1=str(row_num-1)))
-                        range_copy_cell(ws,ws,1,row_num-31,13,row_num-31,0,30,True)
-                        relative_reference_copy(ws,ws,9,row_num-30,0,30)
-                        relative_reference_copy(ws,ws,12,row_num-30,0,30)
-                        page_row_num = 1
-                row_num += 1
-                page_row_num += 1
-                # 改ページ
-                if page_num == 1:
-                    if page_row_num == 9:
-                        row_num += 3
-                        page_num += 1
-                        page_row_num = 1
-                else:
-                    if page_row_num == 28:
-                        row_num += 3
-                        page_num += 1
-                        # ページ追加
-                        range_copy_cell(ws,ws,1,30,13,59,0,row_num-32,False)
-                        ws.unmerge_cells('B{t1}:D{t1}'.format(t1=str(row_num-1)))
-                        range_copy_cell(ws,ws,1,row_num-31,13,row_num-31,0,30,True)
-                        relative_reference_copy(ws,ws,9,row_num-30,0,30)
-                        relative_reference_copy(ws,ws,12,row_num-30,0,30)
-                        page_row_num = 1
-                ws.cell(row=row_num, column=2, value='【合　　計】')._style = copy(ws.cell(row=start_row, column=2)._style)
-                # 中央表示
-                center_bottom = Alignment(horizontal='center',vertical='bottom')
-                ws['B'+ str(row_num)].alignment = center_bottom
-                ws.cell(row=row_num, column=13, value=total_amount)._style = copy(ws.cell(row=start_row, column=13)._style)
+                # ページ最下行まで来たら新ページ作成
+                if isFirstTable and page_row_num == 8:               
+                    row_num = ((page_num - 1) * 30)
+                    range_copy_cell(copy_ws,ws,1,30,13,59,0,row_num,True)
+                    # 改ページ
+                    row_break = Break(row_num-1)
+                    ws.row_breaks.append(row_break) 
+                    page_num += 1
+                    row_num += 2
+                    page_row_num = 1    
 
+                    isFirstTable = False
+                    isLastTableRow = True
+
+                if page_num > 1 and page_row_num == 28:
+                    logger.info("=================================================================ページ{}".format(page_num))
+                    logger.info("=================================================================page_row_num{}".format(page_row_num))
+                    row_num = ((page_num - 1) * 30)
+                    logger.info("=================================================================挿入業{}".format(row_num))
+                    range_copy_cell(copy_ws,ws,1,30,13,59,0,row_num,True)
+                    # 改ページ
+                    row_break = Break(row_num-1)
+                    ws.row_breaks.append(row_break)
+                    page_num += 1
+                    row_num += 2
+                    page_row_num = 1
+                    isLastTableRow = True
+
+                # 明細作成
+                ws.cell(row=row_num, column=1, value=row_data['行番号'])._style = copy(ws.cell(row=start_row, column=1)._style)
+                if row_data['見積区分'] == 'C' or row_data['見積区分'] == 'A' or row_data['見積区分'] == 'S':
+                    ws.cell(row=row_num, column=2, value='  ' + row_data['漢字名称'])._style = copy(ws.cell(row=start_row, column=2)._style)
+                else:
+                    ws.cell(row=row_num, column=2, value=row_data['漢字名称'])._style = copy(ws.cell(row=start_row, column=2)._style)
+                if row_data['W'] != 0:
+                    ws.cell(row=row_num, column=5, value=row_data['W'])._style = copy(ws.cell(row=start_row, column=5)._style)
+                if row_data['D'] != 0:
+                    ws.cell(row=row_num, column=6, value=row_data['D'])._style = copy(ws.cell(row=start_row, column=6)._style)
+                else:
+                    if row_data['D1'] != 0:
+                        if row_data['D2'] != 0:
+                            ws.cell(row=row_num, column=6, value=str(row_data['D1']) + '/' + str(row_data['D2']))._style = copy(ws.cell(row=start_row, column=6)._style)
+                        else:
+                            ws.cell(row=row_num, column=6, value=row_data['D1'])._style = copy(ws.cell(row=start_row, column=6)._style)
+                    else:
+                        if row_data['D2'] != 0:
+                            ws.cell(row=row_num, column=6, value=row_data['D2'])._style = copy(ws.cell(row=start_row, column=6)._style)
+                if row_data['H'] != 0:
+                    ws.cell(row=row_num, column=7, value=row_data['H'])._style = copy(ws.cell(row=start_row, column=7)._style)
+                else:
+                    if row_data['H1'] != 0:
+                        if row_data['H2'] != 0:
+                            ws.cell(row=row_num, column=7, value=str(row_data['H1']) + '/' + str(row_data['H2']))._style = copy(ws.cell(row=start_row, column=7)._style)
+                        else:
+                            ws.cell(row=row_num, column=7, value=row_data['H1'])._style = copy(ws.cell(row=start_row, column=7)._style)
+                    else:
+                        if row_data['H2'] != 0:
+                            ws.cell(row=row_num, column=7, value=row_data['H2'])._style = copy(ws.cell(row=start_row, column=7)._style)
+                ws.cell(row=row_num, column=8, value=row_data['数量'])._style = copy(ws.cell(row=start_row, column=8)._style)
+                ws.cell(row=row_num, column=10, value=row_data['単位名'])._style = copy(ws.cell(row=start_row, column=10)._style)
+                ws.cell(row=row_num, column=11, value=row_data['売上単価'])._style = copy(ws.cell(row=start_row, column=11)._style)
+                if row_data['見積区分'] != 'A' or row_data['見積区分'] != 'C' or row_data['見積区分'] != 'S':
+                    ws.cell(row=row_num, column=13, value=int(row_data['数量']) * int(row_data['売上単価']))._style = copy(ws.cell(row=start_row, column=13)._style)
+
+                # 合計金額計算
+                total_amount += int(row_data['数量']) * int(row_data['売上単価'])
                 # データを書き込んだ後、次の行に移動
                 row_num += 1
                 page_row_num += 1
 
-                page_break_flg = True
+            # 最終頁の合計記載
+            # 合計を表示
+            ws.cell(row=row_num, column=2, value='【合　　計】')._style = copy(ws.cell(row=start_row, column=2)._style)
+            # 中央表示
+            center_bottom = Alignment(horizontal='center',vertical='bottom')
+            ws['B'+ str(row_num)].alignment = center_bottom
+            ws.cell(row=row_num, column=13, value=total_amount)._style = copy(ws.cell(row=start_row, column=13)._style)
+
+            # 不要分の表を削除
+            if page_num > 2:
+                del_row = (page_num - 1)*30
+                logger.info("=================================================================削除ページ{}".format(del_row))
+                # delete_excel_object(ws, del_row, 1, del_row+30, 15)
+            else:
+                delete_excel_object(ws, 29, 1, 60, 15)
+
+            # 処理が終わったらテンプレートシートを削除
+            del wb['Template']
 
             # 履歴情報をセット
             storedname="usp_見積出力履歴更新"
@@ -309,18 +313,11 @@ class NouhinsyoService(BaseService):
             
             else:
                 # 印刷範囲を設定
-                if page_num > 1:
-                    e_cell = "M{}".format(str(row_num + (27 - page_row_num)))
+                if page_num > 2:
+                    e_cell = "M{}".format(str(((page_num-1)*30) -1))
+                    ws.print_area = 'A1:' + e_cell
                 else:
-                    # 指定範囲内の結合セルを解除
-                    for i in range(31,59):
-                        ws.unmerge_cells('B{t}:D{t}'.format(t=i))
-
-                    # 余計な行を削除
-                    ws.delete_rows(31, 60)
-                    e_cell = "M29"
-
-                ws.print_area = 'A1:' + e_cell
+                    ws.print_area = 'A1:M29'
 
                 # Excelオブジェクトの保存
                 save_excel_to_buffer(buffer, wb, 'sanwa55')
@@ -427,7 +424,7 @@ class NouhinsyoService(BaseService):
             start_row = 21
 
             row_num = start_row
-
+            logger.info("===修正=========================")
             # 明細データ仕分別合計記載
             # for row_siwake_data in storedresults['results'][1]:
             #     if row_num == 29:

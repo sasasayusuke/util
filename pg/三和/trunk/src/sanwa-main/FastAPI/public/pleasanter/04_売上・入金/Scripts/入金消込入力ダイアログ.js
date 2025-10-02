@@ -494,6 +494,7 @@ async function DepositErasingInput(){
             });
             $('#ReceiptEntry_searchTable_readTable div:first-child').css('padding-bottom','0px');
             $('#ReceiptEntry_inputTable_inputTable div:first-child').css('padding','0');
+            $('#ReceiptEntry_searchTable_readTable input.input-Number').css('font-size','10.5px');
 
             if(category == '0'){
                 $('#ReceiptEntry').prev().children('.ui-dialog-title').text('入金消込入力 -- 登録');

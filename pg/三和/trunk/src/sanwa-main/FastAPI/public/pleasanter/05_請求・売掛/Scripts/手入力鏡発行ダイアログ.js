@@ -16,8 +16,7 @@
             width: 'wide',
             digitsNum:4,
             varidate:{type:'zeroPadding',maxlength:4},
-            searchDialog:{id:'custmerNoSearch',title:'得意先検索'},
-            lookupOrigin:{tableId:'TM得意先',keyColumnName:'得意先CD',forColumnName:'得意先名1'},
+            searchDialog:{id:'custmerNoSearch',title:'得意先検索'}
 		}},
 		{ type: 'text-set', id: 'deliveryCode', label: '納入先CD', options: {
 			width: 'wide',
@@ -195,7 +194,9 @@ async function mirrorOutput_report(dialogId,category,dialogName,btnLabel){
             "@鏡番号":SpcToNull($(`#${dialogId}_mirrorNo`).val()),
             "@請求日付":SpcToNull(formatDate(requestDate)),
             "@得意先CD":SpcToNull($(`#${dialogId}_customerCodeFrom`).val()),
+            "@得意先名":SpcToNull($(`#${dialogId}_customerCodeTo`).val()),
             "@納入先CD":SpcToNull($(`#${dialogId}_deliveryCodeFrom`).val()),
+            "@納入先名":SpcToNull($(`#${dialogId}_deliveryCodeTo`).val()),
             "@見積番号":SpcToNull($(`#${dialogId}_estimate_no`).val()),
             "@受渡地":SpcToNull($(`#${dialogId}_location`).val()),
             "@明細書数":SpcToNull($(`#${dialogId}_tm`).val()),
@@ -262,6 +263,29 @@ function clear_diarog(msg_bool){
     current_mirror_no = 0
 }
 
+// 得意先CDのルックアップ
+$(document).on('blur','#mirrorOutput_customerCodeFrom',async function(){
+    let digitsNum = 4;
+    if($(this).val().length != digitsNum){
+        $('#mirrorOutput_customerCodeTo').val('')
+        return;
+    }
+    const custmerCD = $('#mirrorOutput_customerCodeFrom').val();
+
+    const cls_custmer = new ClsCustmer(custmerCD);
+    const res = await cls_custmer.GetByData();
+
+    if(!res){
+        $('#mirrorOutput_customerCodeTo').val('')
+        $('#mirrorOutput_customerCodeFrom').val('')
+        alert('取得データが不正です');
+        return;
+    }
+    // メモ　得意先CDの結果は、得意先CD横の入力欄に得意先名１、納入先CD横の入力欄に得意先名２をセットする仕様
+    $('#mirrorOutput_customerCodeTo').val(cls_custmer["得意先名1"]);
+    $('#mirrorOutput_deliveryCodeTo').val(cls_custmer["得意先名2"]);
+})
+
 // 納入先CD検索ダイアログを開く
 $(document).on('click','#mirrorOutput_deliveryCodeField .ui-icon-search',async function(e){
     let custmerCD = $('#mirrorOutput_customerCodeFrom').val();
@@ -295,9 +319,9 @@ $(document).on('blur','#mirrorOutput_deliveryCodeFrom',async function(){
         alert('取得データが不正です');
         return;
     }
-
+    // メモ　得意先CDの結果は、得意先CD横の入力欄に得意先名１、納入先CD横の入力欄に得意先名２をセットする仕様
     $('#mirrorOutput_customerCodeTo').val(cls_recipient["納入先名1"]);
-
+    $('#mirrorOutput_deliveryCodeTo').val(cls_recipient["納入先名2"]);
 })
 
 // 鏡番号ルックアップ
@@ -345,8 +369,9 @@ $(document).on('blur','#mirrorOutput_mirrorNo',async function(){
         if(res.length != 0){
             $('#mirrorOutput_salesDay').val(new Date(res[0].請求日付).toLocaleDateString('sv-SE'));
             $('#mirrorOutput_customerCodeFrom').val(res[0].得意先CD);
-            $('#mirrorOutput_customerCodeTo').val(null_to_zero(res[0].得意先名1,"") + " " + null_to_zero(res[0].得意先名2,""));
+            $('#mirrorOutput_customerCodeTo').val(null_to_zero(res[0].得意先名1,""));
             $('#mirrorOutput_deliveryCodeFrom').val(res[0].納入先CD).trigger('input');
+            $('#mirrorOutput_deliveryCodeTo').val(null_to_zero(res[0].得意先名2,""));
             $('#mirrorOutput_tm').val(res[0].明細書数);
             $('#mirrorOutput_location').val(res[0].受渡地);
             $('#mirrorOutput_money').val(res[0].金額).trigger('blur');

@@ -1458,7 +1458,7 @@ async function download_report(param, fileName = "", accept="application/vnd.ope
         if (!res.ok) {
             const errorData = await res.json();
             console.error('[API-065]', errorData);
-            throw new Error('[API-065] ' + errorData.message);
+            throw new Error(errorData.message);
         }
 
         // 成功メッセージをヘッダーから取得して表示
@@ -1480,7 +1480,7 @@ async function download_report(param, fileName = "", accept="application/vnd.ope
             // ダウンロードファイル名をクライアント側で上書きする場合
             let downloadFileName = ""
             if (fileName) {
-                downloadFileName = fileName;
+                downloadFileName = fileName.replace('.', '');;
             // ダウンロードファイル名をサーバー側で指定する場合
             } else {
                 let tmpText = res.headers.get('Content-Disposition').split('filename=')[1].replace(/"/g, '')
@@ -1505,7 +1505,7 @@ async function download_report(param, fileName = "", accept="application/vnd.ope
     } catch(error) {
         message = '[GEN-066] ファイルダウンロード中にエラーが発生しました'
         console.error(message, error.message);
-        alert(message + error.message);
+        alert(error.message);
         throw error;
     } finally {
         hideLoading();

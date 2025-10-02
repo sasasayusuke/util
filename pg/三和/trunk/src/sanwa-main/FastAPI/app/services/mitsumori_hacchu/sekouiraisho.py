@@ -23,7 +23,7 @@ class SekouiraisyoService(BaseService):
     def display(self, request, session) -> StreamingResponse:
         """印刷処理を行うメソッド"""
 
-        # 入金予定表の印刷処理
+        # 施工依頼書出力処理
         logger.info("【START】施工依頼書出力処理")
 
         storedname="usp_MT1000施工依頼書出力"

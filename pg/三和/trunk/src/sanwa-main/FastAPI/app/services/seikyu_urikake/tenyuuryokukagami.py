@@ -25,7 +25,9 @@ class TenyuuryokukagamiService(BaseService):
         mirrorNo = request.params['@鏡番号']
         requestDate = datetime.strptime(request.params['@請求日付'], "%Y/%m/%d")
         tokuiCD = request.params['@得意先CD']
+        tokuiName = request.params['@得意先名']
         nounyuCD = request.params['@納入先CD']
+        nounyuName = request.params['@納入先名']
         mitumoriNO = request.params['@見積番号']
         sheetsCnt = request.params['@明細書数']
         location = request.params['@受渡地']
@@ -47,9 +49,8 @@ class TenyuuryokukagamiService(BaseService):
         tekiyou6 = request.params['@摘要6']
         transfer_flg = request.params['@振込負担テキスト表示flg']
         if tokuiCD is not None:
-            tokuisaki_info = TenyuuryokukagamiService.getTokuisaki(session, request, tokuiCD)
-            tokui_name1 = tokuisaki_info['得意先名1']
-            tokui_name2 = tokuisaki_info['得意先名2']
+            tokui_name1 = tokuiName
+            tokui_name2 = nounyuName
         else:
             tokui_name1 = ''
             tokui_name2 = ''
@@ -233,7 +234,9 @@ class TenyuuryokukagamiService(BaseService):
         mirrorNo = request.params['@鏡番号']
         requestDate = datetime.strptime(request.params['@請求日付'], "%Y/%m/%d")
         tokuiCD = request.params['@得意先CD']
+        tokuiName = request.params['@得意先名']
         nounyuCD = request.params['@納入先CD']
+        nounyuName = request.params['@納入先名']
         mitumoriNO = request.params['@見積番号']
         sheetsCnt = request.params['@明細書数']
         location = request.params['@受渡地']
@@ -255,9 +258,8 @@ class TenyuuryokukagamiService(BaseService):
         tekiyou6 = request.params['@摘要6']
         transfer_flg = request.params['@振込負担テキスト表示flg']
         if tokuiCD is not None:
-            tokuisaki_info = TenyuuryokukagamiService.getTokuisaki(session, request, tokuiCD)
-            tokui_name1 = tokuisaki_info['得意先名1']
-            tokui_name2 = tokuisaki_info['得意先名2']
+            tokui_name1 = tokuiName
+            tokui_name2 = nounyuName
         else:
             tokui_name1 = ''
             tokui_name2 = ''
