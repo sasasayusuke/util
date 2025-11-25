@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <!-- ホーム画面に追加して起動したときに“スタンドアロン（SafariのUIなし）”で開く -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- ステータスバーの色（好みで変えられる。default, black, black-translucent） -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>総合受付</title>
+  <style>
+    /* リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 背景と中央揃え */
+    body {
+      background: #f5f7fa !important;
+      font-family: "Helvetica Neue", Arial, sans-serif !important;
+      color: #333 !important;
+      height: 100vh !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    /* メインラッパーを画面いっぱいに広げつつ中央にコンテンツを置く */
+    .wrapper {
+      width: 90vw !important;
+      max-width: 1000px !important;
+      background: #fff !important;
+      padding: 60px 40px !important;
+      border-radius: 12px !important;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+      text-align: center !important;
+    }
+
+    /* ロゴ＋タイトル部分 */
+    .logo-box {
+      margin-bottom: 60px !important;
+    }
+
+    .logo-box img {
+      width: 360px !important;        /* 横幅を240pxに拡大 */
+      height: auto !important;        /* 縦横比を維持 */
+      display: block !important;
+      margin: 0 auto 20px !important;
+    }
+
+    .logo-box h1 {
+      font-size: 2.4rem !important;
+      letter-spacing: 0.05em !important;
+      color: #0d47a1 !important;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* ボタン配置部分 */
+    .btn-group {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 24px !important;
+      flex-wrap: wrap !important;
+    }
+
+    /* ボタン共通スタイル */
+    .btn-group a {
+      flex: 1 !important;
+      min-width: 200px !important;
+      max-width: 250px !important;
+      text-decoration: none !important;
+      padding: 18px 0 !important;
+      border-radius: 8px !important;
+      font-size: 1.2rem !important;
+      font-weight: 600 !important;
+      color: #fff !important;
+      text-align: center !important;
+      transition: background 0.2s, box-shadow 0.2s !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* QRコード用ボタン： 深い青 */
+    .btn-qr {
+      background-color: #1565c0 !important; /* 強制指定 */
+      border: none !important;
+    }
+    .btn-qr:hover {
+      background-color: #0d47a1 !important;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* その他の方向けボタン： 深い緑 */
+    .btn-other {
+      background-color: #2e7d32 !important; /* 強制指定 */
+      border: none !important;
+    }
+    .btn-other:hover {
+      background-color: #1b5e20 !important;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+    }
+  </style>
+</head>
+  <body>
+    <div class="wrapper">
+      <div class="logo-box">
+        <img src="/images/logo-sdt.png" alt="SDTロゴ" />
+        <h1>株式会社SMSデータテック 総合受付</h1>
+      </div>
+      <!-- ボタン部分 -->
+      <div class="btn-group">
+        <a id="qr-reader-link" href="#" class="btn-qr">QRコードをお持ちの方は</br>こちら</a>
+        <a id="reception-link" href="#" class="btn-other">その他の方は</br>こちら</a>
+      </div>
+    </div>
+  </body>
+</html>
