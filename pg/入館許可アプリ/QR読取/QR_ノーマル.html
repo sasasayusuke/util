@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <!-- ホーム画面に追加して起動したときに“スタンドアロン（SafariのUIなし）”で開く -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- ステータスバーの色（好みで変えられる。default, black, black-translucent） -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRコード受付</title>
+  <!-- QRコード読み取りライブラリ -->
+  <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
+  <style>
+    /* ─── リセット ─── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ─── 背景・全体中央揃え ─── */
+    body {
+      background: #f5f7fa !important;
+      font-family: "Helvetica Neue", Arial, sans-serif !important;
+      color: #333 !important;
+      height: 100vh !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    /* ─── メインラッパー ─── */
+    .wrapper {
+      width: 95vw !important;          /* 画面幅の95% */
+      max-width: 600px !important;      /* 最大幅600px */
+      background: #fff !important;
+      padding: 40px 30px !important;    /* 内側余白 */
+      border-radius: 12px !important;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+      text-align: center !important;
+    }
+
+    /* ─── タイトル ─── */
+    .header {
+      margin-bottom: 30px !important;
+    }
+    .header h2 {
+      font-size: 2rem !important;
+      color: #0d47a1 !important;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+      letter-spacing: 0.05em !important;
+    }
+
+    /* ─── QRリーダー配置 ─── */
+    #reader {
+      width: 100% !important;
+      max-width: 480px !important;
+      margin: 0 auto 20px !important;
+    }
+
+    /* ─── メッセージ表示 ─── */
+    #message {
+      font-size: 1.2rem !important;
+      color: #444 !important;
+      margin-bottom: 20px !important;
+    }
+
+    /* ─── ボタン（キャンセルなどあれば） ─── */
+    .btn-cancel {
+      display: inline-block !important;
+      margin-top: 16px !important;
+      padding: 10px 24px !important;
+      background-color: #b71c1c !important; 
+      color: #fff !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      transition: background 0.2s, box-shadow 0.2s !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+    .btn-cancel:hover {
+      background-color: #7f0000 !important;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー -->
+    <div class="header">
+      <h2>QRコード受付</h2>
+    </div>
+
+    <!-- 読み取り待機メッセージ -->
+    <div id="message">QRコードを読み込ませてください</div>
+
+    <!-- カメラ映像表示領域 -->
+    <div id="reader"></div>
+
+    <!-- 必要に応じてキャンセルボタンなどを配置 -->
+    <a href="/publishes/2662566/index" class="btn-cancel">キャンセル</a>
+  </div>
+
+  <script>
+    // ─── 定数／グローバル変数 ───
+    const html5QrCode = new Html5Qrcode("reader");
+    const allowedDomain = "https://ssj-pleasanter-02.local.sdt-autolabo.com/";
+    // フレームレートやQRボックスの大きさはそのまま
+    const qrConfig = { fps: 10, qrbox: 250 };
+
+    /**
+     * QRコード読み取り成功時の処理
+     * @param {string} qrCodeMessage 読み取った文字列
+     */
+    function onScanSuccess(qrCodeMessage) {
+      console.log("読み取ったQRデータ:", qrCodeMessage);
+
+      if (qrCodeMessage.includes(allowedDomain)) {
+        // ─── 有効ドメインを含む場合：そのまま遷移 ───
+        html5QrCode.stop().then(() => {
+          window.location.href = qrCodeMessage;
+        }).catch(err => {
+          console.error("停止中にエラー:", err);
+          window.location.href = qrCodeMessage;
+        });
+      } else {
+        // ─── ドメインを含まない場合：無効メッセージを表示して再スキャン ───
+        html5QrCode.stop().then(() => {
+          document.getElementById("message").innerText = "無効なQRコードです。再度スキャンしてください";
+
+          setTimeout(() => {
+            startScanning();
+          }, 1000);
+        }).catch(err => {
+          console.error("停止中にエラー:", err);
+          document.getElementById("message").innerText = "無効なQRコードです。再度スキャンしてください";
+
+          setTimeout(() => {
+            startScanning();
+          }, 1000);
+        });
+      }
+    }
+
+    /**
+     * QRコード読み取りエラー時の処理（枠外などのエラー）
+     * @param {string} errorMessage エラーメッセージ
+     */
+    function onScanError(errorMessage) {
+      // ここではエラーをログに出すだけにする
+      console.log("スキャン中エラー:", errorMessage);
+    }
+
+    /**
+     * スキャン開始処理をまとめた関数
+     * カメラの優先順位ロジックをここで実装
+     */
+    function startScanning() {
+      document.getElementById("message").innerText = "QRコードを読み込ませてください";
+
+      // 利用可能なカメラ一覧を取得
+      Html5Qrcode.getCameras().then(cameras => {
+        if (cameras && cameras.length) {
+          // 「インカメラ（フロント）」を優先するため、ラベルに "front" が含まれるものを探す
+          // ※ラベルの表記はブラウザやデバイスによって異なる場合がありますので、
+          //   必要に応じて他のキーワード（"Front", "前面カメラ" など）を追加してください。
+          let frontCamera = cameras.find(cam =>
+            cam.label.toLowerCase().includes("front") ||
+            cam.label.toLowerCase().includes("前面")
+          );
+
+          // フロントが見つからなければ、デフォルトで最初のカメラ（おそらくアウトカメラ）を選択
+          let chosenCameraId = frontCamera ? frontCamera.id : cameras[0].id;
+
+          // カメラIDを指定してスキャンを開始
+          html5QrCode.start(
+            { deviceId: { exact: chosenCameraId } },
+            qrConfig,
+            onScanSuccess,
+            onScanError
+          ).catch(err => {
+            document.getElementById("message").innerText = "カメラの初期化に失敗しました: " + err;
+            console.error("初期化エラー:", err);
+          });
+        } else {
+          // カメラが見つからない場合のエラー表示
+          document.getElementById("message").innerText = "カメラが見つかりませんでした。";
+          console.error("カメラが見つかりませんでした。");
+        }
+      }).catch(err => {
+        // getCameras() の呼び出しに失敗した場合
+        document.getElementById("message").innerText = "カメラ一覧の取得に失敗しました: " + err;
+        console.error("カメラ一覧取得エラー:", err);
+      });
+    }
+
+    // ページ読み込み時にスキャンをスタート
+    window.addEventListener("DOMContentLoaded", () => {
+      startScanning();
+    });
+  </script>
+</body>
+</html>

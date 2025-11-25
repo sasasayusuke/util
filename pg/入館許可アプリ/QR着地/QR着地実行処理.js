@@ -6,14 +6,14 @@ $p.events.on_grid_load = async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const qrFlag = urlParams.get('qr');
     const entranceId = urlParams.get('id');
-    const calleFlag = urlParams.get('called');
+    const calledFlag = urlParams.get('called');
 
     // 処理中画面を表示
     showProcessingScreen();
     // QRコードアクセスの処理
     if (qrFlag === '1' && entranceId) {
         // 入館処理実行
-        processEntrance(entranceId, calleFlag);
+        processEntrance(entranceId, calledFlag);
         return
     // パラメータが不正な場合
     } else {
@@ -23,7 +23,7 @@ $p.events.on_grid_load = async function () {
 };
 
 // 入館処理メイン関数
-async function processEntrance(entranceId, calleFlag) {
+async function processEntrance(entranceId, calledFlag) {
     // 既存のページを非表示
     $('#MainContainer').hide();
 
@@ -52,7 +52,7 @@ async function processEntrance(entranceId, calleFlag) {
             return
         }
 
-        if (calleFlag === '1') {
+        if (calledFlag === '1') {
             const now = commonGetDate(undefined, undefined, undefined, 'YYYY-MM-DDThh:mm:ss');
             await commonUpdateRecord(entranceId, {
                 Status: SYSTEM_CONFIG.STATUS.ENTERED.VALUE,  // ステータスを入館済みに更新
