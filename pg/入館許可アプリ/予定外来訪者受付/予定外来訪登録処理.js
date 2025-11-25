@@ -110,7 +110,7 @@ async function handleRegist(formData) {
             CompletionTime: commonGetDate(),
 
             // 呼び出し中ステータスで作成
-            Status: SYSTEM_CONFIG.STATUS.REGISTERED
+            Status: SYSTEM_CONFIG.STATUS.REGISTERED.VALUE
         };
 
         console.log('登録データ:', createData);

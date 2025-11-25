@@ -76,7 +76,7 @@ function execute() {
                 body: body,
                 includeAttachments: true
             });
-			await commonUpdateRecord(recordId, { 'Status': SYSTEM_CONFIG.STATUS.REGISTERED });
+			await commonUpdateRecord(recordId, { 'Status': SYSTEM_CONFIG.STATUS.REGISTERED.VALUE });
             commonHideLoadingOverlay();
             alert('PDF発行とメール送信が完了しました。\nステータス更新のため画面がリロードされます');
 			window.location.reload();

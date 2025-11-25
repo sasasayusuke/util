@@ -46,11 +46,26 @@ const SYSTEM_CONFIG = {
 
     // ステータス定義
     STATUS: {
-        RECEPTION:  100,    // 仮受付
-        REGISTERED: 200,    // 登録済み
-        CALLING:    300,    // 呼び出し中
-        ENTERED:    900,    // 入館済み
-        ERROR:      999     // エラー
+        RECEPTION: {
+            VALUE: 100,
+            LABEL: '仮受付'
+        },
+        REGISTERED: {
+            VALUE: 200,
+            LABEL: '登録済み'
+        },
+        CALLING: {
+            VALUE: 300,
+            LABEL: '呼び出し中'
+        },
+        ENTERED: {
+            VALUE: 900,
+            LABEL: '入館済み'
+        },
+        ERROR: {
+            VALUE: 999,
+            LABEL: 'エラー'
+        }
     },
 
     // API設定
