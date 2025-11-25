@@ -14,17 +14,33 @@ const SYSTEM_CONFIG = {
     // Pleasanterサイト情報
     SITE_INFO: {
         BASE_URL: location.origin,
+        ENTERE_CONTROL: {
+            ID: "5",
+            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
+        },
         QR_LANDING: {
-            ID: "2662465",
-            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
+            ID: "6",
+            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
+            // get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
         },
         RECEPTION: {
-            ID: "2662566",
-            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
+            ID: "4",
+            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
+            // get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
         },
         QR_READER: {
-            ID: "2662567",
-            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
+            ID: "2",
+            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
+            // get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
+        },
+        UNSCHEDULED_VISIT: {
+            ID: "3",
+            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
+            // get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
+        },
+        STAFF_MASTER: {
+            ID: "9",
+            get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
         }
     },
 
