@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python open_all_sites.py:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

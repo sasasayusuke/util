@@ -346,7 +346,7 @@ function showEntranceSuccess(data, now) {
                     </div>
                 </div>
 
-                <button class="reception-button" onclick="window.location.href='${SYSTEM_CONFIG.SITE_INFO.RECEPTION.URL}'">受付に戻る</button>
+                <button class="reception-button" onclick="window.location.href='${SYSTEM_CONFIG.SITE_INFO.RECEPTION.URL}'">総合受付に戻る</button>
 
                 <div class="redirect-notice">
                     <p>10秒後に自動的に受付画面へ戻ります</p>
@@ -655,7 +655,7 @@ function showEntranceError(errorType, message) {
                     <p>TEL: ${SYSTEM_CONFIG.COMPANY_INFO.TEL}</p>
                 </div>
 
-                <button class="reception-button" onclick="window.location.href='${SYSTEM_CONFIG.SITE_INFO.RECEPTION.URL}'">受付に戻る</button>
+                <button class="reception-button" onclick="window.location.href='${SYSTEM_CONFIG.SITE_INFO.RECEPTION.URL}'">総合受付に戻る</button>
 
             </div>
         </div>

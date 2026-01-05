@@ -4,16 +4,36 @@
 const SYSTEM_CONFIG = {
 
     // 会社情報
-    COMPANY_INFO: {
-        NAME: 'SMSデータテック 株式会社',
-        ADDRESS: '東京都中央区湊3-5-10',
-        BUILDING_NAME: 'VORT新富町ビル 3F',
-        TEL: '03-6222-0831'
-    },
+    COMPANY_INFO: [
+        {
+            NAME: 'SMSデータテック',
+            PREFIX: '',
+            POSTFIX: '株式会社',
+            ADDRESS: '東京都中央区湊3-5-10',
+            BUILDING_NAME: 'VORT新富町ビル 3F',
+            TEL: '03-6222-0831'
+        },
+        {
+            NAME: 'Zearot',
+            PREFIX: '',
+            POSTFIX: '株式会社',
+            ADDRESS: '',
+            BUILDING_NAME: '',
+            TEL: ''
+        },
+        {
+            NAME: 'インディゴ',
+            PREFIX: '',
+            POSTFIX: '株式会社',
+            ADDRESS: '',
+            BUILDING_NAME: '',
+            TEL: ''
+        }
+    ],
 
     // Pleasanterサイト情報
     SITE_INFO: {
-        BASE_URL: location.origin,
+        BASE_URL: "https://reception.local.sdt-autolabo.com",
         ENTERE_CONTROL: {
             ID: "5",
             get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
@@ -24,7 +44,7 @@ const SYSTEM_CONFIG = {
             // get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
         },
         RECEPTION: {
-            ID: "4",
+            ID: "28",
             get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/items/${this.ID}/index`; }
             // get URL() { return `${SYSTEM_CONFIG.SITE_INFO.BASE_URL}/publishes/${this.ID}/index`; }
         },
@@ -167,7 +187,13 @@ const SYSTEM_CONFIG = {
                 get MEETING_ROOM() { return String(commonGetVal("会議室") || '') },
                 get PURPOSE() { return String(commonGetVal("ご来訪目的") || '') },
                 get STAY_DURATION() { return Number(commonGetVal("滞在予定時間")) || 60; }, // デフォルト60分
-                get LOCATION() { return `${SYSTEM_CONFIG.COMPANY_INFO.NAME}\n${SYSTEM_CONFIG.COMPANY_INFO.ADDRESS}\n${SYSTEM_CONFIG.COMPANY_INFO.BUILDING_NAME}`; },
+                get LOCATION() {
+                    const company = SYSTEM_CONFIG.COMPANY_INFO[0]; // デフォルトは最初の会社
+                    const prefix = company.PREFIX ? `${company.PREFIX} ` : '';
+                    const postfix = company.POSTFIX ? ` ${company.POSTFIX}` : '';
+                    const fullName = `${prefix}${company.NAME}${postfix}`.trim();
+                    return `${fullName}\n${company.ADDRESS}\n${company.BUILDING_NAME}`;
+                },
 
                 // 来訪日時を終了時刻付きで表示
                 get VISIT_DATETIME_WITH_END() {
