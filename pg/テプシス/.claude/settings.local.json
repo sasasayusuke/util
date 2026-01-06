@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python extract_scripts.py:*)",
+      "Bash(dir:*)"
+    ]
+  }
+}
