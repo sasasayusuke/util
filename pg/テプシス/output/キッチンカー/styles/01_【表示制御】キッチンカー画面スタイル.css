@@ -196,15 +196,15 @@
 }
 /* フォーム項目の幅調整 */
 .kc-kitchen-car .kc-form-shop {
-  width: 50%;
-  max-width: 50%;
+  width: 100%;
+  max-width: 100%;
 }
 .kc-kitchen-car .kc-form-shop .kc-form-inputArea {
   width: 200px;
 }
 .kc-kitchen-car .kc-form-period {
-  width: 50%;
-  max-width: 50%;
+  width: 100%;
+  max-width: 100%;
 }
 .kc-kitchen-car .kc-form-note {
   width: 100%;

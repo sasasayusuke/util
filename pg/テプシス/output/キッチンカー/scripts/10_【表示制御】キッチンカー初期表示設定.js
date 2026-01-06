@@ -2,18 +2,28 @@
   'use strict';
 
   /************************************************************************
-   * 画面読み込み時に一度だけ実行するレイアウト処理
+   * 画面読み込み時に一度だけ実行する初期表示処理
    *
    * 目的：
    *  - ヘッダー（#Header）の高さを取得して、その高さ分だけ
    *    #fn-kitchen-car の top をずらします（重なり防止）。
    *  - さらに #fn-kitchen-car の高さを CSS の calc() を使って
    *    calc(100% - {headerHeight}px) に設定します。
+   *  - 店舗マスタ（SiteId: 253154）からデータを取得し、セレクトボックスに設定
    *
    * 注意：
    *  - この処理は「読み込み時に一度だけ実行」されます。
    *  - #fn-kitchen-car に top を効かせるには position が必要です。
    ************************************************************************/
+
+  /* ========================================
+   * 定数
+   * ======================================== */
+  var SHOP_SITE_ID = 253154;
+  window.force = true
+  /* ========================================
+   * レイアウト関連
+   * ======================================== */
 
   /**
    * getHeaderHeight
@@ -66,17 +76,70 @@
 
   /**
    * initKitchenCarLayout
-   * - 画面読み込み時に呼ばれるオーケストレーション関数
+   * - レイアウト初期化
    */
   function initKitchenCarLayout() {
     var headerH = getHeaderHeight();
     applyKitchenCarLayout(headerH);
   }
 
-  // DOMContentLoaded のタイミングで一度だけ実行する
+  /* ========================================
+   * 店舗セレクトボックス初期化
+   * ======================================== */
+
+  /**
+   * loadShopOptions
+   * - 店舗マスタからデータを取得し、セレクトボックスに設定
+   */
+  async function loadShopOptions() {
+    var $select = $('#fn-formShop');
+    if ($select.length === 0) {
+      return;
+    }
+
+    // 既存のオプションをクリア（placeholder以外）
+    $select.find('option:not([disabled])').remove();
+
+    try {
+      var api = new PleasanterAPI(location.origin, { logging: window.force });
+
+      var records = await api.getRecords(SHOP_SITE_ID, {
+        columns: ['ClassA'],
+        setLabelText: false,
+        setDisplayValue: 'Value',
+      });
+
+      if (!records || records.length === 0) {
+        window.force && console.warn('店舗データが取得できませんでした');
+        return;
+      }
+
+      records.forEach(function (record) {
+        var name = record.ClassA || '';
+
+        if (name) {
+          var $option = $('<option></option>').val(name).text(name);
+          $select.append($option);
+        }
+      });
+
+    } catch (error) {
+      window.force && console.error('店舗データ取得エラー:', error);
+    }
+  }
+
+  /* ========================================
+   * 初期化
+   * ======================================== */
+
   document.addEventListener('DOMContentLoaded', function () {
     try {
+      // レイアウト初期化
       initKitchenCarLayout();
+
+      // 店舗セレクトボックス初期化
+      loadShopOptions();
+
     } catch (e) {
       window.force && console.error('initKitchenCarLayout error', e);
     }
