@@ -17,10 +17,13 @@
    ************************************************************************/
 
   /* ========================================
-   * 定数
+   * 定数・変数
    * ======================================== */
   var SHOP_SITE_ID = 253154;
-  window.force = true
+  window.force = true;
+
+  // 店舗データを保持（セレクトボックス変更時に参照）
+  var shopRecords = [];
   /* ========================================
    * レイアウト関連
    * ======================================== */
@@ -84,12 +87,29 @@
   }
 
   /* ========================================
+   * URLパラメータ取得
+   * ======================================== */
+
+  /**
+   * getUrlParam
+   * - URLから指定したパラメータの値を取得
+   *
+   * @param {string} name - パラメータ名
+   * @returns {string|null} パラメータ値（存在しない場合はnull）
+   */
+  function getUrlParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  /* ========================================
    * 店舗セレクトボックス初期化
    * ======================================== */
 
   /**
    * loadShopOptions
    * - 店舗マスタからデータを取得し、セレクトボックスに設定
+   * - URLのLinkIdパラメータとClassBを突合してフィルタリング
    */
   async function loadShopOptions() {
     var $select = $('#fn-formShop');
@@ -100,11 +120,15 @@
     // 既存のオプションをクリア（placeholder以外）
     $select.find('option:not([disabled])').remove();
 
+    // URLからLinkIdを取得
+    var linkId = getUrlParam('LinkId');
+    window.force && console.log('LinkId:', linkId);
+
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
       var records = await api.getRecords(SHOP_SITE_ID, {
-        columns: ['ClassA'],
+        columns: ['ClassA', 'ClassB', 'DateA', 'DateB'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -114,7 +138,19 @@
         return;
       }
 
-      records.forEach(function (record) {
+      // LinkIdとClassBを突合してフィルタリング
+      var filteredRecords = linkId
+        ? records.filter(function (record) {
+            return String(record.ClassB) === String(linkId);
+          })
+        : records;
+
+      window.force && console.log('フィルタ後の店舗データ:', filteredRecords);
+
+      // 店舗データを保持
+      shopRecords = filteredRecords;
+
+      filteredRecords.forEach(function (record) {
         var name = record.ClassA || '';
 
         if (name) {
@@ -123,9 +159,74 @@
         }
       });
 
+      // セレクトボックス変更時のイベントハンドラ
+      $select.off('change.shop').on('change.shop', handleShopChange);
+
     } catch (error) {
       window.force && console.error('店舗データ取得エラー:', error);
     }
+  }
+
+  /**
+   * handleShopChange
+   * - 店舗セレクトボックス変更時に開催期間を設定
+   */
+  function handleShopChange() {
+    var selectedValue = $(this).val();
+    if (!selectedValue) return;
+
+    // 選択された店舗のレコードを検索
+    var selectedRecord = shopRecords.find(function (record) {
+      return record.ClassA === selectedValue;
+    });
+
+    if (!selectedRecord) {
+      window.force && console.warn('選択された店舗のデータが見つかりません:', selectedValue);
+      return;
+    }
+
+    window.force && console.log('選択された店舗データ:', selectedRecord);
+
+    // DateA → 開催期間From、DateB → 開催期間To
+    var dateFrom = selectedRecord.DateA || '';
+    var dateTo = selectedRecord.DateB || '';
+
+    // 日付形式を input[type="date"] 用に変換 (YYYY-MM-DD)
+    $('#fn-formDateFrom').val(formatDateForInput(dateFrom));
+    $('#fn-formDateTo').val(formatDateForInput(dateTo));
+  }
+
+  /**
+   * formatDateForInput
+   * - 日付文字列を input[type="date"] 用のフォーマット (YYYY-MM-DD) に変換
+   *
+   * @param {string} dateStr - 日付文字列
+   * @returns {string} YYYY-MM-DD 形式の日付
+   */
+  function formatDateForInput(dateStr) {
+    if (!dateStr) return '';
+
+    // ISO形式 (2025-01-07T00:00:00) の場合
+    if (dateStr.includes('T')) {
+      return dateStr.split('T')[0];
+    }
+
+    // すでに YYYY-MM-DD 形式の場合
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+      return dateStr;
+    }
+
+    // その他の形式の場合はDateオブジェクトで変換を試みる
+    try {
+      var d = new Date(dateStr);
+      if (!isNaN(d.getTime())) {
+        return d.toISOString().split('T')[0];
+      }
+    } catch (e) {
+      window.force && console.warn('日付変換エラー:', dateStr, e);
+    }
+
+    return '';
   }
 
   /* ========================================
