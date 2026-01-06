@@ -28,6 +28,9 @@
 
   // キッチンカー状況データを保持
   var kitchenCarStatusRecords = [];
+
+  // 編集モード判定（初期化時に設定）
+  var isCreateMode = false;
   /* ========================================
    * レイアウト関連
    * ======================================== */
@@ -372,11 +375,147 @@
   }
 
   /* ========================================
+   * 登録処理
+   * ======================================== */
+
+  /**
+   * validateForm
+   * - フォームのバリデーション
+   *
+   * @returns {Object|null} エラーがあればnull、なければフォームデータ
+   */
+  function validateForm() {
+    var shop = $('#fn-formShop').val();
+    var dateFrom = $('#fn-formDateFrom').val();
+    var dateTo = $('#fn-formDateTo').val();
+    var selectedCars = [];
+
+    // 選択されたキッチンカーを取得
+    $('.fn-pick:checked:not(:disabled)').each(function () {
+      selectedCars.push($(this).val());
+    });
+
+    var errors = [];
+
+    if (!shop) {
+      errors.push('店舗を選択してください');
+    }
+    if (!dateFrom) {
+      errors.push('開催期間（開始日）を入力してください');
+    }
+    if (!dateTo) {
+      errors.push('開催期間（終了日）を入力してください');
+    }
+    if (dateFrom && dateTo && dateFrom > dateTo) {
+      errors.push('開催期間の開始日は終了日より前の日付を指定してください');
+    }
+    if (selectedCars.length === 0) {
+      errors.push('キッチンカーを1台以上選択してください');
+    }
+
+    if (errors.length > 0) {
+      alert(errors.join('\n'));
+      return null;
+    }
+
+    return {
+      shop: shop,
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      selectedCars: selectedCars,
+      note: $('#fn-formNote').val() || ''
+    };
+  }
+
+  /**
+   * handleSubmit
+   * - 登録/更新ボタンクリック時の処理
+   * - isCreateMode: true → 作成、false → 更新（$p.idを使用）
+   */
+  async function handleSubmit() {
+    var formData = validateForm();
+    if (!formData) return;
+
+    // URLからLinkIdを取得（ClassYに設定）
+    // 更新モードの場合はURLになくても既存データから取得する可能性あり
+    var linkId = getUrlParam('LinkId');
+
+    try {
+      var api = new PleasanterAPI(location.origin, { logging: window.force });
+
+      // キッチンカー名は複数選択をカンマ区切りで結合
+      var kitchenCarNames = formData.selectedCars.join(',');
+
+      var data = {
+        ClassC: formData.shop,
+        ClassA: kitchenCarNames,
+        DateA: formData.dateFrom,
+        DateB: formData.dateTo,
+        ClassD: formData.note
+      };
+
+      // LinkIdがある場合のみClassYを設定
+      if (linkId) {
+        data.ClassY = linkId;
+      }
+
+      window.force && console.log('モード:', isCreateMode ? '作成' : '更新');
+      window.force && console.log('データ:', data);
+
+      var result;
+      if (isCreateMode) {
+        // 作成モード
+        if (!linkId) {
+          alert('イベント店舗IDが取得できません。URLパラメータを確認してください。');
+          return;
+        }
+        result = await api.createRecord($p.siteId(), data);
+        window.force && console.log('作成結果:', result);
+        alert('キッチンカーを登録しました');
+      } else {
+        // 更新モード（$p.id()を使用）
+        var recordId = $p.id();
+        if (!recordId) {
+          alert('レコードIDが取得できません。');
+          return;
+        }
+        window.force && console.log('recordId:', recordId);
+        // updateRecordは (recordId, updateData) の2引数
+        result = await api.updateRecord(recordId, data);
+        window.force && console.log('更新結果:', result);
+        alert('キッチンカーを更新しました');
+      }
+
+      // 処理後は画面を閉じる（または元の画面に戻る）
+      handleCancel();
+
+    } catch (error) {
+      window.force && console.error('処理エラー:', error);
+      alert((isCreateMode ? '登録' : '更新') + 'に失敗しました: ' + (error.message || error));
+    }
+  }
+
+  /**
+   * handleCancel
+   * - キャンセルボタンクリック時の処理
+   * - 前の画面に戻る
+   */
+  function handleCancel() {
+    history.back();
+  }
+
+  /* ========================================
    * 初期化
    * ======================================== */
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
+      // 編集モード判定（$p.action() が 'NEW' なら作成モード、それ以外は更新モード）
+      var action = $p.action();
+      isCreateMode = String(action).toUpperCase() === 'NEW';
+      window.force && console.log('$p.action():', action);
+      window.force && console.log('isCreateMode:', isCreateMode);
+
       // レイアウト初期化
       initKitchenCarLayout();
 
@@ -385,6 +524,10 @@
 
       // キッチンカー状況テーブル初期化
       loadKitchenCarStatus();
+
+      // ボタンイベント設定（重複防止のため.off()で既存イベント解除）
+      $('#fn-submitButton').off('click').on('click', handleSubmit);
+      $('#fn-cancelButton').off('click').on('click', handleCancel);
 
     } catch (e) {
       window.force && console.error('initKitchenCarLayout error', e);
