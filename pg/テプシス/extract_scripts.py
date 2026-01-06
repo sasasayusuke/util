@@ -132,6 +132,11 @@ def extract_contents(json_path: Path) -> None:
 
             # 各アイテムをファイル出力
             for idx, item in enumerate(sorted_items, start=1):
+                # Disabled: true のアイテムはスキップ
+                if item.get('Disabled', False):
+                    print(f'[SKIP] {json_key}: {item.get("Title", "Unknown")} (Disabled)')
+                    continue
+
                 item_title = item.get('Title', f'{json_key}_{idx}')
                 item_body = item.get('Body', '')
 
