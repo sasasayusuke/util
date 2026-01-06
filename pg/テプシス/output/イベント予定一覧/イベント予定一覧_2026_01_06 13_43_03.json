@@ -4,7 +4,7 @@
     "BaseSiteId": 253123,
     "Server": "http://192.168.10.67",
     "CreatorName": "Administrator",
-    "PackageTime": "2026-01-06T03:13:53.0464246+00:00",
+    "PackageTime": "2026-01-06T04:43:03.9032501+00:00",
     "Convertors": [
       {
         "SiteId": 253123,
@@ -168,6 +168,7 @@
             "GridLabelText": "カテゴリ",
             "ChoicesText": "1,小売\n2,イベント\n3,キッチンカー\n4,マルシェ\n5,飲食\n6,展示会\n8,小売（自主取扱）\n9,飲食（自主取扱）\n10,キッチンカー（自主取扱）\n7,その他\n",
             "NoWrap": true,
+            "ValidateRequired": true,
             "SearchType": "PartialMatch"
           },
           {
@@ -600,6 +601,13 @@
             "All": true,
             "Body": ".required-mark {\n  color: #f00;   /* 赤 */\n\n}",
             "Id": 2
+          },
+          {
+            "Title": "【画面制御】キッチンカーリンクフィールド非表示化",
+            "New": true,
+            "Edit": true,
+            "Body": "#Results_Source253143Field{\n  display: none;\n}",
+            "Id": 3
           }
         ],
         "Scripts": [
@@ -650,6 +658,20 @@
             "Edit": true,
             "Body": "// =====================================\n// 開催エリア：福島県内 → 開催エリア詳細 必須制御\n// =====================================\n\ncheckClassF();\n\nfunction checkClassF() {\n\n  // change は委譲\n  $(document)\n    .off('change', '#Results_ClassF')\n    .on('change', '#Results_ClassF', toggleRequired);\n\n  // DOM再描画監視（更新後対応）\n  observeEditDom();\n\n  // 初期\n  toggleRequired();\n}\n\nfunction toggleRequired() {\n\n  const $area = $('#Results_ClassF');\n  const $desc = $('#Results_DescriptionB');\n  const $label = $('label[for=\"Results_DescriptionB\"]');\n\n  // DOM未生成なら何もしない\n  if ($area.length === 0 || $desc.length === 0) return;\n\n  if ($area.val() === '2') {\n\n    // 必須\n    $desc\n      .attr('data-validate-required', '1')\n      .addClass('required');\n\n    if ($label.find('.required-mark').length === 0) {\n      $label.append('<span class=\"required-mark\"> *</span>');\n    }\n\n  } else {\n\n    $desc\n      .removeAttr('data-validate-required')\n      .removeClass('required');\n\n    $label.find('.required-mark').remove();\n  }\n}\n\nfunction observeEditDom() {\n\n  const observer = new MutationObserver(function () {\n    toggleRequired();\n  });\n\n  observer.observe(document.body, {\n    childList: true,\n    subtree: true\n  });\n}\n",
             "Id": 7
+          },
+          {
+            "Title": "【画面制御】新規作成・詳細　項目表示　共通制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * アプリ共通の名前空間\n     * 他スクリプトはすべてここ経由で after_set に登録する\n     */\n    window.AppTriggers = window.AppTriggers || {};\n\n    /**\n     * after_set に安全に処理を追加するユーティリティ\n     * - 既存処理を壊さない\n     * - 複数スクリプト共存可能\n     */\n    AppTriggers.afterSetHandlers = AppTriggers.afterSetHandlers || [];\n\n    /**\n     * after_set 登録関数\n     */\n    AppTriggers.registerAfterSet = function (fn) {\n        if (typeof fn === 'function') {\n            AppTriggers.afterSetHandlers.push(fn);\n        }\n    };\n\n    /**\n     * Pleasanter after_set を1回だけラップ\n     */\n    if (window.$p && $p.events && !$p.events.__appTriggersWrapped__) {\n        var originalAfterSet = $p.events.after_set;\n\n        $p.events.after_set = function (args) {\n            // 既存 after_set を先に実行\n            if (typeof originalAfterSet === 'function') {\n                try {\n                    originalAfterSet(args);\n                } catch (e) {\n                    console.error('original after_set error', e);\n                }\n            }\n\n            // 登録されたハンドラを順番に実行\n            AppTriggers.afterSetHandlers.forEach(function (handler) {\n                try {\n                    handler(args);\n                } catch (e) {\n                    console.error('after_set handler error', e);\n                }\n            });\n        };\n\n        $p.events.__appTriggersWrapped__ = true;\n    }\n})();",
+            "Id": 8
+          },
+          {
+            "Title": "【画面制御】キッチンカーフィールド　表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * キッチンカーリンクフィールド制御\n     * Results_ClassA → Results_Source253143Field\n     */\n\n    /**\n     * トリガー判定\n     * ClassA(イベントカテゴリー)が「3:キッチンカー」または「10:キッチンカー（自主取扱）」の場合\n     * キッチンカーリンクフィールドを表示する\n     */\n    function checkClassATrigger(value) {\n        if (value === '3' || value === '10') {\n            setVisibility(true);\n        } else {\n            setVisibility(false);\n        }\n    }\n\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_Source253143Field');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var select = document.getElementById('Results_ClassA');\n        if (!select || select.__classA_bound__) return;\n\n        select.addEventListener('change', function () {\n            checkClassATrigger(select.value);\n        });\n\n        select.__classA_bound__ = true;\n        checkClassATrigger(select.value);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
+            "Id": 9
           }
         ],
         "UseIncompleteFilter": false,
