@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(python extract_scripts.py:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(tree:*)",
+      "Bash(mkdir:*)",
+      "Bash(git -C \"c:/Users/NT-210174/Desktop/projects/util/pg/テプシス\" status)"
     ]
   }
 }
