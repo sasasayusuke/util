@@ -17,18 +17,21 @@ Pleasanter JSONからScript/ServerScript/HTML/Styleを抽出してtree構成で�
         ├── htmls/
         │   ├── 01_{Title}.html
         │   └── ...
-        └── styles/
-            ├── 01_{Title}.css
-            └── ...
+        ├── styles/
+        │   ├── 01_{Title}.css
+        │   └── ...
+        └── {SiteTitle}_{Timestamp}.json  # 処理済みJSON
 
 処理後:
-    JSONファイルは old/ フォルダへ移動
+    JSONファイルは output/{SiteTitle}/ フォルダへ移動
+    既存JSONより古いTimestampの場合はエラー
 """
 
 import json
 import shutil
 import sys
 import re
+from datetime import datetime
 from pathlib import Path
 
 
@@ -39,6 +42,44 @@ EXTRACT_TARGETS = [
     ('Htmls', 'htmls', '.html'),
     ('Styles', 'styles', '.css'),
 ]
+
+# ファイル名のTimestamp形式: {SiteTitle}_{YYYY_MM_DD HH_MM_SS}.json
+TIMESTAMP_PATTERN = re.compile(r'_(\d{4}_\d{2}_\d{2} \d{2}_\d{2}_\d{2})\.json$')
+TIMESTAMP_FORMAT = '%Y_%m_%d %H_%M_%S'
+
+
+def parse_timestamp_from_filename(filename: str) -> datetime:
+    """ファイル名からTimestampを抽出してdatetimeを返す"""
+    match = TIMESTAMP_PATTERN.search(filename)
+    if not match:
+        raise ValueError(f'Timestampが見つかりません: {filename}')
+    return datetime.strptime(match.group(1), TIMESTAMP_FORMAT)
+
+
+def find_existing_json(site_dir: Path) -> Path | None:
+    """出力先フォルダ内の既存JSONファイルを検索"""
+    json_files = list(site_dir.glob('*.json'))
+    if not json_files:
+        return None
+    # 複数ある場合は最新を返す
+    return max(json_files, key=lambda p: parse_timestamp_from_filename(p.name))
+
+
+def validate_timestamp(new_json_path: Path, site_dir: Path) -> None:
+    """新JSONが既存JSONより新しいことを検証"""
+    existing = find_existing_json(site_dir)
+    if existing is None:
+        return  # 既存なし → OK
+
+    new_ts = parse_timestamp_from_filename(new_json_path.name)
+    existing_ts = parse_timestamp_from_filename(existing.name)
+
+    if new_ts <= existing_ts:
+        raise ValueError(
+            f'新JSONが最新ではありません\n'
+            f'  新: {new_json_path.name} ({new_ts})\n'
+            f'  既存: {existing.name} ({existing_ts})'
+        )
 
 
 def sanitize_filename(name: str) -> str:
@@ -68,6 +109,9 @@ def extract_contents(json_path: Path) -> None:
 
         # サイト用フォルダ
         site_dir = output_base / sanitize_filename(site_title)
+
+        # Timestamp検証（既存より新しいか確認）
+        validate_timestamp(json_path, site_dir)
 
         has_content = False
 
@@ -103,20 +147,19 @@ def extract_contents(json_path: Path) -> None:
         if not has_content:
             print(f'[SKIP] {site_title}: コンテンツなし')
 
+        # 処理済みJSONをサイトフォルダへ移動
+        move_to_site_folder(json_path, site_dir)
+
     print(f'\n完了: {output_base}')
 
-    # 処理済みJSONをoldフォルダへ移動
-    move_to_old(json_path)
 
+def move_to_site_folder(json_path: Path, site_dir: Path) -> None:
+    """処理済みJSONファイルをサイトフォルダへ移動"""
+    site_dir.mkdir(parents=True, exist_ok=True)
 
-def move_to_old(json_path: Path) -> None:
-    """処理済みJSONファイルをoldフォルダへ移動"""
-    old_dir = json_path.parent / 'old'
-    old_dir.mkdir(parents=True, exist_ok=True)
-
-    dest = old_dir / json_path.name
+    dest = site_dir / json_path.name
     shutil.move(str(json_path), str(dest))
-    print(f'[MOVE] {json_path.name} -> old/')
+    print(f'[MOVE] {json_path.name} -> {site_dir}/')
 
 
 def find_json_file() -> Path:
