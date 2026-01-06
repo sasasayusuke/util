@@ -1,0 +1,94 @@
+        <div id="fn-kitchen-car" class="kc-kitchen-car">
+            <!-- キッチンカー選択画面全体ラップ -->
+            <div class="kc-kitchen-car-wrap">
+
+                <!-- 画面タイトル -->
+                <h2 class="kc-kitchen-car-title">
+                    <span class="kc-kitchen-car-title__text">キッチンカー選択</span>
+                </h2>
+
+                <!-- 入力フォーム -->
+                <div class="kc-kitchen-car-form">
+                    <form id="fn-kitchen-car-form" class="kc-kitchen-car-form__area">
+                        <p class="kc-form-title">登録情報</p>
+
+                        <!-- 店舗 -->
+                        <div class="kc-form-box kc-form-shop">
+                            <label class="kc-form-label" for="fn-formShop">
+                                <span class="kc-text">店舗</span>
+                                <span class="kc-required">*</span>
+                            </label>
+                            <div class="kc-form-inputArea">
+                                <div class="kc-selector">
+                                    <select id="fn-formShop" class="kc-selector-content">
+                                        <option value="" disabled selected style="display:none;">選択してください</option>
+                                        <option value="北海道">北海道</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 開催期間 -->
+                        <div class="kc-form-box kc-form-period">
+                            <label class="kc-form-label" for="fn-formDateFrom">
+                                <span class="kc-text">開催期間</span>
+                                <span class="kc-required">*</span>
+                            </label>
+                            <div class="kc-form-inputArea kc-form-inputArea--date">
+                                <input id="fn-formDateFrom" type="date" class="kc-input kc-input--date">
+                                <span class="kc-date-separator">〜</span>
+                                <input id="fn-formDateTo" type="date" class="kc-input kc-input--date">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- キッチンカー一覧テーブル -->
+                <div id="kc-kitchen-car-table" class="kc-kitchen-car-table">
+                    <div class="kc-kitchen-car-table__wrap">
+                        <table class="kc-table">
+                            <thead class="kc-table__head">
+                                <tr class="kc-table__row">
+                                    <th class="kc-table__cell kc-table__cell-head" style="width:50%;">キッチンカー</th>
+                                    <th class="kc-table__cell kc-table__cell-head" style="width:35%;">使用状況</th>
+                                    <th class="kc-table__cell kc-table__cell-head" style="width:15%;">選択</th>
+                                </tr>
+                            </thead>
+                            <!-- ループ開始 -->
+                            <tbody class="kc-table__body">
+                                <tr class="kc-table__row fn-tableColumn-loop" style="display:none;">
+                                    <td class="kc-table__cell" data-target="fn-table-name">[キッチンカー名が入ります]</td>
+                                    <td class="kc-table__cell" data-target="fn-table-status">[使用状況が入ります]</td>
+                                    <td class="kc-table__cell" data-target="fn-table-checkbox">
+                                        <input type="checkbox" class="kc-checkbox fn-pick" value="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <!-- ループ終了 -->
+                        </table>
+                    </div>
+                </div>
+
+                <!-- その他詳細 -->
+                <div class="kc-kitchen-car-note">
+                    <div class="kc-form-box kc-form-note">
+                        <label class="kc-form-label" for="fn-formNote">
+                            <span class="kc-text">その他詳細</span>
+                        </label>
+                        <div class="kc-form-inputArea">
+                            <input id="fn-formNote" type="text" class="kc-input" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アクションボタン -->
+                <div class="kc-form-buttonArea">
+                    <button class="kc-button kc-button--primary" type="button" id="fn-submitButton">
+                        <span class="kc-button__text">キッチンカー登録</span>
+                    </button>
+                    <button class="kc-button kc-button--secondary" type="button" id="fn-cancelButton">
+                        <span class="kc-button__text">キャンセル</span>
+                    </button>
+                </div>
+            </div>
+        </div>
