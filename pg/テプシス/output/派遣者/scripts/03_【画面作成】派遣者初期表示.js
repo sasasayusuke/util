@@ -6,14 +6,14 @@
    *
    * 目的：
    *  - ヘッダー（#Header）の高さを取得して、その高さ分だけ
-   *    #fn-kitchen-car の top をずらします（重なり防止）。
-   *  - さらに #fn-kitchen-car の高さを CSS の calc() を使って
+   *    #fn-dispatch の top をずらします（重なり防止）。
+   *  - さらに #fn-dispatch の高さを CSS の calc() を使って
    *    calc(100% - {headerHeight}px) に設定します。
    *  - 店舗マスタ（SiteId: 253154）からデータを取得し、セレクトボックスに設定
    *
    * 注意：
    *  - この処理は「読み込み時に一度だけ実行」されます。
-   *  - #fn-kitchen-car に top を効かせるには position が必要です。
+   *  - #fn-dispatch に top を効かせるには position が必要です。
    ************************************************************************/
 
   // 店舗データを保持（セレクトボックス変更時に参照）
@@ -59,13 +59,13 @@
   }
 
   /**
-   * applyKitchenCarLayout
+   * applyDispatchLayout
    * - 実際に DOM に対して style を当てる関数
    *
    * @param {number} headerHeightPx - ヘッダーの高さ（ピクセル）
    */
-  function applyKitchenCarLayout(headerHeightPx) {
-    var $target = $('#fn-kitchen-car');
+  function applyDispatchLayout(headerHeightPx) {
+    var $target = $('#fn-dispatch');
 
     if ($target.length === 0) {
       return;
@@ -76,12 +76,12 @@
   }
 
   /**
-   * initKitchenCarLayout
+   * initDispatchLayout
    * - レイアウト初期化
    */
-  function initKitchenCarLayout() {
+  function initDispatchLayout() {
     var headerH = getHeaderHeight();
-    applyKitchenCarLayout(headerH);
+    applyDispatchLayout(headerH);
   }
 
   /* ========================================
@@ -167,7 +167,7 @@
 
   /**
    * handleShopChange
-   * - 店舗セレクトボックス変更時に開催期間を設定
+   * - 店舗セレクトボックス変更時に日付の範囲制限を設定（派遣は単日入力）
    */
   function handleShopChange() {
     var selectedValue = $(this).val();
@@ -185,13 +185,17 @@
 
     window.force && console.log('選択された店舗データ:', selectedRecord);
 
-    // START_DATE → 開始日、END_DATE → 終了日
+    // 日付入力のmin/max制限を設定
     var dateFrom = selectedRecord[TABLES.PERIOD.COLUMNS.START_DATE] || '';
     var dateTo = selectedRecord[TABLES.PERIOD.COLUMNS.END_DATE] || '';
 
-    // 日付形式を input[type="date"] 用に変換 (YYYY-MM-DD)
-    $('#fn-formDateFrom').val(window.formatDateForInput(dateFrom));
-    $('#fn-formDateTo').val(window.formatDateForInput(dateTo));
+    var $dateInput = $('#fn-formDate');
+    if ($dateInput.length > 0) {
+      $dateInput.attr('min', window.formatDateForInput(dateFrom));
+      $dateInput.attr('max', window.formatDateForInput(dateTo));
+      // 初期値として開始日を設定
+      $dateInput.val(window.formatDateForInput(dateFrom));
+    }
   }
 
   /**
@@ -240,18 +244,18 @@
       window.force && console.log('isCreateMode:', window.isCreateMode);
 
       // レイアウト初期化
-      initKitchenCarLayout();
+      initDispatchLayout();
 
       // モードに応じてタイトル・ボタンテキストを変更
-      var modeText = window.isCreateMode ? 'キッチンカー登録' : 'キッチンカー更新';
-      $('.sdt-kitchen-car-title__text').text(modeText);
+      var modeText = window.isCreateMode ? '派遣者登録' : '派遣者更新';
+      $('.sdt-dispatch-title__text').text(modeText);
       $('#fn-submitButton .sdt-button__text').text(modeText);
 
       // 店舗セレクトボックス初期化
       loadShopOptions();
 
     } catch (e) {
-      window.force && console.error('initKitchenCarLayout error', e);
+      window.force && console.error('initDispatchLayout error', e);
     }
   });
 

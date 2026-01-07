@@ -93,9 +93,9 @@
    * @param {Array} records - キッチンカー状況レコード配列
    */
   function renderKitchenCarTable(records) {
-    var $tbody = $('#kc-kitchen-car-table .kc-table__body');
+    var $tbody = $('#sdt-kitchen-car-table .sdt-table__body');
     if ($tbody.length === 0) {
-      $tbody = $('#kc-kitchen-car-table tbody');
+      $tbody = $('#sdt-kitchen-car-table tbody');
       if ($tbody.length === 0) {
         window.force && console.error('renderKitchenCarTable: tbody not found');
         return;
@@ -137,7 +137,7 @@
         // 使用不可の場合はdisabled
         if (!statusInfo.canSelect) {
           $checkbox.prop('disabled', true);
-          $row.addClass('kc-table__row--disabled');
+          $row.addClass('sdt-table__row--disabled');
         }
       }
 
