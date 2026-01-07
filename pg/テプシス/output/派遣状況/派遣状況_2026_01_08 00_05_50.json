@@ -1,0 +1,231 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 253126,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-07T15:05:50.1349146+00:00",
+    "Convertors": [
+      {
+        "SiteId": 253126,
+        "SiteTitle": "派遣状況",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 253126,
+      "Title": "派遣状況",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 253124,
+      "InheritPermission": 253093,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ClassA",
+          "DateA",
+          "ClassB",
+          "DateB",
+          "DateC",
+          "CheckA"
+        ],
+        "FilterColumns": [
+          "ClassC",
+          "ClassD",
+          "ClassE",
+          "ClassF",
+          "ClassG",
+          "ClassH",
+          "ClassI",
+          "ClassJ",
+          "ClassK",
+          "ClassL",
+          "ClassM",
+          "ClassN",
+          "ClassO",
+          "ClassP",
+          "ClassQ",
+          "ClassR",
+          "ClassS",
+          "ClassT",
+          "ClassU",
+          "ClassV",
+          "ClassW",
+          "ClassX",
+          "ClassY",
+          "ClassZ",
+          "NumA",
+          "NumB",
+          "NumC",
+          "NumD",
+          "NumE",
+          "NumF",
+          "NumG",
+          "NumH",
+          "NumI",
+          "NumJ",
+          "NumK",
+          "NumL",
+          "NumM",
+          "NumN",
+          "NumO",
+          "NumP",
+          "NumQ",
+          "NumR",
+          "NumS",
+          "NumT",
+          "NumU",
+          "NumV",
+          "NumW",
+          "NumX",
+          "NumY",
+          "NumZ",
+          "DateD",
+          "DateE",
+          "DateF",
+          "DateG",
+          "DateH",
+          "DateI",
+          "DateJ",
+          "DateK",
+          "DateL",
+          "DateM",
+          "DateN",
+          "DateO",
+          "DateP",
+          "DateQ",
+          "DateR",
+          "DateS",
+          "DateT",
+          "DateU",
+          "DateV",
+          "DateW",
+          "DateX",
+          "DateY",
+          "DateZ",
+          "CheckB",
+          "CheckC",
+          "CheckD",
+          "CheckE",
+          "CheckF",
+          "CheckG",
+          "CheckH",
+          "CheckI",
+          "CheckJ",
+          "CheckK",
+          "CheckL",
+          "CheckM",
+          "CheckN",
+          "CheckO",
+          "CheckP",
+          "CheckQ",
+          "CheckR",
+          "CheckS",
+          "CheckT",
+          "CheckU",
+          "CheckV",
+          "CheckW",
+          "CheckX",
+          "CheckY",
+          "CheckZ"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "Title",
+            "ResultId",
+            "ClassA",
+            "DateA",
+            "ClassB",
+            "DateB",
+            "DateC"
+          ]
+        },
+        "TitleColumns": [
+          "ClassA"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "派遣名",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "直近の派遣日",
+            "NoWrap": true,
+            "Hide": true,
+            "EditorReadOnly": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "派遣先イベント名称",
+            "NoWrap": true,
+            "Hide": true
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "派遣不可期間(開始日)",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "派遣不可期間(終了日)"
+          },
+          {
+            "ColumnName": "CheckA",
+            "LabelText": "削除フラグ",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "派遣者Id",
+            "Hide": true
+          },
+          {
+            "ColumnName": "Title",
+            "Hide": true
+          }
+        ],
+        "UseSearchFilter": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 253126,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}
