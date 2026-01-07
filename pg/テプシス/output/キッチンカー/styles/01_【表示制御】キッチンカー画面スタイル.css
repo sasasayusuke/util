@@ -328,6 +328,12 @@
 .sdt-kitchen-car .sdt-button--secondary .sdt-button__text {
   color: #3B3B3B;
 }
+.sdt-kitchen-car .sdt-button--danger {
+  background-color: #E80000;
+}
+.sdt-kitchen-car .sdt-button--danger .sdt-button__text {
+  color: #fff;
+}
 @media screen and (max-width: 760px) {
   .sdt-kitchen-car .sdt-button {
     min-width: 120px;

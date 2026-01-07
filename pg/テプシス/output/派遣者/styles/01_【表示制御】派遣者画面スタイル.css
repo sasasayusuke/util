@@ -308,6 +308,12 @@
 .sdt-dispatch .sdt-button--secondary .sdt-button__text {
   color: #3B3B3B;
 }
+.sdt-dispatch .sdt-button--danger {
+  background-color: #E80000;
+}
+.sdt-dispatch .sdt-button--danger .sdt-button__text {
+  color: #fff;
+}
 @media screen and (max-width: 760px) {
   .sdt-dispatch .sdt-button {
     min-width: 120px;
