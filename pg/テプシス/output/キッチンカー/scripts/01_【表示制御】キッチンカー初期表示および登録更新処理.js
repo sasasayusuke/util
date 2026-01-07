@@ -19,49 +19,9 @@
   /* ========================================
    * 定数・変数
    * ======================================== */
-  var KITCHEN_CAR_OUTPUT_SITE_ID = 253143;
+  var SHOP_SITE_ID = 253154;
   var KITCHEN_CAR_STATUS_SITE_ID = 253125;
-  var PERIOD_SITE_ID = 253154;
   window.force = true;
-
-  // テーブル・カラム定義
-  var TABLES = {
-    // キッチンカーテーブル
-    KITCHEN_CAR_OUTPUT: {
-      SITE_ID: KITCHEN_CAR_OUTPUT_SITE_ID,
-      COLUMNS: {
-        KITCHEN_CAR_IDS: 'ClassA',   // キッチンカーResultId（JSON配列）
-        EVENT_ID: 'ClassB',          // LinkId/イベントID（作成時のみ）
-        SHOP_NAME: 'ClassC',         // 店舗名
-        NOTE: 'ClassD',              // その他詳細
-        SHOP_RESULT_ID: 'ClassY',    // 店舗ResultId（作成時のみ）
-        DATE_FROM: 'DateA',          // 開催期間（開始日）
-        DATE_TO: 'DateB'             // 開催期間（終了日）
-      }
-    },
-    // キッチンカー状況テーブル
-    KITCHEN_CAR_STATUS: {
-      SITE_ID: KITCHEN_CAR_STATUS_SITE_ID,
-      COLUMNS: {
-        NAME: 'ClassA',              // キッチンカー名
-        EVENT_NAME: 'ClassB',        // 使用先イベント名称
-        RESERVED_FROM: 'DateA',      // 直近の予約期間（開始日）
-        RESERVED_TO: 'DateB',        // 直近の予約期間（終了日）
-        UNAVAILABLE_FROM: 'DateC',   // 使用不可期間（開始日）
-        UNAVAILABLE_TO: 'DateD'      // 使用不可期間（終了日）
-      }
-    },
-    // 開始～終了期間テーブル
-    PERIOD: {
-      SITE_ID: PERIOD_SITE_ID,
-      COLUMNS: {
-        NAME: 'ClassA',              // 店舗名
-        EVENT_ID: 'ClassB',          // イベントID（LinkId）
-        START_DATE: 'DateA',         // 開始日
-        END_DATE: 'DateB'            // 終了日
-      }
-    }
-  };
 
   // 店舗データを保持（セレクトボックス変更時に参照）
   var shopRecords = [];
@@ -174,8 +134,8 @@
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
-      var records = await api.getRecords(PERIOD_SITE_ID, {
-        columns: [TABLES.PERIOD.COLUMNS.NAME, TABLES.PERIOD.COLUMNS.EVENT_ID, TABLES.PERIOD.COLUMNS.START_DATE, TABLES.PERIOD.COLUMNS.END_DATE, 'ResultId'],
+      var records = await api.getRecords(SHOP_SITE_ID, {
+        columns: ['ClassA', 'ClassB', 'DateA', 'DateB', 'ResultId'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -185,10 +145,10 @@
         return;
       }
 
-      // LinkIdとEVENT_IDを突合してフィルタリング
+      // LinkIdとClassBを突合してフィルタリング
       var filteredRecords = linkId
         ? records.filter(function (record) {
-            return String(record[TABLES.PERIOD.COLUMNS.EVENT_ID]) === String(linkId);
+            return String(record.ClassB) === String(linkId);
           })
         : records;
 
@@ -198,7 +158,7 @@
       shopRecords = filteredRecords;
 
       filteredRecords.forEach(function (record) {
-        var name = record[TABLES.PERIOD.COLUMNS.NAME] || '';
+        var name = record.ClassA || '';
 
         if (name) {
           var $option = $('<option></option>').val(name).text(name);
@@ -224,7 +184,7 @@
 
     // 選択された店舗のレコードを検索
     var selectedRecord = shopRecords.find(function (record) {
-      return record[TABLES.PERIOD.COLUMNS.NAME] === selectedValue;
+      return record.ClassA === selectedValue;
     });
 
     if (!selectedRecord) {
@@ -234,9 +194,9 @@
 
     window.force && console.log('選択された店舗データ:', selectedRecord);
 
-    // START_DATE → 開始日、END_DATE → 終了日
-    var dateFrom = selectedRecord[TABLES.PERIOD.COLUMNS.START_DATE] || '';
-    var dateTo = selectedRecord[TABLES.PERIOD.COLUMNS.END_DATE] || '';
+    // DateA → 開催期間From、DateB → 開催期間To
+    var dateFrom = selectedRecord.DateA || '';
+    var dateTo = selectedRecord.DateB || '';
 
     // 日付形式を input[type="date"] 用に変換 (YYYY-MM-DD)
     $('#fn-formDateFrom').val(formatDateForInput(dateFrom));
@@ -289,7 +249,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
       var records = await api.getRecords(KITCHEN_CAR_STATUS_SITE_ID, {
-        columns: [TABLES.KITCHEN_CAR_STATUS.COLUMNS.NAME, TABLES.KITCHEN_CAR_STATUS.COLUMNS.EVENT_NAME, TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_FROM, TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_TO, TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM, TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_TO, 'ResultId'],
+        columns: ['ClassA', 'ClassB', 'DateA', 'DateB', 'DateC', 'DateD', 'ResultId'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -323,9 +283,9 @@
     var today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // 使用不可期間チェック (UNAVAILABLE_FROM ~ UNAVAILABLE_TO)
-    var unavailableStart = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM]) : null;
-    var unavailableEnd = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_TO] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_TO]) : null;
+    // 使用不可期間チェック (DateC ~ DateD)
+    var unavailableStart = record.DateC ? new Date(record.DateC) : null;
+    var unavailableEnd = record.DateD ? new Date(record.DateD) : null;
 
     if (unavailableStart && unavailableEnd) {
       unavailableStart.setHours(0, 0, 0, 0);
@@ -336,16 +296,16 @@
       }
     }
 
-    // 直近の予約期間チェック (RESERVED_FROM ~ RESERVED_TO)
-    var reservedStart = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_FROM] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_FROM]) : null;
-    var reservedEnd = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_TO] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_TO]) : null;
+    // 直近の予約期間チェック (DateA ~ DateB)
+    var reservedStart = record.DateA ? new Date(record.DateA) : null;
+    var reservedEnd = record.DateB ? new Date(record.DateB) : null;
 
     if (reservedStart && reservedEnd) {
       reservedStart.setHours(0, 0, 0, 0);
       reservedEnd.setHours(0, 0, 0, 0);
 
       if (today >= reservedStart && today <= reservedEnd) {
-        var eventName = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.EVENT_NAME] || '他イベント';
+        var eventName = record.ClassB || '他イベント';
         return { status: eventName + 'で使用中', canSelect: false };
       }
     }
@@ -389,7 +349,7 @@
       var $row = $template.clone().removeClass('fn-tableColumn-loop').show();
 
       // キッチンカー名
-      var name = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.NAME] || '';
+      var name = record.ClassA || '';
       $row.find('[data-target="fn-table-name"]').text(name);
 
       // 使用状況を判定
@@ -434,7 +394,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
       var record = await api.getRecord(recordId, {
-        columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID],
+        columns: ['ClassC', 'ClassA', 'DateA', 'DateB', 'ClassD', 'ClassB'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -447,31 +407,31 @@
       window.force && console.log('既存データ:', record);
 
       // 店舗セレクトボックスに値をセット
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME]) {
-        $('#fn-formShop').val(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME]);
+      if (record.ClassC) {
+        $('#fn-formShop').val(record.ClassC);
       }
 
       // 開催期間をセット
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]) {
-        $('#fn-formDateFrom').val(formatDateForInput(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]));
+      if (record.DateA) {
+        $('#fn-formDateFrom').val(formatDateForInput(record.DateA));
       }
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]) {
-        $('#fn-formDateTo').val(formatDateForInput(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]));
+      if (record.DateB) {
+        $('#fn-formDateTo').val(formatDateForInput(record.DateB));
       }
 
       // その他詳細をセット
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE]) {
-        $('#fn-formNote').val(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE]);
+      if (record.ClassD) {
+        $('#fn-formNote').val(record.ClassD);
       }
 
       // キッチンカー選択をセット（JSON配列形式のResultId）
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]) {
+      if (record.ClassA) {
         var selectedCarIds = [];
         try {
-          selectedCarIds = JSON.parse(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]);
+          selectedCarIds = JSON.parse(record.ClassA);
         } catch (e) {
           // JSON形式でない場合はカンマ区切りとして処理（後方互換）
-          selectedCarIds = String(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]).split(',').map(function (s) {
+          selectedCarIds = String(record.ClassA).split(',').map(function (s) {
             return s.trim();
           });
         }
@@ -559,28 +519,29 @@
       // キッチンカーResultIdは複数選択をJSON配列形式で登録
       var kitchenCarIds = JSON.stringify(formData.selectedCars);
 
-      var data = {};
-      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] = formData.shop;
-      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS] = kitchenCarIds;
-      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM] = formData.dateFrom;
-      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO] = formData.dateTo;
-      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE] = formData.note;
+      var data = {
+        ClassC: formData.shop,
+        ClassA: kitchenCarIds,
+        DateA: formData.dateFrom,
+        DateB: formData.dateTo,
+        ClassD: formData.note
+      };
 
       window.force && console.log('モード:', isCreateMode ? '作成' : '更新');
       window.force && console.log('データ:', data);
 
       var result;
       if (isCreateMode) {
-        // 作成モード時のみEVENT_ID（LinkId/イベントID）とSHOP_RESULT_ID（店舗ResultId）をセット
+        // 作成モード時のみClassB（LinkId/イベントID）とClassY（店舗ResultId）をセット
         var linkId = getUrlParam('LinkId');
-        data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID] = linkId || '';
+        data.ClassB = linkId || '';
 
         var selectedShop = shopRecords.find(function (record) {
-          return record[TABLES.PERIOD.COLUMNS.NAME] === formData.shop;
+          return record.ClassA === formData.shop;
         });
 
         if (selectedShop && selectedShop.ResultId) {
-          data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_RESULT_ID] = String(selectedShop.ResultId);
+          data.ClassY = String(selectedShop.ResultId);
           window.force && console.log('店舗ResultId:', selectedShop.ResultId);
         } else {
           alert('店舗のResultIdが取得できません。');
