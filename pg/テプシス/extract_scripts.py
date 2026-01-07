@@ -127,11 +127,8 @@ def extract_contents(json_path: Path) -> None:
             target_dir = site_dir / subfolder
             target_dir.mkdir(parents=True, exist_ok=True)
 
-            # Id順にソート
-            sorted_items = sorted(items, key=lambda x: x.get('Id', 0))
-
-            # 各アイテムをファイル出力
-            for idx, item in enumerate(sorted_items, start=1):
+            # 各アイテムをファイル出力（JSONの記述順）
+            for idx, item in enumerate(items, start=1):
                 # Disabled: true のアイテムはスキップ
                 if item.get('Disabled', False):
                     print(f'[SKIP] {json_key}: {item.get("Title", "Unknown")} (Disabled)')
