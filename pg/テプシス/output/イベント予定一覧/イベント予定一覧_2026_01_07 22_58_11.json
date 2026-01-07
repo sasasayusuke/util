@@ -4,7 +4,7 @@
     "BaseSiteId": 253123,
     "Server": "http://192.168.10.67",
     "CreatorName": "Administrator",
-    "PackageTime": "2026-01-06T04:43:03.9032501+00:00",
+    "PackageTime": "2026-01-07T13:58:11.6137862+00:00",
     "Convertors": [
       {
         "SiteId": 253123,
@@ -166,7 +166,7 @@
             "ColumnName": "ClassA",
             "LabelText": "イベントカテゴリ",
             "GridLabelText": "カテゴリ",
-            "ChoicesText": "1,小売\n2,イベント\n3,キッチンカー\n4,マルシェ\n5,飲食\n6,展示会\n8,小売（自主取扱）\n9,飲食（自主取扱）\n10,キッチンカー（自主取扱）\n7,その他\n",
+            "ChoicesText": "小売\nイベント\nキッチンカー\nマルシェ\n飲食\n展示会\n小売（自主取扱）\n飲食（自主取扱）\nキッチンカー（自主取扱）\nその他\n",
             "NoWrap": true,
             "ValidateRequired": true,
             "SearchType": "PartialMatch"
@@ -614,14 +614,12 @@
           {
             "Title": "【設定】　サイトID",
             "All": true,
-            "Disabled": true,
             "Body": "//開催イベント一覧サイトID\nconst LIST_SCREEN_SITE_ID = '2832883';\nconst event_Site_Id = '253123';  //イベント予定一覧\nconst store_Site_Id = '253115';  //店舗名\nconst period_Site_Id = '253154';  //開始～終了\nconst dispatch_Site_Id= '253132';  //派遣要否\nconst novelty_Site_Id = '253141';  //ノベルティ配布\n\n// 各画面URL（相対パス）\n// サイトID、URLに合わせて修正要\nconst urlA = `/items/253123/edit`;\nconst urlB = `/items/253382?back=1&FromTabIndex=0",
             "Id": 4
           },
           {
             "Title": "リンク項目継承処理",
             "All": true,
-            "Disabled": true,
             "Body": "// 親画面に置くコード（1回だけ実行されるように）\n(function(){\n  // sessionStorage のキー名（必要に応じて変更）\n  const STORAGE_KEY = 'pleasanter.linkPayload';\n\n  // ペイロードを生成する関数（必要ならこの関数をカスタマイズ）\n  // targetBtn: DOM element（クリックされたボタン）\n  // ev: MouseEvent\n  function buildPayload(targetBtn, ev) {\n    // 例：ボタンの data-* 属性を渡す + タイムスタンプ + 任意パラメータ\n    return {\n      fromDataId: targetBtn.dataset.id || null,\n      fromSiteId: targetBtn.dataset.fromSiteId || null,\n      toSiteId: targetBtn.dataset.toSiteId || null,\n      // ここに任意のパラメータを追加（例：現在ログインユーザーID等）\n      StoreManageMethodId: $p.getControl('ClassI').val(),\n      StoreManageMethod: commonGetVal('ClassI'),\n      PerStoreId: $p.getControl('ClassJ').val(),\n      PerStoreName: commonGetVal('ClassJ'),\n      NumberOfStoreId: $p.getControl('ClassK').val(),\n      NumberOfStoreName: commonGetVal('ClassK'),\n      customParam: window.myCustomParam || null,\n      ts: Date.now()\n    };\n  }\n\n\n  //分類項目の値取得ヘルパー関数\n  function commonGetVal(label, valueFlg = false) {\n    let value = \"\"\n    try {\n        if ($p.getControl(label).prop(\"tagName\") === \"SELECT\") {\n            if ($p.getControl(label).attr(\"multiple\")) {\n                value = valueFlg ? $p.getControl(label).val() : $p.getControl(label).next().children().last().text()\n            } else {\n                value = valueFlg ? $p.getControl(label).children(':selected').val() : $p.getControl(label).children(':selected').text()\n            }\n        } else if ($p.getControl(label).prop(\"tagName\") === \"INPUT\") {\n            value = $p.getControl(label).val()\n        } else if ($p.getControl($p.getColumnName(label)).prop(\"tagName\") === \"TEXTAREA\") {\n            value = $p.getControl(label).val()\n        }\n    } catch (e) {\n        console.log(label)\n        console.log(e)\n        value = \"\"\n    } finally {\n        return value\n    }\n  }\n\n  // キャプチャフェーズでクリックを捕まえる（既存 onclick より先に実行される）\n  document.addEventListener('click', function(ev){\n    try {\n      const btn = ev.target.closest && ev.target.closest('button[data-id]');\n      if (!btn) return; // 対象外のクリックは無視\n\n      // 一定の条件のみ処理したい場合はここで判定（例：class 名や data-icon 等）\n      // if (!btn.classList.contains('applied')) return;\n\n      // ペイロード生成（アプリ側が独自に payload を構築できるようにフックも用意）\n      let payload;\n      if (typeof window.__pleasanterLinkPayloadProvider === 'function') {\n        // もしホストページが独自の provider を定義していればそれを使う\n        payload = window.__pleasanterLinkPayloadProvider(btn, ev);\n      } else {\n        payload = buildPayload(btn, ev);\n      }\n\n      // 書き込み（JSON 文字列化）\n      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(payload));\n\n      // 重要：ここで何も返さない → 以降に $p.new($(this)) の onclick ハンドラが実行される\n    } catch (e) {\n      // ログのみ。既存処理を阻害しない。\n      console.error('pleasanter: link payload write error', e);\n    }\n  }, /* useCapture = */ true);\n})();",
             "Id": 1
           },
@@ -667,11 +665,25 @@
             "Id": 8
           },
           {
-            "Title": "【画面制御】キッチンカーフィールド　表示制御",
+            "Title": "【画面制御】キッチンカーリンクフィールド　表示制御",
             "New": true,
             "Edit": true,
+            "Disabled": true,
             "Body": "(function () {\n    /**\n     * キッチンカーリンクフィールド制御\n     * Results_ClassA → Results_Source253143Field\n     */\n\n    /**\n     * トリガー判定\n     * ClassA(イベントカテゴリー)が「3:キッチンカー」または「10:キッチンカー（自主取扱）」の場合\n     * キッチンカーリンクフィールドを表示する\n     */\n    function checkClassATrigger(value) {\n        if (value === '3' || value === '10') {\n            setVisibility(true);\n        } else {\n            setVisibility(false);\n        }\n    }\n\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_Source253143Field');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var select = document.getElementById('Results_ClassA');\n        if (!select || select.__classA_bound__) return;\n\n        select.addEventListener('change', function () {\n            checkClassATrigger(select.value);\n        });\n\n        select.__classA_bound__ = true;\n        checkClassATrigger(select.value);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
             "Id": 9
+          },
+          {
+            "Title": "【画面制御】メディアリンクフィールド表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * メディアリンクフィールド制御\n     * Results_CheckB → Results_Source253139Field\n     */\n\n    /**\n     * トリガー判定\n     * CheckB(メディア掲載有無)がの場合\n     * メディアリンクフィールドを表示する\n     */\n    function checkCheckBTrigger(isChecked) {\n        if (isChecked) {\n            setVisibility(true);\n        } else {\n            setVisibility(false);\n        }\n    }\n\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_Source253139Field');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var checkbox = document.getElementById('Results_CheckB');\n        if (!checkbox || checkbox.__checkB_bound__) return;\n\n        checkbox.addEventListener('change', function () {\n            checkCheckBTrigger(checkbox.checked);\n        });\n\n        checkbox.__CheckB_bound__ = true;\n        checkCheckBTrigger(checkbox.checked);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
+            "Id": 11
+          },
+          {
+            "Title": "【画面制御】更新‐品目を店舗実績に受け渡し",
+            "Edit": true,
+            "Body": "$(function () {\n\n  $(document).on(\n    'click',\n    '#Results_Source253630 tbody tr.grid-row',\n    function (e) {\n\n      if ($(e.target).closest('button, a').length) return;\n\n      // ===== ① クリックした行の0列目（ID）を取得 =====\n      const itemId = $(this).find('td').eq(0).text().trim();\n\n      if (!itemId) {\n        alert('レコードIDが取得できません');\n        return;\n      }\n\n      // ===== ② 店舗名取得 =====\n      const shopName = $(this).find('td').eq(1).text().trim();\n\n      const data = getShopItemsByShopName(shopName);\n\n      if (data.length === 0) {\n        alert('この店舗にはチェックされた品目がありません');\n        return;\n      }\n\n      // ===== ③ パラメータ生成 =====\n      const param = encodeURIComponent(JSON.stringify(data));\n\n      // ===== ④ URL生成（★要件どおり） =====\n      const url =\n        `/items/${itemId}`\n        + `?back=1`\n        + `&FromTabIndex=0`\n        + `&SelectedShops=${param}`;\n\n      location.href = url;\n    }\n  );\n\n});\n\nfunction getShopItemsByShopName(shopName) {\n\n  const result = [];\n  const $table  = $('#Results_Source253149Field');\n  const headers = $table.find('thead th');\n\n  $table.find('tbody tr.grid-row').each(function () {\n\n    const $row = $(this);\n    const rowShopName = $row.find('td').eq(0).text().trim();\n\n    if (rowShopName !== shopName) return;\n\n    const rowData = {\n      shop: rowShopName,\n      items: []\n    };\n\n    $row.find('td').each(function (index) {\n\n      if (index === 0) return;\n\n      if ($(this).find('.ui-icon-circle-check').length > 0) {\n        const itemName = headers.eq(index).text().trim();\n        rowData.items.push(itemName);\n      }\n\n    });\n\n    if (rowData.items.length > 0) {\n      result.push(rowData);\n    }\n\n  });\n\n  return result;\n}\n",
+            "Id": 10
           }
         ],
         "UseIncompleteFilter": false,
