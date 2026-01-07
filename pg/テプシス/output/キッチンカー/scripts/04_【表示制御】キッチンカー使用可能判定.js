@@ -8,6 +8,9 @@
   // キッチンカー状況データを保持
   window.kitchenCarStatusRecords = [];
 
+  // キッチンカー出力テーブルの予約データを保持
+  window.kitchenCarOutputRecords = [];
+
   /* ========================================
    * キッチンカー状況テーブル初期化
    * ======================================== */
@@ -20,8 +23,9 @@
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
+      // キッチンカー状況テーブルから取得（RESERVED_FROM/RESERVED_TO は不要）
       var records = await api.getRecords(KITCHEN_CAR_STATUS_SITE_ID, {
-        columns: [TABLES.KITCHEN_CAR_STATUS.COLUMNS.NAME, TABLES.KITCHEN_CAR_STATUS.COLUMNS.EVENT_NAME, TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_FROM, TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_TO, TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM, TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_TO, 'ResultId'],
+        columns: [TABLES.KITCHEN_CAR_STATUS.COLUMNS.NAME, TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM, TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_TO, 'ResultId'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -32,6 +36,50 @@
       }
 
       window.force && console.log('キッチンカー状況データ:', records);
+
+      // キッチンカー出力テーブル（253143）から全件取得
+      var outputRecords = await api.getRecords(KITCHEN_CAR_OUTPUT_SITE_ID, {
+        columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, 'ResultId'],
+        setLabelText: false,
+        setDisplayValue: 'Value',
+      });
+
+      window.force && console.log('キッチンカー出力データ:', outputRecords);
+      window.kitchenCarOutputRecords = outputRecords || [];
+
+      // URL由来の登録モード時のみ、動的にモード切り替えを行う
+      if (window.isUrlCreateMode) {
+        var formShopName = $('#fn-formShop').val() || '';
+        var existingRecord = (outputRecords || []).find(function (rec) {
+          return rec[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] === formShopName;
+        });
+
+        if (existingRecord) {
+          // 動的更新モードに切り替え
+          window.isCreateMode = false;
+          window.existingRecordId = existingRecord.ResultId;
+          window.force && console.log('同店舗レコード発見、更新モードに切り替え:', existingRecord.ResultId);
+
+          // タイトル・ボタンテキストを更新
+          $('.sdt-kitchen-car-title__text').text('キッチンカー更新');
+          $('#fn-submitButton .sdt-button__text').text('更新');
+
+          // 削除ボタンを表示
+          $('#fn-deleteButton').show();
+        } else {
+          // 同店舗レコードなし、登録モードに戻す
+          window.isCreateMode = true;
+          window.existingRecordId = null;
+          window.force && console.log('同店舗レコードなし、登録モードに戻す');
+
+          // タイトル・ボタンテキストを登録に戻す
+          $('.sdt-kitchen-car-title__text').text('キッチンカー登録');
+          $('#fn-submitButton .sdt-button__text').text('登録');
+
+          // 削除ボタンを非表示
+          $('#fn-deleteButton').hide();
+        }
+      }
 
       // データを保持
       window.kitchenCarStatusRecords = records;
@@ -45,15 +93,33 @@
   }
 
   /**
+   * isDateRangeOverlap
+   * - 2つの期間が重複しているかを判定
+   *
+   * @param {Date} start1 - 期間1の開始日
+   * @param {Date} end1 - 期間1の終了日
+   * @param {Date} start2 - 期間2の開始日
+   * @param {Date} end2 - 期間2の終了日
+   * @returns {boolean} 重複していればtrue
+   */
+  function isDateRangeOverlap(start1, end1, start2, end2) {
+    return start1 <= end2 && end1 >= start2;
+  }
+
+  /**
    * getKitchenCarStatus
    * - キッチンカーの使用状況を判定
+   * - フォームの開催期間とKITCHEN_CAR_OUTPUTの期間が重複していれば「使用中」
    *
    * @param {Object} record - キッチンカー状況レコード
    * @returns {Object} { status: string, canSelect: boolean }
    */
   function getKitchenCarStatus(record) {
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
+    var kitchenCarResultId = String(record.ResultId || '');
+
+    // フォームから開催期間を取得
+    var formDateFrom = $('#fn-formDateFrom').val();
+    var formDateTo = $('#fn-formDateTo').val();
 
     // 使用不可期間チェック (UNAVAILABLE_FROM ~ UNAVAILABLE_TO)
     var unavailableStart = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.UNAVAILABLE_FROM]) : null;
@@ -63,27 +129,78 @@
       unavailableStart.setHours(0, 0, 0, 0);
       unavailableEnd.setHours(0, 0, 0, 0);
 
-      if (today >= unavailableStart && today <= unavailableEnd) {
-        return { status: '使用不可期間', canSelect: false };
+      // フォームの期間と使用不可期間が重複しているかチェック
+      if (formDateFrom && formDateTo) {
+        var formStart = new Date(formDateFrom);
+        var formEnd = new Date(formDateTo);
+        formStart.setHours(0, 0, 0, 0);
+        formEnd.setHours(0, 0, 0, 0);
+
+        if (isDateRangeOverlap(formStart, formEnd, unavailableStart, unavailableEnd)) {
+          return { status: '使用不可期間', canSelect: false };
+        }
       }
     }
 
-    // 直近の予約期間チェック (RESERVED_FROM ~ RESERVED_TO)
-    var reservedStart = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_FROM] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_FROM]) : null;
-    var reservedEnd = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_TO] ? new Date(record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.RESERVED_TO]) : null;
+    // KITCHEN_CAR_OUTPUT（253143）の予約データと期間重複チェック
+    // 同店舗で使用中の場合はpreCheckedフラグを立てる
+    var preChecked = false;
+    var formShopName = $('#fn-formShop').val() || '';
 
-    if (reservedStart && reservedEnd) {
-      reservedStart.setHours(0, 0, 0, 0);
-      reservedEnd.setHours(0, 0, 0, 0);
+    if (formDateFrom && formDateTo && window.kitchenCarOutputRecords.length > 0) {
+      var formStart = new Date(formDateFrom);
+      var formEnd = new Date(formDateTo);
+      formStart.setHours(0, 0, 0, 0);
+      formEnd.setHours(0, 0, 0, 0);
 
-      if (today >= reservedStart && today <= reservedEnd) {
-        var eventName = record[TABLES.KITCHEN_CAR_STATUS.COLUMNS.EVENT_NAME] || '他イベント';
-        return { status: eventName + 'で使用中', canSelect: false };
+      // 更新モード時は自分自身のレコードを除外
+      var currentRecordId = !window.isCreateMode ? String($p.id()) : '';
+
+      for (var i = 0; i < window.kitchenCarOutputRecords.length; i++) {
+        var outputRecord = window.kitchenCarOutputRecords[i];
+
+        // 自分自身のレコードは除外
+        if (currentRecordId && String(outputRecord.ResultId) === currentRecordId) {
+          continue;
+        }
+
+        // KITCHEN_CAR_IDS（JSON配列）に該当キッチンカーが含まれているかチェック
+        var kitchenCarIds = [];
+        try {
+          kitchenCarIds = JSON.parse(outputRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS] || '[]');
+        } catch (e) {
+          kitchenCarIds = [];
+        }
+
+        if (kitchenCarIds.indexOf(kitchenCarResultId) < 0 && kitchenCarIds.indexOf(Number(kitchenCarResultId)) < 0) {
+          continue;
+        }
+
+        // 期間重複チェック
+        var reservedFrom = outputRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM] ? new Date(outputRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]) : null;
+        var reservedTo = outputRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO] ? new Date(outputRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]) : null;
+
+        if (reservedFrom && reservedTo) {
+          reservedFrom.setHours(0, 0, 0, 0);
+          reservedTo.setHours(0, 0, 0, 0);
+
+          if (isDateRangeOverlap(formStart, formEnd, reservedFrom, reservedTo)) {
+            var shopName = outputRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] || '他店舗';
+
+            // 同店舗の場合は使用可能＋チェック済みとする
+            if (shopName === formShopName) {
+              preChecked = true;
+              continue;
+            }
+
+            return { status: shopName + 'で使用中', canSelect: false, preChecked: false };
+          }
+        }
       }
     }
 
     // 上記以外は使用可能
-    return { status: '使用可能', canSelect: true };
+    return { status: '使用可能', canSelect: true, preChecked: preChecked };
   }
 
   /**
@@ -114,10 +231,17 @@
     // 既存の出力行（テンプレート以外）を削除
     $tbody.find('tr').not($template).remove();
 
+    // キッチンカー名で昇順ソート
+    var sortedRecords = records.slice().sort(function (a, b) {
+      var nameA = a[TABLES.KITCHEN_CAR_STATUS.COLUMNS.NAME] || '';
+      var nameB = b[TABLES.KITCHEN_CAR_STATUS.COLUMNS.NAME] || '';
+      return nameA.localeCompare(nameB, 'ja');
+    });
+
     // DocumentFragment を使ってパフォーマンス向上
     var fragment = document.createDocumentFragment();
 
-    records.forEach(function (record) {
+    sortedRecords.forEach(function (record) {
       var $row = $template.clone().removeClass('fn-tableColumn-loop').show();
 
       // キッチンカー名
@@ -139,6 +263,11 @@
           $checkbox.prop('disabled', true);
           $row.addClass('sdt-table__row--disabled');
         }
+
+        // 同店舗で既に使用中の場合はチェック済みにする
+        if (statusInfo.preChecked) {
+          $checkbox.prop('checked', true);
+        }
       }
 
       fragment.appendChild($row.get(0));
@@ -151,9 +280,15 @@
    * 初期化
    * ======================================== */
 
+  // loadKitchenCarStatusをグローバルに公開（店舗変更時に呼び出し）
+  window.loadKitchenCarStatus = loadKitchenCarStatus;
+
   document.addEventListener('DOMContentLoaded', function () {
-    // キッチンカー状況テーブル初期化
-    loadKitchenCarStatus();
+    // 作成モード時はテーブルを非表示（店舗選択後に表示）
+    // 更新モード時は既存データがあるので表示
+    if (window.isCreateMode) {
+      $('#sdt-kitchen-car-table').hide();
+    }
   });
 
 })(jQuery);

@@ -167,11 +167,15 @@
 
   /**
    * handleShopChange
-   * - 店舗セレクトボックス変更時に開催期間を設定
+   * - 店舗セレクトボックス変更時に開催期間を設定し、キッチンカーテーブルを再描画
    */
   function handleShopChange() {
     var selectedValue = $(this).val();
-    if (!selectedValue) return;
+    if (!selectedValue) {
+      // 店舗未選択時はテーブルを非表示
+      $('#sdt-kitchen-car-table').hide();
+      return;
+    }
 
     // 選択された店舗のレコードを検索
     var selectedRecord = window.shopRecords.find(function (record) {
@@ -192,6 +196,12 @@
     // 日付形式を input[type="date"] 用に変換 (YYYY-MM-DD)
     $('#fn-formDateFrom').val(window.formatDateForInput(dateFrom));
     $('#fn-formDateTo').val(window.formatDateForInput(dateTo));
+
+    // キッチンカーテーブルを表示して再描画
+    $('#sdt-kitchen-car-table').show();
+    if (typeof window.loadKitchenCarStatus === 'function') {
+      window.loadKitchenCarStatus();
+    }
   }
 
   /**
@@ -236,6 +246,8 @@
       // 編集モード判定（$p.action() が 'NEW' なら作成モード、それ以外は更新モード）
       var action = $p.action();
       window.isCreateMode = String(action).toUpperCase() === 'NEW';
+      // URL由来のモードを保持（動的モード切り替えの判定用）
+      window.isUrlCreateMode = window.isCreateMode;
       window.force && console.log('$p.action():', action);
       window.force && console.log('isCreateMode:', window.isCreateMode);
 

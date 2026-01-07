@@ -181,8 +181,8 @@
         window.force && console.log('作成結果:', result);
         alert('キッチンカーを登録しました');
       } else {
-        // 更新モード（$p.id()を使用）
-        var recordId = $p.id();
+        // 更新モード（$p.id() または window.existingRecordId を使用）
+        var recordId = window.existingRecordId || $p.id();
         if (!recordId) {
           alert('レコードIDが取得できません。');
           return;
@@ -215,10 +215,10 @@
   /**
    * handleDelete
    * - 削除ボタンクリック時の処理
-   * - $p.id()で現在のレコードを削除
+   * - $p.id() または window.existingRecordId で現在のレコードを削除
    */
   async function handleDelete() {
-    var recordId = $p.id();
+    var recordId = window.existingRecordId || $p.id();
     if (!recordId) {
       alert('レコードIDが取得できません。');
       return;
