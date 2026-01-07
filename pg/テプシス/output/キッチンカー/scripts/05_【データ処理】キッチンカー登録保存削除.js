@@ -224,7 +224,7 @@
       return;
     }
 
-    if (!confirm('このキッチンカー登録を削除しますか？')) {
+    if (!confirm('このキッチンカーを削除しますか？')) {
       return;
     }
 
@@ -232,7 +232,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
       var result = await api.deleteRecord(recordId);
       window.force && console.log('削除結果:', result);
-      alert('キッチンカー登録を削除しました');
+      alert('キッチンカーを削除しました');
       handleCancel();
     } catch (error) {
       window.force && console.error('削除エラー:', error);

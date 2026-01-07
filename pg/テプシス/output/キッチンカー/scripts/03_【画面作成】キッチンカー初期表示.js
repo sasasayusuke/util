@@ -243,8 +243,8 @@
       initKitchenCarLayout();
 
       // モードに応じてタイトル・ボタンテキストを変更
-      var modeText = window.isCreateMode ? 'キッチンカー登録' : 'キッチンカー更新';
-      $('.sdt-kitchen-car-title__text').text(modeText);
+      var modeText = window.isCreateMode ? '登録' : '更新';
+      $('.sdt-kitchen-car-title__text').text('キッチンカー' + modeText);
       $('#fn-submitButton .sdt-button__text').text(modeText);
 
       // 店舗セレクトボックス初期化

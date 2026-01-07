@@ -205,7 +205,7 @@
       return;
     }
 
-    if (!confirm('この派遣者登録を削除しますか？')) {
+    if (!confirm('この派遣者を削除しますか？')) {
       return;
     }
 
@@ -213,7 +213,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
       var result = await api.deleteRecord(recordId);
       window.force && console.log('削除結果:', result);
-      alert('派遣者登録を削除しました');
+      alert('派遣者を削除しました');
       handleCancel();
     } catch (error) {
       window.force && console.error('削除エラー:', error);

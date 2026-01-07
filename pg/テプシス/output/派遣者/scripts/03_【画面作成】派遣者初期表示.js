@@ -247,8 +247,8 @@
       initDispatchLayout();
 
       // モードに応じてタイトル・ボタンテキストを変更
-      var modeText = window.isCreateMode ? '派遣者登録' : '派遣者更新';
-      $('.sdt-dispatch-title__text').text(modeText);
+      var modeText = window.isCreateMode ? '登録' : '更新';
+      $('.sdt-dispatch-title__text').text('派遣者' + modeText);
       $('#fn-submitButton .sdt-button__text').text(modeText);
 
       // 店舗セレクトボックス初期化
