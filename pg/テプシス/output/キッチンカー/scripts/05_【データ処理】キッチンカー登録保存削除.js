@@ -24,7 +24,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
       var record = await api.getRecord(recordId, {
-        columns: [TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME, TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS, TABLES.DISPATCH_OUTPUT.COLUMNS.DATE, TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID],
+        columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -37,23 +37,31 @@
       window.force && console.log('既存データ:', record);
 
       // 店舗セレクトボックスに値をセット
-      if (record[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME]) {
-        $('#fn-formShop').val(record[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME]);
+      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME]) {
+        $('#fn-formShop').val(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME]);
       }
 
-      // 日付をセット（派遣は単日）
-      if (record[TABLES.DISPATCH_OUTPUT.COLUMNS.DATE]) {
-        $('#fn-formDate').val(window.formatDateForInput(record[TABLES.DISPATCH_OUTPUT.COLUMNS.DATE]));
+      // 開催期間をセット
+      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]) {
+        $('#fn-formDateFrom').val(window.formatDateForInput(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]));
+      }
+      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]) {
+        $('#fn-formDateTo').val(window.formatDateForInput(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]));
       }
 
-      // 派遣者選択をセット（JSON配列形式のResultId）
-      if (record[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS]) {
-        var selectedDispatchIds = [];
+      // その他詳細をセット
+      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE]) {
+        $('#fn-formNote').val(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE]);
+      }
+
+      // キッチンカー選択をセット（JSON配列形式のResultId）
+      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]) {
+        var selectedCarIds = [];
         try {
-          selectedDispatchIds = JSON.parse(record[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS]);
+          selectedCarIds = JSON.parse(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]);
         } catch (e) {
           // JSON形式でない場合はカンマ区切りとして処理（後方互換）
-          selectedDispatchIds = String(record[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS]).split(',').map(function (s) {
+          selectedCarIds = String(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]).split(',').map(function (s) {
             return s.trim();
           });
         }
@@ -61,8 +69,8 @@
         // チェックボックスにチェックを入れる（valueはResultId）
         $('.fn-pick').each(function () {
           var $checkbox = $(this);
-          var dispatchId = String($checkbox.val());
-          if (selectedDispatchIds.indexOf(dispatchId) >= 0 && !$checkbox.prop('disabled')) {
+          var carId = String($checkbox.val());
+          if (selectedCarIds.indexOf(carId) >= 0 && !$checkbox.prop('disabled')) {
             $checkbox.prop('checked', true);
           }
         });
@@ -85,12 +93,13 @@
    */
   function validateForm() {
     var shop = $('#fn-formShop').val();
-    var date = $('#fn-formDate').val();
-    var selectedDispatches = [];
+    var dateFrom = $('#fn-formDateFrom').val();
+    var dateTo = $('#fn-formDateTo').val();
+    var selectedCars = [];
 
-    // 選択された派遣者を取得
+    // 選択されたキッチンカーを取得
     $('.fn-pick:checked:not(:disabled)').each(function () {
-      selectedDispatches.push($(this).val());
+      selectedCars.push($(this).val());
     });
 
     var errors = [];
@@ -98,11 +107,17 @@
     if (!shop) {
       errors.push('店舗を選択してください');
     }
-    if (!date) {
-      errors.push('日付を入力してください');
+    if (!dateFrom) {
+      errors.push('開催期間（開始日）を入力してください');
     }
-    if (selectedDispatches.length === 0) {
-      errors.push('派遣者を1人以上選択してください');
+    if (!dateTo) {
+      errors.push('開催期間（終了日）を入力してください');
+    }
+    if (dateFrom && dateTo && dateFrom > dateTo) {
+      errors.push('開催期間の開始日は終了日より前の日付を指定してください');
+    }
+    if (selectedCars.length === 0) {
+      errors.push('キッチンカーを1台以上選択してください');
     }
 
     if (errors.length > 0) {
@@ -112,8 +127,10 @@
 
     return {
       shop: shop,
-      date: date,
-      selectedDispatches: selectedDispatches
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      selectedCars: selectedCars,
+      note: $('#fn-formNote').val() || ''
     };
   }
 
@@ -129,13 +146,15 @@
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
-      // 派遣者ResultIdは複数選択をJSON配列形式で登録
-      var dispatchIds = JSON.stringify(formData.selectedDispatches);
+      // キッチンカーResultIdは複数選択をJSON配列形式で登録
+      var kitchenCarIds = JSON.stringify(formData.selectedCars);
 
       var data = {};
-      data[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME] = formData.shop;
-      data[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS] = dispatchIds;
-      data[TABLES.DISPATCH_OUTPUT.COLUMNS.DATE] = formData.date;
+      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] = formData.shop;
+      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS] = kitchenCarIds;
+      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM] = formData.dateFrom;
+      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO] = formData.dateTo;
+      data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE] = formData.note;
 
       window.force && console.log('モード:', window.isCreateMode ? '作成' : '更新');
       window.force && console.log('データ:', data);
@@ -144,14 +163,14 @@
       if (window.isCreateMode) {
         // 作成モード時のみEVENT_ID（LinkId/イベントID）とSHOP_RESULT_ID（店舗ResultId）をセット
         var linkId = window.getUrlParam('LinkId');
-        data[TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID] = linkId || '';
+        data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID] = linkId || '';
 
         var selectedShop = window.shopRecords.find(function (record) {
           return record[TABLES.PERIOD.COLUMNS.NAME] === formData.shop;
         });
 
         if (selectedShop && selectedShop.ResultId) {
-          data[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_RESULT_ID] = String(selectedShop.ResultId);
+          data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_RESULT_ID] = String(selectedShop.ResultId);
           window.force && console.log('店舗ResultId:', selectedShop.ResultId);
         } else {
           alert('店舗のResultIdが取得できません。');
@@ -160,7 +179,7 @@
 
         result = await api.createRecord($p.siteId(), data);
         window.force && console.log('作成結果:', result);
-        alert('派遣者を登録しました');
+        alert('キッチンカーを登録しました');
       } else {
         // 更新モード（$p.id()を使用）
         var recordId = $p.id();
@@ -172,7 +191,7 @@
         // updateRecordは (recordId, updateData) の2引数
         result = await api.updateRecord(recordId, data);
         window.force && console.log('更新結果:', result);
-        alert('派遣者を更新しました');
+        alert('キッチンカーを更新しました');
       }
 
       // 処理後は画面を閉じる（または元の画面に戻る）
@@ -193,6 +212,34 @@
     history.back();
   }
 
+  /**
+   * handleDelete
+   * - 削除ボタンクリック時の処理
+   * - $p.id()で現在のレコードを削除
+   */
+  async function handleDelete() {
+    var recordId = $p.id();
+    if (!recordId) {
+      alert('レコードIDが取得できません。');
+      return;
+    }
+
+    if (!confirm('このキッチンカー登録を削除しますか？')) {
+      return;
+    }
+
+    try {
+      var api = new PleasanterAPI(location.origin, { logging: window.force });
+      var result = await api.deleteRecord(recordId);
+      window.force && console.log('削除結果:', result);
+      alert('キッチンカー登録を削除しました');
+      handleCancel();
+    } catch (error) {
+      window.force && console.error('削除エラー:', error);
+      alert('削除に失敗しました: ' + (error.message || error));
+    }
+  }
+
   /* ========================================
    * 初期化
    * ======================================== */
@@ -204,10 +251,13 @@
       setTimeout(function () {
         loadExistingData();
       }, 500);
+      // 更新モード時は削除ボタンを表示
+      $('#fn-deleteButton').show();
     }
 
     // ボタンイベント設定（重複防止のため.off()で既存イベント解除）
     $('#fn-submitButton').off('click').on('click', handleSubmit);
+    $('#fn-deleteButton').off('click').on('click', handleDelete);
     $('#fn-cancelButton').off('click').on('click', handleCancel);
   });
 
