@@ -135,7 +135,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
       var records = await api.getRecords(SHOP_SITE_ID, {
-        columns: ['ClassA', 'ClassB', 'DateA', 'DateB'],
+        columns: ['ClassA', 'ClassB', 'DateA', 'DateB', 'ResultId'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -249,7 +249,7 @@
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
       var records = await api.getRecords(KITCHEN_CAR_STATUS_SITE_ID, {
-        columns: ['ClassA', 'ClassB', 'DateA', 'DateB', 'DateC', 'DateD'],
+        columns: ['ClassA', 'ClassB', 'DateA', 'DateB', 'DateC', 'DateD', 'ResultId'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -356,10 +356,11 @@
       var statusInfo = getKitchenCarStatus(record);
       $row.find('[data-target="fn-table-status"]').text(statusInfo.status);
 
-      // チェックボックスの設定
+      // チェックボックスの設定（valueはResultId、表示はキッチンカー名）
       var $checkbox = $row.find('[data-target="fn-table-checkbox"] .fn-pick');
       if ($checkbox.length) {
-        $checkbox.val(name);
+        // valueにはResultIdを設定（ClassAに登録する値）
+        $checkbox.val(record.ResultId || '');
 
         // 使用不可の場合はdisabled
         if (!statusInfo.canSelect) {
@@ -372,6 +373,82 @@
     });
 
     $tbody.get(0).appendChild(fragment);
+  }
+
+  /* ========================================
+   * 既存データ読み込み（更新モード用）
+   * ======================================== */
+
+  /**
+   * loadExistingData
+   * - 更新モード時に既存レコードのデータを取得してフォームにセット
+   */
+  async function loadExistingData() {
+    var recordId = $p.id();
+    if (!recordId) {
+      window.force && console.warn('レコードIDが取得できません');
+      return;
+    }
+
+    try {
+      var api = new PleasanterAPI(location.origin, { logging: window.force });
+
+      var record = await api.getRecord(recordId, {
+        columns: ['ClassC', 'ClassA', 'DateA', 'DateB', 'ClassD', 'ClassB'],
+        setLabelText: false,
+        setDisplayValue: 'Value',
+      });
+
+      if (!record || Object.keys(record).length === 0) {
+        window.force && console.warn('既存データが取得できませんでした');
+        return;
+      }
+
+      window.force && console.log('既存データ:', record);
+
+      // 店舗セレクトボックスに値をセット
+      if (record.ClassC) {
+        $('#fn-formShop').val(record.ClassC);
+      }
+
+      // 開催期間をセット
+      if (record.DateA) {
+        $('#fn-formDateFrom').val(formatDateForInput(record.DateA));
+      }
+      if (record.DateB) {
+        $('#fn-formDateTo').val(formatDateForInput(record.DateB));
+      }
+
+      // その他詳細をセット
+      if (record.ClassD) {
+        $('#fn-formNote').val(record.ClassD);
+      }
+
+      // キッチンカー選択をセット（JSON配列形式のResultId）
+      if (record.ClassA) {
+        var selectedCarIds = [];
+        try {
+          selectedCarIds = JSON.parse(record.ClassA);
+        } catch (e) {
+          // JSON形式でない場合はカンマ区切りとして処理（後方互換）
+          selectedCarIds = String(record.ClassA).split(',').map(function (s) {
+            return s.trim();
+          });
+        }
+
+        // チェックボックスにチェックを入れる（valueはResultId）
+        $('.fn-pick').each(function () {
+          var $checkbox = $(this);
+          var carId = String($checkbox.val());
+          if (selectedCarIds.indexOf(carId) >= 0 && !$checkbox.prop('disabled')) {
+            $checkbox.prop('checked', true);
+          }
+        });
+      }
+
+    } catch (error) {
+      window.force && console.error('既存データ取得エラー:', error);
+    }
   }
 
   /* ========================================
@@ -436,39 +513,41 @@
     var formData = validateForm();
     if (!formData) return;
 
-    // URLからLinkIdを取得（ClassYに設定）
-    // 更新モードの場合はURLになくても既存データから取得する可能性あり
-    var linkId = getUrlParam('LinkId');
-
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
-      // キッチンカー名は複数選択をカンマ区切りで結合
-      var kitchenCarNames = formData.selectedCars.join(',');
+      // キッチンカーResultIdは複数選択をJSON配列形式で登録
+      var kitchenCarIds = JSON.stringify(formData.selectedCars);
 
       var data = {
         ClassC: formData.shop,
-        ClassA: kitchenCarNames,
+        ClassA: kitchenCarIds,
         DateA: formData.dateFrom,
         DateB: formData.dateTo,
         ClassD: formData.note
       };
-
-      // LinkIdがある場合のみClassYを設定
-      if (linkId) {
-        data.ClassY = linkId;
-      }
 
       window.force && console.log('モード:', isCreateMode ? '作成' : '更新');
       window.force && console.log('データ:', data);
 
       var result;
       if (isCreateMode) {
-        // 作成モード
-        if (!linkId) {
-          alert('イベント店舗IDが取得できません。URLパラメータを確認してください。');
+        // 作成モード時のみClassB（LinkId/イベントID）とClassY（店舗ResultId）をセット
+        var linkId = getUrlParam('LinkId');
+        data.ClassB = linkId || '';
+
+        var selectedShop = shopRecords.find(function (record) {
+          return record.ClassA === formData.shop;
+        });
+
+        if (selectedShop && selectedShop.ResultId) {
+          data.ClassY = String(selectedShop.ResultId);
+          window.force && console.log('店舗ResultId:', selectedShop.ResultId);
+        } else {
+          alert('店舗のResultIdが取得できません。');
           return;
         }
+
         result = await api.createRecord($p.siteId(), data);
         window.force && console.log('作成結果:', result);
         alert('キッチンカーを登録しました');
@@ -519,11 +598,24 @@
       // レイアウト初期化
       initKitchenCarLayout();
 
+      // モードに応じてタイトル・ボタンテキストを変更
+      var modeText = isCreateMode ? 'キッチンカー登録' : 'キッチンカー更新';
+      $('.kc-kitchen-car-title__text').text(modeText);
+      $('#fn-submitButton .kc-button__text').text(modeText);
+
       // 店舗セレクトボックス初期化
       loadShopOptions();
 
       // キッチンカー状況テーブル初期化
       loadKitchenCarStatus();
+
+      // 更新モード時は既存データを読み込み（テーブル描画後に実行）
+      if (!isCreateMode) {
+        // テーブル描画完了を待ってから既存データをセット
+        setTimeout(function () {
+          loadExistingData();
+        }, 500);
+      }
 
       // ボタンイベント設定（重複防止のため.off()で既存イベント解除）
       $('#fn-submitButton').off('click').on('click', handleSubmit);
