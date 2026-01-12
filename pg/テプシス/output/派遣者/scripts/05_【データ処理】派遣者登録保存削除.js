@@ -9,69 +9,8 @@
    * 既存データ読み込み（更新モード用）
    * ======================================== */
 
-  /**
-   * loadExistingData
-   * - 更新モード時に既存レコードのデータを取得してフォームにセット
-   */
-  async function loadExistingData() {
-    var recordId = $p.id();
-    if (!recordId) {
-      window.force && console.warn('レコードIDが取得できません');
-      return;
-    }
-
-    try {
-      var api = new PleasanterAPI(location.origin, { logging: window.force });
-
-      var record = await api.getRecord(recordId, {
-        columns: [TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME, TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS, TABLES.DISPATCH_OUTPUT.COLUMNS.DATE, TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID],
-        setLabelText: false,
-        setDisplayValue: 'Value',
-      });
-
-      if (!record || Object.keys(record).length === 0) {
-        window.force && console.warn('既存データが取得できませんでした');
-        return;
-      }
-
-      window.force && console.log('既存データ:', record);
-
-      // 店舗セレクトボックスに値をセット
-      if (record[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME]) {
-        $('#fn-formShop').val(record[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME]);
-      }
-
-      // 日付をセット（派遣は単日）
-      if (record[TABLES.DISPATCH_OUTPUT.COLUMNS.DATE]) {
-        $('#fn-formDate').val(window.formatDateForInput(record[TABLES.DISPATCH_OUTPUT.COLUMNS.DATE]));
-      }
-
-      // 派遣者選択をセット（JSON配列形式のResultId）
-      if (record[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS]) {
-        var selectedDispatchIds = [];
-        try {
-          selectedDispatchIds = JSON.parse(record[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS]);
-        } catch (e) {
-          // JSON形式でない場合はカンマ区切りとして処理（後方互換）
-          selectedDispatchIds = String(record[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS]).split(',').map(function (s) {
-            return s.trim();
-          });
-        }
-
-        // チェックボックスにチェックを入れる（valueはResultId）
-        $('.fn-pick').each(function () {
-          var $checkbox = $(this);
-          var dispatchId = String($checkbox.val());
-          if (selectedDispatchIds.indexOf(dispatchId) >= 0 && !$checkbox.prop('disabled')) {
-            $checkbox.prop('checked', true);
-          }
-        });
-      }
-
-    } catch (error) {
-      window.force && console.error('既存データ取得エラー:', error);
-    }
-  }
+  // 注: 既存データの読み込み（店舗・日付・EVENT_ID）は03_初期表示.jsのloadShopOptions()で行われる
+  // チェックボックスの初期状態は04_使用可能判定.jsのpreCheckedで処理される
 
   /* ========================================
    * 登録処理
@@ -101,12 +40,13 @@
     if (!date) {
       errors.push('日付を入力してください');
     }
-    if (selectedDispatches.length === 0) {
-      errors.push('派遣者を1人以上選択してください');
-    }
-
     if (errors.length > 0) {
       alert(errors.join('\n'));
+      return null;
+    }
+
+    // チェックボックスの選択チェックはボタンのdisabledで制御するため、ここではチェックしない
+    if (selectedDispatches.length === 0) {
       return null;
     }
 
@@ -143,8 +83,9 @@
       var result;
       if (window.isCreateMode) {
         // 作成モード時のみEVENT_ID（LinkId/イベントID）とSHOP_RESULT_ID（店舗ResultId）をセット
-        var linkId = window.getUrlParam('LinkId');
-        data[TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID] = linkId || '';
+        // URLにLinkIdがない場合（更新パターン＋登録モード）は既存レコードのEVENT_IDを使用
+        var linkId = window.getUrlParam('LinkId') || window.existingEventId || '';
+        data[TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID] = linkId;
 
         var selectedShop = window.shopRecords.find(function (record) {
           return record[TABLES.PERIOD.COLUMNS.NAME] === formData.shop;
@@ -162,8 +103,8 @@
         window.force && console.log('作成結果:', result);
         alert('派遣者を登録しました');
       } else {
-        // 更新モード（$p.id()を使用）
-        var recordId = $p.id();
+        // 更新モード（existingRecordId または $p.id() を使用）
+        var recordId = window.existingRecordId || $p.id();
         if (!recordId) {
           alert('レコードIDが取得できません。');
           return;
@@ -196,10 +137,10 @@
   /**
    * handleDelete
    * - 削除ボタンクリック時の処理
-   * - $p.id()で現在のレコードを削除
+   * - existingRecordId または $p.id() で現在のレコードを削除
    */
   async function handleDelete() {
-    var recordId = $p.id();
+    var recordId = window.existingRecordId || $p.id();
     if (!recordId) {
       alert('レコードIDが取得できません。');
       return;
@@ -222,24 +163,42 @@
   }
 
   /* ========================================
+   * ボタン活性制御
+   * ======================================== */
+
+  /**
+   * updateSubmitButtonState
+   * - チェックボックスの選択状態に応じて登録/更新ボタンの活性状態を更新
+   */
+  function updateSubmitButtonState() {
+    var hasChecked = $('.fn-pick:checked:not(:disabled)').length > 0;
+    $('#fn-submitButton').prop('disabled', !hasChecked);
+  }
+
+  // グローバルに公開（04から呼び出し）
+  window.updateSubmitButtonState = updateSubmitButtonState;
+
+  /* ========================================
    * 初期化
    * ======================================== */
 
   document.addEventListener('DOMContentLoaded', function () {
-    // 更新モード時は既存データを読み込み（テーブル描画後に実行）
+    // 更新モード時は削除ボタンを表示
+    // 注: 既存データの読み込みは03_初期表示.jsで行われる
     if (!window.isCreateMode) {
-      // テーブル描画完了を待ってから既存データをセット
-      setTimeout(function () {
-        loadExistingData();
-      }, 500);
-      // 更新モード時は削除ボタンを表示
       $('#fn-deleteButton').show();
     }
+
+    // 初期状態でボタンをdisabledに
+    $('#fn-submitButton').prop('disabled', true);
 
     // ボタンイベント設定（重複防止のため.off()で既存イベント解除）
     $('#fn-submitButton').off('click').on('click', handleSubmit);
     $('#fn-deleteButton').off('click').on('click', handleDelete);
     $('#fn-cancelButton').off('click').on('click', handleCancel);
+
+    // チェックボックス変更時にボタン活性状態を更新
+    $(document).on('change', '.fn-pick', updateSubmitButtonState);
   });
 
 })(jQuery);

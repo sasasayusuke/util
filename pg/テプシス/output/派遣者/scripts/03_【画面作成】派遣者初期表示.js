@@ -21,6 +21,8 @@
 
   // 編集モード判定（初期化時に設定）
   window.isCreateMode = false;
+  // URL由来のモードを保持（動的モード切り替えの判定用）
+  window.isUrlCreateMode = false;
 
   /* ========================================
    * レイアウト関連
@@ -107,7 +109,8 @@
   /**
    * loadShopOptions
    * - 店舗マスタからデータを取得し、セレクトボックスに設定
-   * - URLのLinkIdパラメータとClassBを突合してフィルタリング
+   * - 登録パターン: URLのLinkIdでフィルタリング
+   * - 更新パターン: $p.id()で既存レコードを取得し、EVENT_IDでフィルタリング
    */
   async function loadShopOptions() {
     var $select = $('#fn-formShop');
@@ -118,13 +121,39 @@
     // 既存のオプションをクリア（placeholder以外）
     $select.find('option:not([disabled])').remove();
 
-    // URLからLinkIdを取得
-    var linkId = window.getUrlParam('LinkId');
-    window.force && console.log('LinkId:', linkId);
-
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
+      // フィルタリング用のイベントIDを取得
+      var eventId = null;
+
+      if (window.isUrlCreateMode) {
+        // 登録パターン: URLからLinkIdを取得
+        eventId = window.getUrlParam('LinkId');
+        window.force && console.log('登録パターン - LinkId:', eventId);
+      } else {
+        // 更新パターン: $p.id()で既存レコードを取得し、EVENT_IDを取得
+        var recordId = $p.id();
+        if (recordId) {
+          var existingRecord = await api.getRecord(recordId, {
+            columns: [TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID, TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME, TABLES.DISPATCH_OUTPUT.COLUMNS.DATE],
+            setLabelText: false,
+            setDisplayValue: 'Value',
+          });
+
+          if (existingRecord && existingRecord[TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID]) {
+            eventId = existingRecord[TABLES.DISPATCH_OUTPUT.COLUMNS.EVENT_ID];
+            window.existingEventId = eventId;
+            window.force && console.log('更新パターン - EVENT_ID:', eventId);
+
+            // 既存の店舗名と日付を保持（後でセット）
+            window.existingShopName = existingRecord[TABLES.DISPATCH_OUTPUT.COLUMNS.SHOP_NAME] || '';
+            window.existingDate = existingRecord[TABLES.DISPATCH_OUTPUT.COLUMNS.DATE] || '';
+          }
+        }
+      }
+
+      // イベント予定一覧（PERIOD_SITE_ID）を取得
       var records = await api.getRecords(PERIOD_SITE_ID, {
         columns: [TABLES.PERIOD.COLUMNS.NAME, TABLES.PERIOD.COLUMNS.EVENT_ID, TABLES.PERIOD.COLUMNS.START_DATE, TABLES.PERIOD.COLUMNS.END_DATE, 'ResultId'],
         setLabelText: false,
@@ -136,10 +165,10 @@
         return;
       }
 
-      // LinkIdとEVENT_IDを突合してフィルタリング
-      var filteredRecords = linkId
+      // eventIdでフィルタリング
+      var filteredRecords = eventId
         ? records.filter(function (record) {
-            return String(record[TABLES.PERIOD.COLUMNS.EVENT_ID]) === String(linkId);
+            return String(record[TABLES.PERIOD.COLUMNS.EVENT_ID]) === String(eventId);
           })
         : records;
 
@@ -160,6 +189,28 @@
       // セレクトボックス変更時のイベントハンドラ
       $select.off('change.shop').on('change.shop', handleShopChange);
 
+      // 日付変更時のイベントハンドラ
+      $('#fn-formDate').off('change.date').on('change.date', handleDateChange);
+
+      // 更新パターン時は既存の店舗と日付をセット、テーブルを表示
+      if (!window.isUrlCreateMode && window.existingShopName) {
+        // 初期表示時のexistingRecordIdを$p.id()でセット（preChecked判定用）
+        window.existingRecordId = $p.id();
+
+        $select.val(window.existingShopName);
+
+        // 日付もセット
+        if (window.existingDate) {
+          $('#fn-formDate').val(window.formatDateForInput(window.existingDate));
+        }
+
+        // 派遣テーブルを表示して描画
+        $('#sdt-dispatch-table').show();
+        if (typeof window.loadDispatchStatus === 'function') {
+          window.loadDispatchStatus();
+        }
+      }
+
     } catch (error) {
       window.force && console.error('店舗データ取得エラー:', error);
     }
@@ -171,7 +222,11 @@
    */
   function handleShopChange() {
     var selectedValue = $(this).val();
-    if (!selectedValue) return;
+    if (!selectedValue) {
+      // 店舗未選択時はテーブルを非表示
+      $('#sdt-dispatch-table').hide();
+      return;
+    }
 
     // 選択された店舗のレコードを検索
     var selectedRecord = window.shopRecords.find(function (record) {
@@ -195,6 +250,30 @@
       $dateInput.attr('max', window.formatDateForInput(dateTo));
       // 初期値として開始日を設定
       $dateInput.val(window.formatDateForInput(dateFrom));
+    }
+
+    // 派遣テーブルを表示して再描画
+    $('#sdt-dispatch-table').show();
+    if (typeof window.loadDispatchStatus === 'function') {
+      window.loadDispatchStatus();
+    }
+  }
+
+  /**
+   * handleDateChange
+   * - 日付変更時に派遣テーブルを再描画
+   */
+  function handleDateChange() {
+    var shopValue = $('#fn-formShop').val();
+    var dateValue = $(this).val();
+
+    if (!shopValue || !dateValue) {
+      return;
+    }
+
+    // 派遣テーブルを再描画（モード切替判定も含む）
+    if (typeof window.loadDispatchStatus === 'function') {
+      window.loadDispatchStatus();
     }
   }
 
@@ -240,6 +319,8 @@
       // 編集モード判定（$p.action() が 'NEW' なら作成モード、それ以外は更新モード）
       var action = $p.action();
       window.isCreateMode = String(action).toUpperCase() === 'NEW';
+      // URL由来のモードを保持（動的モード切り替えの判定用）
+      window.isUrlCreateMode = window.isCreateMode;
       window.force && console.log('$p.action():', action);
       window.force && console.log('isCreateMode:', window.isCreateMode);
 
@@ -252,6 +333,7 @@
       $('#fn-submitButton .sdt-button__text').text(modeText);
 
       // 店舗セレクトボックス初期化
+      // 注: 更新パターン時も店舗は変更可能（EVENT_IDでフィルタリング済み）
       loadShopOptions();
 
     } catch (e) {

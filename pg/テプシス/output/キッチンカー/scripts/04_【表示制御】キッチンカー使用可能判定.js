@@ -11,6 +11,9 @@
   // キッチンカー出力テーブルの予約データを保持
   window.kitchenCarOutputRecords = [];
 
+  // 更新モード初期表示時の既存キッチンカーIDs（チェック復元用）
+  window.existingKitchenCarIds = [];
+
   /* ========================================
    * キッチンカー状況テーブル初期化
    * ======================================== */
@@ -39,7 +42,7 @@
 
       // キッチンカー出力テーブル（253143）から全件取得
       var outputRecords = await api.getRecords(KITCHEN_CAR_OUTPUT_SITE_ID, {
-        columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, 'ResultId'],
+        columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE, 'ResultId'],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -47,38 +50,73 @@
       window.force && console.log('キッチンカー出力データ:', outputRecords);
       window.kitchenCarOutputRecords = outputRecords || [];
 
-      // URL由来の登録モード時のみ、動的にモード切り替えを行う
-      if (window.isUrlCreateMode) {
-        var formShopName = $('#fn-formShop').val() || '';
-        var existingRecord = (outputRecords || []).find(function (rec) {
-          return rec[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] === formShopName;
-        });
+      // モード判定（2x2マトリクス）
+      // ┌─────────────┬──────────────────┬──────────────────┐
+      // │             │ URLパターン=NEW  │ URLパターン=Edit │
+      // │             │ (店舗変更可)     │ (店舗変更可)     │
+      // ├─────────────┼──────────────────┼──────────────────┤
+      // │ レコードあり │ 更新モード       │ 更新モード       │
+      // │ レコードなし │ 登録モード       │ 登録モード       │
+      // └─────────────┴──────────────────┴──────────────────┘
+      // - isUrlCreateMode: URLパターン（EVENT_ID取得方法を決定）
+      // - isCreateMode: 実際のモード（API処理 create/update を決定）
+      // - キッチンカーは「店舗名」でレコードを特定
+      // - 店舗変更時は常にモード判定を行う
+      var formShopName = $('#fn-formShop').val() || '';
+      var existingRecord = (outputRecords || []).find(function (rec) {
+        return rec[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] === formShopName;
+      });
 
-        if (existingRecord) {
-          // 動的更新モードに切り替え
-          window.isCreateMode = false;
-          window.existingRecordId = existingRecord.ResultId;
-          window.force && console.log('同店舗レコード発見、更新モードに切り替え:', existingRecord.ResultId);
+      if (existingRecord) {
+        // レコードあり → 更新モード
+        window.isCreateMode = false;
+        window.existingRecordId = existingRecord.ResultId;
+        window.force && console.log('同店舗レコード発見、更新モードに切り替え:', existingRecord.ResultId);
 
-          // タイトル・ボタンテキストを更新
-          $('.sdt-kitchen-car-title__text').text('キッチンカー更新');
-          $('#fn-submitButton .sdt-button__text').text('更新');
+        // タイトル・ボタンテキストを更新
+        $('.sdt-kitchen-car-title__text').text('キッチンカー更新');
+        $('#fn-submitButton .sdt-button__text').text('更新');
 
-          // 削除ボタンを表示
-          $('#fn-deleteButton').show();
-        } else {
-          // 同店舗レコードなし、登録モードに戻す
-          window.isCreateMode = true;
-          window.existingRecordId = null;
-          window.force && console.log('同店舗レコードなし、登録モードに戻す');
+        // 削除ボタンを表示
+        $('#fn-deleteButton').show();
 
-          // タイトル・ボタンテキストを登録に戻す
-          $('.sdt-kitchen-car-title__text').text('キッチンカー登録');
-          $('#fn-submitButton .sdt-button__text').text('登録');
+        // 既存レコードの日付・その他詳細をフォームにセット
+        var existingDateFrom = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM] || '';
+        var existingDateTo = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO] || '';
+        var existingNote = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE] || '';
 
-          // 削除ボタンを非表示
-          $('#fn-deleteButton').hide();
+        if (existingDateFrom) {
+          $('#fn-formDateFrom').val(window.formatDateForInput(existingDateFrom));
         }
+        if (existingDateTo) {
+          $('#fn-formDateTo').val(window.formatDateForInput(existingDateTo));
+        }
+        $('#fn-formNote').val(existingNote);
+
+        // 更新モード初期表示時（URLから直接開いた時）は既存のKITCHEN_CAR_IDSを保持
+        if (!window.isUrlCreateMode) {
+          try {
+            window.existingKitchenCarIds = JSON.parse(existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS] || '[]');
+          } catch (e) {
+            window.existingKitchenCarIds = [];
+          }
+          window.force && console.log('既存キッチンカーIDs:', window.existingKitchenCarIds);
+        }
+      } else {
+        // レコードなし → 登録モード
+        window.isCreateMode = true;
+        window.existingRecordId = null;
+        window.force && console.log('同店舗レコードなし、登録モードに切り替え');
+
+        // タイトル・ボタンテキストを登録に変更
+        $('.sdt-kitchen-car-title__text').text('キッチンカー登録');
+        $('#fn-submitButton .sdt-button__text').text('登録');
+
+        // 削除ボタンを非表示
+        $('#fn-deleteButton').hide();
+
+        // 登録モード時はその他詳細をクリア
+        $('#fn-formNote').val('');
       }
 
       // データを保持
@@ -154,7 +192,7 @@
       formEnd.setHours(0, 0, 0, 0);
 
       // 更新モード時は自分自身のレコードを除外
-      var currentRecordId = !window.isCreateMode ? String($p.id()) : '';
+      var currentRecordId = !window.isCreateMode ? String(window.existingRecordId || $p.id()) : '';
 
       for (var i = 0; i < window.kitchenCarOutputRecords.length; i++) {
         var outputRecord = window.kitchenCarOutputRecords[i];
@@ -264,8 +302,15 @@
           $row.addClass('sdt-table__row--disabled');
         }
 
-        // 同店舗で既に使用中の場合はチェック済みにする
-        if (statusInfo.preChecked) {
+        // チェック状態の設定
+        var resultId = String(record.ResultId || '');
+        if (!window.isUrlCreateMode && window.existingKitchenCarIds.length > 0) {
+          // 更新モード初期表示時: 既存のKITCHEN_CAR_IDSに含まれていればチェック
+          if (window.existingKitchenCarIds.indexOf(resultId) >= 0 || window.existingKitchenCarIds.indexOf(Number(resultId)) >= 0) {
+            $checkbox.prop('checked', true);
+          }
+        } else if (statusInfo.preChecked && window.isUrlCreateMode) {
+          // 登録モードで店舗切替時: 同店舗で既に使用中の場合はチェック
           $checkbox.prop('checked', true);
         }
       }
@@ -274,6 +319,11 @@
     });
 
     $tbody.get(0).appendChild(fragment);
+
+    // ボタン活性状態を更新
+    if (typeof window.updateSubmitButtonState === 'function') {
+      window.updateSubmitButtonState();
+    }
   }
 
   /* ========================================

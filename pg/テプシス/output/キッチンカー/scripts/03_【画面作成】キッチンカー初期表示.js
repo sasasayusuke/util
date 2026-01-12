@@ -107,7 +107,8 @@
   /**
    * loadShopOptions
    * - 店舗マスタからデータを取得し、セレクトボックスに設定
-   * - URLのLinkIdパラメータとClassBを突合してフィルタリング
+   * - 登録パターン: URLのLinkIdでフィルタリング
+   * - 更新パターン: $p.id()で既存レコードを取得し、EVENT_IDでフィルタリング
    */
   async function loadShopOptions() {
     var $select = $('#fn-formShop');
@@ -118,13 +119,41 @@
     // 既存のオプションをクリア（placeholder以外）
     $select.find('option:not([disabled])').remove();
 
-    // URLからLinkIdを取得
-    var linkId = window.getUrlParam('LinkId');
-    window.force && console.log('LinkId:', linkId);
-
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
+      // フィルタリング用のイベントIDを取得
+      var eventId = null;
+
+      if (window.isUrlCreateMode) {
+        // 登録パターン: URLからLinkIdを取得
+        eventId = window.getUrlParam('LinkId');
+        window.force && console.log('登録パターン - LinkId:', eventId);
+      } else {
+        // 更新パターン: $p.id()で既存レコードを取得し、EVENT_IDを取得
+        var recordId = $p.id();
+        if (recordId) {
+          var existingRecord = await api.getRecord(recordId, {
+            columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE],
+            setLabelText: false,
+            setDisplayValue: 'Value',
+          });
+
+          if (existingRecord && existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID]) {
+            eventId = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID];
+            window.existingEventId = eventId;
+            window.force && console.log('更新パターン - EVENT_ID:', eventId);
+
+            // 既存の店舗名、日付、その他詳細を保持（後でセット）
+            window.existingShopName = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME] || '';
+            window.existingDateFrom = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM] || '';
+            window.existingDateTo = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO] || '';
+            window.existingNote = existingRecord[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE] || '';
+          }
+        }
+      }
+
+      // イベント予定一覧（PERIOD_SITE_ID）を取得
       var records = await api.getRecords(PERIOD_SITE_ID, {
         columns: [TABLES.PERIOD.COLUMNS.NAME, TABLES.PERIOD.COLUMNS.EVENT_ID, TABLES.PERIOD.COLUMNS.START_DATE, TABLES.PERIOD.COLUMNS.END_DATE, 'ResultId'],
         setLabelText: false,
@@ -136,10 +165,10 @@
         return;
       }
 
-      // LinkIdとEVENT_IDを突合してフィルタリング
-      var filteredRecords = linkId
+      // eventIdでフィルタリング
+      var filteredRecords = eventId
         ? records.filter(function (record) {
-            return String(record[TABLES.PERIOD.COLUMNS.EVENT_ID]) === String(linkId);
+            return String(record[TABLES.PERIOD.COLUMNS.EVENT_ID]) === String(eventId);
           })
         : records;
 
@@ -159,6 +188,33 @@
 
       // セレクトボックス変更時のイベントハンドラ
       $select.off('change.shop').on('change.shop', handleShopChange);
+
+      // 更新パターン時は既存の店舗と日付をセット、テーブルを表示
+      if (!window.isUrlCreateMode && window.existingShopName) {
+        // 初期表示時のexistingRecordIdを$p.id()でセット（preChecked判定用）
+        window.existingRecordId = $p.id();
+
+        $select.val(window.existingShopName);
+
+        // 日付もセット
+        if (window.existingDateFrom) {
+          $('#fn-formDateFrom').val(window.formatDateForInput(window.existingDateFrom));
+        }
+        if (window.existingDateTo) {
+          $('#fn-formDateTo').val(window.formatDateForInput(window.existingDateTo));
+        }
+
+        // その他詳細をセット
+        if (window.existingNote) {
+          $('#fn-formNote').val(window.existingNote);
+        }
+
+        // キッチンカーテーブルを表示して描画
+        $('#sdt-kitchen-car-table').show();
+        if (typeof window.loadKitchenCarStatus === 'function') {
+          window.loadKitchenCarStatus();
+        }
+      }
 
     } catch (error) {
       window.force && console.error('店舗データ取得エラー:', error);
@@ -260,6 +316,7 @@
       $('#fn-submitButton .sdt-button__text').text(modeText);
 
       // 店舗セレクトボックス初期化
+      // 注: 更新パターン時も店舗は変更可能（EVENT_IDでフィルタリング済み）
       loadShopOptions();
 
     } catch (e) {

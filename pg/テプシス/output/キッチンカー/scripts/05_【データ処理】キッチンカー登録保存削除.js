@@ -9,77 +9,8 @@
    * 既存データ読み込み（更新モード用）
    * ======================================== */
 
-  /**
-   * loadExistingData
-   * - 更新モード時に既存レコードのデータを取得してフォームにセット
-   */
-  async function loadExistingData() {
-    var recordId = $p.id();
-    if (!recordId) {
-      window.force && console.warn('レコードIDが取得できません');
-      return;
-    }
-
-    try {
-      var api = new PleasanterAPI(location.origin, { logging: window.force });
-
-      var record = await api.getRecord(recordId, {
-        columns: [TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE, TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID],
-        setLabelText: false,
-        setDisplayValue: 'Value',
-      });
-
-      if (!record || Object.keys(record).length === 0) {
-        window.force && console.warn('既存データが取得できませんでした');
-        return;
-      }
-
-      window.force && console.log('既存データ:', record);
-
-      // 店舗セレクトボックスに値をセット
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME]) {
-        $('#fn-formShop').val(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.SHOP_NAME]);
-      }
-
-      // 開催期間をセット
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]) {
-        $('#fn-formDateFrom').val(window.formatDateForInput(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_FROM]));
-      }
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]) {
-        $('#fn-formDateTo').val(window.formatDateForInput(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.DATE_TO]));
-      }
-
-      // その他詳細をセット
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE]) {
-        $('#fn-formNote').val(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.NOTE]);
-      }
-
-      // キッチンカー選択をセット（JSON配列形式のResultId）
-      if (record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]) {
-        var selectedCarIds = [];
-        try {
-          selectedCarIds = JSON.parse(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]);
-        } catch (e) {
-          // JSON形式でない場合はカンマ区切りとして処理（後方互換）
-          selectedCarIds = String(record[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.KITCHEN_CAR_IDS]).split(',').map(function (s) {
-            return s.trim();
-          });
-        }
-
-        // チェックボックスにチェックを入れる（valueはResultId）
-        $('.fn-pick').each(function () {
-          var $checkbox = $(this);
-          var carId = String($checkbox.val());
-          if (selectedCarIds.indexOf(carId) >= 0 && !$checkbox.prop('disabled')) {
-            $checkbox.prop('checked', true);
-          }
-        });
-      }
-
-    } catch (error) {
-      window.force && console.error('既存データ取得エラー:', error);
-    }
-  }
+  // 注: 既存データの読み込み（店舗・日付・NOTE・EVENT_ID）は03_初期表示.jsのloadShopOptions()で行われる
+  // チェックボックスの初期状態は04_使用可能判定.jsのpreCheckedで処理される
 
   /* ========================================
    * 登録処理
@@ -116,12 +47,13 @@
     if (dateFrom && dateTo && dateFrom > dateTo) {
       errors.push('開催期間の開始日は終了日より前の日付を指定してください');
     }
-    if (selectedCars.length === 0) {
-      errors.push('キッチンカーを1台以上選択してください');
-    }
-
     if (errors.length > 0) {
       alert(errors.join('\n'));
+      return null;
+    }
+
+    // チェックボックスの選択チェックはボタンのdisabledで制御するため、ここではチェックしない
+    if (selectedCars.length === 0) {
       return null;
     }
 
@@ -162,8 +94,9 @@
       var result;
       if (window.isCreateMode) {
         // 作成モード時のみEVENT_ID（LinkId/イベントID）とSHOP_RESULT_ID（店舗ResultId）をセット
-        var linkId = window.getUrlParam('LinkId');
-        data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID] = linkId || '';
+        // URLにLinkIdがない場合（更新パターン＋登録モード）は既存レコードのEVENT_IDを使用
+        var linkId = window.getUrlParam('LinkId') || window.existingEventId || '';
+        data[TABLES.KITCHEN_CAR_OUTPUT.COLUMNS.EVENT_ID] = linkId;
 
         var selectedShop = window.shopRecords.find(function (record) {
           return record[TABLES.PERIOD.COLUMNS.NAME] === formData.shop;
@@ -241,26 +174,42 @@
   }
 
   /* ========================================
+   * ボタン活性制御
+   * ======================================== */
+
+  /**
+   * updateSubmitButtonState
+   * - チェックボックスの選択状態に応じて登録/更新ボタンの活性状態を更新
+   */
+  function updateSubmitButtonState() {
+    var hasChecked = $('.fn-pick:checked:not(:disabled)').length > 0;
+    $('#fn-submitButton').prop('disabled', !hasChecked);
+  }
+
+  // グローバルに公開（04から呼び出し）
+  window.updateSubmitButtonState = updateSubmitButtonState;
+
+  /* ========================================
    * 初期化
    * ======================================== */
 
   document.addEventListener('DOMContentLoaded', function () {
-    // 更新モード時は既存データを読み込み（テーブル描画後に実行）
+    // 更新モード時は削除ボタンを表示
+    // 注: 既存データの読み込み・店舗disabled設定は03_初期表示.jsで行われる
     if (!window.isCreateMode) {
-      // テーブル描画完了を待ってから既存データをセット
-      setTimeout(function () {
-        loadExistingData();
-      }, 500);
-      // 更新モード時は削除ボタンを表示
       $('#fn-deleteButton').show();
-      // 更新モード時は店舗を変更不可に
-      $('#fn-formShop').prop('disabled', true);
     }
+
+    // 初期状態でボタンをdisabledに
+    $('#fn-submitButton').prop('disabled', true);
 
     // ボタンイベント設定（重複防止のため.off()で既存イベント解除）
     $('#fn-submitButton').off('click').on('click', handleSubmit);
     $('#fn-deleteButton').off('click').on('click', handleDelete);
     $('#fn-cancelButton').off('click').on('click', handleCancel);
+
+    // チェックボックス変更時にボタン活性状態を更新
+    $(document).on('change', '.fn-pick', updateSubmitButtonState);
   });
 
 })(jQuery);
