@@ -1,0 +1,384 @@
+@charset "UTF-8";
+/* ===================
+    外部呼出し
+==================*/
+/* ===================
+    色定義
+==================*/
+/* ===================
+    縦スペース定義
+==================*/
+/* ===================
+    横スペース定義
+==================*/
+/* ===================
+    テキストサイズ定義
+==================*/
+.sdt-upcomingEvents {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #F2F2F2;
+  z-index: 705;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #F2F2F2;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-title {
+  margin: 0;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-title__text {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form__area {
+  position: relative;
+  width: 100%;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form__area {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form__area {
+    margin-top: 15px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form__area {
+    flex-wrap: wrap;
+  }
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-title {
+  width: 50px;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-title {
+    width: 100%;
+    margin-bottom: 9px;
+  }
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-data {
+  position: relative;
+  display: flex;
+  height: 30px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-data {
+    width: 45%;
+    margin-bottom: 15px;
+  }
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-data__tilde {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-data__tilde {
+    padding-left: 9px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-data__tilde {
+    padding-right: 9px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-data__tilde {
+    width: 10%;
+    margin-bottom: 15px;
+  }
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-form-label {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 0 1px #78818F inset;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 16px;
+  background-color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input {
+    padding-left: 9px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input {
+    padding-right: 9px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input {
+    font-size: 14px;
+  }
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input::-moz-placeholder {
+  color: #C4C9D0;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input::placeholder {
+  color: #C4C9D0;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #2F80ED inset;
+  color: #3B3B3B;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input:disabled {
+  color: #C4C9D0;
+  box-shadow: 0 0 0 2px #C4C9D0 inset;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input:-moz-read-only {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input:read-only {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-input--error {
+  box-shadow: 0 0 0 1px #E80000 inset;
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 20px;
+  background-color: #2F80ED;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-button {
+    margin-left: 15px;
+  }
+}
+.sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-button__text {
+  color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-upcomingEvents-form .sdt-button {
+    width: 100%;
+    margin: 0 80px;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap {
+  width: 100%;
+  overflow: auto;
+  margin-top: 21px;
+  border: solid 1px #3B3B3B;
+  border-top: none;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap {
+    margin-top: 0;
+    border: none;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-column {
+  display: flex;
+  width: auto;
+  background-color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-column {
+    flex-wrap: wrap;
+    margin-top: 21px;
+    padding: 12px;
+    border: solid 1px #3B3B3B;
+  }
+}
+@media screen and (max-width: 760px) and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-column {
+    padding: 9px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-column + .sdt-table-variable-column {
+    margin-top: 21px;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-top: solid 1px #3B3B3B;
+  background-color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell {
+    flex-direction: row;
+    border: none;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Date] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Date] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Category] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Category] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Area] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Area] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=AreaDetails] {
+  min-width: 150px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=AreaDetails] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=EventName] {
+  min-width: 150px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=EventName] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=BusinessStore] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=BusinessStore] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=EventPeriod] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=EventPeriod] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=StartTime] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=StartTime] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=EndTime] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=EndTime] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=PersonCharge] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=PersonCharge] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Button] {
+  min-width: 120px;
+  width: 10%;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell[data-style=Button] {
+    min-width: auto;
+    width: 100%;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-head, .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-top: -1px;
+  padding: 5px 10px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-head, .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-body {
+    justify-content: flex-start;
+    padding: 5px 5px;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-head {
+  font-weight: bold;
+}
+@media screen and (min-width: 761px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-head {
+    min-height: 50px;
+    border-bottom: solid 1px #3B3B3B;
+  }
+}
+.sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-cell-body {
+  height: 100%;
+}
+@media screen and (min-width: 761px) {
+  .sdt-upcomingEvents .sdt-table-variable .sdt-table-variable-wrap .sdt-table-variable-column:not(:first-child) .sdt-table-variable-cell-head {
+    display: none;
+  }
+}

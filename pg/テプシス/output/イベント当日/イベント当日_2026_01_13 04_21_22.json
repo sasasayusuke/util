@@ -1,0 +1,160 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 253140,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-12T19:21:21.9938104+00:00",
+    "Convertors": [
+      {
+        "SiteId": 253140,
+        "SiteTitle": "イベント当日",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 253140,
+      "Title": "イベント当日",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 253128,
+      "InheritPermission": 253093,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "DateA",
+          "DateB",
+          "ClassB",
+          "DescriptionA"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ClassA",
+            "DateC",
+            "DateA",
+            "DateB",
+            "ClassB",
+            "DescriptionA",
+            "ClassZ",
+            "ResultId"
+          ]
+        },
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "店舗名",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "勤務開始時間",
+            "EditorFormat": "Ymdhm",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "DateTimeStep": 1
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "勤務終了時間",
+            "EditorFormat": "Ymdhm",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "DateTimeStep": 1
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "担当者",
+            "ChoicesText": "[[253121]]",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DescriptionA",
+            "LabelText": "自由欄記入",
+            "NoWrap": true,
+            "AllowImage": false,
+            "FieldCss": "field-wide"
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "勤務日",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "ClassZ",
+            "LabelText": "開始～終了期間",
+            "ChoicesText": "[[253154]]",
+            "Hide": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ResultId",
+            "Hide": true
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassZ",
+            "SiteId": 253154
+          },
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 253121
+          }
+        ],
+        "Formulas": [
+          {
+            "CalculationMethod": "Extended",
+            "Target": "DateC",
+            "FormulaScript": "$TODAY()",
+            "FormulaMapping": "{}",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 253140,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}
