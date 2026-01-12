@@ -233,7 +233,7 @@
   background-color: #F8F9FA;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
 }
 .sdt-dispatch .sdt-table__cell {
   padding: 12px;
@@ -241,6 +241,8 @@
   border-bottom: solid 1px #E0E0E0;
   text-align: left;
   vertical-align: middle;
+  position: relative;
+  z-index: 1;
 }
 .sdt-dispatch .sdt-table__cell-head {
   font-weight: bold;

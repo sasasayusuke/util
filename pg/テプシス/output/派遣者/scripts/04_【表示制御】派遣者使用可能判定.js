@@ -23,6 +23,9 @@
    * - 派遣状況テーブルからデータを取得し、テーブルに表示
    */
   async function loadDispatchStatus() {
+    // 店舗・日付変更時はチェック状態をリセット
+    window.existingDispatchIds = [];
+
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 

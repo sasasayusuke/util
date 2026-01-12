@@ -199,6 +199,20 @@
 
         $select.val(window.existingShopName);
 
+        // 選択された店舗のレコードを取得してmin/maxを設定
+        var selectedRecord = window.shopRecords.find(function (record) {
+          return record[TABLES.PERIOD.COLUMNS.NAME] === window.existingShopName;
+        });
+        if (selectedRecord) {
+          var dateFrom = selectedRecord[TABLES.PERIOD.COLUMNS.START_DATE] || '';
+          var dateTo = selectedRecord[TABLES.PERIOD.COLUMNS.END_DATE] || '';
+          var $dateInput = $('#fn-formDate');
+          if ($dateInput.length > 0) {
+            $dateInput.attr('min', window.formatDateForInput(dateFrom));
+            $dateInput.attr('max', window.formatDateForInput(dateTo));
+          }
+        }
+
         // 日付もセット
         if (window.existingDate) {
           $('#fn-formDate').val(window.formatDateForInput(window.existingDate));

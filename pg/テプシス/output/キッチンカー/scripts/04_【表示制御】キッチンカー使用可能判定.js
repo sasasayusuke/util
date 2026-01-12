@@ -23,6 +23,9 @@
    * - キッチンカー状況テーブルからデータを取得し、テーブルに表示
    */
   async function loadKitchenCarStatus() {
+    // 店舗変更時はチェック状態をリセット
+    window.existingKitchenCarIds = [];
+
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
