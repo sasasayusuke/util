@@ -115,19 +115,19 @@
                         <!-- 入力フォーム -->
                         <div class="sdt-work-form">
                             <div class="sdt-form-row">
-                                <label class="sdt-form-label" for="fn-workDate">勤務日</label>
+                                <label class="sdt-form-label sdt-form-label--required" for="fn-workDate">勤務日</label>
                                 <input id="fn-workDate" type="date" class="sdt-input sdt-input--date">
                             </div>
                             <div class="sdt-form-row">
-                                <label class="sdt-form-label" for="fn-workStartTime">勤務開始時刻</label>
+                                <label class="sdt-form-label sdt-form-label--required" for="fn-workStartTime">勤務開始時刻</label>
                                 <input id="fn-workStartTime" type="time" class="sdt-input sdt-input--time">
                             </div>
                             <div class="sdt-form-row">
-                                <label class="sdt-form-label" for="fn-workEndTime">勤務終了時刻</label>
+                                <label class="sdt-form-label sdt-form-label--required" for="fn-workEndTime">勤務終了時刻</label>
                                 <input id="fn-workEndTime" type="time" class="sdt-input sdt-input--time">
                             </div>
                             <div class="sdt-form-row">
-                                <label class="sdt-form-label" for="fn-workStaff">担当者</label>
+                                <label class="sdt-form-label sdt-form-label--required" for="fn-workStaff">担当者</label>
                                 <select id="fn-workStaff" class="sdt-selector-content">
                                     <option value="" disabled selected style="display:none;">選択してください</option>
                                 </select>
@@ -170,6 +170,51 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 勤務情報編集モーダル -->
+            <div id="fn-workModal" class="sdt-modal" style="display:none;">
+                <div class="sdt-modal__overlay" id="fn-workModalOverlay"></div>
+                <div class="sdt-modal__content">
+                    <div class="sdt-modal__header">
+                        <h3 class="sdt-modal__title" id="fn-workModalTitle">勤務情報編集</h3>
+                        <button class="sdt-modal__close" id="fn-workModalClose">&times;</button>
+                    </div>
+                    <div class="sdt-modal__body">
+                        <div class="sdt-modal-form">
+                            <div class="sdt-modal-form__row">
+                                <label class="sdt-modal-form__label sdt-modal-form__label--required">勤務日</label>
+                                <input id="fn-modalWorkDate" type="date" class="sdt-input sdt-input--date">
+                            </div>
+                            <div class="sdt-modal-form__row">
+                                <label class="sdt-modal-form__label sdt-modal-form__label--required">勤務開始時間</label>
+                                <input id="fn-modalWorkStartTime" type="time" class="sdt-input sdt-input--time">
+                            </div>
+                            <div class="sdt-modal-form__row">
+                                <label class="sdt-modal-form__label sdt-modal-form__label--required">勤務終了時間</label>
+                                <input id="fn-modalWorkEndTime" type="time" class="sdt-input sdt-input--time">
+                            </div>
+                            <div class="sdt-modal-form__row">
+                                <label class="sdt-modal-form__label sdt-modal-form__label--required">担当者</label>
+                                <select id="fn-modalWorkStaff" class="sdt-selector-content">
+                                    <option value="" disabled selected style="display:none;">選択してください</option>
+                                </select>
+                            </div>
+                            <div class="sdt-modal-form__row">
+                                <label class="sdt-modal-form__label">自由記入欄</label>
+                                <textarea id="fn-modalWorkNote" class="sdt-textarea" rows="3" placeholder="自由記入欄"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdt-modal__footer">
+                        <button class="sdt-button sdt-button--primary" id="fn-modalWorkSubmit">
+                            <span class="sdt-button__text">更新</span>
+                        </button>
+                        <button class="sdt-button sdt-button--danger" id="fn-modalWorkDelete">
+                            <span class="sdt-button__text">削除</span>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -173,8 +173,8 @@
       $('#fn-vipName').val('');
       $('#fn-vipPosition').val('');
 
-      // 画面リロード
-      location.reload();
+      // テーブル再描画
+      await loadVipList();
 
     } catch (error) {
       window.force && console.error('先方登録エラー:', error);
@@ -210,8 +210,8 @@
 
       alert('先方（要人）を削除しました');
 
-      // 画面リロード
-      location.reload();
+      // テーブル再描画
+      await loadVipList();
 
     } catch (error) {
       window.force && console.error('先方削除エラー:', error);

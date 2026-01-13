@@ -129,9 +129,10 @@
       var workEnd = record[TABLES.EVENT_DAY.COLUMNS.WORK_END] || '';
       $row.find('[data-target="fn-work-end"]').text(window.formatTime(workEnd));
 
-      // 担当者
-      var staff = record[TABLES.EVENT_DAY.COLUMNS.STAFF] || '';
-      $row.find('[data-target="fn-work-staff"]').text(staff);
+      // 担当者（UserIdから名前に変換）
+      var staffId = record[TABLES.EVENT_DAY.COLUMNS.STAFF] || '';
+      var staffName = (window.staffMap && window.staffMap[String(staffId)]) || staffId;
+      $row.find('[data-target="fn-work-staff"]').text(staffName);
 
       // 自由記入欄
       var freeText = record[TABLES.EVENT_DAY.COLUMNS.FREE_TEXT] || '';
@@ -216,12 +217,13 @@
       // 勤務開始時刻と勤務終了時刻をISO形式に変換
       var workStartDateTime = workDate + 'T' + workStartTime + ':00';
       var workEndDateTime = workDate + 'T' + workEndTime + ':00';
+      var workDateDateTime = workDate + 'T00:00:00';
 
       var data = {};
       data[TABLES.EVENT_DAY.COLUMNS.SHOP_NAME] = window.periodRecord ? window.periodRecord[TABLES.PERIOD.COLUMNS.NAME] : '';
       data[TABLES.EVENT_DAY.COLUMNS.STAFF] = String(staffId);
       data[TABLES.EVENT_DAY.COLUMNS.FREE_TEXT] = freeText;
-      data[TABLES.EVENT_DAY.COLUMNS.WORK_DATE] = workDate;
+      data[TABLES.EVENT_DAY.COLUMNS.WORK_DATE] = workDateDateTime;
       data[TABLES.EVENT_DAY.COLUMNS.WORK_START] = workStartDateTime;
       data[TABLES.EVENT_DAY.COLUMNS.WORK_END] = workEndDateTime;
       data[TABLES.EVENT_DAY.COLUMNS.PERIOD_ID] = String(window.eventShopId);
@@ -244,8 +246,8 @@
       // フォームをクリア
       clearWorkForm();
 
-      // 画面リロード
-      location.reload();
+      // テーブル再描画
+      await loadWorkList();
 
     } catch (error) {
       window.force && console.error('勤務登録エラー:', error);
@@ -268,12 +270,89 @@
   }
 
   /* ========================================
-   * 勤務編集処理
+   * モーダル処理
    * ======================================== */
+
+  // モーダルモード管理（'edit' or 'copy'）
+  var modalMode = null;
+
+  /**
+   * openWorkModal
+   * - モーダルを開く
+   */
+  function openWorkModal(mode, record) {
+    modalMode = mode;
+
+    // モーダル用担当者プルダウンを初期化
+    initModalStaffSelect();
+
+    if (mode === 'edit') {
+      // 編集モード
+      $('#fn-workModalTitle').text('勤務情報編集');
+      $('#fn-modalWorkSubmit .sdt-button__text').text('更新');
+      $('#fn-modalWorkDelete').show();
+      window.editingRecordId = record.ResultId;
+
+      // フォームにデータをセット
+      var workDate = record[TABLES.EVENT_DAY.COLUMNS.WORK_DATE] || '';
+      $('#fn-modalWorkDate').val(window.formatDateForInput(workDate));
+    } else {
+      // コピーモード
+      $('#fn-workModalTitle').text('勤務情報コピー');
+      $('#fn-modalWorkSubmit .sdt-button__text').text('登録');
+      $('#fn-modalWorkDelete').hide();
+      window.editingRecordId = null;
+
+      // 勤務日は空白
+      $('#fn-modalWorkDate').val('');
+    }
+
+    // 共通データセット
+    var workStart = record[TABLES.EVENT_DAY.COLUMNS.WORK_START] || '';
+    var workEnd = record[TABLES.EVENT_DAY.COLUMNS.WORK_END] || '';
+    var staff = record[TABLES.EVENT_DAY.COLUMNS.STAFF] || '';
+    var freeText = record[TABLES.EVENT_DAY.COLUMNS.FREE_TEXT] || '';
+
+    $('#fn-modalWorkStartTime').val(window.formatTime(workStart));
+    $('#fn-modalWorkEndTime').val(window.formatTime(workEnd));
+    $('#fn-modalWorkStaff').val(staff);
+    $('#fn-modalWorkNote').val(freeText);
+
+    // モーダル表示
+    $('#fn-workModal').show();
+  }
+
+  /**
+   * closeWorkModal
+   * - モーダルを閉じる
+   */
+  function closeWorkModal() {
+    $('#fn-workModal').hide();
+    modalMode = null;
+    window.editingRecordId = null;
+  }
+
+  /**
+   * initModalStaffSelect
+   * - モーダル用担当者プルダウンを初期化
+   */
+  function initModalStaffSelect() {
+    var $modalSelect = $('#fn-modalWorkStaff');
+    var $originalSelect = $('#fn-workStaff');
+
+    // 既存のオプションをクリア（最初のデフォルトオプション以外）
+    $modalSelect.find('option:not(:first)').remove();
+
+    // 元のプルダウンからオプションをコピー
+    $originalSelect.find('option:not(:first)').each(function () {
+      var $option = $(this).clone();
+      $modalSelect.append($option);
+    });
+  }
 
   /**
    * handleWorkEdit
-   * - 勤務編集ボタンクリック時の処理
+   * - 勤務編集ボタンクリック時の処理（モーダル表示）
    */
   function handleWorkEdit() {
     var recordId = $(this).attr('data-record-id');
@@ -283,7 +362,6 @@
       return;
     }
 
-    // レコードを検索
     var record = window.workRecords.find(function (r) {
       return String(r.ResultId) === String(recordId);
     });
@@ -293,36 +371,12 @@
       return;
     }
 
-    // フォームにデータをセット
-    var workDate = record[TABLES.EVENT_DAY.COLUMNS.WORK_DATE] || '';
-    var workStart = record[TABLES.EVENT_DAY.COLUMNS.WORK_START] || '';
-    var workEnd = record[TABLES.EVENT_DAY.COLUMNS.WORK_END] || '';
-    var staff = record[TABLES.EVENT_DAY.COLUMNS.STAFF] || '';
-    var freeText = record[TABLES.EVENT_DAY.COLUMNS.FREE_TEXT] || '';
-
-    $('#fn-workDate').val(window.formatDateForInput(workDate));
-    $('#fn-workStartTime').val(window.formatTime(workStart));
-    $('#fn-workEndTime').val(window.formatTime(workEnd));
-    $('#fn-workStaff').val(staff);
-    $('#fn-workNote').val(freeText);
-
-    // 編集モードに設定
-    window.editingRecordId = recordId;
-    $('#fn-workRegister .sdt-button__text').text('更新');
-
-    // フォームまでスクロール
-    $('html, body').animate({
-      scrollTop: $('#fn-workDate').offset().top - 100
-    }, 500);
+    openWorkModal('edit', record);
   }
-
-  /* ========================================
-   * 勤務コピー処理
-   * ======================================== */
 
   /**
    * handleWorkCopy
-   * - 勤務コピーボタンクリック時の処理
+   * - 勤務コピーボタンクリック時の処理（モーダル表示）
    */
   function handleWorkCopy() {
     var recordId = $(this).attr('data-record-id');
@@ -332,7 +386,6 @@
       return;
     }
 
-    // レコードを検索
     var record = window.workRecords.find(function (r) {
       return String(r.ResultId) === String(recordId);
     });
@@ -342,27 +395,112 @@
       return;
     }
 
-    // フォームにデータをセット（新規登録として扱う）
-    var workDate = record[TABLES.EVENT_DAY.COLUMNS.WORK_DATE] || '';
-    var workStart = record[TABLES.EVENT_DAY.COLUMNS.WORK_START] || '';
-    var workEnd = record[TABLES.EVENT_DAY.COLUMNS.WORK_END] || '';
-    var staff = record[TABLES.EVENT_DAY.COLUMNS.STAFF] || '';
-    var freeText = record[TABLES.EVENT_DAY.COLUMNS.FREE_TEXT] || '';
+    openWorkModal('copy', record);
+  }
 
-    $('#fn-workDate').val(window.formatDateForInput(workDate));
-    $('#fn-workStartTime').val(window.formatTime(workStart));
-    $('#fn-workEndTime').val(window.formatTime(workEnd));
-    $('#fn-workStaff').val(staff);
-    $('#fn-workNote').val(freeText);
+  /**
+   * handleModalSubmit
+   * - モーダル内の更新/登録ボタンクリック時の処理
+   */
+  async function handleModalSubmit() {
+    var workDate = $('#fn-modalWorkDate').val() || '';
+    var workStartTime = $('#fn-modalWorkStartTime').val() || '';
+    var workEndTime = $('#fn-modalWorkEndTime').val() || '';
+    var staffId = $('#fn-modalWorkStaff').val() || '';
+    var freeText = $('#fn-modalWorkNote').val() || '';
 
-    // 新規登録モードに設定
-    window.editingRecordId = null;
-    $('#fn-workRegister .sdt-button__text').text('登録');
+    // バリデーション
+    var errors = [];
+    if (!workDate) {
+      errors.push('勤務日を入力してください');
+    }
+    if (!workStartTime) {
+      errors.push('勤務開始時刻を入力してください');
+    }
+    if (!workEndTime) {
+      errors.push('勤務終了時刻を入力してください');
+    }
+    if (!staffId) {
+      errors.push('担当者を選択してください');
+    }
 
-    // フォームまでスクロール
-    $('html, body').animate({
-      scrollTop: $('#fn-workDate').offset().top - 100
-    }, 500);
+    if (errors.length > 0) {
+      alert(errors.join('\n'));
+      return;
+    }
+
+    if (!window.eventShopId) {
+      alert('イベント店舗IDが取得できません');
+      return;
+    }
+
+    try {
+      var api = new PleasanterAPI(location.origin, { logging: window.force });
+
+      var workStartDateTime = workDate + 'T' + workStartTime + ':00';
+      var workEndDateTime = workDate + 'T' + workEndTime + ':00';
+      var workDateDateTime = workDate + 'T00:00:00';
+
+      var data = {};
+      data[TABLES.EVENT_DAY.COLUMNS.SHOP_NAME] = window.periodRecord ? window.periodRecord[TABLES.PERIOD.COLUMNS.NAME] : '';
+      data[TABLES.EVENT_DAY.COLUMNS.STAFF] = String(staffId);
+      data[TABLES.EVENT_DAY.COLUMNS.FREE_TEXT] = freeText;
+      data[TABLES.EVENT_DAY.COLUMNS.WORK_DATE] = workDateDateTime;
+      data[TABLES.EVENT_DAY.COLUMNS.WORK_START] = workStartDateTime;
+      data[TABLES.EVENT_DAY.COLUMNS.WORK_END] = workEndDateTime;
+      data[TABLES.EVENT_DAY.COLUMNS.PERIOD_ID] = String(window.eventShopId);
+
+      var result;
+      if (modalMode === 'edit' && window.editingRecordId) {
+        result = await api.updateRecord(window.editingRecordId, data);
+        window.force && console.log('勤務更新結果:', result);
+        alert('勤務情報を更新しました');
+      } else {
+        result = await api.createRecord(EVENT_DAY_SITE_ID, data);
+        window.force && console.log('勤務登録結果:', result);
+        alert('勤務情報を登録しました');
+      }
+
+      closeWorkModal();
+
+      // テーブル再描画
+      await loadWorkList();
+
+    } catch (error) {
+      window.force && console.error('勤務登録エラー:', error);
+      alert('登録に失敗しました: ' + (error.message || error));
+    }
+  }
+
+  /**
+   * handleModalDelete
+   * - モーダル内の削除ボタンクリック時の処理
+   */
+  async function handleModalDelete() {
+    if (!window.editingRecordId) {
+      alert('削除対象のレコードが選択されていません');
+      return;
+    }
+
+    if (!confirm('この勤務情報を削除してもよろしいですか？')) {
+      return;
+    }
+
+    try {
+      var api = new PleasanterAPI(location.origin, { logging: window.force });
+      await api.deleteRecord(window.editingRecordId);
+      window.force && console.log('勤務削除完了:', window.editingRecordId);
+      alert('勤務情報を削除しました');
+
+      closeWorkModal();
+
+      // テーブル再描画
+      await loadWorkList();
+
+    } catch (error) {
+      window.force && console.error('勤務削除エラー:', error);
+      alert('削除に失敗しました: ' + (error.message || error));
+    }
   }
 
   /* ========================================
@@ -375,6 +513,12 @@
   document.addEventListener('DOMContentLoaded', function () {
     // 登録ボタンイベント設定
     $('#fn-workRegister').off('click').on('click', handleWorkRegister);
+
+    // モーダルイベント設定
+    $('#fn-workModalClose').off('click').on('click', closeWorkModal);
+    $('#fn-workModalOverlay').off('click').on('click', closeWorkModal);
+    $('#fn-modalWorkSubmit').off('click').on('click', handleModalSubmit);
+    $('#fn-modalWorkDelete').off('click').on('click', handleModalDelete);
   });
 
 })(jQuery);

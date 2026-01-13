@@ -166,6 +166,9 @@
 
           // イベント情報を画面に表示
           displayEventInfo();
+
+          // 勤務日カレンダーの入力制限を設定（開始日〜終了日のみ）
+          setWorkDateRange();
         }
       }
 
@@ -216,6 +219,31 @@
     var endDate = window.periodRecord[TABLES.PERIOD.COLUMNS.END_DATE] || '';
     var periodText = formatDate(startDate) + '〜' + formatDate(endDate);
     $('#fn-infoPeriod').text(periodText);
+  }
+
+  /**
+   * setWorkDateRange
+   * - 勤務日カレンダーの入力範囲を開始日〜終了日に制限
+   */
+  function setWorkDateRange() {
+    if (!window.periodRecord) {
+      return;
+    }
+
+    var startDate = window.formatDateForInput(window.periodRecord[TABLES.PERIOD.COLUMNS.START_DATE]);
+    var endDate = window.formatDateForInput(window.periodRecord[TABLES.PERIOD.COLUMNS.END_DATE]);
+
+    if (startDate) {
+      $('#fn-workDate').attr('min', startDate);
+      $('#fn-modalWorkDate').attr('min', startDate);
+    }
+
+    if (endDate) {
+      $('#fn-workDate').attr('max', endDate);
+      $('#fn-modalWorkDate').attr('max', endDate);
+    }
+
+    window.force && console.log('勤務日制限設定:', startDate, '〜', endDate);
   }
 
   /**
@@ -287,9 +315,13 @@
    * 担当者プルダウン初期化
    * ======================================== */
 
+  // ユーザーIDから名前へのマップ（グローバル）
+  window.staffMap = {};
+
   /**
    * loadStaffOptions
    * - PleasanterのユーザーAPIからユーザー情報を取得し、プルダウンに設定
+   * - ユーザーマップ（UserId→Name）をグローバルに保存
    */
   async function loadStaffOptions() {
     var $select = $('#fn-workStaff');
@@ -318,10 +350,15 @@
         var userId = user.UserId || '';
 
         if (userName && userId) {
+          // マップに追加
+          window.staffMap[String(userId)] = userName;
+
           var $option = $('<option></option>').val(userId).text(userName);
           $select.append($option);
         }
       });
+
+      window.force && console.log('staffMap:', window.staffMap);
 
     } catch (error) {
       window.force && console.error('ユーザーデータ取得エラー:', error);
