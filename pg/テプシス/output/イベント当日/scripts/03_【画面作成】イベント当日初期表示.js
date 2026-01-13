@@ -285,8 +285,9 @@
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
-      // Pleasanterのユーザー一覧を取得
+      // Pleasanterのユーザー一覧を取得（部署IDで絞り込み）
       var users = await api.getUsers({
+        deptIds: [STAFF_DEPT_ID],
         ignoreErrors: false,
       });
 

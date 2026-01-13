@@ -6,6 +6,7 @@
   var PERIOD_SITE_ID = 253154;            // 開始～終了期間
   var EVENT_LIST_SITE_ID = 253123;        // イベント予定一覧
   var VIP_SITE_ID = 253148;               // 先方（要人）テーブル
+  var STAFF_DEPT_ID = 208;                // アウトシステムズ開発の部署ID
   window.force = true;
 
   // テーブル・カラム定義
