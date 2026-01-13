@@ -96,24 +96,27 @@
 
       // イベント店舗ID（開始～終了期間のID）を取得
       var periodId = null;
-      var currentRecordId = $p.id();
+      var isNewRecord = location.pathname.includes('/new');
 
-      if (currentRecordId) {
-        // 既存レコードの場合：PERIOD_IDを取得
-        var currentRecord = await api.getRecord(currentRecordId, {
-          columns: [TABLES.EVENT_DAY.COLUMNS.PERIOD_ID],
-          setLabelText: false,
-          setDisplayValue: 'Value',
-        });
-
-        if (currentRecord && currentRecord[TABLES.EVENT_DAY.COLUMNS.PERIOD_ID]) {
-          periodId = currentRecord[TABLES.EVENT_DAY.COLUMNS.PERIOD_ID];
-          window.force && console.log('既存レコードのPERIOD_ID:', periodId);
-        }
-      } else {
-        // 新規作成の場合：URLのLinkIdを取得
+      if (isNewRecord) {
+        // 新規作成画面：URLのLinkIdを使用
         periodId = window.getUrlParam('LinkId');
         window.force && console.log('URLのLinkId:', periodId);
+      } else {
+        // 既存レコード編集画面：PERIOD_IDを取得
+        var currentRecordId = $p.id();
+        if (currentRecordId) {
+          var currentRecord = await api.getRecord(currentRecordId, {
+            columns: [TABLES.EVENT_DAY.COLUMNS.PERIOD_ID],
+            setLabelText: false,
+            setDisplayValue: 'Value',
+          });
+
+          if (currentRecord && currentRecord[TABLES.EVENT_DAY.COLUMNS.PERIOD_ID]) {
+            periodId = currentRecord[TABLES.EVENT_DAY.COLUMNS.PERIOD_ID];
+            window.force && console.log('既存レコードのPERIOD_ID:', periodId);
+          }
+        }
       }
 
       if (!periodId) {
@@ -125,7 +128,12 @@
 
       // 開始～終了期間（親）レコードを取得
       var periodRecord = await api.getRecord(periodId, {
-        columns: [TABLES.PERIOD.COLUMNS.NAME, TABLES.PERIOD.COLUMNS.EVENT_ID, TABLES.PERIOD.COLUMNS.START_DATE, TABLES.PERIOD.COLUMNS.END_DATE],
+        columns: [
+          TABLES.PERIOD.COLUMNS.NAME,
+          TABLES.PERIOD.COLUMNS.EVENT_ID,
+          TABLES.PERIOD.COLUMNS.START_DATE,
+          TABLES.PERIOD.COLUMNS.END_DATE
+        ],
         setLabelText: false,
         setDisplayValue: 'Value',
       });
@@ -142,7 +150,12 @@
       // イベント予定一覧（祖父）レコードを取得
       if (window.eventId) {
         var eventRecord = await api.getRecord(window.eventId, {
-          columns: [TABLES.EVENT_LIST.COLUMNS.CATEGORY, TABLES.EVENT_LIST.COLUMNS.EVENT_NAME, TABLES.EVENT_LIST.COLUMNS.ORGANIZER, TABLES.EVENT_LIST.COLUMNS.AREA],
+          columns: [
+            TABLES.EVENT_LIST.COLUMNS.CATEGORY,
+            TABLES.EVENT_LIST.COLUMNS.EVENT_NAME,
+            TABLES.EVENT_LIST.COLUMNS.ORGANIZER,
+            TABLES.EVENT_LIST.COLUMNS.AREA,
+            'ResultId'],
           setLabelText: false,
           setDisplayValue: 'Value',
         });
@@ -157,13 +170,13 @@
       }
 
       // 個別イベント管理リンクを設定
-      if (window.eventId) {
-        $('#fn-linkEventManage').attr('href', location.origin + '/items/' + window.eventId + '/index');
+      var eventResultId = window.eventRecord && window.eventRecord.ResultId;
+      if (eventResultId) {
+        $('#fn-linkEventManage').attr('href', location.origin + '/items/' + eventResultId);
       }
 
-      // 開催イベント一覧に戻るリンクを設定（開催イベント一覧のサイトIDは仮に253XXXとする）
-      // ※開催イベント一覧が完成したら適切なリンクに変更
-      $('#fn-linkBackToList').attr('href', 'javascript:history.back();');
+      // 開催イベント一覧に戻るリンクを設定
+      $('#fn-linkBackToList').attr('href', location.origin + '/items/' + EVENT_OPEN_LIST_SITE_ID + '/index');
 
     } catch (error) {
       window.force && console.error('イベント情報取得エラー:', error);
@@ -183,18 +196,20 @@
     var category = window.eventRecord[TABLES.EVENT_LIST.COLUMNS.CATEGORY] || '-';
     $('#fn-infoCategory').text(category);
 
-    // イベント名・出店名
-    var eventName = window.eventRecord[TABLES.EVENT_LIST.COLUMNS.EVENT_NAME] || '-';
-    var shopName = window.periodRecord[TABLES.PERIOD.COLUMNS.NAME] || '';
-    $('#fn-infoEventName').text(eventName + (shopName ? ' ' + shopName : ''));
+    // イベント名称・出店先
+    var eventName = window.eventRecord[TABLES.EVENT_LIST.COLUMNS.ORGANIZER] || '-';
+    $('#fn-infoEventName').text(eventName);
 
-    // 開催者or依頼主
-    var organizer = window.eventRecord[TABLES.EVENT_LIST.COLUMNS.ORGANIZER] || '-';
-    $('#fn-infoOrganizer').text(organizer);
+    // 事業者名or店舗名
+    var shopName = window.periodRecord[TABLES.PERIOD.COLUMNS.NAME] || '-';
+    $('#fn-infoOrganizer').text(shopName);
 
-    // 担当エリア
+    // 開催エリア
     var area = window.eventRecord[TABLES.EVENT_LIST.COLUMNS.AREA] || '-';
     $('#fn-infoArea').text(area);
+
+    // 開催エリア詳細
+    $('#fn-infoAreaDetail').text('-');
 
     // 開催期間
     var startDate = window.periodRecord[TABLES.PERIOD.COLUMNS.START_DATE] || '';
