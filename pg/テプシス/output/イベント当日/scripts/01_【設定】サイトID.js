@@ -6,7 +6,6 @@
   var PERIOD_SITE_ID = 253154;            // 開始～終了期間
   var EVENT_LIST_SITE_ID = 253123;        // イベント予定一覧
   var VIP_SITE_ID = 253148;               // 先方（要人）テーブル
-  var STAFF_SITE_ID = 253121;             // 担当者マスタ
   window.force = true;
 
   // テーブル・カラム定義
@@ -55,13 +54,6 @@
         NAME: 'ClassE',                // 氏名
         EVENT_ID: 'ClassF',            // イベントID（リンク項目）
         EVENT_SHOP_ID: 'ClassY'        // イベント店舗ID（開始～終了期間のID）
-      }
-    },
-    // 担当者マスタ
-    STAFF: {
-      SITE_ID: STAFF_SITE_ID,
-      COLUMNS: {
-        NAME: 'ClassA'                 // 担当者名
       }
     }
   };

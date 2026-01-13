@@ -2,15 +2,12 @@
             <!-- イベント当日画面全体ラップ -->
             <div class="sdt-event-day-wrap">
 
-                <!-- 画面タイトル -->
-                <h2 class="sdt-event-day-title">
-                    <span class="sdt-event-day-title__text">イベント当日</span>
-                </h2>
-
                 <!-- イベント情報表示領域 -->
                 <div class="sdt-event-info">
                     <div class="sdt-event-info__header">
-                        <h3 class="sdt-event-info__title">イベント情報</h3>
+                        <h2 class="sdt-event-day-title">
+                            <span class="sdt-event-day-title__text">イベント当日</span>
+                        </h2>
                         <div class="sdt-event-info__nav">
                             <a href="#" id="fn-linkEventManage" class="sdt-link-button">個別イベント管理</a>
                             <a href="#" id="fn-linkBackToList" class="sdt-link-button">開催イベント一覧に戻る</a>
@@ -44,35 +41,35 @@
                 <div class="sdt-section">
                     <div class="sdt-section__header" id="fn-sectionVipHeader">
                         <h3 class="sdt-section__title">先方（要人）</h3>
-                        <button class="sdt-toggle-button" id="fn-toggleVip">▼</button>
+                        <button class="sdt-toggle-button" id="fn-toggleVip"></button>
                     </div>
                     <div class="sdt-section__body" id="fn-sectionVipBody">
                         <!-- 入力フォーム -->
                         <div class="sdt-vip-form">
-                            <div class="sdt-form-row">
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-vipCompany">会社</label>
-                                    <input id="fn-vipCompany" type="text" class="sdt-input" placeholder="会社名">
+                            <div class="sdt-vip-form-grid">
+                                <div class="sdt-vip-form-column">
+                                    <div class="sdt-form-row">
+                                        <label class="sdt-form-label" for="fn-vipCompany">会社</label>
+                                        <input id="fn-vipCompany" type="text" class="sdt-input" placeholder="会社名" size="15">
+                                    </div>
+                                    <div class="sdt-form-row">
+                                        <label class="sdt-form-label" for="fn-vipPosition">役職</label>
+                                        <input id="fn-vipPosition" type="text" class="sdt-input" placeholder="役職" size="15">
+                                    </div>
                                 </div>
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-vipDept">部署</label>
-                                    <input id="fn-vipDept" type="text" class="sdt-input" placeholder="部署名">
+                                <div class="sdt-vip-form-column">
+                                    <div class="sdt-form-row">
+                                        <label class="sdt-form-label" for="fn-vipDept">部署</label>
+                                        <input id="fn-vipDept" type="text" class="sdt-input" placeholder="部署名" size="15">
+                                    </div>
+                                    <div class="sdt-form-row sdt-form-row--vip-with-button">
+                                        <label class="sdt-form-label" for="fn-vipName">氏名</label>
+                                        <input id="fn-vipName" type="text" class="sdt-input" placeholder="氏名" size="15">
+                                        <button class="sdt-button sdt-button--primary sdt-button--vip-inline" type="button" id="fn-vipRegister">
+                                            <span class="sdt-button__text">先方（要人）登録</span>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="sdt-form-row">
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-vipName">氏名</label>
-                                    <input id="fn-vipName" type="text" class="sdt-input" placeholder="氏名">
-                                </div>
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-vipPosition">役職</label>
-                                    <input id="fn-vipPosition" type="text" class="sdt-input" placeholder="役職">
-                                </div>
-                            </div>
-                            <div class="sdt-form-button-area">
-                                <button class="sdt-button sdt-button--primary" type="button" id="fn-vipRegister">
-                                    <span class="sdt-button__text">先方（要人）登録</span>
-                                </button>
                             </div>
                         </div>
 
@@ -114,33 +111,27 @@
                         <!-- 入力フォーム -->
                         <div class="sdt-work-form">
                             <div class="sdt-form-row">
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-workDate">勤務日</label>
-                                    <input id="fn-workDate" type="date" class="sdt-input sdt-input--date">
-                                </div>
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-workStartTime">勤務開始時刻</label>
-                                    <input id="fn-workStartTime" type="time" class="sdt-input sdt-input--time">
-                                </div>
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-workEndTime">勤務終了時刻</label>
-                                    <input id="fn-workEndTime" type="time" class="sdt-input sdt-input--time">
-                                </div>
+                                <label class="sdt-form-label" for="fn-workDate">勤務日</label>
+                                <input id="fn-workDate" type="date" class="sdt-input sdt-input--date">
                             </div>
                             <div class="sdt-form-row">
-                                <div class="sdt-form-box">
-                                    <label class="sdt-form-label" for="fn-workStaff">担当者</label>
-                                    <select id="fn-workStaff" class="sdt-selector-content">
-                                        <option value="" disabled selected style="display:none;">選択してください</option>
-                                    </select>
-                                </div>
-                                <div class="sdt-form-box sdt-form-box--wide">
-                                    <label class="sdt-form-label" for="fn-workNote">自由記入欄</label>
-                                    <textarea id="fn-workNote" class="sdt-textarea" rows="3" placeholder="自由記入欄"></textarea>
-                                </div>
+                                <label class="sdt-form-label" for="fn-workStartTime">勤務開始時刻</label>
+                                <input id="fn-workStartTime" type="time" class="sdt-input sdt-input--time">
                             </div>
-                            <div class="sdt-form-button-area">
-                                <button class="sdt-button sdt-button--primary" type="button" id="fn-workRegister">
+                            <div class="sdt-form-row">
+                                <label class="sdt-form-label" for="fn-workEndTime">勤務終了時刻</label>
+                                <input id="fn-workEndTime" type="time" class="sdt-input sdt-input--time">
+                            </div>
+                            <div class="sdt-form-row">
+                                <label class="sdt-form-label" for="fn-workStaff">担当者</label>
+                                <select id="fn-workStaff" class="sdt-selector-content">
+                                    <option value="" disabled selected style="display:none;">選択してください</option>
+                                </select>
+                            </div>
+                            <div class="sdt-form-row sdt-form-row--vip-with-button">
+                                <label class="sdt-form-label" for="fn-workNote">自由記入欄</label>
+                                <textarea id="fn-workNote" class="sdt-textarea" rows="3" placeholder="自由記入欄"></textarea>
+                                <button class="sdt-button sdt-button--primary sdt-button--vip-inline" type="button" id="fn-workRegister">
                                     <span class="sdt-button__text">登録</span>
                                 </button>
                             </div>

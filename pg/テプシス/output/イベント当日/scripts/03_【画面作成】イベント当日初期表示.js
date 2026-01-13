@@ -274,7 +274,7 @@
 
   /**
    * loadStaffOptions
-   * - 担当者マスタからデータを取得し、プルダウンに設定
+   * - PleasanterのユーザーAPIからユーザー情報を取得し、プルダウンに設定
    */
   async function loadStaffOptions() {
     var $select = $('#fn-workStaff');
@@ -285,31 +285,30 @@
     try {
       var api = new PleasanterAPI(location.origin, { logging: window.force });
 
-      var records = await api.getRecords(STAFF_SITE_ID, {
-        columns: [TABLES.STAFF.COLUMNS.NAME, 'ResultId'],
-        setLabelText: false,
-        setDisplayValue: 'Value',
+      // Pleasanterのユーザー一覧を取得
+      var users = await api.getUsers({
+        ignoreErrors: false,
       });
 
-      if (!records || records.length === 0) {
-        window.force && console.warn('担当者データが取得できませんでした');
+      if (!users || users.length === 0) {
+        window.force && console.warn('ユーザーデータが取得できませんでした');
         return;
       }
 
-      window.force && console.log('担当者データ:', records);
+      window.force && console.log('ユーザーデータ:', users);
 
-      records.forEach(function (record) {
-        var name = record[TABLES.STAFF.COLUMNS.NAME] || '';
-        var resultId = record.ResultId || '';
+      users.forEach(function (user) {
+        var userName = user.Name || '';
+        var userId = user.UserId || '';
 
-        if (name && resultId) {
-          var $option = $('<option></option>').val(resultId).text(name);
+        if (userName && userId) {
+          var $option = $('<option></option>').val(userId).text(userName);
           $select.append($option);
         }
       });
 
     } catch (error) {
-      window.force && console.error('担当者データ取得エラー:', error);
+      window.force && console.error('ユーザーデータ取得エラー:', error);
     }
   }
 
@@ -328,10 +327,10 @@
 
       if ($body.is(':visible')) {
         $body.slideUp();
-        $button.text('▶');
+        $button.addClass('sdt-toggle-button--collapsed');
       } else {
         $body.slideDown();
-        $button.text('▼');
+        $button.removeClass('sdt-toggle-button--collapsed');
       }
     });
   }

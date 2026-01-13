@@ -354,6 +354,59 @@ class PleasanterAPI {
     }
     return data;
   }
+
+  /**
+   * ユーザー一覧取得
+   * @param {Object} [options] - オプション
+   * @param {number[]} [options.userIds] - 特定のユーザーIDで絞り込み（例: [11, 12]）
+   * @param {number[]} [options.deptIds] - 部署IDで絞り込み（例: [7, 8]）
+   * @param {number[]} [options.groups] - グループIDで絞り込み（例: [1, 2]）
+   * @param {boolean} [options.ignoreErrors] - エラーを無視（デフォルト: false）
+   * @returns {Promise<Object[]>} ユーザー配列
+   */
+  async getUsers(options = {}) {
+    const {
+      userIds = null,
+      deptIds = null,
+      groups = null,
+      ignoreErrors = false,
+    } = options;
+
+    const body = { ...this._baseBody() };
+
+    // フィルター条件があれば追加
+    if (userIds || deptIds || groups) {
+      const columnFilterHash = {};
+      if (userIds) {
+        columnFilterHash.UserId = JSON.stringify(userIds);
+      }
+      if (deptIds) {
+        columnFilterHash.DeptId = JSON.stringify(deptIds);
+      }
+      if (groups) {
+        columnFilterHash.Groups = JSON.stringify(groups);
+      }
+
+      body.View = {
+        ColumnFilterHash: columnFilterHash,
+      };
+    }
+
+    const resp = await this._request('/api/users/get', body, { ignoreErrors });
+
+    if (!resp) {
+      return [];
+    }
+
+    const users = resp.Response?.Data || [];
+
+    if (this.logging) {
+      console.log(`ユーザー ${users.length} 件取得しました`);
+      console.table(users);
+    }
+
+    return users;
+  }
 }
 
 /* ========= 使用例 ========= */
