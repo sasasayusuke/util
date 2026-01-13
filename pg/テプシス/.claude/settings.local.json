@@ -8,7 +8,8 @@
       "Bash(git -C \"c:/Users/NT-210174/Desktop/projects/util/pg/テプシス\" status)",
       "Bash(git -C \"c:/Users/NT-210174/Desktop/projects/util/pg/テプシス\" log --oneline -5)",
       "Bash(git -C \"c:/Users/NT-210174/Desktop/projects/util/pg/テプシス\" add -A)",
-      "Bash(git -C \"c:/Users/NT-210174/Desktop/projects/util/pg/テプシス\" commit -m \"$\\(cat <<''EOF''\nキッチンカー画面: PleasanterAPI連携と店舗マスタ取得\n\n- PleasanterAPIをキッチンカーディレクトリに配置\n- 店舗マスタ（SiteId: 253154）からClassAを取得しセレクトボックスに設定\n- 店舗・開催期間のレイアウトを縦並びに変更\n- HTMLファイル名を「キッチンカー登録HTML」に変更\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git -C \"c:/Users/NT-210174/Desktop/projects/util/pg/テプシス\" commit -m \"$\\(cat <<''EOF''\nキッチンカー画面: PleasanterAPI連携と店舗マスタ取得\n\n- PleasanterAPIをキッチンカーディレクトリに配置\n- 店舗マスタ（SiteId: 253154）からClassAを取得しセレクトボックスに設定\n- 店舗・開催期間のレイアウトを縦並びに変更\n- HTMLファイル名を「キッチンカー登録HTML」に変更\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(grep:*)"
     ]
   }
 }

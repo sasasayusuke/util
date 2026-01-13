@@ -1,0 +1,233 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 253148,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-12T20:03:29.4701574+00:00",
+    "Convertors": [
+      {
+        "SiteId": 253148,
+        "SiteTitle": "先方（要人）",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 253148,
+      "Title": "先方（要人）",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 253128,
+      "InheritPermission": 253093,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ClassA",
+          "ClassB",
+          "ClassC",
+          "ClassD",
+          "ClassE"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "ClassA",
+            "ClassY",
+            "ClassB",
+            "ClassC",
+            "ClassD",
+            "ClassE",
+            "ClassF"
+          ]
+        },
+        "LinkColumns": [
+          "ClassA",
+          "ClassB",
+          "ClassC",
+          "ClassD",
+          "ClassE"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "先方（要人）id",
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "店舗名",
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "会社",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "部署",
+            "MaxLength": 30.0
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "役職",
+            "NoWrap": true,
+            "MaxLength": 30.0
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "氏名",
+            "MaxLength": 30.0
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "イベント予定一覧",
+            "ChoicesText": "[[253123]]",
+            "Hide": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassY",
+            "LabelText": "イベント店舗ID",
+            "ValidateRequired": true
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassF",
+            "SiteId": 253123
+          }
+        ],
+        "Exports": [
+          {
+            "Name": "一括アップロード用",
+            "Columns": [
+              {
+                "Id": 1,
+                "ColumnName": "ClassA"
+              },
+              {
+                "Id": 2,
+                "ColumnName": "ClassF"
+              },
+              {
+                "Id": 3,
+                "ColumnName": "ClassB"
+              },
+              {
+                "Id": 4,
+                "ColumnName": "ClassC"
+              },
+              {
+                "Id": 5,
+                "ColumnName": "ClassD"
+              },
+              {
+                "Id": 6,
+                "ColumnName": "ClassE"
+              }
+            ],
+            "Type": 0,
+            "DelimiterType": 0,
+            "ExecutionType": 0,
+            "Id": 1
+          }
+        ],
+        "Styles": [
+          {
+            "Title": "【表示制御】不要なボタン削除",
+            "All": true,
+            "Body": "/*メールボタン削除*/\n\n#EditOutgoingMail{\n  display: none !important;\n}",
+            "Id": 1
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "【設定】サイトID",
+            "All": true,
+            "Body": "//サイトID\nconst event_Site_Id = 253123;  //イベント予定一覧\nconst event_Term = 253154;  //開始～終了期間",
+            "Id": 1
+          },
+          {
+            "Title": "【設定】サイトID取得",
+            "All": true,
+            "Body": "//（Updateかかるまでは中身空とすること）",
+            "Id": 2
+          },
+          {
+            "Title": "【設定】グローバル変数値",
+            "All": true,
+            "Body": "// デバッグON/OFF（グローバル）\nwindow.force = true; // false にすると出ない",
+            "Id": 3
+          },
+          {
+            "Title": "【共通関数】エラーポップアップ表示",
+            "All": true,
+            "Body": "function genErrorNo() {\n  return 'E-' + Date.now();\n}\n\n// 共通エラーアラート\nfunction showCommonError(errNo) {\n  const no = errNo || genErrorNo();\n  alert(\n    'エラーが発生しました。\\n' +\n    '操作をやり直しても解消しない場合は、\\n' +\n    'このエラー内容を管理者にお伝えください。\\n\\n' +\n     no\n  );\n\n  // デバッグ用（任意）\n  window.force && console.error('ERROR:', no);\n}\n// 使い方：\n// どこでもこれだけ\n// showCommonError();\n\n// 既にエラー番号がある場合\n// showCommonError('E-API-00123');\n",
+            "Id": 4
+          },
+          {
+            "Title": "【共通処理】ローディング画面",
+            "All": true,
+            "Body": "// 1.グローバル変数値として下記を設定\nwindow.loadingCount = window.loadingCount ?? 0;\nwindow.loadingMsg   = window.loadingMsg   ?? '読み込み中...';\n\n// 2．共通処理で読み込み中表示を作成する\n// =======================================\n// 読み込み表示\n// - count が 1 以上なら表示、0 で非表示\n// - incLoading(msg) / decLoading() を使う\n// =======================================\n\n\n// =======================================\n// _ensureOL\n// 説明：読み込みオーバーレイの DOM とスタイルを作成（既にあれば何もしない）\n// =======================================\nfunction _ensureOL(){\n  if (document.getElementById('loading-ol')) return;\n  // 最低限のアニメーション CSS を追加\n  const s = document.createElement('style');\n  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';\n  document.head.appendChild(s);\n\n  // オーバーレイ本体\n  const ol = document.createElement('div');\n  ol.id = 'loading-ol';\n  ol.style.cssText = 'position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.25);z-index:2147483647';\n\n  // 中身（白ボックス + スピナー + メッセージ）\n  ol.innerHTML = '<div style=\"background:#fff;padding:10px 14px;border-radius:6px;display:flex;gap:10px;align-items:center\">'\n               + '<span style=\"width:18px;height:18px;border:3px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin 1s linear infinite\"></span>'\n               + `<span id=\"loading-ol-msg\">${window.loadingMsg}</span></div>`;\n\n  document.body.appendChild(ol);\n}\n\n// =======================================\n// incLoading\n// 説明：読み込みカウントをインクリメント。最初の1回目で表示。\n// 引数：message（省略可） — 表示メッセージを一時的に変更\n// =======================================\nwindow.incLoading = function(msg){\n  window.loadingCount = (window.loadingCount || 0) + 1;\n  _ensureOL();\n  if (msg) {\n    const m = document.getElementById('loading-ol-msg');\n    if (m) m.textContent = msg;\n  }\n  if (window.loadingCount === 1) {\n    document.getElementById('loading-ol').style.display = 'flex';\n  }\n};\n\n// =======================================\n// decLoading\n// 説明：読み込みカウントをデクリメント。0 になったら非表示。\n// 注意：呼び出し回数と対応させる（負にはならない）\n// =======================================\nwindow.decLoading = function(){\n  window.loadingCount = Math.max(0, (window.loadingCount || 0) - 1);\n  if (window.loadingCount === 0) {\n    const el = document.getElementById('loading-ol');\n    if (el) el.style.display = 'none';\n  }\n};\n// ■使い方\n// incLoading();             // 表示（count = +1）\n// incLoading('読込中...');  // メッセージ変更して表示\n\n// decLoading();             // 非表示は count が 0 になった時",
+            "Id": 5
+          },
+          {
+            "Title": "【画面制御】店舗名選択肢作成スクリプト",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    'use strict';\n\n    // ------------------------------------------------------------------\n    // LinkChecker（最適化版）\n    // - 挙動は変更せず、以下を反映：\n    //   ・プルダウンは店舗名（ClassA）のみ表示（ResultId は表示しない）\n    //   ・店舗名 input を直接編集できないようにする（readonly）\n    // ------------------------------------------------------------------\n\n    // ---------- jQuery 安全参照 ----------\n    var $jq = (typeof window !== 'undefined' && typeof window.jQuery !== 'undefined')\n        ? window.jQuery\n        : (typeof window !== 'undefined' && typeof window.$ === 'function' ? window.$ : null);\n\n    if ($jq) {\n        window.force && console.info('LinkChecker: using jQuery (version ' + ($jq.fn && $jq.fn.jquery ? $jq.fn.jquery : 'unknown') + ')');\n    } else {\n        window.force && console.info('LinkChecker: jQuery not available, using vanilla DOM API as fallback.');\n    }\n\n    // ---------- メイン（画面読み込みなどで実行される入口） ----------\n    function processFlow() {\n        var siteId = event_Site_Id;\n\n        // テーブルがあるか確認（jQuery優先、なければバニラDOM）\n        var tableElem = null;\n        if ($jq) {\n            var $table = $jq('table[data-id=\"' + siteId + '\"]').first();\n            tableElem = ($table && $table.length) ? $table.get(0) : null;\n        } else {\n            tableElem = document.querySelector('table[data-id=\"' + siteId + '\"]');\n        }\n\n        if (tableElem) {\n            var ids = getResultIdsFromTable(tableElem);\n            handleFoundResultIds(ids);\n        } else {\n            // テーブルが無ければ URL の LinkId を探して処理\n            var linkId = getQueryParamFromLocation('LinkId');\n            if (linkId) {\n                handleFoundLinkId(linkId);\n            } else {\n                window.force && console.info('LinkChecker: 対象テーブル／LinkId が見つかりませんでした。event_Site_Id=' + siteId);\n            }\n        }\n    }\n\n    // ---------- テーブルから ResultId 列の値を取り出す ----------\n    // tableElem: HTMLTableElement を想定\n    function getResultIdsFromTable(tableElem) {\n        var ids = [];\n        if (!tableElem) return ids;\n\n        if ($jq) {\n            var $table = $jq(tableElem);\n            var $th = $table.find('thead tr th[data-name=\"ResultId\"]').first();\n            if (!$th || !$th.length) {\n                window.force && console.warn('LinkChecker: th[data-name=\"ResultId\"] が見つかりません。');\n                return ids;\n            }\n            var colIndex = $th.index();\n\n            $table.find('tbody tr').each(function () {\n                var $tr = $jq(this);\n                var $td = $tr.find('td').eq(colIndex);\n                if (!$td || !$td.length) return;\n                var text = $td.text().trim();\n                if (text) {\n                    ids.push(text);\n                } else {\n                    var $a = $td.find('a').first();\n                    if ($a && $a.length) {\n                        var href = $a.attr('href') || '';\n                        var fromHref = extractIdFromHref(href);\n                        if (fromHref) ids.push(fromHref);\n                    }\n                }\n            });\n        } else {\n            var thead = tableElem.querySelector('thead');\n            if (!thead) {\n                window.force && console.warn('LinkChecker: thead が見つかりません。');\n                return ids;\n            }\n            var th = thead.querySelector('tr th[data-name=\"ResultId\"]');\n            if (!th) {\n                window.force && console.warn('LinkChecker: th[data-name=\"ResultId\"] が見つかりません。');\n                return ids;\n            }\n            var headers = Array.prototype.slice.call(th.parentNode.children);\n            var colIndex = headers.indexOf(th);\n\n            var rows = tableElem.querySelectorAll('tbody tr');\n            Array.prototype.forEach.call(rows, function (row) {\n                var tds = row.querySelectorAll('td');\n                var td = tds[colIndex];\n                if (!td) return;\n                var text = (td.textContent || '').trim();\n                if (text) {\n                    ids.push(text);\n                } else {\n                    var a = td.querySelector('a');\n                    if (a) {\n                        var href = a.getAttribute('href') || '';\n                        var fromHref = extractIdFromHref(href);\n                        if (fromHref) ids.push(fromHref);\n                    }\n                }\n            });\n        }\n\n        // 重複を取り除く（順序は保持）\n        ids = ids.filter(function (v, i, self) { return self.indexOf(v) === i; });\n        return ids;\n    }\n\n    // ---------- href 文字列から id を抜き出す（/items/1234 や ?LinkId=1234） ----------\n    function extractIdFromHref(href) {\n        if (!href) return null;\n        var m = href.match(/\\/items\\/(\\d+)/);\n        if (m && m[1]) return m[1];\n        var searchMatch = href.match(/[?&]LinkId=(\\d+)/);\n        if (searchMatch && searchMatch[1]) return searchMatch[1];\n        return null;\n    }\n\n    // ---------- current URL からクエリパラメータを取る（安全に） ----------\n    function getQueryParamFromLocation(paramName) {\n        try {\n            var url = window.location.href || '';\n            var query = url.split('?')[1] || '';\n            if (!query) return null;\n            var searchParams = new URLSearchParams(query);\n            return searchParams.get(paramName);\n        } catch (e) {\n            var re = new RegExp('[?&]' + paramName + '=([^&]+)');\n            var m = window.location.href.match(re);\n            return m ? decodeURIComponent(m[1]) : null;\n        }\n    }\n\n    // ---------- テーブル抽出結果を受け取ったときの処理 ----------\n    function handleFoundResultIds(idsArray) {\n        window.force && console.log('LinkChecker: テーブルから取得した ResultId 一覧:', idsArray);\n        if (idsArray && idsArray.length) {\n            // 最初の ID を使って API を叩く（既存ロジックを維持）\n            sdtApifunction(idsArray[0]);\n        }\n    }\n\n    function handleFoundLinkId(linkId) {\n        window.force && console.log('LinkChecker: URL の LinkId:', linkId);\n        if (linkId) {\n            sdtApifunction(linkId);\n        }\n    }\n\n    // ---------- API 呼び出し周り（最適化した sdtApifunction） ----------\n    function sdtApifunction(saiteID) {\n        window.force && console.log('index開始');\n\n        // Promise の完了／失敗どちらでも decLoading を呼ぶ構成にする\n        fetchSiteKeyValues(saiteID).then(function (data) {\n            try {\n                // incLoading があれば呼ぶ（無ければ無視）\n                try { incLoading(); } catch (e) { /* 無ければスキップ */ }\n\n                // ここで取得した data がこの処理の主役\n                window.force && console.log('次の処理', data);\n                window.force && console.log('使用状況バッジ処理開始', { fn: 'sdtIndex' });\n\n                // ---------- 取得データを使って UI に選択肢を出す処理 ----------\n                // data.Response.Data を元に、#Results_ClassA をクリックした時に選択肢を出す。\n                (function () {\n                    // jQuery 有無を判定して操作関数を揃える\n                    var $local = (typeof $jq !== 'undefined' && $jq) ? $jq : (typeof window.jQuery !== 'undefined' ? window.jQuery : null);\n                    var useJq = !!$local;\n\n                    // 簡易 DOM 取得関数（jQuery の時は jQuery オブジェクトを返す）\n                    function getEl(selector) { return useJq ? $local(selector) : document.querySelector(selector); }\n                    function createEl(tag) { return document.createElement(tag); }\n\n                    // 取得データを安全に取り出す\n                    var items = [];\n                    try { items = (data && data.Response && Array.isArray(data.Response.Data)) ? data.Response.Data : []; } catch (e) { items = []; }\n\n                    // 対象の入力要素セレクタ（画面の構造に合わせる）\n                    var INPUT_A_SELECTOR = '#Results_ClassA'; // 店舗名（表示）\n                    var INPUT_Y_SELECTOR = '#Results_ClassY'; // イベント店舗ID（実体ID格納）\n\n                    var inputA = getEl(INPUT_A_SELECTOR);\n                    var inputY = getEl(INPUT_Y_SELECTOR);\n\n                    // jQuery の場合は DOM 要素を取り出す（操作は両方対応）\n                    var inputAEl = inputA ? (useJq ? inputA.get(0) : inputA) : null;\n                    var inputYEl = inputY ? (useJq ? inputY.get(0) : inputY) : null;\n\n                    if (!inputAEl || !inputYEl) {\n                        window.force && console.warn('LinkChecker: Results_ClassA または Results_ClassY の input が見つかりません。処理を中止します。');\n                        return;\n                    }\n\n                    // ★ 要求どおり：店舗名入力欄を直接編集できないようにする（readonly）\n                    try {\n                        inputAEl.setAttribute('readonly', 'readonly');\n                        // 見た目で入力できないことをわかりやすくするため、フォーカス時に選択肢が出るようにする\n                        inputAEl.style.cursor = 'pointer';\n                    } catch (e) {\n                        /* 属性設定が失敗しても動作自体は継続 */\n                    }\n\n                    // items をラベル／id の配列に変換し、空や不正なものは除外する\n                    var normalized = items.map(function (it) {\n                        return {\n                            label: (it && typeof it.ClassA !== 'undefined') ? String(it.ClassA) : '',\n                            id: (it && typeof it.ResultId !== 'undefined') ? String(it.ResultId) : ''\n                        };\n                    }).filter(function (it) {\n                        return it.label !== '' && it.id !== '';\n                    });\n\n                    if (!normalized.length) {\n                        window.force && console.info('LinkChecker: 選択肢データがありません（0件）。');\n                        return;\n                    }\n\n                    // 件数が1件ならプルダウンを出さずに自動で値を入れる（元の挙動を維持）\n                    if (normalized.length === 1) {\n                        try {\n                            if (useJq) {\n                                $local(INPUT_A_SELECTOR).val(normalized[0].label).trigger('change');\n                                $local(INPUT_Y_SELECTOR).val(normalized[0].id).trigger('change');\n                            } else {\n                                inputAEl.value = normalized[0].label;\n                                inputYEl.value = normalized[0].id;\n                                // change イベントを発火して外部のハンドラを動かす\n                                var evA = document.createEvent('HTMLEvents'); evA.initEvent('change', true, false); inputAEl.dispatchEvent(evA);\n                                var evY = document.createEvent('HTMLEvents'); evY.initEvent('change', true, false); inputYEl.dispatchEvent(evY);\n                            }\n                        } catch (e) {\n                            window.force && console.error('LinkChecker: 単独データ挿入でエラー', e);\n                        }\n                        return;\n                    }\n\n                    // 複数件ある場合はクリックで出すプルダウンを用意\n                    var DROPDOWN_ID = 'linkchecker-dropdown-ClassA';\n\n                    // 既存のドロップダウンを消す（再生成に備える）\n                    function removeDropdown() {\n                        var ex = document.getElementById(DROPDOWN_ID);\n                        if (ex && ex.parentNode) ex.parentNode.removeChild(ex);\n                        document.removeEventListener('click', onDocClickClose);\n                    }\n\n                    // ドキュメント外クリックで閉じる処理\n                    function onDocClickClose(evt) {\n                        var dd = document.getElementById(DROPDOWN_ID);\n                        if (!dd) return;\n                        var t = evt.target || evt.srcElement;\n                        if (!dd.contains(t) && t !== inputAEl) removeDropdown();\n                    }\n\n                    // ドロップダウン作成・表示\n                    function showDropdown() {\n                        removeDropdown();\n\n                        var container = createEl('div');\n                        container.id = DROPDOWN_ID;\n\n                        // 見た目の最低限スタイル（必要に応じて調整してください）\n                        container.style.position = 'absolute';\n                        container.style.zIndex = 99999;\n                        container.style.minWidth = (inputAEl.offsetWidth || 200) + 'px';\n                        container.style.maxHeight = '240px';\n                        container.style.overflowY = 'auto';\n                        container.style.border = '1px solid #ccc';\n                        container.style.background = '#fff';\n                        container.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';\n                        container.style.padding = '4px 0';\n                        container.style.borderRadius = '4px';\n\n                        // 各選択肢を作る。表示は「店舗名のみ」（ResultIdは表示しない仕様）\n                        normalized.forEach(function (item, idx) {\n                            var row = createEl('div');\n                            row.setAttribute('data-idx', String(idx));\n                            row.style.padding = '6px 10px';\n                            row.style.cursor = 'pointer';\n                            row.style.whiteSpace = 'nowrap';\n                            row.style.overflow = 'hidden';\n                            row.style.textOverflow = 'ellipsis';\n                            row.textContent = item.label; // ← ここで ID は表示しない\n\n                            // マウスオーバーの視覚フィードバック\n                            row.addEventListener('mouseenter', function () { row.style.background = '#f5f5f5'; });\n                            row.addEventListener('mouseleave', function () { row.style.background = 'transparent'; });\n\n                            // 項目をクリックしたらフォームに値を入れて閉じる\n                            row.addEventListener('click', function (ev) {\n                                ev.stopPropagation();\n                                try {\n                                    if (useJq) {\n                                        $local(INPUT_A_SELECTOR).val(item.label).trigger('change');\n                                        $local(INPUT_Y_SELECTOR).val(item.id).trigger('change');\n                                    } else {\n                                        inputAEl.value = item.label;\n                                        inputYEl.value = item.id;\n                                        var evA = document.createEvent('HTMLEvents'); evA.initEvent('change', true, false); inputAEl.dispatchEvent(evA);\n                                        var evY = document.createEvent('HTMLEvents'); evY.initEvent('change', true, false); inputYEl.dispatchEvent(evY);\n                                    }\n                                } catch (e) {\n                                    window.force && console.error('LinkChecker: ドロップダウン選択時にエラー', e);\n                                } finally {\n                                    removeDropdown();\n                                }\n                            });\n\n                            container.appendChild(row);\n                        });\n\n                        // 入力欄の位置下に表示する（スクロールを考慮）\n                        var rect = inputAEl.getBoundingClientRect();\n                        var scrollLeft = (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0);\n                        var scrollTop = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);\n                        container.style.left = (rect.left + scrollLeft) + 'px';\n                        container.style.top = (rect.bottom + scrollTop + 4) + 'px';\n\n                        document.body.appendChild(container);\n\n                        // 外側クリックで閉じるためのイベント（直後に登録）\n                        setTimeout(function () { document.addEventListener('click', onDocClickClose); }, 0);\n                    }\n\n                    // 入力欄クリックでプルダウンをトグル（既にあるなら閉じる）\n                    function onInputClick(ev) {\n                        ev.stopPropagation();\n                        var ex = document.getElementById(DROPDOWN_ID);\n                        if (ex) { removeDropdown(); return; }\n                        showDropdown();\n                    }\n\n                    // キーボードで閉じる（Esc）\n                    function onKeyDown(ev) {\n                        if (ev.key === 'Escape' || ev.keyCode === 27) removeDropdown();\n                    }\n\n                    // イベント登録（jQuery なら off/on で上書き、バニラなら removeEventListener→addEventListener）\n                    if (useJq) {\n                        $local(INPUT_A_SELECTOR).off('.linkchecker').on('click.linkchecker', onInputClick);\n                        $local(INPUT_A_SELECTOR).off('keydown.linkchecker').on('keydown.linkchecker', function (e) {\n                            if (e.key === 'Escape' || e.keyCode === 27) { e.preventDefault(); removeDropdown(); }\n                        });\n                    } else {\n                        try { inputAEl.removeEventListener('click', onInputClick); } catch (e) {}\n                        inputAEl.addEventListener('click', onInputClick);\n                        document.removeEventListener('keydown', onKeyDown);\n                        document.addEventListener('keydown', onKeyDown);\n                    }\n                })();\n                // ---------- 取得データを使った UI 処理 終了 ----------\n\n                // ここに追加のデータ処理（grouping 等）を入れても良い\n\n            } catch (err) {\n                // エラーが発生しても decLoading を確実に呼ぶためにログだけ出す\n                window.force && console.error('LinkChecker: sdtApifunction 内処理エラー', err);\n            } finally {\n                // 常に decLoading を呼ぶ（無ければ無視）\n                try { decLoading(); } catch (e) { /* 無ければスキップ */ }\n            }\n        }).catch(function (err) {\n            // fetchSiteKeyValues が失敗した場合も decLoading を呼ぶ\n            try { decLoading(); } catch (e) { /* 無ければスキップ */ }\n\n            try { showCommonError(err); } catch (e) { /* 無ければスキップ */ }\n            window.force && console.error('LinkChecker: fetchSiteKeyValues エラー（sdtApifunction catch）', err);\n        });\n    }\n\n    // ---------- データ取得（ページング対応） ----------\n    function fetchSiteKeyValues(siteId) {\n        window.force && console.log('処理開始', { siteId: siteId });\n\n        return new Promise(function (resolve, reject) {\n            var offset = 0;\n            var allData = [];\n            var firstResponse = null;\n\n            function getPage() {\n                var postData = {\n                    View: {\n                        \"ApiDataType\": \"KeyValues\",\n                        \"ApiColumnKeyDisplayType\": \"ColumnName\",\n                        \"ApiColumnValueDisplayType\": \"DisplayValue\",\n                        \"GridColumns\": [\"ResultId\",\"ClassA\",\"DateA\",\"DateB\"],\n                        \"ColumnFilterHash\": {\n                            \"ClassB\": JSON.stringify([ String(siteId) ])\n                        }\n                    },\n                    Offset: offset\n                };\n\n                $p.apiGet({\n                    id: event_Term,\n                    data: postData,\n                    done: function (data) {\n                        var resp = (data && data.Response) ? data.Response : null;\n                        if (!resp) {\n                            showCommonError(500);\n                            return reject(500);\n                        }\n\n                        if (!firstResponse) firstResponse = data;\n\n                        var pageData = Array.isArray(resp.Data) ? resp.Data : [];\n                        Array.prototype.push.apply(allData, pageData);\n\n                        var pageSize = (typeof resp.PageSize === 'number' && resp.PageSize > 0) ? resp.PageSize : pageData.length;\n                        var totalCount = (typeof resp.TotalCount === 'number') ? resp.TotalCount : allData.length;\n\n                        window.force && console.log('ページ取得', { offset: offset, pageSize: pageSize, totalCount: totalCount, got: pageData.length });\n\n                        if (offset + pageSize < totalCount) {\n                            offset += pageSize;\n                            getPage();\n                        } else {\n                            if (firstResponse && firstResponse.Response) {\n                                firstResponse.Response.Data = allData;\n                                firstResponse.Response.Offset = 0;\n                                firstResponse.Response.PageSize = allData.length;\n                                firstResponse.Response.TotalCount = totalCount;\n                                resolve(firstResponse);\n                            } else {\n                                resolve(allData);\n                            }\n                        }\n                    },\n                    fail: function (err) {\n                        showCommonError(err);\n                        reject(err);\n                    }\n                });\n            }\n\n            getPage();\n        });\n    }\n\n    // ---------- Pleasanter イベント接続 & 起動 ----------\n    if (typeof $p !== 'undefined' && $p && $p.events) {\n        $p.events.on_editor_load = function () { processFlow(); };\n        $p.events.after_set = function () { processFlow(); };\n    }\n\n    // DOM ready でも保険で実行\n    if ($jq) {\n        $jq(function () { processFlow(); });\n    } else {\n        if (document.readyState === 'loading') {\n            document.addEventListener('DOMContentLoaded', function () { processFlow(); });\n        } else {\n            processFlow();\n        }\n    }\n\n})();\n",
+            "Id": 6
+          },
+          {
+            "Title": "【表示制御】新規・編集画面　画面表示時イベント店舗IDを読み取り専用切り替える処理",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    'use strict';\n\n    // ============================\n    // replaceText: 実際の無効化処理\n    // - #Results_ClassY を編集不可にする（マウス・TAB を無効化）\n    // - 見た目のスタイルを指定どおりに上書き\n    // - 同じ処理を何度呼んでも副作用が出ないようにする\n    // ============================\n    function replaceText() {\n        try {\n            // 要素を取得（jQuery があればそれを優先、なければ document.getElementById）\n            var el = (typeof window.$ === 'function') ? window.$('#Results_ClassY').get(0) : document.getElementById('Results_ClassY');\n            if (!el) return; // 要素が見つからなければ何もしない\n\n            // 既に適用済みなら再適用は不要（副作用回避）\n            if (el.dataset && el.dataset.linkCheckerApplied === '1') {\n                // ただしスタイルや属性が崩れている可能性に備えて再設定（安全な範囲のみ）\n                try {\n                    el.setAttribute('readonly', 'readonly');\n                    el.setAttribute('tabindex', '-1');\n                    el.setAttribute('aria-disabled', 'true');\n                    el.style.color = '#000';\n                    el.style.background = '#f5f5f5';\n                    el.style.border = 'solid 1px #c0c0c0';\n                } catch (e) { /* ignore */ }\n                return;\n            }\n\n            // 1) 編集を禁止（ユーザーが文字を打ち込めないようにする）\n            el.setAttribute('readonly', 'readonly');\n\n            // 2) TABキーでフォーカスが移動しないようにする\n            el.setAttribute('tabindex', '-1');\n\n            // 3) 支援技術向けに「無効」であることを示す\n            el.setAttribute('aria-disabled', 'true');\n\n            // 4) 見た目を指定どおりにセット\n            el.style.color = '#000';\n            el.style.background = '#f5f5f5';\n            el.style.border = 'solid 1px #c0c0c0';\n\n            // 5) マウスクリックでの編集開始を防ぐ（mousedown のデフォルト動作を抑止）\n            //    ※ stopPropagation は行わない（他スクリプトへの影響回避）\n            var onMouseDown = function (ev) {\n                try { ev.preventDefault(); } catch (e) { /* ignore */ }\n            };\n\n            // 6) フォーカスが来たらすぐ外す（念のため）\n            var onFocus = function () {\n                try { el.blur(); } catch (e) { /* ignore */ }\n            };\n\n            // イベントの重複登録を避けるため、フラグを使って一度だけ登録する\n            // dataset が使えない環境でも name 属性にマークを残す（互換）\n            if (el.dataset) {\n                el.dataset.linkCheckerApplied = '1';\n            } else {\n                el.setAttribute('data-linkchecker-applied', '1');\n            }\n\n            // addEventListener で登録（既存リスナは残す）\n            el.addEventListener('mousedown', onMouseDown, false);\n            el.addEventListener('focus', onFocus, false);\n\n        } catch (err) {\n            // 何かあっても影響を他に広げない（ログのみ）\n            try { console.error('replaceText error:', err); } catch (e) { /* ignore */ }\n        }\n    }\n\n    // ============================\n    // トリガー登録（ご提示の方式に合わせる）\n    // - 初回: $(function(){ replaceText(); })\n    // - 保存・更新後: $p.events.after_set を上書きせずラップして呼ぶ\n    // ※ jQuery が無い場合は代替で DOMContentLoaded を使い、$p.events が無ければ何もしない\n    // ============================\n\n    // 初回（jQuery があればその ready を使う）\n    if (typeof window.$ === 'function') {\n        try {\n            // 指定の書き方を忠実に再現\n            $(function () {\n                replaceText();\n            });\n        } catch (e) {\n            // 念のため DOMContentLoaded にフォールバック\n            document.addEventListener('DOMContentLoaded', replaceText);\n        }\n    } else {\n        // jQuery が無ければ DOMContentLoaded で一度だけ実行\n        if (document.readyState === 'loading') {\n            document.addEventListener('DOMContentLoaded', replaceText);\n        } else {\n            replaceText();\n        }\n    }\n\n    // 保存・更新後のイベント追加（既存の after_set を壊さない）\n    if (typeof window.$p !== 'undefined' && $p && $p.events) {\n        var originalAfterSet = $p.events.after_set;\n        $p.events.after_set = function () {\n            // まず元の処理をそのまま実行（あれば）\n            if (typeof originalAfterSet === 'function') {\n                try { originalAfterSet.apply(this, arguments); } catch (e) { console.error(e); }\n            }\n            // その後に最小の処理を一度だけ呼ぶ\n            replaceText();\n        };\n    } else {\n        // $p.events が無ければ何もしない（ユーザー指定のトリガー条件に忠実）\n    }\n\n})();\n",
+            "Id": 7
+          }
+        ],
+        "AllowCopy": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 253148,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}
