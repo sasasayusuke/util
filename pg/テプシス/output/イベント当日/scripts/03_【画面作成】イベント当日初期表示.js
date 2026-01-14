@@ -119,6 +119,15 @@
         }
       }
 
+      // LinkIdもPERIOD_IDも取得できない場合、画面上のPERIOD_IDから取得
+      if (!periodId) {
+        var classZValue = $p.getControl(TABLES.EVENT_DAY.COLUMNS.PERIOD_ID).val();
+        if (classZValue) {
+          periodId = classZValue;
+          window.force && console.log('画面上のPERIOD_IDから取得:', periodId);
+        }
+      }
+
       if (!periodId) {
         window.force && console.warn('開始～終了期間のIDが取得できません');
         return;
@@ -180,6 +189,16 @@
 
       // 開催イベント一覧に戻るリンクを設定
       $('#fn-linkBackToList').attr('href', location.origin + '/items/' + EVENT_OPEN_LIST_SITE_ID + '/index');
+
+      // 先方テーブル初期化（04で実装）
+      if (typeof window.loadVipList === 'function') {
+        window.loadVipList();
+      }
+
+      // 勤務登録テーブル初期化（05で実装）
+      if (typeof window.loadWorkList === 'function') {
+        window.loadWorkList();
+      }
 
     } catch (error) {
       window.force && console.error('イベント情報取得エラー:', error);
@@ -405,16 +424,6 @@
 
       // 折り畳み機能初期化
       initToggle();
-
-      // 先方テーブル初期化（04で実装）
-      if (typeof window.loadVipList === 'function') {
-        window.loadVipList();
-      }
-
-      // 勤務登録テーブル初期化（05で実装）
-      if (typeof window.loadWorkList === 'function') {
-        window.loadWorkList();
-      }
 
     } catch (e) {
       window.force && console.error('initEventDay error', e);
