@@ -167,7 +167,7 @@
             TABLES.EVENT_LIST.COLUMNS.AREA_DETAIL,
             'ResultId'],
           setLabelText: false,
-          setDisplayValue: 'Value',
+          setDisplayValue: 'DisplayValue',
         });
 
         if (eventRecord) {
