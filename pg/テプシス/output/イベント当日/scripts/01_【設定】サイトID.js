@@ -42,7 +42,8 @@
         CATEGORY: 'ClassA',            // カテゴリー
         EVENT_NAME: 'ClassB',          // イベント名・出店名
         ORGANIZER: 'ClassC',           // 開催者or依頼主
-        AREA: 'ClassD'                 // 担当エリア
+        AREA: 'ClassF',                // 開催エリア
+        AREA_DETAIL: 'DescriptionB'    // 開催エリア詳細
       }
     },
     // 先方（要人）テーブル

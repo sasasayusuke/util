@@ -164,6 +164,7 @@
             TABLES.EVENT_LIST.COLUMNS.EVENT_NAME,
             TABLES.EVENT_LIST.COLUMNS.ORGANIZER,
             TABLES.EVENT_LIST.COLUMNS.AREA,
+            TABLES.EVENT_LIST.COLUMNS.AREA_DETAIL,
             'ResultId'],
           setLabelText: false,
           setDisplayValue: 'Value',
@@ -231,7 +232,8 @@
     $('#fn-infoArea').text(area);
 
     // 開催エリア詳細
-    $('#fn-infoAreaDetail').text('-');
+    var areaDetail = window.eventRecord[TABLES.EVENT_LIST.COLUMNS.AREA_DETAIL] || '-';
+    $('#fn-infoAreaDetail').text(areaDetail);
 
     // 開催期間
     var startDate = window.periodRecord[TABLES.PERIOD.COLUMNS.START_DATE] || '';

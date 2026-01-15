@@ -47,6 +47,10 @@
     if (dateFrom && dateTo && dateFrom > dateTo) {
       errors.push('開催期間の開始日は終了日より前の日付を指定してください');
     }
+    var note = $('#fn-formNote').val() || '';
+    if (note.length > 51) {
+      errors.push('その他詳細は51文字以内で入力してください');
+    }
     if (errors.length > 0) {
       alert(errors.join('\n'));
       return null;
