@@ -30,7 +30,8 @@
 
   /**
    * getHeaderHeight
-   * - #Header 要素の「見た目の高さ」をピクセル単位で返します。
+   * - #Header 要素の「見た目の高さ」および .both.cf 要素の高さをピクセル単位で合算し、
+   *   さらに 10px を加えた合計を返します。
    * - 要素が見つからなければ 0 を返します。
    *
    * @returns {number} headerHeightPx - 整数ピクセル
@@ -38,14 +39,35 @@
   function getHeaderHeight() {
     var $header = $('#Header');
 
-    if ($header.length === 0) {
-      return 0;
+    var headerHeight = 0;
+    if ($header.length !== 0) {
+      var rect = $header[0].getBoundingClientRect();
+      headerHeight = Math.round(rect.height || 0);
+      if (headerHeight < 0) {
+        headerHeight = 0;
+      }
     }
 
-    var rect = $header[0].getBoundingClientRect();
-    var h = Math.round(rect.height || 0);
+    // .both.cf 要素の高さを取得（パンくず・更新者エリア）
+    var bothHeight = 0;
+    var $both = $('.both.cf');
+    if ($both.length !== 0) {
+      try {
+        var bothRect = $both[0].getBoundingClientRect();
+        bothHeight = Math.round(bothRect.height || 0);
+        if (bothHeight < 0) {
+          bothHeight = 0;
+        }
+      } catch (e) {
+        bothHeight = 0;
+        window.force && console.error('.both.cf height read error', e);
+      }
+    }
 
-    return (h > 0) ? h : 0;
+    // 合計に 10px を上乗せする
+    var total = headerHeight + bothHeight + 10;
+
+    return (total > 0) ? total : 0;
   }
 
   /**
