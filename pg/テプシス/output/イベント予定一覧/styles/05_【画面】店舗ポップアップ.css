@@ -1,0 +1,209 @@
+/* ============================================================
+  店舗詳細ポップアップ
+============================================================ */
+
+/* 最前面の固定レイヤ */
+.sdt-popup-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+}
+
+.sdt-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 16px;
+  background: rgba(147, 147, 147, 0.25);
+}
+
+
+/* モーダル本体 */
+.sdt-popup {
+  width: min(1120px, 100%);
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, "Noto Sans JP", sans-serif;
+}
+
+/* ヘッダー */
+.sdt-popup__header {
+  position: relative;
+  background: #fff;
+  padding: 14px 18px;
+}
+
+/* タイトル */
+.sdt-popup__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2d3a45;
+  line-height: 1.2;
+}
+
+/* 閉じるボタン */
+.sdt-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #77c3d8;    
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.sdt-popup__close:hover {
+  background: rgba(119, 195, 216, 0.12);
+}
+
+.sdt-popup__close:active {
+  background: rgba(119, 195, 216, 0.18);
+}
+
+/* ボディ */
+.sdt-popup__body {
+  padding: 14px 16px 16px;
+  background: #fff;
+}
+
+/* ============================================================
+  テーブル
+============================================================ */
+
+.sdt-popup-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #d9e2ea;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* ヘッダーセル*/
+.sdt-popup-table__th {
+  color: #5f6d79;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid #dfe7ef;
+  white-space: nowrap;
+}
+
+/* ボディセル*/
+.sdt-popup-table__td {
+  background: #fff;
+  color: #33424f;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 18px 18px;
+  border-bottom: 1px solid #e6eef6;
+  vertical-align: middle;
+}
+
+
+/* 行ホバー */
+.sdt-popup-table tbody tr:hover .sdt-popup-table__td {
+  background: #fbfdff;
+}
+
+/* 店舗名リンク */
+.sdt-popup-event-link {
+  color: #77c3d8;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sdt-popup-event-link:hover {
+  text-decoration: underline;
+}
+
+/* チェックボックス */
+.sdt-popup-checkbox {
+  transform: scale(1.15);
+  transform-origin: left center;
+}
+
+/* ============================================================
+  ソートアイコン
+============================================================ */
+.sdt-popup-table__th[data-sort-key] {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sdt-popup-table__th[data-sort-key]::after {
+  content: "⇅";
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10px;
+  color: #9aa8b4;
+  transform: translateY(-1px);
+}
+
+/* 昇順／降順の表示 */
+.sdt-popup-table__th[data-sort-order="asc"]::after {
+  content: "⇅";
+  font-size: 11px;
+}
+
+.sdt-popup-table__th[data-sort-order="desc"]::after {
+  content: "⇅";
+  font-size: 11px;
+}
+
+.sdt-popup__body {
+  overflow-x: auto;
+}
+
+/* ============================================================
+   チェックマーク
+============================================================ */
+
+/* 元のcheckboxは消す */
+.sdt-popup-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  cursor: default;
+}
+
+/* チェックON */
+.sdt-popup-checkbox:checked::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 8px;
+  height: 14px;
+  border-right: 4px solid #1f2933; 
+  border-bottom: 4px solid #1f2933;
+  transform: rotate(45deg);
+}
+
+.sdt-popup-checkbox:not(:checked)::before {
+  content: none;
+}
+
+.sdt-popup-checkbox:disabled {
+  opacity: 1;
+}

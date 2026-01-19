@@ -1,12 +1,20 @@
 //開催イベント一覧サイトID
-const LIST_SCREEN_SITE_ID = '2832883';
-const event_Site_Id = '253123';  //イベント予定一覧
-const store_Site_Id = '253115';  //店舗名
-const period_Site_Id = '253154';  //開始～終了
-const dispatch_Site_Id= '253132';  //派遣要否
-const novelty_Site_Id = '253141';  //ノベルティ配布
+const event_Site_Id = '255671';  //イベント予定一覧
+const store_Site_Id = '255646';  //店舗名
+const period_Site_Id = '255692';  //開始～終了
+const dispatch_Site_Id= '255686';  //派遣者
+const novelty_Site_Id = '255681';  //ノベルティ配布
+const foodTruck_site_ID = '255693'; // キッチンカー
+const vipList_site_ID = '255684'; // 先方（要人）
 
-// 各画面URL（相対パス）
-// サイトID、URLに合わせて修正要
-const urlA = `/items/253123/edit`;
-const urlB = `/items/253382?back=1&FromTabIndex=0
+//サイトID指定
+const check_period_Site = 255692;  //開始～終了
+const check_foodTruck_site = 255693; // キッチンカー
+const check_vipList_site = 255684; // 先方（要人）
+
+//品目表示で使用
+//リンクテーブルID
+const achievement_table_id = '#Results_Source255690'; 　//店舗実績リンク
+const items_table_id = '#Results_Source255674'; 　//品目リンク
+const startEnd_table_id  = '#Results_Source255692';  //開始～終了期間リンク
+

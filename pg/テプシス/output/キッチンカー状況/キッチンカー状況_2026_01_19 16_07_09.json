@@ -1,0 +1,308 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 255669,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T07:07:09.4101785+00:00",
+    "Convertors": [
+      {
+        "SiteId": 255669,
+        "SiteTitle": "キッチンカー状況",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 255669,
+      "Title": "キッチンカー状況",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 255668,
+      "InheritPermission": 255669,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ClassA",
+          "DateA",
+          "DateB",
+          "ClassB",
+          "DateC",
+          "DateD"
+        ],
+        "FilterColumns": [
+          "ClassD",
+          "ClassE",
+          "ClassF",
+          "ClassG",
+          "ClassH",
+          "ClassI",
+          "ClassJ",
+          "ClassK",
+          "ClassL",
+          "ClassM",
+          "ClassN",
+          "ClassO",
+          "ClassP",
+          "ClassQ",
+          "ClassR",
+          "ClassS",
+          "ClassT",
+          "ClassU",
+          "ClassV",
+          "ClassW",
+          "ClassX",
+          "ClassY",
+          "ClassZ",
+          "NumA",
+          "NumB",
+          "NumC",
+          "NumD",
+          "NumE",
+          "NumF",
+          "NumG",
+          "NumH",
+          "NumI",
+          "NumJ",
+          "NumK",
+          "NumL",
+          "NumM",
+          "NumN",
+          "NumO",
+          "NumP",
+          "NumQ",
+          "NumR",
+          "NumS",
+          "NumT",
+          "NumU",
+          "NumV",
+          "NumW",
+          "NumX",
+          "NumY",
+          "NumZ",
+          "DateE",
+          "DateF",
+          "DateG",
+          "DateH",
+          "DateI",
+          "DateJ",
+          "DateK",
+          "DateL",
+          "DateM",
+          "DateN",
+          "DateO",
+          "DateP",
+          "DateQ",
+          "DateR",
+          "DateS",
+          "DateT",
+          "DateU",
+          "DateV",
+          "DateW",
+          "DateX",
+          "DateY",
+          "DateZ",
+          "CheckB",
+          "CheckC",
+          "CheckD",
+          "CheckE",
+          "CheckF",
+          "CheckG",
+          "CheckH",
+          "CheckI",
+          "CheckJ",
+          "CheckK",
+          "CheckL",
+          "CheckM",
+          "CheckN",
+          "CheckO",
+          "CheckP",
+          "CheckQ",
+          "CheckR",
+          "CheckS",
+          "CheckT",
+          "CheckU",
+          "CheckV",
+          "CheckW",
+          "CheckX",
+          "CheckY",
+          "CheckZ"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "ClassA",
+            "DateA",
+            "DateB",
+            "ClassB",
+            "DateC",
+            "DateD"
+          ]
+        },
+        "TitleColumns": [
+          "ClassA"
+        ],
+        "LinkColumns": [
+          "ClassA",
+          "DateA",
+          "DateB",
+          "ClassB",
+          "DateC",
+          "DateD",
+          "CheckA"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "キッチンカー名",
+            "NoWrap": true,
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "直近の予約期間(開始日)",
+            "NoWrap": true,
+            "EditorReadOnly": true
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "直近の予約期間(終了日)",
+            "EditorReadOnly": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "使用先イベント名称",
+            "ChoicesText": "[[255671]]",
+            "NoWrap": true,
+            "Hide": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "使用不可期間(開始日)",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "DateD",
+            "LabelText": "使用不可期間(終了日)"
+          },
+          {
+            "ColumnName": "CheckA",
+            "DefaultInput": "false"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "キッチンカー",
+            "ChoicesText": "[[255693]]",
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "キッチンカーId",
+            "Hide": true
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassC",
+            "SiteId": 255693
+          },
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 255671
+          }
+        ],
+        "UpdatableImport": true,
+        "Styles": [
+          {
+            "Title": "css",
+            "All": true,
+            "Body": "/* ================================\n   モーダル背景\n================================ */\n.sdt-modal-wrap {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.25);\n  z-index: 9999;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  padding-top: 40px;\n}\n\n/* ================================\n   モーダル本体\n================================ */\n.sdt-modal {\n  position: relative;\n  width: 760px;\n  max-width: calc(100% - 32px);\n  background: #fff;\n  border: 1px solid #e6edf3;\n  border-radius: 10px;\n  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);\n  padding: 22px 26px 24px;\n}\n\n/* タイトル */\n.sdt-modal__header {\n  margin-bottom: 14px;\n}\n\n.sdt-modal__title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #2b2f33;\n}\n\n/* 右上の× */\n.sdt-modal__close {\n  position: absolute;\n  top: 14px;\n  right: 14px;\n  width: 36px;\n  height: 36px;\n  border: none;\n  background: transparent;\n  font-size: 28px;\n  line-height: 36px;\n  cursor: pointer;\n  color: #47a9c6; /* 画像の水色寄せ */\n}\n\n.sdt-modal__close:hover {\n  opacity: 0.8;\n}\n\n/* ================================\n   中身（枠）\n================================ */\n.sdt-modal__content {\n  border: 1px solid #e6edf3;\n  border-radius: 8px;\n  padding: 22px;\n  background: #fff;\n}\n\n/* ================================\n   フィールド\n================================ */\n.sdt-field__label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #4b5560;\n  margin-bottom: 10px;\n}\n\n.sdt-field__required {\n  color: #e53935;\n  font-weight: 700;\n  margin-left: 4px;\n}\n\n.sdt-field__input {\n  width: 100%;\n  height: 54px;\n  border: 1px solid #d8e2ea;\n  border-radius: 6px;\n  padding: 0 16px;\n  font-size: 16px;\n  color: #2b2f33;\n  outline: none;\n  background: #fff;\n}\n\n.sdt-field__input:focus {\n  border-color: #7fc6dc;\n  box-shadow: 0 0 0 4px rgba(127, 198, 220, 0.18);\n}\n\n/* ================================\n   ボタン配置\n================================ */\n.sdt-actions {\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 18px;\n}\n\n/* ================================\n   ボタン\n================================ */\n.sdt-btn {\n  height: 44px;\n  min-width: 140px;\n  padding: 0 18px;\n  border-radius: 8px;\n  border: 1px solid transparent;\n  font-size: 15px;\n  font-weight: 700;\n  cursor: pointer;\n}\n\n.sdt-btn--primary {\n  background: #56b6cf; /* 画像の水色寄せ */\n  border-color: #56b6cf;\n  color: #fff;\n}\n\n.sdt-btn--primary:hover {\n  opacity: 0.9;\n}\n",
+            "Id": 1
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "サイトID",
+            "Index": true,
+            "Body": "date_Site_Id = \"255693\"; //キッチンカー（出力）必要なのは期間のみ\nkitchen_Site_Id = \"255669\"; //キッチンカー状況必要なのはキッチンカー名",
+            "Id": 7
+          },
+          {
+            "Title": "CDN読み込み",
+            "Index": true,
+            "Body": "let fnExcelJsReady = false;\n\n(function () {\n  const elm = document.createElement(\"script\");\n  elm.src = \"https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js\";\n  elm.onload = function () {\n    fnExcelJsReady = true;\n    console.log(\"ExcelJS ready\");\n  };\n  document.head.appendChild(elm);\n})();\n\n",
+            "Id": 4
+          },
+          {
+            "Title": "Excelダウンロードボタン",
+            "Index": true,
+            "Body": "/* ============================================================\n   一覧画面表示時：State / Kitchen を取得\n============================================================ */\n// DOMが読み込まれたタイミングで実行（Pleasanter一覧画面表示直後の想定）\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  apiGet(); // kitchen と date の2サイトを API 取得する\n});\n\nlet classAList = []; // Excel縦軸（A列）に並べる「キッチン名」一覧（取得できているかのチェックにも使う）\nlet StateMap = {}; // State：{ \"253262\": \"Aさん\", ... } 形式の「レコードID → 表示名」マップ\nlet PeriodsOK = []; // 利用期間（〇を付ける期間）\nlet PeriodsNG = []; // 使用不可期間（使用不可で上書きする期間）\n\n/* ============================================================\n   apiGet：2つのサイトからデータを取得し、必要形に加工して保持\n============================================================ */\nfunction apiGet() {\n  /* ============================================================\n     kitchen_Site_Id：ID → 名前 マッピング + 使用不可期間（DateC/DateD）\n  ============================================================ */\n  $p.apiGet({\n    id: kitchen_Site_Id, // PleasanterのサイトID（kitchen側）\n    data: {},\n    done: function (data) {\n      // Pleasanter返却形式の差を吸収して rows（行配列）を取り出す\n      // - data.Response.Data があるパターン\n      // - data.Data があるパターン\n      // - data 自体が配列のパターン\n      const rows =\n        (data && data.Response && data.Response.Data) ? data.Response.Data :\n        (data && data.Data) ? data.Data :\n        (Array.isArray(data) ? data : []);\n      const map = {};          // kitchenのレコードID → 表示名 のマップ\n      const unavailable = [];  // 使用不可期間の配列\n      // rows を1行ずつ処理してマップ・期間配列を作成する\n      for (let i = 0; i < rows.length; i++) {\n        const r = rows[i]; // i行目のレコード\n        const rid = r?.ResultId ?? r?.Id ?? r?.id; // kitchenのレコードID（ResultId / Id / id の表記ゆれ吸収）\n        const name = r?.ClassHash?.ClassA; // キッチン名を ClassA から取得\n\n        // rid と name がそろっている場合のみ、ID→名前マップに登録\n        if (rid && name) {\n          map[String(rid).trim()] = String(name).trim(); // 空白混入を避けるため trim\n        }\n\n        // ======== 使用不可期間（DateC/DateD）========\n        // DateC/DateD の表記ゆれ（DateC/dateC）両対応で取り出す\n        const rawC = r?.DateHash?.DateC ?? r?.DateHash?.dateC; // 開始\n        const rawD = r?.DateHash?.DateD ?? r?.DateHash?.dateD; // 終了\n        // 文字列に変換して trim（null/undefinedでも落ちない）\n        const cStr = String(rawC ?? \"\").trim();\n        const dStr = String(rawD ?? \"\").trim();\n\n        // rid または日付が空なら「使用不可期間なし」と判断してスキップ\n        if (!rid || !cStr || !dStr) continue;\n        // Pleasanterの未入力日付（1899-12-30…）は期間として扱わない\n        if (cStr.startsWith(\"1899-12-30\")) continue;\n        if (dStr.startsWith(\"1899-12-30\")) continue;\n\n        // 使用不可期間として採用（Excelではこの期間を「使用不可」で上書きする）\n        unavailable.push({\n          stateId: String(rid).trim(), // kitchenレコードID（行割当のキー）\n          start: cStr,                 // 使用不可開始\n          end: dStr,                   // 使用不可終了\n        });\n      }\n      StateMap = map; // 作成した ID→名前マップを保存\n\n      // Excel縦軸用（表示名一覧）を作成\n      classAList = Object.keys(map).map(function (k) {\n        return map[k]; // id から name のみ取り出す\n      });\n      // 使用不可期間を window に保存（Excel作成時に参照するため）\n      window.PeriodsNG = unavailable;\n    },\n  });\n\n  /* ============================================================\n    date_Site_Id：利用期間（DateA/DateB）\n  ============================================================ */\n  $p.apiGet({\n    id: date_Site_Id, // PleasanterのサイトID（date側）\n    data: {},         // 検索条件なし（全件取得の想定）\n    done: function (data) { // 取得完了時コールバック（非同期）\n\n      // Pleasanter返却形式の差を吸収して rows（行配列）を取り出す\n      const rows =\n        (data && data.Response && data.Response.Data) ? data.Response.Data :\n        (data && data.Data) ? data.Data :\n        (Array.isArray(data) ? data : []);\n\n      const periods = []; // 利用期間の格納先（〇を付ける期間）\n\n      // rows を1行ずつ処理して periods を作成する\n      for (let i = 0; i < rows.length; i++) {\n        const r = rows[i]; // i行目のレコード\n\n        // date側のClassAは kitchenのレコードID（配列/JSON/文字列があり得る）\n        // → 先頭1件を取り出す（行割当キーとして使うため）\n        const stateId = fnPickFirstId(r?.ClassHash?.ClassA);\n\n        // DateA/DateB（表記ゆれ両対応）で開始/終了を取得\n        const startRaw = r?.DateHash?.DateA ?? r?.DateHash?.dateA; // 利用開始\n        const endRaw = r?.DateHash?.DateB ?? r?.DateHash?.dateB;   // 利用終了\n\n        // stateId が無い/0 の場合は不正データとして除外\n        if (!stateId || stateId === \"0\") continue;\n\n        // 日付は文字列として扱う（T以降の時刻は後で捨てる）\n        const startStr = String(startRaw ?? \"\").trim();\n        const endStr = String(endRaw ?? \"\").trim();\n\n        // 日付が揃っていないなら期間として扱えないので除外\n        if (!startStr || !endStr) continue;\n\n        // 未入力日付（1899-12-30…）は除外（Pleasanterの仕様対策）\n        if (startStr.startsWith(\"1899-12-30\")) continue;\n        if (endStr.startsWith(\"1899-12-30\")) continue;\n\n        // 利用期間として採用（Excelでこの範囲に「〇」を入れる）\n        periods.push({\n          stateId: stateId,  // kitchenレコードID（行割当キー）\n          start: startStr,   // 利用開始\n          end: endStr,       // 利用終了\n        });\n      }\n\n      // 利用期間を window に保存（Excel作成時に参照するため）\n      window.PeriodsOK = periods;\n\n      // デバッグログ：利用期間が作れているか確認\n      console.log(\"[Kitchen] 利用期間配列 作成OK\", {\n        count: periods.length,\n        sample: periods.slice(0, 5),\n      });\n    },\n  });\n}\n\n/* ============================================================\n    一覧画面：ボタン追加\n============================================================ */\n(function () {\n  const el = document.getElementById(\"MainCommands\"); // Pleasanterのコマンド領域DOM\n  if (!el) return; // 見つからない画面では何もしない\n  if (document.getElementById(\"fn-download-usage-excel\")) return; // 既にあれば二重追加しない\n  const btn = document.createElement(\"button\"); // ボタンDOMを生成\n  btn.id = \"fn-download-usage-excel\";           // ボタンID（重複判定にも使用）\n  btn.className = \"button ui-button ui-widget applied\"; // Pleasanter既存の見た目に寄せる\n  btn.textContent = \"利用状況をExcelでダウンロード\";    // 表示文言\n  btn.addEventListener(\"click\", fnOpenModal);    // クリックでモーダルを開く\n  el.appendChild(btn);                           // コマンド領域に追加\n})();\n\n/* ============================================================\n    モーダル（年月選択 + ダウンロード）\n============================================================ */\nfunction fnOpenModal() {\n  if (document.getElementById(\"sdt-usage-excel-modal\")) return; // 既に開いていれば何もしない\n  const wrap = document.createElement(\"div\"); // ラッパ要素を生成\n  wrap.id = \"sdt-usage-excel-modal\";          // ラッパID（閉じる時にremoveする）\n  wrap.className = \"sdt-modal-wrap\";\n  // モーダルUI（シンプル構造）\n  wrap.innerHTML = `\n  <div class=\"sdt-modal\">\n    <!-- 閉じるボタン -->\n    <button\n      type=\"button\"\n      class=\"sdt-modal__close\"\n      aria-label=\"close\"\n    >×</button>\n\n    <!-- ヘッダー -->\n    <div class=\"sdt-modal__header\">\n      <div class=\"sdt-modal__title\">\n        利用状況Excelダウンロード\n      </div>\n    </div>\n\n    <!-- コンテンツ -->\n    <div class=\"sdt-modal__content\">\n\n      <!-- 入力フィールド -->\n      <div class=\"sdt-field\">\n        <div class=\"sdt-field__label\">\n          ダウンロード対象の年月\n          <span class=\"sdt-field__required\">*</span>\n        </div>\n\n        <input\n          id=\"fn-target-month\"\n          class=\"sdt-field__input\"\n          type=\"month\"\n        />\n      </div>\n\n      <!-- アクション -->\n      <div class=\"sdt-actions\">\n        <button\n          id=\"fn-modal-download\"\n          type=\"button\"\n          class=\"sdt-btn sdt-btn--primary\"\n        >\n          ダウンロード\n        </button>\n      </div>\n\n    </div>\n  </div>\n`;\n\n  document.body.appendChild(wrap); // 画面に追加して表示\n  const now = new Date(); // 現在日時\n  // input[type=month] は YYYY-MM 形式なので組み立てる\n  document.getElementById(\"fn-target-month\").value = now.getFullYear() + \"-\" + String(now.getMonth() + 1).padStart(2, \"0\"); // 月は0始まりなので+1\n  document.getElementById(\"fn-modal-download\").onclick = fnDownloadExcel; // ダウンロードボタン押下でExcel作成開始\n  wrap.querySelector(\".sdt-modal__close\").onclick = fnCloseModal; // ×ボタン押下でモーダルを閉じる\n}\n\n/* ============================================================\n    ExcelJS 待機\n============================================================ */\nfunction fnWaitExcelJS(cb) {\n  if (window.ExcelJS) return cb(); // 既に使えるなら即実行\n  setTimeout(function () { fnWaitExcelJS(cb); }, 50); // 50msごとに再チェック\n}\n\n/* ============================================================\n    ダウンロード開始\n    ------------------------------------------------------------\n      1) 取得済みチェック\n      2) 年月入力チェック\n      3) ExcelJS待機\n      4) Excel作成 → DL\n      5) モーダルを閉じる\n============================================================ */\nfunction fnDownloadExcel() {\n  // kitchen 側のマップが取れていない（縦軸が作れない）場合は中断\n  if (!classAList.length) {\n    alert(\"Stateデータがまだ取得できていません\");\n    return;\n  }\n  // date 側の利用期間が取れていない（〇が付けられない）場合は中断\n  if (!window.PeriodsOK.length) {\n    alert(\"利用期間データがまだ取得できていません\");\n    return;\n  }\n  // 使用不可は 0件でもOK（取得待ちにしない）＝この設計は妥当\n  const ym = document.getElementById(\"fn-target-month\").value; // YYYY-MM を取得\n  if (!ym) {\n    alert(\"年月を選択してください\");\n    return;\n  }\n\n  // \"YYYY-MM\" を year, month に分解して数値化\n  const [year, month] = ym.split(\"-\").map(Number);\n  // ExcelJS が読み込まれてから Excel を作成する\n  fnWaitExcelJS(function () {\n    fnBuildExcel(year, month); // Excel作成・DL\n    fnCloseModal();            // 完了後モーダルを閉じる\n  });\n}\n\n/* ============================================================\n    日付を「日単位」に正規化\n    \"2026-01-10T00:00:00\" のような文字列から\n    \"2026-01-10\" を取り出して Date オブジェクト化する\n============================================================ */\nfunction fnToDateOnly(dateStr) {\n  const s = String(dateStr).split(\"T\")[0]; // \"YYYY-MM-DD\" のみ抽出\n  const p = s.split(\"-\").map(Number);      // [YYYY, MM, DD] に分解して数値化\n  return new Date(p[0], p[1] - 1, p[2]);   // JSの月は0始まりなので -1\n}\n\n/* ============================================================\n    Excel 作成 & 〇埋め + 使用不可\n============================================================ */\nfunction fnBuildExcel(year, month) {\n  const stateMap = StateMap; // kitchen：レコードID → 表示名\n  const periods = window.PeriodsOK; // 利用期間（〇を付ける）\n  const unavail = window.PeriodsNG; // 使用不可期間（使用不可で上書き）\n  const monthStart = new Date(year, month - 1, 1); // 対象月の開始日（1日）\n  const monthEnd = new Date(year, month, 0); // 対象月の終了日（月末）：new Date(year, month, 0) は「前月末」= 対象月末\n  const lastDay = monthEnd.getDate(); // 月末日（28〜31）\n  const wb = new ExcelJS.Workbook(); // ExcelJS：ワークブック作成\n  const sh = wb.addWorksheet(\"利用状況\");\n  // ===== ヘッダー行（1行目） =====\n  sh.getCell(1, 1).value = year + \"年\"; // A1に年\n\n  // B1〜に \"月D日\" を並べる\n  for (let d = 1; d <= lastDay; d++) {\n    sh.getCell(1, d + 1).value = month + \"月\" + d + \"日\"; // d+1：A列の次(B列)から開始\n  }\n\n  // ===== 行割当（id → 行番号） =====\n  const rowMap = {};\n  Object.keys(stateMap).forEach(function (id, i) {\n    const row = i + 2; // 2行目から開始（1行目はヘッダー）\n    rowMap[id] = row; // id → 行番号 を保存\n    sh.getCell(row, 1).value = stateMap[id]; // A列に表示名（キッチン名）\n  });\n\n  // ===== 利用期間：〇埋め =====\n  periods.forEach(function (p) {\n    // この期間のキッチンIDに対応する行番号を取得\n    const row = rowMap[p.stateId];\n    if (!row) return; // マップに無いIDなら対象外\n\n    // 期間開始/終了を日付に変換\n    const start = fnToDateOnly(p.start);\n    const end = fnToDateOnly(p.end);\n\n    // 対象月の範囲内に切り詰める\n    const fillStart = start > monthStart ? start : monthStart;\n    const fillEnd = end < monthEnd ? end : monthEnd;\n    // 対象月に一切かからない場合はスキップ\n    if (fillStart > fillEnd) return;\n\n    const cur = new Date(fillStart); // fillStart から fillEnd まで 1日ずつ進めながら \"〇\" を入れる\n    while (cur <= fillEnd) {\n      const col = 1 + cur.getDate(); // 列番号：1日→B列なので (1 + 日)\n      sh.getCell(row, col).value = \"〇\"; // セルに \"〇\"\n      cur.setDate(cur.getDate() + 1);// 次の日へ\n    }\n  });\n\n  // ===== 使用不可期間：使用不可で上書き =====\n  unavail.forEach(function (p) {\n    // この期間のキッチンIDに対応する行番号を取得\n    const row = rowMap[p.stateId];\n    if (!row) return; // マップに無いIDなら対象外\n\n    // 期間開始/終了を日付に変換\n    const start = fnToDateOnly(p.start);\n    const end = fnToDateOnly(p.end);\n\n    // 対象月の範囲内に切り詰める\n    const fillStart = start > monthStart ? start : monthStart;\n    const fillEnd = end < monthEnd ? end : monthEnd;\n    // 対象月に一切かからない場合はスキップ\n    if (fillStart > fillEnd) return;\n\n    const cur = new Date(fillStart); // fillStart から fillEnd まで 1日ずつ進めながら \"使用不可\" を入れる\n    while (cur <= fillEnd) {\n      const col = 1 + cur.getDate(); // 列番号：1日→B列\n      sh.getCell(row, col).value = \"使用不可\"; // \"〇\" が入っていてもここで上書きする（使用不可が優先）\n      cur.setDate(cur.getDate() + 1);// 次の日へ\n    }\n  });\n\n  // ===== ダウンロード処理 =====\n  const file = `利用状況_${year}_${String(month).padStart(2, \"0\")}.xlsx`;// ファイル名を作成（例：利用状況_2026_01.xlsx）\n  // ExcelJS：バッファ生成 → Blob化 → a.click() でダウンロード\n  wb.xlsx.writeBuffer().then(function (buf) {\n    // Blob作成（xlsxのMIMEタイプ）\n    const blob = new Blob([buf], {\n      type: \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\",\n    });\n    const url = URL.createObjectURL(blob);// 一時URLを作成\n    const a = document.createElement(\"a\");// ダウンロード用 a タグを作成\n    a.href = url;       // BlobのURL\n    a.download = file;  // 保存名\n    document.body.appendChild(a); // DOMに追加（クリックできる状態にする）\n    a.click(); // 強制クリックでダウンロード開始\n    a.remove(); // DOMから削除\n    // URLを解放（メモリリーク対策）\n    setTimeout(function () { URL.revokeObjectURL(url); }, 3000);\n  });\n}\n\n/* ============================================================\n    ClassAから「先頭のID」を取り出す\n============================================================ */\nfunction fnPickFirstId(v) {\n  if (v === undefined || v === null) return \"\"; // null/undefined 対策：空文字で返す\n  if (Array.isArray(v)) return v.length ? String(v[0]).trim() : \"\";// 既に配列なら先頭を返す\n  const s = String(v).trim(); // 文字列化して前後空白を除去\n  if (!s) return \"\"; // 空なら終了\n  // JSON配列っぽい場合（先頭が \"[\"）は parse を試す\n  if (s[0] === \"[\") {\n    try {\n      const arr = JSON.parse(s); // JSON文字列を配列へ\n      if (Array.isArray(arr) && arr.length) return String(arr[0]).trim(); // 先頭を返す\n    } catch (e) {\n      alert(\"予期せぬエラーが発生しました。\" , e);\n    }\n  }\n  // 通常文字列ならそのまま返す\n  return s;\n}\n\n/* ============================================================\n    モーダルを閉じる\n============================================================ */\nfunction fnCloseModal() {\n  document.getElementById(\"sdt-usage-excel-modal\")?.remove();\n}\n",
+            "Id": 9
+          }
+        ],
+        "HideLink": true,
+        "UseSearchFilter": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 255669,
+      "Permissions": [
+        {
+          "ReferenceId": 255669,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": -1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 255669,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        }
+      ]
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": [
+      {
+        "UserId": 1,
+        "LoginId": "Administrator"
+      }
+    ]
+  }
+}

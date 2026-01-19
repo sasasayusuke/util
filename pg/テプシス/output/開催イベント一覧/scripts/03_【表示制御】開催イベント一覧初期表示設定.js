@@ -6,15 +6,15 @@
    *
    * 目的：
    *  - ヘッダー（#Header）の高さを取得して、その高さ分だけ
-   *    #sdt-processing の top をずらします（重なり防止）。
-   *  - さらに #sdt-processing の高さを CSS の calc() を使って
+   *    #sdt-upcomingEvents の top をずらします（重なり防止）。
+   *  - さらに #sdt-upcomingEvents の高さを CSS の calc() を使って
    *    calc(100% - {headerHeight}px) に設定します。これにより、
    *    ビューポート全体の高さからヘッダー分を差し引いた高さにできます。
    *
    * 注意：
    *  - この処理は「読み込み時に一度だけ実行」されます。画面サイズ変更で追従
    *    させたい場合は下の「リサイズ追従（任意）」のコメントを参考に有効化してください。
-   *  - #sdt-processing に top を効かせるには、その要素に適切な position（relative/absolute/fixed/sticky）
+   *  - #sdt-upcomingEvents に top を効かせるには、その要素に適切な position（relative/absolute/fixed/sticky）
    *    が CSS で設定されている必要があります。もし反映されない場合は CSS 側を確認してください。
    ************************************************************************/
 
@@ -30,7 +30,11 @@
    *    getBoundingClientRect().height は表示上の高さ（細かい描画情報）を返すので、
    *    見た目を合わせたい時はこちらを使うことが多いです。
    *
-   * @returns {number} headerHeightPx - 整数ピクセル（例: 64）
+   * 追加仕様：
+   *  - .both.cf の高さ（存在する場合）を加算します（最初に見つかった要素を使用）。
+   *  - 上記合計に 10px を追加で上乗せします。
+   *
+   * @returns {number} headerHeightPx - 整数ピクセル（例: 84）
    */
   function getHeaderHeight() {
     // jQuery で要素を取得
@@ -96,7 +100,7 @@
    */
   function applyUpcomingEventsLayout(headerHeightPx) {
     // 対象要素を取得
-    var $target = $('#fn-processing');
+    var $target = $('#fn-upcomingEvents');
 
     // 要素が無ければ早期リターン（処理を止めない）
     if ($target.length === 0) {
@@ -155,7 +159,7 @@
    *
    * Q: なぜ top を設定するだけで表示がずれるの？
    * A: top は要素が position: absolute/fixed/sticky/relative の時に意味を持ちます。
-   *    もし #sdt-processing に position が無い（static）場合、top は効きません。
+   *    もし #sdt-upcomingEvents に position が無い（static）場合、top は効きません。
    *    その場合は CSS に position: relative; などを設定してください。
    *
    * Q: calc(100% - 50px) は何を意味するの？

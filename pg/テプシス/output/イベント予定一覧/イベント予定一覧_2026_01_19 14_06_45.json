@@ -1,0 +1,708 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 255671,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T05:06:45.4679596+00:00",
+    "Convertors": [
+      {
+        "SiteId": 255671,
+        "SiteTitle": "イベント予定一覧",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 255671,
+      "Title": "イベント予定一覧",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 255643,
+      "InheritPermission": 255671,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridView": 4,
+        "AllowViewReset": false,
+        "GridColumns": [
+          "ResultId",
+          "ClassA",
+          "ClassF",
+          "DescriptionB",
+          "ClassC",
+          "ClassN",
+          "DateA",
+          "DateB",
+          "ClassL",
+          "ClassB",
+          "CheckA",
+          "CheckC",
+          "CheckD"
+        ],
+        "FilterColumns": [
+          "ResultId",
+          "ClassA",
+          "ClassF",
+          "DescriptionB",
+          "ClassC",
+          "ClassJ",
+          "DateA",
+          "Status",
+          "ClassB",
+          "CheckA",
+          "CheckC",
+          "CheckD",
+          "DateC"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "_Section-1",
+            "ResultId",
+            "ClassA",
+            "ClassB",
+            "ClassC",
+            "ClassM",
+            "ClassI",
+            "_Links-2819877",
+            "ClassJ",
+            "ClassK",
+            "NumR",
+            "ClassL",
+            "_Links-255692",
+            "ClassF",
+            "DescriptionB",
+            "NumA",
+            "NumB",
+            "ClassG",
+            "ClassH",
+            "_Links-255693",
+            "_Links-255684",
+            "_Section-6",
+            "_Links-255674",
+            "CheckA",
+            "_Links-255686",
+            "_Links-255681",
+            "ClassD",
+            "ClassE",
+            "Comments",
+            "_Section-3",
+            "_Links-255683",
+            "_Section-4",
+            "CheckB",
+            "_Links-255688",
+            "_Section-5",
+            "_Links-255690",
+            "_Links-255679",
+            "Title",
+            "DateA",
+            "DateB",
+            "ClassN"
+          ]
+        },
+        "SectionLatestId": 7,
+        "Sections": [
+          {
+            "Id": 1,
+            "LabelText": "イベント予定",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 6,
+            "LabelText": "品目",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 3,
+            "LabelText": "イベント実績",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 4,
+            "LabelText": "メディア",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 5,
+            "LabelText": "実績",
+            "AllowExpand": false,
+            "Expand": true
+          }
+        ],
+        "TitleColumns": [
+          "ClassC"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "イベントカテゴリ",
+            "GridLabelText": "カテゴリ",
+            "ChoicesText": "[\n  {\n    \"SiteId\": 255658,\n    \"View\": {\n      \"ColumnSorterHash\": {\n        \"NumB\": \"asc\"\n      }\n    }\n  }\n]",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "イベント番号"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "主管グループ",
+            "ChoicesText": "[[255653,NoAddButton]]",
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "イベント名称・出店先",
+            "NoWrap": true,
+            "MaxLength": 100.0
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "要請元",
+            "ChoicesText": "[\n  {\n    \"SiteId\": 255664,\n    \"View\": {\n      \"ColumnSorterHash\": {\n        \"NumB\": \"asc\"\n      }\n    }\n  }\n]",
+            "NoWrap": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "その他要請元",
+            "MaxLength": 30.0
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "開催エリア",
+            "ChoicesText": "[\n  {\n    \"SiteId\": 255667,\n    \"View\": {\n      \"ColumnSorterHash\": {\n        \"NumB\": \"asc\"\n      }\n    }\n  }\n]",
+            "NoWrap": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DescriptionB",
+            "LabelText": "開催エリア詳細",
+            "MaxLength": 30.0,
+            "FieldCss": "field-normal"
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "開始日",
+            "NoWrap": true,
+            "Hide": true,
+            "DateFilterFy": false,
+            "DateFilterHalf": false,
+            "DateFilterQuarter": false
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "終了日",
+            "Hide": true,
+            "DateFilterFy": false,
+            "DateFilterHalf": false,
+            "DateFilterQuarter": false
+          },
+          {
+            "ColumnName": "CheckA",
+            "LabelText": "LINE発信要否",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "CheckB",
+            "LabelText": "メディア掲載有無",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "NumA",
+            "LabelText": "予算額",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "NumB",
+            "LabelText": "契約額"
+          },
+          {
+            "ColumnName": "ClassG",
+            "LabelText": "委託先情報（社名）",
+            "ChoicesText": "[[255647,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassH",
+            "LabelText": "委託先情報（契約形態）",
+            "ChoicesText": "[\n  {\n    \"SiteId\": 255657,\n    \"View\": {\n      \"ColumnSorterHash\": {\n        \"NumB\": \"asc\"\n      }\n    }\n  }\n]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "NumC",
+            "LabelText": "委託先情報（契約料）"
+          },
+          {
+            "ColumnName": "Comments",
+            "LabelText": "自由記入欄（イベント）",
+            "MaxLength": 1000.0
+          },
+          {
+            "ColumnName": "NumD",
+            "LabelText": "米　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumE",
+            "LabelText": "米　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "NumF",
+            "LabelText": "桃　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumG",
+            "LabelText": "桃　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "NumH",
+            "LabelText": "牛肉　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumI",
+            "LabelText": "牛肉　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "NumJ",
+            "LabelText": "水産品　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumK",
+            "LabelText": "水産品　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "NumL",
+            "LabelText": "ホタテ　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumM",
+            "LabelText": "ホタテ　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "NumN",
+            "LabelText": "その他禁輸対象　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumO",
+            "LabelText": "その他禁輸対象　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "NumP",
+            "LabelText": "その他　総売上",
+            "NoWrap": true,
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "NumQ",
+            "LabelText": "その他　総取扱量",
+            "Unit": "kg"
+          },
+          {
+            "ColumnName": "CheckC",
+            "LabelText": "派遣有無",
+            "GridLabelText": "派遣要否"
+          },
+          {
+            "ColumnName": "CheckD",
+            "LabelText": "ノベルティ有無",
+            "GridLabelText": "ノベルティ配布"
+          },
+          {
+            "ColumnName": "ClassI",
+            "LabelText": "店舗管理方法",
+            "ChoicesText": "[\n  {\n    \"SiteId\": 255665,\n    \"View\": {\n      \"ColumnSorterHash\": {\n        \"NumB\": \"asc\"\n      }\n    }\n  }\n]",
+            "ChoicesControlType": "Radio",
+            "NoWrap": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassJ",
+            "LabelText": "事業名・店舗名",
+            "ChoicesText": "[[255646,NoAddButton]]",
+            "MultipleSelections": true,
+            "NoWrap": true,
+            "ExtendedHtmlBeforeField": "<div style=\"clear:both;  color:black; margin-bottom:3px; font-size:12px;\">店舗ごと入力</div>",
+            "Link": true
+          },
+          {
+            "ColumnName": "ClassK",
+            "LabelText": "事業名・店舗名",
+            "MaxLength": 50.0,
+            "ExtendedHtmlBeforeField": "<div style=\"clear:both;  color:black; margin-bottom:3px; font-size:12px;\">店舗数</div>"
+          },
+          {
+            "ColumnName": "ClassM",
+            "LabelText": "担当者",
+            "ChoicesText": "[[255654]]",
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassN",
+            "LabelText": "事業名・店舗名",
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassO",
+            "LabelText": "イベント店舗",
+            "ChoicesText": "[[255677]]",
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "NumR",
+            "LabelText": "店舗数"
+          },
+          {
+            "ColumnName": "DateC",
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "ClassL",
+            "LabelText": "対応状況",
+            "ChoicesText": "[\n  {\n    \"SiteId\": 255666,\n    \"View\": {\n      \"ColumnSorterHash\": {\n        \"NumB\": \"asc\"\n      }\n    }\n  }\n]",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "Title",
+            "Hide": true
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassO",
+            "SiteId": 255677
+          },
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 255653,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassJ",
+            "SiteId": 255646,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassG",
+            "SiteId": 255647,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassA",
+            "SiteId": 255658,
+            "View": {
+              "Id": 0,
+              "ColumnSorterHash": {
+                "NumB": "asc"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "ColumnName": "ClassD",
+            "SiteId": 255664,
+            "View": {
+              "Id": 0,
+              "ColumnSorterHash": {
+                "NumB": "asc"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "ColumnName": "ClassL",
+            "SiteId": 255666,
+            "View": {
+              "Id": 0,
+              "ColumnSorterHash": {
+                "NumB": "asc"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "ColumnName": "ClassI",
+            "SiteId": 255665,
+            "View": {
+              "Id": 0,
+              "ColumnSorterHash": {
+                "NumB": "asc"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "ColumnName": "ClassF",
+            "SiteId": 255667,
+            "View": {
+              "Id": 0,
+              "ColumnSorterHash": {
+                "NumB": "asc"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "ColumnName": "ClassH",
+            "SiteId": 255657,
+            "View": {
+              "Id": 0,
+              "ColumnSorterHash": {
+                "NumB": "asc"
+              },
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "CalendarSiteId": 0,
+              "ApiDataType": 0
+            },
+            "JsonFormat": true
+          },
+          {
+            "ColumnName": "ClassM",
+            "SiteId": 255654
+          }
+        ],
+        "Formulas": [
+          {
+            "CalculationMethod": "Extended",
+            "Target": "DateC",
+            "FormulaScript": "$TODAY()",
+            "FormulaMapping": "{}",
+            "Id": 1
+          }
+        ],
+        "ViewLatestId": 5,
+        "Styles": [
+          {
+            "Title": "【画面】実績集計",
+            "All": true,
+            "Body": ".Sdt-table-wrap {\n  margin-top: 12px;\n}\n\n.Sdt-summary-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.Sdt-summary-table .Sdt-title-top th {\n  color: #444;          /* 濃い目のグレー */\n  font-weight: 800;     /* 太文字 */\n  padding: 12px 0;      /* 上下余白 */\n}\n\n.Sdt-text-normal th,\n.Sdt-text-normal td,\n.Sdt-text-normal span {\n  color: #555;\n}\n\n.Sdt-sales-row td {\n  padding-bottom: 16px;\n}\n\n",
+            "Id": 1
+          },
+          {
+            "Title": "【画面制御】福島県内処理",
+            "All": true,
+            "Body": ".required-mark {\n  color: #f00;   /* 赤 */\n\n}",
+            "Id": 2
+          },
+          {
+            "Title": "【画面制御】キッチンカーリンクフィールド非表示化",
+            "New": true,
+            "Edit": true,
+            "Disabled": true,
+            "Body": "#Results_Source253143Field{\n  display: none;\n}",
+            "Id": 3
+          },
+          {
+            "Title": "【表示制御】不要なボタン削除",
+            "All": true,
+            "Body": "/*メールボタン削除*/\n\n#EditOutgoingMail{\n  display: none !important;\n}",
+            "Id": 4
+          },
+          {
+            "Title": "【画面】店舗ポップアップ",
+            "Index": true,
+            "Body": "/* ============================================================\n  店舗詳細ポップアップ\n============================================================ */\n\n/* 最前面の固定レイヤ */\n.sdt-popup-root {\n  position: fixed;\n  inset: 0;\n  z-index: 2147483647;\n}\n\n.sdt-popup-overlay {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0);\n  display: flex;\n  justify-content: center;\n  align-items: center; \n  padding: 16px;\n  background: rgba(147, 147, 147, 0.25);\n}\n\n\n/* モーダル本体 */\n.sdt-popup {\n  width: min(1120px, 100%);\n  background: #fff;\n  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);\n  overflow: hidden;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Hiragino Kaku Gothic ProN\",\n    \"Hiragino Sans\", Meiryo, \"Noto Sans JP\", sans-serif;\n}\n\n/* ヘッダー */\n.sdt-popup__header {\n  position: relative;\n  background: #fff;\n  padding: 14px 18px;\n}\n\n/* タイトル */\n.sdt-popup__title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #2d3a45;\n  line-height: 1.2;\n}\n\n/* 閉じるボタン */\n.sdt-popup__close {\n  position: absolute;\n  top: 10px;\n  right: 12px;\n  width: 44px;\n  height: 44px;\n  border: 0;\n  background: transparent;\n  cursor: pointer;\n  color: #77c3d8;    \n  font-size: 34px;\n  font-weight: 700;\n  line-height: 44px;\n  text-align: center;\n  border-radius: 6px;\n}\n\n.sdt-popup__close:hover {\n  background: rgba(119, 195, 216, 0.12);\n}\n\n.sdt-popup__close:active {\n  background: rgba(119, 195, 216, 0.18);\n}\n\n/* ボディ */\n.sdt-popup__body {\n  padding: 14px 16px 16px;\n  background: #fff;\n}\n\n/* ============================================================\n  テーブル\n============================================================ */\n\n.sdt-popup-table {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  border: 1px solid #d9e2ea;\n  overflow: hidden;\n  background: #fff;\n}\n\n/* ヘッダーセル*/\n.sdt-popup-table__th {\n  color: #5f6d79;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 16px 18px;\n  text-align: left;\n  border-bottom: 1px solid #dfe7ef;\n  white-space: nowrap;\n}\n\n/* ボディセル*/\n.sdt-popup-table__td {\n  background: #fff;\n  color: #33424f;\n  font-size: 15px;\n  font-weight: 400;\n  padding: 18px 18px;\n  border-bottom: 1px solid #e6eef6;\n  vertical-align: middle;\n}\n\n\n/* 行ホバー */\n.sdt-popup-table tbody tr:hover .sdt-popup-table__td {\n  background: #fbfdff;\n}\n\n/* 店舗名リンク */\n.sdt-popup-event-link {\n  color: #77c3d8;\n  font-weight: 600;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.sdt-popup-event-link:hover {\n  text-decoration: underline;\n}\n\n/* チェックボックス */\n.sdt-popup-checkbox {\n  transform: scale(1.15);\n  transform-origin: left center;\n}\n\n/* ============================================================\n  ソートアイコン\n============================================================ */\n.sdt-popup-table__th[data-sort-key] {\n  cursor: pointer;\n  user-select: none;\n}\n\n.sdt-popup-table__th[data-sort-key]::after {\n  content: \"⇅\";\n  display: inline-block;\n  margin-left: 6px;\n  font-size: 10px;\n  color: #9aa8b4;\n  transform: translateY(-1px);\n}\n\n/* 昇順／降順の表示 */\n.sdt-popup-table__th[data-sort-order=\"asc\"]::after {\n  content: \"⇅\";\n  font-size: 11px;\n}\n\n.sdt-popup-table__th[data-sort-order=\"desc\"]::after {\n  content: \"⇅\";\n  font-size: 11px;\n}\n\n.sdt-popup__body {\n  overflow-x: auto;\n}\n\n/* ============================================================\n   チェックマーク\n============================================================ */\n\n/* 元のcheckboxは消す */\n.sdt-popup-checkbox {\n  appearance: none;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  width: 22px;\n  height: 22px;\n  margin: 0;\n  border: none;\n  background: transparent;\n  position: relative;\n  cursor: default;\n}\n\n/* チェックON */\n.sdt-popup-checkbox:checked::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  top: 0px;\n  width: 8px;\n  height: 14px;\n  border-right: 4px solid #1f2933; \n  border-bottom: 4px solid #1f2933;\n  transform: rotate(45deg);\n}\n\n.sdt-popup-checkbox:not(:checked)::before {\n  content: none;\n}\n\n.sdt-popup-checkbox:disabled {\n  opacity: 1;\n}\n",
+            "Id": 5
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "【設定】　サイトID",
+            "All": true,
+            "Body": "//開催イベント一覧サイトID\nconst event_Site_Id = '255671';  //イベント予定一覧\nconst store_Site_Id = '255646';  //店舗名\nconst period_Site_Id = '255692';  //開始～終了\nconst dispatch_Site_Id= '255686';  //派遣者\nconst novelty_Site_Id = '255681';  //ノベルティ配布\nconst foodTruck_site_ID = '255693'; // キッチンカー\nconst vipList_site_ID = '255684'; // 先方（要人）\n\n//サイトID指定\nconst check_period_Site = 255692;  //開始～終了\nconst check_foodTruck_site = 255693; // キッチンカー\nconst check_vipList_site = 255684; // 先方（要人）\n\n//品目表示で使用\n//リンクテーブルID\nconst achievement_table_id = '#Results_Source255690'; 　//店舗実績リンク\nconst items_table_id = '#Results_Source255674'; 　//品目リンク\nconst startEnd_table_id  = '#Results_Source255692';  //開始～終了期間リンク\n\n",
+            "Id": 4
+          },
+          {
+            "Title": "リンク項目継承処理",
+            "All": true,
+            "Body": "// 親画面に置くコード（1回だけ実行されるように）\n(function(){\n  // sessionStorage のキー名（必要に応じて変更）\n  const STORAGE_KEY = 'pleasanter.linkPayload';\n\n  // ペイロードを生成する関数（必要ならこの関数をカスタマイズ）\n  // targetBtn: DOM element（クリックされたボタン）\n  // ev: MouseEvent\n  function buildPayload(targetBtn, ev) {\n    // 例：ボタンの data-* 属性を渡す + タイムスタンプ + 任意パラメータ\n    return {\n      fromDataId: targetBtn.dataset.id || null,\n      fromSiteId: targetBtn.dataset.fromSiteId || null,\n      toSiteId: targetBtn.dataset.toSiteId || null,\n      // ここに任意のパラメータを追加（例：現在ログインユーザーID等）\n      StoreManageMethodId: $p.getControl('ClassI').val(),\n      StoreManageMethod: commonGetVal('ClassI'),\n      PerStoreId: $p.getControl('ClassJ').val(),\n      PerStoreName: commonGetVal('ClassJ'),\n      NumberOfStoreId: $p.getControl('ClassK').val(),\n      NumberOfStoreName: commonGetVal('ClassK'),\n      customParam: window.myCustomParam || null,\n      ts: Date.now()\n    };\n  }\n\n\n  //分類項目の値取得ヘルパー関数\n  function commonGetVal(label, valueFlg = false) {\n    let value = \"\"\n    try {\n        if ($p.getControl(label).prop(\"tagName\") === \"SELECT\") {\n            if ($p.getControl(label).attr(\"multiple\")) {\n                value = valueFlg ? $p.getControl(label).val() : $p.getControl(label).next().children().last().text()\n            } else {\n                value = valueFlg ? $p.getControl(label).children(':selected').val() : $p.getControl(label).children(':selected').text()\n            }\n        } else if ($p.getControl(label).prop(\"tagName\") === \"INPUT\") {\n            value = $p.getControl(label).val()\n        } else if ($p.getControl($p.getColumnName(label)).prop(\"tagName\") === \"TEXTAREA\") {\n            value = $p.getControl(label).val()\n        }\n    } catch (e) {\n        console.log(label)\n        console.log(e)\n        value = \"\"\n    } finally {\n        return value\n    }\n  }\n\n  // キャプチャフェーズでクリックを捕まえる（既存 onclick より先に実行される）\n  document.addEventListener('click', function(ev){\n    try {\n      const btn = ev.target.closest && ev.target.closest('button[data-id]');\n      if (!btn) return; // 対象外のクリックは無視\n\n      // 一定の条件のみ処理したい場合はここで判定（例：class 名や data-icon 等）\n      // if (!btn.classList.contains('applied')) return;\n\n      // ペイロード生成（アプリ側が独自に payload を構築できるようにフックも用意）\n      let payload;\n      if (typeof window.__pleasanterLinkPayloadProvider === 'function') {\n        // もしホストページが独自の provider を定義していればそれを使う\n        payload = window.__pleasanterLinkPayloadProvider(btn, ev);\n      } else {\n        payload = buildPayload(btn, ev);\n      }\n\n      // 書き込み（JSON 文字列化）\n      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(payload));\n\n      // 重要：ここで何も返さない → 以降に $p.new($(this)) の onclick ハンドラが実行される\n    } catch (e) {\n      // ログのみ。既存処理を阻害しない。\n      console.error('pleasanter: link payload write error', e);\n    }\n  }, /* useCapture = */ true);\n})();",
+            "Id": 1
+          },
+          {
+            "Title": "【画面制御】店舗別　ポップアップスクリプト",
+            "Index": true,
+            "Body": "(function () {\n  \"use strict\";\n\n  if (!window.$p || typeof $p.apiGet !== \"function\" || !$p.events) return;\n\n  let all = [];\n  let getFlag = false;\n  let clickBound = false;\n  let storeAll = [];\n  let storeFlag = false;\n  let periodAll = [];\n  let periodFlag = false;\n  let dispatchAll = [];\n  let dispatchReady = false;\n  let noveltyAll = [];\n  let noveltyReady = false;\n  let fnSortState = {\n    key: null,\n    order: 1\n  };\n\n\n  // ============================================================\n  // HTML\n  // ============================================================\n  function fnPopupHtml(params) {\n    const title = params?.title || \"店舗ごと入力\";\n    const bodyHtml = params?.bodyHtml || \"\";\n\n    return `\n      <div class=\"sdt-popup-overlay\" data-sdt-popup-overlay=\"1\">\n        <div class=\"sdt-popup\" role=\"dialog\" aria-modal=\"true\">\n          <div class=\"sdt-popup__header\">\n\t\t  <div class=\"sdt-popup__title\">店舗詳細</div>\n            <button type=\"button\" class=\"sdt-popup__close\" data-sdt-popup-close=\"1\" aria-label=\"閉じる\">×</button>\n          </div>\n          <div class=\"sdt-popup__body\">\n            ${bodyHtml}\n          </div>\n        </div>\n      </div>\n    `;\n  }\n\n  // ============================================================\n  // ポップアップ表示/閉じる\n  // ============================================================\n  let fnPopupRootEl = null;\n  function fnPopupClose() {\n    if (!fnPopupRootEl) return;\n    fnPopupRootEl.remove();\n    fnPopupRootEl = null;\n    document.removeEventListener(\"keydown\", fnPopupOnKeydown, true);\n  }\n\n  function fnPopupOnKeydown(e) {\n    if (e.key === \"Escape\") fnPopupClose();\n  }\n  function fnPopupOpen(params) {\n    fnPopupClose();\n    const wrap = document.createElement(\"div\");\n    wrap.className = \"sdt-popup-root\";\n    wrap.innerHTML = fnPopupHtml(params);\n    wrap.addEventListener(\"click\", function (e) {\n      const overlay =\n        e.target.closest && e.target.closest('[data-sdt-popup-overlay=\"1\"]');\n      if (overlay && e.target === overlay) fnPopupClose();\n    });\n    wrap.addEventListener(\"click\", function (e) {\n      const btn =\n        e.target.closest && e.target.closest('[data-sdt-popup-close=\"1\"]');\n      if (btn) fnPopupClose();\n    });\n    document.body.appendChild(wrap);\n    fnPopupRootEl = wrap;\n  }\n\n  // ============================================================\n  // クリックされた要素から ResultId を拾う\n  // ============================================================\n  function fnPickId(target) {\n    const tr = target.closest && target.closest(\"tr\");\n    if (!tr) return null;\n    const cand = tr.getAttribute(\"data-id\");\n    return cand ? String(cand) : null;\n  }\n\n  // ============================================================\n  // キャッシュ(all)から ResultId 一致でレコードを引く\n  // ============================================================\n  function fnFindByResultId(resultId) {\n    if (!resultId) return null;\n    const rid = String(resultId);\n    return all.find((r) => String(r?.ResultId ?? \"\") === rid) || null;\n  }\n\n  // ============================================================\n  // JSON文字列→配列\n  // ============================================================\n  function fnParseIdList(jsonStr) {\n    if (!jsonStr) return [];\n    try {\n      const v = JSON.parse(jsonStr);\n      return Array.isArray(v) ? v.map(String) : [];\n    } catch (e) {\n      console.log(\"ClassJのJSON.parseに失敗\", { jsonStr, e });\n      return [];\n    }\n  }\n\n  // ============================================================\n  // 店舗ID → 店舗名(ClassA)\n  // ============================================================\n  function fnFindStoreNameByResultId(resultId) {\n    if (!resultId) return null;\n    const rid = String(resultId);\n    const rec = storeAll.find((s) => String(s?.ResultId ?? \"\") === rid) || null;\n    return rec?.ClassHash?.ClassA || null;\n  }\n\n  // ============================================================\n  // 文字列正規化\n  // ============================================================\n  function fnNormalizeName(name) {\n    return String(name || \"\")\n      .replace(/\\r?\\n/g, \"\")\n      .replace(/\\u3000/g, \" \")\n      .replace(/\\s+/g, \" \")\n      .trim();\n  }\n\n  // ============================================================\n  // ClassB が JSON文字列/空白混入でも一致させる\n  // ============================================================\n  function fnNormalizeIdValue(v) {\n    const s = String(v ?? \"\").trim();\n    if (!s) return \"\";\n    if (s.startsWith(\"[\")) {\n      try {\n        const arr = JSON.parse(s);\n        if (Array.isArray(arr) && arr.length) return String(arr[0]).trim();\n      } catch (e) {\n        /* noop */\n      }\n    }\n    return s;\n  }\n\n  function fnFindPeriodsByEventId(eventResultId) {\n    const eid = String(eventResultId).trim();\n    return periodAll.filter(\n      (p) => fnNormalizeIdValue(p?.ClassHash?.ClassB) === eid\n    );\n  }\n\n  // ============================================================\n  // 店舗名をキーに、開始/終了を作る\n  // ============================================================\n  function fnBuildPeriodMap(periodRows) {\n    const map = {}; // { 店舗名: { start, end } }\n    periodRows.forEach((pe) => {\n      const storeName = fnNormalizeName(pe?.ClassHash?.ClassA);\n      if (!storeName) return;\n      const start = pe?.DateHash?.DateA || \"\";\n      const end = pe?.DateHash?.DateB || \"\";\n      if (!map[storeName]) {\n        map[storeName] = { start, end };\n        return;\n      }\n      if (start && (!map[storeName].start || start < map[storeName].start))\n        map[storeName].start = start;\n      if (end && (!map[storeName].end || end > map[storeName].end))\n        map[storeName].end = end;\n    });\n    return map;\n  }\n\n  function fnFormatDate(v) {\n    const s = String(v || \"\");\n    // 2025-12-24T00:00:00 → 2025-12-24\n    if (s.includes(\"T\")) return s.split(\"T\")[0];\n    return s;\n  }\n\n  // ============================================================\n  // 遷移を強制停止\n  // ============================================================\n  function fnStop(e) {\n    e.preventDefault();\n    e.stopPropagation();\n    if (typeof e.stopImmediatePropagation === \"function\")\n      e.stopImmediatePropagation();\n  }\n\n  // ============================================================\n  // apiGet を Promise 化\n  // ============================================================\n  function fnApiGetAsPromise(siteId) {\n    return new Promise((resolve, reject) => {\n      $p.apiGet({\n        id: siteId,\n        done: function (data) {\n          resolve(data?.Response?.Data || []);\n        },\n        fail: function (err) {\n          reject(err);\n        },\n      });\n    });\n  }\n\n  // ============================================================\n  // ============================================================\n  // 派遣者：イベントIDで行を集める（ClassB=イベントResultId）\n  // ============================================================\n  // ============================================================\n  function fnFindDispatchersByEventId(eventResultId) {\n    const eid = String(eventResultId ?? \"\").trim();\n    if (!eid) return [];\n    return dispatchAll.filter(\n      (d) => fnNormalizeIdValue(d?.ClassHash?.ClassB) === eid\n    );\n  }\n\n  // ============================================================\n  // ============================================================\n  // 派遣Map作成（店舗名キー → true）\n  // ============================================================\n  // ============================================================\n  // ・派遣者テーブルの ClassA を「店舗名」として扱う\n  // ・比較ブレ防止のため、必ず fnNormalizeName で正規化してキーにする\n  // ・同一店舗が複数あっても true のまま（存在判定だけ）\n  // ============================================================\n  function fnBuildDispatchMapByStoreName(dispatchRows) {\n    const map = {}; // { 正規化店舗名: true }\n    dispatchRows.forEach((d) => {\n      const storeNameRaw = d?.ClassHash?.ClassA; \n      const storeKey = fnNormalizeName(storeNameRaw);\n      if (!storeKey) return;\n      map[storeKey] = true;\n    });\n    return map;\n  }\n\n  // ============================================================\n  // ノベルティ：イベントIDで行を集める（ClassB=イベントResultId）\n  // ============================================================\n  function fnFindNoveltiesByEventId(eventResultId) {\n    const eid = String(eventResultId ?? \"\").trim();\n    if (!eid) return [];\n    return noveltyAll.filter(\n      (n) => fnNormalizeIdValue(n?.ClassHash?.ClassB) === eid\n    );\n  }\n\n  // ============================================================\n  // ノベルティMap作成（店舗名キー → true）\n  // ============================================================\n  function fnBuildNoveltyMapByStoreName(noveltyRows) {\n    const map = {};\n    noveltyRows.forEach((n) => {\n      const storeNameRaw = fnNormalizeIdValue(n?.ClassHash?.ClassA);\n      const storeKey = fnNormalizeName(storeNameRaw);\n      if (!storeKey) return;\n      map[storeKey] = true;\n    });\n    return map;\n  }\n\n  // ============================================================\n  // ソート\n  // ============================================================\n  function fnGetTableRows(tbody) {\n    return Array.from(tbody.querySelectorAll(\"tr\"));\n  }\n\n  function fnGetSortValue(tr, key) {\n    const tds = tr.querySelectorAll(\"td\");\n    switch (key) {\n      case \"store\":\n        return fnNormalizeName(tds[0]?.innerText);\n      case \"start\":\n        return new Date(tds[1]?.innerText.replace(/年|月/g, \"-\").replace(\"日\", \"\"));\n      case \"end\":\n        return new Date(tds[2]?.innerText.replace(/年|月/g, \"-\").replace(\"日\", \"\"));\n      default:\n        return \"\";\n    }\n  }\n\n  function fnSortTable(tbody, key) {\n    const rows = fnGetTableRows(tbody);\n    // 同じ列なら昇降順切替\n    if (fnSortState.key === key) {\n      fnSortState.order *= -1;\n    } else {\n      fnSortState.key = key;\n      fnSortState.order = 1;\n    }\n    rows.sort((a, b) => {\n      const va = fnGetSortValue(a, key);\n      const vb = fnGetSortValue(b, key);\n      if (va > vb) return 1 * fnSortState.order;\n      if (va < vb) return -1 * fnSortState.order;\n      return 0;\n    });\n    // 並び替え反映\n    rows.forEach(tr => tbody.appendChild(tr));\n  }\n\n  function fnBindPopupSort() {\n    const popup = document.querySelector(\".sdt-popup\");\n    if (!popup) return;\n    const tbody = popup.querySelector(\"tbody\");\n    const ths = popup.querySelectorAll(\"th[data-sort-key]\");\n    ths.forEach(th => {\n      th.style.cursor = \"pointer\";\n      th.addEventListener(\"click\", function () {\n        const key = th.getAttribute(\"data-sort-key\");\n        fnSortTable(tbody, key);\n      });\n    });\n  }\n\n  // ============================================================\n  // ポップアップ内 店舗名リンク押下 → 詳細・編集画面へ遷移\n  // ============================================================\n  document.addEventListener(\n    \"click\",\n    function (e) {\n      const link =\n        e.target.closest && e.target.closest(\".sdt-popup-event-link\");\n      if (!link) return;\n      const eventResultId = link.getAttribute(\"data-event-resultid\");\n      if (!eventResultId) return;\n      const url = `/items/${eventResultId}`;\n      e.preventDefault();\n      e.stopPropagation();\n      window.location.href = url;\n    },\n    true\n  );\n\n  // ============================================================\n  // レコード押下時：ClassHash.ClassI を見て、条件一致なら遷移停止\n  // ============================================================\n  function fnPush(e) {\n    const grid = document.getElementById(\"Grid\");\n    const clickedId = fnPickId(e.target);\n    const row = fnFindByResultId(clickedId);\n    const classI = row?.ClassHash?.ClassI;\n\n    if (!getFlag || !all.length) return;\n    if (!grid || !grid.contains(e.target)) return;\n    if (!clickedId) return;\n    if (!row) return;\n    if (classI !== byStore) return;\n\n    fnStop(e);\n    if (!storeFlag) {\n      fnPopupOpen({\n        title: \"店舗ごと入力（ポップアップ）\",\n        bodyHtml: `<div class=\"sdt-popup__note\">店舗情報を読込中です。もう一度クリックしてください。</div>`,\n      });\n      return;\n    }\n    if (!periodFlag) {\n      fnPopupOpen({\n        title: \"店舗ごと入力（ポップアップ）\",\n        bodyHtml: `<div class=\"sdt-popup__note\">期間情報を読込中です。もう一度クリックしてください。</div>`,\n      });\n      return;\n    }\n    if (!dispatchReady) {\n      fnPopupOpen({\n        title: \"店舗ごと入力（ポップアップ）\",\n        bodyHtml: `<div class=\"sdt-popup__note\">派遣者情報を読込中です。もう一度クリックしてください。</div>`,\n      });\n      return;\n    }\n    if (!noveltyReady) {\n      fnPopupOpen({\n        title: \"店舗ごと入力（ポップアップ）\",\n        bodyHtml: `<div class=\"sdt-popup__note\">ノベルティ情報を読込中です。もう一度クリックしてください。</div>`,\n      });\n      return;\n    }\n\n    const eventResultId = String(row?.ResultId ?? \"\");\n    const storeIds = fnParseIdList(row?.ClassHash?.ClassJ);\n    const periodRows = fnFindPeriodsByEventId(row?.ResultId);\n    const periodMap = fnBuildPeriodMap(periodRows);\n    const dispatchRows = fnFindDispatchersByEventId(row?.ResultId);\n    const dispatchMap = fnBuildDispatchMapByStoreName(dispatchRows);\n    const noveltyRows = fnFindNoveltiesByEventId(row?.ResultId);\n    const noveltyMap = fnBuildNoveltyMapByStoreName(noveltyRows);\n    const rowsHtml = storeIds\n      .map((id) => {\n        const storeName =\n          fnFindStoreNameByResultId(id) || `店舗名が同一ではありません`;\n        const key = fnNormalizeName(storeName);\n        const period = periodMap[key] || {};\n        const start = fnFormatDate(period.start || \"\");\n        const end = fnFormatDate(period.end || \"\");\n        const dispatchChecked = !!dispatchMap[key];\n        const noveltyChecked = !!noveltyMap[key];\n\n        return `\n        <tr class=\"sdt-popup-table__tr\" data-store-resultid=\"${id}\">\n          <td class=\"sdt-popup-table__td\">\n            <span\n              class=\"sdt-popup-event-link\"\n              data-event-resultid=\"${eventResultId}\"\n            >${storeName}</span>\n          </td>\n          <td class=\"sdt-popup-table__td\">${start}</td>\n          <td class=\"sdt-popup-table__td\">${end}</td>\n          <td class=\"sdt-popup-table__td\">\n            <input class=\"sdt-popup-checkbox\" type=\"checkbox\" ${\n              dispatchChecked ? \"checked\" : \"\"\n            } disabled>\n          </td>\n          <td class=\"sdt-popup-table__td\">\n            <input class=\"sdt-popup-checkbox\" type=\"checkbox\" ${\n              noveltyChecked ? \"checked\" : \"\"\n            } disabled>\n          </td>\n        </tr>\n      `;\n      })\n      .join(\"\");\n\n    const safeRowsHtml =\n      rowsHtml ||\n      `<tr><td class=\"sdt-popup-table__td\" colspan=\"5\">店舗が選択されていません</td></tr>`;\n\n    fnPopupOpen({\n      bodyHtml: `\n        <table class=\"sdt-popup-table\">\n          <thead>\n            <tr>\n              <th class=\"sdt-popup-table__th\" data-sort-key=\"store\">店舗名</th>\n              <th class=\"sdt-popup-table__th\" data-sort-key=\"start\">開始日</th>\n              <th class=\"sdt-popup-table__th\" data-sort-key=\"end\">終了日</th>\n              <th class=\"sdt-popup-table__th\">派遣要否</th>\n              <th class=\"sdt-popup-table__th\">ノベルティ配布</th>\n            </tr>\n          </thead>\n          <tbody>\n            ${safeRowsHtml}\n          </tbody>\n        </table>\n      `,\n    });\n    fnBindPopupSort();\n  }\n\n\n\n  // ============================================================\n  // 一覧ロード：全件取得\n  // ============================================================\n  $p.events.on_grid_load = function () {\n    getFlag = false;\n    all = [];\n    storeFlag = false;\n    storeAll = [];\n    periodFlag = false;\n    periodAll = [];\n    dispatchReady = false;\n    dispatchAll = [];\n    noveltyReady = false;\n    noveltyAll = [];\n\n    Promise.all([\n      fnApiGetAsPromise(event_Site_Id),\n      fnApiGetAsPromise(store_Site_Id),\n      fnApiGetAsPromise(period_Site_Id),\n      fnApiGetAsPromise(dispatch_Site_Id),\n      fnApiGetAsPromise(novelty_Site_Id),\n    ])\n      .then(([eventRows, storeRows, periodRows, dispatchRows, noveltyRows]) => {\n        all = eventRows;\n        storeAll = storeRows;\n        periodAll = periodRows;\n        dispatchAll = dispatchRows;\n        noveltyAll = noveltyRows;\n\n        getFlag = true;\n        storeFlag = true;\n        periodFlag = true;\n        dispatchReady = true;\n        noveltyReady = true;\n\n       // console.log(\"イベント予定一覧の全レコード\", all);\n        //console.log(\"店舗の全レコード\", storeAll);\n        //console.log(\"開始～終了全レコード\", periodAll);\n        //console.log(\"派遣者の全レコード\", dispatchAll);\n        //console.log(\"ノベルティの全レコード\", noveltyAll);\n      })\n      .catch((err) => {\n        getFlag = false;\n        storeFlag = false;\n        periodFlag = false;\n        dispatchReady = false;\n        noveltyReady = false;\n        all = [];\n        storeAll = [];\n        periodAll = [];\n        dispatchAll = [];\n        noveltyAll = [];\n        console.warn(\"一覧ロード取得失敗\", err);\n      });\n\n    if (!clickBound) {\n      clickBound = true;\n      document.addEventListener(\"click\", fnPush, true);\n    }\n  };\n})();\n",
+            "Id": 5
+          },
+          {
+            "Title": "【画面作成】実績集計",
+            "Edit": true,
+            "Body": "(function ($) {\n  'use strict';\n\ninsertSummaryTable();\n\nfunction insertSummaryTable() {\n    let DataList = getStoreRecors();\n    console.log(\"DataList\");\n    console.log(DataList);\n\n\n  // 二重生成防止\n  if ($('.summary-table-wrap').length > 0) {\n    return;\n  }\n\n  const html = `\n    <div class=\"Sdt-table-wrap\">\n      <table class=\"Sdt-summary-table\">\n        <tr class=\"Sdt-title-top\">\n          <th  colspan=\"3\">全店舗‐実績</th>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <th>米</th>\n          <th>桃</th>\n          <th>牛肉</th>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <td>総取扱量 <span class=\"num rice-qty\">${DataList.totalNumA}</span> kg</td>\n          <td>総取扱量 <span class=\"num peach-qty\">${DataList.totalNumC}</span> kg</td>\n          <td>総取扱量 <span class=\"num beef-qty\">${DataList.totalNumB}</span> kg</td>\n        </tr>\n        <tr class=\"Sdt-text-normal Sdt-sales-row\">\n          <td>総売上 <span class=\"num rice-sales\">${DataList.totalNumD}</span> 円</td>\n          <td>総売上 <span class=\"num peach-sales\">${DataList.totalNumE}</span> 円</td>\n          <td>総売上 <span class=\"num beef-sales\">${DataList.totalNumF}</span> 円</td>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <th>水産品</th>\n          <th>ホタテ</th>\n          <th>その他禁輸対象品</th>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <td>総取扱量 <span class=\"num sea-qty\">${DataList.totalNumG}</span> kg</td>\n          <td>総取扱量 <span class=\"num scallops-qty\">${DataList.totalNumH}</span> kg</td>\n          <td>総取扱量 <span class=\"num embargo-qty\">${DataList.totalNumI}</span> kg</td>\n        </tr>\n        <tr class=\"Sdt-text-normal Sdt-sales-row\">\n          <td>総売上 <span class=\"num sea-sales\">${DataList.totalNumJ}</span> 円</td>\n          <td>総売上 <span class=\"num scallops-sales\">${DataList.totalNumK}</span> 円</td>\n          <td>総売上 <span class=\"num embargo-sales\">${DataList.totalNumL}</span> 円</td>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <th>その他</th>\n          <th>メニュー/品物</th>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <td>総取扱量 <span class=\"num other-qty\">${DataList.totalNumM}</span> kg</td>\n          <td>食数/点数（合計） <span class=\"num menu-qty\">${DataList.totalNumN}</span> 食/点</td>\n        </tr>\n        <tr class=\"Sdt-text-normal Sdt-sales-row\">\n          <td>総売上 <span class=\"num other-sales\">${DataList.totalNumO}</span> 円</td>\n          <td>売上（合計） <span class=\"num menu-sales\">${DataList.totalNumP}</span> 円</td>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <th>合計</th>\n        </tr>\n        <tr class=\"Sdt-text-normal\">\n          <td>総取扱量 <span class=\"num all-qty\">${DataList.totalNumQ}</span> kg</td>\n        </tr>\n        <tr class=\"Sdt-text-normal Sdt-sales-row\">\n          <td>総売上 <span class=\"num all-sales\">${DataList.totalNumR}</span> 円</td>\n        </tr>\n      </table>\n    </div>\n  `;\n\n  // ▼ ここがポイント\n  $(`${achievement_table_id }Field`).after(html);\n}\n\n// =====================================\n// レコード取得\n// =====================================\n\nfunction getStoreRecors() {\n  let DataList = [];\n\n    $(`${achievement_table_id}  tbody tr.grid-row`).each(function () {\n        const $tds = $(this).find('td');\n        DataList.push({\n\n            NumA: $tds.eq(2).text().trim(), \n            NumD: $tds.eq(3).text().trim(), \n            NumC: $tds.eq(4).text().trim(), \n            NumE: $tds.eq(5).text().trim(), \n            NumB: $tds.eq(6).text().trim(), \n            NumF: $tds.eq(7).text().trim(), \n            NumG: $tds.eq(8).text().trim(), \n            NumJ: $tds.eq(9).text().trim(), \n            NumH: $tds.eq(10).text().trim(), \n            NumK: $tds.eq(11).text().trim(), \n            NumI: $tds.eq(12).text().trim(), \n            NumL: $tds.eq(13).text().trim(), \n            NumM: $tds.eq(14).text().trim(), \n            NumO: $tds.eq(15).text().trim(), \n            NumN: $tds.eq(16).text().trim(), \n            NumP: $tds.eq(17).text().trim(), \n            NumQ: $tds.eq(18).text().trim(), \n            NumR: $tds.eq(19).text().trim()\n        });\n\n    });\n\n  DataList = calculateTotal(DataList);\n  return DataList;\n}\n\n// =====================================\n// 共通：数値文字列 → 数値変換\n// 例：\"20kg\" / \"10円\" → 20\n// =====================================\nfunction parseNumber(value) {\n  if (!value) return 0;\n\n  const num = parseFloat(\n    value.replace(/[^0-9.-]/g, '')\n  );\n\n  return isNaN(num) ? 0 : num;\n}\n\n// =====================================\n// 共通：NumA / NumD 合計計算\n// =====================================\nfunction calculateTotal(rowDataList) {\n  let totalNumA = 0;\n  let totalNumD = 0;\n  let totalNumC = 0;\n  let totalNumE = 0;\n  let totalNumB = 0;\n  let totalNumF = 0;\n  let totalNumG = 0;\n  let totalNumJ = 0;\n  let totalNumH = 0;\n  let totalNumK = 0;\n  let totalNumI = 0;\n  let totalNumL = 0;\n  let totalNumM = 0;\n  let totalNumO = 0;\n  let totalNumN = 0;\n  let totalNumP = 0;\n  let totalNumQ = 0;\n  let totalNumR = 0;\n\n\n\n  rowDataList.forEach(function (row) {\n    totalNumA += parseNumber(row.NumA);\n    totalNumD += parseNumber(row.NumD);\n    totalNumC += parseNumber(row.NumC);\n    totalNumE += parseNumber(row.NumE);\n    totalNumB += parseNumber(row.NumB);\n    totalNumF += parseNumber(row.NumF);\n    totalNumG += parseNumber(row.NumG);\n    totalNumJ += parseNumber(row.NumJ);\n    totalNumH += parseNumber(row.NumH);\n    totalNumK += parseNumber(row.NumK);\n    totalNumI += parseNumber(row.NumI);\n    totalNumL += parseNumber(row.NumL);\n    totalNumM += parseNumber(row.NumM);\n    totalNumO += parseNumber(row.NumO);\n    totalNumN += parseNumber(row.NumN);\n    totalNumP += parseNumber(row.NumP);\n    totalNumQ += parseNumber(row.NumQ);\n    totalNumR += parseNumber(row.NumR);\n  });\n\n  return {\n    totalNumA,\n    totalNumD,\n    totalNumA,\n    totalNumD,\n    totalNumC,\n    totalNumE,\n    totalNumB,\n    totalNumF,\n    totalNumG,\n    totalNumJ,\n    totalNumH,\n    totalNumK,\n    totalNumI,\n    totalNumL,\n    totalNumM,\n    totalNumO,\n    totalNumN,\n    totalNumP,\n    totalNumQ,\n    totalNumR\n  };\n}\n\n})(jQuery);",
+            "Id": 6
+          },
+          {
+            "Title": "【画面制御】開催エリア‐福島県内処理",
+            "New": true,
+            "Edit": true,
+            "Body": "// =====================================\n// 開催エリア：福島県内 → 開催エリア詳細 必須制御\n// =====================================\n\ncheckClassF();\n\nfunction checkClassF() {\n\n  // change は委譲\n  $(document)\n    .off('change', '#Results_ClassF')\n    .on('change', '#Results_ClassF', toggleRequired);\n\n  // DOM再描画監視（更新後対応）\n  observeEditDom();\n\n  // 初期\n  toggleRequired();\n}\n\nfunction toggleRequired() {\n\n  const $area = $('#Results_ClassF');\n  const $desc = $('#Results_DescriptionB');\n  const $label = $('label[for=\"Results_DescriptionB\"]');\n\n  // DOM未生成なら何もしない\n  if ($area.length === 0 || $desc.length === 0) return;\n\n  if ($area.val() === '2') {\n\n    // 必須\n    $desc\n      .attr('data-validate-required', '1')\n      .addClass('required');\n\n    if ($label.find('.required-mark').length === 0) {\n      $label.append('<span class=\"required-mark\"> *</span>');\n    }\n\n  } else {\n\n    $desc\n      .removeAttr('data-validate-required')\n      .removeClass('required');\n\n    $label.find('.required-mark').remove();\n  }\n}\n\nfunction observeEditDom() {\n\n  const observer = new MutationObserver(function () {\n    toggleRequired();\n  });\n\n  observer.observe(document.body, {\n    childList: true,\n    subtree: true\n  });\n}\n",
+            "Id": 7
+          },
+          {
+            "Title": "【画面制御】新規作成・詳細　項目表示　共通制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * アプリ共通の名前空間\n     * 他スクリプトはすべてここ経由で after_set に登録する\n     */\n    window.AppTriggers = window.AppTriggers || {};\n\n    /**\n     * after_set に安全に処理を追加するユーティリティ\n     * - 既存処理を壊さない\n     * - 複数スクリプト共存可能\n     */\n    AppTriggers.afterSetHandlers = AppTriggers.afterSetHandlers || [];\n\n    /**\n     * after_set 登録関数\n     */\n    AppTriggers.registerAfterSet = function (fn) {\n        if (typeof fn === 'function') {\n            AppTriggers.afterSetHandlers.push(fn);\n        }\n    };\n\n    /**\n     * Pleasanter after_set を1回だけラップ\n     */\n    if (window.$p && $p.events && !$p.events.__appTriggersWrapped__) {\n        var originalAfterSet = $p.events.after_set;\n\n        $p.events.after_set = function (args) {\n            // 既存 after_set を先に実行\n            if (typeof originalAfterSet === 'function') {\n                try {\n                    originalAfterSet(args);\n                } catch (e) {\n                    console.error('original after_set error', e);\n                }\n            }\n\n            // 登録されたハンドラを順番に実行\n            AppTriggers.afterSetHandlers.forEach(function (handler) {\n                try {\n                    handler(args);\n                } catch (e) {\n                    console.error('after_set handler error', e);\n                }\n            });\n        };\n\n        $p.events.__appTriggersWrapped__ = true;\n    }\n})();",
+            "Id": 8
+          },
+          {
+            "Title": "【画面制御】キッチンカーリンクフィールド　表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * キッチンカーリンクフィールド制御\n     * Results_ClassA → Results_Source253143Field\n     */\n\n    /**\n     * トリガー判定\n     * ClassA(イベントカテゴリー)が\n     * 「キッチンカー」または「キッチンカー（自主取扱）」の場合\n     */\n    function checkClassATrigger(select) {\n        if (!select) return;\n\n        // 選択中 option の表示文字列を取得\n        var text = select.options[select.selectedIndex]?.text || '';\n\n        \n        if (\n            text === 'キッチンカー' ||\n            text === 'キッチンカー（自主取扱）'\n        ) {\n            setVisibility(true);\n        } else {\n            setVisibility(false);\n        }\n    }\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_Source253143Field');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var select = document.getElementById('Results_ClassA');\n        if (!select || select.__classA_bound__) return;\n\n        select.addEventListener('change', function () {\n            checkClassATrigger(select);\n        });\n\n        select.__classA_bound__ = true;\n\n        // 初期表示判定\n        checkClassATrigger(select);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
+            "Id": 9
+          },
+          {
+            "Title": "【画面制御】メディアリンクフィールド表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * メディアリンクフィールド制御\n     * Results_CheckB → Results_Source253139Field\n     */\n\n    /**\n     * トリガー判定\n     * CheckB(メディア掲載有無)がの場合\n     * メディアリンクフィールドを表示する\n     */\n    function checkCheckBTrigger(isChecked) {\n        if (isChecked) {\n            setVisibility(true);\n        } else {\n            setVisibility(false);\n        }\n    }\n\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_Source253139Field');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var checkbox = document.getElementById('Results_CheckB');\n        if (!checkbox || checkbox.__checkB_bound__) return;\n\n        checkbox.addEventListener('change', function () {\n            checkCheckBTrigger(checkbox.checked);\n        });\n\n        checkbox.__CheckB_bound__ = true;\n        checkCheckBTrigger(checkbox.checked);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
+            "Id": 11
+          },
+          {
+            "Title": "【画面制御】更新‐品目を店舗実績に受け渡し",
+            "Edit": true,
+            "Body": "$(function () {\n\n  // ★ 先に mousedown で止める\n  $(document).on(\n    'mousedown',\n    achievement_table_id + ' tbody tr.grid-row',\n    function (e) {\n\n      // ボタン・リンクは除外\n      if ($(e.target).closest('button, a').length) return;\n\n      const shopName = $(this).find('td').eq(1).text().trim();\n      const data = getShopItemsByShopName(shopName);\n\n      if (data.length === 0) {\n        e.preventDefault();\n        e.stopPropagation();\n        e.stopImmediatePropagation();\n\n        alert(`${shopName}店の「品目」を登録してください`);\n        return false;\n      }\n    }\n  );\n\n  // ===== 通常クリック時の処理（遷移させたい場合だけ）=====\n  $(document).on(\n    'click',\n    achievement_table_id  + ' tbody tr.grid-row',\n    function (e) {\n\n      if ($(e.target).closest('button, a').length) return;\n\n      const shopName = $(this).find('td').eq(1).text().trim();\n      const data = getShopItemsByShopName(shopName);\n\n      // data がある時だけ処理続行（＝遷移OK）\n      if (data.length === 0) return;\n\n      const itemId = $(this).find('td').eq(0).text().trim();\n      const param = encodeURIComponent(JSON.stringify(data));\n\n      location.href =\n        `/items/${itemId}?back=1&FromTabIndex=0&SelectedShops=${param}`;\n    }\n  );\n\n});\n\n\nfunction getShopItemsByShopName(shopName) {\n\n  const result = [];\n  const $table  = $(items_table_id  + 'Field');\n  const headers = $table.find('thead th');\n\n  $table.find('tbody tr.grid-row').each(function () {\n\n    const $row = $(this);\n    const rowShopName = $row.find('td').eq(0).text().trim();\n\n    if (rowShopName !== shopName) return;\n\n    const rowData = {\n      shop: rowShopName,\n      items: []\n    };\n\n    $row.find('td').each(function (index) {\n\n      if (index === 0) return;\n\n      if ($(this).find('.ui-icon-circle-check').length > 0) {\n        const itemName = headers.eq(index).text().trim();\n        rowData.items.push(itemName);\n      }\n\n    });\n\n    if (rowData.items.length > 0) {\n      result.push(rowData);\n    }\n\n  });\n\n  return result;\n}\n",
+            "Id": 10
+          },
+          {
+            "Title": "【表示制御】新規・編集画面　店舗管理方法に合わせ表示切替制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function ($) {\n  'use strict';\n\n  // -----------------------\n  // オーケストレーター（エントリポイント）\n  // -----------------------\n  async function indexController() {\n    try {\n      // 1) ラジオの現在選択表示名を取得（値ではなく表示名で返す）\n      var selectedDisplay = getSelectedClassI();\n\n      // 2) 選択表示名に応じて表示/非表示を切り替え\n      updateVisibilityBySelection(selectedDisplay);\n\n      // 3) イベント（ラジオ change）の登録（冪等にする）\n      bindUiEvents();\n\n      return;\n    } catch (err) {\n      if (typeof console !== 'undefined' && console.error) console.error('indexController error:', err);\n    }\n  }\n\n  // -----------------------\n  // ヘルパー群\n  // -----------------------\n\n  // ラジオの現在選択表示名を取得する（.control-radio の checked を優先）\n  // 取得順序: closest label -> label[for=] -> 隣接テキストノード -> data-display -> 値からのマッピング\n  function getSelectedClassI() {\n    var $checked = $('input.control-radio:checked');\n    if ($checked.length) {\n      // 1) label 要素を探す（<label><input>表示</label> の想定）\n      var labelText = '';\n      var $lbl = $checked.closest('label');\n      if ($lbl.length) labelText = $lbl.text();\n\n      // 2) label[for=\"id\"] のパターン\n      if (!labelText) {\n        var id = $checked.attr('id');\n        if (id) {\n          var $for = $('label[for=\"' + id + '\"]');\n          if ($for.length) labelText = $for.text();\n        }\n      }\n\n      // 3) input の隣接ノードに直接テキストがある場合\n      if (!labelText) {\n        var next = $checked[0].nextSibling;\n        if (next) {\n          // テキストノードや要素ノードの両方に対応\n          labelText = (next.nodeType === 3) ? (next.nodeValue || '') : $(next).text();\n        }\n      }\n\n      labelText = (labelText || '').trim();\n      if (labelText) return labelText;\n\n      // 4) data 属性で表示名が持たれているケース\n      var dd = $checked.data('display');\n      if (dd) return String(dd).trim();\n\n      // 5) 最後のフォールバック: 値から既知の表示名へマッピング\n      var val = String($checked.val());\n      if (val === '1') return '店舗ごと入力';\n      if (val === '2') return '店舗数';\n\n      return '';\n    }\n\n    // フォールバック: 隠し input の値を見てマッピング（既存の仕組みを壊さない）\n    var $hidden = $('#Results_ClassI');\n    if ($hidden.length) {\n      var hv = String($hidden.val());\n      if (hv === '1') return '店舗ごと入力';\n      if (hv === '2') return '店舗数';\n      return '';\n    }\n\n    return '';\n  }\n\n  // 選択表示名（'店舗ごと入力' または '店舗数'）に基づいて表示/非表示を切り替える\n  function updateVisibilityBySelection(selectedDisplay) {\n    var $labelA = $('#Results_ClassJField').prev('div'); // 「店舗ごと入力」側ラベル\n    var $groupA = $('#Results_ClassJField');\n\n    var $labelB = $('#Results_ClassKField').prev('div'); // 「店舗数」側ラベル\n    var $groupB1 = $('#Results_ClassKField');\n    var $groupB2 = $('#Results_NumRField');\n\n    // 表示名が \"店舗ごと入力\" のとき A を表示、B を非表示\n    if (selectedDisplay === '店舗ごと入力') {\n      $labelA.show();\n      $groupA.show();\n\n      $labelB.hide();\n      $groupB1.hide();\n      $groupB2.hide();\n      return;\n    }\n\n    // 表示名が \"店舗数\" のとき B を表示、A を非表示\n    if (selectedDisplay === '店舗数') {\n      $labelA.hide();\n      $groupA.hide();\n\n      $labelB.show();\n      $groupB1.show();\n      $groupB2.show();\n      return;\n    }\n\n    // 想定外の表示名: 両方非表示（安全策）\n    $labelA.hide();\n    $groupA.hide();\n    $labelB.hide();\n    $groupB1.hide();\n    $groupB2.hide();\n  }\n\n  // ラジオ change イベントをバインド（何度呼ばれても重複登録しない）\n  function bindUiEvents() {\n    $('input.control-radio').off('.resultsClassI').on('change.resultsClassI', function () {\n      try {\n        indexController();\n      } catch (e) {\n        if (typeof console !== 'undefined' && console.error) console.error('radio change handler error:', e);\n      }\n    });\n  }\n\n  // -----------------------\n  // 初期トリガー設定（DOM ready / $p.events.after_set）\n  // -----------------------\n\n  $(function () {\n    try {\n      indexController();\n    } catch (e) {\n      if (typeof console !== 'undefined' && console.error) console.error('DOMContentLoaded trigger error:', e);\n    }\n  });\n\n  if (typeof $p !== 'undefined' && $p.events) {\n    var originalAfterSet = $p.events.after_set;\n    $p.events.after_set = function () {\n      if (typeof originalAfterSet === 'function') {\n        try { originalAfterSet.apply(this, arguments); } catch (e) { if (typeof console !== 'undefined' && console.error) console.error(e); }\n      }\n      try {\n        indexController();\n      } catch (e) {\n        if (typeof console !== 'undefined' && console.error) console.error('$p.events.after_set trigger error:', e);\n      }\n    };\n  }\n\n})(jQuery);\n",
+            "Id": 13
+          },
+          {
+            "Title": "【表示制御】新規・編集画面　開始～終了期間が選択されていないと他の要素を非表示化",
+            "New": true,
+            "Edit": true,
+            "Body": "(function ($) {\n    'use strict';\n\n    // SectionFields のコンテナ ID\n    const sectionFieldsContainers = {\n        s3: 'SectionFields3Container',\n        s4: 'SectionFields4Container',\n        s5: 'SectionFields5Container',\n        s6: 'SectionFields6Container'\n    };\n\n    // オーケストレーター\n    async function indexProcess() {\n        try {\n            // check_period_Site は別で定義されている想定\n            if (typeof check_period_Site === 'undefined' || check_period_Site === null) {\n                return;\n            }\n\n            // data-id 属性で該当テーブルを取得\n            var tableSelector = 'table[data-id=\"' + check_period_Site + '\"]';\n            var $table = $(tableSelector);\n\n            // テーブルが無い、または「中身が空（innerHTMLが空）」、あるいはデータ行（tdを持つtr）が無い場合は非表示処理\n            var tableMissingOrEmpty = false;\n\n            if ($table.length === 0) {\n                tableMissingOrEmpty = true;\n            } else {\n                // innerHTML が空かどうか（空白のみも含む）\n                if ($.trim($table.html()) === '') {\n                    tableMissingOrEmpty = true;\n                } else {\n                    // tbody があれば tbody 内の tr に td があるかをチェック\n                    var $tbody = $table.find('tbody');\n                    var $dataRows;\n                    if ($tbody.length > 0) {\n                        $dataRows = $tbody.find('tr').filter(function () {\n                            return $(this).find('td').length > 0;\n                        });\n                    } else {\n                        // tbody が無ければ table 内の tr をチェック（ヘッダ行のみの場合を除外）\n                        $dataRows = $table.find('tr').filter(function () {\n                            return $(this).find('td').length > 0;\n                        });\n                    }\n                    if (!$dataRows || $dataRows.length === 0) {\n                        tableMissingOrEmpty = true;\n                    }\n                }\n            }\n\n            if (tableMissingOrEmpty) {\n                // 非表示対象セレクタを作る（参照変数が未定義でもエラーにならないようガード）\n                var aId = (typeof check_foodTruck_site !== 'undefined' && check_foodTruck_site !== null) ? check_foodTruck_site : '';\n                var bId = (typeof check_vipList_site !== 'undefined' && check_vipList_site !== null) ? check_vipList_site : '';\n\n                if (aId !== '') $('#Results_Source' + aId + 'Field').hide();\n                if (bId !== '') $('#Results_Source' + bId + 'Field').hide();\n\n                // SectionFields コンテナ群を非表示（存在しなければ jQuery は無視）\n                $('#' + sectionFieldsContainers.s6).hide();\n                $('#' + sectionFieldsContainers.s3).hide();\n                $('#' + sectionFieldsContainers.s4).hide();\n                $('#' + sectionFieldsContainers.s5).hide();\n\n                return;\n            }\n\n            // テーブルが存在し、かつ中身（データ行）がある場合は何もしない\n            return;\n        } catch (err) {\n            if (typeof console !== 'undefined' && console.error) console.error('indexProcess内エラー:', err);\n            return;\n        }\n    }\n\n    // トリガー\n    $(function() {\n        indexProcess();\n    });\n\n    if (window.$p && $p.events) {\n        var originalAfterSet = $p.events.after_set;\n        $p.events.after_set = function () {\n            if (typeof originalAfterSet === 'function') {\n                originalAfterSet.apply(this, arguments);\n            }\n            indexProcess();\n        };\n    }\n})(jQuery);\n",
+            "Id": 14
+          },
+          {
+            "Title": "【画面制御】開始日、終了日を隠し項目にセット",
+            "Edit": true,
+            "Body": "(function ($) {\n  'use strict';\n\n  var $rows = $(startEnd_table_id +' tbody tr.grid-row');\n  let $id = $('#Results_ResultId').text();\n  if ($rows.length === 0) return;\n\n  var minStartDate = null;\n  var maxEndDate   = null;\n  var minStartStr  = '';\n  var maxEndStr    = '';\n\n  $rows.each(function () {\n    var $tds = $(this).find('td');\n\n    var startText = $tds.eq(1).text().trim(); // 開始日\n    var endText   = $tds.eq(2).text().trim(); // 終了日\n\n    // 「2025/12/27 土」→「2025/12/27」\n    var startDateStr = startText.split(' ')[0];\n    var endDateStr   = endText.split(' ')[0];\n\n    var startDate = new Date(startDateStr.replace(/\\//g, '-'));\n    var endDate   = new Date(endDateStr.replace(/\\//g, '-'));\n\n    // ★ 開始日：一番古いもの\n    if (!minStartDate || startDate < minStartDate) {\n      minStartDate = startDate;\n      minStartStr  = startDateStr;\n    }\n\n    // ★ 終了日：一番新しいもの\n    if (!maxEndDate || endDate > maxEndDate) {\n      maxEndDate = endDate;\n      maxEndStr  = endDateStr;\n    }\n  });\n\n  if (!minStartDate || !maxEndDate) return;\n\n  // 値セット（画面 & 保存値）\n  $('#Results_DateA').val(minStartStr);\n  $('#Results_DateB').val(maxEndStr);\n\n  $p.set($('#Results_DateA'), minStartStr);\n  $p.set($('#Results_DateB'), maxEndStr);\n\n  // 画面離脱時に保存\n  window.addEventListener('beforeunload', function () {\n    $p.apiUpdate({\n      id: $id,\n      data: {\n        DateHash: {\n          DateA: minStartStr,\n          DateB: maxEndStr\n        }\n      }\n    });\n  });\n\n})(jQuery);\n",
+            "Id": 15
+          },
+          {
+            "Title": "【画面制御】事業名・店舗名を隠し項目にセット",
+            "New": true,
+            "Edit": true,
+            "Body": "(function ($) {\n  'use strict';\n\n  // 初期表示\n  $(function () {\n    syncClassN();\n  });\n\n  // ラジオ変更\n  $(document).on('change', 'input[name=\"Results_ClassI\"]', function () {\n    syncClassN();\n  });\n\n  // マルチセレクト変更\n  $(document).on('change', 'input[name=\"multiselect_Results_ClassJ\"]', function () {\n    syncClassN();\n  });\n\n  // 店舗数変更\n  $(document).on('input change', '#Results_ClassK', function () {\n    syncClassN();\n  });\n\n  /**\n   * 店舗管理方法に応じて Results_ClassN に値をセット\n   */\n  function syncClassN() {\n\n    // ★ ラジオの表示テキストで判定\n    var classIText = $('input[name=\"Results_ClassI\"]:checked')\n      .closest('label')\n      .text()\n      .trim();\n\n    var value = '';\n\n    if (classIText === '店舗ごと入力') {\n\n      // ClassK を空にする\n      $('#Results_ClassK').val('');\n      $p.set($('#Results_ClassK'), '');\n\n      // 選択されている店舗名（表示名）を取得\n      var selectedTexts = $('input[name=\"multiselect_Results_ClassJ\"]:checked')\n        .map(function () {\n          return $(this).closest('label').find('span').text().trim();\n        })\n        .get();\n\n      value = selectedTexts.join('、');\n\n    } else if (classIText === '店舗数') {\n\n      // ClassJ を空にする\n      $('#Results_ClassJ').val('');\n      $p.set($('#Results_ClassJ'), '');\n\n      // 店舗数 → ClassK\n      value = $('#Results_ClassK').val() || '';\n    }\n\n    // ClassN に反映\n    $('#Results_ClassN').val(value);\n    $p.set($('#Results_ClassN'), value);\n  }\n\n})(jQuery);\n",
+            "Id": 16
+          }
+        ],
+        "AllowCopy": false,
+        "UseIncompleteFilter": false,
+        "UseSearchFilter": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 255671,
+      "Permissions": [
+        {
+          "ReferenceId": 255671,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 255671,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": -1,
+          "PermissionType": 511
+        }
+      ]
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": [
+      {
+        "UserId": 1,
+        "LoginId": "Administrator"
+      }
+    ]
+  }
+}

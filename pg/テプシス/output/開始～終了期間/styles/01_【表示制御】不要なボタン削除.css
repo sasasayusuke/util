@@ -1,0 +1,5 @@
+/*メールボタン、削除ボタン削除*/
+
+#EditOutgoingMail,DeleteCommand{
+  display: none !important;
+}

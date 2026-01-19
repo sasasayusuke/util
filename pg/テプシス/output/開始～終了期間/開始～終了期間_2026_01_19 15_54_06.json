@@ -1,0 +1,231 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 255692,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T06:54:06.8301531+00:00",
+    "Convertors": [
+      {
+        "SiteId": 255692,
+        "SiteTitle": "開始～終了期間",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 255692,
+      "Title": "開始～終了期間",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 255673,
+      "InheritPermission": 255692,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ResultId",
+          "ClassA",
+          "DateA",
+          "DateB",
+          "Updator",
+          "UpdatedTime"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ClassA",
+            "DateA",
+            "DateB",
+            "ClassB",
+            "ResultId"
+          ]
+        },
+        "LinkColumns": [
+          "ClassA",
+          "DateA",
+          "DateB"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "店舗名"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "イベント予定一覧",
+            "ChoicesText": "[[255671]]",
+            "Hide": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "開始日",
+            "DateFilterFy": false,
+            "DateFilterHalf": false,
+            "DateFilterQuarter": false
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "終了日"
+          },
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "イベント店舗ID"
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 255671
+          }
+        ],
+        "Exports": [
+          {
+            "Name": "一括アップロード用",
+            "Columns": [
+              {
+                "Id": 1,
+                "ColumnName": "ClassA"
+              },
+              {
+                "Id": 2,
+                "ColumnName": "ClassB"
+              },
+              {
+                "Id": 3,
+                "ColumnName": "DateA"
+              },
+              {
+                "Id": 4,
+                "ColumnName": "DateB"
+              }
+            ],
+            "Type": 0,
+            "DelimiterType": 0,
+            "ExecutionType": 0,
+            "Id": 1
+          }
+        ],
+        "Styles": [
+          {
+            "Title": "【表示制御】不要なボタン削除",
+            "All": true,
+            "Body": "/*メールボタン、削除ボタン削除*/\n\n#EditOutgoingMail,DeleteCommand{\n  display: none !important;\n}",
+            "Id": 1
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "【設定】サイトID",
+            "All": true,
+            "Body": "//サイトID\nconst event_Site_Id = 255671;  //イベント予定一覧\n",
+            "Id": 4
+          },
+          {
+            "Title": "【設定】サイトID取得",
+            "All": true,
+            "Body": "//（Updateかかるまでは中身空とすること）",
+            "Id": 5
+          },
+          {
+            "Title": "【設定】グローバル変数値",
+            "All": true,
+            "Body": "// デバッグON/OFF（グローバル）\nwindow.force = true; // false にすると出ない",
+            "Id": 6
+          },
+          {
+            "Title": "【共通関数】エラーポップアップ表示",
+            "All": true,
+            "Body": "function genErrorNo() {\n  return 'E-' + Date.now();\n}\n\n// 共通エラーアラート\nfunction showCommonError(errNo) {\n  const no = errNo || genErrorNo();\n  alert(\n    'エラーが発生しました。\\n' +\n    '操作をやり直しても解消しない場合は、\\n' +\n    'このエラー内容を管理者にお伝えください。\\n\\n' +\n     no\n  );\n\n  // デバッグ用（任意）\n  window.force && console.error('ERROR:', no);\n}\n// 使い方：\n// どこでもこれだけ\n// showCommonError();\n\n// 既にエラー番号がある場合\n// showCommonError('E-API-00123');\n",
+            "Id": 7
+          },
+          {
+            "Title": "【共通処理】ローディング画面",
+            "All": true,
+            "Body": "// 1.グローバル変数値として下記を設定\nwindow.loadingCount = window.loadingCount ?? 0;\nwindow.loadingMsg   = window.loadingMsg   ?? '読み込み中...';\n\n// 2．共通処理で読み込み中表示を作成する\n// =======================================\n// 読み込み表示\n// - count が 1 以上なら表示、0 で非表示\n// - incLoading(msg) / decLoading() を使う\n// =======================================\n\n\n// =======================================\n// _ensureOL\n// 説明：読み込みオーバーレイの DOM とスタイルを作成（既にあれば何もしない）\n// =======================================\nfunction _ensureOL(){\n  if (document.getElementById('loading-ol')) return;\n  // 最低限のアニメーション CSS を追加\n  const s = document.createElement('style');\n  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';\n  document.head.appendChild(s);\n\n  // オーバーレイ本体\n  const ol = document.createElement('div');\n  ol.id = 'loading-ol';\n  ol.style.cssText = 'position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.25);z-index:2147483647';\n\n  // 中身（白ボックス + スピナー + メッセージ）\n  ol.innerHTML = '<div style=\"background:#fff;padding:10px 14px;border-radius:6px;display:flex;gap:10px;align-items:center\">'\n               + '<span style=\"width:18px;height:18px;border:3px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin 1s linear infinite\"></span>'\n               + `<span id=\"loading-ol-msg\">${window.loadingMsg}</span></div>`;\n\n  document.body.appendChild(ol);\n}\n\n// =======================================\n// incLoading\n// 説明：読み込みカウントをインクリメント。最初の1回目で表示。\n// 引数：message（省略可） — 表示メッセージを一時的に変更\n// =======================================\nwindow.incLoading = function(msg){\n  window.loadingCount = (window.loadingCount || 0) + 1;\n  _ensureOL();\n  if (msg) {\n    const m = document.getElementById('loading-ol-msg');\n    if (m) m.textContent = msg;\n  }\n  if (window.loadingCount === 1) {\n    document.getElementById('loading-ol').style.display = 'flex';\n  }\n};\n\n// =======================================\n// decLoading\n// 説明：読み込みカウントをデクリメント。0 になったら非表示。\n// 注意：呼び出し回数と対応させる（負にはならない）\n// =======================================\nwindow.decLoading = function(){\n  window.loadingCount = Math.max(0, (window.loadingCount || 0) - 1);\n  if (window.loadingCount === 0) {\n    const el = document.getElementById('loading-ol');\n    if (el) el.style.display = 'none';\n  }\n};\n// ■使い方\n// incLoading();             // 表示（count = +1）\n// incLoading('読込中...');  // メッセージ変更して表示\n\n// decLoading();             // 非表示は count が 0 になった時",
+            "Id": 8
+          },
+          {
+            "Title": "【画面制御】店舗名選択肢作成スクリプト",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    'use strict';\n    // ---------- jQuery 安全参照 ----------\n    var $jq = (typeof window !== 'undefined' && typeof window.jQuery !== 'undefined')\n        ? window.jQuery\n        : (typeof window !== 'undefined' && typeof window.$ === 'function' ? window.$ : null);\n    if ($jq) {\n        console.info('LinkChecker: using jQuery (version ' + ($jq.fn && $jq.fn.jquery ? $jq.fn.jquery : 'unknown') + ')');\n    } else {\n        console.info('LinkChecker: jQuery not available, using vanilla DOM API as fallback.');\n    }\n    // ---------- siteId 決定（event_Site_Id を優先、無ければ外部変数 TARGET_LINK_TABLE_DATA_ID） ----------\n    function getEffectiveSiteId() {\n        if (typeof event_Site_Id !== 'undefined' && event_Site_Id !== null) return String(event_Site_Id);\n        if (typeof window !== 'undefined' && typeof window.TARGET_LINK_TABLE_DATA_ID !== 'undefined') return String(window.TARGET_LINK_TABLE_DATA_ID);\n        return undefined;\n    }\n    // ---------- DOM / 要素ユーティリティ ----------\n    function getResultsClassAElement() {\n        if ($jq) {\n            var $el = $jq('#Results_ClassA');\n            return ($el && $el.length) ? $el.get(0) : null;\n        } else {\n            return document.getElementById('Results_ClassA');\n        }\n    }\n    function preventDefaultHandler(e) { e.preventDefault(); }\n    // ---------- テーブル検索と ID 抽出 ----------\n    function getLinkTableByDataId(siteId) {\n        if ($jq) {\n            var $t = $jq('table[data-id=\"' + siteId + '\"]').first();\n            return ($t && $t.length) ? $t.get(0) : null;\n        } else {\n            return document.querySelector('table[data-id=\"' + siteId + '\"]');\n        }\n    }\n    function extractIdFromHref(href) {\n        if (!href) return null;\n        var m = href.match(/\\/items\\/(\\d+)/);\n        if (m && m[1]) return m[1];\n        var searchMatch = href.match(/[?&]LinkId=(\\d+)/);\n        if (searchMatch && searchMatch[1]) return searchMatch[1];\n        return null;\n    }\n    function getQueryParamFromLocation(paramName) {\n        try {\n            var url = window.location.href || '';\n            var query = url.split('?')[1] || '';\n            if (!query) return null;\n            var searchParams = new URLSearchParams(query);\n            return searchParams.get(paramName);\n        } catch (e) {\n            var re = new RegExp('[?&]' + paramName + '=([^&]+)');\n            var m = window.location.href.match(re);\n            return m ? decodeURIComponent(m[1]) : null;\n        }\n    }\n    // ---------- tableElem から ResultId 列の td 値を取得 ----------\n    function getResultIdsFromTable(tableElem) {\n        var ids = [];\n        if (!tableElem) return ids;\n        if ($jq) {\n            var $table = $jq(tableElem);\n            var $th = $table.find('thead tr th[data-name=\"ResultId\"]').first();\n            if (!$th || !$th.length) {\n                console.warn('LinkChecker: th[data-name=\"ResultId\"] が見つかりません。');\n                return ids;\n            }\n            var colIndex = $th.index();\n            $table.find('tbody tr').each(function () {\n                var $tr = $jq(this);\n                var $td = $tr.find('td').eq(colIndex);\n                if ($td && $td.length) {\n                    var text = $td.text().trim();\n                    if (text) {\n                        ids.push(text);\n                    } else {\n                        var $a = $td.find('a').first();\n                        if ($a && $a.length) {\n                            var href = $a.attr('href') || '';\n                            var fromHref = extractIdFromHref(href);\n                            if (fromHref) ids.push(fromHref);\n                        }\n                    }\n                }\n            });\n        } else {\n            var thead = tableElem.querySelector('thead');\n            if (!thead) {\n                console.warn('LinkChecker: thead が見つかりません。');\n                return ids;\n            }\n            var th = thead.querySelector('tr th[data-name=\"ResultId\"]');\n            if (!th) {\n                console.warn('LinkChecker: th[data-name=\"ResultId\"] が見つかりません。');\n                return ids;\n            }\n            var headers = Array.prototype.slice.call(th.parentNode.children);\n            var colIndex = headers.indexOf(th);\n            var rows = tableElem.querySelectorAll('tbody tr');\n            Array.prototype.forEach.call(rows, function (row) {\n                var tds = row.querySelectorAll('td');\n                var td = tds[colIndex];\n                if (td) {\n                    var text = td.textContent.trim();\n                    if (text) {\n                        ids.push(text);\n                    } else {\n                        var a = td.querySelector('a');\n                        if (a) {\n                            var href = a.getAttribute('href') || '';\n                            var fromHref = extractIdFromHref(href);\n                            if (fromHref) ids.push(fromHref);\n                        }\n                    }\n                }\n            });\n        }\n        // 一意化して返却\n        ids = ids.filter(function (v, i, self) { return self.indexOf(v) === i; });\n        return ids;\n    }\n    // ---------- ドロップダウン管理（body に直接追加する実装、外部化不要） ----------\n    // data-lc-dropdown-id 属性で input と body の dropdown を結びつける\n    function removeExistingDropdown(inputEl) {\n        if (!inputEl) return;\n        // wrapper が input の親であれば wrapper を解体して input を元に戻す\n        var parent = inputEl.parentNode;\n        if (parent && parent.classList && parent.classList.contains('linkchecker-wrapper')) {\n            var wrapper = parent;\n            if (wrapper.parentNode) {\n                wrapper.parentNode.insertBefore(inputEl, wrapper);\n                wrapper.parentNode.removeChild(wrapper);\n            }\n        } else {\n            // もし input の直上に wrapper がないが親内に wrapper があればそれを削除\n            if (parent) {\n                var maybeWrapper = parent.querySelector && parent.querySelector('.linkchecker-wrapper');\n                if (maybeWrapper) {\n                    if (maybeWrapper.contains(inputEl) && maybeWrapper.parentNode) {\n                        maybeWrapper.parentNode.insertBefore(inputEl, maybeWrapper);\n                    }\n                    if (maybeWrapper.parentNode) maybeWrapper.parentNode.removeChild(maybeWrapper);\n                }\n            }\n        }\n        // body に追加された dropdown を削除\n        var ddId = inputEl.getAttribute('data-lc-dropdown-id');\n        if (ddId) {\n            var existingUl = document.getElementById(ddId);\n            if (existingUl && existingUl.parentNode) existingUl.parentNode.removeChild(existingUl);\n            inputEl.removeAttribute('data-lc-dropdown-id');\n        }\n    }\n    function setInputValue(inputEl, value) {\n        if (!inputEl) return;\n        inputEl.value = value;\n        try {\n            if ($jq) $jq(inputEl).trigger('change');\n            else {\n                var ev = document.createEvent('HTMLEvents');\n                ev.initEvent('change', true, false);\n                inputEl.dispatchEvent(ev);\n            }\n        } catch (e) { /* noop */ }\n    }\n    // ドロップダウンを body に作って表示する（options: string[]）\n    function createDropdownForInput(inputEl, options) {\n        if (!inputEl) return;\n        // まず既存削除\n        removeExistingDropdown(inputEl);\n        // wrapper を作って input を内包（見た目維持）\n        var wrapper = document.createElement('span');\n        wrapper.className = 'linkchecker-wrapper';\n        wrapper.style.display = 'inline-block';\n        wrapper.style.position = 'relative';\n        wrapper.style.verticalAlign = 'middle';\n        var computedWidth = (window.getComputedStyle) ? getComputedStyle(inputEl).width : '';\n        if (computedWidth) wrapper.style.width = computedWidth;\n        inputEl.parentNode.insertBefore(wrapper, inputEl);\n        wrapper.appendChild(inputEl);\n        // input スタイル調整（ボタン分の余白）\n        inputEl.style.boxSizing = 'border-box';\n        inputEl.style.width = '100%';\n        inputEl.style.paddingRight = '36px';\n        inputEl.setAttribute('readonly', 'readonly');\n        // ブロック系イベントで直接入力を阻止\n        inputEl.addEventListener('keydown', preventDefaultHandler);\n        inputEl.addEventListener('paste', preventDefaultHandler);\n        // toggle ボタン（wrapper 内）\n        var btn = document.createElement('button');\n        btn.type = 'button';\n        btn.className = 'linkchecker-toggle';\n        btn.setAttribute('aria-haspopup', 'true');\n        btn.setAttribute('aria-expanded', 'false');\n        btn.style.position = 'absolute';\n        btn.style.right = '2px';\n        btn.style.top = '50%';\n        btn.style.transform = 'translateY(-50%)';\n        btn.style.height = '24px';\n        btn.style.padding = '0 6px';\n        btn.style.cursor = 'pointer';\n        btn.style.border = '1px solid #ccc';\n        btn.style.background = '#fff';\n        btn.style.fontSize = '12px';\n        btn.textContent = '▼';\n        wrapper.appendChild(btn);\n        // dropdown を body に作成\n        var ul = document.createElement('ul');\n        var ddId = 'linkchecker_dd_' + (Date.now()) + '_' + (Math.floor(Math.random() * 10000));\n        ul.id = ddId;\n        ul.className = 'linkchecker-dropdown';\n        ul.style.position = 'absolute';\n        ul.style.zIndex = '99999';\n        ul.style.listStyle = 'none';\n        ul.style.margin = '0';\n        ul.style.padding = '4px 0';\n        ul.style.border = '1px solid #ccc';\n        ul.style.background = '#fff';\n        ul.style.maxHeight = '240px';\n        ul.style.overflowY = 'auto';\n        ul.style.boxShadow = '0 2px 10px rgba(0,0,0,0.12)';\n        ul.style.display = 'none';\n        document.body.appendChild(ul);\n        // li を追加\n        options.forEach(function (opt) {\n            var li = document.createElement('li');\n            li.style.padding = '6px 10px';\n            li.style.cursor = 'pointer';\n            li.style.whiteSpace = 'nowrap';\n            li.textContent = opt;\n            li.addEventListener('mouseenter', function () { li.style.background = '#f0f0f0'; });\n            li.addEventListener('mouseleave', function () { li.style.background = ''; });\n            li.addEventListener('click', function (e) {\n                e.stopPropagation();\n                setInputValue(inputEl, opt);\n                hideDropdown();\n            });\n            ul.appendChild(li);\n        });\n        // input と dropdown を紐づけるための属性\n        inputEl.setAttribute('data-lc-dropdown-id', ddId);\n        // 位置決め関数（表示前に必ず呼ぶ）\n        function positionDropdown() {\n            var rect = inputEl.getBoundingClientRect();\n            var width = rect.width;\n            var left = rect.left + window.pageXOffset;\n            var top = rect.bottom + window.pageYOffset + 4; // 少し空ける\n            ul.style.left = left + 'px';\n            ul.style.top = top + 'px';\n            ul.style.width = width + 'px';\n        }\n        function showDropdown() {\n            positionDropdown();\n            ul.style.display = 'block';\n            btn.setAttribute('aria-expanded', 'true');\n        }\n        function hideDropdown() {\n            ul.style.display = 'none';\n            btn.setAttribute('aria-expanded', 'false');\n        }\n        // toggle と input クリックで開閉\n        btn.addEventListener('click', function (e) {\n            e.stopPropagation();\n            if (ul.style.display === 'block') hideDropdown(); else showDropdown();\n        });\n        inputEl.addEventListener('click', function (e) {\n            e.stopPropagation();\n            if (ul.style.display === 'block') hideDropdown(); else showDropdown();\n        });\n        // グローバルクリックで閉じる（多重登録防止）\n        if (!window._linkchecker_global_click_attached) {\n            window._linkchecker_global_click_attached = true;\n            document.addEventListener('click', function () {\n                var list = document.querySelectorAll('.linkchecker-dropdown');\n                Array.prototype.forEach.call(list, function (u) { u.style.display = 'none'; });\n                var toggles = document.querySelectorAll('.linkchecker-toggle');\n                Array.prototype.forEach.call(toggles, function (t) { t.setAttribute('aria-expanded', 'false'); });\n            });\n        }\n        // スクロール・リサイズ時は表示中なら位置更新（passive リスナ）\n        window.addEventListener('resize', function () {\n            if (ul.style.display === 'block') positionDropdown();\n        });\n        window.addEventListener('scroll', function () {\n            if (ul.style.display === 'block') positionDropdown();\n        }, { passive: true });\n    }\n    // ---------- API 取得（ページング対応） ----------\n    function fetchSiteKeyValues(siteId) {\n        return new Promise(function (resolve, reject) {\n            var offset = 0;\n            var allData = [];\n            var firstResponse = null;\n            function getPage() {\n                var postData = {\n                    View: {\n                        \"ApiDataType\": \"KeyValues\",\n                        \"ApiColumnKeyDisplayType\": \"ColumnName\",\n                        \"ApiColumnValueDisplayType\": \"DisplayValue\",\n                        \"GridColumns\": [\"ClassI\", \"ClassJ\", \"ClassK\"]\n                    },\n                    Offset: offset\n                };\n                $p.apiGet({\n                    id: siteId,\n                    data: postData,\n                    done: function (data) {\n                        var resp = (data && data.Response) ? data.Response : null;\n                        if (!resp) {\n                            try { showCommonError(500); } catch (e) { /* noop */ }\n                            return reject(500);\n                        }\n                        if (!firstResponse) firstResponse = data;\n                        var pageData = Array.isArray(resp.Data) ? resp.Data : [];\n                        Array.prototype.push.apply(allData, pageData);\n                        var pageSize = (typeof resp.PageSize === 'number' && resp.PageSize > 0) ? resp.PageSize : pageData.length;\n                        var totalCount = (typeof resp.TotalCount === 'number') ? resp.TotalCount : allData.length;\n                        if (offset + pageSize < totalCount) {\n                            offset += pageSize;\n                            getPage();\n                        } else {\n                            if (firstResponse && firstResponse.Response) {\n                                firstResponse.Response.Data = allData;\n                                firstResponse.Response.Offset = 0;\n                                firstResponse.Response.PageSize = allData.length;\n                                firstResponse.Response.TotalCount = totalCount;\n                                resolve(firstResponse);\n                            } else {\n                                resolve(allData);\n                            }\n                        }\n                    },\n                    fail: function (err) {\n                        try { showCommonError(err); } catch (e) { /* noop */ }\n                        reject(err);\n                    }\n                });\n            }\n            getPage();\n        });\n    }\n    // ---------- 取得データを #Results_ClassA に反映する処理（あなたの要件に沿う） ----------\n    function applyDataToResultsClassA(data) {\n        // 安全に Data 配列を取得\n        var rows = (data && data.Response && Array.isArray(data.Response.Data)) ? data.Response.Data : [];\n        if (!rows.length) {\n            console.warn('LinkChecker: 取得データが空です。');\n            return;\n        }\n        var rec = rows[0];\n        // ClassI が '店舗数' のときは ClassK、'店舗ごと入力' のときは ClassJ を使用\n        var chosenRaw = '';\n        if (rec.ClassI === '店舗数') {\n            chosenRaw = rec.ClassK || '';\n        } else if (rec.ClassI === '店舗ごと入力') {\n            chosenRaw = rec.ClassJ || '';\n        } else {\n            console.warn('LinkChecker: 未対応の ClassI 値:', rec.ClassI);\n            return;\n        }\n        // カンマ区切りで分解、トリムし空要素除去\n        var options = ('' + chosenRaw).split(',').map(function (s) { return s.trim(); }).filter(function (s) { return s.length > 0; });\n        var inputEl = getResultsClassAElement();\n        if (!inputEl) {\n            console.warn('LinkChecker: 対象 input (#Results_ClassA) が見つかりません。');\n            return;\n        }\n        // 直接入力禁止（readonly）と基本的な阻止\n        inputEl.setAttribute('readonly', 'readonly');\n        inputEl.addEventListener('keydown', preventDefaultHandler);\n        inputEl.addEventListener('paste', preventDefaultHandler);\n        // 分岐: 0,1,複数\n        if (options.length === 0) {\n            removeExistingDropdown(inputEl);\n            setInputValue(inputEl, '');\n            return;\n        }\n        if (options.length === 1) {\n            removeExistingDropdown(inputEl);\n            setInputValue(inputEl, options[0]);\n            return;\n        }\n        // 複数ならプルダウンを作る（クリックで選択）\n        createDropdownForInput(inputEl, options);\n    }\n    // ---------- sdtApifunction（API 呼び出し後の制御を行う） ----------\n    function sdtApifunction(saiteID) {\n        try { window.force && console.log('index開始'); } catch (e) { /* noop */ }\n        try { if (typeof incLoading === 'function') incLoading(); } catch (e) { /* noop */ }\n        fetchSiteKeyValues(saiteID).then(function (data) {\n            // ここが「次の処理」の起点\n            console.log('次の処理', data);\n            // データをフォームに反映\n            try {\n                applyDataToResultsClassA(data);\n            } catch (e) {\n                console.error('LinkChecker: 値反映処理でエラー', e);\n            }\n            // ロード表示解除（無ければ無視）\n            try { if (typeof decLoading === 'function') decLoading(); } catch (e) { /* noop */ }\n            // 一覧への反映（FilterButton を押す挙動を試みる）\n            try {\n                if ($jq) {\n                    $p.send($jq('#FilterButton'));\n                } else {\n                    var fb = document.getElementById('FilterButton');\n                    if (fb) $p.send(fb);\n                }\n            } catch (e) {\n                console.warn('LinkChecker: $p.send によるフィルタ適用でエラー', e);\n            }\n        }).catch(function (err) {\n            console.error('LinkChecker: fetchSiteKeyValues エラー', err);\n            try { if (typeof decLoading === 'function') decLoading(); } catch (e) { /* noop */ }\n        });\n    }\n    // ---------- トリガ（画面読み込み・レコード登録・更新後） ----------\n    function processFlow() {\n        var siteId = getEffectiveSiteId();\n        if (!siteId) {\n            console.warn('LinkChecker: event_Site_Id が指定されていません。window.TARGET_LINK_TABLE_DATA_ID を設定してください。');\n            return;\n        }\n        var tableElem = getLinkTableByDataId(siteId);\n        if (tableElem) {\n            var ids = getResultIdsFromTable(tableElem);\n            if (ids && ids.length) {\n                sdtApifunction(ids[0]);\n            } else {\n                // テーブルはあるが ID が取れなかった場合は URL を参照\n                var linkId = getQueryParamFromLocation('LinkId');\n                if (linkId) sdtApifunction(linkId);\n            }\n        } else {\n            var linkId = getQueryParamFromLocation('LinkId');\n            if (linkId) sdtApifunction(linkId);\n            else console.info('LinkChecker: 対象テーブル／LinkId が見つかりませんでした。siteId=' + siteId);\n        }\n    }\n    // Pleasanter のイベントに接続（編集画面読み込み／更新後）\n    if (typeof $p !== 'undefined' && $p && $p.events) {\n        $p.events.on_editor_load = function () { processFlow(); };\n        $p.events.after_set = function () { processFlow(); };\n    }\n    // DOM ready でも一度実行（保険）\n    if ($jq) {\n        $jq(function () { processFlow(); });\n    } else {\n        if (document.readyState === 'loading') {\n            document.addEventListener('DOMContentLoaded', function () { processFlow(); });\n        } else {\n            processFlow();\n        }\n    }\n})();\n",
+            "Id": 9
+          },
+          {
+            "Title": "リンク項目継承処理",
+            "All": true,
+            "Disabled": true,
+            "Body": "// 子画面に置くコード例\n(function(){\n  const STORAGE_KEY = 'pleasanter.linkPayload';\n\n  function readAndConsumePayload() {\n    try {\n      const raw = sessionStorage.getItem(STORAGE_KEY);\n      if (!raw) return null;\n      const payload = JSON.parse(raw);\n      // 必要なら消す（1回だけ使いたい場合）\n      sessionStorage.removeItem(STORAGE_KEY);\n      return payload;\n    } catch (e) {\n      console.error('pleasanter: failed to read payload', e);\n      return null;\n    }\n  }\n\n  // 通常のページロード時\n  document.addEventListener('DOMContentLoaded', function(){\n    const payload = readAndConsumePayload();\n    if (payload) {\n      console.log('received payload', payload);\n      // ここで画面に反映したり API 呼び出ししたりする\n      if(payload.StoreManageMethod === '店舗ごと入力') {\n        console.log('店舗ごと入力');\n        $p.set($p.getControl('ClassA'), payload.PerStoreName)\n      } else if(payload.StoreManageMethod === '店舗数') {\n        console.log('店舗数');\n        $p.set($p.getControl('ClassA'), payload.NumberOfStoreName)\n      }\n    }\n  });\n\n  // Pleasanter がオンページ遷移のイベントを出すならフック（存在する場合）\n  if (window.$p && $p.events && typeof $p.events.on_page_loaded === 'function') {\n    $p.events.on_page_loaded(function(){\n      const payload = readAndConsumePayload();\n      if (payload) {\n        console.log('received payload (on_page_loaded)', payload);\n        // 追加処理\n      }\n    });\n  }\n})();\n",
+            "Id": 1
+          },
+          {
+            "Title": "【試験】大衡試験ジャンプスクリプト　代理クリック",
+            "Edit": true,
+            "Disabled": true,
+            "Body": "$(function () {\n  const btn = document.querySelector(\n    'button.confirm-unload[data-id=\"2841751\"]'\n  );\n  if (!btn) return;\n\n  btn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));\n  btn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));\n  btn.dispatchEvent(new MouseEvent('click', { bubbles: true }));\n});",
+            "Id": 2
+          }
+        ],
+        "AllowCopy": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 255692,
+      "Permissions": [
+        {
+          "ReferenceId": 255692,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 255692,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": -1,
+          "PermissionType": 511
+        }
+      ]
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": [
+      {
+        "UserId": 1,
+        "LoginId": "Administrator"
+      }
+    ]
+  }
+}

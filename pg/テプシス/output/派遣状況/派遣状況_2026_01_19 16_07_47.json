@@ -1,0 +1,302 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 255670,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T07:07:47.2843412+00:00",
+    "Convertors": [
+      {
+        "SiteId": 255670,
+        "SiteTitle": "派遣状況",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 255670,
+      "Title": "派遣状況",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 255668,
+      "InheritPermission": 255670,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ClassA",
+          "DateA",
+          "ClassB",
+          "DateB",
+          "DateC"
+        ],
+        "FilterColumns": [
+          "ClassC",
+          "ClassD",
+          "ClassE",
+          "ClassF",
+          "ClassG",
+          "ClassH",
+          "ClassI",
+          "ClassJ",
+          "ClassK",
+          "ClassL",
+          "ClassM",
+          "ClassN",
+          "ClassO",
+          "ClassP",
+          "ClassQ",
+          "ClassR",
+          "ClassS",
+          "ClassT",
+          "ClassU",
+          "ClassV",
+          "ClassW",
+          "ClassX",
+          "ClassY",
+          "ClassZ",
+          "NumA",
+          "NumB",
+          "NumC",
+          "NumD",
+          "NumE",
+          "NumF",
+          "NumG",
+          "NumH",
+          "NumI",
+          "NumJ",
+          "NumK",
+          "NumL",
+          "NumM",
+          "NumN",
+          "NumO",
+          "NumP",
+          "NumQ",
+          "NumR",
+          "NumS",
+          "NumT",
+          "NumU",
+          "NumV",
+          "NumW",
+          "NumX",
+          "NumY",
+          "NumZ",
+          "DateD",
+          "DateE",
+          "DateF",
+          "DateG",
+          "DateH",
+          "DateI",
+          "DateJ",
+          "DateK",
+          "DateL",
+          "DateM",
+          "DateN",
+          "DateO",
+          "DateP",
+          "DateQ",
+          "DateR",
+          "DateS",
+          "DateT",
+          "DateU",
+          "DateV",
+          "DateW",
+          "DateX",
+          "DateY",
+          "DateZ",
+          "CheckB",
+          "CheckC",
+          "CheckD",
+          "CheckE",
+          "CheckF",
+          "CheckG",
+          "CheckH",
+          "CheckI",
+          "CheckJ",
+          "CheckK",
+          "CheckL",
+          "CheckM",
+          "CheckN",
+          "CheckO",
+          "CheckP",
+          "CheckQ",
+          "CheckR",
+          "CheckS",
+          "CheckT",
+          "CheckU",
+          "CheckV",
+          "CheckW",
+          "CheckX",
+          "CheckY",
+          "CheckZ"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "Title",
+            "ResultId",
+            "ClassA",
+            "DateA",
+            "ClassB",
+            "DateB",
+            "DateC"
+          ]
+        },
+        "TitleColumns": [
+          "ClassA"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "派遣名",
+            "NoWrap": true,
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "直近の派遣日",
+            "NoWrap": true,
+            "Hide": true,
+            "EditorReadOnly": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "派遣先イベント名称",
+            "ChoicesText": "[[255671]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "派遣不可期間(開始日)",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "派遣不可期間(終了日)"
+          },
+          {
+            "ColumnName": "CheckA",
+            "LabelText": "削除フラグ",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "派遣者Id",
+            "Hide": true
+          },
+          {
+            "ColumnName": "Title",
+            "Hide": true
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 255671
+          }
+        ],
+        "UpdatableImport": true,
+        "Styles": [
+          {
+            "Title": "css",
+            "All": true,
+            "Body": "/* ================================\n   モーダル背景\n================================ */\n.sdt-modal-wrap {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.25);\n  z-index: 9999;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  padding-top: 40px;\n}\n\n/* ================================\n   モーダル本体\n================================ */\n.sdt-modal {\n  position: relative;\n  width: 760px;\n  max-width: calc(100% - 32px);\n  background: #fff;\n  border: 1px solid #e6edf3;\n  border-radius: 10px;\n  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);\n  padding: 22px 26px 24px;\n}\n\n/* タイトル */\n.sdt-modal__header {\n  margin-bottom: 14px;\n}\n\n.sdt-modal__title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #2b2f33;\n}\n\n/* 右上の× */\n.sdt-modal__close {\n  position: absolute;\n  top: 14px;\n  right: 14px;\n  width: 36px;\n  height: 36px;\n  border: none;\n  background: transparent;\n  font-size: 28px;\n  line-height: 36px;\n  cursor: pointer;\n  color: #47a9c6; /* 画像の水色寄せ */\n}\n\n.sdt-modal__close:hover {\n  opacity: 0.8;\n}\n\n/* ================================\n   中身（枠）\n================================ */\n.sdt-modal__content {\n  border: 1px solid #e6edf3;\n  border-radius: 8px;\n  padding: 22px;\n  background: #fff;\n}\n\n/* ================================\n   フィールド\n================================ */\n.sdt-field__label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #4b5560;\n  margin-bottom: 10px;\n}\n\n.sdt-field__required {\n  color: #e53935;\n  font-weight: 700;\n  margin-left: 4px;\n}\n\n.sdt-field__input {\n  width: 100%;\n  height: 54px;\n  border: 1px solid #d8e2ea;\n  border-radius: 6px;\n  padding: 0 16px;\n  font-size: 16px;\n  color: #2b2f33;\n  outline: none;\n  background: #fff;\n}\n\n.sdt-field__input:focus {\n  border-color: #7fc6dc;\n  box-shadow: 0 0 0 4px rgba(127, 198, 220, 0.18);\n}\n\n/* ================================\n   ボタン配置\n================================ */\n.sdt-actions {\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 18px;\n}\n\n/* ================================\n   ボタン\n================================ */\n.sdt-btn {\n  height: 44px;\n  min-width: 140px;\n  padding: 0 18px;\n  border-radius: 8px;\n  border: 1px solid transparent;\n  font-size: 15px;\n  font-weight: 700;\n  cursor: pointer;\n}\n\n.sdt-btn--primary {\n  background: #56b6cf; /* 画像の水色寄せ */\n  border-color: #56b6cf;\n  color: #fff;\n}\n\n.sdt-btn--primary:hover {\n  opacity: 0.9;\n}\n",
+            "Id": 1
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "サイトID",
+            "All": true,
+            "Body": "const DISPATCHER_SITE_ID = \"255670\" ; // 派遣状況　一覧\nconst DATE_SITE_ID = \"255686\";             // 派遣者\nconst EVENT_SITE_ID = \"255671\";  //イベント予定一覧",
+            "Id": 1
+          },
+          {
+            "Title": "CDN読み込み",
+            "Index": true,
+            "Body": "let fnExcelJsReady = false;\n\n(function () {\n  const elm = document.createElement(\"script\");\n  elm.src = \"https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js\";\n  elm.onload = function () {\n    fnExcelJsReady = true;\n    console.log(\"ExcelJS ready\");\n  };\n  document.head.appendChild(elm);\n})();\n\n",
+            "Id": 3
+          },
+          {
+            "Title": "【画面表示制御】Excelダウンロードボタン",
+            "Index": true,
+            "Body": "/* ============================================================\n   一覧画面表示時：派遣者 / 日付 を取得\n============================================================ */\n\n// DOMが読み込まれたタイミングで実行（\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  apiGet(); // 派遣者テーブル + 日付テーブル を API取得\n});\n\n/* ============================================================\n   グローバル（状態）\n   ------------------------------------------------------------\n     classAList：縦軸に出す「表示名」の配列\n     StateMap  ：{ 派遣者ID: 表示名 } のマップ（A列に表示）\n     DatesOK   ：単日データ（〇を付ける用）\n     PeriodsNG ：期間データ（使用不可で上書き用）\n============================================================ */\nlet classAList = [];     // 縦軸チェック用：表示名配列（空なら未取得の可能性が高い）\nlet StateMap = {};       // { 派遣者ID: 表示名 }（Excelの縦軸作成に使用）\nlet DatesOK = [];        // [{ stateId, date }]  ← 単日（〇）\nlet PeriodsNG = [];      // [{ stateId, start, end }] ← 使用不可（期間）\n\n/* ============================================================\n   apiGet：2つのサイトからデータを取得し、必要形に加工して保持\n============================================================ */\nfunction apiGet() {\n  /* ============================================================\n     派遣者テーブル：ID→名前 + 使用不可期間（dateB/dateC）\n  ============================================================ */\n  $p.apiGet({\n    id: DISPATCHER_SITE_ID, // 派遣者テーブルのサイトID\n    data: {},               // 条件なし（全件取得想定）\n    done: function (data) { // API取得完了（非同期）\n      const rows = fnPickRows(data); // Pleasanter返却形式を吸収して「行配列」を取得\n      const map = {};               // { 派遣者ID: 表示名 } を作る\n      const unavailable = [];       // 使用不可期間（[{ stateId, start, end }]）を作る\n\n      // 派遣者テーブルの全行を走査して map / unavailable を構築する\n      for (let i = 0; i < rows.length; i++) {\n        const r = rows[i]; // i行目のレコード\n        const rid = r?.ResultId ?? r?.Id ?? r?.id;// 派遣者テーブルのレコードID\n        const name = r?.ClassHash?.ClassA;// 表示名（縦軸）＝ ClassA\n\n        // ------- ID→名前マップ -------\n        // rid と name が揃うものだけ採用（片方欠けると縦軸が作れない）\n        if (rid && name) {\n          map[String(rid).trim()] = String(name).trim(); // 空白混入を避ける\n        }\n\n        // ------- 使用不可期間（dateB/dateC） -------\n        // DateB/DateC の表記ゆれ（大文字/小文字）両対応\n        const rawB = r?.DateHash?.DateB ?? r?.DateHash?.dateB; // 開始\n        const rawC = r?.DateHash?.DateC ?? r?.DateHash?.dateC; // 終了\n        // 文字列化して trim（null/undefinedでも落ちない）\n        const bStr = String(rawB ?? \"\").trim();\n        const cStr = String(rawC ?? \"\").trim();\n        // rid または日付が揃っていない場合は「期間」として扱えないので除外\n        if (!rid || !bStr || !cStr) continue;\n        // Pleasanterの未入力日付（1899-12-30...）は除外\n        if (bStr.startsWith(\"1899-12-30\")) continue;\n        if (cStr.startsWith(\"1899-12-30\")) continue;\n\n        // 使用不可期間として登録（Excelでは後で「使用不可」で上書きする）\n        unavailable.push({\n          stateId: String(rid).trim(), // 派遣者ID（縦軸行割当キー）\n          start: bStr,                 // 使用不可開始\n          end: cStr,                   // 使用不可終了\n        });\n      }\n\n      // ------- 取得結果をグローバルへ反映 -------\n      StateMap = map;        // 派遣者ID→表示名\n      PeriodsNG = unavailable; // 使用不可期間\n\n      // 取得済みチェック用：表示名だけの配列を作る（空なら未取得の可能性）\n      classAList = Object.keys(map).map(function (k) {\n        return map[k];\n      });\n    },\n  });\n\n  /* ============================================================\n     日付テーブル：単日（dateA） + 派遣者ID（ClassC：単体/複数）\n  ============================================================ */\n  $p.apiGet({\n    id: DATE_SITE_ID, // 日付テーブルのサイトID\n    data: {},         // 条件なし（全件取得想定）\n    done: function (data) {\n      const rows = fnPickRows(data); // 行配列を取得\n      const list = [];               // DatesOK の作成用バッファ\n\n      // 日付テーブルの全行を走査して「単日×派遣者ID」の組を作る\n      for (let i = 0; i < rows.length; i++) {\n        const r = rows[i];\n        const rawA = r?.DateHash?.DateA ?? r?.DateHash?.dateA; // 単日：dateA（表記ゆれ両対応）\n        const aStr = String(rawA ?? \"\").trim();\n        if (!aStr) continue;// 日付が空なら意味を持たないので除外\n        if (aStr.startsWith(\"1899-12-30\")) continue;// 未入力日付（1899-12-30...）は除外\n        const ids = fnPickIdList(r?.ClassHash?.ClassC);// 派遣者ID：ClassC（単体/複数/JSON文字列/配列の揺れを吸収して配列化）\n        if (!ids.length) continue;// IDが空なら紐付けが無いので除外\n\n        // 1レコードで複数派遣者が紐づく可能性があるため、IDごとに行を作る\n        for (let j = 0; j < ids.length; j++) {\n          const id = ids[j];\n          if (!id || id === \"0\") continue; // 空や \"0\" は無効値として除外\n          list.push({ stateId: id, date: aStr }); // 「派遣者ID × 日付」の組を登録（Excelで単日に〇を打つ）\n        }\n      }\n      DatesOK = list; // 作成結果をグローバルへ反映\n    },\n  });\n}\n\n/* ============================================================\n   一覧画面：ボタン追加\n============================================================ */\n(function () {\n  const el = document.getElementById(\"MainCommands\"); // コマンド領域\n  if (!el) return; // 対象画面以外なら何もしない\n  if (document.getElementById(\"fn-download-usage-excel\")) return; // 二重追加防止\n  const btn = document.createElement(\"button\"); // ボタン生成\n  btn.id = \"fn-download-usage-excel\";           // ボタンID\n  btn.className = \"button ui-button ui-widget applied\"; // Pleasanter既存UIに合わせたclass\n  btn.textContent = \"利用状況をExcelでダウンロード\";    // 表示文言\n  btn.addEventListener(\"click\", fnOpenModal);    // クリックでモーダルを開く\n  el.appendChild(btn);                           // 画面に追加\n})();\n\n/* ============================================================\n   モーダル（年月選択 + ダウンロード）\n============================================================ */\nfunction fnOpenModal() {\n  if (document.getElementById(\"sdt-usage-excel-modal\")) return; // 二重生成防止\n  const wrap = document.createElement(\"div\"); // 背景＋中央寄せのラッパ\n  wrap.id = \"sdt-usage-excel-modal\";          // 閉じる時の参照用ID\n  wrap.className = \"sdt-modal-wrap\";          // 背景・中央寄せ用CSSクラス\n  // モーダルのHTML構造（UI）\n  wrap.innerHTML = `\n    <div class=\"sdt-modal\">\n      <button type=\"button\" class=\"sdt-modal__close\" aria-label=\"close\">×</button>\n\n      <div class=\"sdt-modal__header\">\n        <div class=\"sdt-modal__title\">利用状況Excelダウンロード</div>\n      </div>\n\n      <div class=\"sdt-modal__content\">\n        <div class=\"sdt-field\">\n          <div class=\"sdt-field__label\">\n            ダウンロード対象の年月 <span class=\"sdt-field__required\">*</span>\n          </div>\n          <input id=\"fn-target-month\" class=\"sdt-field__input\" type=\"month\" />\n        </div>\n\n        <div class=\"sdt-actions\">\n          <button id=\"fn-modal-download\" type=\"button\" class=\"sdt-btn sdt-btn--primary\">\n            ダウンロード\n          </button>\n        </div>\n      </div>\n    </div>\n  `;\n\n  document.body.appendChild(wrap); // DOMに追加して表示\n  const now = new Date();// 初期値：当月（type=month は \"YYYY-MM\" 形式）\n  document.getElementById(\"fn-target-month\").value = now.getFullYear() + \"-\" + String(now.getMonth() + 1).padStart(2, \"0\"); // 月は0始まりなので+1\n  document.getElementById(\"fn-modal-download\").onclick = fnDownloadExcel;// ダウンロード押下でExcel作成開始\n  wrap.querySelector(\".sdt-modal__close\").onclick = fnCloseModal;// ×ボタン押下でモーダルを閉じる\n}\n\n/* ============================================================\n   ExcelJS 待機\n============================================================ */\nfunction fnWaitExcelJS(cb) {\n  if (window.ExcelJS) return cb();                 // 使用可能なら即実行\n  setTimeout(function () { fnWaitExcelJS(cb); }, 50); // 50ms毎に再チェック\n}\n\n/* ============================================================\n   ダウンロード開始\n============================================================ */\nfunction fnDownloadExcel() {\n  // 派遣者マスタが未取得（縦軸が作れない）\n  if (!classAList.length) {\n    alert(\"派遣者データがまだ取得できていません\");\n    return;\n  }\n  // 日付テーブルが未取得（〇が打てない）\n  if (!DatesOK.length) {\n    alert(\"日付データがまだ取得できていません\");\n    return;\n  }\n  // 選択年月（YYYY-MM）\n  const ym = document.getElementById(\"fn-target-month\").value;\n  if (!ym) {\n    alert(\"年月を選択してください\");\n    return;\n  }\n  // 年/月に分解（数値化）\n  const [year, month] = ym.split(\"-\").map(Number);\n  // ExcelJS読み込み完了後にExcel作成\n  fnWaitExcelJS(function () {\n    fnBuildExcel(year, month); // Excel作成→DL\n    fnCloseModal();            // モーダル閉じる\n  });\n}\n\n/* ============================================================\n   日付を「日単位」に正規化\n============================================================ */\nfunction fnToDateOnly(dateStr) {\n  const s = String(dateStr).split(\"T\")[0]; // 日付部分だけ抽出\n  const p = s.split(\"-\").map(Number);      // [YYYY, MM, DD]\n  return new Date(p[0], p[1] - 1, p[2]);   // 月は0始まりなので -1\n}\n\n/* ============================================================\n   Excel 作成\n============================================================ */\nfunction fnBuildExcel(year, month) {\n  const stateMap = StateMap;  // { 派遣者ID: 表示名 }\n  const okDates = DatesOK;    // [{ stateId, date }]\n  const unavail = PeriodsNG;  // [{ stateId, start, end }]\n  const monthStart = new Date(year, month - 1, 1); // 対象月の開始日（1日）\n  const monthEnd = new Date(year, month, 0);// 対象月の終了日（月末）\n  const lastDay = monthEnd.getDate();// 月末日（28〜31）\n  const wb = new ExcelJS.Workbook();// ExcelJS：ブック生成\n  const sh = wb.addWorksheet(\"利用状況\");// ExcelJS：シート生成（この sh に対して getCell を呼ぶ）\n\n  // ===== ヘッダ（1行目）=====\n  sh.getCell(1, 1).value = year + \"年\"; // A1：年\n\n  // B1〜：日付ラベル（1日→B列）\n  for (let d = 1; d <= lastDay; d++) {\n    sh.getCell(1, d + 1).value = month + \"月\" + d + \"日\";\n  }\n\n  // ===== 行割当（id→行）=====\n  const rowMap = {}; // { 派遣者ID: 行番号 }\n  // マスタ順に 2行目から割り当て、A列に表示名を入れる\n  Object.keys(stateMap).forEach(function (id, i) {\n    const row = i + 2;              // 1行目はヘッダなので +2\n    rowMap[id] = row;               // 行番号を保持\n    sh.getCell(row, 1).value = stateMap[id]; // A列：表示名\n  });\n\n  // ===== 単日：〇 =====\n  okDates.forEach(function (u) {\n    const row = rowMap[u.stateId]; // 対象派遣者の行\n    const dt = fnToDateOnly(u.date); // 日付を Date 化\n    const col = 1 + dt.getDate(); // 1日→B列なので 1 + 日\n    if (!row) return;              // マスタに無いIDは除外\n    if (dt < monthStart || dt > monthEnd) return; // 対象月以外は除外\n    sh.getCell(row, col).value = \"〇\"; // 単日のセルに〇\n  });\n\n  // ===== 使用不可：期間上書き =====\n  unavail.forEach(function (p) {\n    const row = rowMap[p.stateId]; // 対象派遣者の行\n    if (!row) return;              // マスタに無いIDは除外\n\n    // 開始/終了を Date 化\n    const start = fnToDateOnly(p.start);\n    const end = fnToDateOnly(p.end);\n\n    // 対象月に収まるように切り詰める\n    const fillStart = start > monthStart ? start : monthStart;\n    const fillEnd = end < monthEnd ? end : monthEnd;\n    if (fillStart > fillEnd) return; // 対象月にかからない\n    const cur = new Date(fillStart); // fillStart〜fillEnd を1日ずつ進めて「使用不可」で上書き\n    while (cur <= fillEnd) {\n      const col = 1 + cur.getDate(); // 1日→B列\n      sh.getCell(row, col).value = \"使用不可\"; // 〇があっても上書き\n      cur.setDate(cur.getDate() + 1); // 次の日へ\n    }\n  });\n\n  // ===== ダウンロード =====\n  const file = `利用状況_${year}_${String(month).padStart(2, \"0\")}.xlsx`; // 保存名\n  // ExcelJS：バッファ生成 → Blob化 → a.click() で保存\n  wb.xlsx.writeBuffer().then(function (buf) {\n    const blob = new Blob([buf], {\n      type: \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\",\n    });\n    const url = URL.createObjectURL(blob); // 一時URL\n    const a = document.createElement(\"a\"); // ダウンロード用リンク\n    a.href = url;                          // Blob URL\n    a.download = file;                     // 保存ファイル名\n    document.body.appendChild(a);          // クリックできるようDOMに追加\n    a.click();                             // ダウンロード開始\n    a.remove();                            // DOMから削除\n    // URL解放（メモリリーク対策）\n    setTimeout(function () { URL.revokeObjectURL(url); }, 3000);\n  });\n}\n\n/* ============================================================\n   Pleasanter返却の「行配列」を取り出す\n============================================================ */\nfunction fnPickRows(data) {\n  return (data && data.Response && data.Response.Data) ? data.Response.Data :\n         (data && data.Data) ? data.Data :\n         (Array.isArray(data) ? data : []);\n}\n\n/* ============================================================\n   ClassC（単体/配列/JSON配列文字列）→ ID配列に正規化\n============================================================ */\nfunction fnPickIdList(v) {\n  if (v === undefined || v === null) return []; // null/undefined は空配列\n  // 既に配列なら、文字列化→trim→空除外\n  if (Array.isArray(v)) {\n    return v.map(String).map(function (s) { return s.trim(); }).filter(Boolean);\n  }\n  const s = String(v).trim(); // 文字列化してtrim\n  if (!s) return [];\n\n  // JSON配列文字列なら parse して配列にする\n  if (s[0] === \"[\") {\n    try {\n      const arr = JSON.parse(s);\n      if (Array.isArray(arr)) {\n        return arr.map(String).map(function (x) { return x.trim(); }).filter(Boolean);\n      }\n    } catch (e) {\n      alert(\"予期せぬエラーが発生しました。\", e);\n      return [];\n    }\n  }\n  // 単体IDなら配列化して返す\n  return [s];\n}\n\n/* ============================================================\n   モーダルを閉じる\n============================================================ */\nfunction fnCloseModal() {\n  document.getElementById(\"sdt-usage-excel-modal\")?.remove();\n}\n",
+            "Id": 2
+          },
+          {
+            "Title": "一度こちらは無効",
+            "Index": true,
+            "Disabled": true,
+            "Body": "/* ============================================================\n   Step5：直近未来の派遣日 ＋ イベント名文字列 を dispatcher に更新\n   ------------------------------------------------------------\n   取得元：\n     - DISPATCHER_SITE_ID：派遣状況（更新先）\n     - DATE_SITE_ID      ：派遣履歴\n     - EVENT_SITE_ID     ：イベント\n\n   更新先（dispatcher）：\n     - DateHash.DateA\n     - ClassHash.ClassB（イベント名文字列）\n\n   安全設計：\n     - イベント名が取れた時だけ ClassB を更新\n     - イベントIDは Id / ResultId 両対応\n============================================================ */\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  fnStep5_UpdateNearestFutureDate();\n});\n\nfunction fnStep5_UpdateNearestFutureDate() {\n  Promise.all([\n    fnApiGetAllRows(DISPATCHER_SITE_ID),\n    fnApiGetAllRows(DATE_SITE_ID),\n    fnApiGetAllRows(EVENT_SITE_ID),\n  ])\n    .then(([dispatchRows, dateRows, eventRows]) => {\n      console.log(\"[dispatch count]\", dispatchRows.length);\n      console.log(\"[date count]\", dateRows.length);\n      console.log(\"[event count]\", eventRows.length);\n\n      /* ======================================================\n         ① ResultId → dispatcher meta\n      ====================================================== */\n      const resultIdToMeta = {};\n      dispatchRows.forEach((r) => {\n        const rid = fnNorm(r?.ResultId);\n        if (!rid) return;\n\n        const recordId =\n          r?.Id ??\n          r?.id ??\n          r?.ItemId ??\n          r?.RecordId ??\n          r?.ResultId ??\n          null;\n\n        resultIdToMeta[rid] = {\n          rid,\n          recordId: recordId ? Number(recordId) : null,\n          name: fnNorm(r?.ClassHash?.ClassA) || \"×\",\n        };\n      });\n\n      /* ======================================================\n         ② イベントID / ResultId → イベント名\n         - イベント名は ClassHash.ClassC 想定\n         - キーは Id / ResultId 両対応\n      ====================================================== */\n      const eventKeyToName = {};\n\n      eventRows.forEach((r) => {\n        const key =\n          r?.Id ??\n          r?.id ??\n          r?.ItemId ??\n          r?.RecordId ??\n          r?.ResultId ??\n          null;\n\n        if (key == null) return;\n\n        const name = fnNorm(r?.ClassHash?.ClassC);\n        if (!name) return;\n\n        eventKeyToName[String(key)] = name;\n      });\n\n      console.log(\"[eventKeyToName sample]\", Object.entries(eventKeyToName).slice(0, 10));\n\n      /* ======================================================\n         ③ ResultId → 派遣日一覧（Date）\n      ====================================================== */\n      const resultIdToDates = {};\n\n      dateRows.forEach((r) => {\n        const resultIds = fnParseIds(r?.ClassHash?.ClassC);\n        const rawDate = r?.DateHash?.DateA || r?.DateHash?.dateA;\n        if (!rawDate || !resultIds.length) return;\n\n        const d = new Date(rawDate);\n        if (isNaN(d.getTime())) return;\n\n        resultIds.forEach((id) => {\n          const rid = fnNorm(id);\n          if (!rid) return;\n          if (!resultIdToDates[rid]) resultIdToDates[rid] = [];\n          resultIdToDates[rid].push(d);\n        });\n      });\n\n      /* ======================================================\n         ④ ResultId → イベント名一覧\n         - DATE_SITE_ID.ClassB = イベントID（単体 / JSON両対応）\n      ====================================================== */\n      const resultIdToEventNames = {};\n\n      dateRows.forEach((r) => {\n        const resultIds = fnParseIds(r?.ClassHash?.ClassC);\n        const eventIds = fnParseIds(r?.ClassHash?.ClassB);\n        if (!resultIds.length || !eventIds.length) return;\n\n        const names = eventIds\n          .map((eid) => eventKeyToName[fnNorm(eid)])\n          .filter(Boolean);\n\n        if (!names.length) return;\n\n        resultIds.forEach((ridRaw) => {\n          const rid = fnNorm(ridRaw);\n          if (!rid) return;\n          if (!resultIdToEventNames[rid]) resultIdToEventNames[rid] = [];\n          resultIdToEventNames[rid].push(...names);\n        });\n      });\n\n      Object.keys(resultIdToEventNames).forEach((rid) => {\n        resultIdToEventNames[rid] = fnUnique(resultIdToEventNames[rid]);\n      });\n\n      /* ======================================================\n         ⑤ 直近未来日の決定（00:00基準）\n      ====================================================== */\n      const today = new Date();\n      today.setHours(0, 0, 0, 0);\n\n      const calc = Object.keys(resultIdToDates).map((rid) => {\n        const future = resultIdToDates[rid]\n          .filter((d) => d >= today)\n          .sort((a, b) => a - b);\n\n        const nearest = future[0] || null;\n\n        return {\n          rid,\n          recordId: resultIdToMeta[rid]?.recordId || null,\n          name: resultIdToMeta[rid]?.name || \"×\",\n          nearestDateObj: nearest,\n          nearestText: nearest ? fnFormatDate(nearest) : \"\",\n          eventText: fnJoinText(resultIdToEventNames[rid] || []),\n        };\n      });\n\n      console.table(\n        calc.map((x) => ({\n          ResultId: x.rid,\n          派遣者名: x.name,\n          直近未来日: x.nearestText || \"(なし)\",\n          イベント名: x.eventText || \"(なし)\",\n          recordId: x.recordId || \"(なし)\",\n        }))\n      );\n\n      /* ======================================================\n         ⑥ 更新対象\n         - DateA は必須\n         - ClassB は「イベント名が取れた時だけ」\n      ====================================================== */\n      const updates = calc.filter((x) => x.nearestDateObj && x.recordId);\n\n      if (!updates.length) {\n        console.log(\"更新対象なし\");\n        return;\n      }\n\n      fnUpdateDispatcherSequential(updates, 0, function () {\n        console.log(\"Step5 完了\");\n      });\n    })\n    .catch((e) => {\n      console.error(\"Step5 error\", e);\n    });\n}\n\n/* ============================================================\n   更新（直列）\n============================================================ */\nfunction fnUpdateDispatcherSequential(items, idx, done) {\n  if (idx >= items.length) return done();\n\n  const item = items[idx];\n\n  console.log(\"update start\", item.recordId, {\n    DateA: item.nearestText,\n    ClassB: item.eventText || \"(skip)\",\n  });\n\n  fnApiUpdateByRecordId(\n    item.recordId,\n    fnToIsoDateTimeStart(item.nearestDateObj),\n    item.eventText\n  )\n    .then(() => fnApiGetByRecordId(item.recordId))\n    .then((row) => {\n      console.log(\"[after get]\", item.recordId, {\n        DateA: row?.DateHash?.DateA,\n        ClassB: row?.ClassHash?.ClassB,\n      });\n      fnUpdateDispatcherSequential(items, idx + 1, done);\n    })\n    .catch((e) => {\n      console.error(\"update fail\", item, e);\n    });\n}\n\nfunction fnApiUpdateByRecordId(recordId, dateA, classBText) {\n  return new Promise((resolve, reject) => {\n    const data = { DateHash: { DateA: dateA } };\n\n    // ★イベント名が取れたときだけ ClassB 更新\n    if (classBText) {\n      data.ClassHash = { ClassB: classBText };\n    }\n\n    $p.apiUpdate({\n      id: recordId,\n      data,\n      done: resolve,\n      fail: reject,\n    });\n  });\n}\n\nfunction fnApiGetByRecordId(recordId) {\n  return new Promise((resolve, reject) => {\n    $p.apiGet({\n      id: recordId,\n      data: {},\n      done: (g) => resolve(g?.Response?.Data?.[0] || null),\n      fail: reject,\n    });\n  });\n}\n\n/* ============================================================\n   utilities\n============================================================ */\nfunction fnNorm(v) {\n  return v == null ? \"\" : String(v).trim();\n}\n\nfunction fnParseIds(v) {\n  if (!v) return [];\n  const s = String(v).trim();\n  if (s.startsWith(\"[\") && s.endsWith(\"]\")) {\n    try {\n      const a = JSON.parse(s);\n      return Array.isArray(a) ? a.map(String) : [];\n    } catch {\n      return [];\n    }\n  }\n  return [s];\n}\n\nfunction fnUnique(arr) {\n  return Array.from(new Set((arr || []).map(fnNorm).filter(Boolean)));\n}\n\nfunction fnJoinText(list) {\n  return (list || []).join(\" / \");\n}\n\nfunction fnFormatDate(d) {\n  const y = d.getFullYear();\n  const m = String(d.getMonth() + 1).padStart(2, \"0\");\n  const day = String(d.getDate()).padStart(2, \"0\");\n  return `${y}-${m}-${day}`;\n}\n\nfunction fnToIsoDateTimeStart(d) {\n  return `${fnFormatDate(d)}T00:00:00`;\n}\n\n/* ============================================================\n   api：全件取得\n============================================================ */\nfunction fnApiGetAllRows(siteId) {\n  const LIMIT = 200;\n  let offset = 0;\n  let all = [];\n\n  return new Promise((resolve, reject) => {\n    function loop() {\n      $p.apiGet({\n        id: siteId,\n        data: { Offset: offset, Limit: LIMIT },\n        done: (data) => {\n          const rows = fnPickRowsSafe(data);\n          if (!rows.length) return resolve(all);\n          all = all.concat(rows);\n          offset += LIMIT;\n          loop();\n        },\n        fail: reject,\n      });\n    }\n    loop();\n  });\n}\n\nfunction fnPickRowsSafe(data) {\n  if (Array.isArray(data)) return data;\n  if (Array.isArray(data?.Response?.Data)) return data.Response.Data;\n  if (Array.isArray(data?.Data)) return data.Data;\n  return [];\n}\n",
+            "Id": 4
+          },
+          {
+            "Title": "作成途中",
+            "Index": true,
+            "Disabled": true,
+            "Body": "(function ($) {\n  \"use strict\";\n\n  var allItems = [];\n  var limit = 200;\n  var offset = 0;\n\n  getKitchenCar();\n\n  function getKitchenCar() {\n    $p.apiGet({\n      id: DATE_SITE_ID,\n      data: {\n        Offset: offset,\n        Limit: limit,\n        View: {\n          ColumnSorterHash: {\n            DateA: \"desc\",\n          },\n        },\n      },\n      done: function (data) {\n        var list = data?.Response?.Data;\n\n        // 取得終了（0件になったら集計→更新）\n        if (!Array.isArray(list) || list.length === 0) {\n          var result = buildKitchenCarPeriods(allItems);\n          updateKitchenCarState(result);\n          return;\n        }\n\n        // 取得データを蓄積\n        allItems = allItems.concat(list);\n\n        // 次の Offset へ\n        offset += limit;\n\n        // 再帰的に次を取得\n        getKitchenCar();\n      },\n    });\n  }\n\n  // =========================\n  // キッチンカーテーブルから取得したデータを下記の形に生成\n  //   {\n  //     start: \"2026-01-07T00:00:00\",\n  //     end: \"2026-01-16T00:00:00\",\n  //     kitchenCar: 253262,\n  //     kitchenCarName: \"xxx\"\n  //   }\n  //\n  // 仕様：\n  // - DateA desc で取得しているため、同一キッチンカーは最初に見つかった1件（＝最新）だけを採用\n  // =========================\n  function buildKitchenCarPeriods(list) {\n    var result = [];\n    var addedKitchenCars = new Set();\n\n    list.forEach(function (item) {\n      var dateA = item?.DateHash?.DateA;\n      var dateB = item?.DateHash?.DateB;\n      var classA = item?.ClassHash?.ClassA; // kitchenCarId配列（JSON文字列想定）\n      var classB = item?.ClassHash?.ClassB; // kitchenCar名想定\n\n      if (!dateA || !dateB || !classA || !classB) return;\n\n      var kitchenCars;\n      try {\n        kitchenCars = JSON.parse(classA);\n      } catch (e) {\n        return;\n      }\n\n      if (!Array.isArray(kitchenCars) || kitchenCars.length === 0) return;\n\n      kitchenCars.forEach(function (carId) {\n        if (addedKitchenCars.has(carId)) return;\n\n        result.push({\n          start: dateA,\n          end: dateB,\n          kitchenCar: Number(carId),\n          kitchenCarName: classB,\n        });\n\n        addedKitchenCars.add(carId);\n      });\n    });\n\n    return result;\n  }\n\n  // =========================\n  // 派遣状況テーブル更新\n  // =========================\n  function updateKitchenCarState(result) {\n    result.forEach(function (item) {\n      $p.apiUpdate({\n        id: item.kitchenCar,\n        data: {\n          DateHash: {\n            DateA: item.start,\n            DateB: item.end,\n          },\n          ClassHash: {\n            ClassB: item.kitchenCarName,\n          },\n        },\n      });\n    });\n  }\n})(jQuery);\n",
+            "Id": 5
+          }
+        ],
+        "UseSearchFilter": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 255670,
+      "Permissions": [
+        {
+          "ReferenceId": 255670,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": -1,
+          "PermissionType": 511
+        },
+        {
+          "ReferenceId": 255670,
+          "DeptId": 0,
+          "GroupId": 0,
+          "UserId": 1,
+          "PermissionType": 511
+        }
+      ]
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": [
+      {
+        "UserId": 1,
+        "LoginId": "Administrator"
+      }
+    ]
+  }
+}
