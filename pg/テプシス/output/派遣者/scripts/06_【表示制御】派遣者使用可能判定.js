@@ -87,22 +87,21 @@
         // 削除ボタンを表示
         $('#fn-deleteButton').show();
 
-        // 更新モード初期表示時（URLから直接開いた時）は既存のDISPATCH_IDSを保持
-        if (!window.isUrlCreateMode) {
-          var dispatchIdsRaw = existingRecord[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS];
-          if (Array.isArray(dispatchIdsRaw)) {
-            window.existingDispatchIds = dispatchIdsRaw;
-          } else if (typeof dispatchIdsRaw === 'string') {
-            try {
-              window.existingDispatchIds = JSON.parse(dispatchIdsRaw || '[]');
-            } catch (e) {
-              window.existingDispatchIds = [];
-            }
-          } else {
+        // 既存のDISPATCH_IDSを保持（チェック復元用）
+        // URLパターンに関わらず、更新モードに切り替わった場合は常にセット
+        var dispatchIdsRaw = existingRecord[TABLES.DISPATCH_OUTPUT.COLUMNS.DISPATCH_IDS];
+        if (Array.isArray(dispatchIdsRaw)) {
+          window.existingDispatchIds = dispatchIdsRaw;
+        } else if (typeof dispatchIdsRaw === 'string') {
+          try {
+            window.existingDispatchIds = JSON.parse(dispatchIdsRaw || '[]');
+          } catch (e) {
             window.existingDispatchIds = [];
           }
-          window.force && console.log('既存派遣者IDs:', window.existingDispatchIds);
+        } else {
+          window.existingDispatchIds = [];
         }
+        window.force && console.log('既存派遣者IDs:', window.existingDispatchIds);
       } else {
         // レコードなし → 登録モード（登録 or 動的登録）
         window.isCreateMode = true;
@@ -321,13 +320,13 @@
 
         // チェック状態の設定
         var resultId = String(record.ResultId || '');
-        if (!window.isUrlCreateMode && window.existingDispatchIds.length > 0) {
-          // 更新モード初期表示時: 既存のDISPATCH_IDSに含まれていればチェック
+        if (!window.isCreateMode && window.existingDispatchIds.length > 0) {
+          // 更新モード時: 既存のDISPATCH_IDSに含まれていればチェック
           if (window.existingDispatchIds.indexOf(resultId) >= 0 || window.existingDispatchIds.indexOf(Number(resultId)) >= 0) {
             $checkbox.prop('checked', true);
           }
-        } else if (statusInfo.preChecked && window.isUrlCreateMode) {
-          // 登録モードで店舗切替時: 同店舗で既に使用中の場合はチェック
+        } else if (statusInfo.preChecked) {
+          // 同店舗・同日で既に使用中の場合はチェック
           $checkbox.prop('checked', true);
         }
       }
