@@ -49,4 +49,83 @@
 
         $p.events.__appTriggersWrapped__ = true;
     }
+
+    // =====================================================
+    // 主管箇所変更時に管理番号(NumA)にMAX+1をセットする機能
+    // =====================================================
+
+    /**
+     * 主管箇所(ClassN)の変更を監視し、管理番号(NumA)を自動採番
+     */
+    function setupAutoNumbering() {
+        var classNSelect = document.getElementById('Results_ClassN');
+        if (!classNSelect || classNSelect.__classN_autoNumber_bound__) return;
+
+        classNSelect.addEventListener('change', function () {
+            var selectedValue = classNSelect.value;
+            if (!selectedValue) return;
+
+            fetchMaxNumAAndSet(selectedValue);
+        });
+
+        classNSelect.__classN_autoNumber_bound__ = true;
+    }
+
+    /**
+     * 指定した主管箇所のNumA最大値を取得し、MAX+1をセット
+     * @param {string} classNValue - 主管箇所の値
+     */
+    async function fetchMaxNumAAndSet(classNValue) {
+        try {
+            var siteId = typeof SuppliesConsumablesID !== 'undefined' ? SuppliesConsumablesID : $p.id();
+            var api = new PleasanterAPI(location.origin, { logging: window.force });
+
+            // 全件取得してJSでフィルタリング
+            var records = await api.getRecords(siteId, {
+                columns: ['NumA', 'ClassN'],
+                setLabelText: false,
+                setDisplayValue: 'Value'
+            });
+
+            // 主管箇所でフィルタリング
+            var filtered = records.filter(function (r) {
+                return r.ClassN === classNValue;
+            });
+
+            // NumAの最大値を取得
+            var maxNumA = 0;
+            filtered.forEach(function (r) {
+                var num = Number(r.NumA) || 0;
+                if (num > maxNumA) {
+                    maxNumA = num;
+                }
+            });
+
+            var newNumA = maxNumA + 1;
+
+            var numAInput = document.getElementById('Results_NumA');
+            if (numAInput) {
+                numAInput.value = newNumA;
+                // Pleasanterの変更検知をトリガー
+                var event = new Event('change', { bubbles: true });
+                numAInput.dispatchEvent(event);
+            }
+
+            window.force && console.log('主管箇所「' + classNValue + '」の管理番号MAX:', maxNumA, '→ 新番号:', newNumA);
+
+        } catch (err) {
+            console.error('管理番号自動採番エラー:', err);
+            window.force && console.log('管理番号自動採番に失敗しました', err);
+        }
+    }
+
+    // DOMContentLoadedで初期バインド
+    document.addEventListener('DOMContentLoaded', setupAutoNumbering);
+
+    // after_setでも再バインド（動的に要素が再生成される場合に対応）
+    if (window.AppTriggers) {
+        AppTriggers.registerAfterSet(function () {
+            setTimeout(setupAutoNumbering, 50);
+        });
+    }
 })();
