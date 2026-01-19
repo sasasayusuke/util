@@ -1,0 +1,237 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 252473,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T18:37:00.5496401+00:00",
+    "Convertors": [
+      {
+        "SiteId": 252473,
+        "SiteTitle": "保管/移管",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 252473,
+      "Title": "保管/移管",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 252469,
+      "InheritPermission": 216713,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ClassE",
+          "DateA",
+          "ClassG",
+          "ClassH",
+          "ClassC",
+          "ClassD",
+          "DescriptionA",
+          "ClassA",
+          "ClassB",
+          "ClassF"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "DateA",
+            "ClassG",
+            "ClassA",
+            "ClassH",
+            "ClassB",
+            "ClassC",
+            "ClassD",
+            "ClassE",
+            "DescriptionA",
+            "ClassF"
+          ]
+        },
+        "LinkColumns": [
+          "DateA",
+          "ClassB",
+          "ClassA",
+          "ClassC",
+          "ClassD",
+          "DescriptionA",
+          "ClassH",
+          "ClassG"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "DateA",
+            "LabelText": "移管日",
+            "GridLabelText": "保管/移管日",
+            "DefaultInput": "0",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "移管先主管箇所",
+            "GridLabelText": "主管箇所",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "移管先所管箇所",
+            "GridLabelText": "所管箇所",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "建物名",
+            "ChoicesText": "[[252470,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "設置場所",
+            "NoWrap": true,
+            "MaxLength": 50.0
+          },
+          {
+            "ColumnName": "DescriptionA",
+            "LabelText": "異動事由",
+            "NoWrap": true,
+            "MaxLength": 500.0
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "管理番号",
+            "NoWrap": true,
+            "AutoNumberingFormat": "[NNNNN]"
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "備品・消耗品",
+            "ChoicesText": "[[252479]]",
+            "Hide": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassG",
+            "LabelText": "移管元主管箇所",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassH",
+            "LabelText": "移管元所管箇所",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassF",
+            "SiteId": 252479
+          },
+          {
+            "ColumnName": "ClassG",
+            "SiteId": 252474,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassA",
+            "SiteId": 252474,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassH",
+            "SiteId": 252474,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 252474,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassC",
+            "SiteId": 252470,
+            "NoAddButton": true
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "【設定】サイトID",
+            "All": true,
+            "Body": "//サイトID設定\nconst adminListsID = 252471;  // システム管理者\nconst businessAdministratorID = 252476;  //業務管理者",
+            "Id": 1
+          },
+          {
+            "Title": "【共通関数】エラーポップアップ表示",
+            "All": true,
+            "Body": "function genErrorNo() {\n  return 'E-' + Date.now();\n}\n\n// 共通エラーアラート\nfunction showCommonError(errNo) {\n  const no = errNo || genErrorNo();\n  alert(\n    'エラーが発生しました。\\n' +\n    '操作をやり直しても解消しない場合は、\\n' +\n    'このエラー内容を管理者にお伝えください。\\n\\n' +\n    no\n  );\n\n  // デバッグ用（任意）\n  window.force && console.error('ERROR:', no);\n}\n// 使い方：\n// どこでもこれだけ\n// showCommonError();\n\n// 既にエラー番号がある場合\n// showCommonError('E-API-00123');\n",
+            "Id": 3
+          },
+          {
+            "Title": "【共通処理】ローディング画面",
+            "All": true,
+            "Body": "// =======================================\n// 読み込み表示\n// - count が 1 以上なら表示、0 で非表示\n// - incLoading(msg) / decLoading() を使う\n// =======================================\n\n\n// =======================================\n// _ensureOL\n// 説明：読み込みオーバーレイの DOM とスタイルを作成（既にあれば何もしない）\n// =======================================\nfunction _ensureOL(){\n  if (document.getElementById('loading-ol')) return;\n  // 最低限のアニメーション CSS を追加\n  const s = document.createElement('style');\n  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';\n  document.head.appendChild(s);\n\n  // オーバーレイ本体\n  const ol = document.createElement('div');\n  ol.id = 'loading-ol';\n  ol.style.cssText = 'position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.25);z-index:2147483647';\n\n  // 中身（白ボックス + スピナー + メッセージ）\n  ol.innerHTML = '<div style=\"background:#fff;padding:10px 14px;border-radius:6px;display:flex;gap:10px;align-items:center\">'\n               + '<span style=\"width:18px;height:18px;border:3px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin 1s linear infinite\"></span>'\n               + `<span id=\"loading-ol-msg\">${window.loadingMsg}</span></div>`;\n\n  document.body.appendChild(ol);\n}\n\n// =======================================\n// incLoading\n// 説明：読み込みカウントをインクリメント。最初の1回目で表示。\n// 引数：message（省略可） — 表示メッセージを一時的に変更\n// =======================================\nwindow.incLoading = function(msg){\n  window.loadingCount = (window.loadingCount || 0) + 1;\n  _ensureOL();\n  if (msg) {\n    const m = document.getElementById('loading-ol-msg');\n    if (m) m.textContent = msg;\n  }\n  if (window.loadingCount === 1) {\n    document.getElementById('loading-ol').style.display = 'flex';\n  }\n};\n\n// =======================================\n// decLoading\n// 説明：読み込みカウントをデクリメント。0 になったら非表示。\n// 注意：呼び出し回数と対応させる（負にはならない）\n// =======================================\nwindow.decLoading = function(){\n  window.loadingCount = Math.max(0, (window.loadingCount || 0) - 1);\n  if (window.loadingCount === 0) {\n    const el = document.getElementById('loading-ol');\n    if (el) el.style.display = 'none';\n  }\n};",
+            "Id": 4
+          },
+          {
+            "Title": "【画面制御】管理者表示制御",
+            "All": true,
+            "Disabled": true,
+            "Body": "(function($){\n    // =====================================\n    // sdtIndex の呼び出しを DOMContentLoaded と after_set に対応させる\n    // =====================================\n\n    // DOM 初回ロード時に実行\n    document.addEventListener('DOMContentLoaded', function () {\n        try {\n            window.force && console.log('処理開始', { id: 'sdtIndex', name: 'DOMContentLoaded 呼び出し' });\n            sdtIndex();\n        } catch (e) {\n            window.force && console.error('sdtIndex DOMContentLoaded 呼び出しエラー', e);\n        }\n    });\n\n    // Pleasanter の更新（保存等）後にも再実行する\n    if (window.$p && $p.events) {\n        var _orig_after_set = $p.events.after_set;\n        $p.events.after_set = function (args) {\n            try {\n                if (typeof _orig_after_set === 'function') {\n                    try { _orig_after_set(args); } catch (e) { window.force && console.error('orig after_set error', e); }\n                }\n            } finally {\n                // 少し遅らせて DOM 安定後に実行\n                setTimeout(function () {\n                    try {\n                        window.force && console.log('処理開始', { id: 'sdtIndex', name: 'after_set 呼び出し' });\n                        sdtIndex();\n                    } catch (e) {\n                        window.force && console.error('sdtIndex after_set 呼び出しエラー', e);\n                    }\n                }, 50);\n            }\n        };\n    }\n\n    // ==== index関数 (オーケストレーション) ====\n    function sdtIndex() {\n        window.force && console.log('処理開始', { id: 'sdtIndex', name: '開始' });\n\n        incLoading(); // 表示（count = +1）\n\n        const deferred = $.Deferred();\n\n        // ログインIDを同期的に取得\n        const loginId = getLoginId();\n\n        // 必要なIDが未定義ならエラーで早期終了（防御的）\n        if (typeof adminListsID === 'undefined' || typeof businessAdministratorID === 'undefined') {\n            window.force && console.error('adminListsID or businessAdministratorID is not defined');\n            // decLoading を忘れずに呼ぶ\n            decLoading();\n            deferred.reject(new Error('admin list id undefined'));\n            return deferred.promise();\n        }\n\n        // 各管理者リストを非同期で取得（取得関数は「取得のみ」を担当）\n        const systemAdministratorPromise = sysAdministratorList();\n        const businessAdministratorPromise = busAdministratorList();\n\n        // 両方の取得が完了したらパースして比較へ渡す\n        $.when(systemAdministratorPromise, businessAdministratorPromise)\n            .done(function (sysRawData, busRawData) {\n                try {\n                    // 取得した生データを解析して配列に変換（parseUserArray は解析のみ担当）\n                    const systemAdministrator = parseUserArray(sysRawData);\n                    const businessAdministrator = parseUserArray(busRawData);\n\n                    // 比較関数（比較のみ）で loginId が配列内に存在するかチェック\n                    const isAdmin = isLoginIdInAdminLists(loginId, systemAdministrator, businessAdministrator);\n\n                    // 管理者の時は要素を表示、そうでなければ非表示にする\n                    if (isAdmin) {\n                        showElementAsBlock(\"MainForm\");\n                    } else {\n                        hideElementAsNone(\"MainForm\");\n                    }\n\n                    deferred.resolve(isAdmin);\n                } catch (e) {\n                    deferred.reject(e);\n                }\n            })\n            .fail(function (err) {\n                deferred.reject(err);\n            })\n            .always(function () {\n                // 取得処理が終わったら必ず decLoading を呼ぶ（成功/失敗問わず）\n                try {\n                    decLoading();\n                } catch (e) {\n                    window.force && console.error('decLoading error', e);\n                }\n            });\n\n        return deferred.promise();\n    }\n\n    // === getLoginId: ログインID を取得（同期処理） ===\n    function getLoginId(){ \n        try {\n            if (typeof $p.loginId === \"function\") {\n                return $p.loginId();\n            }\n            if (typeof $p.userInfo === \"function\") {\n                const ui = $p.userInfo() || {};\n                return ui.Id || ui.id || ui.LoginId || ui.loginId || null;\n            }\n        } catch (e) {\n            console.warn(\"getLoginId error\", e);\n        }\n        return null;\n    }\n\n    // === sysAdministratorList: システム管理者リストを取得（取得のみ） ===\n    function sysAdministratorList() {\n        const deferred = $.Deferred();\n\n        $p.apiGet({\n            id: adminListsID ,\n            data: {\n                View: {\n                    ApiDataType: \"KeyValues\",\n                    GridColumns: [\"ClassA\"]\n                }\n            },\n            done: function (data) {\n                deferred.resolve(data);\n            },\n            fail: function (err) {\n                deferred.reject(err);\n            }\n        });\n\n        return deferred.promise();\n    }\n\n    // === busAdministratorList: 業務管理者リストを取得（取得のみ） ===\n    function busAdministratorList() {\n        const deferred = $.Deferred();\n\n        $p.apiGet({\n            id: businessAdministratorID ,\n            data: {\n                View: {\n                    ApiDataType: \"KeyValues\",\n                    GridColumns: [\"ClassA\"]\n                }\n            },\n            done: function (data) {\n                deferred.resolve(data);\n            },\n            fail: function (err) {\n                deferred.reject(err);\n            }\n        });\n\n        return deferred.promise();\n    }\n\n    // === parseUserArray: API 生データからユーザー配列を取り出す（解析のみ） ===\n    function parseUserArray(rawData) {\n        if (!rawData || typeof rawData !== \"object\") return [];\n        const list = (rawData.Response && rawData.Response.Data) || rawData.Data || rawData.Items || [];\n        return Array.isArray(list) ? list : [];\n    }\n\n    // === isLoginIdInAdminLists: loginId がどちらかの配列に完全一致で存在するか判定（比較のみ） ===\n    function isLoginIdInAdminLists(loginId, systemAdministratorArray, businessAdministratorArray) {\n        if (!loginId) return false;\n\n        function arrayContainsLoginId(arr) {\n            if (!Array.isArray(arr)) return false;\n            return arr.some(function (item) {\n                // item.ClassA または item.Username 等、実データに合わせてチェック\n                // ここでは元コードに合わせて Username を優先、なければ ClassA を使う\n                var candidate = (item && (item.Username || item.ClassA || item.LoginId || item.Login || item.value));\n                return candidate === loginId;\n            });\n        }\n\n        return arrayContainsLoginId(systemAdministratorArray) || arrayContainsLoginId(businessAdministratorArray);\n    }\n\n    /**\n     * 指定した要素を display: block にする\n     * @param {string|HTMLElement|jQuery} target\n     */\n    function showElementAsBlock(target) {\n        if (!target) {\n            return;\n        }\n\n        // jQueryオブジェクト\n        if (target instanceof jQuery) {\n            target.css('display', 'block');\n            return;\n        }\n\n        // DOM要素\n        if (target instanceof HTMLElement) {\n            $(target).css('display', 'block');\n            return;\n        }\n\n        // id文字列\n        if (typeof target === 'string') {\n            $('#' + target).css('display', 'block');\n        }\n    }\n\n    /**\n     * 指定した要素を display: none にする\n     * @param {string|HTMLElement|jQuery} target\n     */\n    function hideElementAsNone(target) {\n        if (!target) {\n            return;\n        }\n\n        // jQueryオブジェクト\n        if (target instanceof jQuery) {\n            target.css('display', 'none');\n            return;\n        }\n\n        // DOM要素\n        if (target instanceof HTMLElement) {\n            $(target).css('display', 'none');\n            return;\n        }\n\n        // id文字列\n        if (typeof target === 'string') {\n            $('#' + target).css('display', 'none');\n        }\n    }\n\n})(jQuery);\n",
+            "Id": 2
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 252473,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}

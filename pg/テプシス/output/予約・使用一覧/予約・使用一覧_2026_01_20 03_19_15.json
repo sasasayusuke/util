@@ -1,0 +1,350 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 252478,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T18:19:15.4755477+00:00",
+    "Convertors": [
+      {
+        "SiteId": 252478,
+        "SiteTitle": "予約・使用一覧",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 252478,
+      "Title": "予約・使用一覧",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 252468,
+      "InheritPermission": 252468,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridColumns": [
+          "ClassC~252479,ClassA",
+          "ClassC~252479,NumA",
+          "ClassC~252479,NumB",
+          "ClassC~252479,ClassN",
+          "ClassC~252479,ClassM",
+          "ClassC~252479,ClassO",
+          "ClassC~252479,ClassB",
+          "ClassC~252479,ClassD",
+          "ResultId",
+          "DateC",
+          "DateD",
+          "ClassA",
+          "ClassB",
+          "DateA",
+          "DateB",
+          "ClassD",
+          "DescriptionA"
+        ],
+        "FilterColumns": [
+          "ClassC~252479,ClassA",
+          "ClassC~252479,ClassN",
+          "ClassC~252479,ClassM",
+          "ClassC~252479,ClassB",
+          "ClassC~252479,ClassD",
+          "DateC",
+          "DateD",
+          "DateA",
+          "DateB",
+          "ClassD"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "DateC",
+            "DateD",
+            "ClassA",
+            "ClassB",
+            "DescriptionA",
+            "ClassD",
+            "ClassC",
+            "_Section-2",
+            "DateA",
+            "DateB"
+          ]
+        },
+        "SectionLatestId": 2,
+        "Sections": [
+          {
+            "Id": 2,
+            "LabelText": "使用/返却",
+            "AllowExpand": false,
+            "Expand": true
+          }
+        ],
+        "LinkColumns": [
+          "ResultId",
+          "DateC",
+          "DateD",
+          "ClassA",
+          "ClassB",
+          "DateA",
+          "DateB",
+          "ClassD",
+          "DescriptionA"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "予約番号"
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "使用日時",
+            "EditorFormat": "Ymdhm",
+            "NoWrap": true,
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "返却日時",
+            "EditorFormat": "Ymdhm",
+            "NoWrap": true,
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "使用グループ",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "使用者",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "MaxLength": 50.0
+          },
+          {
+            "ColumnName": "DescriptionA",
+            "LabelText": "備考",
+            "NoWrap": true,
+            "MaxLength": 500.0
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "備品・消耗品",
+            "ChoicesText": "[[252479]]",
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "予定使用日時",
+            "EditorFormat": "Ymdhm",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "DateD",
+            "LabelText": "予定返却日時",
+            "EditorFormat": "Ymdhm",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "使用状態",
+            "ChoicesText": "使用中\n返却済\n使用中（期限超過）\n予定期間中（未使用）",
+            "NoWrap": true
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassC",
+            "SiteId": 252479
+          },
+          {
+            "ColumnName": "ClassA",
+            "SiteId": 252474,
+            "NoAddButton": true
+          }
+        ],
+        "Exports": [
+          {
+            "Name": "予約・使用一覧",
+            "Columns": [
+              {
+                "Id": 1,
+                "ColumnName": "ClassC~252479,ClassA"
+              },
+              {
+                "Id": 2,
+                "ColumnName": "ClassC~252479,NumA"
+              },
+              {
+                "Id": 3,
+                "ColumnName": "ClassC~252479,NumB"
+              },
+              {
+                "Id": 4,
+                "ColumnName": "ClassC~252479,ClassN"
+              },
+              {
+                "Id": 5,
+                "ColumnName": "ClassC~252479,ClassM"
+              },
+              {
+                "Id": 6,
+                "ColumnName": "ClassC~252479,ClassO"
+              },
+              {
+                "Id": 7,
+                "ColumnName": "ClassC~252479,ClassB"
+              },
+              {
+                "Id": 8,
+                "ColumnName": "ClassC~252479,ClassD"
+              },
+              {
+                "Id": 9,
+                "ColumnName": "ResultId"
+              },
+              {
+                "Id": 10,
+                "ColumnName": "DateC"
+              },
+              {
+                "Id": 11,
+                "ColumnName": "DateD"
+              },
+              {
+                "Id": 12,
+                "ColumnName": "ClassA"
+              },
+              {
+                "Id": 13,
+                "ColumnName": "ClassB"
+              },
+              {
+                "Id": 14,
+                "ColumnName": "DateA"
+              },
+              {
+                "Id": 15,
+                "ColumnName": "DateB"
+              },
+              {
+                "Id": 16,
+                "ColumnName": "ClassD"
+              },
+              {
+                "Id": 17,
+                "ColumnName": "DescriptionA"
+              }
+            ],
+            "Type": 0,
+            "DelimiterType": 0,
+            "ExecutionType": 0,
+            "Id": 1
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "【設定】サイトID",
+            "All": true,
+            "Body": "const reservationList = 252478; // 予約・使用一覧",
+            "Id": 4
+          },
+          {
+            "Title": "【設定】サイトID取得",
+            "All": true,
+            "Body": "",
+            "Id": 6
+          },
+          {
+            "Title": "【設定】グローバル変数値",
+            "All": true,
+            "Body": "// デバッグON/OFF\nwindow.force = true; // true/false  falseにすると出ない\n// 使い方　window.force && console.log('処理開始', { id: 123, name: 'テスト' });",
+            "Id": 5
+          },
+          {
+            "Title": "【トリガー関数】　画面読み込み時実行するメソッド",
+            "All": true,
+            "Body": "// 各画面ロード時に実行するメソッドを格納する\n$p.events.on_grid_load_arr = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = function() {\n    $p.events.on_grid_load_arr.forEach(func => {\n        func()\n    })\n}",
+            "Id": 1
+          },
+          {
+            "Title": "【共通関数】ローディング表示",
+            "All": true,
+            "Body": "// 1.グローバル変数値として下記を設定\nwindow.loadingCount = window.loadingCount ?? 0;\nwindow.loadingMsg   = window.loadingMsg   ?? '読み込み中...';\n\n// 2．共通処理で読み込み中表示を作成する\n// =======================================\n// 読み込み表示\n// - count が 1 以上なら表示、0 で非表示\n// - incLoading(msg) / decLoading() を使う\n// =======================================\n\n\n// =======================================\n// _ensureOL\n// 説明：読み込みオーバーレイの DOM とスタイルを作成（既にあれば何もしない）\n// =======================================\nfunction _ensureOL(){\n  if (document.getElementById('loading-ol')) return;\n  // 最低限のアニメーション CSS を追加\n  const s = document.createElement('style');\n  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';\n  document.head.appendChild(s);\n\n  // オーバーレイ本体\n  const ol = document.createElement('div');\n  ol.id = 'loading-ol';\n  ol.style.cssText = 'position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.25);z-index:2147483647';\n\n  // 中身（白ボックス + スピナー + メッセージ）\n  ol.innerHTML = '<div style=\"background:#fff;padding:10px 14px;border-radius:6px;display:flex;gap:10px;align-items:center\">'\n               + '<span style=\"width:18px;height:18px;border:3px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin 1s linear infinite\"></span>'\n               + `<span id=\"loading-ol-msg\">${window.loadingMsg}</span></div>`;\n\n  document.body.appendChild(ol);\n}\n\n// =======================================\n// incLoading\n// 説明：読み込みカウントをインクリメント。最初の1回目で表示。\n// 引数：message（省略可） — 表示メッセージを一時的に変更\n// =======================================\nwindow.incLoading = function(msg){\n  window.loadingCount = (window.loadingCount || 0) + 1;\n  _ensureOL();\n  if (msg) {\n    const m = document.getElementById('loading-ol-msg');\n    if (m) m.textContent = msg;\n  }\n  if (window.loadingCount === 1) {\n    document.getElementById('loading-ol').style.display = 'flex';\n  }\n};\n\n// =======================================\n// decLoading\n// 説明：読み込みカウントをデクリメント。0 になったら非表示。\n// 注意：呼び出し回数と対応させる（負にはならない）\n// =======================================\nwindow.decLoading = function(){\n  window.loadingCount = Math.max(0, (window.loadingCount || 0) - 1);\n  if (window.loadingCount === 0) {\n    const el = document.getElementById('loading-ol');\n    if (el) el.style.display = 'none';\n  }\n};\n// ■使い方\n// incLoading();             // 表示（count = +1）\n// incLoading('読込中...');  // メッセージ変更して表示\n\n// decLoading();             // 非表示は count が 0 になった時",
+            "Id": 8
+          },
+          {
+            "Title": "【共通関数】エラーポップアップ表示",
+            "All": true,
+            "Body": "function genErrorNo() {\n  return 'E-' + Date.now();\n}\n\n// 共通エラーアラート\nfunction showCommonError(errNo) {\n  const no = errNo || genErrorNo();\n  alert(\n    'エラーが発生しました。\\n' +\n    '操作をやり直しても解消しない場合は、\\n' +\n    'このエラー内容を管理者にお伝えください。\\n\\n' +\n    no\n  );\n}\n// 使い方：\n// どこでもこれだけ\n// showCommonError();\n\n// 既にエラー番号がある場合\n// showCommonError('E-API-00123');\n",
+            "Id": 7
+          },
+          {
+            "Title": "【不明】貸出可否フラグ",
+            "Body": "$('#Results_ClassA').change(function(){\n        if($('#Results_ClassA').val()=='貸出可否' ){\n            $('#Results_DescriptionA').prop('disabled', false);\n            $('#Results_DescriptionA').css('background-color','#ffffff');\n        }else{\n　　　　$p.set($('#Results_DescriptionA'),'');\n            $('#Results_DescriptionA').prop('disabled', true);\n            $('#Results_DescriptionA').css('background-color','#dddddd');\n        }\n});",
+            "Id": 2
+          },
+          {
+            "Title": "【自動処理】予約・使用状況一覧画面　使用状況更新",
+            "Index": true,
+            "Body": "(function($){\n    // =====================================\n    // トリガー関数\n    // =====================================\n    // 画面読み込み完了後にオーケストレーション関数を起動する\n    document.addEventListener('DOMContentLoaded', function () {\n        try {\n            window.force && console.log('使用状況バッジ処理開始', { fn: 'sdtIndex' });\n\n            // オーケストレーション起点\n            sdtIndex();\n\n        } catch (e) {\n            // 想定外エラー\n            showCommonError('画面描画処理に失敗しました');\n        }\n    });\n\n    // =====================================\n    // index関数\n    // =====================================\n    function sdtIndex(){\n            // 処理開始\n            window.force && console.log('index開始');\n            fetchSiteKeyValues(reservationList).then(function (data) {\n                    incLoading(); // 表示（count = +1）\n\n                    console.log('次の処理', data);\n                    window.force && console.log('使用状況バッジ処理開始', { fn: 'sdtIndex' });\n\n                    // データを分類わけ\n                    const grouped = groupReservationStatus(data);\n\n                    // データを整形\n                    const reservationNoGroups = extractReservationNumbers(grouped);\n\n                    // アップデート\n                    updateAllStatuses(reservationNoGroups);\n                    \n                    // 一覧適応の為フィルタボタン押下\n                    $p.send($('#FilterButton'));\n                    \n                    decLoading(); // 非表示は count が 0 になった時\n\n            });\n    };\n\n\n\n    // =====================================================\n    // =======\n    // 関数名: fetchSiteKeyValues\n    // =======\n    // 目的:\n    //   指定 siteId に対して $p.apiGet を実行し、レスポンスを返す\n    //\n    // 引数:\n    //   - 取得先のサイトID\n    //\n    // 戻り値:\n    //   - 取得した配列\n    //\n    // 備考:\n    //   - 接続エラー時は error() を呼びエラー番号を表示します。\n    // =====================================================\n    function fetchSiteKeyValues(siteId) {\n        window.force && console.log('処理開始', { siteId });\n\n        return new Promise(function (resolve, reject) {\n            // オフセット（取得開始位置）\n            var offset = 0;\n            // 全ページ分を蓄積する配列\n            var allData = [];\n            // 最初に返ってきたレスポンスオブジェクト（最終返却時にベースとして使う）\n            var firstResponse = null;\n\n            // 1ページ分を取得する再帰関数\n            function getPage() {\n                // $p.apiGet に渡す POST データ（View は元コードと同じ）\n                var postData = {\n                    View: {\n                        ApiDataType: \"KeyValues\",\n                        GridColumns: [\"ResultId\", \"DateC\", \"DateD\", \"DateA\", \"DateB\"]\n                    },\n                    // Offset を指定してページングを行う（公式 FAQ に記載の方法）\n                    Offset: offset\n                };\n\n                // 実際の API 呼び出し\n                $p.apiGet({\n                    id: siteId,\n                    data: postData,\n                    done: function (data) {\n                        // data.Response にページング情報とデータが入る想定（公式マニュアル／FAQ）\n                        // safety: 必要なプロパティが存在するか最低限チェックする\n                        var resp = (data && data.Response) ? data.Response : null;\n                        if (!resp) {\n                            // 想定外のレスポンスフォーマット\n                            showCommonError(500);\n                            return reject(500);\n                        }\n\n                        // 最初のレスポンスは保持しておく（返却時に形を保つため）\n                        if (!firstResponse) {\n                            firstResponse = data;\n                        }\n\n                        // 今回取得したデータ配列（存在チェック）\n                        var pageData = Array.isArray(resp.Data) ? resp.Data : [];\n                        // 取得分を結合\n                        Array.prototype.push.apply(allData, pageData);\n\n                        // ページサイズ（サーバが返す PageSize を尊重）\n                        var pageSize = (typeof resp.PageSize === 'number' && resp.PageSize > 0)\n                            ? resp.PageSize\n                            : pageData.length; // フォールバック\n\n                        // 全件数（サーバが返す TotalCount を使用）\n                        var totalCount = (typeof resp.TotalCount === 'number') ? resp.TotalCount : allData.length;\n\n                        window.force && console.log('ページ取得', { offset: offset, pageSize: pageSize, totalCount: totalCount, got: pageData.length });\n\n                        // 次ページが必要か判定：\n                        // 「開始位置 + 一度に取得できる件数」が全件より小さい場合、続きがある。\n                        if (offset + pageSize < totalCount) {\n                            // 次ページの開始位置をセットして再帰で取得\n                            offset += pageSize;\n                            // 小ブレイクを入れる必要がある場合はここで検討（現在は直列で続ける）\n                            getPage();\n                        } else {\n                            // 全件取得完了 — 最初のレスポンスオブジェクトをベースに Response.Data を差し替えて返す\n                            if (firstResponse && firstResponse.Response) {\n                                firstResponse.Response.Data = allData;\n                                firstResponse.Response.Offset = 0;\n                                firstResponse.Response.PageSize = allData.length;\n                                firstResponse.Response.TotalCount = totalCount;\n                                resolve(firstResponse);\n                            } else {\n                                // 最悪ケース：元の形を保てない場合は配列だけ返す\n                                resolve(allData);\n                            }\n                        }\n                    },\n                    fail: function (err) {\n                        // エラー表示関数を呼び出す（err はエラー番号を想定）\n                        showCommonError(err);\n                        reject(err);\n                    }\n                });\n            }\n\n            // 取得開始\n            getPage();\n        });\n    }\n\n    // ＝＝＝＝＝＝＝＝＝\n    // groupReservationStatus（日時を日付＋時刻で比較する版）\n    // ＝＝＝＝＝＝＝＝＝\n    /**\n     * 予約データを5グループに分類する（日時は日付＋時刻で厳密比較）\n     * @param {Object} apiResponse - $p.apiGet のレスポンス\n     * @returns {Object} groupedResult\n     */\n    function groupReservationStatus(apiResponse) {\n        window.force && console.log('処理開始', { apiResponse });\n\n        try {\n            // 念のためデータ存在チェック\n            if (!apiResponse || !apiResponse.Response || !Array.isArray(apiResponse.Response.Data)) {\n                showCommonError('E-DATA-INVALID');\n                return null;\n            }\n\n            const dataList = apiResponse.Response.Data;\n\n            // 現在の日時（ミリ秒）\n            const now = Date.now();\n\n            // グループ初期化\n            const result = {\n                usingOverdue: [], // ① 使用中（期限超過）\n                using: [],        // ② 使用中\n                scheduled: [],    // ③ 予定期間中（未使用）\n                returned: [],     // ④ 返却済み\n                empty: []         // ⑤ 空白（未来予定 / 予定ありで未使用 / 全フィールド空白）\n            };\n\n            // 空白判定ユーティリティ（null/undefined/空文字/半角スペースのみ を空白とみなす）\n            function isBlank(v) {\n                if (v === null || v === undefined) return true;\n                if (typeof v !== 'string') return false;\n                return v.trim() === '';\n            }\n\n            // 日時パースユーティリティ（安全に年月日時分秒を抜いて Date オブジェクトを返す）\n            // 対応例: \"2025/12/07 20:05\", \"2025-12-07 20:05:30\", \"2025/12/07\", \"2025-12-07T20:05\"\n            function parseDateTime(raw) {\n                if (isBlank(raw)) return null;\n                var s = String(raw).trim();\n\n                // 正規表現で分解して new Date(year, month-1, day, hour, min, sec)\n                var re = s.match(/^(\\d{4})[\\/\\-](\\d{1,2})[\\/\\-](\\d{1,2})(?:[ T](\\d{1,2}):(\\d{1,2})(?::(\\d{1,2}))?)?$/);\n                if (!re) {\n                    // フォールバック： Date に任せる（例えば既に ISO 形式の場合等）\n                    var d = new Date(s);\n                    return isNaN(d.getTime()) ? null : d;\n                }\n                var y = parseInt(re[1], 10);\n                var m = parseInt(re[2], 10) - 1;\n                var dday = parseInt(re[3], 10);\n                var hh = re[4] !== undefined ? parseInt(re[4], 10) : 0;\n                var mm = re[5] !== undefined ? parseInt(re[5], 10) : 0;\n                var ss = re[6] !== undefined ? parseInt(re[6], 10) : 0;\n                return new Date(y, m, dday, hh, mm, ss);\n            }\n\n            dataList.forEach(function (item) {\n                // 生データ文字列（空白判定用）\n                const plannedStartRaw = item[\"予定使用日時\"];\n                const plannedEndRaw   = item[\"予定返却日時\"];\n                const usedAtRaw       = item[\"使用日時\"];\n                const returnedAtRaw   = item[\"返却日時\"];\n\n                // 日付（時刻含む）変換（存在する文字列のみ）\n                const plannedStart = parseDateTime(plannedStartRaw);\n                const plannedEnd   = parseDateTime(plannedEndRaw);\n                const usedAt       = parseDateTime(usedAtRaw);\n                const returnedAt   = parseDateTime(returnedAtRaw);\n\n                // ミリ秒化（存在するもののみ）\n                const plannedStartTime = plannedStart ? plannedStart.getTime() : null;\n                const plannedEndTime   = plannedEnd   ? plannedEnd.getTime()   : null;\n                const usedAtTime       = usedAt       ? usedAt.getTime()       : null;\n                const returnedAtTime   = returnedAt   ? returnedAt.getTime()   : null;\n\n                // ----------------------------\n                // 優先判定（重要）\n                // 1) 返却日時が入力されている → ④返却済み（厳格）\n                // 2) 使用中（期限超過）\n                // 3) 使用中\n                // 4) 予定期間中（本日が期間内で未使用）\n                // 5) 空白（未来予定 OR 予定ありで未使用 OR 全フィールド空白）\n                // ----------------------------\n\n                // 1) 返却済み：返却日時が入力されている場合のみ\n                if (returnedAtTime !== null) {\n                    result.returned.push(item);\n                    return;\n                }\n\n                // 2) 使用中（期限超過）\n                if (\n                    plannedStartTime !== null && plannedEndTime !== null &&\n                    usedAtTime !== null &&\n                    returnedAtTime === null &&\n                    plannedEndTime < now\n                ) {\n                    result.usingOverdue.push(item);\n                    return;\n                }\n\n                // 3) 使用中（使用日時が登録され、返却未入力）\n                if (\n                    usedAtTime !== null &&\n                    returnedAtTime === null\n                ) {\n                    result.using.push(item);\n                    return;\n                }\n\n                // 4) 予定期間中（未使用）：予定があり、未使用（使用/返却未入力）、かつ現在が期間内（時刻含む）\n                if (\n                    plannedStartTime !== null && plannedEndTime !== null &&\n                    usedAtTime === null && returnedAtTime === null &&\n                    plannedStartTime <= now && now <= plannedEndTime\n                ) {\n                    result.scheduled.push(item);\n                    return;\n                }\n\n                // 5) 空白カテゴリ判定（優先度最後）\n                const allBlank = isBlank(plannedStartRaw) && isBlank(plannedEndRaw) && isBlank(usedAtRaw) && isBlank(returnedAtRaw);\n                const futurePlanned = plannedStartTime !== null && now < plannedStartTime;\n                const plannedButNotUsed = (plannedStartTime !== null && plannedEndTime !== null) && usedAtTime === null && returnedAtTime === null;\n\n                if (allBlank || futurePlanned || plannedButNotUsed) {\n                    result.empty.push(item);\n                    return;\n                }\n\n                // フォールバック（上のいずれにも当てはまらない場合は空白に入れる）\n                result.empty.push(item);\n            });\n\n            window.force && console.log('処理終了', result);\n            return result;\n\n        } catch (e) {\n            showCommonError(e);\n            return null;\n        }\n    }\n\n\n    // ＝＝＝＝＝＝＝＝＝\n    // extractReservationNumbers\n    // ＝＝＝＝＝＝＝＝＝\n    /**\n     * グループ化された予約データから「予約番号」だけを抽出する\n     * @param {Object} groupedData - groupReservationStatus の戻り値想定\n     * @returns {Object} reservationNumberGroups\n     */\n    function extractReservationNumbers(groupedData) {\n        window.force && console.log('処理開始', { groupedData });\n\n        try {\n            // 結果格納用\n            const result = {};\n\n            // 各グループをループ\n            Object.keys(groupedData).forEach(function (groupKey) {\n                const list = groupedData[groupKey];\n\n                // 配列でなければ空配列\n                if (!Array.isArray(list)) {\n                    result[groupKey] = [];\n                    return;\n                }\n\n                // 「予約番号」だけを抽出\n                result[groupKey] = list\n                    .map(function (item) {\n                        return item[\"予約番号\"];\n                    })\n                    .filter(function (val) {\n                        // 念のため null / undefined を除外\n                        return val !== null && val !== undefined;\n                    });\n            });\n\n            window.force && console.log('処理終了', result);\n            return result;\n\n        } catch (e) {\n            showCommonError(e);\n            return null;\n        }\n    }\n\n\n    /**\n     * 指定されたID配列を元に ClassD を更新する\n     * @param {number[]} idList - 更新対象のレコードID配列\n     * @param {string} classDValue - ClassD に設定する値\n     * @returns {Promise<void>}\n     */\n    function updateClassDByIds(idList, classDValue) {\n        return new Promise(function (resolve) {\n            // 対象が0件の場合は即完了\n            if (!idList || idList.length === 0) {\n                resolve();\n                return;\n            }\n\n            let completed = 0;\n\n            idList.forEach(function (recordId) {\n                $p.apiUpdate({\n                    id: recordId,\n                    data: {\n                        ClassHash: {\n                            ClassD: classDValue\n                        }\n                    },\n                    done: function () {\n                        completed++;\n                        if (completed === idList.length) {\n                            resolve();\n                        }\n                    },\n                    fail: function (data) {\n                        // エラー番号があればそれを使用\n                        const errNo = data && data.ErrorNo;\n                        showCommonError(errNo);\n\n                        completed++;\n                        if (completed === idList.length) {\n                            resolve();\n                        }\n                    }\n                });\n            });\n        });\n    }\n\n\n    function updateAllStatuses(statusMap) {\n        window.force && console.log('処理開始', { statusMap });\n\n        Promise.all([\n            updateClassDByIds(statusMap.usingOverdue, '使用中（期限超過）'),\n            updateClassDByIds(statusMap.using, '使用中'),\n            updateClassDByIds(statusMap.scheduled, '予定期間中（未使用）'),\n            updateClassDByIds(statusMap.returned, '返却済'),\n            updateClassDByIds(statusMap.empty, '') // 空白カテゴリは ClassD を空文字に設定\n        ]).then(function () {\n            // alert('完了しました');\n            window.force && console.log('全更新完了');\n        });\n    }\n\n})(jQuery);",
+            "Id": 9
+          },
+          {
+            "Title": "【自動処理】予約詳細画面　使用状況自動入力",
+            "New": true,
+            "Edit": true,
+            "Body": "(function($){\n    // =====================================\n    // Results_ClassD を読み取り専用＋スタイル変更\n    // =====================================\n    document.addEventListener('DOMContentLoaded', function () {\n        let select = document.getElementById('Results_ClassD');\n        if (!select) return;\n\n        // フォーカス・クリックを無効化\n        select.style.pointerEvents = 'none';\n\n        // キーボードフォーカスも防止\n        select.tabIndex = -1;\n\n        // 見た目を変更\n        select.style.background = '#f5f5f5';\n        select.style.border = 'solid 1px silver';\n    });\n\n    /* =====================================================\n    ＝＝＝＝＝＝＝＝＝\n    チェック関数\n    ＝＝＝＝＝＝＝＝＝\n    目的：\n    DOM の 4 つの日付入力（DateC/DateD/DateA/DateB）を参照し、\n    ルールに従って select#Results_ClassD の値を自動選択する。\n\n    実行タイミング：\n    - onDateChangeTrigger() 内から呼ぶ（推奨）\n    - もしくは DOMContentLoaded 時にイベント監視から呼ばれる\n\n    備考：\n    - select は pointer-events:none の疑似読み取り専用になっている想定\n    - 値はプログラムでセットしてから change イベントを dispatch（必要な他処理が反応するため）\n    ===================================================== */\n    function checkAndSetClassD() {\n        try {\n            window.force && console.log('ClassD 自動判定開始');\n\n            // 対象 input を取得\n            let elC = document.getElementById('Results_DateC'); // 予定使用日時\n            let elD = document.getElementById('Results_DateD'); // 予定返却日時\n            let elA = document.getElementById('Results_DateA'); // 使用日時\n            let elB = document.getElementById('Results_DateB'); // 返却日時\n            let select = document.getElementById('Results_ClassD');\n\n            // 要素が揃っていなければ何もしない\n            if (!select) {\n                window.force && console.warn('Results_ClassD が見つかりません');\n                return;\n            }\n\n            // ユーティリティ：空白判定（null/undefined/空文字/半角スペースのみ を空白とみなす）\n            function isBlank(v) {\n                if (v === null || v === undefined) return true;\n                if (typeof v !== 'string') return false;\n                return v.trim() === '';\n            }\n\n            // 日時パース（\"YYYY/MM/DD HH:mm\", \"YYYY-MM-DD HH:mm:ss\", \"YYYY/MM/DD\" 等を想定）\n            function parseDateTime(raw) {\n                if (isBlank(raw)) return null;\n                var s = String(raw).trim();\n                var re = s.match(/^(\\d{4})[\\/\\-](\\d{1,2})[\\/\\-](\\d{1,2})(?:[ T](\\d{1,2}):(\\d{1,2})(?::(\\d{1,2}))?)?$/);\n                if (!re) {\n                    var d = new Date(s);\n                    return isNaN(d.getTime()) ? null : d;\n                }\n                var y = parseInt(re[1], 10);\n                var m = parseInt(re[2], 10) - 1;\n                var dday = parseInt(re[3], 10);\n                var hh = re[4] !== undefined ? parseInt(re[4], 10) : 0;\n                var mm = re[5] !== undefined ? parseInt(re[5], 10) : 0;\n                var ss = re[6] !== undefined ? parseInt(re[6], 10) : 0;\n                return new Date(y, m, dday, hh, mm, ss);\n            }\n\n            // 値の取得（原文ストリング）\n            let cRaw = elC ? elC.value : '';\n            let dRaw = elD ? elD.value : '';\n            let aRaw = elA ? elA.value : '';\n            let bRaw = elB ? elB.value : '';\n\n            // 日付変換（存在する文字列のみ）\n            let cDate = parseDateTime(cRaw);\n            let dDate = parseDateTime(dRaw);\n            let aDate = parseDateTime(aRaw);\n            let bDate = parseDateTime(bRaw);\n\n            // ミリ秒タイムスタンプ（存在する場合）\n            let now = Date.now();\n            let cTime = cDate ? cDate.getTime() : null;\n            let dTime = dDate ? dDate.getTime() : null;\n            let aTime = aDate ? aDate.getTime() : null;\n            let bTime = bDate ? bDate.getTime() : null;\n\n            // 条件フラグ\n            let allBlank = isBlank(cRaw) && isBlank(dRaw) && isBlank(aRaw) && isBlank(bRaw);\n            let futurePlanned = (cTime !== null) && (now < cTime); // 現在 < 予定開始（未来予定）\n            let plannedButNotUsed = (cTime !== null && dTime !== null) && isBlank(aRaw) && isBlank(bRaw);\n\n            // 判定ロジック（優先度高→低） — あなたの要件に合わせる\n            let resultValue = ''; // デフォルトは空\n\n            // 1) 返却済み：返却日時が入力されている場合のみ\n            if (bTime !== null) {\n                resultValue = '返却済';\n            }\n            // 2) 使用中（期限超過）: 使用済み・返却未入力・返却予定時刻 < 現在\n            else if (aTime !== null && dTime !== null && bTime === null && dTime < now) {\n                resultValue = '使用中（期限超過）';\n            }\n            // 3) 使用中（使用日時が登録され、返却未入力）\n            else if (aTime !== null && bTime === null) {\n                // 予定期間の有無に関わらず「使用日時がある & 返却未入力」なら使用中\n                resultValue = '使用中';\n            }\n            // 4) 予定期間中（未使用）：予定があり、未使用、かつ現在が期間内（開始 <= now < 終了 ）\n            else if (cTime !== null && dTime !== null && isBlank(aRaw) && isBlank(bRaw) && cTime <= now && now <= dTime) {\n                resultValue = '予定期間中（未使用）';\n            }\n            // 5) 空白カテゴリ（未来予定 or planned but not used or all blank）\n            else if (allBlank || futurePlanned || plannedButNotUsed) {\n                resultValue = ''; // 空文字（select の空値）\n            } else {\n                // フォールバックは空（安全側）\n                resultValue = '';\n            }\n\n            // 現在の select の値と異なれば更新する\n            if (select.value !== resultValue) {\n                // 値をセット（加工は行わず表示用の文字列と一致させる）\n                select.value = resultValue;\n\n                // プログラムで値を入れたのち、change を発火して他のスクリプトと整合を取る\n                let evt;\n                try {\n                    evt = new Event('change', { bubbles: true });\n                } catch (e) {\n                    // 古いブラウザ fallback\n                    evt = document.createEvent('HTMLEvents');\n                    evt.initEvent('change', true, false);\n                }\n                select.dispatchEvent(evt);\n\n                window.force && console.log('ClassD を自動設定しました', { value: resultValue });\n            } else {\n                window.force && console.log('ClassD 変更なし', { value: resultValue });\n            }\n\n        } catch (err) {\n            // 万一の例外は共通エラーで通知（既存の showCommonError を利用）\n            showCommonError(err);\n        }\n    }\n\n\n    // =====================================\n    // 使用日時・返却日時 変更監視トリガー\n    // =====================================\n    document.addEventListener('DOMContentLoaded', function () {\n        window.force && console.log('監視トリガー初期化');\n\n        let dateA = document.getElementById('Results_DateA');\n        let dateB = document.getElementById('Results_DateB');\n        let dateC = document.getElementById('Results_DateC');\n        let dateD = document.getElementById('Results_DateD');\n\n        if (!dateA || !dateB|| !dateC|| !dateD) {\n            window.force && console.log('監視対象inputが見つかりません');\n            return;\n        }\n\n        // 共通ハンドラ\n        function onDateChanged(e) {\n            window.force && console.log('日時変更検知', {\n                id: e.target.id,\n                value: e.target.value\n            });\n\n            onDateChangeTrigger();\n        }\n\n        // 直接入力\n        dateA.addEventListener('input', onDateChanged);\n        dateB.addEventListener('input', onDateChanged);\n        dateC.addEventListener('input', onDateChanged);\n        dateD.addEventListener('input', onDateChanged);\n\n        // カレンダー選択後（フォーカスアウト時）\n        dateA.addEventListener('blur', onDateChanged);\n        dateB.addEventListener('blur', onDateChanged);\n        dateC.addEventListener('blur', onDateChanged);\n        dateD.addEventListener('blur', onDateChanged);\n    });\n\n\n    // =====================================\n    // トリガー関数（次処理接続用）\n    // =====================================\n    function onDateChangeTrigger() {\n        window.force && console.log('トリガー関数実行');\n\n        checkAndSetClassD();\n    }\n})(jQuery);",
+            "Id": 10
+          }
+        ],
+        "UseFilterButton": true,
+        "UseSearchFilter": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 252478,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}

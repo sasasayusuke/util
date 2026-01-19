@@ -1,0 +1,908 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.4.1.1",
+    "BaseSiteId": 252479,
+    "Server": "http://192.168.10.67",
+    "CreatorName": "Administrator",
+    "PackageTime": "2026-01-19T18:18:38.0069309+00:00",
+    "Convertors": [
+      {
+        "SiteId": 252479,
+        "SiteTitle": "備品・消耗品",
+        "ReferenceType": "Results",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 1,
+      "SiteId": 252479,
+      "Title": "備品・消耗品",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "CalendarGuide": "",
+      "CrosstabGuide": "",
+      "GanttGuide": "",
+      "BurnDownGuide": "",
+      "TimeSeriesGuide": "",
+      "AnalyGuide": "",
+      "KambanGuide": "",
+      "ImageLibGuide": "",
+      "ReferenceType": "Results",
+      "ParentId": 252468,
+      "InheritPermission": 252468,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Results",
+        "GridView": 3,
+        "AllowViewReset": false,
+        "GridColumns": [
+          "ResultId",
+          "TitleBody",
+          "Comments",
+          "Status",
+          "Manager",
+          "Owner",
+          "Updator",
+          "UpdatedTime",
+          "ClassK~2772460,DateA",
+          "ClassK~2772460,DateB",
+          "ClassK~2772460,DateC",
+          "ClassK~2772460,DateD"
+        ],
+        "FilterColumns": [
+          "ClassA",
+          "ClassN",
+          "ClassM",
+          "ClassB",
+          "ClassD",
+          "CheckA",
+          "ClassK",
+          "ClassP",
+          "ClassF",
+          "ClassU"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "ResultId",
+            "_Section-2",
+            "ClassA",
+            "NumA",
+            "ClassN",
+            "NumB",
+            "ClassR",
+            "ClassM",
+            "ClassJ",
+            "ClassO",
+            "NumC",
+            "ClassB",
+            "DateA",
+            "DateE",
+            "ClassC",
+            "ClassQ",
+            "ClassD",
+            "DateD",
+            "ClassE",
+            "ClassK",
+            "ClassF",
+            "ClassG",
+            "ClassH",
+            "AttachmentsA",
+            "DescriptionC",
+            "DescriptionA",
+            "CheckB",
+            "_Section-1",
+            "_Links-252478",
+            "_Section-3",
+            "_Links-252473",
+            "ClassI",
+            "DateB",
+            "ClassP"
+          ]
+        },
+        "SectionLatestId": 3,
+        "Sections": [
+          {
+            "Id": 2,
+            "LabelText": "基礎情報",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 1,
+            "LabelText": "予約情報",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 3,
+            "LabelText": "保管/移管",
+            "AllowExpand": false,
+            "Expand": true
+          }
+        ],
+        "LinkColumns": [
+          "ResultId",
+          "Ver",
+          "Title",
+          "Body",
+          "Creator",
+          "Updator",
+          "UpdatedTime",
+          "CreatedTime"
+        ],
+        "HistoryColumns": [
+          "DateD",
+          "ClassI",
+          "ClassK",
+          "ClassG",
+          "DateB",
+          "ClassH"
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "品目区分",
+            "ChoicesText": "備品\n高額消耗品\n消耗品",
+            "NoWrap": true,
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "分類",
+            "ChoicesText": "[[252477,NoAddButton]]",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "NumA",
+            "LabelText": "管理番号",
+            "Min": -99999.0,
+            "Max": 99999.0
+          },
+          {
+            "ColumnName": "NumB",
+            "LabelText": "備品資産カードNo.",
+            "Min": -99999.0,
+            "Max": 99999.0
+          },
+          {
+            "ColumnName": "CheckA",
+            "LabelText": "使用可否",
+            "DefaultInput": "false"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "メーカー",
+            "NoWrap": true,
+            "MaxLength": 50.0
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "品名",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "MaxLength": 50.0,
+            "ClientRegexValidation": "^(?!\\s*$).+",
+            "RegexValidationMessage": "空白のみは登録できません"
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "型式",
+            "NoWrap": true,
+            "MaxLength": 50.0
+          },
+          {
+            "ColumnName": "NumC",
+            "LabelText": "取得金額",
+            "Unit": "円"
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "異動区分",
+            "ChoicesText": "取得\n除却\n移管\n管理対象外\n\n",
+            "DefaultInput": "取得",
+            "NoWrap": true,
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "取得/移管日",
+            "DefaultInput": "0",
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "DescriptionA",
+            "LabelText": "備考",
+            "MaxLength": 500.0,
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "NumD",
+            "LabelText": "バージョン"
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "現品照合承認日",
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassH",
+            "LabelText": "照合承認者",
+            "Hide": true
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "更新日"
+          },
+          {
+            "ColumnName": "CheckB",
+            "LabelText": "削除フラグ",
+            "Hide": true
+          },
+          {
+            "ColumnName": "ResultId",
+            "LabelText": "備品・消耗品Id",
+            "Hide": true
+          },
+          {
+            "ColumnName": "ClassM",
+            "LabelText": "建物名",
+            "ChoicesText": "[[252470,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassN",
+            "LabelText": "主管箇所",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "NoWrap": true,
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassO",
+            "LabelText": "設置場所",
+            "NoWrap": true
+          },
+          {
+            "ColumnName": "ClassK",
+            "LabelText": "現品照合結果",
+            "ChoicesText": "OK\nNG\n保留",
+            "EditorReadOnly": true,
+            "AllowBulkUpdate": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "AttachmentsA",
+            "LabelText": "写真"
+          },
+          {
+            "ColumnName": "ClassP",
+            "LabelText": "承認状況",
+            "ChoicesText": "未承認\n承認済",
+            "DefaultInput": "未承認",
+            "Hide": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateD",
+            "LabelText": "現品照合日",
+            "EditorReadOnly": true,
+            "AllowBulkUpdate": true
+          },
+          {
+            "ColumnName": "ClassQ",
+            "LabelText": "利用状況",
+            "ChoicesText": "利用可能\n利用中",
+            "EditorReadOnly": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassR",
+            "LabelText": "所管箇所",
+            "ChoicesText": "[[252474,NoAddButton]]",
+            "Link": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "NumE",
+            "ControlType": "Normal"
+          },
+          {
+            "ColumnName": "Status",
+            "ChoicesText": "100,予約可,予約可,status-new\n150,予約あり,予約あり,status-preparation\n200,利用中,利用中,status-inprogress\n300,使用不可,使用不可,status-review\n900,完了,完,status-closed\n910,保留,留,status-rejected"
+          },
+          {
+            "ColumnName": "ClassI",
+            "LabelText": "現品照合実施者",
+            "Hide": true,
+            "EditorReadOnly": true
+          },
+          {
+            "ColumnName": "ClassL",
+            "LabelText": "使用者"
+          },
+          {
+            "ColumnName": "DateI",
+            "LabelText": "使用日時"
+          },
+          {
+            "ColumnName": "DateJ",
+            "LabelText": "返却日時"
+          },
+          {
+            "ColumnName": "ClassU",
+            "LabelText": "使用状態"
+          },
+          {
+            "ColumnName": "DescriptionC",
+            "LabelText": "異動事由"
+          },
+          {
+            "ColumnName": "DateK",
+            "LabelText": "希望予約期間",
+            "Hide": true,
+            "DateFilterSetMode": 2
+          },
+          {
+            "ColumnName": "ClassG",
+            "LabelText": "現品照合コメント",
+            "EditorReadOnly": true
+          },
+          {
+            "ColumnName": "ClassJ",
+            "LabelText": "使用可否",
+            "ChoicesText": "可能\n不可",
+            "ChoicesControlType": "Radio",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateE",
+            "LabelText": "除却日"
+          }
+        ],
+        "Links": [
+          {
+            "ColumnName": "ClassM",
+            "SiteId": 252470,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassN",
+            "SiteId": 252474,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassB",
+            "SiteId": 252477,
+            "NoAddButton": true
+          },
+          {
+            "ColumnName": "ClassR",
+            "SiteId": 252474,
+            "NoAddButton": true
+          }
+        ],
+        "ViewLatestId": 5,
+        "Views": [
+          {
+            "Id": 3,
+            "Name": "基礎情報",
+            "DefaultMode": "Index",
+            "GridColumns": [
+              "ClassA",
+              "NumA",
+              "NumB",
+              "ClassD",
+              "ClassM",
+              "ClassO",
+              "ClassN",
+              "ClassB",
+              "ClassJ",
+              "ClassC",
+              "ClassE",
+              "ClassR",
+              "ClassF",
+              "DescriptionC",
+              "DescriptionA",
+              "ClassK",
+              "ClassH"
+            ],
+            "FilterColumns": [
+              "ClassA",
+              "ClassN",
+              "ClassM",
+              "ClassB",
+              "ClassD",
+              "ClassJ",
+              "ClassK",
+              "ClassP",
+              "ClassF",
+              "DateJ"
+            ],
+            "ColumnFilterHash": {
+              "ClassF": "[\"取得\",\"移管\"]"
+            },
+            "ApiColumnKeyDisplayType": 0,
+            "ApiColumnValueDisplayType": 0,
+            "CalendarSiteId": 0,
+            "CalendarTimePeriod": "Monthly",
+            "CalendarFromTo": "DateA",
+            "CrosstabGroupByX": "Status",
+            "CrosstabGroupByY": "ClassA",
+            "CrosstabAggregateType": "Total",
+            "CrosstabValue": "NumA",
+            "CrosstabTimePeriod": "Monthly",
+            "KambanAggregateType": "Count",
+            "ApiDataType": 0
+          },
+          {
+            "Id": 5,
+            "Name": "予約",
+            "DefaultMode": "Index",
+            "GridColumns": [
+              "ClassA",
+              "NumA",
+              "NumB",
+              "ClassD",
+              "ClassM",
+              "ClassO",
+              "ClassC~~252478,ClassD",
+              "ClassC~~252478,ResultId",
+              "ClassC~~252478,DateC",
+              "ClassC~~252478,DateD",
+              "ClassC~~252478,ClassA",
+              "ClassC~~252478,ClassB",
+              "ClassN",
+              "ClassB",
+              "CheckA",
+              "ClassC",
+              "ClassE",
+              "ClassR",
+              "ClassF",
+              "DescriptionC",
+              "DescriptionA"
+            ],
+            "FilterColumns": [
+              "ClassA",
+              "ClassN",
+              "ClassM",
+              "ClassB",
+              "ClassD",
+              "ClassJ",
+              "ClassK",
+              "ClassP",
+              "ClassF",
+              "ClassC~~252478,DateC",
+              "ClassC~~252478,DateD",
+              "ClassC~~252478,ClassD"
+            ],
+            "ColumnFilterHash": {
+              "ClassF": "[\"取得\",\"移管\"]"
+            },
+            "ColumnSorterHash": {
+              "ClassC~~252478,DateC": "desc",
+              "ClassC~~252478,DateD": "desc"
+            },
+            "ApiColumnKeyDisplayType": 0,
+            "ApiColumnValueDisplayType": 0,
+            "CalendarSiteId": 0,
+            "CalendarTimePeriod": "Monthly",
+            "CalendarFromTo": "DateA",
+            "CrosstabGroupByX": "Status",
+            "CrosstabGroupByY": "ClassA",
+            "CrosstabAggregateType": "Total",
+            "CrosstabValue": "NumA",
+            "CrosstabTimePeriod": "Monthly",
+            "KambanAggregateType": "Count",
+            "ApiDataType": 0
+          }
+        ],
+        "Notifications": [
+          {
+            "Type": 1,
+            "Subject": "通知照テスト",
+            "Address": "kondo.ry@sms-datatech.co.jp",
+            "Encoding": "utf-8",
+            "MediaType": "application/json",
+            "MonitorChangesColumns": [
+              "ClassA",
+              "ClassB",
+              "ClassC",
+              "ClassD",
+              "ClassE",
+              "ClassF",
+              "ClassG",
+              "ClassH",
+              "ClassI",
+              "ClassJ",
+              "ClassK",
+              "ClassL",
+              "ClassM",
+              "ClassN",
+              "ClassO",
+              "NumA",
+              "NumB",
+              "NumC",
+              "NumD",
+              "DateA",
+              "DateB",
+              "DateC",
+              "DescriptionA",
+              "CheckA",
+              "CheckB",
+              "Comments"
+            ],
+            "BeforeCondition": 0,
+            "AfterCondition": 0,
+            "Expression": 0,
+            "Id": 1
+          }
+        ],
+        "Exports": [
+          {
+            "Name": "備品・消耗品",
+            "Columns": [
+              {
+                "Id": 1,
+                "ColumnName": "ClassA"
+              },
+              {
+                "Id": 2,
+                "ColumnName": "NumA"
+              },
+              {
+                "Id": 3,
+                "ColumnName": "NumB"
+              },
+              {
+                "Id": 4,
+                "ColumnName": "ClassD"
+              },
+              {
+                "Id": 5,
+                "ColumnName": "ClassM"
+              },
+              {
+                "Id": 6,
+                "ColumnName": "ClassO"
+              },
+              {
+                "Id": 7,
+                "ColumnName": "ClassU"
+              },
+              {
+                "Id": 8,
+                "ColumnName": "ClassC~~252478,DateC"
+              },
+              {
+                "Id": 9,
+                "ColumnName": "ClassC~~252478,DateD"
+              },
+              {
+                "Id": 10,
+                "ColumnName": "ClassC~~252478,ResultId"
+              },
+              {
+                "Id": 11,
+                "ColumnName": "ClassC~~252478,ClassA"
+              },
+              {
+                "Id": 12,
+                "ColumnName": "ClassC~~252478,ClassB"
+              },
+              {
+                "Id": 13,
+                "ColumnName": "ClassC~~252478,DateA"
+              },
+              {
+                "Id": 14,
+                "ColumnName": "ClassC~~252478,DateB"
+              },
+              {
+                "Id": 15,
+                "ColumnName": "ClassN"
+              },
+              {
+                "Id": 16,
+                "ColumnName": "ClassB"
+              },
+              {
+                "Id": 17,
+                "ColumnName": "ClassJ"
+              },
+              {
+                "Id": 18,
+                "ColumnName": "ClassC"
+              },
+              {
+                "Id": 19,
+                "ColumnName": "ClassE"
+              },
+              {
+                "Id": 20,
+                "ColumnName": "NumC"
+              },
+              {
+                "Id": 21,
+                "ColumnName": "ClassR"
+              },
+              {
+                "Id": 22,
+                "ColumnName": "ClassF"
+              },
+              {
+                "Id": 23,
+                "ColumnName": "DescriptionC"
+              },
+              {
+                "Id": 24,
+                "ColumnName": "DateA"
+              },
+              {
+                "Id": 25,
+                "ColumnName": "DateE"
+              },
+              {
+                "Id": 26,
+                "ColumnName": "ClassF~~252473,ClassG"
+              },
+              {
+                "Id": 27,
+                "ColumnName": "ClassF~~252473,ClassH"
+              },
+              {
+                "Id": 28,
+                "ColumnName": "DescriptionA"
+              },
+              {
+                "Id": 29,
+                "ColumnName": "DateD"
+              },
+              {
+                "Id": 30,
+                "ColumnName": "ClassI"
+              },
+              {
+                "Id": 31,
+                "ColumnName": "ClassK"
+              },
+              {
+                "Id": 32,
+                "ColumnName": "ClassG"
+              },
+              {
+                "Id": 33,
+                "ColumnName": "DateB"
+              },
+              {
+                "Id": 34,
+                "ColumnName": "ClassH"
+              }
+            ],
+            "Type": 0,
+            "DelimiterType": 0,
+            "ExecutionType": 0,
+            "Id": 1
+          }
+        ],
+        "Styles": [
+          {
+            "Title": "非表示化",
+            "All": true,
+            "Body": "[id=\"ViewFilters__ClassC~~252478,DateD_DateRangeField\"] {\n  display: none !important;\n}",
+            "Id": 1
+          },
+          {
+            "Title": "【画面制御】除却日非表示化",
+            "New": true,
+            "Edit": true,
+            "Body": "#Results_DateEField{\n  display: none;\n}\n",
+            "Id": 2
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "【設定】サイトID",
+            "All": true,
+            "Body": "// ヘッドレス設定\nconst AdminListsID = 252476;  //業務管理者\nconst businessAdministratorID = 252476;  //業務管理者\nconst adminListsID = 252471;  // システム管理者\nconst reservationList = 252478; // 予約・使用一覧\n\n// データメンテナンス　サイト設定(システム管理者以外は操作不可)\nconst SetPeriodID = 252472;\n\n//備品・消耗品管理一覧\nconst SuppliesConsumablesID = 252479;\n\n// 予約・使用一覧 サイトID\nconst reservationUsageList =  252478;",
+            "Id": 6
+          },
+          {
+            "Title": "【設定】グローバル変数値",
+            "All": true,
+            "Body": "// デバッグON/OFF\nwindow.force = true; // true/false  falseにすると出ない\n\n//ビュープルダウン　予約のValue値\nconst reservationView =  '5'; ",
+            "Id": 16
+          },
+          {
+            "Title": "【設定】サイトID取得",
+            "All": true,
+            "Body": "",
+            "Id": 17
+          },
+          {
+            "Title": "【共通関数】ローディング表示",
+            "All": true,
+            "Body": "// 1.グローバル変数値として下記を設定\nwindow.loadingCount = window.loadingCount ?? 0;\nwindow.loadingMsg   = window.loadingMsg   ?? '読み込み中...';\n\n// 2．共通処理で読み込み中表示を作成する\n// =======================================\n// 読み込み表示\n// - count が 1 以上なら表示、0 で非表示\n// - incLoading(msg) / decLoading() を使う\n// =======================================\n\n\n// =======================================\n// _ensureOL\n// 説明：読み込みオーバーレイの DOM とスタイルを作成（既にあれば何もしない）\n// =======================================\nfunction _ensureOL(){\n  if (document.getElementById('loading-ol')) return;\n  // 最低限のアニメーション CSS を追加\n  const s = document.createElement('style');\n  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';\n  document.head.appendChild(s);\n\n  // オーバーレイ本体\n  const ol = document.createElement('div');\n  ol.id = 'loading-ol';\n  ol.style.cssText = 'position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.25);z-index:2147483647';\n\n  // 中身（白ボックス + スピナー + メッセージ）\n  ol.innerHTML = '<div style=\"background:#fff;padding:10px 14px;border-radius:6px;display:flex;gap:10px;align-items:center\">'\n               + '<span style=\"width:18px;height:18px;border:3px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin 1s linear infinite\"></span>'\n               + `<span id=\"loading-ol-msg\">${window.loadingMsg}</span></div>`;\n\n  document.body.appendChild(ol);\n}\n\n// =======================================\n// incLoading\n// 説明：読み込みカウントをインクリメント。最初の1回目で表示。\n// 引数：message（省略可） — 表示メッセージを一時的に変更\n// =======================================\nwindow.incLoading = function(msg){\n  window.loadingCount = (window.loadingCount || 0) + 1;\n  _ensureOL();\n  if (msg) {\n    const m = document.getElementById('loading-ol-msg');\n    if (m) m.textContent = msg;\n  }\n  if (window.loadingCount === 1) {\n    document.getElementById('loading-ol').style.display = 'flex';\n  }\n};\n\n// =======================================\n// decLoading\n// 説明：読み込みカウントをデクリメント。0 になったら非表示。\n// 注意：呼び出し回数と対応させる（負にはならない）\n// =======================================\nwindow.decLoading = function(){\n  window.loadingCount = Math.max(0, (window.loadingCount || 0) - 1);\n  if (window.loadingCount === 0) {\n    const el = document.getElementById('loading-ol');\n    if (el) el.style.display = 'none';\n  }\n};\n// ■使い方\n// incLoading();             // 表示（count = +1）\n// incLoading('読込中...');  // メッセージ変更して表示\n\n// decLoading();             // 非表示は count が 0 になった時",
+            "Id": 22
+          },
+          {
+            "Title": "【共通関数】エラーポップアップ表示",
+            "All": true,
+            "Body": "function genErrorNo() {\n  return 'E-' + Date.now();\n}\n\n// 共通エラーアラート\nfunction showCommonError(errNo) {\n  const no = errNo || genErrorNo();\n  alert(\n    'エラーが発生しました。\\n' +\n    '操作をやり直しても解消しない場合は、\\n' +\n    'このエラー内容を管理者にお伝えください。\\n\\n' +\n     no\n  );\n\n  // デバッグ用（任意）\n  window.force && console.error('ERROR:', no);\n}\n// 使い方：\n// どこでもこれだけ\n// showCommonError();\n\n// 既にエラー番号がある場合\n// showCommonError('E-API-00123');\n",
+            "Id": 23
+          },
+          {
+            "Title": "【トリガー関数】画面読み込み時実行するメソッド",
+            "All": true,
+            "Body": "// 一覧画面ロード時に実行するメソッドを格納する\n$p.events.on_grid_load_arr = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_grid_load = function() {\n    $p.events.on_grid_load_arr.forEach(func => {\n        func()\n    })\n}\n\n// 編集画面ロード時に実行するメソッドを格納する\n$p.events.on_editor_load_arr = []\n\n// 格納したメソッドを実行するメソッド\n$p.events.on_editor_load = function() {\n    $p.events.on_editor_load_arr.forEach(func => {\n        func()\n    })\n}",
+            "Id": 3
+          },
+          {
+            "Title": "【不明】貸出可否フラグ",
+            "Body": "$('#Results_ClassA').change(function(){\n        if($('#Results_ClassA').val()=='貸出可否' ){\n            $('#Results_DescriptionA').prop('disabled', false);\n            $('#Results_DescriptionA').css('background-color','#ffffff');\n        }else{\n　　　　$p.set($('#Results_DescriptionA'),'');\n            $('#Results_DescriptionA').prop('disabled', true);\n            $('#Results_DescriptionA').css('background-color','#dddddd');\n        }\n});",
+            "Id": 1
+          },
+          {
+            "Title": "【画面制御】全体　管理者専用表示制御",
+            "All": true,
+            "Body": "// ===== トリガー ======\n// Pleasanter のグリッド読み込みイベントで一度だけ実行される入口。\n// ここでは sdtIndex() を呼ぶだけにしておく（sdtIndex はオーケストレーションを行う）。\n$p.events.on_grid_load_arr.push(() => {\n    sdtIndex();\n});\n\n// ==== index関数 (オーケストレーション) ====\n// - 役割: 各一覧取得の Promise を待ち、解析→比較関数に渡して判定結果を受け取る。\n// - 戻り値: jQuery.Promise を返す（resolve: boolean or null / reject: err）\nfunction sdtIndex() {\n    const deferred = $.Deferred();\n\n    // ログインIDを同期的に取得\n    const loginId = getLoginId();\n\n    // 各管理者リストを非同期で取得（取得関数は「取得のみ」を担当）\n    const systemAdministratorPromise = sysAdministratorList();\n    const businessAdministratorPromise = busAdministratorList();\n\n    // 両方の取得が完了したらパースして比較へ渡す\n    $.when(systemAdministratorPromise, businessAdministratorPromise)\n        .done(function (sysRawData, busRawData) {\n            // 取得した生データを解析して配列に変換（parseUserArray は解析のみ担当）\n            const systemAdministrator = parseUserArray(sysRawData);\n            const businessAdministrator = parseUserArray(busRawData);\n\n            // 比較関数（比較のみ）で loginId が配列内に存在するかチェック\n            const isAdmin = isLoginIdInAdminLists(loginId, systemAdministrator, businessAdministrator);\n\n            // 管理者の時実行\n            if (isAdmin) {\n                // 承認ボタンの表示\n                buttonDisplay()\n            }\n\n            deferred.resolve(isAdmin);\n        })\n        .fail(function (err) {\n            deferred.reject(err);\n        });\n\n    return deferred.promise();\n}\n\n// === getLoginId: ログインID を取得（同期処理） ===\n// - 戻り値: 取得できればログインID (string)、取得不可なら null\n// - 実装: 環境差を吸収するため $p.loginId() を優先、その後 $p.userInfo() を参照\nfunction getLoginId(){ \n    try {\n        if (typeof $p.loginId === \"function\") {\n            return $p.loginId();\n        }\n        if (typeof $p.userInfo === \"function\") {\n            const ui = $p.userInfo() || {};\n            return ui.Id || ui.id || ui.LoginId || ui.loginId || null;\n        }\n    } catch (e) {\n        console.warn(\"getLoginId error\", e);\n    }\n    return null;\n}\n\n// === sysAdministratorList: システム管理者リストを取得（取得のみ） ===\n// - 役割: API を叩いて生データを取得し、そのまま resolve する。\n// - 戻り値: jQuery.Promise（resolve: rawData, reject: err）\nfunction sysAdministratorList() {\n    const deferred = $.Deferred();\n\n    $p.apiGet({\n        id: adminListsID,\n        data: {\n            View: {\n                ApiDataType: \"KeyValues\",\n                GridColumns: [\"ClassA\"]\n            }\n        },\n        done: function (data) {\n            deferred.resolve(data);\n        },\n        fail: function (err) {\n            deferred.reject(err);\n        }\n    });\n\n    return deferred.promise();\n}\n\n// === busAdministratorList: 業務管理者リストを取得（取得のみ） ===\n// - 役割: API を叩いて生データを取得し、そのまま resolve する。\n// - 戻り値: jQuery.Promise（resolve: rawData, reject: err）\nfunction busAdministratorList() {\n    const deferred = $.Deferred();\n\n    $p.apiGet({\n        id: businessAdministratorID,\n        data: {\n            View: {\n                ApiDataType: \"KeyValues\",\n                GridColumns: [\"ClassA\"]\n            }\n        },\n        done: function (data) {\n            deferred.resolve(data);\n        },\n        fail: function (err) {\n            deferred.reject(err);\n        }\n    });\n\n    return deferred.promise();\n}\n\n// === parseUserArray: API 生データからユーザー配列を取り出す（解析のみ） ===\n// - 引数: rawData (object) - API から返ってきた生データ\n// - 戻り値: Array - 例: [{ Username: 'oohira' }, ...]（見つからなければ空配列）\n// - 想定される構造例: { StatusCode:200, Response:{ Data: [...] } }\nfunction parseUserArray(rawData) {\n    if (!rawData || typeof rawData !== \"object\") return [];\n    const list = (rawData.Response && rawData.Response.Data) || rawData.Data || rawData.Items || [];\n    return Array.isArray(list) ? list : [];\n}\n\n// === isLoginIdInAdminLists: loginId がどちらかの配列に完全一致で存在するか判定（比較のみ） ===\n// - 引数: \n//    loginId (string) - チェック対象のログインID\n//    systemAdministratorArray (Array) - sys 管理者配列（parseUserArray の戻り値）\n//    businessAdministratorArray (Array) - bus 管理者配列（parseUserArray の戻り値）\n// - 戻り値: boolean (true: 存在する / false: 存在しない)\n// - 注意: この関数は副作用を持たず純粋に判定だけを行う（alert 等は呼び出し元で行う）\nfunction isLoginIdInAdminLists(loginId, systemAdministratorArray, businessAdministratorArray) {\n    if (!loginId) return false;\n\n    function arrayContainsLoginId(arr) {\n        if (!Array.isArray(arr)) return false;\n        return arr.some(function (item) {\n            // item.Username が loginId と完全一致するかをチェック\n            return item && item.Username === loginId;\n        });\n    }\n\n    return arrayContainsLoginId(systemAdministratorArray) || arrayContainsLoginId(businessAdministratorArray);\n}\n\n\n// // ===== ボタン表示 =====\nfunction buttonDisplay() {\n    $('.fn-verification').css('display', '');\n}",
+            "Id": 2
+          },
+          {
+            "Title": "【操作追加】備品・消耗品管理　一覧　一括現品照合",
+            "Index": true,
+            "Body": "(function () {\n    // ============================ 一括現品照合 ============================ \n\n    let selectedIds\n\n    // ============================ メイン処理 ============================ \n    $p.events.on_grid_load_arr.push(function () {\n        genpinshogoButton();\n    })\n\n\n\n    // =================================== 現品照合ボタンを追加 ===================================\n    function genpinshogoButton() {\n        // 現品照合ボタンのhtml\n        const $btn = $('<button id=\"genpinshogoButton\" class=\"button button-icon button-positive ui-button ui-corner-all ui-widget applied\" type=\"button\"><span class=\"ui-button-icon ui-icon ui-icon-disk\"></span><span class=\"ui-button-icon-space\"> </span>現品照合</button>');\n\n        // Maincommandsの一番最後のボタンの次に、現品照合ボタンを作成\n        $(\"#MainCommands button:last-child\").after($btn);\n\n        // 現品照合ボタンのクリックイベント：モーダルを表示\n        $btn.on(\"click\", function (e) {\n            e.preventDefault();\n            openBulkMatchModal();\n        });\n    }\n\n\n    // =================================== モーダルを表示する関数（現品照合ボタンの onclick に割り当てる）===================================\n    function openBulkMatchModal() {\n        if ($(\"#bulkMatchModalOverlay\").length) return;\n\n        // モーダル画面のhtml\n        const modalHtml = `\n    <style id=\"bulkMatchModalStyles\">\n      #bulkMatchModalOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 9999; }\n      #bulkMatchModal { background: #fff; width: 520px; max-width: 92%; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); position: relative; padding: 18px 20px; font-family: \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial; }\n      #bulkMatchModal .closeBtn { position: absolute; right: 10px; top: 8px; border: none; background: transparent; font-size: 20px; cursor: pointer; }\n      #bulkMatchModal h2 { margin: 4px 0 12px 0; font-size: 16px; }\n      #bulkMatchModal .field { margin-bottom: 10px; }\n      #bulkMatchModal label { display:block; margin-bottom:4px; font-size:13px; }\n      #bulkMatchModal select, #bulkMatchModal input[type=\"date\"], #bulkMatchModal textarea { width:100%; padding:8px; box-sizing: border-box; font-size:13px; border:1px solid #ccc; border-radius:4px; }\n      #bulkMatchModal textarea { resize: vertical; min-height:70px; }\n      #bulkMatchModal .actions { text-align: right; margin-top:12px; }\n      #bulkMatchModal .actions button { margin-left:8px; padding:6px 12px; }\n    </style>\n\n    <div id=\"bulkMatchModalOverlay\">\n      <div id=\"bulkMatchModal\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"bulkMatchTitle\">\n        <button class=\"closeBtn\" title=\"閉じる\" aria-label=\"閉じる\">&times;</button>\n        <h2 id=\"bulkMatchTitle\">現品照合</h2>\n\n        <div class=\"fielsd\">\n          <label for=\"bm_result\">照合結果 <span style=\"color:#d00\">*</span></label>\n          <select id=\"bm_result\" required>\n            <option value=\"OK\">OK</option>\n            <option value=\"NG\">NG</option>\n            <option value=\"保留\">保留</option>\n          </select>\n        </div>\n\n        <div class=\"field\">\n          <label for=\"bm_date\">照合日 <span style=\"color:#d00\">*</span></label>\n          <input id=\"bm_date\" type=\"date\" min=\"1900-01-01\" max=\"9999-12-31\" required/>\n        </div>\n\n        <div class=\"field\">\n          <label for=\"bm_comment\">コメント</label>\n          <textarea id=\"bm_comment\" placeholder=\"コメントを入力\"></textarea>\n        </div>\n\n        <div class=\"actions\">\n          <button id=\"bm_submit\" type=\"button\" class=\"button button-positive\">照合</button>\n        </div>\n      </div>\n    </div>\n    `;\n\n        $(\"body\").append(modalHtml);\n\n        // 初期フォーカス\n        $(\"#bm_result\").focus();\n\n        // 照合日の選択可能期間を設定 & 初期値補正\n        setDateRange();\n\n        // 照合日はカレンダー選択のみ（キーボード入力禁止）\n        $(\"#bm_date\")\n            .on(\"keydown\", function (e) {\n                e.preventDefault();\n            })\n            .on(\"paste\", function (e) {\n                e.preventDefault();\n            });\n\n        // モーダルを閉じる処理\n        function closeModal() {\n            $(\"#bulkMatchModalOverlay\").remove();\n            $(\"#bulkMatchModalStyles\").remove();\n            $(document).off(\"keydown.bulkMatch\");\n        }\n\n        // × ボタンでモーダルを閉じる\n        $(\"#bulkMatchModal .closeBtn\").on(\"click\", function (e) {\n            e.preventDefault();\n            closeModal();\n        });\n\n        // モーダルの外側クリックでモーダル画面を閉じる\n        $(\"#bulkMatchModalOverlay\").on(\"click\", function (e) {\n            if (e.target.id === \"bulkMatchModalOverlay\") closeModal();\n        });\n\n        // Escキー押下でモーダル画面を閉じる\n        $(document).on(\"keydown.bulkMatch\", function (e) {\n            if (e.key === \"Escape\") closeModal();\n        });\n\n        // 照合ボタン押下時の処理\n        $(\"#bm_submit\").on(\"click\", async function () {\n            const shogoResult = $(\"#bm_result\").val();   // 照合結果\n            const shogoDate = $(\"#bm_date\").val();      // 照合日\n            const shogoComment = $(\"#bm_comment\").val();    // 照合コメント\n            const ids = $p.selectedIds() || []; // 選択されているレコードIDの配列\n\n            // レコードを選択のバリデーション\n            window.force && console.log(\"レコード選択チェック開始\");    // デバッグログ\n            if (!ids.length) {\n                alert(\"選択中のレコードがありません。\");\n                return;\n            } else {\n                window.force && console.log(\"レコードが選択されています。\");    // デバッグログ\n            }\n\n            // 照合結果のバリデーション\n            window.force && console.log(\"照合結果入力チェック\");    // デバッグログ\n            if (!shogoResult) {\n                window.force && console.warn(\"注意：照合結果が未入力です\");\n                alert(\"照合結果を選択してください。\");\n                $(\"#bm_result\").focus();\n                return;\n            } else {\n                window.force && console.log(\"照合結果入力済み\");    // デバッグログ\n            }\n\n\n            // 照合日のバリデーション\n            window.force && console.log(\"照合日入力チェック開始\");  // デバッグログ\n            if (!shogoDate) {\n                window.force && console.warn(\"注意：照合日が未入力です\");\n                alert(\"照合日を入力してください。\");\n                $(\"#bm_date\").focus();\n                return;\n            } else {\n                window.force && console.log(\"照合日入力済み\");  // デバッグログ\n            }\n\n            // 二重送信防止・処理中表示\n            const $submit = $(\"#bm_submit\");\n            $submit.prop(\"disabled\", true).text(\"処理中...\");\n\n            try {\n                // レコードの一括更新が全て成功してからメッセージ表示\n                await updateShogoRireki(ids, shogoResult, shogoDate, shogoComment);\n\n                // 現品照合完了メッセージ表示（すべて成功した場合のみ）\n                sendSuccessMessage();\n\n                // 照合完了したら、モーダルを閉じる\n                closeModal();\n\n                // // 少し待ってから画面リロード（メッセージを一瞬表示させるため）\n                // setTimeout(function () { location.reload(); }, 800);\n\n            } catch (err) {\n                console.error(\"updateShogoRireki failed:\", err);\n                alert(\"更新に失敗しました。詳細はコンソールを確認してください。\");\n            } finally {\n                $submit.prop(\"disabled\", false).text(\"照合\");\n            }\n        });\n    }\n\n\n    // =================================== 照合日の選択可能期間を設定する関数 =================================== \n    function setDateRange() {\n        const $date = $(\"#bm_date\");\n        if (!$date.length) return;\n\n        const today = new Date();\n        const year = today.getFullYear();\n        const month = today.getMonth() + 1; // 1-12\n        const day = today.getDate();\n\n        let startYear;\n        let endYear;\n\n        // 1/1〜4/9 → 前年4/10 〜 当年4/9\n        if (month < 4 || (month === 4 && day <= 9)) {\n            startYear = year - 1;\n            endYear = year;\n        }\n        // 4/10〜12/31 → 当年4/10 〜 翌年4/9\n        else {\n            startYear = year;\n            endYear = year + 1;\n        }\n\n        const minDate = `${startYear}-04-10`;\n        const maxDate = `${endYear}-04-09`;\n\n        $date.attr(\"min\", minDate);\n        $date.attr(\"max\", maxDate);\n\n        // 既存値が範囲外なら今日 or min に補正\n        const currentVal = $date.val();\n        if (!currentVal || currentVal < minDate || currentVal > maxDate) {\n            const todayStr = today.toISOString().slice(0, 10);\n            if (todayStr >= minDate && todayStr <= maxDate) {\n                $date.val(todayStr);\n            } else {\n                $date.val(minDate);\n            }\n        }\n    }\n\n\n    // =================================== $p.apiUpdateをPromiseにラップする関数 ===================================\n    function apiUpdatePromise(opts) {\n        return new Promise(function (resolve, reject) {\n            try {\n                const ret = $p.apiUpdate(Object.assign({}, opts, {\n                    success: function (res) { resolve(res); },\n                    error: function (err) { reject(err); }\n                }));\n                // apiUpdate が Promise を返す場合はそれも利用\n                if (ret && typeof ret.then === \"function\") {\n                    ret.then(resolve).catch(reject);\n                }\n            } catch (err) {\n                reject(err);\n            }\n        });\n    }\n\n\n    // =================================== レコードの一括更新（Promise を返す）=================================== \n    function updateShogoRireki(ids, shogoResult, shogoDate, shogoComment) {\n        // 各IDの ClassH を取得してから条件分岐で更新\n        const classHPromises = ids.map(function (id) {\n            return new Promise(function (resolve, reject) {\n                $p.apiGet({\n                    id: id,\n                    data: {\n                        View: {\n                            ApiDataType: 'KeyValues',\n                            GridColumns: [\"ClassH\"],\n                            ApiColumnKeyDisplayType: \"ColumnName\"\n                        }\n                    },\n                    done: function (response) {\n                        const classH = response.Response.Data[0].ClassH || \"\";\n                        resolve({ id: id, classH: classH });\n                    },\n                    error: function (err) {\n                        reject(err);\n                    }\n                });\n            });\n        });\n\n        // 全ての 照合承認者(ClassH) 取得完了後に更新処理を実行\n        return Promise.all(classHPromises).then(function (classHResults) {\n            const updatePromises = classHResults.map(function (result) {\n                const id = result.id;\n                const classH = result.classH;\n                let updateData;\n\n                // 1. 承認済みの備品である場合、現品照合日 /現品照合結果 / 現品照合コメント / 現品照合実施者が入力される\n                if (!classH || classH.trim() === \"\") {\n\n                    window.force && console.log(\"承認済みではない備品の更新処理開始\");  // デバッグログ\n\n                    // 照合承認者(ClassH) が空白 -> 従来通りの更新（ClassH/DateB は触らない）\n                    updateData = {\n                        ClassHash: {\n                            ClassK: shogoResult,\n                            ClassG: shogoComment,\n                            ClassI: $p.userName(),\n                        },\n                        DateHash: {\n                            DateD: shogoDate,\n                        }\n                    };\n\n                } else { // 2. 承認済みの備品である場合、現品照合日 /現品照合結果 / 現品照合コメント / 現品照合実施者 に加え、照合承認者 / 照合切替日 をクリアする\n\n                    window.force && console.log(\"承認済みの備品の更新処理開始\");  // デバッグログ\n\n                    // 照合承認者(ClassH) に値がある -> ClassH と DateB を空白にして更新\n                    updateData = {\n                        ClassHash: {\n                            ClassK: shogoResult,\n                            ClassG: shogoComment,\n                            ClassI: $p.userName(),\n                            ClassH: \"\",\n                            ClassP: \"未承認\"\n                        },\n                        DateHash: {\n                            DateD: shogoDate,\n                            DateB: \"1899/12/31\",\n                        }\n                    };\n                }\n\n                return apiUpdatePromise({\n                    id: id,\n                    data: updateData\n                });\n            });\n\n            return Promise.all(updatePromises);\n        });\n    }\n\n    // =================================== 現品照合完了メッセージ表示 =================================== \n    function sendSuccessMessage() {\n        $p.setMessage('#Message', JSON.stringify({\n            Css: \"alert-success\",\n            Text: \"現品照合が完了しました。\"\n        }));\n    }\n})();\n",
+            "Id": 4
+          },
+          {
+            "Title": "【操作追加】備品・消耗品管理　一覧　一括現品照合承認",
+            "Index": true,
+            "Body": "(function () {\n    // ============================ 一括現品照合承認 ============================\n    // メイン処理\n    $p.events.on_grid_load_arr.push(() => {\n        genpinshogoShoninButton();\n    });\n\n\n    // 現品照合承認ボタンを追加\n    function genpinshogoShoninButton() {\n        const $btn = $(\n            '<button id=\"genpinshogoShoninButton\" class=\"sdt-verification__btn fn-verification button button-icon button-positive ui-button ui-corner-all ui-widget applied\" style=\"display:none;\" type=\"button\"><span class=\"ui-button-icon ui-icon ui-icon-disk\"></span><span class=\"ui-button-icon-space\"> </span>現品照合承認</button>'\n        );\n\n        $(\"#MainCommands button:last-child\").after($btn);\n\n        $btn.on(\"click\", function () {\n            genpinshogoShonin();\n        });\n    }\n\n\n    // $p.apiGet を Promise 化\n    function apiGetPromise(id) {\n        return new Promise(function (resolve, reject) {\n            $p.apiGet({\n                id: id,\n                data: {\n                    View: { ApiDataType: \"KeyValues\", ApiColumnKeyDisplayType: \"ColumnName\", GridColumns: [\"DateD\"] }\n                },\n                done: function (res) { resolve(res); },\n                fail: function (err) { reject(err); }\n            });\n        });\n    }\n\n\n\n    /**\n     * チェックされたレコードが全て現品照合済みか確認する（詳細オブジェクトを返す）\n     * @param {Array} ids\n     * @returns {Promise<{ allDone: boolean, hasUnprocessed: boolean, failedFetchIds: Array<string>, unprocessedIds: Array<string> }>}\n     */\n    async function isGenpinshogoDone(ids) {\n        if (!ids || !Array.isArray(ids) || ids.length === 0) return { allDone: false, hasUnprocessed: false, failedFetchIds: [], unprocessedIds: ids };\n\n        const doneIds = []; // 現品照合済みのIDを格納する配列\n        const failedFetchIds = []; // 取得失敗したID\n        const unprocessedIds = []; // 取得成功だが未照合のID\n\n        try {\n            const results = await Promise.allSettled(ids.map(apiGetPromise));\n\n            for (let i = 0; i < results.length; i++) {\n                const r = results[i];\n\n                if (r.status !== \"fulfilled\") {\n                    // 取得失敗は記録しておく\n                    failedFetchIds.push(ids[i]);\n                    continue;\n                }\n\n                const res = r.value;\n                const dateVal = res?.Response?.Data?.[0]?.DateD; // 現品照合日(DateD) の取得\n\n                if (dateVal && String(dateVal).trim() !== \"\") {\n                    doneIds.push(ids[i]); // 現品照合日(DateD) が空でなければ登録\n                } else {\n                    unprocessedIds.push(ids[i]);\n                }\n            }\n\n            const hasFetchFailures = failedFetchIds.length > 0;\n            const hasUnprocessed = unprocessedIds.length > 0;\n            const allDone = !hasFetchFailures && !hasUnprocessed && doneIds.length === ids.length;\n\n            return {\n                allDone: allDone,\n                hasUnprocessed: hasUnprocessed,\n                failedFetchIds: failedFetchIds,\n                unprocessedIds: unprocessedIds\n            };\n\n        } catch (err) {\n            console.error(\"現品照合実施状況確認エラー(isGenpinshogoDone error):\", err);\n            return { allDone: false, hasUnprocessed: false, failedFetchIds: ids, unprocessedIds: [] };\n        }\n    }\n\n\n\n    // $p.apiUpdate を Promise にラップ\n    function apiUpdatePromise(opts) {\n        return new Promise(function (resolve, reject) {\n            try {\n                const ret = $p.apiUpdate(Object.assign({}, opts, {\n                    success: function (res) { resolve(res); },\n                    error: function (err) { reject(err); }\n                }));\n                if (ret && typeof ret.then === \"function\") {\n                    ret.then(resolve).catch(reject);\n                }\n            } catch (err) {\n                reject(err);\n            }\n        });\n    }\n\n\n    // レコードの一括更新（shogoShoninDate を受け取る）\n    function updateShoninRireki(ids, shogoShoninDate) {\n        const promises = ids.map(function (id) {\n            return apiUpdatePromise({\n                id: id,\n                data: {\n                    ClassHash: { ClassH: $p.userName(), ClassP: \"承認済\" },\n                    DateHash: { DateB: shogoShoninDate }\n                }\n            });\n        });\n        return Promise.all(promises);\n    }\n\n\n    // 成功メッセージ\n    function sendSuccessMessage() {\n        $p.setMessage('#Message', JSON.stringify({ Css: \"alert-success\", Text: \"現品照合承認が完了しました。\" }));\n    }\n\n    // エラーメッセージ\n    function sendErrorMessage() {\n        $p.setMessage('#Message', JSON.stringify({ Css: \"alert-error\", Text: \"現品照合未実施の項目があります。\" }));\n    }\n\n    // 取得失敗用メッセージ\n    function sendFetchErrorMessage(failedIds) {\n        const cnt = Array.isArray(failedIds) ? failedIds.length : 0;\n        const text = cnt > 0 ? `レコードの取得に失敗しました（${cnt} 件）。通信状況を確認して再試行してください。` : `レコードの取得に失敗しました。通信状況を確認して再試行してください。`;\n        $p.setMessage('#Message', JSON.stringify({ Css: \"alert-error\", Text: text }));\n    }\n\n    // レコード未選択エラーメッセージ\n    function sendSelectErrorMessage() {\n        $p.setMessage('#Message', JSON.stringify({ Css: \"alert-error\", Text: \"選択中のレコードがありません。\" }));\n    }\n\n    // 承認日時を作成（フォーマット: YYYY/MM/DD HH:mm:ss）\n    function getShogoShoninDate() {\n        const d = new Date();\n        const z = (n) => (n < 10 ? '0' + n : n);\n        return d.getFullYear() + '/' + z(d.getMonth() + 1) + '/' + z(d.getDate()) + ' ' + z(d.getHours()) + ':' + z(d.getMinutes()) + ':' + z(d.getSeconds());\n    }\n\n    // 照合承認ボタン押下時の処理\n    async function genpinshogoShonin() {\n        window.force && console.log(\"現品照合承認処理開始\");    // デバッグログ\n        const selectedIds = $p.selectedIds();\n        // 選択レコードなしの場合はエラーメッセージを表示して処理中断\n        if (!selectedIds || !Array.isArray(selectedIds) || selectedIds.length === 0) {\n\n            sendSelectErrorMessage();\n            window.force && console.warn(\"レコードが選択されていないため、承認処理中断\");    // デバッグログ\n            return;\n\n        } else {\n            window.force && console.log(\"レコードが選択されています。\");    // デバッグログ\n        }\n\n        // 選択レコードが現品照合実施済み確認し、全件実施済みなら承認処理\n        isGenpinshogoDone(selectedIds).then(async function (result) {\n            // result: { allDone: boolean, hasUnprocessed: boolean, failedFetchIds: [], unprocessedIds: [] }\n            if (result.failedFetchIds && result.failedFetchIds.length > 0) {\n                // 取得失敗がある場合は取得失敗のメッセージを出して中断\n                sendFetchErrorMessage(result.failedFetchIds);\n                window.force && console.warn(\"レコード取得失敗のため、承認処理中断。失敗ID:\", result.failedFetchIds);\n                return;\n            }\n\n            if (result.hasUnprocessed) {\n                // 未実施のレコードがある場合\n                sendErrorMessage();\n                window.force && console.warn(\"現品照合未実施のレコードがあるため、承認処理中断。未実施ID:\", result.unprocessedIds);\n                return;\n            }\n\n            if (result.allDone) {\n                // 全件入力済み（TRUE の処理）\n                try {\n\n                    window.force && console.log(\"チェックしたレコードがすべて現品照合実施済みであるか確認\");    // デバッグログ\n                    const shogoShoninDate = getShogoShoninDate();   // 承認日時取得\n                    await updateShoninRireki(selectedIds, shogoShoninDate); // レコード更新\n                    sendSuccessMessage();   // 成功メッセージ表示\n                    window.force && console.log(\"現品照合承認成功\");    // デバッグログ\n\n                } catch (err) {\n\n                    window.force && console.error(\"updateShoninRireki failed:\", err);\n                    alert(`現品照合承認中にエラーが発生しました。${err.message}`);\n\n                }\n            }\n        });\n    }\n})();",
+            "Id": 5
+          },
+          {
+            "Title": "【操作追加】備品・消耗品管理　一覧　現品照合未実施アラート表示",
+            "Index": true,
+            "Body": "(function () {\n    // ====================== 照合未実施アラート ======================\n\n    // =============== テーブルのレコードを全件取得する関数 ===============\n    async function fetchAllRecords(siteId) {\n        const all = [];\n        let offset = 0;\n        while (true) {\n            const res = await new Promise((resolve, reject) => {\n                $p.apiGet({\n                    id: siteId,\n                    data: {\n                        Offset: offset,\n                        View: {\n                            ApiDataType: \"KeyValues\",\n                            ApiColumnKeyDisplayType: \"ColumnName\",\n                            GridColumns: [\"ClassK\", \"ClassN\"]\n                        }\n                    },\n                    done: function (e) { \n                        resolve(e);\n                        window.force && console.log(\"備品・消耗品全レコード取得成功\");\n                    },\n                    fail: function(err) {\n                        reject(err)\n                        window.force && console.log(\"備品・消耗品全レコード取得失敗\", err.message);\n                        alert(\"備品・消耗品全レコード取得に失敗しました。\", err.message);\n                    }\n                });\n            });\n            const resp = res && res.Response ? res.Response : {};   // apiのレスポンス\n            const data = Array.isArray(resp.Data) ? resp.Data : []; // レスポンス内のデータ配列\n            const pageSize = resp.PageSize || (data.length || 200); // ページサイズ\n            const total = (typeof resp.TotalCount === 'number') ? resp.TotalCount : null; // レコード総件数\n            all.push(...data);\n\n            if (data.length === 0) break;   // レスポンスデータが0件だったら処理終了\n            if (total !== null && (offset + pageSize) >= total) break;  // 総件数に達したら処理終了\n            if (data.length < pageSize) break;  // 取得データが200件サイズ未満なら処理終了\n            offset += pageSize; // オフセットを次のページへ\n        }\n        return all;\n    }\n\n\n    // =============== サイト設定(システム管理者以外は操作不可)テーブルからアラート日、切り替え日を取得 ===============\n    function getAlertDateAndChangeData(siteId) {\n        return new Promise((resolve, reject) => {\n            $p.apiGet({\n                id: siteId,\n                data: {\n                    View: {\n                        ApiDataType: \"KeyValues\",\n                        ApiColumnKeyDisplayType: \"ColumnName\",\n                        GridColumns: [\"DateA\", \"DateB\"]\n                    }\n                },\n                done: function (r) {\n                    const record = r.Response.Data[0] || {};   // apiレスポンスからレコード情報取得\n                    const alertDate = record.DateA ? new Date(record.DateA) : null;     // アラート日(DateA)取得\n                    const changeDate = record.DateB ? new Date(record.DateB) : null;    // 切替日(DateB)取得\n                    window.force && console.log(\"取得した期間設定データ:\", { alertDate, changeDate });\n                    resolve({ alertDate, changeDate });\n                },\n                fail: function (err) {\n                    reject(err);\n                    window.force && console.log(\"サイト設定(システム管理者以外は操作不可)テーブルからアラート日・切替日の取得に失敗しました。\", err.message)\n                    alert(\"サイト設定からアラート日、切替日の取得に失敗しました。\", err.message)\n                }\n            });\n        });\n    }\n\n\n    // =================================== メイン処理 ===================================\n    $p.events.on_grid_load_arr.push(async function () {\n\n        try {\n            // 期間設定データ取得\n            const { alertDate, changeDate } = await getAlertDateAndChangeData(SetPeriodID);\n\n            // 本日日付\n            const today = new Date();\n\n            // 期間内判定\n            const isInPeriod =\n                alertDate &&\n                changeDate &&\n                today >= alertDate &&\n                today <= changeDate;\n\n            window.force && console.log(\"アラート表示期間内か？:\", { today, alertDate, changeDate, isInPeriod });\n\n            // 期間外ならメッセージ表示しないで終了\n            if (!isInPeriod) return;\n\n            // 期間内なのでアラート処理へ進む\n            const allRecords = await fetchAllRecords($p.id());\n\n            // 現品照合未実施レコードチェック\n            // 現品照合結果(ClassK) が空白のレコードを抽出\n            const genpinUncheckedRecords = allRecords.filter(item => {\n                const value = item.ClassK;\n                return value === \"\" || value === null || value === undefined;\n            });\n\n            // ================== メッセージ領域作成 ==================\n            let messageDiv = document.getElementById(\"sdt-message-area\");\n            if (!messageDiv) {\n                messageDiv = document.createElement(\"div\");\n                messageDiv.id = \"sdt-message-area\";\n                messageDiv.style.marginBottom = \"10px\";\n                messageDiv.style.cursor = \"pointer\";\n                const container = document.getElementById(\"ViewModeContainer\");\n                container.prepend(messageDiv);\n            }\n\n            // ================== メッセージ表示 ==================\n            const hasUnchecked = genpinUncheckedRecords.length > 0; // 照合未実施のレコードが1つでもある場合はtrue、照合未実施のレコードがない場合はfalse\n\n            // 照合未実施のレコードが1つでもある場合\n            if (hasUnchecked) {\n                window.force && console.log(\"照合未実施のレコードがあるため、アラートメッセージ表示処理開始\");  // デバッグログ\n                messageDiv.innerHTML = `\n                <div style=\"font-weight: bold;\">\n                    現品照合完了していない <span style=\"color:red; font-weight: bold;\">主管箇所</span> があります。\n                </div>\n            `;\n                \n                // モーダル作成処理 \n                createModalIfNeeded();\n\n                // アラートメッセージ領域クリックでモーダル表示\n                messageDiv.onclick = () => {\n                    // モーダル内に表示するリスト領域\n                    const listArea = document.getElementById(\"sdt-modal-list\");\n\n                    // 現品照合未実施レコードの主管箇所(ClassN)を重複削除した配列\n                    const uniqueList = [...new Set(\n                        genpinUncheckedRecords.map(r => r.ClassN)\n                    )];\n\n                    // uiqueListを改行区切りでモーダル画面内に表示\n                    listArea.textContent = uniqueList.join(\"\\n\");\n                    document.getElementById(\"sdt-modal\").style.display = \"block\";\n                };\n            } else {\n                // 現品照合未実施のれこどがない場合は、アラートメッセージを表示しない\n                messageDiv.innerHTML = \"\";\n            }\n\n        } catch (err) {\n            window.force && console.error(\"現品照合未実施アラート表示エラー:\", err);\n            alert(\"照合未実施アラート処理失敗\", err.message);\n        }\n    });\n\n\n    // ==================== モーダル生成関数 ====================\n    function createModalIfNeeded() {\n        if (document.getElementById(\"sdt-modal\")) return;\n\n        const modal = document.createElement(\"div\");\n        modal.id = \"sdt-modal\";\n        modal.style.position = \"fixed\";\n        modal.style.top = \"0\";\n        modal.style.left = \"0\";\n        modal.style.width = \"100%\";\n        modal.style.height = \"100%\";\n        modal.style.background = \"rgba(0,0,0,0.3)\";\n        modal.style.display = \"none\";\n        modal.style.zIndex = \"9999\";\n\n        modal.innerHTML = `\n        <div style=\"\n            background: white;\n            width: 300px;\n            margin: 100px auto;\n            padding: 20px;\n            border-radius: 6px;\n            position: relative;\n            box-shadow: 0px 0px 8px rgba(0,0,0,0.3);\n        \">\n            <div style=\"text-align:right;\">\n                <span id=\"sdt-modal-close\" style=\"cursor:pointer; font-size:20px;\">✕</span>\n            </div>\n            <pre id=\"sdt-modal-list\" style=\"white-space:pre-wrap; margin-top:10px;\"></pre>\n        </div>\n    `;\n\n        document.body.appendChild(modal);\n\n        document.getElementById(\"sdt-modal-close\").onclick = () => {\n            modal.style.display = \"none\";\n        };\n    }\n\n})();\n",
+            "Id": 14
+          },
+          {
+            "Title": "【画面処理】備品・消耗品管理　一覧　フィルター　使用可否表示文言修正",
+            "Index": true,
+            "Body": "(function($){\n    // ---------- 関数1: 表示テキストを置換する ----------\n    function replaceDisplayText(container) {\n        // ログ（指定形式）\n        window.force && console.log('処理開始', { id: 'MainForm', name: '表示置換処理' });\n\n        // container が未指定なら document を対象\n        var $root = container ? $(container) : $(document);\n\n        // 対象となる span 要素を走査し、表示のみ置換する\n        $root.find('ul.ui-multiselect-checkboxes span').each(function () {\n            var $span = $(this);\n            var txt = $.trim($span.text());\n\n            if (txt === '可能') {\n                $span.text('使用可'); // 表示だけ変更（input.value 等は触らない）\n            } else if (txt === '不可') {\n                $span.text('使用不可');\n            }\n            // (未設定) 等は変更しない\n        });\n    }\n\n    // ---------- 関数2: MutationObserver をセットアップして変更時に処理を呼ぶ ----------\n    function setupMainFormObserver() {\n        window.force && console.log('処理開始', { id: 'MainForm', name: 'MutationObserverセット' });\n\n        var target = document.getElementById('MainForm');\n        if (!target) {\n            // #MainForm が存在しない場合はログのみ出して終了（存在するまで待つ設計にしたい場合は別実装）\n            window.force && console.log('処理開始', { id: 'MainForm', name: '#MainForm が見つかりません' });\n            return;\n        }\n\n        var debounceTimer = null;\n        var observer = new MutationObserver(function (mutationsList) {\n            // 変更をまとめてデバウンス（連続変更で何度も走らせない）\n            if (debounceTimer) {\n                clearTimeout(debounceTimer);\n            }\n            debounceTimer = setTimeout(function () {\n                replaceDisplayText('#MainForm');\n            }, 100); // 100ms デバウンス（必要なら調整）\n        });\n\n        observer.observe(target, {\n            childList: true,\n            subtree: true,\n            characterData: true\n        });\n\n        // 参照を外部に保持したければ返す（今回は不要）\n        return observer;\n    }\n\n    // ---------- 関数3: 初期化（画面を開いたタイミングで実行） ----------\n    function initReplaceOnLoad() {\n        window.force && console.log('処理開始', { id: 'MainForm', name: '初期化処理' });\n\n        // ドキュメント読み込み完了時に初回置換\n        $(function () {\n            // 初回置換（画面表示時）\n            replaceDisplayText(document);\n\n            // #MainForm の変化監視を開始\n            setupMainFormObserver();\n        });\n    }\n\n    // 実行\n    initReplaceOnLoad();\n\n})(jQuery);\n",
+            "Id": 21
+          },
+          {
+            "Title": "【画面処理】備品・消耗品管理　一覧　予約ビュー　希望期間　検索制御",
+            "Index": true,
+            "Body": "(function(){\n  if(window.__pleasanter_date_sync_client_loaded) return;\n  window.__pleasanter_date_sync_client_loaded = true;\n\n  const log = (...a) => { try{ console.info('[date-sync-cl]', ...a); }catch(e){} };\n  const visibleSelector = 'input[data-action=\"openSetDateRangeDialog\"], input[id$=\"_DateRange\"], input[name$=\"_DateRange\"]';\n  let lastTarget = null;\n  let syncing = false;\n\n  // フォーカス／クリックで「どのフィルタ用のモーダルか」を記録\n  $(document).on('focus click', visibleSelector, function(){\n    lastTarget = $(this).attr('id') || $(this).attr('name') || null;\n    log('focused/clicked target ->', lastTarget);\n  });\n\n  // helper: get hidden element by name/id fallback\n  function findHiddenByBase(baseName){\n    if(!baseName) return null;\n    // baseName 例: ViewFilters__ClassC~~2832814,DateC_DateRange -> strip _DateRange\n    const base = baseName.replace(/_DateRange$/, '');\n    let el = document.getElementById(base) || document.getElementsByName(base)[0];\n    if(el) return el;\n    // fallback: scan hidden inputs for substring match of last token (e.g. DateC)\n    const token = base.split(',').slice(-1)[0];\n    const hid = document.querySelectorAll('input[type=\"hidden\"], input[data-method], input[id]');\n    for(let i=0;i<hid.length;i++){\n      const h = hid[i];\n      if((h.id && h.id.indexOf(token) !== -1) || (h.name && h.name.indexOf(token) !== -1)) return h;\n    }\n    return null;\n  }\n\n  // normalizer: input value may be JSON like [\"2025...\",\"2025...\"] or comma separated\n  function normalizeHiddenString(s){\n    if(!s && s !== '') return '';\n    try {\n      // if JSON array string\n      const t = (''+s).trim();\n      if(t.startsWith('[')) {\n        try {\n          const arr = JSON.parse(t);\n          if(Array.isArray(arr)) return arr.map(x => (''+x).trim().replace(/,$/,'')).filter(x=>x!=='').slice(0,2);\n        } catch(e){}\n      }\n      // strip surrounding quotes/brackets and trailing commas\n      const cleaned = t.replace(/^\\[|]$/g,'').replace(/^[\"']|[\"']$/g,'').trim();\n      // split on commas that separate tokens\n      const parts = cleaned.split(',').map(p=>p.trim()).filter(p=>p!=='');\n      return parts.slice(0,2);\n    } catch(e){ return []; }\n  }\n\n  // format visible text from from/to tokens (simple)\n  function visibleTextFromRange(parts){\n    if(!parts || parts.length===0) return '';\n    if(parts.length===1) return parts[0];\n    return parts[0] + ' - ' + parts[1];\n  }\n\n  // main: DateRangeOK click handler\n  $(document).on('click', '#DateRangeOK', function(){\n    // delay a bit so Pleasanter's own handler writes hidden values first\n    setTimeout(function(){\n      if(syncing) { log('already syncing - skip'); return; }\n      syncing = true;\n      try {\n        if(!lastTarget){\n          log('no lastTarget recorded - abort');\n          syncing = false;\n          return;\n        }\n        log('OK pressed for target ->', lastTarget);\n\n        const sourceHidden = findHiddenByBase(lastTarget);\n        if(!sourceHidden){\n          log('source hidden not found for', lastTarget);\n          syncing = false; return;\n        }\n        const raw = sourceHidden.value;\n        const parts = normalizeHiddenString(raw);\n        log('source hidden value ->', raw, 'normalized ->', parts);\n\n        // copy to other visible inputs & their hidden counterparts\n        $(visibleSelector).each(function(){\n          const $vis = $(this);\n          const name = $vis.attr('name') || $vis.attr('id') || '';\n          if(!name) return;\n          if(name === lastTarget) return; // same filter skip\n          const otherHidden = findHiddenByBase(name);\n          if(otherHidden){\n            // set hidden value as JSON array string like [\"from\",\"to\"] if 2 parts, else [\"from\"]\n            if(parts.length === 0){\n              otherHidden.value = '';\n            } else if(parts.length === 1){\n              otherHidden.value = JSON.stringify([parts[0]]);\n            } else {\n              otherHidden.value = JSON.stringify([parts[0], parts[1]]);\n            }\n            // update visible input text for UX\n            try { $vis.val(visibleTextFromRange(parts)); } catch(e){}\n            log('copied to', name, '-> hidden', otherHidden.name || otherHidden.id, otherHidden.value);\n          } else {\n            // no hidden found — still update visible for UX\n            try { $vis.val(visibleTextFromRange(parts)); log('updated visible only', name); } catch(e){}\n          }\n        });\n\n        // trigger search / grid refresh\n        try {\n          const useFilter = (document.getElementById('UseFilterButton') || document.getElementsByName('UseFilterButton')[0] || {}).value;\n          if(String(useFilter) === '1'){\n            // try find visible search button then click; fallback to $p.send\n            const btn = $('button[data-action=\"Search\"], button:contains(\"検索\"), button[id*=\"Search\"], button#Search').filter(':visible').first();\n            if(btn && btn.length){\n              log('clicking search button');\n              try { btn.click(); }\n              catch(e){ log('search button click failed', e); try { $p.send($('#Grid')); } catch(e2){ log('p.send failed', e2); } }\n            } else {\n              log('search button not found -> $p.send');\n              try { $p.send($('#Grid')); } catch(e){ log('p.send failed', e); }\n            }\n          } else {\n            // auto-search mode\n            log('auto-search mode -> $p.send');\n            try { $p.send($('#Grid')); } catch(e){ log('p.send failed', e); }\n          }\n        } catch(e){ log('search trigger failed', e); }\n      } catch(err){\n        log('unexpected sync error', err);\n      } finally {\n        syncing = false;\n      }\n    }, 80);\n  });\n\n  log('date-range client sync installed');\n})();",
+            "Id": 9
+          },
+          {
+            "Title": "【表示調整】備品・消耗品管理　一覧　予約ビュー　フィルタ項目　希望期間文言差し替え",
+            "Index": true,
+            "Body": "(function(){\n  const TARGET_TEXT = '予定使用日時';\n  const REPLACEMENT = '希望予約期間';\n\n  // 書き換え済み管理（同じ要素を何度も変更しないように）\n  const processed = new WeakSet();\n\n  function replaceLabelIfMatches(label){\n    if(!label || processed.has(label)) return;\n    // 厳密一致（余白除去）\n    if(label.textContent && label.textContent.trim() === TARGET_TEXT){\n      label.textContent = REPLACEMENT;\n      processed.add(label);\n    }\n  }\n\n  // 初回スキャン（DOMContentLoaded 後に実行）\n  function initialScan(){\n    // IDに `DateC_DateRangeField` を含むコンテナ内の label に限定して探す（効率良く狙える）\n    const labels = document.querySelectorAll('[id*=\"DateC_DateRangeField\"] label');\n    labels.forEach(replaceLabelIfMatches);\n  }\n\n  if(document.readyState === 'loading'){\n    document.addEventListener('DOMContentLoaded', initialScan);\n  } else {\n    initialScan();\n  }\n\n  // 動的に追加される場合に備えて MutationObserver で監視\n  const observer = new MutationObserver((mutations) => {\n    for(const m of mutations){\n      for(const node of m.addedNodes){\n        if(node.nodeType !== 1) continue; // Element でなければ無視\n        // 追加されたノード自体がターゲットコンテナなら直接処理\n        if(node.matches && node.matches('[id*=\"DateC_DateRangeField\"]')){\n          const label = node.querySelector('label');\n          replaceLabelIfMatches(label);\n          continue;\n        }\n        // 追加ノードの子孫にターゲットラベルがあれば処理\n        const labels = node.querySelectorAll && node.querySelectorAll('[id*=\"DateC_DateRangeField\"] label');\n        if(labels && labels.length){\n          labels.forEach(replaceLabelIfMatches);\n        }\n      }\n    }\n  });\n\n  observer.observe(document.body, { childList: true, subtree: true });\n\n  // 必要なら外部から observer を停止できるようにする（デバッグ用）\n  // window.__replaceLabelObserver = observer;\n})();",
+            "Id": 10
+          },
+          {
+            "Title": "【自動更新】備品・消耗品管理　一覧　予約　使用状況更新",
+            "Index": true,
+            "Body": "(function($){\n    // ==========================\n    // トリガー\n    // ==========================\n    /**\n     * ViewFilters の変更検知時に実行される処理\n     * ※ 実際の中身はここに実装する\n     */\n    function onViewFiltersChanged() {\n        // 動作確認用（必要な処理に差し替えてください）\n        window.force && console.log('ViewFilters の変更を検知しました。'); // デバックログ\n\n        // ビューのプルダウンの値を取得\n        let sdtViewVal = $('#ViewSelector').val();\n\n        // ビューで予約が選択されているときのみ処理を行う\n        if (sdtViewVal !== reservationView) {\n            window.force && console.log('ビューで予約が選択されていません'); // デバックログ\n            return; // それ以外は何もしない\n        }\n\n        window.force && console.log('ビューで予約が選択されています'); // デバックログ\n\n        // selectを追加\n        sdtIndex();\n    }\n\n    /**\n     * ViewFilters を監視するトリガーをセットする\n     * - 画面読み込み時に一度実行\n     * - ViewFilters の DOM が変更されたら実行\n     */\n    function setupViewFiltersObserver() {\n        window.force && console.log('利用状況追加処理 画面読み込み時が成功しました。'); // デバックログ\n\n        // 監視ターゲット\n        let sdtTarget = document.getElementById('ViewFilters');\n\n        // 対象が存在しない場合は何もしない\n        if (!sdtTarget) {\n            window.force && console.log('ViewFiltersが存在しません'); // デバックログ\n            return;\n        }\n\n        // 画面読み込み直後に一度実行\n        onViewFiltersChanged();\n\n        // DOM 変更を監視\n        let observer = new MutationObserver(function(mutations){\n            window.force && console.log('ViewFiltersの監視を開始しました'); // デバックログ\n            onViewFiltersChanged();\n        });\n\n        // 子要素の追加・削除・入れ替えを検知\n        observer.observe(sdtTarget, {\n            childList: true,\n            subtree: true\n        });\n    }\n\n    // =====================================\n    // index関数\n    // =====================================\n    function sdtIndex(){\n            // 処理開始\n            window.force && console.log('index開始');\n            fetchSiteKeyValues(reservationList).then(function (data) {\n                    incLoading(); // 表示（count = +1）\n\n                    console.log('次の処理', data);\n                    window.force && console.log('使用状況バッジ処理開始', { fn: 'sdtIndex' });\n\n                    // データを分類わけ\n                    const grouped = groupReservationStatus(data);\n\n                    // データを整形\n                    const reservationNoGroups = extractReservationNumbers(grouped);\n\n                    // アップデート\n                    updateAllStatuses(reservationNoGroups);\n                    \n                    // 一覧適応の為フィルタボタン押下\n                    $p.send($('#FilterButton'));\n                    \n                    decLoading(); // 非表示は count が 0 になった時\n\n            });\n    };\n\n\n\n    // =====================================================\n    // =======\n    // 関数名: fetchSiteKeyValues\n    // =======\n    // 目的:\n    //   指定 siteId に対して $p.apiGet を実行し、レスポンスを返す\n    //\n    // 引数:\n    //   - 取得先のサイトID\n    //\n    // 戻り値:\n    //   - 取得した配列\n    //\n    // 備考:\n    //   - 接続エラー時は error() を呼びエラー番号を表示します。\n    // =====================================================\n    function fetchSiteKeyValues(siteId) {\n        window.force && console.log('処理開始', { siteId });\n\n        return new Promise(function (resolve, reject) {\n            // オフセット（取得開始位置）\n            var offset = 0;\n            // 全ページ分を蓄積する配列\n            var allData = [];\n            // 最初に返ってきたレスポンスオブジェクト（最終返却時にベースとして使う）\n            var firstResponse = null;\n\n            // 1ページ分を取得する再帰関数\n            function getPage() {\n                // $p.apiGet に渡す POST データ（View は元コードと同じ）\n                var postData = {\n                    View: {\n                        ApiDataType: \"KeyValues\",\n                        GridColumns: [\"ResultId\", \"DateC\", \"DateD\", \"DateA\", \"DateB\"]\n                    },\n                    // Offset を指定してページングを行う（公式 FAQ に記載の方法）\n                    Offset: offset\n                };\n\n                // 実際の API 呼び出し\n                $p.apiGet({\n                    id: siteId,\n                    data: postData,\n                    done: function (data) {\n                        // data.Response にページング情報とデータが入る想定（公式マニュアル／FAQ）\n                        // safety: 必要なプロパティが存在するか最低限チェックする\n                        var resp = (data && data.Response) ? data.Response : null;\n                        if (!resp) {\n                            // 想定外のレスポンスフォーマット\n                            showCommonError(500);\n                            return reject(500);\n                        }\n\n                        // 最初のレスポンスは保持しておく（返却時に形を保つため）\n                        if (!firstResponse) {\n                            firstResponse = data;\n                        }\n\n                        // 今回取得したデータ配列（存在チェック）\n                        var pageData = Array.isArray(resp.Data) ? resp.Data : [];\n                        // 取得分を結合\n                        Array.prototype.push.apply(allData, pageData);\n\n                        // ページサイズ（サーバが返す PageSize を尊重）\n                        var pageSize = (typeof resp.PageSize === 'number' && resp.PageSize > 0)\n                            ? resp.PageSize\n                            : pageData.length; // フォールバック\n\n                        // 全件数（サーバが返す TotalCount を使用）\n                        var totalCount = (typeof resp.TotalCount === 'number') ? resp.TotalCount : allData.length;\n\n                        window.force && console.log('ページ取得', { offset: offset, pageSize: pageSize, totalCount: totalCount, got: pageData.length });\n\n                        // 次ページが必要か判定：\n                        // 「開始位置 + 一度に取得できる件数」が全件より小さい場合、続きがある。\n                        if (offset + pageSize < totalCount) {\n                            // 次ページの開始位置をセットして再帰で取得\n                            offset += pageSize;\n                            // 小ブレイクを入れる必要がある場合はここで検討（現在は直列で続ける）\n                            getPage();\n                        } else {\n                            // 全件取得完了 — 最初のレスポンスオブジェクトをベースに Response.Data を差し替えて返す\n                            if (firstResponse && firstResponse.Response) {\n                                firstResponse.Response.Data = allData;\n                                firstResponse.Response.Offset = 0;\n                                firstResponse.Response.PageSize = allData.length;\n                                firstResponse.Response.TotalCount = totalCount;\n                                resolve(firstResponse);\n                            } else {\n                                // 最悪ケース：元の形を保てない場合は配列だけ返す\n                                resolve(allData);\n                            }\n                        }\n                    },\n                    fail: function (err) {\n                        // エラー表示関数を呼び出す（err はエラー番号を想定）\n                        showCommonError(err);\n                        reject(err);\n                    }\n                });\n            }\n\n            // 取得開始\n            getPage();\n        });\n    }\n\n    // ＝＝＝＝＝＝＝＝＝\n    // groupReservationStatus（日時を日付＋時刻で比較する版）\n    // ＝＝＝＝＝＝＝＝＝\n    /**\n     * 予約データを5グループに分類する（日時は日付＋時刻で厳密比較）\n     * @param {Object} apiResponse - $p.apiGet のレスポンス\n     * @returns {Object} groupedResult\n     */\n    function groupReservationStatus(apiResponse) {\n        window.force && console.log('処理開始', { apiResponse });\n\n        try {\n            // 念のためデータ存在チェック\n            if (!apiResponse || !apiResponse.Response || !Array.isArray(apiResponse.Response.Data)) {\n                showCommonError('E-DATA-INVALID');\n                return null;\n            }\n\n            const dataList = apiResponse.Response.Data;\n\n            // 現在の日時（ミリ秒）\n            const now = Date.now();\n\n            // グループ初期化\n            const result = {\n                usingOverdue: [], // ① 使用中（期限超過）\n                using: [],        // ② 使用中\n                scheduled: [],    // ③ 予定期間中（未使用）\n                returned: [],     // ④ 返却済み\n                empty: []         // ⑤ 空白（未来予定 / 予定ありで未使用 / 全フィールド空白）\n            };\n\n            // 空白判定ユーティリティ（null/undefined/空文字/半角スペースのみ を空白とみなす）\n            function isBlank(v) {\n                if (v === null || v === undefined) return true;\n                if (typeof v !== 'string') return false;\n                return v.trim() === '';\n            }\n\n            // 日時パースユーティリティ（安全に年月日時分秒を抜いて Date オブジェクトを返す）\n            // 対応例: \"2025/12/07 20:05\", \"2025-12-07 20:05:30\", \"2025/12/07\", \"2025-12-07T20:05\"\n            function parseDateTime(raw) {\n                if (isBlank(raw)) return null;\n                var s = String(raw).trim();\n\n                // 先に ISO の T が入っていれば置換不要\n                // 一般的に \"YYYY/MM/DD HH:mm(:ss)?\" や \"YYYY-MM-DD HH:mm\" を想定\n                // 正規表現で分解して new Date(year, month-1, day, hour, min, sec)\n                var re = s.match(/^(\\d{4})[\\/\\-](\\d{1,2})[\\/\\-](\\d{1,2})(?:[ T](\\d{1,2}):(\\d{1,2})(?::(\\d{1,2}))?)?$/);\n                if (!re) {\n                    // フォールバック： Date に任せる（例えば既に ISO 形式の場合等）\n                    var d = new Date(s);\n                    return isNaN(d.getTime()) ? null : d;\n                }\n                var y = parseInt(re[1], 10);\n                var m = parseInt(re[2], 10) - 1;\n                var dday = parseInt(re[3], 10);\n                var hh = re[4] !== undefined ? parseInt(re[4], 10) : 0;\n                var mm = re[5] !== undefined ? parseInt(re[5], 10) : 0;\n                var ss = re[6] !== undefined ? parseInt(re[6], 10) : 0;\n                return new Date(y, m, dday, hh, mm, ss);\n            }\n\n            dataList.forEach(function (item) {\n                // 生データ文字列（空白判定用）\n                const plannedStartRaw = item[\"予定使用日時\"];\n                const plannedEndRaw   = item[\"予定返却日時\"];\n                const usedAtRaw       = item[\"使用日時\"];\n                const returnedAtRaw   = item[\"返却日時\"];\n\n                // 日付（時刻含む）変換（存在する文字列のみ）\n                const plannedStart = parseDateTime(plannedStartRaw);\n                const plannedEnd   = parseDateTime(plannedEndRaw);\n                const usedAt       = parseDateTime(usedAtRaw);\n                const returnedAt   = parseDateTime(returnedAtRaw);\n\n                // ミリ秒化（存在するもののみ）\n                const plannedStartTime = plannedStart ? plannedStart.getTime() : null;\n                const plannedEndTime   = plannedEnd   ? plannedEnd.getTime()   : null;\n                const usedAtTime       = usedAt       ? usedAt.getTime()       : null;\n                const returnedAtTime   = returnedAt   ? returnedAt.getTime()   : null;\n\n                // ----------------------------\n                // 優先判定（重要）\n                // 1) 返却日時が入力されている → ④返却済み（厳格）\n                // 2) 使用中（期限超過）\n                // 3) 使用中\n                // 4) 予定期間中（本日が期間内で未使用）\n                // 5) 空白（未来予定 OR 予定ありで未使用 OR 全フィールド空白）\n                // ----------------------------\n\n                // 1) 返却済み：返却日時が入力されている場合のみ\n                if (returnedAt) {\n                    result.returned.push(item);\n                    return;\n                }\n\n                // 2) 使用中（期限超過）\n                if (\n                    plannedStart && plannedEnd &&        // 予定期間が登録されている\n                    usedAt &&                            // 使用日時が登録されている\n                    !returnedAt &&                       // 返却日時は未入力（前行で確認済）\n                    plannedEndTime < now                 // 現在日時が予定返却日時を超過している（時刻含む）\n                ) {\n                    result.usingOverdue.push(item);\n                    return;\n                }\n\n                // 3) 使用中（使用日時が登録され、返却未入力）\n                if (\n                    plannedStart && plannedEnd &&\n                    usedAt &&\n                    !returnedAt\n                ) {\n                    result.using.push(item);\n                    return;\n                }\n\n                // 4) 予定期間中（未使用）：予定があり、未使用（使用/返却未入力）、かつ現在が期間内（時刻含む）\n                if (\n                    plannedStart && plannedEnd &&\n                    !usedAt && !returnedAt &&\n                    plannedStartTime <= now &&\n                    now <= plannedEndTime\n                ) {\n                    result.scheduled.push(item);\n                    return;\n                }\n\n                // 5) 空白カテゴリ判定（優先度最後）\n                const allBlank = isBlank(plannedStartRaw) && isBlank(plannedEndRaw) && isBlank(usedAtRaw) && isBlank(returnedAtRaw);\n                const futurePlanned = plannedStartTime !== null && now < plannedStartTime;\n                const plannedButNotUsed = (plannedStart && plannedEnd) && !usedAt && !returnedAt;\n\n                if (allBlank || futurePlanned || plannedButNotUsed) {\n                    result.empty.push(item);\n                    return;\n                }\n\n                // フォールバック（上のいずれにも当てはまらない場合は空白に入れる）\n                result.empty.push(item);\n            });\n\n            window.force && console.log('処理終了', result);\n            return result;\n\n        } catch (e) {\n            showCommonError(e);\n            return null;\n        }\n    }\n\n\n    // ＝＝＝＝＝＝＝＝＝\n    // extractReservationNumbers\n    // ＝＝＝＝＝＝＝＝＝\n    /**\n     * グループ化された予約データから「予約番号」だけを抽出する\n     * @param {Object} groupedData - groupReservationStatus の戻り値想定\n     * @returns {Object} reservationNumberGroups\n     */\n    function extractReservationNumbers(groupedData) {\n        window.force && console.log('処理開始', { groupedData });\n\n        try {\n            // 結果格納用\n            const result = {};\n\n            // 各グループをループ\n            Object.keys(groupedData).forEach(function (groupKey) {\n                const list = groupedData[groupKey];\n\n                // 配列でなければ空配列\n                if (!Array.isArray(list)) {\n                    result[groupKey] = [];\n                    return;\n                }\n\n                // 「予約番号」だけを抽出\n                result[groupKey] = list\n                    .map(function (item) {\n                        return item[\"予約番号\"];\n                    })\n                    .filter(function (val) {\n                        // 念のため null / undefined を除外\n                        return val !== null && val !== undefined;\n                    });\n            });\n\n            window.force && console.log('処理終了', result);\n            return result;\n\n        } catch (e) {\n            showCommonError(e);\n            return null;\n        }\n    }\n\n\n    /**\n     * 指定されたID配列を元に ClassD を更新する\n     * @param {number[]} idList - 更新対象のレコードID配列\n     * @param {string} classDValue - ClassD に設定する値\n     * @returns {Promise<void>}\n     */\n    function updateClassDByIds(idList, classDValue) {\n        return new Promise(function (resolve) {\n            // 対象が0件の場合は即完了\n            if (!idList || idList.length === 0) {\n                resolve();\n                return;\n            }\n\n            let completed = 0;\n\n            idList.forEach(function (recordId) {\n                $p.apiUpdate({\n                    id: recordId,\n                    data: {\n                        ClassHash: {\n                            ClassD: classDValue\n                        }\n                    },\n                    done: function () {\n                        completed++;\n                        if (completed === idList.length) {\n                            resolve();\n                        }\n                    },\n                    fail: function (data) {\n                        // エラー番号があればそれを使用\n                        const errNo = data && data.ErrorNo;\n                        showCommonError(errNo);\n\n                        completed++;\n                        if (completed === idList.length) {\n                            resolve();\n                        }\n                    }\n                });\n            });\n        });\n    }\n\n\n    function updateAllStatuses(statusMap) {\n        window.force && console.log('処理開始', { statusMap });\n\n        Promise.all([\n            updateClassDByIds(statusMap.usingOverdue, '使用中（期限超過）'),\n            updateClassDByIds(statusMap.using, '使用中'),\n            updateClassDByIds(statusMap.scheduled, '予定期間中（未使用）'),\n            updateClassDByIds(statusMap.returned, '返却済'),\n            updateClassDByIds(statusMap.empty, '') // 空白カテゴリは ClassD を空文字に設定\n        ]).then(function () {\n            // alert('完了しました');\n            window.force && console.log('全更新完了');\n        });\n    }\n\n\n\n\n    // DOM 構築完了後に監視を開始\n    setupViewFiltersObserver();\n\n})(jQuery);",
+            "Id": 19
+          },
+          {
+            "Title": "【画面制御】備品・消耗品管理　新規作成・詳細　選択し表示項目共通制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * アプリ共通の名前空間\n     * 他スクリプトはすべてここ経由で after_set に登録する\n     */\n    window.AppTriggers = window.AppTriggers || {};\n\n    /**\n     * after_set に安全に処理を追加するユーティリティ\n     * - 既存処理を壊さない\n     * - 複数スクリプト共存可能\n     */\n    AppTriggers.afterSetHandlers = AppTriggers.afterSetHandlers || [];\n\n    /**\n     * after_set 登録関数\n     */\n    AppTriggers.registerAfterSet = function (fn) {\n        if (typeof fn === 'function') {\n            AppTriggers.afterSetHandlers.push(fn);\n        }\n    };\n\n    /**\n     * Pleasanter after_set を1回だけラップ\n     */\n    if (window.$p && $p.events && !$p.events.__appTriggersWrapped__) {\n        var originalAfterSet = $p.events.after_set;\n\n        $p.events.after_set = function (args) {\n            // 既存 after_set を先に実行\n            if (typeof originalAfterSet === 'function') {\n                try {\n                    originalAfterSet(args);\n                } catch (e) {\n                    console.error('original after_set error', e);\n                }\n            }\n\n            // 登録されたハンドラを順番に実行\n            AppTriggers.afterSetHandlers.forEach(function (handler) {\n                try {\n                    handler(args);\n                } catch (e) {\n                    console.error('after_set handler error', e);\n                }\n            });\n        };\n\n        $p.events.__appTriggersWrapped__ = true;\n    }\n})();",
+            "Id": 25
+          },
+          {
+            "Title": "【画面制御】備品・消耗品管理　新規作成・詳細　備品管理No表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * 管理No制御\n     * Results_ClassA → Results_NumB\n     */\n\n    /**\n     * トリガー判定\n     */\n    function checkClassATrigger(value) {\n        if (value === '備品') {\n            onSelected();\n        } else {\n            onUnselected();\n        }\n    }\n\n    /**\n     * 備品選択時\n     */\n    function onSelected() {\n        setVisibility(true);\n        adjustValidation(true);\n        toggleRequiredLabel(true);\n    }\n\n    /**\n     * 備品以外\n     */\n    function onUnselected() {\n        setVisibility(false);\n        adjustValidation(false);\n        toggleRequiredLabel(false);\n    }\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_NumBField');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n    /**\n     * バリデーション制御\n     */\n    function adjustValidation(isRequired) {\n        var el = document.getElementById('Results_NumB');\n        if (!el) return;\n\n        if (isRequired) {\n            el.removeAttribute('data-validate-date');\n            el.setAttribute('data-validate-required', '1');\n        } else {\n            el.removeAttribute('data-validate-required');\n            el.setAttribute('data-validate-date', '1');\n        }\n    }\n\n    /**\n     * ラベルの required クラス制御\n     * <label for=\"Results_NumB\">\n     */\n    function toggleRequiredLabel(isRequired) {\n        var label = document.querySelector('label[for=\"Results_NumB\"]');\n        if (!label) return;\n\n        if (isRequired) {\n            label.classList.add('required');\n        } else {\n            label.classList.remove('required');\n        }\n    }\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var select = document.getElementById('Results_ClassA');\n        if (!select || select.__classA_bound__) return;\n\n        select.addEventListener('change', function () {\n            checkClassATrigger(select.value);\n        });\n\n        select.__classA_bound__ = true;\n        checkClassATrigger(select.value);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
+            "Id": 24
+          },
+          {
+            "Title": "【画面制御】備品・消耗品管理　新規作成・詳細　除却日表示制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n    /**\n     * 除却日制御\n     * Results_ClassF → Results_DateE\n     */\n\n    /**\n     * トリガー判定\n     */\n    function checkClassFTrigger(value) {\n        if (value === '除却') {\n            onSelected();\n        } else {\n            onUnselected();\n        }\n    }\n\n    /**\n     * 除却選択時\n     */\n    function onSelected() {\n        setVisibility(true);\n        adjustValidation(true);\n        toggleRequiredLabel(true);\n    }\n\n    /**\n     * 除却解除時\n     */\n    function onUnselected() {\n        setVisibility(false);\n        adjustValidation(false);\n        toggleRequiredLabel(false);\n    }\n\n    /**\n     * 表示制御\n     */\n    function setVisibility(isVisible) {\n        var field = document.getElementById('Results_DateEField');\n        if (!field) return;\n        field.style.display = isVisible ? 'block' : 'none';\n    }\n\n    /**\n     * バリデーション制御\n     */\n    function adjustValidation(isRequired) {\n        var el = document.getElementById('Results_DateE');\n        if (!el) return;\n\n        if (isRequired) {\n            el.removeAttribute('data-validate-date');\n            el.setAttribute('data-validate-required', '1');\n        } else {\n            el.removeAttribute('data-validate-required');\n            el.setAttribute('data-validate-date', '1');\n        }\n    }\n\n    /**\n     * ラベルの required クラス制御\n     * <label for=\"Results_DateE\">\n     */\n    function toggleRequiredLabel(isRequired) {\n        var label = document.querySelector('label[for=\"Results_DateE\"]');\n        if (!label) return;\n\n        if (isRequired) {\n            label.classList.add('required');\n        } else {\n            label.classList.remove('required');\n        }\n    }\n\n    /**\n     * 初期バインド\n     */\n    function bind() {\n        var select = document.getElementById('Results_ClassF');\n        if (!select || select.__classF_bound__) return;\n\n        select.addEventListener('change', function () {\n            checkClassFTrigger(select.value);\n        });\n\n        select.__classF_bound__ = true;\n        checkClassFTrigger(select.value);\n    }\n\n    document.addEventListener('DOMContentLoaded', bind);\n\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n})();\n",
+            "Id": 20
+          },
+          {
+            "Title": "【画面制御】備品・消耗品管理　新規作成・詳細　予約制御",
+            "New": true,
+            "Edit": true,
+            "Body": "(function () {\n\n    function getClassJValue() {\n        const checked = document.querySelector(\n            'input[name=\"Results_ClassJ\"]:checked'\n        );\n        return checked ? checked.value : null;\n    }\n\n    function checkClassJTrigger() {\n        const value = getClassJValue();\n        if (value === '可能') {\n            disableReservationButton(false);\n        } else {\n            disableReservationButton(true);\n        }\n    }\n\n    function disableReservationButton(isDisabled) {\n        if (typeof reservationList === 'undefined') return;\n\n        const btn = $('button[data-to-site-id=\"' + reservationList + '\"]');\n        if (btn.length === 0) return;\n\n        isDisabled ? btn.hide() : btn.show();\n    }\n\n    function bind() {\n        const radios = document.querySelectorAll(\n            'input[name=\"Results_ClassJ\"]'\n        );\n        if (!radios.length || radios[0].__classJ_bound__) return;\n\n        radios.forEach(radio => {\n            radio.addEventListener('change', checkClassJTrigger);\n            radio.__classJ_bound__ = true;\n        });\n\n        // 初期状態反映\n        checkClassJTrigger();\n    }\n\n    // 編集画面初期表示\n    $p.events.on_editor_load_arr.push(bind);\n\n    // after_set（自動セット・再描画対応）\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(bind, 50);\n        });\n    }\n\n})();",
+            "Id": 26
+          },
+          {
+            "Title": "【操作追加】備品・消耗品管理　詳細　照合履歴一行化",
+            "Edit": true,
+            "Body": "(function () {\n    // ===================== 照合履歴一行化 =====================\n\n    // 現品照合実施日の取得\n    const genpinshogoDate = $p.getControl(\"現品照合日\").text();\n\n\n    // 監視対象:照合履歴タブのフィールドセット\n    const target = document.getElementById('FieldSetHistories');\n\n\n    // ================================= メイン処理 =================================\n    $p.events.on_editor_load_arr.push(function () {\n        applyRowVisibility();\n    })\n\n\n\n    // 照合履歴表示の制御関数\n    function applyRowVisibility() {\n\n        // 現品照合日が空白の場合\n        if (!genpinshogoDate) {\n\n            window.force && console.log(\"現品照合実施日が空であるため、履歴の全行非表示処理を実行します。\");    // デバッグログ\n\n            // 履歴の全行非表示\n            $(\".grid.history\").hide();\n\n            // 照合履歴がない場合のメッセージ表示\n            $('#FieldSetHistories').after('<p class=\"no-history-message\" style=\"padding: 10px; text-align: left; color: #666;\">照合履歴がありません</p>');\n\n\n        } else {  // 現品照合日が存在する場合\n\n            window.force && console.log(\"現品照合実施済であるため、1行だけ表示されます。\");    // デバッグログ\n\n            // 最新の行以外を非表示にする\n            $('#FieldSetHistories .grid-row:not([data-latest=\"1\"])').hide();\n        }\n    }\n\n    // MutationObserver の設定\n    const observer = new MutationObserver(function (mutations) {\n        window.force && console.log(\"MutationObserver 開始\");   // デバッグログ\n        applyRowVisibility();\n    });\n\n    // 画面変化があった時\n    if (target) {\n        observer.observe(target, {\n            childList: true,\n            subtree: true\n        });\n    }\n})();",
+            "Id": 13
+          },
+          {
+            "Title": "【表示調整】備品・消耗品管理　詳細　予約項目　リンクボタンの文言変更",
+            "Edit": true,
+            "Body": "(function($){\n\n    function replaceText() {\n        // ボタン\n        $('button[data-from-site-id=\"' + SuppliesConsumablesID + '\"]').each(function() {\n            var text = $(this).text();\n            if (text.indexOf('予約・使用一覧') !== -1) {\n                $(this).text(text.replace('予約・使用一覧', '予約'));\n            }\n        });\n\n        // タブ\n        $('li[aria-controls=\"FieldSetHistories\"] > a.ui-tabs-anchor').each(function() {\n            var text = $(this).text();\n            if (text.indexOf('変更履歴の一覧') !== -1) {\n                $(this).text(text.replace('変更履歴の一覧', '照合履歴'));\n            }\n        });\n    }\n\n    // 初回\n    $(function() {\n        replaceText();\n    });\n\n    // 保存・更新後\n    if (window.$p && $p.events) {\n        var originalAfterSet = $p.events.after_set;\n        $p.events.after_set = function () {\n            if (typeof originalAfterSet === 'function') {\n                originalAfterSet.apply(this, arguments);\n            }\n            replaceText();\n        };\n    }\n\n})(jQuery);\n",
+            "Id": 7
+          },
+          {
+            "Title": "【操作追加】備品・消耗品管理　詳細　予約項目　操作表示制御",
+            "Edit": true,
+            "Body": "(function(){\n  // ラベル文言（必要ならここを変更）\n  const CHECKBOX_ID = 'sdt-show-used-toggle';\n  const CHECKBOX_LABEL = '過去予約表示'; // チェックで使用日時/返却日時ありも表示\n\n  // テーブルを見つけるセレクタ（環境に応じて必要なら調整）\n  const TABLE_SELECTOR = 'table.grid[data-name=\"Source\"], table[id^=\"Results_Source\"]';\n  const TABLE_WRAP_SELECTOR = '#Results_Source'+reservationUsageList +'Field, grid-container';\n\n  // helpers\n  const isEmptyCell = (td) => {\n    if(!td) return true;\n    const txt = td.textContent || '';\n    return txt.trim().length === 0;\n  };\n\n  function findReservationButton(){\n    // 予約ボタンは onclick=\"$p.new(...)\" を持つことが多いのでまずそれで探す\n    return document.querySelector('button[onclick^=\"$p.new\"], button[data-icon=\"ui-icon-plus\"], button[title^=\"サンプル\"], button:contains(\"予約\")');\n  }\n\n  // Insert checkbox next to reservation button (once)\n  function ensureCheckboxInserted(){\n    // smartly find the button near the top of the provided HTML\n    const btn = document.querySelector('button[onclick^=\"$p.new\"], button[data-icon=\"ui-icon-plus\"]');\n    if(!btn) return null;\n    // avoid double-insert\n    if(document.getElementById(CHECKBOX_ID)) return document.getElementById(CHECKBOX_ID);\n\n    const wrapper = document.createElement('div');\n    wrapper.style.display = 'inline-flex';\n    wrapper.style.alignItems = 'center';\n    wrapper.style.marginLeft = '8px';\n\n    const checkbox = document.createElement('input');\n    checkbox.type = 'checkbox';\n    checkbox.id = CHECKBOX_ID;\n    // デフォルト： 未チェック = 「使用日時・返却日時が空の行のみ表示」\n    checkbox.checked = false;\n\n    const label = document.createElement('label');\n    label.htmlFor = CHECKBOX_ID;\n    label.style.marginLeft = '6px';\n    label.style.userSelect = 'none';\n    label.textContent = CHECKBOX_LABEL;\n\n    wrapper.appendChild(checkbox);\n    wrapper.appendChild(label);\n\n    // 挿入位置：ボタンの直後\n    btn.parentNode.insertBefore(wrapper, btn.nextSibling);\n\n    return checkbox;\n  }\n\n  // Find table and compute column indices for DateC/DateD\n  function getTableAndColIndices(){\n    const table = document.querySelector(TABLE_SELECTOR);\n    if(!table) return null;\n    const ths = table.querySelectorAll('thead th');\n    let idxDateC = -1, idxDateD = -1;\n    ths.forEach((th, i) => {\n      const name = th.getAttribute('data-name');\n      if(name === 'DateC') idxDateC = i;\n      if(name === 'DateD') idxDateD = i;\n    });\n    // fallback: if not found, attempt to match by header text (予定使用日時 / 予定返却日時)\n    if(idxDateC === -1 || idxDateD === -1){\n      ths.forEach((th, i) => {\n        const txt = (th.textContent || '').trim();\n        if(idxDateC === -1 && (txt === '予定使用日時' || txt.includes('予定使用日時'))) idxDateC = i;\n        if(idxDateD === -1 && (txt === '予定返却日時' || txt.includes('予定返却日時'))) idxDateD = i;\n      });\n    }\n    return { table, idxDateC, idxDateD };\n  }\n\n  // === 改良版: Apply filtering: show only rows based on DateC/DateD (planned start/end) ===\n  function applyFilterToTable(tableInfo, showUsed){\n    const { table, idxDateC, idxDateD } = tableInfo;\n    if(!table) return;\n    const tbody = table.querySelector('tbody');\n    if(!tbody) return;\n    const rows = Array.from(tbody.querySelectorAll('tr.grid-row'));\n\n    // 拡張パーサ：\n    // - 「2026/01/01 木」のような末尾の曜日トークンを取り除く\n    // - 時刻が無い（= 日付のみ）の場合はその日の終わり (23:59:59) として扱う\n    function parseDateFromText(s){\n      if(!s) return null;\n      let txt = String(s).replace(/\\u00A0/g,' ').trim();\n\n      if(txt === '') return null;\n\n      // 末尾の日本語曜日トークンを取り除く（\" 木\" 等）\n      txt = txt.replace(/\\s+[月火水木金土日]$/, '');\n      // 括弧内注記を削除\n      txt = txt.replace(/[（）\\(\\)]/g, ' ');\n      txt = txt.replace(/\\s+/g, ' ').trim();\n\n      // 正規表現で \"YYYY/MM/DD [HH:MM(:SS)]\" や \"YYYY-MM-DD ...\" を分解\n      const m = txt.match(/^(\\d{4})[\\/\\-](\\d{1,2})[\\/\\-](\\d{1,2})(?:[ T](\\d{1,2}):(\\d{1,2})(?::(\\d{1,2}))?)?$/);\n      if(m){\n        const y = +m[1], mo = +m[2]-1, d = +m[3];\n        const hh = m[4] ? +m[4] : null;\n        const mm = m[5] ? +m[5] : 0;\n        const ss = m[6] ? +m[6] : 0;\n        if(hh === null){\n          // 時刻が無い場合は「その日の終わり」を採用（23:59:59）\n          return new Date(y, mo, d, 23, 59, 59);\n        } else {\n          return new Date(y, mo, d, hh, mm, ss);\n        }\n      }\n\n      // フォールバック：Date に任せる（環境依存）\n      const dt = new Date(txt);\n      if(isNaN(dt.getTime())) return null;\n      return dt;\n    }\n\n    const now = Date.now();\n\n    rows.forEach(row => {\n      const tds = row.querySelectorAll('td');\n      const tdC = (idxDateC >= 0 && idxDateC < tds.length) ? tds[idxDateC] : null;\n      const tdD = (idxDateD >= 0 && idxDateD < tds.length) ? tds[idxDateD] : null;\n\n      const textC = tdC ? (tdC.textContent || '').trim() : '';\n      const textD = tdD ? (tdD.textContent || '').trim() : '';\n\n      // 値が空文字かどうか（空白のみ含む場合も空）\n      const dateCEmpty = textC.replace(/\\s+/g,'') === '';\n      const dateDEmpty = textD.replace(/\\s+/g,'') === '';\n\n      // 値がある場合は日時をパースして過去かどうかを判定（パース失敗は安全側で \"過去ではない\" と扱う）\n      const parsedC = dateCEmpty ? null : parseDateFromText(textC);\n      const parsedD = dateDEmpty ? null : parseDateFromText(textD);\n\n      const dateCIsPast = parsedC ? (parsedC.getTime() <= now) : false;\n      const dateDIsPast = parsedD ? (parsedD.getTime() <= now) : false;\n\n      // 「過去」と見なすのは、予定開始（DateC）または予定返却（DateD）が過去/同時刻である場合のみ\n      const isPlannedPast = dateCIsPast || dateDIsPast;\n\n      // 表示判定：チェック有なら全部表示、無ければ「過去でない行のみ表示」\n      const shouldShow = showUsed ? true : !isPlannedPast;\n\n      row.style.display = shouldShow ? '' : 'none';\n\n      // 補助スタイル：過去扱い行は薄く見せる\n      if(isPlannedPast){\n        row.classList.add('sdt-used-row');\n        row.classList.add('sdt-not-clickable');\n        row.setAttribute('data-sdt-clickable', '0');\n      } else {\n        row.classList.remove('sdt-used-row');\n        row.classList.remove('sdt-not-clickable');\n        row.setAttribute('data-sdt-clickable', '1');\n      }\n    });\n  }\n\n  // Intercept clicks on rows: allow only rows that have data-sdt-clickable=\"1\"\n  function attachClickInterceptor(table){\n    if(!table) return;\n    // avoid double attaching\n    if(table.__sdt_click_interceptor_attached) return;\n    table.__sdt_click_interceptor_attached = true;\n\n    // Use capture so we can block other handlers that may run later\n    table.addEventListener('click', function(ev){\n      const tr = ev.target && ev.target.closest ? ev.target.closest('tr.grid-row') : null;\n      if(!tr) return; // not a row click\n      // if row is hidden, allow default (nothing)\n      if(tr.style.display === 'none') {\n        ev.stopPropagation();\n        ev.preventDefault();\n        return;\n      }\n      const clickable = tr.getAttribute('data-sdt-clickable');\n      if(clickable !== '1'){\n        // block navigation/click handlers\n        ev.preventDefault();\n        // stop other listeners both capture and bubble by stopping immediate propagation\n        ev.stopImmediatePropagation && ev.stopImmediatePropagation();\n        return false;\n      }\n      // else allow click\n    }, true); // capture = true\n  }\n\n  // Add some minimal CSS for visual cue\n  function injectStyles(){\n    if(document.getElementById('sdt-filter-styles')) return;\n    const s = document.createElement('style');\n    s.id = 'sdt-filter-styles';\n    s.textContent = `\n      /* 使用済み行の見た目 */\n      tr.sdt-used-row { opacity: 0.7; }\n      tr.sdt-not-clickable { cursor: default; }\n      /* クリック可能行はポインタ表示 */\n      tr[data-sdt-clickable=\"1\"] { cursor: pointer; }\n      /* checkbox wrapper spacing */\n      #${CHECKBOX_ID} { transform: translateY(1px); }\n    `;\n    document.head.appendChild(s);\n  }\n\n  // Orchestrator: find table, ensure checkbox, apply filter, attach interceptor\n  function refreshAll(){\n    injectStyles();\n    const checkbox = ensureCheckboxInserted();\n    const tableInfo = getTableAndColIndices();\n    if(!tableInfo || !tableInfo.table) return;\n    const showUsed = checkbox ? checkbox.checked : false;\n    applyFilterToTable(tableInfo, showUsed);\n    attachClickInterceptor(tableInfo.table);\n\n    // bind change handler for checkbox if not bound\n    if(checkbox && !checkbox.__sdt_change_attached){\n      checkbox.__sdt_change_attached = true;\n      checkbox.addEventListener('change', () => {\n        applyFilterToTable(tableInfo, checkbox.checked);\n      });\n    }\n  }\n\n  // Observe changes to re-run refreshAll when table is re-rendered\n  const observer = new MutationObserver((mutations) => {\n    // cheap check: if table added/removed or tbody changed, refresh\n    let shouldRefresh = false;\n    for(const m of mutations){\n      if(m.type === 'childList' && m.addedNodes.length) {\n        shouldRefresh = true;\n        break;\n      }\n      if(m.type === 'attributes') {\n        shouldRefresh = true;\n        break;\n      }\n    }\n    if(shouldRefresh){\n      // small debounce\n      if(window.__sdt_refresh_timeout) clearTimeout(window.__sdt_refresh_timeout);\n      window.__sdt_refresh_timeout = setTimeout(() => {\n        refreshAll();\n      }, 80);\n    }\n  });\n\n  // Start observing body for dynamic changes (could be scoped narrower if needed)\n  observer.observe(document.body, { childList: true, subtree: true, attributes: false });\n\n  // Initial run (after DOM ready)\n  if(document.readyState === 'loading'){\n    document.addEventListener('DOMContentLoaded', refreshAll);\n  } else {\n    refreshAll();\n  }\n\n  // Expose a debug function (optional)\n  window.__sdt_refresh_filter = refreshAll;\n\n})();\n",
+            "Id": 11
+          },
+          {
+            "Title": "【画面制御】備品・消耗品管理　詳細　保管/移管項目　表示制御",
+            "Edit": true,
+            "Body": "(function(){\n  // --- 設定 ---\n  // 対象テーブルを特定するセレクタ（必要ならここを変更）\n  const TABLE_SELECTOR = 'table#Results_Source2832813, table.grid[data-id=\"2832813\"], table.grid[data-name=\"Source\"]';\n  // true = 「表示されている最初の行」を許可、false = DOM上の最初の行（display:none含む）を許可\n  const useFirstVisibleRow = true;\n\n  // --- helper ---\n  const isRowVisible = (tr) => {\n    if(!tr) return false;\n    // 見た目上の表示判定（display:none や visibility:hidden を考慮）\n    return !!(tr.offsetWidth || tr.offsetHeight || tr.getClientRects().length);\n  };\n\n  // Apply clickable state: only the first (visible) row gets data-sdt-clickable=\"1\"\n  function applyOnlyFirstClickable(table){\n    if(!table) return;\n    const tbody = table.querySelector('tbody');\n    if(!tbody) return;\n    const rows = Array.from(tbody.querySelectorAll('tr.grid-row, tr'));\n    // find target index\n    let firstIndex = -1;\n    if(useFirstVisibleRow){\n      firstIndex = rows.findIndex(r => isRowVisible(r));\n    } else {\n      firstIndex = rows.length ? 0 : -1;\n    }\n    rows.forEach((r, i) => {\n      if(i === firstIndex){\n        r.setAttribute('data-sdt-clickable', '1');\n        r.classList.add('sdt-first-clickable');\n        r.classList.remove('sdt-not-clickable');\n      } else {\n        r.setAttribute('data-sdt-clickable', '0');\n        r.classList.remove('sdt-first-clickable');\n        r.classList.add('sdt-not-clickable');\n      }\n    });\n  }\n\n  // Intercept clicks on the table to block non-clickable rows\n  function attachClickInterceptor(table){\n    if(!table) return;\n    if(table.__sdt_first_row_interceptor) return;\n    table.__sdt_first_row_interceptor = true;\n\n    table.addEventListener('click', function(ev){\n      // find the tr.grid-row target\n      const tr = ev.target && ev.target.closest ? ev.target.closest('tr.grid-row, tr') : null;\n      if(!tr) return; // click outside rows — let it pass\n      // if row is hidden, block default and stop propagation (safety)\n      if(!isRowVisible(tr)){\n        ev.preventDefault();\n        ev.stopImmediatePropagation && ev.stopImmediatePropagation();\n        return false;\n      }\n      const clickable = tr.getAttribute('data-sdt-clickable');\n      if(clickable !== '1'){\n        // block navigation/click handlers\n        ev.preventDefault();\n        ev.stopImmediatePropagation && ev.stopImmediatePropagation();\n        return false;\n      }\n      // allow default for the one clickable row\n    }, true); // use capture phase to block upstream handlers\n  }\n\n  // inject styles for visual cue\n  function injectStyles(){\n    if(document.getElementById('sdt-firstrow-styles')) return;\n    const s = document.createElement('style');\n    s.id = 'sdt-firstrow-styles';\n    s.textContent = `\n      /* クリック許可のある行はポインタ表示 */\n      tr[data-sdt-clickable=\"1\"] { cursor: pointer; }\n      /* クリック不可行の見た目（任意） */\n      tr[data-sdt-clickable=\"0\"] { cursor: default; opacity: 0.85; }\n    `;\n    document.head.appendChild(s);\n  }\n\n  // orchestrator for one or multiple tables\n  function refreshForAllTables(){\n    injectStyles();\n    const tables = Array.from(document.querySelectorAll(TABLE_SELECTOR));\n    tables.forEach(tbl => {\n      applyOnlyFirstClickable(tbl);\n      attachClickInterceptor(tbl);\n    });\n  }\n\n  // Observe DOM changes (table re-render) and refresh with debounce\n  const mo = new MutationObserver((mutations) => {\n    let shouldRefresh = false;\n    for(const m of mutations){\n      // if rows added/removed or attributes changed inside target tables, refresh\n      if(m.type === 'childList' && m.addedNodes.length) { shouldRefresh = true; break; }\n      if(m.type === 'attributes') { shouldRefresh = true; break; }\n    }\n    if(shouldRefresh){\n      if(window.__sdt_firstrow_timeout) clearTimeout(window.__sdt_firstrow_timeout);\n      window.__sdt_firstrow_timeout = setTimeout(refreshForAllTables, 60);\n    }\n  });\n  mo.observe(document.body, { childList: true, subtree: true, attributes: true });\n\n  // initial run after DOM ready\n  if(document.readyState === 'loading'){\n    document.addEventListener('DOMContentLoaded', refreshForAllTables);\n  } else {\n    refreshForAllTables();\n  }\n\n  // debug hook\n  window.__sdt_refresh_firstrow = refreshForAllTables;\n\n})();\n",
+            "Id": 12
+          }
+        ],
+        "ServerScripts": [
+          {
+            "Title": "【設定】サイトID",
+            "Name": "",
+            "BeforeOpeningPage": true,
+            "Body": "const BIHIN_SHOMOHIN_SITE_ID = 252479;    // 備品・消耗品",
+            "Id": 5
+          },
+          {
+            "Title": "【画面処理】備品・消耗品管理　予約ビュー　希望期間　検索制御",
+            "Name": "",
+            "WhenViewProcessing": true,
+            "Body": "(function(){\n  try {\n    // logging helper (server)\n    function log(){ try{ if(context && context.Log) context.Log(Array.prototype.join.call(arguments,' ')); else console.log.apply(console, arguments); }catch(e){} }\n\n    if(!view || !view.Filters){\n      log('[date-or] no view/Filters found - abort');\n      return;\n    }\n\n    // find keys for DateC and DateD in view.Filters (key names contain those suffixes)\n    function findFilterKey(suffix){\n      return Object.keys(view.Filters || {}).find(k => k.indexOf(suffix) !== -1);\n    }\n\n    const keyC = findFilterKey('DateC');\n    const keyD = findFilterKey('DateD');\n\n    if(!keyC && !keyD){\n      log('[date-or] neither DateC nor DateD filter found - nothing to do');\n      return;\n    }\n\n    // parse filter value robustly (handles JSON array strings or comma separated)\n    function parseFilterVal(raw){\n      if(raw == null) return null;\n      var s = String(raw).trim();\n      if(!s) return null;\n      // try JSON parse\n      try {\n        if(s[0] === '[') {\n          var arr = JSON.parse(s);\n          if(Array.isArray(arr)) return arr.map(function(x){ return (x||'').toString().trim().replace(/,$/,''); });\n        }\n      } catch(e){}\n      // remove surrounding brackets/quotes and split by comma\n      s = s.replace(/^\\[|\\]$/g,'').replace(/^[\"']|[\"']$/g,'').trim();\n      var parts = s.split(',').map(function(x){ return (x||'').toString().trim().replace(/,$/,''); }).filter(function(x){ return x !== ''; });\n      return parts.length ? parts : null;\n    }\n\n    function rangeFromParts(parts){\n      if(!parts) return null;\n      if(parts.length === 1) return { from: parts[0], to: parts[0] };\n      return { from: parts[0], to: parts[1] || parts[0] };\n    }\n\n    const rawC = keyC ? view.Filters[keyC] : null;\n    const rawD = keyD ? view.Filters[keyD] : null;\n    const partsC = parseFilterVal(rawC);\n    const partsD = parseFilterVal(rawD);\n    const rangeC = rangeFromParts(partsC);\n    const rangeD = rangeFromParts(partsD);\n\n    if(!rangeC && !rangeD){\n      log('[date-or] no usable ranges parsed for DateC/DateD');\n      return;\n    }\n\n    // escape for SQL literal (basic)\n    function escSql(s){ return (s||'').replace(/'/g,\"''\"); }\n\n    // map filter key -> SQL column identifier\n    // NOTE: default strategy: take key after \"ViewFilters__\" and use as column. Adjust if your DB mapping differs.\n    function colFromFilterKey(k){\n      if(!k) return null;\n      var id = k.replace(/^ViewFilters__/, '');\n      // sanitize brackets removal\n      id = id.replace(/]/g,'').replace(/\\[/g,'');\n      // if your DB column names differ, replace here\n      return id; // we will not wrap in [] here; put in finalWhere using proper quoting if needed\n    }\n\n    var colC = keyC ? colFromFilterKey(keyC) : null;\n    var colD = keyD ? colFromFilterKey(keyD) : null;\n\n    var sqlParts = [];\n    if(rangeC && colC){\n      sqlParts.push(\"(\" + colC + \" BETWEEN '\" + escSql(rangeC.from) + \"' AND '\" + escSql(rangeC.to) + \"')\");\n    }\n    if(rangeD && colD){\n      sqlParts.push(\"(\" + colD + \" BETWEEN '\" + escSql(rangeD.from) + \"' AND '\" + escSql(rangeD.to) + \"')\");\n    }\n\n    if(sqlParts.length === 0){\n      log('[date-or] no SQL parts built - abort');\n      return;\n    }\n\n    var finalWhere = \"(\" + sqlParts.join(\" OR \") + \")\";\n    log('[date-or] finalWhere ->', finalWhere);\n\n    // Try common view properties that accept raw where fragment\n    var candidates = ['CustomWhere','SqlWhere','Where','ExtraWhere','Query','CustomFilter','WhereClause'];\n    var wrote = false;\n    for(var i=0;i<candidates.length;i++){\n      var p = candidates[i];\n      try {\n        if(typeof view[p] !== 'undefined'){\n          view[p] = finalWhere;\n          wrote = true;\n          log('[date-or] wrote to view.'+p);\n          break;\n        }\n      } catch(e){\n        log('[date-or] write to view.'+p+' failed: '+ (e && e.message ? e.message : e));\n      }\n    }\n\n    if(!wrote){\n      // fallback: remove original filter keys (so they don't AND) and inject the raw where into a special Filters key (some Pleasanter builds use view.Filters for extra conditions)\n      try {\n        if(keyC) delete view.Filters[keyC];\n        if(keyD) delete view.Filters[keyD];\n        view.Filters['__OrDateRange__'] = finalWhere;\n        wrote = true;\n        log('[date-or] fallback: removed original keys and injected into view.Filters.__OrDateRange__');\n      } catch(e){\n        log('[date-or] fallback injection failed: '+(e && e.message? e.message : e));\n      }\n    }\n\n    log('[date-or] done. view.Filters keys now: ' + Object.keys(view.Filters || {}).join(','));\n  } catch(err){\n    try{ if(context && context.Log) context.Log(err && err.stack ? err.stack : err); }catch(e){}\n  }\n})();",
+            "Id": 1
+          },
+          {
+            "Title": "【年度切替時】照合関連項目クリア ",
+            "Name": "",
+            "Body": "// 備品・消耗品テーブルのすべてのレコードから以下の項目を取得し、空白で上書きする。\n// 現品照合実施者(ClassI)\n// 現品照合結果(ClassK)\n// 現品照合コメント(ClassG)\n// 現品照合日(DateD)\n// 照合承認者(ClassH)\n// 現品照合承認日(DateB)\n\n\n// =================== 備品・消耗品の全レコード取得 ===================\nlet offset = 0;         // 取得開始位置\nlet totalCount = 0;     // 総取得件数\nconst allItems = [];    // 取得したレコードを格納する配列\n\nconst timeout = 600 * 1000;\nconst startTime = new Date().getTime();\n\n\ntry {\n    \n    while (true) {\n\n        check_Timeotut();  // タイムアウトチェック関数呼び出し\n\n        const data = {\n            Offset: offset,\n        };\n\n        context.Log(\"備品・消耗品全レコード取得開始\");\n\n        try {\n            const results = Array.from(items.Get(BIHIN_SHOMOHIN_SITE_ID, JSON.stringify(data)));\n            // const results = Array.from(items.Get(252479, JSON.stringify(data)));\n            // const results = items.Get(site, JSON.stringify(data));\n\n            // 取得件数が 0 になったら終了\n            if (!results || results.length === 0) {\n                break;\n            }\n\n            // 今回分を配列に追加\n            for (const item of results) {\n                allItems.push(item);\n            }\n\n            // ログ出力\n            context.Log(`備品・消耗品レコード取得状況：Offset=${offset}, 取得件数=${results.length}`);\n            totalCount += results.length;\n\n            // Offset を「今回取得した件数ぶん」進める\n            offset += results.length;\n\n        } catch (error) {\n            context.Log(`items.Get でエラーが発生しました: ${error.message}`);\n            context.Log(`Offset=${offset} の時点でエラー`);\n            context.Log(`スタックトレース: ${error.stack}`);\n\n            // エラー発生時の処理を選択\n            throw error;\n\n        }\n    }\n    context.Log(`備品・消耗品テーブルレコード取得成功、最終的な取得件数: ${totalCount} 件`);\n\n\n    // ===================== クリア処理用リクエストデータ =====================\n    const data = {\n        \"ClassHash\": {\n            \"ClassI\": \"\",\n            \"ClassK\": \"\",\n            \"ClassG\": \"\",\n            \"ClassH\": \"\",\n        },\n        \"DateHash\": {\n            \"DateD\": \"1899/12/31\",\n            \"DateB\": \"1899/12/31\"\n        }\n    }\n\n\n    //  ==================== 取得した全レコードの照合関連項目クリア処理 ====================\n    for (const item of allItems) {\n\n        check_Timeotut();  // タイムアウトチェック関数呼び出し\n\n        // 照合関連項目クリア処理\n        const updateResult = items.Update(item.ResultId, JSON.stringify(data));\n        context.Log(`照合関連項目クリア処理結果：{レコードID:${item.ResultId}, 成功?: ${updateResult}}`);\n\n    }\n\n} catch (error) {\n\n    context.Log(error.stack);\n\n}\n\n\n// ================= タイムアウト処理関数 ================= \nfunction check_Timeotut() {\n    const now = new Date().getTime();\n\n    if (timeout < now - startTime) {\n        throw new Error('タイムアウトです');\n    }\n}\n",
+            "Id": 6
+          }
+        ],
+        "AutoVerUpType": 2,
+        "UseFilterButton": true,
+        "UseNegativeFilters": true,
+        "UseIncompleteFilter": false,
+        "UseOwnFilter": false,
+        "UseSearchFilter": false,
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 252479,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}

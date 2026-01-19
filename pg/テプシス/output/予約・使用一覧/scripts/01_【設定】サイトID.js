@@ -1,0 +1,1 @@
+const reservationList = 252478; // 予約・使用一覧
