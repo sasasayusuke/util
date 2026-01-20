@@ -119,13 +119,42 @@
         }
     }
 
+    // =====================================================
+    // 編集画面で取得/移管日(DateA)を読み取り専用にする機能
+    // =====================================================
+
+    /**
+     * 取得/移管日(DateA)を読み取り専用にする（編集画面のみ）
+     */
+    function setDateAReadOnly() {
+        if ($p.action().toUpperCase() !== 'EDIT') return;
+
+        var dateAField = document.getElementById('Results_DateAField');
+        if (!dateAField) return;
+
+        // フィールド全体にreadonly用クラスを付与
+        dateAField.classList.add('field-readonly');
+
+        // 入力欄をreadonly
+        var dateAInput = document.getElementById('Results_DateA');
+        if (dateAInput) {
+            dateAInput.setAttribute('readonly', 'readonly');
+        }
+    }
+
     // DOMContentLoadedで初期バインド
-    document.addEventListener('DOMContentLoaded', setupAutoNumbering);
+    document.addEventListener('DOMContentLoaded', function () {
+        setupAutoNumbering();
+        setDateAReadOnly();
+    });
 
     // after_setでも再バインド（動的に要素が再生成される場合に対応）
     if (window.AppTriggers) {
         AppTriggers.registerAfterSet(function () {
-            setTimeout(setupAutoNumbering, 50);
+            setTimeout(function () {
+                setupAutoNumbering();
+                setDateAReadOnly();
+            }, 50);
         });
     }
 })();
