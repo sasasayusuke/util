@@ -12,7 +12,6 @@ const exportWithoutParameter =
   "fn-eventphoto-export": "getStorePerformanceDetails",         // イベント写真（写真名のみ）
   "fn-center-export": "getRoomCenter",                          // 室・センター
   "fn-group-export": "getGroup",                                // グループ
-  "fn-member-export": "getMemberVerificationRequired",          // メンバー
   "fn-store-export": "getShop",                                 // 店舗
   "fn-contractor-export": "getContractorInformation",           // 委託先情報(社名)
   "fn-tv-radio-export": "getEconomicValueTelevisionAndRadio",   // メディア露出の経済価値（テレビ・ラジオ）

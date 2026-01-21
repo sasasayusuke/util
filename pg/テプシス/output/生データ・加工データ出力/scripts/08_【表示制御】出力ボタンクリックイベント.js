@@ -21,7 +21,7 @@ $(document).on('click', '.fn-export', async function (e) {
   alert('Excelファイルを出力します');
 
   const extendSqlResult = await getExtendSqlWithoutParameter(sqlFileName);
-  if(!extendSqlResult) return;
+  if (!extendSqlResult) return;
 
   exportExcel(extendSqlResult, button);
 });
@@ -153,7 +153,7 @@ async function getExtendSqlWithParameter(sqlFileName, dateRange) {
     return;
   }
 
-  let obj= JSON.parse(rows);
+  let obj = JSON.parse(rows);
   try {
     obj = JSON.parse(rows);
   } catch (e) {
@@ -220,13 +220,16 @@ function exportExcel(jsonFromSql, button) {
     return;
   }
 
+  // ★ 追加：日付フォーマット変換
+  const formattedData = formatDateColumns(jsonFromSql);
+
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet('Sheet1');
 
-  const header = Object.keys(jsonFromSql[0]);
+  const header = Object.keys(formattedData[0]);
   worksheet.addRow(header);
 
-  jsonFromSql.forEach(row => {
+  formattedData.forEach(row => {
     worksheet.addRow(Object.values(row));
   });
 
@@ -239,13 +242,11 @@ function exportExcel(jsonFromSql, button) {
     );
 
     const url = URL.createObjectURL(blob);
-
     const a = document.createElement('a');
     a.href = url;
     a.download = fileName;
     document.body.appendChild(a);
     a.click();
-
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   });
@@ -271,18 +272,18 @@ async function formValidate(e) {
   const buttonId = button.id;
   const sqlFileName = exportWithParameter[buttonId];
 
-  if(!sqlFileName){
+  if (!sqlFileName) {
     alert("対応するSQLが定義されていません");
     return;
   }
 
   let dateRange;
-  try{
+  try {
     dateRange = getDateRangeFromModal(button);
   } catch (err) {
     alert(err.message);
     return;
-  }  
+  }
 
   alert('Excelファイルを出力します');
 
@@ -339,4 +340,58 @@ function getDateRangeFromModal(button) {
     DateFrom: startInput.value,
     DateTo: finishInput.value
   };
+}
+
+/**
+ * ISO日付文字列を指定フォーマットに変換
+ *
+ * @param {string} value ISO文字列 (例: 2026-01-16T04:20:46.948)
+ * @param {string} format YYYY-MM-DD or YYYY-MM-DD HH:mm:ss
+ * @returns {string}
+ */
+function formatDate(value, format) {
+  const date = new Date(value);
+  if (isNaN(date)) return value;
+
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  const hh = String(date.getHours()).padStart(2, '0');
+  const mi = String(date.getMinutes()).padStart(2, '0');
+  const ss = String(date.getSeconds()).padStart(2, '0');
+
+  if (format === 'YYYY-MM-DD') {
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  if (format === 'YYYY-MM-DD HH:mm:ss') {
+    return `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss}`;
+  }
+
+  return value;
+}
+
+
+
+/**
+ * 日付項目を定義に従って整形する
+ *
+ * @param {Array<Object>} rows
+ * @returns {Array<Object>}
+ */
+function formatDateColumns(rows) {
+  return rows.map(row => {
+    const formattedRow = { ...row };
+
+    Object.keys(formattedRow).forEach(key => {
+      const format = DATE_FORMAT_MAP[key];
+      const value = formattedRow[key];
+
+      if (format && value) {
+        formattedRow[key] = formatDate(value, format);
+      }
+    });
+
+    return formattedRow;
+  });
 }
