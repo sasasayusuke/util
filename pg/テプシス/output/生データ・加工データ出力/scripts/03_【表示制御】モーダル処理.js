@@ -122,11 +122,11 @@
 
         // 当月の初日
         const startDate = new Date(today.getFullYear(), today.getMonth(), 1);
-        console.log(startDate);
+        if (window.force) console.log(startDate);
 
         // 翌月の初日
         const finishDate = new Date(today.getFullYear(), today.getMonth() + 1, 1);
-        console.log(finishDate);
+        if (window.force) console.log(finishDate);
 
         $modal.find(SELECTORS.startDate).val(formatDateLocal(startDate));
         $modal.find(SELECTORS.finishDate).val(formatDateLocal(finishDate));

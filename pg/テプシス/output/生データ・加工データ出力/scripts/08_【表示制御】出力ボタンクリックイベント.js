@@ -18,12 +18,14 @@ $(document).on('click', '.fn-export', async function (e) {
     return;
   }
 
-  alert('Excelファイルを出力します');
-
-  const extendSqlResult = await getExtendSqlWithoutParameter(sqlFileName);
-  if (!extendSqlResult) return;
-
-  exportExcel(extendSqlResult, button);
+  try {
+    alert('Excelファイルを出力します');
+    const extendSqlResult = await getExtendSqlWithoutParameter(sqlFileName);
+    await exportExcel(extendSqlResult, button);
+  } catch (err) {
+    console.error('エクスポートエラー:', err);
+    alert('エラー: ' + err.message);
+  }
 });
 
 
@@ -113,20 +115,17 @@ async function getExtendSqlWithoutParameter(sqlFileName) {
   // console.log(rows.length);
   // console.table(`拡張SQL(${sqlFileName})取得結果：`, rows);
 
-  let obj = JSON.parse(rows);
+  let obj;
   try {
     obj = JSON.parse(rows);
   } catch (e) {
-    console.log("拡張sqlのjsonパースに失敗しました。");
-    console.log(rows);
-    return;
-  };
+    throw new Error('サーバーからのレスポンスが不正です');
+  }
 
-  const resultSql = obj?.Response?.Data?.Table;  // JSON生データ
+  const resultSql = obj?.Response?.Data?.Table;
 
   if (!resultSql) {
-    console.log("拡張sqlで取得されたjsonがありません");
-    return;
+    throw new Error('該当するデータがありません');
   }
   return resultSql;
 }
@@ -149,24 +148,20 @@ async function getExtendSqlWithParameter(sqlFileName, dateRange) {
   const rows = await getEvents();
 
   if (!rows) {
-    console.log("拡張sqlで取得されたjsonがありません");
-    return;
+    throw new Error('サーバーからレスポンスがありません');
   }
 
-  let obj = JSON.parse(rows);
+  let obj;
   try {
     obj = JSON.parse(rows);
   } catch (e) {
-    console.log("拡張sqlのjsonパースに失敗しました。");
-    console.log(rows);
-    return;
+    throw new Error('サーバーからのレスポンスが不正です');
   }
 
   const resultSql = obj?.Response?.Data?.Table;
 
   if (!resultSql) {
-    console.log("拡張sqlで取得されたjsonがありません");
-    return;
+    throw new Error('該当するデータがありません');
   }
 
   return resultSql;
@@ -212,15 +207,13 @@ async function getExtendSqlWithParameter(sqlFileName, dateRange) {
 //   });
 // }
 
-function exportExcel(jsonFromSql, button) {
-
-  // ★ 追加：データなしチェック
+async function exportExcel(jsonFromSql, button) {
+  // データなしチェック
   if (!Array.isArray(jsonFromSql) || jsonFromSql.length === 0) {
-    alert('出力するデータがありません。');
-    return;
+    throw new Error('出力するデータがありません');
   }
 
-  // ★ 追加：日付フォーマット変換
+  // 日付フォーマット変換
   const formattedData = formatDateColumns(jsonFromSql);
 
   const workbook = new ExcelJS.Workbook();
@@ -235,21 +228,20 @@ function exportExcel(jsonFromSql, button) {
 
   const fileName = createExcelFileName(button);
 
-  workbook.xlsx.writeBuffer().then(buffer => {
-    const blob = new Blob(
-      [buffer],
-      { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
-    );
+  const buffer = await workbook.xlsx.writeBuffer();
+  const blob = new Blob(
+    [buffer],
+    { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
+  );
 
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 
@@ -285,11 +277,14 @@ async function formValidate(e) {
     return;
   }
 
-  alert('Excelファイルを出力します');
-
-  const extendSqlResult = await getExtendSqlWithParameter(sqlFileName, dateRange);
-  // this = クリックされた .fn-sdt-modal-export ボタン
-  exportExcel(extendSqlResult, button);
+  try {
+    alert('Excelファイルを出力します');
+    const extendSqlResult = await getExtendSqlWithParameter(sqlFileName, dateRange);
+    await exportExcel(extendSqlResult, button);
+  } catch (err) {
+    console.error('エクスポートエラー:', err);
+    alert('エラー: ' + err.message);
+  }
 }
 
 /**
