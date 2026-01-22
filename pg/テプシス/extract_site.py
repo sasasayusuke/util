@@ -2,11 +2,11 @@
 Pleasanter JSONからScript/ServerScript/HTML/Styleを抽出してtree構成で保存するスクリプト
 
 使い方:
-    python extract_scripts.py <JSONファイルパス>
-    python extract_scripts.py  # カレントディレクトリのJSONを自動検出
+    python extract_site.py <JSONファイルパス>
+    python extract_site.py  # カレントディレクトリのJSONを自動検出
 
 出力:
-    output/
+    sites/
     └── {SiteTitle}/
         ├── scripts/
         │   ├── 01_{Title}.js
@@ -23,7 +23,7 @@ Pleasanter JSONからScript/ServerScript/HTML/Styleを抽出してtree構成で�
         └── {SiteTitle}_{Timestamp}.json  # 処理済みJSON
 
 処理後:
-    JSONファイルは output/{SiteTitle}/ フォルダへ移動
+    JSONファイルは sites/{SiteTitle}/ フォルダへ移動
     既存JSONより古いTimestampの場合はエラー
 """
 
@@ -100,8 +100,8 @@ def extract_contents(json_path: Path) -> None:
     if not sites:
         raise ValueError('Sites が見つかりません')
 
-    # 出力先ディレクトリ（JSONと同じ場所にoutputフォルダ）
-    output_base = json_path.parent / 'output'
+    # 出力先ディレクトリ（JSONと同じ場所にsitesフォルダ）
+    output_base = json_path.parent / 'sites'
 
     for site in sites:
         site_title = site.get('Title', 'Unknown')
