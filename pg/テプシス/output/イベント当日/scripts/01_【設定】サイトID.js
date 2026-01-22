@@ -7,4 +7,4 @@
   var EVENT_OPEN_LIST_SITE_ID = 255695;   // 開催イベント一覧
   var VIP_SITE_ID = 255684;               // 先方（要人）テーブル
   var STAFF_DEPT_ID = 208;                // アウトシステムズ開発の部署ID（組織）
-  
+const adminListsID = 255655;  // 管理者

@@ -1,4 +1,5 @@
-window.force = true;
+// デバッグON/OFF（グローバル）
+window.force = false; // true or false  falseにするとログは出ない
 
   // テーブル・カラム定義
   var TABLES = {
