@@ -1,0 +1,1 @@
+const BIHIN_SHOMOHIN_SITE_ID = 252479;    // 備品・消耗品

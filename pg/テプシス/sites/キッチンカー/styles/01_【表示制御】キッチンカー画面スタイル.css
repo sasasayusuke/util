@@ -1,0 +1,352 @@
+@charset "UTF-8";
+/* ===================
+    色定義
+==================*/
+/* ===================
+    縦スペース定義
+==================*/
+/* ===================
+    横スペース定義
+==================*/
+/* ===================
+    テキストサイズ定義
+==================*/
+.sdt-kitchen-car {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #F2F2F2;
+  z-index: 705;
+}
+.sdt-kitchen-car .sdt-kitchen-car-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #F2F2F2;
+}
+.sdt-kitchen-car .sdt-kitchen-car-title {
+  margin: 0;
+}
+.sdt-kitchen-car .sdt-kitchen-car-title__text {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.sdt-kitchen-car .sdt-kitchen-car-form {
+  margin-top: 20px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-kitchen-car-form {
+    margin-top: 15px;
+  }
+}
+.sdt-kitchen-car .sdt-kitchen-car-form__area {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-kitchen-car-form__area {
+    padding: 15px;
+  }
+}
+.sdt-kitchen-car .sdt-kitchen-car-form .sdt-form-title {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 12px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-kitchen-car-form .sdt-form-title {
+    margin-bottom: 9px;
+  }
+}
+.sdt-kitchen-car .sdt-form-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 30%;
+  max-width: 50%;
+  height: 30px;
+  padding-right: 12px;
+  margin-bottom: 12px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-form-box {
+    min-width: 100%;
+    max-width: 100%;
+    padding-right: 9px;
+    margin-bottom: 9px;
+  }
+}
+.sdt-kitchen-car .sdt-form-label {
+  position: relative;
+  min-width: 120px;
+  height: auto;
+}
+.sdt-kitchen-car .sdt-required {
+  color: #E80000;
+  margin-left: 4px;
+}
+.sdt-kitchen-car .sdt-form-inputArea {
+  width: calc(100% - 120px);
+  height: 100%;
+}
+.sdt-kitchen-car .sdt-form-inputArea--date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sdt-kitchen-car .sdt-date-separator {
+  color: #3B3B3B;
+}
+.sdt-kitchen-car .sdt-input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 12px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 0 1px #78818F inset;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  background-color: #fff;
+}
+.sdt-kitchen-car .sdt-input--date {
+  width: 140px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-input {
+    padding: 0 9px;
+    font-size: 14px;
+  }
+  .sdt-kitchen-car .sdt-input--date {
+    width: 120px;
+  }
+}
+.sdt-kitchen-car .sdt-input::-moz-placeholder {
+  color: #C4C9D0;
+}
+.sdt-kitchen-car .sdt-input::placeholder {
+  color: #C4C9D0;
+}
+.sdt-kitchen-car .sdt-input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #2F80ED inset;
+  color: #3B3B3B;
+}
+.sdt-kitchen-car .sdt-selector {
+  position: relative;
+  width: 100%;
+}
+.sdt-kitchen-car .sdt-selector:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  right: 8px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #C4C9D0;
+  pointer-events: none;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-selector:before {
+    right: 6px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #C4C9D0;
+  }
+}
+.sdt-kitchen-car .sdt-selector-content {
+  width: 100%;
+  height: 30px;
+  padding: 0 38px 0 8px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 1px #C4C9D0 inset;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-selector-content {
+    font-size: 12px;
+    height: 30px;
+    padding: 0 25px 0 6px;
+  }
+}
+.sdt-kitchen-car .sdt-selector-content:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #2F80ED inset;
+}
+/* フォーム項目の幅調整 */
+.sdt-kitchen-car .sdt-form-shop {
+  width: 100%;
+  max-width: 100%;
+}
+.sdt-kitchen-car .sdt-form-shop .sdt-form-inputArea {
+  width: 200px;
+}
+.sdt-kitchen-car .sdt-form-period {
+  width: 100%;
+  max-width: 100%;
+}
+.sdt-kitchen-car .sdt-form-note {
+  width: 100%;
+  max-width: 100%;
+}
+.sdt-kitchen-car .sdt-form-note .sdt-form-inputArea {
+  width: 50%;
+}
+/* キッチンカー一覧テーブル */
+.sdt-kitchen-car .sdt-kitchen-car-table {
+  position: relative;
+  margin-top: 20px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-kitchen-car-table {
+    margin-top: 15px;
+  }
+}
+.sdt-kitchen-car .sdt-kitchen-car-table__wrap {
+  position: relative;
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid #C4C9D0;
+  background-color: #fff;
+}
+.sdt-kitchen-car .sdt-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.sdt-kitchen-car .sdt-table__head {
+  background-color: #F8F9FA;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.sdt-kitchen-car .sdt-table__cell {
+  padding: 12px;
+  box-sizing: border-box;
+  border-bottom: solid 1px #E0E0E0;
+  text-align: left;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+}
+.sdt-kitchen-car .sdt-table__cell-head {
+  font-weight: bold;
+  background-color: #F8F9FA;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-table__cell {
+    padding: 9px;
+  }
+}
+.sdt-kitchen-car .sdt-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.sdt-kitchen-car .sdt-checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+/* 使用不可行のスタイル */
+.sdt-kitchen-car .sdt-table__row--disabled {
+  background-color: #f5f5f5;
+  color: #999;
+}
+/* その他詳細 */
+.sdt-kitchen-car .sdt-kitchen-car-note {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-kitchen-car-note {
+    margin-top: 15px;
+    padding: 15px;
+  }
+}
+/* アクションボタン */
+.sdt-kitchen-car .sdt-form-buttonArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-form-buttonArea {
+    gap: 15px;
+    margin-top: 15px;
+  }
+}
+.sdt-kitchen-car .sdt-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.sdt-kitchen-car .sdt-button:hover {
+  opacity: 0.8;
+}
+.sdt-kitchen-car .sdt-button:disabled {
+  background-color: #C4C9D0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.sdt-kitchen-car .sdt-button:disabled .sdt-button__text {
+  color: #fff;
+}
+.sdt-kitchen-car .sdt-button--primary {
+  background-color: #2F80ED;
+}
+.sdt-kitchen-car .sdt-button--primary .sdt-button__text {
+  color: #fff;
+}
+.sdt-kitchen-car .sdt-button--secondary {
+  background-color: #f8f8f8;
+  border: 1px solid #C4C9D0;
+}
+.sdt-kitchen-car .sdt-button--secondary .sdt-button__text {
+  color: #3B3B3B;
+}
+.sdt-kitchen-car .sdt-button--danger {
+  background-color: #E80000;
+}
+.sdt-kitchen-car .sdt-button--danger .sdt-button__text {
+  color: #fff;
+}
+@media screen and (max-width: 760px) {
+  .sdt-kitchen-car .sdt-button {
+    min-width: 120px;
+    padding: 9px 15px;
+  }
+}
