@@ -32,7 +32,7 @@ window.force = false; // true or false  falseにするとログは出ない
       COLUMNS: {
         CATEGORY: 'ClassA',            // カテゴリー
         EVENT_NAME: 'ClassB',          // イベント名・出店名
-        ORGANIZER: 'ClassC',           // 開催者or依頼主
+        ORGANIZER: 'ClassC',           // 事業者名or店舗名
         AREA: 'ClassF',                // 開催エリア
         AREA_DETAIL: 'DescriptionB'    // 開催エリア詳細
       }
