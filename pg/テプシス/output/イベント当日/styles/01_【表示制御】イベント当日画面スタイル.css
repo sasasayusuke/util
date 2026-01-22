@@ -511,6 +511,14 @@
   }
 }
 
+/* 自由記入欄セル（横幅固定・折り返し） */
+.sdt-table__cell--note {
+  max-width: 200px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
 /* ボタン */
 .sdt-button {
   display: inline-flex;

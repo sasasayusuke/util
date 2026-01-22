@@ -200,6 +200,9 @@
     if (!staffId) {
       errors.push('担当者を選択してください');
     }
+    if (freeText.length > 1000) {
+      errors.push('自由記入欄は1000文字以内で入力してください（現在: ' + freeText.length + '文字）');
+    }
 
     if (errors.length > 0) {
       alert(errors.join('\n'));
@@ -423,6 +426,9 @@
     if (!staffId) {
       errors.push('担当者を選択してください');
     }
+    if (freeText.length > 1000) {
+      errors.push('自由記入欄は1000文字以内で入力してください（現在: ' + freeText.length + '文字）');
+    }
 
     if (errors.length > 0) {
       alert(errors.join('\n'));
@@ -510,6 +516,44 @@
   // loadWorkListをグローバルに公開（初期表示で呼び出し）
   window.loadWorkList = loadWorkList;
 
+  /* ========================================
+   * 文字数カウント
+   * ======================================== */
+  var FREE_TEXT_MAX_LENGTH = 1000;
+
+  /**
+   * setupCharCounter
+   * - textarea に文字数カウンターを設定
+   */
+  function setupCharCounter($textarea) {
+    if ($textarea.length === 0) return;
+
+    // カウンター要素を作成（初期は非表示）
+    var $counter = $('<div class="fn-char-counter" style="text-align:right; font-size:12px; color:#E80000; margin-top:4px; display:none;"></div>');
+    $textarea.after($counter);
+
+    // 更新関数
+    function updateCounter() {
+      var length = $textarea.val().length;
+      var remaining = FREE_TEXT_MAX_LENGTH - length;
+
+      if (remaining < 0) {
+        // オーバー時のみ表示
+        $counter.show();
+        $counter.text(length + ' / ' + FREE_TEXT_MAX_LENGTH + '文字（' + Math.abs(remaining) + '文字オーバー）');
+      } else {
+        // 範囲内は非表示
+        $counter.hide();
+      }
+    }
+
+    // イベント設定
+    $textarea.on('input', updateCounter);
+
+    // 初期表示
+    updateCounter();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // 登録ボタンイベント設定
     $('#fn-workRegister').off('click').on('click', handleWorkRegister);
@@ -519,6 +563,10 @@
     $('#fn-workModalOverlay').off('click').on('click', closeWorkModal);
     $('#fn-modalWorkSubmit').off('click').on('click', handleModalSubmit);
     $('#fn-modalWorkDelete').off('click').on('click', handleModalDelete);
+
+    // 文字数カウンター設定
+    setupCharCounter($('#fn-workNote'));
+    setupCharCounter($('#fn-modalWorkNote'));
   });
 
 })(jQuery);

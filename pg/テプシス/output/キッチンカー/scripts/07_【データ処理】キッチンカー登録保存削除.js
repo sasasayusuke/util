@@ -5,6 +5,9 @@
    * 既存データ読み込み・バリデーション・登録/更新処理
    ************************************************************************/
 
+  // その他詳細の文字数上限
+  var NOTE_MAX_LENGTH = 50;
+
   /* ========================================
    * 既存データ読み込み（更新モード用）
    * ======================================== */
@@ -48,8 +51,8 @@
       errors.push('開催期間の開始日は終了日より前の日付を指定してください');
     }
     var note = $('#fn-formNote').val() || '';
-    if (note.length > 51) {
-      errors.push('その他詳細は51文字以内で入力してください');
+    if (note.length > NOTE_MAX_LENGTH) {
+      errors.push('その他詳細は' + NOTE_MAX_LENGTH + '文字以内で入力してください（現在: ' + note.length + '文字）');
     }
     if (errors.length > 0) {
       alert(errors.join('\n'));
@@ -214,6 +217,46 @@
 
     // チェックボックス変更時にボタン活性状態を更新
     $(document).on('change', '.fn-pick', updateSubmitButtonState);
+
+    // 文字数カウンター設定
+    setupNoteCharCounter($('#fn-formNote'));
   });
+
+  /* ========================================
+   * 文字数カウント
+   * ======================================== */
+
+  /**
+   * setupNoteCharCounter
+   * - input に文字数カウンターを設定（オーバー時のみ表示）
+   */
+  function setupNoteCharCounter($input) {
+    if ($input.length === 0) return;
+
+    // カウンター要素を作成（初期は非表示）
+    var $counter = $('<div class="fn-char-counter" style="text-align:right; font-size:12px; color:#E80000; margin-top:4px; display:none;"></div>');
+    $input.after($counter);
+
+    // 更新関数
+    function updateCounter() {
+      var length = $input.val().length;
+      var remaining = NOTE_MAX_LENGTH - length;
+
+      if (remaining < 0) {
+        // オーバー時のみ表示
+        $counter.show();
+        $counter.text(length + ' / ' + NOTE_MAX_LENGTH + '文字（' + Math.abs(remaining) + '文字オーバー）');
+      } else {
+        // 範囲内は非表示
+        $counter.hide();
+      }
+    }
+
+    // イベント設定
+    $input.on('input', updateCounter);
+
+    // 初期表示
+    updateCounter();
+  }
 
 })(jQuery);

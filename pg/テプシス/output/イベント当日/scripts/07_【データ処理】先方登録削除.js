@@ -126,6 +126,8 @@
    * handleVipRegister
    * - 先方登録ボタンクリック時の処理
    */
+  var VIP_FIELD_MAX_LENGTH = 30;
+
   async function handleVipRegister() {
     var company = $('#fn-vipCompany').val() || '';
     var dept = $('#fn-vipDept').val() || '';
@@ -133,8 +135,26 @@
     var position = $('#fn-vipPosition').val() || '';
 
     // バリデーション
+    var errors = [];
+
     if (!company && !dept && !name && !position) {
-      alert('いずれかの項目を入力してください');
+      errors.push('いずれかの項目を入力してください');
+    }
+    if (company.length > VIP_FIELD_MAX_LENGTH) {
+      errors.push('会社は' + VIP_FIELD_MAX_LENGTH + '文字以内で入力してください（現在: ' + company.length + '文字）');
+    }
+    if (dept.length > VIP_FIELD_MAX_LENGTH) {
+      errors.push('部署は' + VIP_FIELD_MAX_LENGTH + '文字以内で入力してください（現在: ' + dept.length + '文字）');
+    }
+    if (position.length > VIP_FIELD_MAX_LENGTH) {
+      errors.push('役職は' + VIP_FIELD_MAX_LENGTH + '文字以内で入力してください（現在: ' + position.length + '文字）');
+    }
+    if (name.length > VIP_FIELD_MAX_LENGTH) {
+      errors.push('氏名は' + VIP_FIELD_MAX_LENGTH + '文字以内で入力してください（現在: ' + name.length + '文字）');
+    }
+
+    if (errors.length > 0) {
+      alert(errors.join('\n'));
       return;
     }
 
@@ -226,9 +246,52 @@
   // loadVipListをグローバルに公開（初期表示で呼び出し）
   window.loadVipList = loadVipList;
 
+  /* ========================================
+   * 文字数カウント
+   * ======================================== */
+
+  /**
+   * setupVipCharCounter
+   * - input に文字数カウンターを設定（30文字制限）
+   */
+  function setupVipCharCounter($input) {
+    if ($input.length === 0) return;
+
+    // カウンター要素を作成（初期は非表示）
+    var $counter = $('<div class="fn-char-counter" style="text-align:right; font-size:12px; color:#E80000; margin-top:4px; display:none;"></div>');
+    $input.after($counter);
+
+    // 更新関数
+    function updateCounter() {
+      var length = $input.val().length;
+      var remaining = VIP_FIELD_MAX_LENGTH - length;
+
+      if (remaining < 0) {
+        // オーバー時のみ表示
+        $counter.show();
+        $counter.text(length + ' / ' + VIP_FIELD_MAX_LENGTH + '文字（' + Math.abs(remaining) + '文字オーバー）');
+      } else {
+        // 範囲内は非表示
+        $counter.hide();
+      }
+    }
+
+    // イベント設定
+    $input.on('input', updateCounter);
+
+    // 初期表示
+    updateCounter();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // 登録ボタンイベント設定
     $('#fn-vipRegister').off('click').on('click', handleVipRegister);
+
+    // 文字数カウンター設定
+    setupVipCharCounter($('#fn-vipCompany'));
+    setupVipCharCounter($('#fn-vipDept'));
+    setupVipCharCounter($('#fn-vipPosition'));
+    setupVipCharCounter($('#fn-vipName'));
   });
 
 })(jQuery);
