@@ -14,11 +14,10 @@ async function sqlTable(name, params = {}) {
     const body = {
         ApiVersion: API_VERSION,
         Name: name,
-        ...(API_KEY ? { ApiKey: API_KEY } : {}),
         ...(Object.keys(cleanParams).length ? { Params: cleanParams } : {}),
     };
 
-    console.log("request body:", body);
+    window.force && console.log("request body:", body);
 
     const res = await fetch(ENDPOINT, {
         method: "POST",

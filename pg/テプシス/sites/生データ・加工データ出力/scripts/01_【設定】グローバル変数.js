@@ -1,3 +1,9 @@
+  window.force = true;
+
+const ENDPOINT = "/api/extended/sql";  // 相対パスで環境依存なし
+const API_VERSION = 1.1;
+
+
 /**
  * 列名ごとの日付フォーマット定義
  */
@@ -14,8 +20,8 @@ const DATE_FORMAT_MAP = {
 
   // 03.イベント勤務
   "イベント日": "YYYY-MM-DD",
-  "勤務開始時間": "YYYY-MM-DD HH:mm:ss",
-  "勤務終了時間": "YYYY-MM-DD HH:mm:ss",
+  "勤務開始時間": "HH:mm:ss",
+  "勤務終了時間": "HH:mm:ss",
 
   // 06.キッチンカー
   "使用不可期間（開始日）": "YYYY-MM-DD",
@@ -34,4 +40,5 @@ const DATE_FORMAT_MAP = {
 
   // 12.メディア露出の経済価値出力
   "放送日/発行日": "YYYY-MM-DD"
+
 };

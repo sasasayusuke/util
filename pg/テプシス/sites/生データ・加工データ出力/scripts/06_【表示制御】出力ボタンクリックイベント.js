@@ -18,12 +18,14 @@ $(document).on('click', '.fn-export', async function (e) {
     return;
   }
 
-  alert('Excelファイルを出力します');
-
-  const extendSqlResult = await getExtendSqlWithoutParameter(sqlFileName);
-  if (!extendSqlResult) return;
-
-  exportExcel(extendSqlResult, button);
+  try {
+    alert('Excelファイルを出力します');
+    const extendSqlResult = await getExtendSqlWithoutParameter(sqlFileName);
+    await exportExcel(extendSqlResult, button);
+  } catch (err) {
+    window.force && console.error('エクスポートエラー:', err);
+    alert('エラー: ' + err.message);
+  }
 });
 
 
@@ -54,7 +56,14 @@ function getExportTitle(button) {
   }
 
   // ② 直接エクスポート（fn-export）
-  return button.innerText.trim();
+  let title = button.innerText.trim();
+
+  // ▼ 例外対応：イベント写真（写真名のみ）
+  if (button.id === 'fn-eventphoto-export') {
+    title = 'イベント写真';
+  }
+
+  return title;
 }
 
 
@@ -110,23 +119,20 @@ async function getExtendSqlWithoutParameter(sqlFileName) {
   // 12/1〜12/31で絞り込み
   const rows = await getEvents();
 
-  // console.log(rows.length);
-  // console.table(`拡張SQL(${sqlFileName})取得結果：`, rows);
+  window.force && console.log(rows.length);
+  window.force && console.table(`拡張SQL(${sqlFileName})取得結果：`, rows);
 
-  let obj = JSON.parse(rows);
+  let obj;
   try {
     obj = JSON.parse(rows);
   } catch (e) {
-    console.log("拡張sqlのjsonパースに失敗しました。");
-    console.log(rows);
-    return;
-  };
+    throw new Error('サーバーからのレスポンスが不正です');
+  }
 
-  const resultSql = obj?.Response?.Data?.Table;  // JSON生データ
+  const resultSql = obj?.Response?.Data?.Table;
 
   if (!resultSql) {
-    console.log("拡張sqlで取得されたjsonがありません");
-    return;
+    throw new Error('該当するデータがありません');
   }
   return resultSql;
 }
@@ -149,24 +155,20 @@ async function getExtendSqlWithParameter(sqlFileName, dateRange) {
   const rows = await getEvents();
 
   if (!rows) {
-    console.log("拡張sqlで取得されたjsonがありません");
-    return;
+    throw new Error('サーバーからレスポンスがありません');
   }
 
-  let obj = JSON.parse(rows);
+  let obj;
   try {
     obj = JSON.parse(rows);
   } catch (e) {
-    console.log("拡張sqlのjsonパースに失敗しました。");
-    console.log(rows);
-    return;
+    throw new Error('サーバーからのレスポンスが不正です');
   }
 
   const resultSql = obj?.Response?.Data?.Table;
 
   if (!resultSql) {
-    console.log("拡張sqlで取得されたjsonがありません");
-    return;
+    throw new Error('該当するデータがありません');
   }
 
   return resultSql;
@@ -180,47 +182,59 @@ async function getExtendSqlWithParameter(sqlFileName, dateRange) {
  * - 引数: jsonFromSql - 拡張sqlで取得したjson配列
  * - 動作: 引数で渡されたjson配列をExcelファイルに変換してダウンロードさせる
  */
-// function exportExcel(jsonFromSql, button) {
-//   const workbook = new ExcelJS.Workbook();
-//   const worksheet = workbook.addWorksheet('Sheet1');
+async function exportExcel(jsonFromSql, button) {
 
-//   const header = Object.keys(jsonFromSql[0]);
-//   worksheet.addRow(header);
+  // ===== イベント店舗の時データ生成が必要 =====
+  const modal = button.closest('.fn-modal');
+  const isEventShop = modal?.dataset.modal === 'modal-B';
 
-//   jsonFromSql.forEach(row => {
-//     worksheet.addRow(Object.values(row));
-//   });
+  let data = jsonFromSql;
 
-//   const fileName = createExcelFileName(button);
+  if (isEventShop) {
+    data = convertEventShopData(jsonFromSql);
+    if (!Array.isArray(data) || data.length === 0) {
+        throw new Error('出力するデータがありません');
+    }
 
-//   workbook.xlsx.writeBuffer().then(buffer => {
-//     const blob = new Blob(
-//       [buffer],
-//       { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
-//     );
+    // 日付フォーマット変換
+    const formattedData = formatDateColumns(data);
 
-//     const url = URL.createObjectURL(blob);
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Sheet1');
 
-//     const a = document.createElement('a');
-//     a.href = url;
-//     a.download = fileName;
-//     document.body.appendChild(a);
-//     a.click();
+    const header = Object.keys(formattedData[0]);
+    worksheet.addRow(header);
 
-//     document.body.removeChild(a);
-//     URL.revokeObjectURL(url);
-//   });
-// }
+    formattedData.forEach(row => {
+        worksheet.addRow(Object.values(row));
+    });
 
-function exportExcel(jsonFromSql, button) {
+    const fileName = createExcelFileName(button);
 
-  // ★ 追加：データなしチェック
-  if (!Array.isArray(jsonFromSql) || jsonFromSql.length === 0) {
-    alert('出力するデータがありません。');
-    return;
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob(
+        [buffer],
+        { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    return; 
   }
 
-  // ★ 追加：日付フォーマット変換
+  // データなしチェック
+  if (!Array.isArray(jsonFromSql) || jsonFromSql.length === 0) {
+    throw new Error('出力するデータがありません');
+  }
+
+  // 日付フォーマット変換
   const formattedData = formatDateColumns(jsonFromSql);
 
   const workbook = new ExcelJS.Workbook();
@@ -235,23 +249,91 @@ function exportExcel(jsonFromSql, button) {
 
   const fileName = createExcelFileName(button);
 
-  workbook.xlsx.writeBuffer().then(buffer => {
-    const blob = new Blob(
-      [buffer],
-      { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
-    );
+  const buffer = await workbook.xlsx.writeBuffer();
+  const blob = new Blob(
+    [buffer],
+    { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
+  );
 
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
+//イベント店舗データ生成用
+function convertEventShopData(rows) {
+
+  const meaningItems = [
+    { id: "1", label: "参加意義・期待効果-流通拡大・販路開拓" },
+    { id: "2", label: "参加意義・期待効果-認知度向上・魅力発信" },
+    { id: "3", label: "参加意義・期待効果-関係構築・強化" },
+    { id: "4", label: "参加意義・期待効果-ブランド価値向上" },
+    { id: "5", label: "参加意義・期待効果-定番化・自由化" },
+    { id: "6", label: "参加意義・期待効果-その他" },
+  ];
+
+  const prItems = [
+    { id: "1", label: "販促方法（PR）-Facebook" },
+    { id: "2", label: "販促方法（PR）-Instagram" },
+    { id: "3", label: "販促方法（PR）-X" },
+    { id: "4", label: "販促方法（PR）-店舗HP" },
+    { id: "5", label: "販促方法（PR）-店内チラシ" },
+    { id: "6", label: "販促方法（PR）-新聞折込" },
+    { id: "7", label: "販促方法（PR）-その他" },
+  ];
+
+  const INSERT_MEANING_AFTER = "参加概要・予定事業者・委託先候補";
+  const INSERT_PR_AFTER = "販促方法（現場）";
+
+  return rows.map(row => {
+
+    // --- パース ---
+    let meaningVals = [];
+    let prVals = [];
+
+    try {
+      meaningVals = JSON.parse(row["参加意義・期待効果"] || "[]");
+    } catch {}
+
+    try {
+      prVals = JSON.parse(row["販促方法（PR）"] || "[]");
+    } catch {}
+
+    const result = {};
+
+    Object.keys(row).forEach(key => {
+
+      // 不要な元列は除外
+      if (
+        key !== "参加意義・期待効果" &&
+        key !== "販促方法（PR）"
+      ) {
+        result[key] = row[key];
+      }
+
+      // ① 参加意義・期待効果 → 展開
+      if (key === INSERT_MEANING_AFTER) {
+        meaningItems.forEach(item => {
+          result[item.label] = meaningVals.includes(item.id);
+        });
+      }
+
+      // ② 販促方法（PR） → 展開
+      if (key === INSERT_PR_AFTER) {
+        prItems.forEach(item => {
+          result[item.label] = prVals.includes(item.id);
+        });
+      }
+    });
+
+    return result;
+  });
+}
 
 
 /**
@@ -285,11 +367,14 @@ async function formValidate(e) {
     return;
   }
 
-  alert('Excelファイルを出力します');
-
-  const extendSqlResult = await getExtendSqlWithParameter(sqlFileName, dateRange);
-  // this = クリックされた .fn-sdt-modal-export ボタン
-  exportExcel(extendSqlResult, button);
+  try {
+    alert('Excelファイルを出力します');
+    const extendSqlResult = await getExtendSqlWithParameter(sqlFileName, dateRange);
+    await exportExcel(extendSqlResult, button);
+  } catch (err) {
+    window.force && console.error('エクスポートエラー:', err);
+    alert('エラー: ' + err.message);
+  }
 }
 
 /**
@@ -366,6 +451,10 @@ function formatDate(value, format) {
 
   if (format === 'YYYY-MM-DD HH:mm:ss') {
     return `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss}`;
+  }
+
+  if (format === 'HH:mm:ss') {
+    return `${hh}:${mi}:${ss}`;
   }
 
   return value;
