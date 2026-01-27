@@ -4,7 +4,7 @@
     "BaseSiteId": 252479,
     "Server": "http://192.168.10.67",
     "CreatorName": "Administrator",
-    "PackageTime": "2026-01-19T18:43:31.5994071+00:00",
+    "PackageTime": "2026-01-27T07:59:55.9110683+00:00",
     "Convertors": [
       {
         "SiteId": 252479,
@@ -77,8 +77,8 @@
             "_Section-2",
             "ClassA",
             "NumA",
-            "ClassN",
             "NumB",
+            "ClassN",
             "ClassR",
             "ClassM",
             "ClassJ",
@@ -270,6 +270,7 @@
             "LabelText": "主管箇所",
             "ChoicesText": "[[252474,NoAddButton]]",
             "NoWrap": true,
+            "ValidateRequired": true,
             "Link": true,
             "SearchType": "PartialMatch"
           },
@@ -367,6 +368,7 @@
             "ColumnName": "ClassJ",
             "LabelText": "使用可否",
             "ChoicesText": "可能\n不可",
+            "DefaultInput": "不可",
             "ChoicesControlType": "Radio",
             "SearchType": "PartialMatch"
           },
@@ -713,6 +715,12 @@
             "Edit": true,
             "Body": "#Results_DateEField{\n  display: none;\n}\n",
             "Id": 2
+          },
+          {
+            "Title": "【画面制御】取得移管日読み取り専用",
+            "All": true,
+            "Body": "/* 取得/移管日(DateA)読み取り専用スタイル */\n\n/* 入力欄 */\n#Results_DateA[readonly] {\n  background-color: #f0f0f0;\n  cursor: not-allowed;\n}\n\n/* フィールド全体（アイコン含む）のクリック無効化 */\n#Results_DateAField.field-readonly {\n  pointer-events: none;\n}\n\n/* ラベルはクリック可能に維持（必要に応じて） */\n#Results_DateAField.field-readonly label {\n  pointer-events: auto;\n}\n",
+            "Id": 3
           }
         ],
         "Scripts": [
@@ -815,7 +823,7 @@
             "Title": "【画面制御】備品・消耗品管理　新規作成・詳細　選択し表示項目共通制御",
             "New": true,
             "Edit": true,
-            "Body": "(function () {\n    /**\n     * アプリ共通の名前空間\n     * 他スクリプトはすべてここ経由で after_set に登録する\n     */\n    window.AppTriggers = window.AppTriggers || {};\n\n    /**\n     * after_set に安全に処理を追加するユーティリティ\n     * - 既存処理を壊さない\n     * - 複数スクリプト共存可能\n     */\n    AppTriggers.afterSetHandlers = AppTriggers.afterSetHandlers || [];\n\n    /**\n     * after_set 登録関数\n     */\n    AppTriggers.registerAfterSet = function (fn) {\n        if (typeof fn === 'function') {\n            AppTriggers.afterSetHandlers.push(fn);\n        }\n    };\n\n    /**\n     * Pleasanter after_set を1回だけラップ\n     */\n    if (window.$p && $p.events && !$p.events.__appTriggersWrapped__) {\n        var originalAfterSet = $p.events.after_set;\n\n        $p.events.after_set = function (args) {\n            // 既存 after_set を先に実行\n            if (typeof originalAfterSet === 'function') {\n                try {\n                    originalAfterSet(args);\n                } catch (e) {\n                    console.error('original after_set error', e);\n                }\n            }\n\n            // 登録されたハンドラを順番に実行\n            AppTriggers.afterSetHandlers.forEach(function (handler) {\n                try {\n                    handler(args);\n                } catch (e) {\n                    console.error('after_set handler error', e);\n                }\n            });\n        };\n\n        $p.events.__appTriggersWrapped__ = true;\n    }\n})();",
+            "Body": "(function () {\n    /**\n     * アプリ共通の名前空間\n     * 他スクリプトはすべてここ経由で after_set に登録する\n     */\n    window.AppTriggers = window.AppTriggers || {};\n\n    /**\n     * after_set に安全に処理を追加するユーティリティ\n     * - 既存処理を壊さない\n     * - 複数スクリプト共存可能\n     */\n    AppTriggers.afterSetHandlers = AppTriggers.afterSetHandlers || [];\n\n    /**\n     * after_set 登録関数\n     */\n    AppTriggers.registerAfterSet = function (fn) {\n        if (typeof fn === 'function') {\n            AppTriggers.afterSetHandlers.push(fn);\n        }\n    };\n\n    /**\n     * Pleasanter after_set を1回だけラップ\n     */\n    if (window.$p && $p.events && !$p.events.__appTriggersWrapped__) {\n        var originalAfterSet = $p.events.after_set;\n\n        $p.events.after_set = function (args) {\n            // 既存 after_set を先に実行\n            if (typeof originalAfterSet === 'function') {\n                try {\n                    originalAfterSet(args);\n                } catch (e) {\n                    console.error('original after_set error', e);\n                }\n            }\n\n            // 登録されたハンドラを順番に実行\n            AppTriggers.afterSetHandlers.forEach(function (handler) {\n                try {\n                    handler(args);\n                } catch (e) {\n                    console.error('after_set handler error', e);\n                }\n            });\n        };\n\n        $p.events.__appTriggersWrapped__ = true;\n    }\n\n    // =====================================================\n    // 主管箇所変更時に管理番号(NumA)にMAX+1をセットする機能\n    // =====================================================\n\n    /**\n     * 主管箇所(ClassN)の変更を監視し、管理番号(NumA)を自動採番\n     */\n    function setupAutoNumbering() {\n        var classNSelect = document.getElementById('Results_ClassN');\n        if (!classNSelect || classNSelect.__classN_autoNumber_bound__) return;\n\n        classNSelect.addEventListener('change', function () {\n            var selectedValue = classNSelect.value;\n            if (!selectedValue) return;\n\n            fetchMaxNumAAndSet(selectedValue);\n        });\n\n        classNSelect.__classN_autoNumber_bound__ = true;\n    }\n\n    /**\n     * 指定した主管箇所のNumA最大値を取得し、MAX+1をセット\n     * @param {string} classNValue - 主管箇所の値\n     */\n    async function fetchMaxNumAAndSet(classNValue) {\n        try {\n            var siteId = typeof SuppliesConsumablesID !== 'undefined' ? SuppliesConsumablesID : $p.id();\n            var api = new PleasanterAPI(location.origin, { logging: window.force });\n\n            // 全件取得してJSでフィルタリング\n            var records = await api.getRecords(siteId, {\n                columns: ['NumA', 'ClassN'],\n                setLabelText: false,\n                setDisplayValue: 'Value'\n            });\n\n            // 主管箇所でフィルタリング\n            var filtered = records.filter(function (r) {\n                return r.ClassN === classNValue;\n            });\n\n            // NumAの最大値を取得\n            var maxNumA = 0;\n            filtered.forEach(function (r) {\n                var num = Number(r.NumA) || 0;\n                if (num > maxNumA) {\n                    maxNumA = num;\n                }\n            });\n\n            var newNumA = maxNumA + 1;\n\n            var numAInput = document.getElementById('Results_NumA');\n            if (numAInput) {\n                numAInput.value = newNumA;\n                // Pleasanterの変更検知をトリガー\n                var event = new Event('change', { bubbles: true });\n                numAInput.dispatchEvent(event);\n            }\n\n            window.force && console.log('主管箇所「' + classNValue + '」の管理番号MAX:', maxNumA, '→ 新番号:', newNumA);\n\n        } catch (err) {\n            console.error('管理番号自動採番エラー:', err);\n            window.force && console.log('管理番号自動採番に失敗しました', err);\n        }\n    }\n\n    // =====================================================\n    // 編集画面で取得/移管日(DateA)を読み取り専用にする機能\n    // =====================================================\n\n    /**\n     * 取得/移管日(DateA)を読み取り専用にする（編集画面のみ）\n     */\n    function setDateAReadOnly() {\n        if ($p.action().toUpperCase() !== 'EDIT') return;\n\n        var dateAField = document.getElementById('Results_DateAField');\n        if (!dateAField) return;\n\n        // フィールド全体にreadonly用クラスを付与\n        dateAField.classList.add('field-readonly');\n\n        // 入力欄をreadonly\n        var dateAInput = document.getElementById('Results_DateA');\n        if (dateAInput) {\n            dateAInput.setAttribute('readonly', 'readonly');\n        }\n    }\n\n    // DOMContentLoadedで初期バインド\n    document.addEventListener('DOMContentLoaded', function () {\n        setupAutoNumbering();\n        setDateAReadOnly();\n    });\n\n    // after_setでも再バインド（動的に要素が再生成される場合に対応）\n    if (window.AppTriggers) {\n        AppTriggers.registerAfterSet(function () {\n            setTimeout(function () {\n                setupAutoNumbering();\n                setDateAReadOnly();\n            }, 50);\n        });\n    }\n})();",
             "Id": 25
           },
           {
